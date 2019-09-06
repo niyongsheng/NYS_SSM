@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ssm_common" />
+        <module name="ssm_manager_web" />
+        <module name="ssm_persistence" />
+        <module name="ssm_application_api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ssm_application_api" target="1.8" />
+      <module name="ssm_common" target="1.8" />
+      <module name="ssm_manager_web" target="1.8" />
+      <module name="ssm_parent" target="1.8" />
+      <module name="ssm_persistence" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
