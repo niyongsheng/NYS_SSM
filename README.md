@@ -1,7 +1,7 @@
 ![(logo)](https://github.com/niyongsheng/NYS_SSM/blob/master/logo.png?raw=true)
 NYS_SSM
 ===
-[![](https://img.shields.io/badge/platform-java-orange.svg)](https://developer.apple.com/ios/)
+[![](https://img.shields.io/badge/platform-java-orange.svg)](https://spring.io)
 [![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/NYS_SSM)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
@@ -12,7 +12,7 @@ NYS_SSM
 * TX Manager
 * Unit Test
 * Redis
-* 
+* War
 
 ## <a id="How_to_use:"></a>How to use:
 * 
@@ -36,9 +36,8 @@ RMOV | CI | CI
 ```
 -->
 ## Remind
-- [x] ARC
-- [x] iOS >= 8.0
-- [x] iPhone \ iPad screen anyway
+- [x] TomCat >= 7.0
+- [x] JDK >= 1.8
 
 ## Contribution
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYSTK/stargazers)
