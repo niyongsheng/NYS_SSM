@@ -1,23 +1,36 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nigang
-  Date: 2019/9/4
-  Time: 3:17 下午
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-    <title>index</title>
+  <meta charset="UTF-8">
+  <title>AMIS Demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet"
+        href="css/sdk_AMis.css">
+  <style>
+    html, body, .app-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
-    <h3>测试</h3>
-    <a href="account/findAll">查询所有账户信息</a>
-    <hr>
-    <form action="account/save" method="post">
-        姓名:<input type="text" name="name"><br>
-        金额:<input type="text" name="money"><br>
-        <input type="submit" value="保存">
-    </form>
+<div id="root" class="app-wrapper"></div>
+<script src="js/sdk_AMis.js"></script>
+<script type="text/javascript">
+  (function() {
+    var amis = amisRequire('amis/embed');
+    amis.embed('#root', {
+      type: 'page',
+      title: 'AMIS Demo',
+      body: 'hello world'
+    });
+  })();
+</script>
 </body>
 </html>

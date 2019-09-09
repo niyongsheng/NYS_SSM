@@ -25,15 +25,8 @@
 
     <!-- 配置拦截器对象 -->
     <mvc:interceptors>
-        <!-- 拦截器1 -->
-<!--        <mvc:interceptor>-->
-            <!-- 拦截方法 -->
-<!--            <mvc:mapping path="/account/*"/>-->
-            <!-- 不拦截的方法 -->
-            <!--            <mvc:exclude-mapping path=""/>-->
-            <!-- 拦截器1对象 -->
-            <bean class="com.niyongsheng.manager.interceptor.MyInterceptor1"></bean>
-<!--        </mvc:interceptor>-->
+        <!-- 拦截器1(拦截所有url) -->
+        <bean class="com.niyongsheng.manager.interceptor.MyInterceptor1"></bean>
         <!-- 拦截器2 -->
         <mvc:interceptor>
             <!-- 拦截方法 -->
