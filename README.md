@@ -10,9 +10,10 @@ NYS_SSM
 
 ## <a id="What's_features:"></a>What's features:
 * TX Manager
-* Unit Test
 * Redis
-* War
+* Swagger
+* AdminLTE
+* Unit Test
 
 ## <a id="How_to_use:"></a>How to use:
 * 
@@ -38,6 +39,7 @@ RMOV | CI | CI
 ## Remind
 - [x] TomCat >= 7.0
 - [x] JDK >= 1.8
+- [x] IDE IntelliJ IDEA
 
 ## Contribution
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYSTK/stargazers)
