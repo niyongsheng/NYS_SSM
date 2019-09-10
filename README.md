@@ -37,9 +37,9 @@ RMOV | CI | CI
 ```
 -->
 ## Remind
-- [x] TomCat >= 7.0
-- [x] JDK >= 1.8
-- [x] IDE IntelliJ IDEA
+- [x] TomCat: >= 9.0
+- [x] JDK: >= 1.8
+- [x] IDE: IntelliJ IDEA
 
 ## Contribution
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYSTK/stargazers)
