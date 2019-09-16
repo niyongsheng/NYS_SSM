@@ -75,14 +75,15 @@
                 isolation="" // 事务隔离级别：默认数据库隔离级别
                 rollback-for="" // 指定回滚异常
                 no-rollback-for="" // 指定不回滚异常
-                propagation="" // 传播行为:有无事务 默认：REQUIRED
+                // propagation="NEVER" 传播行为:有无事务
+                // REQUIRED:支持当前事务，如果当前没有事务，就新建一个事务
+                // SUPPORTS:支持当前事务，如果当前没有事务，就以非事务方式执行
                 read-only="" // 事务是否只读，默认false
-                timeout="" // 超时 -1永不超时 单位：秒
-        -->
+                timeout="" // 超时 -1永不超时 单位：秒 -->
         <tx:attributes>
-            <!-- 查询不开启事务管理 -->
+            <!-- 默认所有方法开启事务管理 -->
             <tx:method name="*" propagation="REQUIRED" read-only="false"/>
-            <!-- 增删改开启事务管理 -->
+            <!-- find开头的方法不开启事务管理(*查询方法尽量以find开头) -->
             <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
         </tx:attributes>
     </tx:advice>
