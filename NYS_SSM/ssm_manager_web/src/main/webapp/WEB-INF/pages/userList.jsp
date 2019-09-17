@@ -1,0 +1,209 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+<!-- 网页使用的语言 -->
+<html lang="zh-CN">
+<head>
+    <!-- 指定字符集 -->
+    <meta charset="utf-8">
+    <!-- 使用Edge最新的浏览器的渲染方式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- viewport视口：网页可以根据设置的宽度自动进行适配，在浏览器的内部虚拟一个容器，容器的宽度与设备的宽度相同。
+    width: 默认宽度与设备的宽度相同
+    initial-scale: 初始的缩放比，为1:1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>用户信息管理系统</title>
+
+    <!-- 1. 导入CSS的全局样式 -->
+    <link href="../plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 2. 导入bootstrap的js文件 -->
+    <script src="../plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <!-- 3. jQuery导入，建议使用1.9以上的版本 -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+
+    <style type="text/css">
+        td, th {
+            text-align: center;
+        }
+        .container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .el-table__body tr.table-hover>td {
+            background-color: #0000ff !important;
+        }
+
+        .el-table__body tr.current-row>td {
+            background-color: #e1e7f0 !important;
+        }
+
+        /*        html, body, .app-wrapper {
+                    position: relative;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }*/
+    </style>
+
+    <script>
+        function deleteUser(id) {
+            // 给出安全操作提示
+            if (confirm("您确定要删除吗？")) {
+                location.href = "${pageContext.request.contextPath}/deleteUserServlet?id=" + id;
+            }
+        }
+
+        window.onload = function () {
+            // 给删除选中按钮添加点击事件
+            document.getElementById("delSelected").onclick = function () {
+                // 给出安全操作提示
+                if (confirm("您确定要批量删除吗？")) {
+                    // 判断是否有选中条目
+                    var checkBoxes = document.getElementsByName("uid");
+                    for (var i = 0; i < checkBoxes.length; i++) {
+                        if (checkBoxes[i].checked) {
+                            // 批量删除表单提交
+                            document.getElementById("selectedForm").submit();
+                            break;
+                        }
+                    }
+                }
+            }
+
+            // 1.获取全选CheckBox
+            document.getElementById("allSelected").onclick = function () {
+                // 2.获取下列checkBox集合
+                var checkBoxes = document.getElementsByName("uid");
+                // 3.遍历更新状态
+                for (var i = 0; i < checkBoxes.length; i++) {
+                    checkBoxes[i].checked = this.checked;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="container " style="margin-top: 10px" >
+<%--    <h3 style="text-align: center">用户信息列表</h3>--%>
+
+    <div style="float: left; margin: 10px;">
+        <form class="form-inline" action="findAll" method="post">
+            <div class="form-group">
+                <label for="exampleInputName2">昵称</label>
+                <input type="text" name="name" value="${condition.nickname[0]}" class="form-control" style="width: 100px" id="exampleInputName2">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName3">账号</label>
+                <input type="text" name="address" value="${condition.account[0]}" class="form-control" id="exampleInputName3">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPhone2">手机号</label>
+                <input type="number" name="phone" value="${condition.phone[0]}" class="form-control" id="exampleInputPhone2">
+            </div>
+            <button type="submit" class="btn btn-default">查询</button>
+        </form>
+    </div>
+
+    <div style="float: right; margin: 10px;">
+        <a class="btn btn-info" href="${pageContext.request.contextPath}/add.jsp">添加新用户</a>
+        <a class="btn btn-danger" href="javascript:void()" id="delSelected">删除选中</a>
+    </div>
+
+    <form id="selectedForm" action="${pageContext.request.contextPath}/deleteSelectedServlet" method="post">
+        <table border="1" class="table table-bordered table-hover">
+            <tr class="active">
+                <th><input type="checkbox" id="allSelected"></th>
+                <th>编号</th>
+                <th>头像</th>
+                <th>昵称</th>
+                <th>账号</th>
+                <th>性别</th>
+                <th>简介</th>
+                <th>地址</th>
+                <th>邮箱</th>
+                <th>身份</th>
+                <th>等级</th>
+                <th>状态</th>
+                <th>修改时间</th>
+                <th>创建时间</th>
+                <th>编辑</th>
+            </tr>
+
+            <c:forEach items="${list}" var="user" varStatus="s">
+                <tr>
+                    <td><input type="checkbox" name="uid" value="${user.id}"></td>
+                    <td>${s.count}</td>
+                    <td><img src="${user.icon}" class="img-circle" width="25px" height="25px"></td>
+                    <td>${user.nickname}</td>
+                    <td>${user.account}</td>
+                    <td>${user.gender}</td>
+                    <td>${user.introduction}</td>
+                    <td>${user.address}</td>
+                    <td>${user.email}</td>
+                    <td>${user.profession}</td>
+                    <td>${user.grade}</td>
+                    <td>${user.status}</td>
+                    <td>${user.gmtModify}</td>
+                    <td>${user.gmtCreate}</td>
+                    <td><a class="btn btn-default btn-sm"
+                           href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">修改</a>&nbsp;
+                        <a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id});">删除</a></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </form>
+
+    <div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <c:if test="${pageBean.currentPage == 1}">
+                <li class="disabled">
+                    </c:if>
+                    <c:if test="${pageBean.currentPage != 1}">
+                <li>
+                    </c:if>
+                    <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage - 1}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}"
+                       aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <c:forEach begin="1" end="${pageBean.totalPage}" var="i">
+
+                    <c:if test="${pageBean.currentPage == i}">
+                        <li class="active">
+                            <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}">${i}</a>
+                        </li>
+                    </c:if>
+
+                    <c:if test="${pageBean.currentPage != i}">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}">${i}</a>
+                        </li>
+                    </c:if>
+
+                </c:forEach>
+                    <c:if test="${pageBean.currentPage == pageBean.totalPage}">
+                    <li class="disabled">
+                        </c:if>
+                        <c:if test="${pageBean.currentPage != pageBean.totalPage}">
+                    <li>
+                        </c:if>
+                    <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage + 1}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <span style="font-size: 20px;margin-left: 5px">
+                    共${pageBean.totalCount}条记录，共${pageBean.totalPage}页
+                </span>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+</body>
+</html>

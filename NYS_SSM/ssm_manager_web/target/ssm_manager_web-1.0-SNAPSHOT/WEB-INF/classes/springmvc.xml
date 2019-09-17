@@ -21,6 +21,7 @@
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
+<!--        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>-->
     </bean>
 
     <!-- 配置拦截器对象 -->
@@ -30,7 +31,7 @@
         <!-- 拦截器2 -->
         <mvc:interceptor>
             <!-- 拦截方法 -->
-            <mvc:mapping path="/user/*"/>
+            <mvc:mapping path="/account/*"/>
             <!-- 不拦截的方法 -->
             <!--            <mvc:exclude-mapping path="/account/*"/>-->
             <!-- 拦截器2对象 -->
@@ -42,12 +43,14 @@
     <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.SysExceptionResolver"></bean>
 
 
-    <!-- 过滤静态资源 -->
-    <mvc:resources location="/css/" mapping="/css/**"/>
-    <mvc:resources location="/img/" mapping="/img/**"/>
-    <mvc:resources location="/js/" mapping="/js/**"/>
-    <mvc:resources location="/fonts/" mapping="/fonts/**"/>
-    <mvc:resources location="/plugins/" mapping="/plugins/**"/>
+    <!-- 对指定目录下的静态资源放行 -->
+<!--    <mvc:resources location="/css/" mapping="/css/**"/>-->
+<!--    <mvc:resources location="/img/" mapping="/img/**"/>-->
+<!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
+<!--    <mvc:resources location="/fonts/" mapping="/fonts/**"/>-->
+<!--    <mvc:resources location="/plugins/" mapping="/plugins/**"/>-->
+    <!-- 全部资源放行 -->
+    <mvc:default-servlet-handler/>
 
     <!-- 配置自定义日期类型转换器 -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">

@@ -11,7 +11,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -140,14 +140,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="amis.jsp" target="iframe" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href="user/findAll" target="iframe" class="nav-link">
+                                    <i class="fa fa-chart-bar nav-icon"></i>
                                     <p>数据纵览</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="login.jsp" target="iframe" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-trophy nav-icon"></i>
                                     <p>活动页面</p>
                                 </a>
                             </li>
@@ -163,14 +163,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-table nav-icon"></i>
+                                <a href="user/findAll" target="iframe" class="nav-link">
+                                    <i class="fa fa-list-ol nav-icon"></i>
                                     <p>用户列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-table nav-icon"></i>
+                                <a href="user/amisAlert" target="iframe" class="nav-link">
+                                    <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
                                 </a>
                             </li>
@@ -214,7 +214,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <div class="content">
-            <iframe id="mainiframe" scrolling="auto" rameborder="0" frameborder="0" src="amis.jsp" name="iframe"
+            <iframe id="mainiframe" scrolling="auto" rameborder="0" frameborder="0" src="user/findAll" name="iframe"
                     width="100%" height="100%" onload="changeFrameHeight()"></iframe>
         </div>
         <!-- /.content -->

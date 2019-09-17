@@ -1,14 +1,15 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>AMIS Demo</title>
+  <title>AMis Demo</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <link rel="stylesheet"
-        href="css/sdk_AMis.css">
+        href="plugins/AMis/sdk_AMis.css">
   <style>
     html, body, .app-wrapper {
       position: relative;
@@ -21,7 +22,7 @@
 </head>
 <body>
 <div id="root" class="app-wrapper"></div>
-<script src="js/sdk_AMis.js"></script>
+<script src="plugins/AMis/sdk_AMis.js"></script>
 <script type="text/javascript">
   (function() {
     var amis = amisRequire('amis/embed');
