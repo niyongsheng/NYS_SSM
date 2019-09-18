@@ -1,7 +1,9 @@
 package com.niyongsheng.manager;
 
 import com.niyongsheng.persistence.domain.Account;
+import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.AccountService;
+import com.niyongsheng.persistence.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,8 @@ public class TestMyBatis {
 
     @Autowired
     private AccountService accountService;
-
+    @Autowired
+    private UserService userService;
     /**
      * 测试查询
      * @throws Exception
@@ -48,7 +51,16 @@ public class TestMyBatis {
      * 测试TX转账
      */
     @Test
-    public  void testTransfer() {
+    public void testTransfer() {
         accountService.transfer("aaa","bbb",100f);
+    }
+
+    /**
+     * 测试模糊搜索
+     */
+    @Test
+    public void testFuzzFuzzySearch() {
+        List<User> userList = userService.findByFuzzySearch(null, null, "18853936112");
+        System.out.println(userList);
     }
 }

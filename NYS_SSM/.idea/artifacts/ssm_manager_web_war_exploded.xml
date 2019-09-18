@@ -20,6 +20,12 @@
           <element id="archive" name="ssm_persistence-1.0-SNAPSHOT.jar">
             <element id="module-output" name="ssm_persistence" />
           </element>
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus:3.2.0" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-extension:3.2.0" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-core:3.2.0" />
+          <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-annotation:3.2.0" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.10" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:2.0" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />

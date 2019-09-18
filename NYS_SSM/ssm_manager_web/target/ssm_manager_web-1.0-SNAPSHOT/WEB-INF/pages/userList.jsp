@@ -15,7 +15,7 @@
     initial-scale: 初始的缩放比，为1:1 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>用户信息管理系统</title>
+    <title>用户信息管理</title>
 
     <!-- 1. 导入CSS的全局样式 -->
     <link href="../plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,27 +33,13 @@
             padding: 0;
             width: 100%;
         }
-        .el-table__body tr.table-hover>td {
-            background-color: #0000ff !important;
-        }
-
-        .el-table__body tr.current-row>td {
-            background-color: #e1e7f0 !important;
-        }
-
-        /*        html, body, .app-wrapper {
-                    position: relative;
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
-                }*/
     </style>
 
     <script>
         function deleteUser(id) {
             // 给出安全操作提示
             if (confirm("您确定要删除吗？")) {
-                location.href = "${pageContext.request.contextPath}/deleteUserServlet?id=" + id;
+                location.href = "${pageContext.request.contextPath}/user/deleteUserById?id=" + id;
             }
         }
 
@@ -92,18 +78,18 @@
 <%--    <h3 style="text-align: center">用户信息列表</h3>--%>
 
     <div style="float: left; margin: 10px;">
-        <form class="form-inline" action="findAll" method="post">
+        <form class="form-inline" action="${pageContext.request.contextPath}/user/findByFuzzySearch" method="post">
             <div class="form-group">
                 <label for="exampleInputName2">昵称</label>
-                <input type="text" name="name" value="${condition.nickname[0]}" class="form-control" style="width: 100px" id="exampleInputName2">
+                <input type="text" name="nickname" value="${condition.nickname[0]}" class="form-control" style="width: 100px" id="exampleInputName2">
             </div>
             <div class="form-group">
                 <label for="exampleInputName3">账号</label>
-                <input type="text" name="address" value="${condition.account[0]}" class="form-control" id="exampleInputName3">
+                <input type="text" name="account" value="${condition.account[0]}" class="form-control" id="exampleInputName3">
             </div>
             <div class="form-group">
                 <label for="exampleInputPhone2">手机号</label>
-                <input type="number" name="phone" value="${condition.phone[0]}" class="form-control" id="exampleInputPhone2">
+                <input type="text" name="phone" value="${condition.phone[0]}" class="form-control" id="exampleInputPhone2">
             </div>
             <button type="submit" class="btn btn-default">查询</button>
         </form>
@@ -124,29 +110,31 @@
                 <th>账号</th>
                 <th>性别</th>
                 <th>简介</th>
-                <th>地址</th>
-                <th>邮箱</th>
+                <th>团契</th>
+                <th>手机号</th>
                 <th>身份</th>
                 <th>等级</th>
+                <th>积分</th>
                 <th>状态</th>
                 <th>修改时间</th>
                 <th>创建时间</th>
                 <th>编辑</th>
             </tr>
 
-            <c:forEach items="${list}" var="user" varStatus="s">
+            <c:forEach items="${pagingList.list}" var="user" varStatus="s">
                 <tr>
                     <td><input type="checkbox" name="uid" value="${user.id}"></td>
                     <td>${s.count}</td>
-                    <td><img src="${user.icon}" class="img-circle" width="25px" height="25px"></td>
+                    <td><img src="${user.icon}" class="img-circle" width="30px" height="30px"></td>
                     <td>${user.nickname}</td>
                     <td>${user.account}</td>
                     <td>${user.gender}</td>
                     <td>${user.introduction}</td>
-                    <td>${user.address}</td>
-                    <td>${user.email}</td>
+                    <td>${user.fellowship}</td>
+                    <td>${user.phone}</td>
                     <td>${user.profession}</td>
                     <td>${user.grade}</td>
+                    <td>${user.score}</td>
                     <td>${user.status}</td>
                     <td>${user.gmtModify}</td>
                     <td>${user.gmtCreate}</td>
@@ -161,44 +149,43 @@
     <div>
         <nav aria-label="Page navigation">
             <ul class="pagination">
-                <c:if test="${pageBean.currentPage == 1}">
-                <li class="disabled">
-                    </c:if>
-                    <c:if test="${pageBean.currentPage != 1}">
+                <c:if test="${pagingList.isFirstPage}"> <li class="disabled"> </c:if>
+                    <c:if test="${!pagingList.isFirstPage}">
                 <li>
                     </c:if>
-                    <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage - 1}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}"
-                       aria-label="Previous">
+                    <a href="${pageContext.request.contextPath}/user/findByFuzzySearch?pageNum=${pagingList.pageNum - 1}&pageSize=10&nickname=${condition.nickname[0]}&account=${condition.account[0]}&phone=${condition.phone[0]}"
+                        aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <c:forEach begin="1" end="${pageBean.totalPage}" var="i">
+                        </a>
+                        </li>
+                        <c:forEach begin="1" end="${pagingList.pages}" var="i">
 
-                    <c:if test="${pageBean.currentPage == i}">
-                        <li class="active">
-                            <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}">${i}</a>
+                            <c:if test="${pagingList.pageNum == i}">
+                                <li class="active">
+                                    <a href="${pageContext.request.contextPath}/user/findByFuzzySearch?pageNum=${i}&pageSize=10&nickname=${condition.nickname[0]}&account=${condition.account[0]}&phone=${condition.phone[0]}">${i}</a>
                         </li>
                     </c:if>
 
-                    <c:if test="${pageBean.currentPage != i}">
+                    <c:if test="${pagingList.pageNum != i}">
                         <li>
-                            <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${i}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}">${i}</a>
+                            <a href="${pageContext.request.contextPath}/user/findByFuzzySearch?pageNum=${i}&pageSize=10&nickname=${condition.nickname[0]}&account=${condition.account[0]}&phone=${condition.phone[0]}">${i}</a>
                         </li>
                     </c:if>
 
                 </c:forEach>
-                    <c:if test="${pageBean.currentPage == pageBean.totalPage}">
-                    <li class="disabled">
-                        </c:if>
-                        <c:if test="${pageBean.currentPage != pageBean.totalPage}">
-                    <li>
-                        </c:if>
-                    <a href="${pageContext.request.contextPath}/findUserByPageServlet?currentPage=${pageBean.currentPage + 1}&rows=10&name=${condition.name[0]}&address=${condition.address[0]}&email=${condition.email[0]}" aria-label="Next">
+                <c:if test="${pagingList.pageNum == pagingList.pageSize}">
+                <li class="disabled">
+                    </c:if>
+                    <c:if test="${pagingList.pageNum != pagingList.pageSize}">
+                <li>
+                    </c:if>
+                    <a href="${pageContext.request.contextPath}/user/findByFuzzySearch?pageNum=${pagingList.pageNum + 1}&pageSize=10&nickname=${condition.nickname[0]}&account=${condition.account[0]}&phone=${condition.phone[0]}"
+                       aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
                 <span style="font-size: 20px;margin-left: 5px">
-                    共${pageBean.totalCount}条记录，共${pageBean.totalPage}页
+                    共${pagingList.total}条记录，共${pagingList.pages}页
                 </span>
             </ul>
         </nav>

@@ -1,10 +1,10 @@
 package com.niyongsheng.persistence.dao;
 
 import com.niyongsheng.persistence.domain.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author niyongsheng.com
@@ -15,6 +15,19 @@ import java.util.Map;
  */
 @Repository
 public interface UserDao {
+
+    /** 增 */
+    void add(User user);
+
+    /** 删 */
+    void delete(Integer id);
+
+    /** 查 */
+    User find(Integer id);
+
+    /** 改 */
+    void update(User user);
+
     /**
      * 查询所有记录
      * @return
@@ -28,31 +41,12 @@ public interface UserDao {
      */
     public User login(User loginUser);
 
-    /** 增 */
-    void add(User user);
-
-    /** 删 */
-    void delete(int id);
-
-    /** 查 */
-    User find(int id);
-
-    /** 改 */
-    void update(User user);
-
     /**
-     * 查询总记录数
-     * @return
-     * @param condition 查询条件
-     */
-    int findTotalCount(Map<String, String[]> condition);
-
-    /**
-     * 分页查询
-     * @param start 开始页码
-     * @param rows 分页大小
-     * @param condition 查询条件
+     * 模糊搜索
+     * @param nickname
+     * @param account
+     * @param phone
      * @return
      */
-    List<User> findByPage(int start, int rows, Map<String, String[]> condition);
+    public List<User> findByFuzzySearch(@Param("nickname") String nickname, @Param("account") String account, @Param("phone") String phone);
 }

@@ -1,10 +1,9 @@
 package com.niyongsheng.persistence.service;
 
-import com.niyongsheng.persistence.domain.PageBean;
 import com.niyongsheng.persistence.domain.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author niyongsheng.com
@@ -16,12 +15,6 @@ import java.util.Map;
 public interface UserService {
 
     /**
-     * 用户列表
-     * @return
-     * */
-    public List<User> findAll();
-
-    /**
      * 登录方法
      * @param loginUser
      * @return
@@ -29,10 +22,16 @@ public interface UserService {
     public User login(User loginUser);
 
     /**
+     * 用户列表
+     * @return
+     * */
+    public List<User> findAll();
+
+    /**
      * 添加用户
      * @param user
      */
-    public void addUser(User user);
+    void addUser(User user);
 
     /**
      * 删除用户
@@ -60,11 +59,8 @@ public interface UserService {
     void deleteSelectedUser(String[] ids);
 
     /**
-     * 分页条件查询用户
-     * @param _currentPage
-     * @param _rows
-     * @param condition
+     * 模糊搜索查找用户
      * @return
      */
-    PageBean<User> findUserByPage(String _currentPage, String _rows, Map<String, String[]> condition);
+    List<User> findByFuzzySearch(@Param("nickname") String nickname, @Param("account") String account, @Param("phone") String phone);
 }

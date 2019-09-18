@@ -15,6 +15,18 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.niyongsheng</groupId>
+            <artifactId>ssm_common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- mybatis 插件 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.2.0</version>
+        </dependency>
         <!-- Test方法相关坐标 -->
         <!--<dependency>
             <groupId>org.springframework</groupId>

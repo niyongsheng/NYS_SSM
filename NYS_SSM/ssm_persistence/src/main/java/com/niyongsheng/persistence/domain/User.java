@@ -1,37 +1,59 @@
 package com.niyongsheng.persistence.domain;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * @author niyongsheng.com
- * @version $
- * @des
- * @updateAuthor $
- * @updateDes
- */
-public class User implements Serializable {
+public class User implements Serializable{
 
+    /** ID */
     private Integer id;
+    /** 账号 */
     private String account;
-    private String username;
+    /** 真实姓名 */
+    private String truename;
+    /** 头像 */
     private String icon;
+    /** 等级 */
     private Integer grade;
+    /** 积分 */
+    private Double score;
+    /** 性别 */
     private String gender;
+    /** 手机号 */
+    private String phone;
+    /** 密码 */
     private String password;
+    /** 登录令牌 */
     private String token;
+    /** IM令牌 */
     private String imToken;
+    /** 昵称 */
     private String nickname;
+    /** 简介 */
     private String introduction;
+    /** 邮箱 */
     private String email;
+    /** 地址 */
     private String address;
+    /** 团契 */
+    private Integer fellowship;
+    /** 身份类型 */
     private Integer profession;
+    /** QQ */
     private String qqOpenid;
+    /** 微信 */
     private String wcOpenid;
-    private Bool status;
+    /** 1有效 0失效 */
+    private String status;
+    /** 修改时间 */
+/*    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss") // 后->前
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") // 前端->后台的时间格式的转换
+    @JsonSerialize(using = CustomDateSerializer.class)*/
     private Date gmtModify;
+    /** 创建时间 */
+/*    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss") // 后->前
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") // 前端->后台的时间格式的转换
+    @JsonSerialize(using = CustomDateSerializer.class)*/
     private Date gmtCreate;
 
     @Override
@@ -39,10 +61,12 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", account='" + account + '\'' +
-                ", username='" + username + '\'' +
+                ", truename='" + truename + '\'' +
                 ", icon='" + icon + '\'' +
                 ", grade=" + grade +
+                ", score=" + score +
                 ", gender='" + gender + '\'' +
+                ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
                 ", token='" + token + '\'' +
                 ", imToken='" + imToken + '\'' +
@@ -50,10 +74,11 @@ public class User implements Serializable {
                 ", introduction='" + introduction + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
+                ", fellowship=" + fellowship +
                 ", profession=" + profession +
                 ", qqOpenid='" + qqOpenid + '\'' +
                 ", wcOpenid='" + wcOpenid + '\'' +
-                ", status=" + status +
+                ", status='" + status + '\'' +
                 ", gmtModify=" + gmtModify +
                 ", gmtCreate=" + gmtCreate +
                 '}';
@@ -75,12 +100,12 @@ public class User implements Serializable {
         this.account = account;
     }
 
-    public String getUsername() {
-        return username;
+    public String getTruename() {
+        return truename;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setTruename(String truename) {
+        this.truename = truename;
     }
 
     public String getIcon() {
@@ -99,12 +124,28 @@ public class User implements Serializable {
         this.grade = grade;
     }
 
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
+    }
+
     public String getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
@@ -163,6 +204,14 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public Integer getFellowship() {
+        return fellowship;
+    }
+
+    public void setFellowship(Integer fellowship) {
+        this.fellowship = fellowship;
+    }
+
     public Integer getProfession() {
         return profession;
     }
@@ -187,11 +236,11 @@ public class User implements Serializable {
         this.wcOpenid = wcOpenid;
     }
 
-    public Bool getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Bool status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
