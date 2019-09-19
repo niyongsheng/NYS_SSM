@@ -28,19 +28,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         function changeFrameHeight() {
             var ifm = document.getElementById("mainiframe");
+            var navBar = document.getElementById("navBar");
+            var footer = document.getElementById("footer");
             ifm.height = document.documentElement.clientHeight - 90;
         }
-
-        window.onresize = function () {
+        window.onload = function () {
             changeFrameHeight();
-        }
+        };
+        // window.onresize = function () {
+        // }
     </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav id="navBar" class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -89,16 +92,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="btn btn-default btn-flat">设置</a>
                         </div>
                         <div class="fa-pull-right">
-                            <a href="${pageContext.request.contextPath}/user/logout" class="btn btn-default btn-flat">退出</a>
+                            <a href="${pageContext.request.contextPath}/user/logout"
+                               class="btn btn-default btn-flat">退出</a>
                         </div>
                     </li>
                 </ul>
             </li>
             <%-- 右边栏 --%>
-<%--            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-                        class="fas fa-th-large"></i></a>
-            </li>--%>
+            <%--            <li class="nav-item">
+                            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+                                    class="fas fa-th-large"></i></a>
+                        </li>--%>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -114,15 +118,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-<%--            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">舲星孤客</a>
-                </div>
-            </div>--%>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
@@ -140,7 +135,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-chart-bar nav-icon"></i>
                                     <p>数据纵览</p>
                                 </a>
@@ -163,13 +159,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-list-ol nav-icon"></i>
                                     <p>用户列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/amisAlert" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/amisAlert" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
                                 </a>
@@ -194,141 +192,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <%--<div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Starter Page</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Starter Page</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>--%>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Messages</span>
-                        <span class="info-box-number">1,410</span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Bookmarks</span>
-                        <span class="info-box-number">410</span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Uploads</span>
-                        <span class="info-box-number">13,648</span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Likes</span>
-                        <span class="info-box-number">93,139</span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-aqua">
-                    <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Bookmarks</span>
-                        <span class="info-box-number">41,410</span>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-                        <span class="progress-description">
-            70% Increase in 30 Days
-          </span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-green">
-                    <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Likes</span>
-                        <span class="info-box-number">41,410</span>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-                        <span class="progress-description">
-            70% Increase in 30 Days
-          </span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-yellow">
-                    <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Events</span>
-                        <span class="info-box-number">41,410</span>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-                        <span class="progress-description">
-            70% Increase in 30 Days
-          </span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box bg-red">
-                    <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">Comments</span>
-                        <span class="info-box-number">41,410</span>
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-                        <span class="progress-description">
-            70% Increase in 30 Days
-          </span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
-            </div><!-- /.col -->
-        </div>
-        <!-- /.content -->
+        <%-- iframe框架 --%>
+        <iframe name="iframe" id="mainiframe" src="${pageContext.request.contextPath}/home/infoBox" frameborder="0"
+                align="middle" width="100%" height="100%" scrolling="no"></iframe>
     </div>
     <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar 边栏 -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-        <div class="p-3">
-            <h5>Title</h5>
-            <p>Sidebar content</p>
-        </div>
-    </aside>
-    <!-- /.control-sidebar -->
-
     <!-- Main Footer -->
-    <footer class="main-footer">
+    <footer id="footer" class="main-footer">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
             塑造生命 成就使命

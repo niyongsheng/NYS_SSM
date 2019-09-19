@@ -35,7 +35,7 @@
             vcode.src = "${pageContext.request.contextPath}/checkCodeServlet?time="+new Date().getTime();
         }
 
-        $(function(){
+/*        $(function(){
             login.initPage();
         });
         var login = {
@@ -46,12 +46,11 @@
                     top.location.href = location.href;
                 }
             }
-        }
-        /*
-        或者直接添加一个if判断
+        }*/
+
         if (window != top) {
             top.location.href = location.href;
-        } */
+        }
     </script>
 </head>
 <body class="hold-transition login-page">
@@ -126,10 +125,10 @@
 
 <!-- 出错显示的信息框 -->
 <c:if test="${login_msg != null}">
-    <div class="alert alert-danger alert-dismissible" role="alert">
+    <div class="alert alert-primary alert-dismissible" role="alert" style="height: 100px;width: 300px;">
         <button type="button" class="close" data-dismiss="alert">
             <span>&times;</span></button>
-        <strong>${login_msg}</strong>
+        <strong style="font-size: 15px">${login_msg}</strong>
     </div>
 </c:if>
 
