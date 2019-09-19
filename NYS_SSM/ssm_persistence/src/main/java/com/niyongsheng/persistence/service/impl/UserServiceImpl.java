@@ -22,13 +22,13 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public List<User> findAll() {
-        return userDao.findAll();
+    public User login(String account, String password) {
+        return userDao.login(account, password);
     }
 
     @Override
-    public User login(User loginUser) {
-        return userDao.login(loginUser);
+    public List<User> findAll() {
+        return userDao.findAll();
     }
 
     @Override
@@ -38,12 +38,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(String id) {
-        userDao.delete(Integer.parseInt(id));
+        userDao.delete(Integer.valueOf(id));
     }
 
     @Override
     public User findUserById(String id) {
-        return userDao.find(Integer.parseInt(id));
+        return userDao.find(Integer.valueOf(id));
     }
 
     @Override
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
     public void deleteSelectedUser(String[] ids) {
         // 遍历删除
         for (String id : ids) {
-            userDao.delete(new Integer(id));
+            userDao.delete(Integer.valueOf(id));
         }
     }
 

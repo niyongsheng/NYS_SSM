@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @updateAuthor $
  * @updateDes
  */
-public class MyInterceptor1 implements HandlerInterceptor {
+public class LoginVerifyInterceptor implements HandlerInterceptor {
     /**
      * 预处理，在controller方法执行前
      * @param request
@@ -25,10 +25,26 @@ public class MyInterceptor1 implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("preHandle执行了111");
-//        request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request, response);
-        return true;
-     }
+        System.out.println("preHandle执行了登录拦截器");
+        // 获取请求的RUi:去除http:localhost:8080这部分剩下的
+        String uri = request.getRequestURI();
+        // UTL:除了login.jsp是可以公开访问的，其他的URL都进行拦截控制
+        if (uri.contains("/login.jsp") || uri.contains("/img/") || uri.contains("/css/") || uri.contains("/js/") || uri.contains("/fonts/") || uri.contains("/plugins/")) {
+            // 放行
+            return true;
+        }
+        // 从session中获取user，验证用户是否登录
+        Object user = request.getSession().getAttribute("user");
+        if (user != null) {
+            // 放行
+            return true;
+        } else {
+            // 跳转登录
+            request.setAttribute("login_msg", "您尚未登录，请登录");
+            request.getRequestDispatcher("/user/logout").forward(request, response);
+            return false;
+        }
+    }
 
      /**
      * 后处理：controller方法执行之后，success.jsp之前

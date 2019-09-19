@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -18,11 +17,11 @@
     <title>用户信息管理</title>
 
     <!-- 1. 导入CSS的全局样式 -->
-    <link href="../plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- 2. 导入bootstrap的js文件 -->
-    <script src="../plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <!-- 3. jQuery导入，建议使用1.9以上的版本 -->
-    <script src="../plugins/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
 
     <style type="text/css">
         td, th {
@@ -39,7 +38,7 @@
         function deleteUser(id) {
             // 给出安全操作提示
             if (confirm("您确定要删除吗？")) {
-                location.href = "${pageContext.request.contextPath}/user/deleteUserById?id=" + id;
+                location.href = "${pageContext.request.contextPath}/user/deleteUserById?id="+id+"&pageNum=${pagingList.pageNum}&pageSize=${pagingList.pageSize}";
             }
         }
 
@@ -100,7 +99,7 @@
         <a class="btn btn-danger" href="javascript:void()" id="delSelected">删除选中</a>
     </div>
 
-    <form id="selectedForm" action="${pageContext.request.contextPath}/deleteSelectedServlet" method="post">
+    <form id="selectedForm" action="${pageContext.request.contextPath}/user/deleteSelected?&pageNum=${pagingList.pageNum}&pageSize=${pagingList.pageSize}" method="post">
         <table border="1" class="table table-bordered table-hover">
             <tr class="active">
                 <th><input type="checkbox" id="allSelected"></th>
@@ -139,7 +138,7 @@
                     <td>${user.gmtModify}</td>
                     <td>${user.gmtCreate}</td>
                     <td><a class="btn btn-default btn-sm"
-                           href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">修改</a>&nbsp;
+                           href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">修改</a>
                         <a class="btn btn-default btn-sm" href="javascript:deleteUser(${user.id});">删除</a></td>
                 </tr>
             </c:forEach>

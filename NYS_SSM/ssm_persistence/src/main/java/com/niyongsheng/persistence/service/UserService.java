@@ -16,10 +16,11 @@ public interface UserService {
 
     /**
      * 登录方法
-     * @param loginUser
+     * @param account 用户名
+     * @param password 密码
      * @return
      */
-    public User login(User loginUser);
+    public User login(String account, String password);
 
     /**
      * 用户列表
@@ -63,4 +64,5 @@ public interface UserService {
      * @return
      */
     List<User> findByFuzzySearch(@Param("nickname") String nickname, @Param("account") String account, @Param("phone") String phone);
+
 }

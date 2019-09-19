@@ -36,10 +36,11 @@ public interface UserDao {
 
     /**
      * 登录验证
-     * @param loginUser
+     * @param account 用户名
+     * @param password 密码
      * @return
      */
-    public User login(User loginUser);
+    public User login(@Param("account") String account, @Param("password") String password);
 
     /**
      * 模糊搜索
@@ -49,4 +50,5 @@ public interface UserDao {
      * @return
      */
     public List<User> findByFuzzySearch(@Param("nickname") String nickname, @Param("account") String account, @Param("phone") String phone);
+
 }

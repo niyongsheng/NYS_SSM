@@ -5,7 +5,7 @@
   Time: 10:43 上午
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -89,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="btn btn-default btn-flat">设置</a>
                         </div>
                         <div class="fa-pull-right">
-                            <a href="#" class="btn btn-default btn-flat">退出</a>
+                            <a href="${pageContext.request.contextPath}/user/logout" class="btn btn-default btn-flat">退出</a>
                         </div>
                     </li>
                 </ul>
@@ -140,13 +140,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="user/findAll" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe" class="nav-link">
                                     <i class="fa fa-chart-bar nav-icon"></i>
                                     <p>数据纵览</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="login.jsp" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
                                     <i class="fa fa-trophy nav-icon"></i>
                                     <p>活动页面</p>
                                 </a>
@@ -163,13 +163,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="user/findAll" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe" class="nav-link">
                                     <i class="fa fa-list-ol nav-icon"></i>
                                     <p>用户列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="user/amisAlert" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/amisAlert" target="iframe" class="nav-link">
                                     <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
                                 </a>
@@ -177,7 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="test.jsp" target="iframe" class="nav-link active">
+                        <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link active">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 关于我们
@@ -213,9 +213,105 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="content">
-            <iframe id="mainiframe" scrolling="auto" rameborder="0" frameborder="0" src="user/findAll" name="iframe"
-                    width="100%" height="100%" onload="changeFrameHeight()"></iframe>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Messages</span>
+                        <span class="info-box-number">1,410</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Bookmarks</span>
+                        <span class="info-box-number">410</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Uploads</span>
+                        <span class="info-box-number">13,648</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Likes</span>
+                        <span class="info-box-number">93,139</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-aqua">
+                    <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Bookmarks</span>
+                        <span class="info-box-number">41,410</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                        <span class="progress-description">
+            70% Increase in 30 Days
+          </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-green">
+                    <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Likes</span>
+                        <span class="info-box-number">41,410</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                        <span class="progress-description">
+            70% Increase in 30 Days
+          </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-yellow">
+                    <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Events</span>
+                        <span class="info-box-number">41,410</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                        <span class="progress-description">
+            70% Increase in 30 Days
+          </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-red">
+                    <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Comments</span>
+                        <span class="info-box-number">41,410</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                        <span class="progress-description">
+            70% Increase in 30 Days
+          </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
         </div>
         <!-- /.content -->
     </div>

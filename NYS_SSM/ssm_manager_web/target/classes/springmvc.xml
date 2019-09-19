@@ -24,17 +24,26 @@
 <!--        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>-->
     </bean>
 
-    <!-- 配置拦截器对象 -->
+    <!-- 配置登录验证拦截器对象 -->
     <mvc:interceptors>
-        <!-- 拦截器1(拦截所有url) -->
-        <bean class="com.niyongsheng.manager.interceptor.MyInterceptor1"></bean>
+        <!-- 拦截器1 -->
+        <mvc:interceptor>
+            <!-- 拦截方法 -->
+            <mvc:mapping path="/**"/>
+            <!-- 不拦截的方法 -->
+            <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/user/logout"/>
+            <mvc:exclude-mapping path="/verification/**"/>
+            <!-- 拦截器对象1 -->
+            <bean class="com.niyongsheng.manager.interceptor.LoginVerifyInterceptor"></bean>
+        </mvc:interceptor>
         <!-- 拦截器2 -->
         <mvc:interceptor>
             <!-- 拦截方法 -->
-            <mvc:mapping path="/account/*"/>
+            <mvc:mapping path="/account/**"/>
             <!-- 不拦截的方法 -->
             <!--            <mvc:exclude-mapping path="/account/*"/>-->
-            <!-- 拦截器2对象 -->
+            <!-- 拦截器对象2 -->
             <bean class="com.niyongsheng.manager.interceptor.MyInterceptor2"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
