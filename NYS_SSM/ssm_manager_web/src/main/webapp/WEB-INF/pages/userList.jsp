@@ -27,10 +27,11 @@
         td, th {
             text-align: center;
         }
-        .container {
+        .contentWrapper {
             margin: 0;
-            padding: 0;
+            padding: 15px;
             width: 100%;
+            height: 100%;
         }
     </style>
 
@@ -69,11 +70,16 @@
                 }
             }
         }
+
+        $("#ips2").bind("input propertychange",function(event){
+            console.log($("#ips2").val())
+        });
     </script>
 </head>
 
 <body>
-<div class="container " style="margin-top: 10px" >
+<!-- Content Wrapper. Contains page content -->
+<div class="contentWrapper">
 <%--    <h3 style="text-align: center">用户信息列表</h3>--%>
 
     <div style="float: left; margin: 10px;">
@@ -90,6 +96,8 @@
                 <label for="exampleInputPhone2">手机号</label>
                 <input type="text" name="phone" value="${condition.phone[0]}" class="form-control" id="exampleInputPhone2">
             </div>
+            <%-- 记录分页大小 --%>
+            <input type="number" name="pageSize" class="hidden" id="ips1">
             <button type="submit" class="btn btn-default">查询</button>
         </form>
     </div>
@@ -145,7 +153,7 @@
         </table>
     </form>
 
-    <div>
+    <div style="float: bottom">
         <nav aria-label="Page navigation">
             <ul class="pagination">
                 <c:if test="${pagingList.isFirstPage}"> <li class="disabled"> </c:if>
@@ -183,13 +191,19 @@
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                <div class="input-group input-group-sm" style="float: left;margin-left: 7px">
+                    <a class="input-group-addon" id="sizing-addon3" style="width: 40px;font-size: 12px;">分页</a>
+                    <input type="number" class="form-control" id="ips2" oninput="" value="${pagingList.pageSize}" style="width: 50px"
+                           aria-describedby="sizing-addon3">
+                </div>
                 <span style="font-size: 20px;margin-left: 5px">
-                    共${pagingList.total}条记录，共${pagingList.pages}页
+                    总计${pagingList.total}条记录\共${pagingList.pages}页
                 </span>
             </ul>
         </nav>
     </div>
 
 </div>
+
 </body>
 </html>

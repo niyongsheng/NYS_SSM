@@ -57,6 +57,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
         </ul>
 
+        <!-- Single button -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item"><a class="dropdown-item-text" href="#">Dropdown link</a></li>
+                <li class="dropdown-item"><a class="dropdown-item-text" href="#">Dropdown link</a></li>
+            </ul>
+        </div>
+
         <!-- SEARCH FORM -->
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
@@ -74,16 +86,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu align-self-center">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="img/user2-160x160.jpg" class="user-image" alt="User Image">
-                    <span class="hidden-xs align-content-center">舲星孤客</span>
+                    <img src="${sessionScope.user.icon}" class="user-image" alt="User Image">
+                    <span class="hidden-xs align-content-center">${sessionScope.user.nickname}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
                     <li class="user-header">
-                        <img src="img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="${sessionScope.user.icon}" class="img-circle" alt="User Image">
                         <p>
-                            舲星孤客
-                            <small>Member since Nov. 2012</small>
+                            ${sessionScope.user.nickname}
+                            <small>${sessionScope.user.introduction}</small>
                         </p>
                     </li>
                     <!-- Menu Footer-->
@@ -174,8 +186,57 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-briefcase"></i>
+                            <p>
+                                业务管理
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/home/markdown" target="iframe"
+                                   class="nav-link">
+                                    <i class="fa fa-pen-nib nav-icon"></i>
+                                    <p>Markdown</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/user/amisAlert" target="iframe"
+                                   class="nav-link">
+                                    <i class="fa fa-list-alt nav-icon"></i>
+                                    <p>文档列表</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-plane"></i>
+                            <p>
+                                开发管理
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
+                                   class="nav-link">
+                                    <i class="fa fa-code nav-icon"></i>
+                                    <p>接口文档</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/niyongsheng/NYS_SSM" class="nav-link">
+                                    <i class="fa fa-star nav-icon"></i>
+                                    <p>开源地址</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item">
-                        <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link active">
+                        <a href="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md" target="iframe" class="nav-link active">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 关于我们

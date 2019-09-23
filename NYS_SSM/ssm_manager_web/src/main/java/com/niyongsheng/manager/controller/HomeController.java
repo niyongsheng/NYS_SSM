@@ -20,4 +20,10 @@ public class HomeController {
 
         return "home";
     }
+
+    @RequestMapping("/markdown")
+    public String markdown(Model model) {
+
+        return "MDEditor";
+    }
 }
