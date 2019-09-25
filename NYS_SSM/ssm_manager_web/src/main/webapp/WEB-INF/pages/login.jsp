@@ -29,10 +29,10 @@
     <script type="text/javascript">
         function refreshCode() {
             // 1.获取验证码图片对象
-            var vcode = document.getElementById("verifycode");
+            var vcode = document.getElementById("vcode");
 
             // 2.设置src属性，加时间戳
-            vcode.src = "${pageContext.request.contextPath}/checkCodeServlet?time="+new Date().getTime();
+            vcode.src = "${pageContext.request.contextPath}/verification/checkCode?time="+new Date().getTime();
         }
 
 /*        $(function(){

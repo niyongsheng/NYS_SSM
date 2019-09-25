@@ -1,7 +1,7 @@
 package com.niyongsheng.persistence.service.impl;
 
 import com.niyongsheng.common.utils.JacksonUtils;
-import com.niyongsheng.persistence.dao.RedisDao;
+import com.niyongsheng.persistence.redisdao.RedisDao;
 import com.niyongsheng.persistence.dao.UserDao;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserRedisService;

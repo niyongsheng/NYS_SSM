@@ -1,6 +1,6 @@
-package com.niyongsheng.persistence.dao.impl;
+package com.niyongsheng.persistence.redisdao.impl;
 
-import com.niyongsheng.persistence.dao.RedisDao;
+import com.niyongsheng.persistence.redisdao.RedisDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.JedisPool;
@@ -12,7 +12,7 @@ import redis.clients.jedis.JedisPool;
  * @updateAuthor $
  * @updateDes
  */
-@Repository("jedisPool")
+@Repository("redisDao")
 public class RedisDaoImpl implements RedisDao {
 
     @Autowired

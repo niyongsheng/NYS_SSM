@@ -203,7 +203,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/test" target="iframe"
+                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
                                    class="nav-link">
                                     <i class="fa fa-list-alt nav-icon"></i>
                                     <p>文档列表</p>

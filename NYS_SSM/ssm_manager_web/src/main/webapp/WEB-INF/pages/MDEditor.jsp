@@ -31,7 +31,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 height: "900px",
                 // markdown: "xxxx",     // dynamic set Markdown text
                 emoji: true,
-                path : "${pageContext.request.contextPath}/plugins/Editor/lib/"  // Autoload modules mode, codemirror, marked... dependents libs path
+                path : "${pageContext.request.contextPath}/plugins/Editor/lib/",  // Autoload modules mode, codemirror, marked... dependents libs path
+
+                imageUpload          : true,          // Enable/disable upload
+                imageFormats         : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL       : "${pageContext.request.contextPath}/upload/qiniuUpload",             // Upload url
+                crossDomainUpload    : false,          // Enable/disable Cross-domain upload
+                uploadCallbackURL    : ""             // Cross-domain upload callback url
             });
         });
     </script>

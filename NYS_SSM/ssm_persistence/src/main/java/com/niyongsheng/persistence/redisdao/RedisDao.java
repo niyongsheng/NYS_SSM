@@ -1,4 +1,4 @@
-package com.niyongsheng.persistence.dao;
+package com.niyongsheng.persistence.redisdao;
 
 /**
  * @author niyongsheng.com
@@ -7,6 +7,7 @@ package com.niyongsheng.persistence.dao;
  * @updateAuthor $
  * @updateDes
  */
+
 public interface RedisDao {
 
     String get(String key);

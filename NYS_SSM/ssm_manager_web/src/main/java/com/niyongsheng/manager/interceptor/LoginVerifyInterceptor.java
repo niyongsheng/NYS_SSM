@@ -25,7 +25,6 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("preHandle执行了登录拦截器");
         // 获取请求的RUi:去除http:localhost:8080这部分剩下的
         String uri = request.getRequestURI();
         // UTL:除了login.jsp是可以公开访问的，其他的URL都进行拦截控制
@@ -39,6 +38,7 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
             // 放行
             return true;
         } else {
+            System.out.println("preHandle:登录拦截器执行");
             // 跳转登录
             request.setAttribute("login_msg", "您尚未登录，请登录");
             request.getRequestDispatcher("/user/logout").forward(request, response);
@@ -56,7 +56,7 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("postHandle执行了111");
+//        System.out.println("postHandle执行了111");
 //        request.getRequestDispatcher("/WEB-INF/pages/error.jsp").forward(request, response);
     }
 
@@ -70,6 +70,6 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("afterCompletion执行了111");
+//        System.out.println("afterCompletion执行了111");
     }
 }

@@ -12,10 +12,12 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 开启SpringMVC注解扫描 -->
-    <context:component-scan base-package="com.niyongsheng.manager">
+    <context:component-scan base-package="com.niyongsheng.manager,com.niyongsheng.common">
         <!-- 只扫描Controller注解 -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+    <!-- 加载第三方框架配置属性文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:thirdFrameworkConfig.properties" />
 
     <!-- 配置的视图解析器对象 -->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -50,7 +52,8 @@
 
     <!-- 配置异常处理器对象 -->
     <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.SysExceptionResolver"></bean>
-
+    <!-- 配置七牛云上传工具对象 -->
+    <bean id="qiniuUploadFileUtil" class="com.niyongsheng.common.utils.QiniuUploadFileUtil"></bean>
 
     <!-- 对指定目录下的静态资源放行 -->
 <!--    <mvc:resources location="/css/" mapping="/css/**"/>-->

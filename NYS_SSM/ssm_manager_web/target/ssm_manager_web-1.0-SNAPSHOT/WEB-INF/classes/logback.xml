@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.padual.com/java/logback.xsd" debug="false"
 			   scan="true" scanPeriod="30 second">
-	<property name="PROJECT" value="app-demo" />
+	<property name="PROJECT" value="NYS_SSM" />
 	<property name="ROOT" value="${catalina.base}/logs/${PROJECT}/" />
 	<property name="FILESIZE" value="50MB" />
 	<property name="MAXHISTORY" value="100" />
