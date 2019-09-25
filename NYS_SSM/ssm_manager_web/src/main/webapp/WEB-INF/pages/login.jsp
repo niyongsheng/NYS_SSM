@@ -125,11 +125,19 @@
 
 <!-- 出错显示的信息框 -->
 <c:if test="${login_msg != null}">
-    <div class="alert alert-primary alert-dismissible" role="alert" style="height: 100px;width: 300px;">
+    <div class="alert alert-primary alert-dismissible" role="alert" style="margin-left: 10px; width: 300px;">
         <button type="button" class="close" data-dismiss="alert">
             <span>&times;</span></button>
-        <strong style="font-size: 15px">${login_msg}</strong>
+        <h5>提示!</h5>
+        <p style="font-size: 14px">${login_msg}</p>
     </div>
+
+<%--    <div class="callout callout-warning" role="callout" style="height: 100px;width: 300px;">
+        <button type="button" class="close" data-dismiss="callout">
+            <span>&times;</span></button>
+        <h6>提示!</h6>
+        <p style="font-size: 15px">${login_msg}</p>
+    </div>--%>
 </c:if>
 
 <!-- jQuery -->

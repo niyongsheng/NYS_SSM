@@ -26,4 +26,16 @@ public class HomeController {
 
         return "MDEditor";
     }
+
+    @RequestMapping("/activity")
+    public String activity(Model model) {
+
+        return "activity";
+    }
+
+    @RequestMapping("/test")
+    public String test() {
+
+        return "nullError";
+    }
 }

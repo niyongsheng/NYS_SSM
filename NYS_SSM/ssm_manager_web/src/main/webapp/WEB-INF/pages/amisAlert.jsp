@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false"%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <%--  <link rel="stylesheet" href="https://houtai.baidu.com/v2/csssdk">--%>
-  <link rel="stylesheet" href="../plugins/AMis/sdk_AMis.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/AMis/sdk_AMis.css">
   <style>
     html, body, .app-wrapper {
       position: relative;
@@ -23,7 +23,7 @@
 <body>
 <div id="root" class="app-wrapper"></div>
 <%--<script src="https://houtai.baidu.com/v2/jssdk"></script>--%>
-<script src="../plugins/AMis/sdk_AMis.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/AMis/sdk_AMis.js"></script>
 <script type="text/javascript">
   (function() {
     var amis = amisRequire('amis/embed');

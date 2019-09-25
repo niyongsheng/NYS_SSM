@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>稻草堆后台管理</title>
+    <title>稻草堆后台管理系统V1.0</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -154,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/activity" target="iframe" class="nav-link">
                                     <i class="fa fa-trophy nav-icon"></i>
                                     <p>活动页面</p>
                                 </a>
@@ -178,7 +178,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/amisAlert" target="iframe"
+                                <a href="${pageContext.request.contextPath}/home/test" target="iframe"
                                    class="nav-link">
                                     <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
@@ -203,7 +203,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/amisAlert" target="iframe"
+                                <a href="${pageContext.request.contextPath}/user/test" target="iframe"
                                    class="nav-link">
                                     <i class="fa fa-list-alt nav-icon"></i>
                                     <p>文档列表</p>

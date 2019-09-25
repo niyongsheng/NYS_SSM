@@ -169,7 +169,7 @@ public class UserController {
                 // 存储数据（重定向是两次请求，将数据存储到session中）
                 session.setAttribute("user", user);
                 // 重定向
-                String contextpath = request.getScheme() +"://" + request.getServerName()  + ":" +request.getServerPort() +request.getContextPath();
+                String contextpath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
                 return "redirect:"+contextpath+"/index.jsp";
             }
         } else {
