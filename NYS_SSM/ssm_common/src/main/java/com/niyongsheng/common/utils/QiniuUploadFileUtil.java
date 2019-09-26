@@ -40,6 +40,7 @@ public class QiniuUploadFileUtil {
     @Value("${qiniu.domain}")
     private String domain;
 
+
     /**
      * 上传文件
      *
@@ -70,6 +71,7 @@ public class QiniuUploadFileUtil {
         if (!file.isEmpty()) {
             String fileName = timeString + file.getOriginalFilename();
             String path = uploadPath + "\\" + fileName;
+            // 转存
             file.transferTo(new File(path));
             key = fileName;
             FilePath = path;

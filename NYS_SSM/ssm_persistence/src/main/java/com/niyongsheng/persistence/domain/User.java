@@ -1,60 +1,79 @@
 package com.niyongsheng.persistence.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@ApiModel(value ="User")
 public class User implements Serializable{
 
-    /** ID */
+    @ApiModelProperty(value = "ID")
     private Integer id;
-    /** 账号 */
+
+    @ApiModelProperty(value = "账号")
     private String account;
-    /** 真实姓名 */
+
+    @ApiModelProperty(value = "真实姓名")
     private String truename;
-    /** 头像 */
+
+    @ApiModelProperty(value = "头像")
     private String icon;
-    /** 等级 */
+
+    @ApiModelProperty(value = "等级")
     private Integer grade;
-    /** 积分 */
+
+    @ApiModelProperty(value = "积分")
     private Double score;
-    /** 性别 */
+
+    @ApiModelProperty(value = "性别")
     private String gender;
-    /** 手机号 */
+
+    @ApiModelProperty(value = "手机号")
     private String phone;
-    /** 密码 */
+
+    @ApiModelProperty(value = "密码")
     private String password;
-    /** 登录令牌 */
+
+    @ApiModelProperty(value = "登录令牌")
     private String token;
-    /** IM令牌 */
+
+    @ApiModelProperty(value = "IM令牌")
     private String imToken;
-    /** 昵称 */
+
+    @ApiModelProperty(value = "昵称")
     private String nickname;
-    /** 简介 */
+
+    @ApiModelProperty(value = "简介")
     private String introduction;
-    /** 邮箱 */
+
+    @ApiModelProperty(value = "邮箱")
     private String email;
-    /** 地址 */
+
+    @ApiModelProperty(value = "地址")
     private String address;
-    /** 团契 */
+
+    @ApiModelProperty(value = "团契")
     private Integer fellowship;
-    /** 身份类型 */
+
+    @ApiModelProperty(value = "身份类型")
     private Integer profession;
-    /** QQ */
+
+    @ApiModelProperty(value = "QQ")
     private String qqOpenid;
-    /** 微信 */
+
+    @ApiModelProperty(value = "微信")
     private String wcOpenid;
-    /** 1有效 0失效 */
-    private String status;
-    /** 修改时间 */
-/*    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss") // 后->前
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") // 前端->后台的时间格式的转换
-    @JsonSerialize(using = CustomDateSerializer.class)*/
-    private Date gmtModify;
-    /** 创建时间 */
-/*    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss") // 后->前
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss") // 前端->后台的时间格式的转换
-    @JsonSerialize(using = CustomDateSerializer.class)*/
-    private Date gmtCreate;
+
+    @ApiModelProperty(value = "1有效0失效")
+    private Boolean status;
+
+    @ApiModelProperty(value = "修改时间")
+    private java.util.Date gmtModify;
+
+    @ApiModelProperty(value = "创建时间")
+    private java.util.Date gmtCreate;
 
     @Override
     public String toString() {
@@ -236,11 +255,11 @@ public class User implements Serializable{
         this.wcOpenid = wcOpenid;
     }
 
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

@@ -38,7 +38,7 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
             // 放行
             return true;
         } else {
-            System.out.println("preHandle:登录拦截器执行");
+            System.out.println("preHandle:登录拦截方法执行了");
             // 跳转登录
             request.setAttribute("login_msg", "您尚未登录，请登录");
             request.getRequestDispatcher("/user/logout").forward(request, response);

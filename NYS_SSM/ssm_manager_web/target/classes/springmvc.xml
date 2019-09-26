@@ -68,7 +68,7 @@
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.niyongsheng.manager.utils.StringToDateConverter"></bean>
+                <bean class="com.niyongsheng.common.utils.StringToDateConverter"></bean>
             </set>
         </property>
     </bean>
