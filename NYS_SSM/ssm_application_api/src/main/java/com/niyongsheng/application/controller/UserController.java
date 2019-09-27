@@ -2,16 +2,21 @@ package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.core.MediaType;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author niyongsheng.com
@@ -20,8 +25,9 @@ import java.util.List;
  * @updateAuthor $
  * @updateDes
  */
-@Controller
-@RequestMapping("/user")
+@RestController
+@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
+@Api(value = "用户信息", produces = MediaType.APPLICATION_JSON)
 public class UserController {
 
     @Autowired
@@ -34,11 +40,16 @@ public class UserController {
      * @param model
      * @return
      */
-    @RequestMapping("/findAll")
     @ResponseBody
-    public void findAll(@RequestParam(value="pageNum",defaultValue="1")Integer pageNum,
-                          @RequestParam(value="pageSize",defaultValue="10")Integer pageSize,
-                          Model model) {
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
+    @ApiOperation(value = "查询所有的用户信息并分页展示", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum",value = "跳转到的页数", required = true, paramType = "query"),
+            @ApiImplicitParam(name = "pageSize",value = "每页展示的记录数", required = true, paramType = "query")
+    })
+    public ResponseDto findAll(@RequestParam(value="pageNum",defaultValue="1")Integer pageNum,
+                                   @RequestParam(value="pageSize",defaultValue="10")Integer pageSize,
+                                   Model model) {
         System.out.println("表现层：查询所有的用户信息...");
         // 1.设置页码和分页大小
         PageHelper.startPage(pageNum, pageSize);
@@ -50,5 +61,13 @@ public class UserController {
         PageInfo pageInfo = new PageInfo(list);
 
         model.addAttribute("pagingList", pageInfo);
+
+        // 4.包装返回体
+        Map<String, Object> respMap = new HashMap();
+        respMap.put("auth", "NYS");
+        respMap.put("list", pageInfo);
+
+        return new ResponseDto(list);
     }
+
 }

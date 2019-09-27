@@ -9,9 +9,9 @@ package com.niyongsheng.common.enums;
  */
 public enum ExceptionStateEnum {
 
-    SUCCESS(70001,"成功"),
-    FAIL(70002,"失败"),
-    UNKNOWN(70003,"未知");
+    SUCCESS(7001,"成功"),
+    FAIL(7002,"失败"),
+    UNKNOWN(7003,"未知");
 
     // 状态码
     private Integer stateCode;

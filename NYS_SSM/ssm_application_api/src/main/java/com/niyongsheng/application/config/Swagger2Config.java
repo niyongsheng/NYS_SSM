@@ -1,6 +1,5 @@
 package com.niyongsheng.application.config;
 
-import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -28,11 +27,12 @@ public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo()).select()
+                .apiInfo(apiInfo())
+                .select()
                 // 扫描指定包中的swagger注解
-                //.apis(RequestHandlerSelectors.basePackage("com.xia.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.niyongsheng.application"))
                 // 扫描所有有注解的api，用这种方式更灵活
-                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+//                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -42,11 +42,11 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("稻草堆项目-移动端 APIs")
                 .description("Talk is cheap. Show me the code.")
-                .termsOfServiceUrl("http://daocaodui.org")
+                .termsOfServiceUrl("https://github.com/niyongsheng/NYS_SSM")
+                .version("1.0.0")
                 .contact(contact)
                 .license("MIT")
                 .licenseUrl("https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE")
-                .version("1.0.0")
                 .build();
     }
 }

@@ -13,18 +13,19 @@ NYS_SSM
 * Redis
 * Swagger
 * AdminLTE
+* Amis
 * Unit Test
 
 ## <a id="How_to_use:"></a>How to use:
 * 持续开发中...
 * 
-* 
-* 
+
 
 ## <a id="Application_Instance_by_NYS_SSM:"></a>Application Instance by NYS_SSM:
 RMOV | CI | CI
 ------------ | ------------- | -------------
 <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true" width="50" height="50"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true" width="400" height="200"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true" width="400" height="200">
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/swagger.jpg?raw=true">
 
 <!--
 * Step 1.Add Shell

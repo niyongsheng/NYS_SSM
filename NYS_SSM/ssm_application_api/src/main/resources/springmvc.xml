@@ -19,12 +19,12 @@
     <!-- 加载第三方框架配置属性文件 -->
     <context:property-placeholder ignore-unresolvable="true" location="classpath:thirdFrameworkConfig.properties" />
 
-    <!-- 配置的视图解析器对象 -->
+<!--    &lt;!&ndash; 配置的视图解析器对象 &ndash;&gt;
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
-<!--        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>-->
-    </bean>
+&lt;!&ndash;        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>&ndash;&gt;
+    </bean>-->
 
     <!-- 配置登录验证拦截器对象 -->
     <mvc:interceptors>
