@@ -3,7 +3,7 @@ package com.niyongsheng.common.enums;
 /**
  * @author niyongsheng.com
  * @version $
- * @des
+ * @des 响应体参数枚举类
  * @updateAuthor $
  * @updateDes
  */
@@ -13,7 +13,7 @@ public enum ResponseStatusEnum {
     FAIL(false,7002,"失败"),
     UNKNOWN(null,7000,"未知");
 
-    // 版本*
+    // *版本*
     private static String version = "1.0.0";
     // 状态
     private Boolean status;

@@ -28,6 +28,8 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
 @Api(value = "用户信息", produces = MediaType.APPLICATION_JSON)
+
+//@CrossOrigin(origins = "*",allowedHeaders = {"Access-Control-Allow-*"})
 public class UserController {
 
     @Autowired
@@ -48,8 +50,8 @@ public class UserController {
             @ApiImplicitParam(name = "pageSize",value = "每页展示的记录数", required = true, paramType = "query")
     })
     public ResponseDto findAll(@RequestParam(value="pageNum",defaultValue="1")Integer pageNum,
-                                   @RequestParam(value="pageSize",defaultValue="10")Integer pageSize,
-                                   Model model) {
+                              @RequestParam(value="pageSize",defaultValue="10")Integer pageSize,
+                              Model model) {
         System.out.println("表现层：查询所有的用户信息...");
         // 1.设置页码和分页大小
         PageHelper.startPage(pageNum, pageSize);

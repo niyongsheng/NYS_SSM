@@ -10,7 +10,7 @@ import java.io.Serializable;
 /**
  * @author niyongsheng.com
  * @version $
- * @des
+ * @des 响应体封装类
  * @updateAuthor $
  * @updateDes
  */
