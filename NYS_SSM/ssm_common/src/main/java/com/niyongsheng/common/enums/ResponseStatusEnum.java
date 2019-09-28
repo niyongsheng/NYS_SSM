@@ -45,13 +45,13 @@ public enum ResponseStatusEnum {
     }
 
     /**
-     * 根据索引查询异常信息对象
-     * @param index
+     * 根据状态码查询枚举对象
+     * @param statusCode 状态码
      * @return
      */
-    public static ResponseStatusEnum statusOfCode(Integer index) {
+    public static ResponseStatusEnum getResponseStatusEnumOfCode(Integer statusCode) {
         for (ResponseStatusEnum status : values()) {
-            if (status.getStatusCode() == index) {
+            if (status.getStatusCode() == statusCode) {
                 return status;
             }
         }

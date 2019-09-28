@@ -43,7 +43,7 @@ RMOV | CI | CI
 - [x] IDE: IntelliJ IDEA
 
 ## Contribution
-Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYSTK/stargazers)
+Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYS_SSM/stargazers)
 
 ## Contact Me [:octocat:](https://niyongsheng.github.io)
 * E-mail: niyongsheng@Outlook.com

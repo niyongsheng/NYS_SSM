@@ -2,6 +2,7 @@ package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserService;
@@ -69,7 +70,7 @@ public class UserController {
         respMap.put("auth", "NYS");
         respMap.put("list", pageInfo);
 
-        return new ResponseDto(list);
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 
 }

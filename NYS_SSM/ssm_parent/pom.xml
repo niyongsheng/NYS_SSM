@@ -51,6 +51,8 @@
         <fastjson.version>1.2.60</fastjson.version>
         <mail.version>1.5.0-b01</mail.version>
         <hutool.version>4.1.12</hutool.version>
+        <snakeyaml.version>1.17</snakeyaml.version>
+        <jug.version>3.1.4</jug.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -298,6 +300,16 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.uuid</groupId>
+                <artifactId>java-uuid-generator</artifactId>
+                <version>${jug.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
