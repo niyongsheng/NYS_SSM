@@ -1,0 +1,44 @@
+//
+//  CMFAQTableViewCell.m
+//  CreditMoney
+//
+//  Created by 倪永胜 on 2019/4/29.
+//  Copyright © 2019 QM. All rights reserved.
+//
+
+#import "CMFAQTableViewCell.h"
+#import "CMFAQModel.h"
+
+@interface CMFAQTableViewCell()
+
+@property (nonatomic, strong) UILabel *label;
+
+@end
+
+@implementation CMFAQTableViewCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+- (void)setFAQ:(CMFAQModel *)FAQ {
+    _FAQ = FAQ;
+    NSArray *descArray = @[@"我们秉持着对用户数据隐私负责的态度，要求您使用个人实名认证手机号进行注册，也可使用第三方登录快速注册。\n\n温馨提示：请使用本人实名制使用时间最长的手机号且后续的资料认证需使用同一手机号。",@"为了和您建立正式的借款合约，需要验证您的身份信息。",
+                           @"申请借款的资料\n\n      个人有效期内身份证件\n      个人真实信息\n      本人实名制使用时间最长的手机号\n 人脸识别认证\n\n申请借款的条件\n\n为保障账户安全，实名信息与账户信息一一关联；一个身份证号码／一个手机号／一张银行卡只能绑定一个实名账户；且该手机号需与银行卡、运营商认证等手机信息保持一致。",
+                           @"原理：运营商认证即在您的授权下，登录运营商官网或商城的账户，查询通话账单、验证个人身份，是系统判断借款人真实性的必要条件。\n\n异常：手机运营商部分地区官网，会不时出现无法登录、无法查通话账单等情况，进而无法进行运营商认证，提示“异常／繁忙／失败”。\n\n方案：在不同时间段多尝试认证几次。",
+                           @"可通过微信公众号或在线客服联系我们。"];
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.textLabel.font = [UIFont systemFontOfSize:16.f];
+    self.textLabel.textColor = [UIColor grayColor];
+    self.textLabel.text = descArray[FAQ.index.intValue];
+}
+
+@end

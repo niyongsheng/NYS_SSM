@@ -1,0 +1,34 @@
+//
+//  PrefixHeader.pch
+//  DaoCaoDui_IOS
+//
+//  Created by 倪永胜 on 2019/5/27.
+//  Copyright © 2019 NiYongsheng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <YYKit.h>
+#import <Masonry.h>
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+
+#import "UtilsMacros.h"
+#import "ThirdMacros.h"
+#import "CommonMacros.h"
+#import "FontAndColorMacros.h"
+
+#import "AppManager.h"
+#import "IMManager.h"
+#import "ShareManager.h"
+#import "UserManager.h"
+#import "NYSTools.h"
+#import "NYSRequest.h"
+#import "PPNetworkHelper.h"
+
+#import "AppDelegate+AppService.h"
+#import "AppDelegate+PushService.h"
+#import "MBProgressHUD+NYS.h"
+
+#endif /* PrefixHeader_pch */

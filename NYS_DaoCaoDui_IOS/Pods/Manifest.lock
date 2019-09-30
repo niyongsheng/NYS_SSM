@@ -1,0 +1,176 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AxcAE_TabBar (1.0.5)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - IQKeyboardManager (6.4.2)
+  - JCore (2.1.2)
+  - JPush (3.2.4):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - JVFloatLabeledTextField (1.2.1)
+  - M80AttributedLabel (1.9.5)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.0.0)
+  - MJExtension (3.1.2)
+  - MJRefresh (3.2.0)
+  - NIMKit (1.8.0):
+    - NIMKit/Lite (= 1.8.0)
+  - NIMKit/Core (1.8.0):
+    - M80AttributedLabel (>= 1.6.3)
+    - SDWebImage (>= 4.0.0)
+    - Toast (>= 3.0)
+    - TZImagePickerController (>= 1.7.7)
+  - NIMKit/Lite (1.8.0):
+    - NIMKit/Core
+    - NIMSDK_LITE (~> 4.1.0)
+  - NIMSDK_LITE (4.1.0)
+  - ReactiveObjC (3.1.1)
+  - SDAutoLayout (2.2.1)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
+  - SGAdvertScrollView (1.2.7):
+    - SDWebImage (~> 4.1.0)
+  - SGPagingView (1.6.7)
+  - SVProgressHUD (2.2.5)
+  - Toast (4.0.0)
+  - TZImagePickerController (3.2.3)
+  - UMCAnalytics (6.0.5):
+    - UMCCommon
+  - UMCCommon (2.1.1)
+  - UMCCommonLog (1.0.0)
+  - UMCErrorCatch (1.0.0):
+    - UMCCommon
+  - UMCSecurityPlugins (1.0.6)
+  - UMCShare/Core (6.9.6):
+    - UMCCommon
+  - UMCShare/Social/ReducedQQ (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - YTKKeyValueStore (0.1.2):
+    - FMDB (~> 2.0)
+  - YTKNetwork (2.0.4):
+    - AFNetworking (~> 3.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AxcAE_TabBar
+  - IQKeyboardManager
+  - JPush
+  - JVFloatLabeledTextField
+  - Masonry
+  - MBProgressHUD (~> 1.0.0)
+  - MJExtension
+  - MJRefresh
+  - NIMKit
+  - ReactiveObjC
+  - SDAutoLayout
+  - SDWebImage
+  - SGAdvertScrollView
+  - SGPagingView
+  - SVProgressHUD
+  - UMCAnalytics
+  - UMCCommon
+  - UMCCommonLog
+  - UMCErrorCatch
+  - UMCSecurityPlugins
+  - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedWeChat
+  - UMCShare/UI
+  - YTKKeyValueStore
+  - YTKNetwork
+  - YYKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - AxcAE_TabBar
+    - FMDB
+    - IQKeyboardManager
+    - JCore
+    - JPush
+    - JVFloatLabeledTextField
+    - M80AttributedLabel
+    - Masonry
+    - MBProgressHUD
+    - MJExtension
+    - MJRefresh
+    - NIMKit
+    - NIMSDK_LITE
+    - ReactiveObjC
+    - SDAutoLayout
+    - SDWebImage
+    - SGAdvertScrollView
+    - SGPagingView
+    - SVProgressHUD
+    - Toast
+    - TZImagePickerController
+    - UMCAnalytics
+    - UMCCommon
+    - UMCCommonLog
+    - UMCErrorCatch
+    - UMCSecurityPlugins
+    - UMCShare
+    - YTKKeyValueStore
+    - YTKNetwork
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AxcAE_TabBar: 1d5bcf6c4921889dc38839b6ba2c584a9b55251a
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  IQKeyboardManager: b41e0a4943fbac4c11a239d31a688667675f962e
+  JCore: 1a426120b510cdebfd67b82bfb9483238ee09413
+  JPush: 29466e5f30dbd703f640d70540e411e829cac1fa
+  JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
+  M80AttributedLabel: d1177fbd7451d134794b50e91ca8b0cb167ef530
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJExtension: 81e8e411ced318561dd09334b0c83d8227cef79c
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  NIMKit: 77326c7645e18b6517afa402caf0a90898429672
+  NIMSDK_LITE: e182c79e958bfdd58821fcfb380fc58088242ec4
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  SGAdvertScrollView: b1accd4ba84e8592f08f18df10174c98ea249d11
+  SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TZImagePickerController: f321e8db6cd18dc6ac8e23694961c158a9345a87
+  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
+  UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
+  YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
+  YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 2793365ffce2767ef530b0ca35976c9c37e78e64
+
+COCOAPODS: 1.7.5

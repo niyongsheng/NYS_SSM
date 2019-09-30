@@ -1,0 +1,1 @@
+../../../NIMKit/NIMKit/NIMKit/Classes/Sections/SessionList/Config/NIMSessionListDefaultConfig.h

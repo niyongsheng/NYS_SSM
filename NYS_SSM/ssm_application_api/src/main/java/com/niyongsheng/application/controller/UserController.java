@@ -29,7 +29,6 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
 @Api(value = "用户信息", produces = MediaType.APPLICATION_JSON)
-
 //@CrossOrigin(origins = "*",allowedHeaders = {"Access-Control-Allow-*"})
 public class UserController {
 
@@ -73,4 +72,10 @@ public class UserController {
         return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 
+
+    public ResponseDto Register() {
+
+
+        return new ResponseDto();
+    }
 }

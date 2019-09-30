@@ -53,7 +53,7 @@
     <!-- 配置异常处理器对象 -->
     <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.SysExceptionResolver"></bean>
     <!-- 配置七牛云上传工具对象 -->
-    <bean id="qiniuUploadFileUtil" class="com.niyongsheng.common.utils.QiniuUploadFileUtil"></bean>
+    <bean id="qiniuUploadFileUtil" class="com.niyongsheng.common.qiniu.QiniuUploadFileUtil"></bean>
 
     <!-- 对指定目录下的静态资源放行 -->
 <!--    <mvc:resources location="/css/" mapping="/css/**"/>-->

@@ -1,0 +1,52 @@
+project 'DaoCaoDui_IOS.xcodeproj'
+
+    platform :ios, '10.0'
+    inhibit_all_warnings!
+
+target 'DaoCaoDui_IOS' do
+    
+    pod 'ReactiveObjC'
+    pod 'Masonry'
+    pod 'SDAutoLayout'
+    pod 'SDWebImage'
+    pod 'SVProgressHUD'
+    pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'MJRefresh'
+    pod 'MJExtension'
+    pod 'YYKit'
+    pod 'YTKKeyValueStore'
+    pod 'YTKNetwork'
+    pod 'AxcAE_TabBar'
+    pod 'SGPagingView'
+    pod 'SGAdvertScrollView'
+    pod 'IQKeyboardManager'
+    pod 'JVFloatLabeledTextField'
+
+#    pod 'RongCloudIM'   # 融云IM
+#    pod 'UMCPush'       # 友盟推送
+    pod 'NIMKit'         # 云信IM
+    pod 'JPush'          # 极光推送
+
+    # 友盟分享
+    pod 'UMCCommon'
+    pod 'UMCShare/UI'
+    pod 'UMCCommonLog'       # 日志输出
+    pod 'UMCSecurityPlugins' # 安全插件
+    # 友盟移动统计
+    pod 'UMCCommon'
+    pod 'UMCAnalytics'
+    pod 'UMCErrorCatch'
+    
+    pod 'UMCShare/Social/ReducedWeChat'
+    pod 'UMCShare/Social/ReducedQQ'
+    
+    
+  target 'DaoCaoDui_IOSTests' do
+    inherit! :search_paths
+  end
+
+  target 'DaoCaoDui_IOSUITests' do
+    inherit! :search_paths
+  end
+
+end

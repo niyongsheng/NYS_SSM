@@ -1,6 +1,6 @@
 package com.niyongsheng.manager.controller;
 
-import com.niyongsheng.common.utils.QiniuUploadFileUtil;
+import com.niyongsheng.common.qiniu.QiniuUploadFileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

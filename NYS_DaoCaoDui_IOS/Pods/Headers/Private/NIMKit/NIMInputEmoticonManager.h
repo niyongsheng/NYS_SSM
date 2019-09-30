@@ -1,0 +1,1 @@
+../../../NIMKit/NIMKit/NIMKit/Classes/Sections/Input/NIMInputEmoticonManager.h
