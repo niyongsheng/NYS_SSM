@@ -2,19 +2,21 @@ package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.niyongsheng.application.utils.ArcSoftFaceRecognition;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.MediaType;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +37,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ArcSoftFaceRecognition faceRecognition;
+
     /**
      * 查询所有
      * @param pageNum
@@ -49,7 +54,7 @@ public class UserController {
             @ApiImplicitParam(name = "pageNum",value = "跳转到的页数", required = true, paramType = "query"),
             @ApiImplicitParam(name = "pageSize",value = "每页展示的记录数", required = true, paramType = "query")
     })
-    public ResponseDto findAll(@RequestParam(value="pageNum",defaultValue="1")Integer pageNum,
+    public ResponseDto<User> findAll(@RequestParam(value="pageNum",defaultValue="1")Integer pageNum,
                               @RequestParam(value="pageSize",defaultValue="10")Integer pageSize,
                               Model model) {
         System.out.println("表现层：查询所有的用户信息...");
@@ -72,6 +77,33 @@ public class UserController {
         return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/faceRecognition", method = RequestMethod.POST)
+    @ApiOperation(value = "人脸识别特征码提取接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "fellowship",value = "团契编号", required = true, paramType = "query"),
+    })
+    public ResponseDto faceRecognition(HttpServletRequest request,
+                                       @ApiParam(value = "上传的人脸图片", required = true)
+                                       @RequestParam(value = "file", required = true) MultipartFile file,
+                                       @RequestParam(value = "fellowship", required = true) String fellowship) {
+        Map<String, String> map = new HashMap();
+        if (!file.isEmpty()) {
+            String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF/dib");
+            String uploadPath = request.getSession().getServletContext().getRealPath("WEB-INF/classes/");
+            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
+            String filePath = uploadPath + fileName;
+//            try {
+//                file.transferTo(new File(filePath));
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+            String fp = request.getSession().getServletContext().getRealPath("WEB-INF/img/test.png");
+            map = faceRecognition.ASFaceRecognition(dibPath, fp);
+        }
+
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, map);
+    }
 
     public ResponseDto Register() {
 

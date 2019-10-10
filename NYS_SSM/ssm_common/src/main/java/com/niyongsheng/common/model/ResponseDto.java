@@ -14,23 +14,23 @@ import java.io.Serializable;
  * @updateAuthor $
  * @updateDes
  */
-@ApiModel
+@ApiModel("API接口通用返回对象响应体")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDto<T> implements Serializable {
 
-    @ApiModelProperty(value = "状态")
+    @ApiModelProperty(value = "API状态", required = true)
     private Boolean status;
 
-    @ApiModelProperty(value = "状态信息")
+    @ApiModelProperty(value = "API状态信息")
     private String msg;
 
-    @ApiModelProperty(value = "状态码")
+    @ApiModelProperty(value = "API状态码", required = true)
     private Integer statusCode;
 
-    @ApiModelProperty(value = "版本信息")
+    @ApiModelProperty(value = "API版本信息", hidden = false)
     private String version;
 
-    @ApiModelProperty(value = "响应流信息")
+    @ApiModelProperty(value = "API返回对象")
     private T data;
 
     @Override

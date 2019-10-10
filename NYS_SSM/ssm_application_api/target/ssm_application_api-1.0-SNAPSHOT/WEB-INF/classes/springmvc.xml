@@ -45,6 +45,8 @@
 <!--    <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.SysExceptionResolver"></bean>-->
     <!-- 配置七牛云上传工具对象 -->
     <bean id="qiniuUploadFileUtil" class="com.niyongsheng.common.qiniu.QiniuUploadFileUtil"></bean>
+    <!-- 虹软人脸识别 -->
+    <bean id="faceRecognition" class="com.niyongsheng.application.utils.ArcSoftFaceRecognition"></bean>
 
     <!-- 静态资源放行 -->
     <mvc:default-servlet-handler/>

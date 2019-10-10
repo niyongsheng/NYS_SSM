@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C8F3B4C52298EF8A00FA61A6"
-               BuildableName = "DaoCaoDui_IOS.app"
+               BuildableName = "&#x7a3b;&#x8349;&#x5806;.app"
                BlueprintName = "DaoCaoDui_IOS"
                ReferencedContainer = "container:DaoCaoDui_IOS.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8F3B4C52298EF8A00FA61A6"
-            BuildableName = "DaoCaoDui_IOS.app"
+            BuildableName = "&#x7a3b;&#x8349;&#x5806;.app"
             BlueprintName = "DaoCaoDui_IOS"
             ReferencedContainer = "container:DaoCaoDui_IOS.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C8F3B4C52298EF8A00FA61A6"
-            BuildableName = "DaoCaoDui_IOS.app"
+            BuildableName = "&#x7a3b;&#x8349;&#x5806;.app"
             BlueprintName = "DaoCaoDui_IOS"
             ReferencedContainer = "container:DaoCaoDui_IOS.xcodeproj">
          </BuildableReference>
