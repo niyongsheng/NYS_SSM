@@ -21,11 +21,11 @@ import java.util.Map;
 public class QiniuSMSUtil {
 
     // 七牛云ACCESS_KEY
-    @Value("${qiniu.accessKey}")
+    @Value("${Qiniu.accessKey}")
     private String accessKey;
 
     // 七牛云SECRET_KEY
-    @Value("${qiniu.secretKey}")
+    @Value("${Qiniu.secretKey}")
     private String secretKey;
 
     public void testSMS() {

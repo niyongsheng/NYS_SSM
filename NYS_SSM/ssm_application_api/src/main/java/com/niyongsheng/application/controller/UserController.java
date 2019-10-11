@@ -31,7 +31,7 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
 @Api(value = "用户信息", produces = MediaType.APPLICATION_JSON)
-//@CrossOrigin(origins = "*",allowedHeaders = {"Access-Control-Allow-*"})
+//@CrossOrigin(origins = "*",allowedHeaders = {"Access-Control-Allow-*"}) // 跨域
 public class UserController {
 
     @Autowired
@@ -80,30 +80,29 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/faceRecognition", method = RequestMethod.POST)
     @ApiOperation(value = "人脸识别特征码提取接口", notes = "参数描述", hidden = false)
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "fellowship",value = "团契编号", required = true, paramType = "query"),
-    })
-    public ResponseDto faceRecognition(HttpServletRequest request,
+    public ResponseDto faceRecognition(/*@ApiParam(value = "团契编号", required = true)
+                                       @RequestParam(value = "fellowship" ,required = true) String fellowship,
                                        @ApiParam(value = "上传的人脸图片", required = true)
-                                       @RequestParam(value = "file", required = true) MultipartFile file,
-                                       @RequestParam(value = "fellowship", required = true) String fellowship) {
+                                       @RequestParam(value = "file" ,required = true) MultipartFile file,*/
+                                       HttpServletRequest request) {
         Map<String, String> map = new HashMap();
-        if (!file.isEmpty()) {
-            String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF/dib");
-            String uploadPath = request.getSession().getServletContext().getRealPath("WEB-INF/classes/");
-            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
-            String filePath = uploadPath + fileName;
+//        if (!file.isEmpty()) {
+//            String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF" + File.separator + "dib");
+//            String uploadPath = request.getSession().getServletContext().getRealPath("WEB-INF/classes/");
+//            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
+//            String filePath = uploadPath + fileName;
 //            try {
 //                file.transferTo(new File(filePath));
 //            } catch (IOException e) {
 //                e.printStackTrace();
 //            }
-            String fp = request.getSession().getServletContext().getRealPath("WEB-INF/img/test.png");
-            map = faceRecognition.ASFaceRecognition(dibPath, fp);
-        }
-
+            String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF" + File.separator + "dib");
+            String fp = request.getSession().getServletContext().getRealPath("img" + File.separator + "test.png");
+            map = faceRecognition.getFaceFeature(dibPath, fp);
+//        }
         return new ResponseDto(ResponseStatusEnum.SUCCESS, map);
     }
+
 
     public ResponseDto Register() {
 

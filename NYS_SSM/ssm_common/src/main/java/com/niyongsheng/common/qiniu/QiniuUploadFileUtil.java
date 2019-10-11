@@ -25,19 +25,19 @@ import java.util.Map;
 public class QiniuUploadFileUtil {
 
     // 七牛云ACCESS_KEY
-    @Value("${qiniu.accessKey}")
+    @Value("${Qiniu.accessKey}")
     private String accessKey;
 
     // 七牛云SECRET_KEY
-    @Value("${qiniu.secretKey}")
+    @Value("${Qiniu.secretKey}")
     private String secretKey;
 
     // 存储空间
-    @Value("${qiniu.bucketname}")
+    @Value("${Qiniu.bucketname}")
     private String bucketname;
 
     // 外链域名
-    @Value("${qiniu.domain}")
+    @Value("${Qiniu.domain}")
     private String domain;
 
 

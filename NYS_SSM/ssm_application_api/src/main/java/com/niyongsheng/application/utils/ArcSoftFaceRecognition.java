@@ -28,31 +28,49 @@ public class ArcSoftFaceRecognition {
     private String appId;
 
     // 虹软APP_KEY
-    @Value("${ArcSoft.appKey}")
-    private String appKey;
+    @Value("${ArcSoft.appKeyWindows}")
+    private String appKeyWindows;
 
-    public Map<String, String> ASFaceRecognition(String dibPath, String filePath) {
+    // 虹软APP_KEY
+    @Value("${ArcSoft.appKeyLinux}")
+    private String appKeyLinux;
+
+    /**
+     * 初始化人脸引擎
+     * @param dibPath
+     * @return
+     */
+    private FaceEngine initFaceEngine(String dibPath) {
+        // 0.系统环境判断
         Map<String, String> map = new HashMap<String, String>();
         String os = System.getProperty("os.name");
-        if (!os.toLowerCase().startsWith("win") && !os.toLowerCase().startsWith("linux")) {
-            map.put("error", "人脸识别动态库不支持当前系统环境");
-            return map;
+        if (!os.toLowerCase().startsWith("win") && !os.toLowerCase().startsWith("lin")) {
+            map.put("error", "人脸识别动态库不支持当前服务器系统环境,请部署到Linux或Windows环境。");
+//            return map;
         }
-        String imagePath = filePath;
+
+        // 1.创建引擎
         FaceEngine faceEngine = new FaceEngine(dibPath);
-        // 激活引擎
+
+        // 2.激活引擎
+        String appKey = null;
+        if (os.toLowerCase().startsWith("win")) {
+            appKey = appKeyWindows;
+        } else if (os.toLowerCase().startsWith("lin")) {
+            appKey = appKeyLinux;
+        }
         int activeCode = faceEngine.activeOnline(appId, appKey);
 
         if (activeCode != ErrorInfo.MOK.getValue() && activeCode != ErrorInfo.MERR_ASF_ALREADY_ACTIVATED.getValue()) {
             System.out.println("引擎激活失败");
         }
 
-        // 引擎配置
+        // 3.引擎配置
         EngineConfiguration engineConfiguration = new EngineConfiguration();
         engineConfiguration.setDetectMode(DetectMode.ASF_DETECT_MODE_IMAGE);
         engineConfiguration.setDetectFaceOrientPriority(DetectOrient.ASF_OP_0_ONLY);
 
-        // 功能配置
+        // 4.功能配置
         FunctionConfiguration functionConfiguration = new FunctionConfiguration();
         functionConfiguration.setSupportAge(true);
         functionConfiguration.setSupportFace3dAngle(true);
@@ -63,14 +81,26 @@ public class ArcSoftFaceRecognition {
         functionConfiguration.setSupportIRLiveness(true);
         engineConfiguration.setFunctionConfiguration(functionConfiguration);
 
-
-        // 初始化引擎
+        // 5.初始化引擎
         int initCode = faceEngine.init(engineConfiguration);
-
         if (initCode != ErrorInfo.MOK.getValue()) {
             System.out.println("初始化引擎失败");
         }
 
+        return faceEngine;
+    }
+
+    public Map<String, String> getFaceFeature(String dibPath, String filePath) {
+        Map<String, String> map = new HashMap<String, String>();
+        String os = System.getProperty("os.name");
+        if (!os.toLowerCase().startsWith("win") && !os.toLowerCase().startsWith("lin")) {
+            map.put("error", "人脸识别动态库不支持当前服务器系统环境,请部署到Linux或Windows环境。");
+            return map;
+        }
+        String imagePath = filePath;
+        System.out.println("--++imagePath++--:" + imagePath);
+
+        FaceEngine faceEngine = this.initFaceEngine(dibPath);
 
         // 人脸检测
         ImageInfo imageInfo = getRGBData(new File(imagePath));
@@ -86,7 +116,7 @@ public class ArcSoftFaceRecognition {
         System.out.println("特征值：" + faceCode);
         System.out.println("特征值大小：" + faceFeature.getFeatureData().length);
 
-       /* // 人脸检测2
+        // 人脸检测2
         ImageInfo imageInfo2 = getRGBData(new File(imagePath));
         List<FaceInfo> faceInfoList2 = new ArrayList<FaceInfo>();
         int detectCode2 = faceEngine.detectFaces(imageInfo2.getImageData(), imageInfo2.getWidth(), imageInfo2.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList2);
@@ -106,7 +136,6 @@ public class ArcSoftFaceRecognition {
         int compareCode = faceEngine.compareFaceFeature(targetFaceFeature, sourceFaceFeature, faceSimilar);
         System.out.println("相似度：" + faceSimilar.getScore());
 
-
         // 人脸属性检测
         FunctionConfiguration configuration = new FunctionConfiguration();
         configuration.setSupportAge(true);
@@ -114,7 +143,6 @@ public class ArcSoftFaceRecognition {
         configuration.setSupportGender(true);
         configuration.setSupportLiveness(true);
         int processCode = faceEngine.process(imageInfo.getImageData(), imageInfo.getWidth(), imageInfo.getHeight(), ImageFormat.CP_PAF_BGR24, faceInfoList, configuration);
-
 
         // 性别检测
         List<GenderInfo> genderInfoList = new ArrayList<GenderInfo>();
@@ -138,7 +166,6 @@ public class ArcSoftFaceRecognition {
         int livenessCode = faceEngine.getLiveness(livenessInfoList);
         System.out.println("活体：" + livenessInfoList.get(0).getLiveness());
 
-
         // IR属性处理
         ImageInfo imageInfoGray = getGrayData(new File(imagePath));
         List<FaceInfo> faceInfoListGray = new ArrayList<FaceInfo>();
@@ -159,7 +186,7 @@ public class ArcSoftFaceRecognition {
 
         // 获取激活文件信息
         ActiveFileInfo activeFileInfo = new ActiveFileInfo();
-        int activeFileCode = faceEngine.getActiveFileInfo(activeFileInfo);*/
+        int activeFileCode = faceEngine.getActiveFileInfo(activeFileInfo);
 
         // 引擎卸载
         int unInitCode = faceEngine.unInit();

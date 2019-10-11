@@ -25,14 +25,14 @@ import java.util.Map;
 @RequestMapping("/upload")
 public class UploadController {
     // 七牛云账号的ACCESS_KEY和SECRET_KEY
-    @Value("${qiniu.accessKey}")
+    @Value("${Qiniu.accessKey}")
     private String ACCESS_KEY;
 
-    @Value("${qiniu.secretKey}")
+    @Value("${Qiniu.secretKey}")
     private String SECRET_KEY;
 
     // 存储空间
-    @Value("${qiniu.bucketname}")
+    @Value("${Qiniu.bucketname}")
     private String bucketname;
 
     @Autowired

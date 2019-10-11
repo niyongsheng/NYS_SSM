@@ -17,8 +17,8 @@
           <element id="archive" name="ssm_common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="ssm_common" />
           </element>
-          <element id="library" level="project" name="Maven: com.qiniu:qiniu-java-sdk:7.2.25" />
-          <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.14.2" />
+          <element id="library" level="project" name="Maven: com.qiniu:qiniu-java-sdk:7.2.26" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.14.4" />
           <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.17.2" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
           <element id="library" level="project" name="Maven: io.springfox:springfox-swagger2:2.9.2" />
@@ -55,6 +55,9 @@
           <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-extension:3.2.0" />
           <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-core:3.2.0" />
           <element id="library" level="project" name="Maven: com.baomidou:mybatis-plus-annotation:3.2.0" />
+          <element id="library" level="project" name="Maven: org.hibernate.validator:hibernate-validator:6.0.17.Final" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.2.RELEASE" />
