@@ -17,7 +17,7 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <!-- 加载第三方框架配置属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:thirdFrameworkConfig.properties" />
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sdkConfig.properties" />
 
     <!-- 配置的视图解析器对象 -->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -61,6 +61,7 @@
 <!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
 <!--    <mvc:resources location="/fonts/" mapping="/fonts/**"/>-->
 <!--    <mvc:resources location="/plugins/" mapping="/plugins/**"/>-->
+<!--    <mvc:resources location="/file/" mapping="/file/**"/>-->
     <!-- 全部资源放行 -->
     <mvc:default-servlet-handler/>
 

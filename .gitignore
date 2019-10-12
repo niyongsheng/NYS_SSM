@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# 忽略编译文件
+/target/
+
 # Log file
 *.log
 

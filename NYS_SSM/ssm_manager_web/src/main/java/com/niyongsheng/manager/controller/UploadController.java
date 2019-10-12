@@ -1,5 +1,8 @@
 package com.niyongsheng.manager.controller;
 
+import com.niyongsheng.common.enums.ResponseStatusEnum;
+import com.niyongsheng.common.exception.ResponseException;
+import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.common.qiniu.QiniuUploadFileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,16 +27,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/upload")
 public class UploadController {
-    // 七牛云账号的ACCESS_KEY和SECRET_KEY
-    @Value("${Qiniu.accessKey}")
-    private String ACCESS_KEY;
-
-    @Value("${Qiniu.secretKey}")
-    private String SECRET_KEY;
-
-    // 存储空间
-    @Value("${Qiniu.bucketname}")
-    private String bucketname;
 
     @Autowired
     private QiniuUploadFileUtil qiniuUploadFileUtil;
@@ -45,25 +38,27 @@ public class UploadController {
 
     @RequestMapping("/qiniuUploadFile")
     @ResponseBody
-    public Map<String, String> qiniuUploadFile(MultipartFile file, HttpServletRequest request) throws IOException {
-        // 获取当前路径
-        String uploadPath = request.getSession().getServletContext().getRealPath("WEB-INF/classes/upload");
-        return qiniuUploadFileUtil.qiniuUpload(file, uploadPath);
+    public Map<String, Object> qiniuUploadFile(MultipartFile file, HttpServletRequest request) throws ResponseException {
+        
+        // 文件本地暂存绝对路径
+        String uploadPath = request.getSession().getServletContext().getRealPath("file");
+        
+        // 上传文件
+        Map<String, Object> resultMap = qiniuUploadFileUtil.qiniuUpload(file, uploadPath, true);
+
+        return resultMap;
     }
 
-    @RequestMapping("/qiniuUpload")
+    @RequestMapping("/serviceUpload")
     @ResponseBody
-    public Map<String, String> qiniuUpload(MultipartFile file, HttpServletRequest request) throws IOException {
+    public Map<String, Object> serviceUpload(MultipartFile file, HttpServletRequest request) throws ResponseException {
 
-        Map<String, String> map = new HashMap<String, String>();
-        if (!file.isEmpty()) {
-            // 获取当前路径
-            String uploadPath = request.getSession().getServletContext().getRealPath("WEB-INF/classes/upload");
-            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
-            String path = uploadPath + "\\" + fileName;
-            file.transferTo(new File(path));
-            map = qiniuUploadFileUtil.qiniuUpload(fileName, path);
-        }
-        return map;
+        // 文件本地暂存绝对路径
+        String uploadPath = request.getSession().getServletContext().getRealPath("file");
+        
+        // 上传文件
+        Map<String, Object> resultMap = qiniuUploadFileUtil.serviceUpload(file, uploadPath);
+
+        return resultMap;
     }
 }

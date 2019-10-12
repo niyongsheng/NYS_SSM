@@ -11,7 +11,7 @@
     <title>uploadFile</title>
 </head>
 <body>
-<form method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/upload/qiniuUploadFile">
+<form method="POST" enctype="multipart/form-data" action="${pageContext.request.contextPath}/upload/serviceUpload">
     <table>
         <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
         <tr><td></td><td><input type="submit" value="Upload" /></td></tr>

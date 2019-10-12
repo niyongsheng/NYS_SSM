@@ -2,7 +2,7 @@ package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.niyongsheng.application.utils.ArcSoftFaceRecognition;
+import com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.persistence.domain.User;
@@ -11,15 +11,12 @@ import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.MediaType;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author niyongsheng.com
@@ -66,46 +63,32 @@ public class UserController {
 
         // 3.包装分页对象
         PageInfo pageInfo = new PageInfo(list);
-
         model.addAttribute("pagingList", pageInfo);
 
-        // 4.包装返回体
-        Map<String, Object> respMap = new HashMap();
-        respMap.put("auth", "NYS");
-        respMap.put("list", pageInfo);
-
-        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+        // 4.返回分页对象
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, pageInfo);
     }
 
-    @ResponseBody
-    @RequestMapping(value = "/faceRecognition", method = RequestMethod.POST)
-    @ApiOperation(value = "人脸识别特征码提取接口", notes = "参数描述", hidden = false)
-    public ResponseDto faceRecognition(/*@ApiParam(value = "团契编号", required = true)
-                                       @RequestParam(value = "fellowship" ,required = true) String fellowship,
-                                       @ApiParam(value = "上传的人脸图片", required = true)
-                                       @RequestParam(value = "file" ,required = true) MultipartFile file,*/
-                                       HttpServletRequest request) {
-        Map<String, String> map = new HashMap();
-//        if (!file.isEmpty()) {
-//            String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF" + File.separator + "dib");
-//            String uploadPath = request.getSession().getServletContext().getRealPath("WEB-INF/classes/");
-//            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
-//            String filePath = uploadPath + fileName;
-//            try {
-//                file.transferTo(new File(filePath));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-            String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF" + File.separator + "dib");
-            String fp = request.getSession().getServletContext().getRealPath("img" + File.separator + "test.png");
-            map = faceRecognition.getFaceFeature(dibPath, fp);
-//        }
-        return new ResponseDto(ResponseStatusEnum.SUCCESS, map);
-    }
+
 
 
     public ResponseDto Register() {
 
+        /*SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
+        String timeText=format.format(new Date().getTime());*/
+
+
+        String time="2018-1-9 12:17:22";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        // 置要读取的时间字符串格式
+        Date date = null;
+        try {
+            date = format.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // 转换为Date类
+        Long timestamp=date.getTime();
 
         return new ResponseDto();
     }

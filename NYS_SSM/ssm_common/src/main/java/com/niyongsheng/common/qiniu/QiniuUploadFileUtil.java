@@ -1,5 +1,7 @@
 package com.niyongsheng.common.qiniu;
 
+import com.niyongsheng.common.enums.ResponseStatusEnum;
+import com.niyongsheng.common.exception.ResponseException;
 import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.Configuration;
@@ -42,119 +44,96 @@ public class QiniuUploadFileUtil {
 
 
     /**
-     * 上传文件
-     *
-     * @param file 文件
-     * @param uploadPath 当前路径
+     * 上传文件到七牛☁
+     * @param file 上传的文件
+     * @param uploadPath 上传路径
+     * @param isPersistSourceFile 是否保留缓存文件
      * @return
-     * @throws IOException
+     * @throws ResponseException
      */
-    public Map<String, String> qiniuUpload(MultipartFile file, String uploadPath) throws IOException {
-        // 上传到七牛后保存的文件名
-        String key;
-        // 上传文件的路径
-        String FilePath;
-        // 密钥配置
-        Auth auth = Auth.create(accessKey, secretKey);
-        // 创建上传对象
-        UploadManager uploadManager = new UploadManager(new Configuration());
-        // 获取upToken
-        String upToken = auth.uploadToken(bucketname);
-        // 开始时间
-        long startTime = System.currentTimeMillis();
-        String timeString = String.valueOf(startTime);
-        System.out.println("**upload**开始时间:" + startTime);
-        Map<String, String> map = new HashMap<String, String>();
-        System.out.println("**upload**文件名:" + file.getOriginalFilename());
-        System.out.println("**upload**路径:" + uploadPath);
+    public Map<String, Object> qiniuUpload(MultipartFile file, String uploadPath, Boolean isPersistSourceFile) throws ResponseException {
+        // 0.文件合法性验证
+        if (file.isEmpty()) {
+            throw new ResponseException(ResponseStatusEnum.IO_EMPTY_ERROR);
+        }
 
-        if (!file.isEmpty()) {
-            String fileName = timeString + file.getOriginalFilename();
-            String path = uploadPath + "\\" + fileName;
-            // 转存
-            file.transferTo(new File(path));
-            key = fileName;
-            FilePath = path;
-            // 上传到七牛
-            // 调用put方法
-            try {
-                Response response = uploadManager.put(FilePath, key, upToken);
-                System.out.println("**upload**response=" + response.bodyString());
-                map.put("state", "1");
-                map.put("info", "上传七牛成功");
-                map.put("fileName", fileName);
-                map.put("qiniuUrl", domain + "/" + fileName);
-                map.put("msg", response.toString());
-            } catch (QiniuException e) {
-                map.put("state", "0");
-                map.put("info", "上传七牛失败");
-                Response r = e.response;
-                map.put("msg", r.toString());
-                System.out.println("上传七牛异常=" + r.toString());
-            } finally {
-                // 上传七牛完成后删除本地文件
-                File deleteFile = new File(path, fileName);
+        // 1.密钥配置
+        Auth auth = Auth.create(accessKey, secretKey);
+        // 2.创建上传对象
+        UploadManager uploadManager = new UploadManager(new Configuration());
+        // 3.获取upToken
+        String upToken = auth.uploadToken(bucketname);
+
+        // 4.时间戳重命名图片并转存
+        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+        String filePath = uploadPath + File.separator + fileName;
+        try {
+            // 转存文件到服务器
+            file.transferTo(new File(filePath));
+        } catch (IOException e) {
+            throw new ResponseException(ResponseStatusEnum.IO_TRANSFER_ERROR);
+        }
+
+        // 5.上传到七牛☁️
+        Map<String, Object> map = new HashMap<>();
+        try {
+            Response response = uploadManager.put(filePath, fileName, upToken);
+            System.out.println("**upload**response=" + response.bodyString());
+            map.put("qiniuUrl", domain + "/" + fileName);
+            map.put("msg", response.toString());
+        } catch (QiniuException e) {
+            throw new ResponseException(ResponseStatusEnum.IO_QNUPLOAD_ERROR);
+        } finally {
+            // 上传七牛完成后判断是否删除本地缓存文件
+            if (!isPersistSourceFile) {
+                File deleteFile = new File(filePath);
                 if (deleteFile.exists()) {
                     deleteFile.delete();
                 }
             }
         }
-        // 结束时间
-        long endTime = System.currentTimeMillis();
-        System.out.println("**upload**结束时间:" + endTime);
-        System.out.println("**upload**用时:" + (endTime - startTime) + "ms");
+
+        // 6.返回上传结果
         return map;
     }
 
     /**
-     * 文件上传
-     * @param key 文件名
-     * @param FilePath 路径
+     * 文件上传到服务器
+     * @param file
+     * @param uploadPath
      * @return
      */
-    public Map<String, String> qiniuUpload(String key, String FilePath) {
-
-        // 密钥配置
-        Auth auth = Auth.create(accessKey, secretKey);
-        // 创建上传对象
-        UploadManager uploadManager = new UploadManager(new Configuration());
-        // 获取upToken
-        String upToken = auth.uploadToken(bucketname);
-        // 开始时间
-        long startTime = System.currentTimeMillis();
-        String timeString = String.valueOf(startTime);
-        System.out.println("**upload**开始时间:" + startTime);
-        Map<String, String> map = new HashMap<String, String>();
-        System.out.println("**upload**文件名:" + key);
-        System.out.println("**upload**路径:" + FilePath);
-
-        // 调用put方法上传到七牛云
-        try {
-            Response response = uploadManager.put(FilePath, key, upToken);
-            System.out.println("**upload**response=" + response.bodyString());
-            map.put("state", "1");
-            map.put("info", "上传七牛成功");
-            map.put("fileName", key);
-            map.put("qiniuUrl", domain + "/" + key);
-            map.put("msg", response.toString());
-        } catch (QiniuException e) {
-            map.put("state", "0");
-            map.put("info", "上传七牛失败");
-            Response r = e.response;
-            map.put("msg", r.toString());
-            System.out.println("上传七牛异常=" + r.toString());
-        } finally {
-            // 上传七牛完成后删除本地文件
-            File deleteFile = new File(FilePath, key);
-            if (deleteFile.exists()) {
-                deleteFile.delete();
-            }
+    public Map<String, Object> serviceUpload(MultipartFile file, String uploadPath) throws ResponseException {
+        // 0.文件合法性验证
+        if (file.isEmpty()) {
+            throw new ResponseException(ResponseStatusEnum.IO_EMPTY_ERROR);
         }
 
-        // 结束时间
+        // A>开始时间
+        long startTime = System.currentTimeMillis();
+        System.out.println("**upload**开始时间:" + startTime);
+
+        // 1.时间戳重命名图片并转存
+        Map<String, Object> map = new HashMap<>();
+        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+        String filePath = uploadPath + File.separator + fileName;
+
+        map.put("filename", fileName);
+        map.put("serviceUrl", filePath);
+
+        try {
+            // 转存文件到服务器
+            file.transferTo(new File(filePath));
+        } catch (IOException e) {
+            throw new ResponseException(ResponseStatusEnum.IO_TRANSFER_ERROR);
+        }
+
+        // E>结束时间
         long endTime = System.currentTimeMillis();
         System.out.println("**upload**结束时间:" + endTime);
         System.out.println("**upload**用时:" + (endTime - startTime) + "ms");
+
+        // 2.返回结果
         return map;
     }
 }
