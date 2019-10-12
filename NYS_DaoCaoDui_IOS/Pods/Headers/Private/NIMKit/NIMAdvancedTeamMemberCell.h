@@ -1,1 +1,0 @@
-../../../NIMKit/NIMKit/NIMKit/Classes/Sections/Team/View/NIMAdvancedTeamMemberCell.h

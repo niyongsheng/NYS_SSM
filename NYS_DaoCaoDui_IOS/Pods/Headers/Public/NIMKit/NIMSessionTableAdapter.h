@@ -1,1 +1,0 @@
-../../../NIMKit/NIMKit/NIMKit/Classes/Sections/Session/Object/NIMSessionTableAdapter.h

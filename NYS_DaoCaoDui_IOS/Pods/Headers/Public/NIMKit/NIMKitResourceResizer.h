@@ -1,1 +1,0 @@
-../../../NIMKit/NIMKit/NIMKit/Classes/Sections/Util/NIMKitResourceResizer.h

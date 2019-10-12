@@ -1,1 +1,0 @@
-../../../SGAdvertScrollView/SGAdvertScrollView/SGAdvertScrollView.h
