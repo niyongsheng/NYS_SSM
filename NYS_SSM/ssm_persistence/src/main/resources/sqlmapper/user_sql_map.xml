@@ -60,4 +60,16 @@
         </if>
     </select>
 
+    <select id="findByAccount" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT *
+        FROM dcd_user
+        WHERE account = #{account}
+    </select>
+
+    <select id="findByPhone" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT *
+        FROM dcd_user
+        WHERE phone = #{phone}
+    </select>
+
 </mapper>

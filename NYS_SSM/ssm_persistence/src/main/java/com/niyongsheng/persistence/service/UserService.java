@@ -41,11 +41,25 @@ public interface UserService {
     void deleteUser(String id);
 
     /**
-     * 查找用户
+     * 通过id查找用户
      * @param id
      * @return
      */
     User findUserById(String id);
+
+    /**
+     * 通过account查找用户
+     * @param account
+     * @return
+     */
+    User findUserByAccount(String account);
+
+    /**
+     * 通过phone查找用户
+     * @param phone
+     * @return
+     */
+    User findUserByPhone(String phone);
 
     /**
      * 修改用户

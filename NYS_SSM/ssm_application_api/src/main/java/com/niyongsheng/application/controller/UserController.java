@@ -3,19 +3,25 @@ package com.niyongsheng.application.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition;
+import com.niyongsheng.application.utils.JwtUtil;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
+import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
+import com.niyongsheng.common.utils.MD5Util;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserService;
+import com.sun.xml.internal.bind.v2.TODO;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.MediaType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -37,13 +43,55 @@ public class UserController {
     @Autowired
     private ArcSoftFaceRecognition faceRecognition;
 
-    /**
-     * 查询所有
-     * @param pageNum
-     * @param pageSize
-     * @param model
-     * @return
-     */
+
+    @ResponseBody
+    @RequestMapping(value="/login", method = RequestMethod.POST)
+    @ApiOperation(value = "用户登录接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "phone",value = "手机号", required = true),
+            @ApiImplicitParam(name = "password",value = "密码", required = true)
+    })
+    public ResponseDto<User> login(HttpServletRequest request,
+                              @RequestParam(value = "phone", required = true) String phone,
+                              @RequestParam(value = "password", required = true) String password
+    ) throws ResponseException {
+        // 1.参数封装
+        User loginUser = new User();
+        loginUser.setPhone(phone);
+        loginUser.setPassword(MD5Util.crypt(password));
+
+        // 2.先到数据库验证
+        User user = userService.findUserByPhone(phone);
+
+        // 3.JWT处理
+        if(user != null) {
+            if (!user.getPassword().equals(MD5Util.crypt(password))) {
+                throw new ResponseException(ResponseStatusEnum.AUTH_PASSWORD_ERROR);
+            }
+            // 3.1封装加密对象
+            HashMap<String, Object> cryptMap = new HashMap<>();
+            cryptMap.put("id", user.getId());
+            cryptMap.put("profession", user.getProfession());
+            cryptMap.put("status", user.getStatus());
+            cryptMap.put("fellowship", user.getFellowship());
+
+            // 3.2JWT加密生成token
+            String token = JwtUtil.encryption(cryptMap, 60L* 1000L* 30L);
+
+            // 3.3将token封装进User对象返回给客户端
+            user.setToken(token);
+
+            // 3.4将token存入数据库
+
+        } else {
+            throw new ResponseException(ResponseStatusEnum.AUTH_ACCOUNT_ERROR);
+        }
+
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, user);
+    }
+
+
+
     @ResponseBody
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有的用户信息并分页展示", notes = "参数描述", hidden = false)

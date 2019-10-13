@@ -51,4 +51,17 @@ public interface UserDao {
      */
     public List<User> findByFuzzySearch(@Param("nickname") String nickname, @Param("account") String account, @Param("phone") String phone);
 
+    /**
+     * 通过account查找用户
+     * @param account
+     * @return
+     */
+    User findByAccount(String account);
+
+    /**
+     * 通过phone查找用户
+     * @param phone
+     * @return
+     */
+    User findByPhone(String phone);
 }

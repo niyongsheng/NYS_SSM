@@ -47,6 +47,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserByAccount(String account) {
+        return userDao.findByAccount(account);
+    }
+
+    @Override
+    public User findUserByPhone(String phone) {
+        return userDao.findByPhone(phone);
+    }
+
+    @Override
     public void updateUser(User user) {
         userDao.update(user);
     }

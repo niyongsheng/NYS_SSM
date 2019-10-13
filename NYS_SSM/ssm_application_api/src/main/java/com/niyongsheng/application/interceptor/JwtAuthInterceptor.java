@@ -1,10 +1,16 @@
 package com.niyongsheng.application.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
+import com.niyongsheng.application.utils.JwtUtil;
+import com.niyongsheng.common.enums.ResponseStatusEnum;
+import com.niyongsheng.common.model.ResponseDto;
+import com.niyongsheng.persistence.domain.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 
 /**
  * @author niyongsheng.com
@@ -13,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @updateAuthor $
  * @updateDes
  */
-public class LoginVerifyInterceptor implements HandlerInterceptor {
+public class JwtAuthInterceptor implements HandlerInterceptor {
     /**
      * 预处理，在controller方法执行前
      * @param request
@@ -27,24 +33,40 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 获取请求的RUi:去除http:localhost:8080这部分剩下的
         String uri = request.getRequestURI();
-        // UTL:除了login.jsp是可以公开访问的，其他的URL都进行拦截控制
-        if (uri.contains("/login.jsp") || uri.contains("img/") || uri.contains("/css/") || uri.contains("/js/") || uri.contains("/fonts/") || uri.contains("/plugins/")) {
-            // 放行
+        if (uri.contains("/swagger") || uri.contains("/swagger-ui.html") || uri.contains("/csrf")) {
             return true;
         }
-        // 从session中获取user，验证用户是否登录
-       /* Object user = request.getSession().getAttribute("user");
-        if (user != null) {
-            // 放行
-            return true;
+
+        String token = request.getParameter("token");
+        // token不存在
+        if(token != null) {
+            User jwtUser = JwtUtil.decryption(token, User.class);
+            if(jwtUser != null) {
+               return true;
+            } else {
+                ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_EXPIRE_ERROR, null);
+                responseMessage(response, response.getWriter(), responseDto);
+                return false;
+            }
         } else {
-            System.out.println("preHandle:登录拦截方法执行了");
-            // 跳转登录
-            request.setAttribute("login_msg", "您尚未登录，请登录");
-            request.getRequestDispatcher("/user/logout").forward(request, response);
+            ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_NULL_ERROR, null);
+            responseMessage(response, response.getWriter(), responseDto);
             return false;
-        }*/
-        return true;
+        }
+    }
+
+    /**
+     * 请求不通过，返回错误信息给客户端
+     * @param response
+     * @param out
+     * @param responseDto
+     */
+    private void responseMessage(HttpServletResponse response, PrintWriter out, ResponseDto responseDto) {
+        response.setContentType("application/json; charset=utf-8");
+        String json = JSONObject.toJSONString(responseDto);
+        out.print(json);
+        out.flush();
+        out.close();
     }
 
      /**

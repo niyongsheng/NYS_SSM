@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ControllerAdvice
 public class ResponseExceptionHandler {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ResponseExceptionHandler.class);
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     /**
-     * 响应异常处理
+     * 响应体异常处理
      * @param exception
      * @return
      */

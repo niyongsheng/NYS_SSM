@@ -14,6 +14,25 @@ public enum ResponseStatusEnum {
     FAIL(false,5001,"失败"),
     UNKNOWN(null,4001,"未知"),
 
+    /* 文件读写错误 */
+    IO_EMPTY_ERROR(false,1001,"空文件"),
+    IO_TRANSFER_ERROR(false,1002,"文件转存失败"),
+    IO_QNUPLOAD_ERROR(false,1003,"文件上传云服务器失败"),
+    IO_IMGFORMAT_ERROR(false,1004,"非图片文件类型"),
+
+    /* 参数错误 */
+    PARAM_EMPTY_ERROR(false,3001,"参数为空"),
+    PARAM_FORMAT_ERROR(false,3001,"参数格式不正确"),
+
+    /* Auth错误 */
+    AUTH_ACCOUNT_ERROR(false,6001,"用户不存在"),
+    AUTH_PASSWORD_ERROR(false,6002,"密码错误"),
+    AUTH_ONCECODE_ERROR(false,6003,"验证码错误"),
+    AUTH_2PASSWORD_ERROR(false,6004,"密码不一致"),
+    AUTH_EXPIRE_ERROR(false,6005,"Token过期"),
+    AUTH_NULL_ERROR(false,6006,"Token不存在"),
+
+
     /* 人脸识别错误ASFR：ArcSoftFaceRecognition */
     ASFR_SYS_ERROR(false,7001,"人脸识别动态库不支持当前服务器系统环境,请部署到Linux或Windows环境。"),
     ASFR_ACTIVE_ERROR(false,7002,"人脸识别引擎激活失败"),
@@ -28,15 +47,6 @@ public enum ResponseStatusEnum {
 
     ASFR_PARAM_ERROR(false,7010,"特征码格式不正确"),
 
-    /* 文件读写错误 */
-    IO_EMPTY_ERROR(false,1001,"空文件"),
-    IO_TRANSFER_ERROR(false,1002,"文件转存失败"),
-    IO_QNUPLOAD_ERROR(false,1003,"文件上传云服务器失败"),
-    IO_IMGFORMAT_ERROR(false,1004,"非图片文件类型"),
-
-    /* 参数错误 */
-    PARAM_EMPTY_ERROR(false,2001,"参数为空"),
-    PARAM_FORMAT_ERROR(false,2001,"参数格式不正确"),
 
 
     /* 系统错误❌ */

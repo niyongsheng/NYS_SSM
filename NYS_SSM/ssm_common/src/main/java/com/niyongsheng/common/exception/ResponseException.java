@@ -11,7 +11,7 @@ import com.niyongsheng.common.enums.ResponseStatusEnum;
  */
 public class ResponseException extends Exception {
 
-    // 请求响应体状态枚举对象
+    // 请求响应体异常状态枚举对象
     private ResponseStatusEnum responseStatusEnum;
 
     @Override

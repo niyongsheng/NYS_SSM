@@ -19,9 +19,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @updateAuthor $
  * @updateDes
  */
-@Configuration       // 让Spring来加载该类配置
-@EnableWebMvc        // 启用Mvc，非springboot框架需要引入注解@EnableWebMvc
-@EnableSwagger2      // 启用Swagger2
+@Configuration
+@EnableWebMvc // 启用Mvc，非springboot框架需要引入
+@EnableSwagger2
 public class Swagger2Config {
 
     @Bean

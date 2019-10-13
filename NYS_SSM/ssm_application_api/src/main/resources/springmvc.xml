@@ -26,6 +26,9 @@
 <!--        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>-->
     </bean>
 
+    <!-- 静态资源放行 -->
+    <mvc:default-servlet-handler/>
+
     <!-- 配置登录验证拦截器对象 -->
     <mvc:interceptors>
         <!-- 拦截器1 -->
@@ -33,23 +36,23 @@
             <!-- 拦截方法 -->
             <mvc:mapping path="/**"/>
             <!-- 不拦截的方法 -->
+            <mvc:exclude-mapping path="/user/register"/>
             <mvc:exclude-mapping path="/user/login"/>
             <mvc:exclude-mapping path="/user/logout"/>
             <mvc:exclude-mapping path="/verification/**"/>
+            <!-- swagger放行-->
+            <mvc:exclude-mapping path="/swagger-resources/**"/>
+            <mvc:exclude-mapping path="/v2/**"/>
+            <mvc:exclude-mapping path="/swagger-ui.html#!/**"/>
             <!-- 拦截器对象1 -->
-            <bean class="com.niyongsheng.application.interceptor.LoginVerifyInterceptor"></bean>
+            <bean class="com.niyongsheng.application.interceptor.JwtAuthInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <!-- 配置异常处理器对象 -->
-<!--    <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.SysExceptionResolver"></bean>-->
     <!-- 配置七牛云上传工具对象 -->
     <bean id="qiniuUploadFileUtil" class="com.niyongsheng.common.qiniu.QiniuUploadFileUtil"></bean>
     <!-- 虹软人脸识别 -->
     <bean id="faceRecognition" class="com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition"></bean>
-
-    <!-- 静态资源放行 -->
-    <mvc:default-servlet-handler/>
 
     <!-- 配置自定义日期类型转换器 -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
@@ -68,24 +71,28 @@
             <bean class="org.durcframework.common.form.FormModelMethodArgumentResolver" />
         </mvc:argument-resolvers>-->
 
-<!--        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                <property name="objectMapper">
-                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
-                        &lt;!&ndash; 处理responseBody 里面日期类型 &ndash;&gt;
-                        <property name="dateFormat">
-                            <bean class="java.text.SimpleDateFormat">
-                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
-                            </bean>
-                        </property>
-                        &lt;!&ndash; 为null字段时不显示 &ndash;&gt;
-                        <property name="serializationInclusion">
-                            <value type="com.fasterxml.jackson.annotation.JsonInclude">NON_NULL</value>
-                        </property>
-                    </bean>
-                </property>
+        <mvc:message-converters>
+            <!-- @ResponseBody返回json数据时，解决乱码问题 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
             </bean>
-        </mvc:message-converters>-->
+<!--            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+<!--                <property name="objectMapper">-->
+<!--                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">-->
+<!--                        &lt;!&ndash; 处理responseBody 里面日期类型 &ndash;&gt;-->
+<!--                        <property name="dateFormat">-->
+<!--                            <bean class="java.text.SimpleDateFormat">-->
+<!--                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>-->
+<!--                            </bean>-->
+<!--                        </property>-->
+<!--                        &lt;!&ndash; 为null字段时不显示 &ndash;&gt;-->
+<!--                        <property name="serializationInclusion">-->
+<!--                            <value type="com.fasterxml.jackson.annotation.JsonInclude">NON_NULL</value>-->
+<!--                        </property>-->
+<!--                    </bean>-->
+<!--                </property>-->
+<!--            </bean>-->
+        </mvc:message-converters>
 
     </mvc:annotation-driven>
 

@@ -21,7 +21,7 @@ public class StringToDateConverter implements Converter<String,Date>{
         if(source == null){
             throw new RuntimeException("请您传入数据");
         }
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         try {
             // 把字符串转换日期
