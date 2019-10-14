@@ -1,4 +1,4 @@
-package com.niyongsheng.common.uuid;
+package com.niyongsheng.common.utils;
 
 import com.fasterxml.uuid.Generators;
 import com.fasterxml.uuid.impl.TimeBasedGenerator;

@@ -1,6 +1,8 @@
 package com.niyongsheng.application;
 
 import com.niyongsheng.common.utils.MD5Util;
+import com.niyongsheng.common.utils.MathUtils;
+import com.niyongsheng.common.utils.UUIDGenerator;
 import com.niyongsheng.persistence.domain.Account;
 import com.niyongsheng.persistence.service.AccountService;
 import com.niyongsheng.persistence.service.UserService;
@@ -11,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author niyongsheng.com
@@ -52,4 +55,21 @@ public class TestMyUtils {
         System.out.println(md5String);
     }
 
+    /**
+     * UUID测试
+     */
+    @Test
+    public void run3() throws Exception {
+        UUIDGenerator uuidGenerator = new UUIDGenerator();
+        UUID uuidv1 = uuidGenerator.getUUIDV1();
+        UUID uuidv4 = uuidGenerator.getUUIDV4();
+
+        System.out.println(uuidv1 + "\n" + uuidv4);
+    }
+
+    @Test
+    public void mathUtilTest() throws Exception {
+        String s = MathUtils.randomDigitNumber(7);
+        System.out.println("随机id" + s);
+    }
 }

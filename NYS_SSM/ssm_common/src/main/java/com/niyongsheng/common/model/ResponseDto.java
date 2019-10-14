@@ -87,4 +87,12 @@ public class ResponseDto<T> implements Serializable {
         this.version = statusEnum.getVersion();
         this.data = data;
     }
+
+    public ResponseDto(ResponseStatusEnum statusEnum) {
+        this.status = statusEnum.getStatus();
+        this.msg = statusEnum.getStatusInfo();
+        this.statusCode = statusEnum.getStatusCode();
+        this.version = statusEnum.getVersion();
+        this.data = null;
+    }
 }

@@ -36,13 +36,17 @@
             <!-- 拦截方法 -->
             <mvc:mapping path="/**"/>
             <!-- 不拦截的方法 -->
-            <mvc:exclude-mapping path="/user/register"/>
+            <mvc:exclude-mapping path="/user/phoneRegister"/>
+            <mvc:exclude-mapping path="/user/qqRegister"/>
+            <mvc:exclude-mapping path="/user/wcRegister"/>
             <mvc:exclude-mapping path="/user/login"/>
-            <mvc:exclude-mapping path="/user/logout"/>
-            <mvc:exclude-mapping path="/verification/**"/>
+            <mvc:exclude-mapping path="/user/getOnceCode"/>
             <!-- swagger放行-->
-            <mvc:exclude-mapping path="/swagger-resources/**"/>
+            <mvc:exclude-mapping path="/resources/**"/>
+            <mvc:exclude-mapping path="/webjars/**"/>
             <mvc:exclude-mapping path="/v2/**"/>
+            <mvc:exclude-mapping path="/swagger-resources/**"/>
+            <mvc:exclude-mapping path="/swagger-ui.html"/>
             <mvc:exclude-mapping path="/swagger-ui.html#!/**"/>
             <!-- 拦截器对象1 -->
             <bean class="com.niyongsheng.application.interceptor.JwtAuthInterceptor"></bean>
@@ -50,15 +54,19 @@
     </mvc:interceptors>
 
     <!-- 配置七牛云上传工具对象 -->
-    <bean id="qiniuUploadFileUtil" class="com.niyongsheng.common.qiniu.QiniuUploadFileUtil"></bean>
+    <bean id="qiniuUploadFileService" class="com.niyongsheng.common.qiniu.QiniuUploadFileService"></bean>
     <!-- 虹软人脸识别 -->
-    <bean id="faceRecognition" class="com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition"></bean>
+    <bean id="arcSoftFaceRecognition" class="com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition"></bean>
+    <!-- 七牛验证码工具对象 -->
+    <bean id="qiniuSMSService" class="com.niyongsheng.common.qiniu.QiniuSMSService"></bean>
+    <!-- 融云IM服务对象 -->
+    <bean id="rongCloudService" class="com.niyongsheng.common.rongCloud.RongCloudService"></bean>
 
     <!-- 配置自定义日期类型转换器 -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>
-                <bean class="com.niyongsheng.common.utils.StringToDateConverter"></bean>
+                <bean class="com.niyongsheng.common.date.StringToDateConverter"></bean>
             </set>
         </property>
     </bean>

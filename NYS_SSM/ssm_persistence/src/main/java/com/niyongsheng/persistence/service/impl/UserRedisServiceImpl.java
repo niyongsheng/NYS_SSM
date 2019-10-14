@@ -19,33 +19,43 @@ import org.springframework.util.StringUtils;
 @Service("userRedisService")
 public class UserRedisServiceImpl implements UserRedisService {
 
-    @Autowired
-    UserDao userDao;
+    private static final String USER = "user_";
 
     @Autowired
     RedisDao redisDao;
 
+    @Override
+    public User getUserById(String id) {
+        String userJson = redisDao.get(USER + id);
+        User user = new User();
+        if(!StringUtils.isEmpty(userJson)){
+            user = JacksonUtils.jsonToPojo(userJson, User.class);
+        }
+        return user;
+    }
 
     @Override
     public void insertUser(User user) {
-        String userJson = redisDao.get("user_" + user.getId());
-        if(StringUtils.isEmpty(userJson)){
-            redisDao.set("user_" + user.getId(), JacksonUtils.objectToJson(user));
+        String key = USER + user.getId();
+
+        redisDao.set(key, JacksonUtils.objectToJson(user));
+    }
+
+    @Override
+    public void insertUser(User user, long milliseconds) {
+        String key = USER + user.getId();
+        Boolean exists = redisDao.exists(key);
+        if (exists) {
+            redisDao.pexpire(key, milliseconds);
+        } else {
+            redisDao.set(key, JacksonUtils.objectToJson(user));
+            redisDao.pexpire(key, milliseconds);
         }
     }
 
     @Override
-    public User getUserById(String id) {
-        String userJson = redisDao.get("user_" + id);
-        User user = null;
-        if(StringUtils.isEmpty(userJson)){
-            user = userDao.find(Integer.valueOf(id));
-            // 不存在,设置
-            if(user != null)
-                redisDao.set("user_" + id, JacksonUtils.objectToJson(user));
-        }else{
-            user = JacksonUtils.jsonToPojo(userJson, User.class);
-        }
-        return user;
+    public Long del(User user) {
+        String key = USER + user.getId();
+        return redisDao.del(key);
     }
 }

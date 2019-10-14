@@ -1,20 +1,14 @@
 package com.niyongsheng.manager.controller;
 
-import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
-import com.niyongsheng.common.model.ResponseDto;
-import com.niyongsheng.common.qiniu.QiniuUploadFileUtil;
+import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -29,7 +23,7 @@ import java.util.Map;
 public class UploadController {
 
     @Autowired
-    private QiniuUploadFileUtil qiniuUploadFileUtil;
+    private QiniuUploadFileService qiniuUploadFileService;
 
     @RequestMapping("/uploadPage")
     public String javaUpload() {
@@ -44,7 +38,7 @@ public class UploadController {
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
         
         // 上传文件
-        Map<String, Object> resultMap = qiniuUploadFileUtil.qiniuUpload(file, uploadPath, true);
+        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(file, uploadPath, true);
 
         return resultMap;
     }
@@ -57,7 +51,7 @@ public class UploadController {
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
         
         // 上传文件
-        Map<String, Object> resultMap = qiniuUploadFileUtil.serviceUpload(file, uploadPath);
+        Map<String, Object> resultMap = qiniuUploadFileService.serviceUpload(file, uploadPath);
 
         return resultMap;
     }

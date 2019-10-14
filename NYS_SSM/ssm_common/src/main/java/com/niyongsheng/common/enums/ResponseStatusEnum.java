@@ -14,6 +14,12 @@ public enum ResponseStatusEnum {
     FAIL(false,5001,"失败"),
     UNKNOWN(null,4001,"未知"),
 
+    /* 成功 */
+    AUTH_LOGIN_SUCESS(true,2001,"登陆成功"),
+    AUTH_LOGOUT_SUCESS(true,2001,"登出成功"),
+    AUTH_REGISTER_SUCESS(true,2001,"注册成功"),
+    AUTH_ONCECODE_SUCESS(true,2001,"验证码已发送"),
+
     /* 文件读写错误 */
     IO_EMPTY_ERROR(false,1001,"空文件"),
     IO_TRANSFER_ERROR(false,1002,"文件转存失败"),
@@ -30,7 +36,11 @@ public enum ResponseStatusEnum {
     AUTH_ONCECODE_ERROR(false,6003,"验证码错误"),
     AUTH_2PASSWORD_ERROR(false,6004,"密码不一致"),
     AUTH_EXPIRE_ERROR(false,6005,"Token过期"),
-    AUTH_NULL_ERROR(false,6006,"Token不存在"),
+    AUTH_NULL_ERROR(false,6006,"Token或Account为空"),
+    AUTH_VERIFY_ERROR(false,6007,"Token验证失败"),
+    AUTH_STATUS_ERROR(false,6008,"用户已禁用,请联系管理员!"),
+    AUTH_REPEAT_ERROR(false,6009,"该手机号已注册"),
+    AUTH_UNLOGIN_ERROR(false,6010,"未登录"),
 
 
     /* 人脸识别错误ASFR：ArcSoftFaceRecognition */
@@ -47,7 +57,11 @@ public enum ResponseStatusEnum {
 
     ASFR_PARAM_ERROR(false,7010,"特征码格式不正确"),
 
+    /* 七牛云错误 */
+    QINIU_GETSMS_ERROR(false,8001,"获取验证码失败"),
 
+    /* 融云错误 */
+    RONGCLOUD_GETTOKEN_ERROR(false,9001,"获取融云token失败"),
 
     /* 系统错误❌ */
     SYS_ERROR(null,0,"系统错误");

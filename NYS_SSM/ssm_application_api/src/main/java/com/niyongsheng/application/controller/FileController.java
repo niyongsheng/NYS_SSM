@@ -3,7 +3,7 @@ package com.niyongsheng.application.controller;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
-import com.niyongsheng.common.qiniu.QiniuUploadFileUtil;
+import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -23,12 +23,12 @@ import java.util.Map;
  * @updateDes
  */
 @RestController
-@RequestMapping(value = "/upload", produces = MediaType.APPLICATION_JSON)
-@Api(value = "文件上传", produces = MediaType.APPLICATION_JSON)
-public class UploadController {
+@RequestMapping(value = "/file", produces = MediaType.APPLICATION_JSON)
+@Api(value = "文件处理", produces = MediaType.APPLICATION_JSON)
+public class FileController {
     
     @Autowired
-    private QiniuUploadFileUtil qiniuUploadFileUtil;
+    private QiniuUploadFileService qiniuUploadFileService;
 
     @ResponseBody
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
@@ -43,7 +43,7 @@ public class UploadController {
         // 文件本地暂存绝对路径
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
         // 上传文件
-        Map<String, Object> resultMap = qiniuUploadFileUtil.qiniuUpload(file, uploadPath, false);
+        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(file, uploadPath, false);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, resultMap);
     }

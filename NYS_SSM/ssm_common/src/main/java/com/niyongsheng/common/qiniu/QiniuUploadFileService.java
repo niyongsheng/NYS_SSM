@@ -24,7 +24,7 @@ import java.util.Map;
  * @updateDes
  */
 @Component
-public class QiniuUploadFileUtil {
+public class QiniuUploadFileService {
 
     // 七牛云ACCESS_KEY
     @Value("${Qiniu.accessKey}")

@@ -2,25 +2,120 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.UserDao">
 
-    <insert id="add" parameterType="com.niyongsheng.persistence.domain.User">
-        INSERT INTO user (account, truename, icon, grade, score, gender, phone, password, token, imToken, nickname, introduction, email, address, fellowship, profession, qqOpenid, wcOpenid}, status, gmtModify, gmtCreate)
-        VALUE
-        (#{account}, #{truename}, #{icon}, #{grade}, #{score}, #{gender}, #{phone}, #{password}, #{token}, #{imToken}, #{nickname}, #{introduction}, #{email}, #{address}, #{fellowship}, #{profession}, #{qqOpenid}, #{wcOpenid}, #{status}, #{gmtModify}, #{gmtCreate})
+    <insert id="add" parameterType="com.niyongsheng.persistence.domain.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO dcd_user (
+        <if test="account != null">account,</if>
+        <if test="truename != null">truename,</if>
+        <if test="icon != null">icon,</if>
+        <if test="grade != null">grade,</if>
+        <if test="score != null">score,</if>
+        <if test="gender != null">gender,</if>
+        <if test="phone != null">phone,</if>
+        <if test="password != null">password,</if>
+        <if test="token != null">token,</if>
+        <if test="imToken != null">imToken,</if>
+        <if test="nickname != null">nickname,</if>
+        <if test="introduction != null">introduction,</if>
+        <if test="email != null">email,</if>
+        <if test="address != null">address,</if>
+        <if test="fellowship != null">fellowship,</if>
+        <if test="profession != null">profession,</if>
+        <if test="qqOpenid != null">qqOpenid,</if>
+        <if test="wcOpenid != null">wcOpenid,</if>
+        <if test="status != null">status,</if>
+        gmtCreate
+        )
+        VALUES (
+        <if test="account != null">#{account},</if>
+        <if test="truename != null">#{truename},</if>
+        <if test="icon != null">#{icon},</if>
+        <if test="grade != null">#{grade},</if>
+        <if test="score != null">#{score},</if>
+        <if test="gender != null">#{gender},</if>
+        <if test="phone != null">#{phone},</if>
+        <if test="password != null">#{password},</if>
+        <if test="token != null">#{token},</if>
+        <if test="imToken != null">#{imToken},</if>
+        <if test="nickname != null">#{nickname},</if>
+        <if test="introduction != null">#{introduction},</if>
+        <if test="email != null">#{email},</if>
+        <if test="address != null">#{address},</if>
+        <if test="fellowship != null">#{fellowship},</if>
+        <if test="profession != null">#{profession},</if>
+        <if test="qqOpenid != null">#{qqOpenid},</if>
+        <if test="wcOpenid != null">#{wcOpenid},</if>
+        <if test="status != null">#{status},</if>
+        NOW()
+        )
     </insert>
 
     <delete id="delete">
         DELETE FROM dcd_user WHERE id = #{id}
     </delete>
 
-    <insert id="update" parameterType="com.niyongsheng.persistence.domain.User">
+    <update id="update" parameterType="com.niyongsheng.persistence.domain.User">
         UPDATE dcd_user
-        SET `account` = #{account},
+        SET
+        <if test="account != null">
+            account=#{account},
+        </if>
+        <if test="truename != null and truename != ''">
+            truename=#{truename},
+        </if>
+        <if test="icon != null">
+            icon=#{icon},
+        </if>
+        <if test="grade !=null">
+            grade=#{grade},
+        </if>
+        <if test="score != null">
+            score=#{score},
+        </if>
+        <if test="gender != null">
+            gender=#{gender},
+        </if>
+        <if test="phone !=null">
+            phone=#{phone},
+        </if>
+        <if test="password !=null">
+            password=#{password},
+        </if>
+        <if test="token !=null">
+            token=#{token},
+        </if>
+        <if test="imToken != null">
+            imToken=#{imToken},
+        </if>
+        <if test="nickname != null">
+            nickname=#{nickname},
+        </if>
+        <if test="introduction != null">
+            introduction=#{introduction},
+        </if>
+        <if test="email != null">
+            email=#{email},
+        </if>
+        <if test="address != null">
+            address=#{address},
+        </if>
+        <if test="fellowship != null">
+            fellowship=#{fellowship},
+        </if>
+        <if test="qqOpenid != null">
+            qqOpenid=#{qqOpenid},
+        </if>
+        <if test="wcOpenid != null">
+            wcOpenid=#{wcOpenid},
+        </if>
+        <if test="status != null">
+            status=#{status},
+        </if>
+        <if test="profession != null">
+            profession=#{profession},
+        </if>
+        gmtModify = NOW()
         WHERE id = #{id}
-
-        INSERT INTO user (account, truename, icon, grade, score, gender, phone, password, token, imToken, nickname, introduction, email, address, fellowship, profession, qqOpenid, wcOpenid}, status, gmtModify, gmtCreate)
-        VALUE
-        , #{truename}, #{icon}, #{grade}, #{score}, #{gender}, #{phone}, #{password}, #{token}, #{imToken}, #{nickname}, #{introduction}, #{email}, #{address}, #{fellowship}, #{profession}, #{qqOpenid}, #{wcOpenid}, #{status}, #{gmtModify}, #{gmtCreate})
-    </insert>
+    </update>
 
     <select id="find" parameterType="java.lang.Integer" resultType="com.niyongsheng.persistence.domain.User">
         SELECT *

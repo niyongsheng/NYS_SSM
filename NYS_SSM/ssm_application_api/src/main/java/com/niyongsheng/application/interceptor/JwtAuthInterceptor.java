@@ -5,6 +5,9 @@ import com.niyongsheng.application.utils.JwtUtil;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.persistence.domain.User;
+import com.niyongsheng.persistence.service.UserRedisService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,7 +22,14 @@ import java.io.PrintWriter;
  * @updateAuthor $
  * @updateDes
  */
+@Component
 public class JwtAuthInterceptor implements HandlerInterceptor {
+
+    private static final String USER = "user_";
+
+    @Autowired
+    private UserRedisService userRedisService;
+
     /**
      * 预处理，在controller方法执行前
      * @param request
@@ -31,18 +41,36 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        response.setCharacterEncoding("utf-8");
         // 获取请求的RUi:去除http:localhost:8080这部分剩下的
         String uri = request.getRequestURI();
-        if (uri.contains("/swagger") || uri.contains("/swagger-ui.html") || uri.contains("/csrf")) {
+        if (uri.contains("/index.jsp") || uri.contains("/csrf")) {
             return true;
         }
 
-        String token = request.getParameter("token");
-        // token不存在
-        if(token != null) {
+        String token = request.getHeader("Token");
+        String account = request.getHeader("Account");
+        // 判断是否携带AUTH信息
+        if(token != null && account != null) {
             User jwtUser = JwtUtil.decryption(token, User.class);
             if(jwtUser != null) {
-               return true;
+                if (!jwtUser.getStatus()) {
+                    ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_STATUS_ERROR, null);
+                    responseMessage(response, response.getWriter(), responseDto);
+                    return false;
+                }
+                if (jwtUser.getAccount().equals(account)) {
+                    if (userRedisService.getUserById(String.valueOf(jwtUser.getId())) == null) {
+                        ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_UNLOGIN_ERROR, null);
+                        responseMessage(response, response.getWriter(), responseDto);
+                        return false;
+                    }
+                    return true;
+                } else {
+                    ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_VERIFY_ERROR, null);
+                    responseMessage(response, response.getWriter(), responseDto);
+                    return false;
+                }
             } else {
                 ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_EXPIRE_ERROR, null);
                 responseMessage(response, response.getWriter(), responseDto);

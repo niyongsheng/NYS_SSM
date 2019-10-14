@@ -43,17 +43,34 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserById(String id) {
-        return userDao.find(Integer.valueOf(id));
+
+        try {
+            return userDao.find(Integer.valueOf(id));
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
     @Override
     public User findUserByAccount(String account) {
-        return userDao.findByAccount(account);
+
+        try {
+            return userDao.findByAccount(account);
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 
     @Override
     public User findUserByPhone(String phone) {
-        return userDao.findByPhone(phone);
+
+        try {
+            return userDao.findByPhone(phone);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override

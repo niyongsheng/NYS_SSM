@@ -36,7 +36,7 @@ public class FaceController {
     private UserService userService;
 
     @Autowired
-    private ArcSoftFaceRecognition faceRecognition;
+    private ArcSoftFaceRecognition arcSoftFaceRecognition;
 
     @ResponseBody
     @RequestMapping(value = "/getFaceFeature", method = RequestMethod.POST)
@@ -64,7 +64,7 @@ public class FaceController {
             throw new ResponseException(ResponseStatusEnum.IO_TRANSFER_ERROR);
         }
         // 调用人脸识别方法
-        List<Face> faceList = faceRecognition.getFaceFeature(dibPath, filePath);
+        List<Face> faceList = arcSoftFaceRecognition.getFaceFeature(dibPath, filePath);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, faceList);
     }
@@ -94,7 +94,7 @@ public class FaceController {
             throw new ResponseException(ResponseStatusEnum.IO_TRANSFER_ERROR);
         }
         // 调用人脸识别方法
-        List<Face> faceList = faceRecognition.getIRFaceFeature(dibPath, filePath);
+        List<Face> faceList = arcSoftFaceRecognition.getIRFaceFeature(dibPath, filePath);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, faceList);
     }
@@ -129,7 +129,7 @@ public class FaceController {
             throw new ResponseException(ResponseStatusEnum.IO_TRANSFER_ERROR);
         }
         // 调用人脸识别方法
-        Map resultMap = faceRecognition.compareFaceFeature(dibPath, filePath1, filePath2);
+        Map resultMap = arcSoftFaceRecognition.compareFaceFeature(dibPath, filePath1, filePath2);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, resultMap);
     }
@@ -150,7 +150,7 @@ public class FaceController {
         // 动态运行库绝对路径
         String dibPath = request.getSession().getServletContext().getRealPath("WEB-INF" + File.separator + "dib");
         // 调用人脸识别方法
-        Map resultMap = faceRecognition.compareFaceFeatureCode(dibPath, faceCode1, faceCode2);
+        Map resultMap = arcSoftFaceRecognition.compareFaceFeatureCode(dibPath, faceCode1, faceCode2);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, resultMap);
     }

@@ -16,10 +16,11 @@ import java.util.Map;
  */
 public class JwtUtil {
 
-    private static final String SECRET = "XX#$%()(#*!()!KL<><MQLMNQNQJQK sdfkjsdrow32234545fdf>?N<:{LWPW";
-
+    // 加盐
+    private static final String SECRET = "XX#$%()(#*!()!KL<><MQLMNQNQJQK_sdfkjsdrow32234545fdf>?N<:{LWPW";
+    // 过期时间
     private static final String EXP = "exp";
-
+    // 载荷JSON
     private static final String PAYLOAD = "payload";
 
     // 加密，传入一个对象和有效期
