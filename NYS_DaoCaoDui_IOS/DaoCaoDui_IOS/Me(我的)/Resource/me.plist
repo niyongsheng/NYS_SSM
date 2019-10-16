@@ -5,31 +5,11 @@
 	<array>
 		<dict>
 			<key>titleText</key>
-			<string>每日签到</string>
-			<key>detailText</key>
-			<string>99+</string>
-			<key>titleIcon</key>
-			<string>Me签到</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-		<dict>
-			<key>titleText</key>
-			<string>健康指数</string>
-			<key>detailText</key>
-			<string></string>
-			<key>titleIcon</key>
-			<string>Me健康</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-		<dict>
-			<key>titleText</key>
 			<string>我的收藏</string>
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
-			<string>Me收藏</string>
+			<string>icon_me_service_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>
@@ -39,7 +19,7 @@
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
-			<string>Me订单</string>
+			<string>icon_me_home_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>
@@ -47,65 +27,21 @@
 	<array>
 		<dict>
 			<key>titleText</key>
-			<string>我的预约</string>
+			<string>设置</string>
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
-			<string>Me预约</string>
+			<string>icon_me_setting_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>
-		<dict>
-			<key>titleText</key>
-			<string>我的保修</string>
-			<key>detailText</key>
-			<string></string>
-			<key>titleIcon</key>
-			<string>Me报修</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-		<dict>
-			<key>titleText</key>
-			<string>我的投诉</string>
-			<key>detailText</key>
-			<string></string>
-			<key>titleIcon</key>
-			<string>Me投诉</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>titleText</key>
-			<string>社区活动</string>
-			<key>detailText</key>
-			<string></string>
-			<key>titleIcon</key>
-			<string>Me社区</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-		<dict>
-			<key>titleText</key>
-			<string>我的房产</string>
-			<key>detailText</key>
-			<string>2</string>
-			<key>titleIcon</key>
-			<string>Me房产</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-	</array>
-	<array>
 		<dict>
 			<key>titleText</key>
 			<string>分享</string>
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
-			<string>Me分享</string>
+			<string>icon_me_help_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>
@@ -113,9 +49,9 @@
 			<key>titleText</key>
 			<string>关于</string>
 			<key>detailText</key>
-			<string>V1.0</string>
+			<string></string>
 			<key>titleIcon</key>
-			<string>Me关于</string>
+			<string>icon_me_about_22x22_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>

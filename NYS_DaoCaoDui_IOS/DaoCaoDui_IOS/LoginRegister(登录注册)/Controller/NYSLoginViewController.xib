@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,18 +21,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3F1-Rq-HsT">
-                    <rect key="frame" x="50" y="200" width="231.5" height="123"/>
+                    <rect key="frame" x="50" y="150" width="233" height="123"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly Create An App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guY-XO-O3v">
-                            <rect key="frame" x="8" y="8" width="180" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="塑造生命 成就使命" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guY-XO-O3v">
+                            <rect key="frame" x="8" y="8" width="143" height="21"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <color key="textColor" red="0.59994590282440186" green="0.60003471374511719" blue="0.5999264121055603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU1-3c-9BD">
-                            <rect key="frame" x="8" y="29" width="215.5" height="86"/>
-                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="72"/>
-                            <color key="textColor" red="0.13800147175788879" green="0.75592964887619019" blue="0.9898187518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="稻草堆" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU1-3c-9BD">
+                            <rect key="frame" x="8" y="29" width="217" height="86"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
+                            <color key="textColor" red="0.99289804699999995" green="0.14694470170000001" blue="0.29633250830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -50,7 +48,7 @@
                     <viewLayoutGuide key="safeArea" id="Dmj-OP-nYg"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7B7-ID-Fnr">
-                    <rect key="frame" x="50" y="323" width="275" height="153.5"/>
+                    <rect key="frame" x="50" y="273" width="275" height="161.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uky-0d-iWm">
                             <rect key="frame" x="8" y="8" width="82" height="21"/>
@@ -59,20 +57,18 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18853936112" borderStyle="roundedRect" placeholder="请输入账号" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UcF-EB-hFB">
-                            <rect key="frame" x="8" y="37" width="259" height="30"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="8" y="37" width="259" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" textContentType="username"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cm9-tv-HR8">
-                            <rect key="frame" x="8" y="87" width="77.5" height="20.5"/>
+                            <rect key="frame" x="8" y="91" width="77.5" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JU5-r1-7y0">
-                            <rect key="frame" x="8" y="115.5" width="259" height="30"/>
-                            <nil key="textColor"/>
+                            <rect key="frame" x="8" y="119.5" width="259" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
@@ -94,21 +90,21 @@
                     <viewLayoutGuide key="safeArea" id="Xe8-M5-pRN"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liO-37-f31">
-                    <rect key="frame" x="142.5" y="536.5" width="90" height="42"/>
+                    <rect key="frame" x="142.5" y="494.5" width="90" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="EcP-Mn-iNh"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="ldg-3Q-Ffk"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                     <state key="normal" title="Sign In">
-                        <color key="titleColor" red="0.13800147175788879" green="0.75592964887619019" blue="0.9898187518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.99289804699999995" green="0.14694470170000001" blue="0.29633250830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="Login:" destination="-1" eventType="touchUpInside" id="DVT-Es-dlI"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-7y-1ai">
-                    <rect key="frame" x="63" y="476.5" width="109" height="33"/>
+                    <rect key="frame" x="63" y="434.5" width="109" height="33"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <state key="normal" title="Forget PWD ?">
                         <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -118,17 +114,17 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ida-t8-SQH">
-                    <rect key="frame" x="228" y="476.5" width="89" height="33"/>
+                    <rect key="frame" x="228" y="434.5" width="89" height="33"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                     <state key="normal" title="Register&gt;&gt;">
-                        <color key="titleColor" red="0.13800147175788879" green="0.75592964887619019" blue="0.9898187518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.99289804699999995" green="0.14694470170000001" blue="0.29633250830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="regist:" destination="-1" eventType="touchUpInside" id="jv0-Pz-rc7"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgi-Uz-cVB">
-                    <rect key="frame" x="87.5" y="608.5" width="200" height="45"/>
+                    <rect key="frame" x="87.5" y="566.5" width="200" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dj5-JN-kzi" userLabel="qq">
                             <rect key="frame" x="143" y="6.5" width="32" height="32"/>
@@ -165,8 +161,8 @@
                         <constraint firstAttribute="width" constant="200" id="uJe-PP-tG0"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="3L3-CT-Qpu">
-                    <rect key="frame" x="50" y="100" width="100" height="100"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_60x60" translatesAutoresizingMaskIntoConstraints="NO" id="3L3-CT-Qpu">
+                    <rect key="frame" x="50" y="50" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="MZN-E5-Us6"/>
                         <constraint firstAttribute="width" secondItem="3L3-CT-Qpu" secondAttribute="height" multiplier="1:1" id="rWq-8P-3vh"/>
@@ -180,7 +176,7 @@
                 <constraint firstItem="7B7-ID-Fnr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BPn-on-mEW"/>
                 <constraint firstItem="Mgi-Uz-cVB" firstAttribute="top" secondItem="liO-37-f31" secondAttribute="bottom" constant="30" id="IOv-rO-sKD"/>
                 <constraint firstItem="Mgi-Uz-cVB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="L76-mt-Isf"/>
-                <constraint firstItem="3F1-Rq-HsT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="NKF-mY-6Gg"/>
+                <constraint firstItem="3F1-Rq-HsT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="NKF-mY-6Gg"/>
                 <constraint firstItem="Ida-t8-SQH" firstAttribute="top" secondItem="7B7-ID-Fnr" secondAttribute="bottom" id="Q7G-uR-grr"/>
                 <constraint firstItem="3F1-Rq-HsT" firstAttribute="top" secondItem="3L3-CT-Qpu" secondAttribute="bottom" id="Qzi-6k-blp"/>
                 <constraint firstItem="Ida-t8-SQH" firstAttribute="trailing" secondItem="JU5-r1-7y0" secondAttribute="trailing" id="RQz-TZ-N3d"/>
@@ -198,7 +194,7 @@
     </objects>
     <resources>
         <image name="QQ_helight" width="32" height="32"/>
-        <image name="logo.png" width="200" height="199"/>
+        <image name="logo_60x60" width="180" height="180"/>
         <image name="qq.png" width="32" height="32"/>
         <image name="wechat.png" width="32" height="32"/>
         <image name="weixin_helight" width="32" height="28"/>

@@ -22,18 +22,15 @@ target 'DaoCaoDui_IOS' do
     pod 'IQKeyboardManager'
     pod 'JVFloatLabeledTextField'
 
-#    pod 'RongCloudIM'   # 融云IM
-#    pod 'UMCPush'       # 友盟推送
-    pod 'NIMKit'         # 云信IM
-    pod 'JPush'          # 极光推送
+    pod 'RongCloudIM', '~> 2.9.25'
+    pod 'RongCloudRTC', '~> 2.9.25'
+    pod 'JPush'
 
     # 友盟分享
     pod 'UMCCommon'
     pod 'UMCShare/UI'
-    pod 'UMCCommonLog'       # 日志输出
-    pod 'UMCSecurityPlugins' # 安全插件
-    # 友盟移动统计
-    pod 'UMCCommon'
+    pod 'UMCCommonLog'
+
     pod 'UMCAnalytics'
     pod 'UMCErrorCatch'
     

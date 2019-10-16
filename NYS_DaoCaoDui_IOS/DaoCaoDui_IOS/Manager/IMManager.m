@@ -7,11 +7,11 @@
 //
 
 #import "IMManager.h"
-#import <NIMSDK/NIMSDK.h>
-#import <NIMSessionPrivateProtocol.h>
+#import <RongIMKit/RongIMKit.h>
+#import "NYSChatDataSource.h"
 
-@interface IMManager () <NIMLoginManagerDelegate, NIMChatManagerDelegate>
-//@property (nonatomic, strong) NIMSessionLayoutDelegate sdkConfigDelegate;
+@interface IMManager ()
+
 @end
 
 @implementation IMManager
@@ -19,65 +19,66 @@
 SINGLETON_FOR_CLASS(IMManager);
 
 #pragma mark —- 初始化IM -—
-- (void)initIM {
-    // 在注册 NIMSDK appKey 之前先进行配置信息的注册，如是否使用新路径,是否要忽略某些通知，是否需要多端同步未读数
-//    self.sdkConfigDelegate = [[NIMSessionLayoutDelegate alloc] init];
-//    [[NIMSDKConfig sharedConfig] setDelegate:self.sdkConfigDelegate];
-    [[NIMSDKConfig sharedConfig] setShouldSyncUnreadCount:YES];
-    [[NIMSDKConfig sharedConfig] setMaxAutoLoginRetryTimes:10];
-    
-    [[[NIMSDK sharedSDK] loginManager] addDelegate:self];
-    [[[NIMSDK sharedSDK] chatManager] addDelegate:self];
-    
-    [[NIMSDK sharedSDK] registerWithAppID:NIMAppKey
-                                  cerName:NIMPushCerName];
+- (void)initRongCloudIM {
+    [[RCIM sharedRCIM] initWithAppKey:RCAPPKEY];
+
+    // 设置优先使用WebView打开URL
+    [RCIM sharedRCIM].embeddedWebViewPreferred = YES;
+    // 开启用户信息和群组信息的持久化
+    [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
+    // 开启输入状态提醒
+    [RCIM sharedRCIM].enableTypingStatus = YES;
+    // 开启消息撤回功能
+    [RCIM sharedRCIM].enableMessageRecall = YES;
+    // 选择媒体资源时，包含视频文件
+    [RCIM sharedRCIM].isMediaSelectorContainVideo = YES;
+    // 设置头像为圆形
+    [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
+    [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
+    // 离线历史消息（30天）
+    [[RCIMClient sharedRCIMClient] setOfflineMessageDuration:30 success:^{
+        
+    } failure:^(RCErrorCode nErrorCode) {
+        
+    }];
 }
 
 #pragma mark —- IM登录 --
-- (void)IMLogin:(NSString *)IMID IMPwd:(NSString *)IMPwd completion:(loginBlock)completion{
-    [[[NIMSDK sharedSDK] loginManager] login:IMID token:IMPwd completion:^(NSError * _Nullable error) {
-        if (!error) {
-            if (completion) {
-                completion(YES, nil);
-            }
-        } else {
-            if (completion) {
-                completion(NO, error.localizedDescription);
-            }
-        }
+- (void)IMLoginwithCurrentUserInfo:(UserInfo *)currentUserInfo completion:(loginBlock)completion {
+//    [self initRongCloudIM];
+    
+    [[RCIM sharedRCIM] connectWithToken:currentUserInfo.imToken success:^(NSString *userId) {
+        NLog(@"登陆成功。当前登录的用户ID：%@", userId);
+        // 用户信息提供者
+        [RCIM sharedRCIM].userInfoDataSource = [NYSChatDataSource shareInstance];
+        [RCIM sharedRCIM].groupInfoDataSource = [NYSChatDataSource shareInstance];
+        
+        RCUserInfo *RCCurrentUserInfo = [[RCUserInfo alloc] init];
+        RCCurrentUserInfo.name = currentUserInfo.nickname;
+        RCCurrentUserInfo.portraitUri = currentUserInfo.icon;
+        RCCurrentUserInfo.userId = currentUserInfo.account;
+        RCCurrentUserInfo.extra = nil;
+        
+        // 设置当前登录的用户的用户信息
+        [[RCIM sharedRCIM] setCurrentUserInfo:RCCurrentUserInfo];
+        
+    } error:^(RCConnectErrorCode status) {
+        NLog(@"IM登陆的错误码为:%ld", status);
+    } tokenIncorrect:^{
+        // token过期或者不正确。
+        // 如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+        // 如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+        NLog(@"token错误");
     }];
 }
+
 #pragma mark —- IM退出 —-
 - (void)IMLogout {
-    [[[NIMSDK sharedSDK] loginManager] logout:^(NSError * _Nullable error) {
-        if (!error) {
-            NLog(@"IM 退出成功");
-        }else{
-            NLog(@"IM 退出失败 %@", error.localizedDescription);
-        }
-    }];
+    [[RCIM sharedRCIM] logout];
+    [[RCIMClient sharedRCIMClient] disconnect:NO];
 }
 
-- (void)onKick:(NIMKickReason)code clientType:(NIMLoginClientType)clientType {
-    NSString *reason = @"你被踢下线";
-    switch (code) {
-        case NIMKickReasonByClient:
-        case NIMKickReasonByClientManually:{
-            reason = @"你的帐号被踢出下线，请注意帐号信息安全";
-            break;
-        }
-        case NIMKickReasonByServer:
-            reason = @"你被服务器踢下线";
-            break;
-        default:
-            break;
-    }
-    NPostNotification(NNotificationOnKick, nil);
-}
-
-#pragma mark —- 代理 收到新消息 --
-- (void)onRecvMessages:(NSArray<NIMMessage *> *)messages {
-    NLog(@"收到新消息");
-}
+#pragma mark - 被踢下线处理
+// NPostNotification(NNotificationOnKick, nil);
 
 @end

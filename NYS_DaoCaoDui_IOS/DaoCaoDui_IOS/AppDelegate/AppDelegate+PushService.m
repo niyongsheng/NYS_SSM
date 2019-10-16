@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate+PushService.h"
+#import <RongIMKit/RongIMKit.h>
 #import <JPUSHService.h>
 #import <AdSupport/AdSupport.h>
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -28,6 +29,17 @@
         // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
     }
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    /**
+     * 3、融云推送处理1
+     */
+    // 注册推送, 用于iOS8以及iOS8之后的系统
+//    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:
+//                                            (UIUserNotificationTypeBadge |
+//                                             UIUserNotificationTypeSound |
+//                                             UIUserNotificationTypeAlert) categories:nil];
+//    [application registerUserNotificationSettings:settings];
+//    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
 }
 
 - (void)initJpush:(NSDictionary *)launchOptions {
@@ -58,6 +70,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     //Optional
     NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
+
+#pragma mark- RongCloudRegisterDelegate
+//- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left {
+//
+//}
 
 #pragma mark- JPUSHRegisterDelegate
 // iOS 12 Support

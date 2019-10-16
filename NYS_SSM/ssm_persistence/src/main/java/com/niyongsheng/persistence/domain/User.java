@@ -69,6 +69,9 @@ public class User implements Serializable{
     @ApiModelProperty(value = "1有效0失效")
     private Boolean status;
 
+    @ApiModelProperty(value = "生日")
+    private java.util.Date birthday;
+
     @ApiModelProperty(value = "修改时间")
     private java.util.Date gmtModify;
 
@@ -97,7 +100,8 @@ public class User implements Serializable{
                 ", profession=" + profession +
                 ", qqOpenid='" + qqOpenid + '\'' +
                 ", wcOpenid='" + wcOpenid + '\'' +
-                ", status='" + status + '\'' +
+                ", status=" + status +
+                ", birthday=" + birthday +
                 ", gmtModify=" + gmtModify +
                 ", gmtCreate=" + gmtCreate +
                 '}';
@@ -111,6 +115,7 @@ public class User implements Serializable{
         this.id = id;
     }
 
+
     public String getAccount() {
         return account;
     }
@@ -118,6 +123,7 @@ public class User implements Serializable{
     public void setAccount(String account) {
         this.account = account;
     }
+
 
     public String getTruename() {
         return truename;
@@ -127,6 +133,7 @@ public class User implements Serializable{
         this.truename = truename;
     }
 
+
     public String getIcon() {
         return icon;
     }
@@ -134,6 +141,7 @@ public class User implements Serializable{
     public void setIcon(String icon) {
         this.icon = icon;
     }
+
 
     public Integer getGrade() {
         return grade;
@@ -143,6 +151,7 @@ public class User implements Serializable{
         this.grade = grade;
     }
 
+
     public Double getScore() {
         return score;
     }
@@ -150,6 +159,7 @@ public class User implements Serializable{
     public void setScore(Double score) {
         this.score = score;
     }
+
 
     public String getGender() {
         return gender;
@@ -159,6 +169,7 @@ public class User implements Serializable{
         this.gender = gender;
     }
 
+
     public String getPhone() {
         return phone;
     }
@@ -166,6 +177,7 @@ public class User implements Serializable{
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 
     public String getPassword() {
         return password;
@@ -175,6 +187,7 @@ public class User implements Serializable{
         this.password = password;
     }
 
+
     public String getToken() {
         return token;
     }
@@ -182,6 +195,7 @@ public class User implements Serializable{
     public void setToken(String token) {
         this.token = token;
     }
+
 
     public String getImToken() {
         return imToken;
@@ -191,6 +205,7 @@ public class User implements Serializable{
         this.imToken = imToken;
     }
 
+
     public String getNickname() {
         return nickname;
     }
@@ -198,6 +213,7 @@ public class User implements Serializable{
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
+
 
     public String getIntroduction() {
         return introduction;
@@ -207,6 +223,7 @@ public class User implements Serializable{
         this.introduction = introduction;
     }
 
+
     public String getEmail() {
         return email;
     }
@@ -214,6 +231,7 @@ public class User implements Serializable{
     public void setEmail(String email) {
         this.email = email;
     }
+
 
     public String getAddress() {
         return address;
@@ -223,6 +241,7 @@ public class User implements Serializable{
         this.address = address;
     }
 
+
     public Integer getFellowship() {
         return fellowship;
     }
@@ -230,6 +249,7 @@ public class User implements Serializable{
     public void setFellowship(Integer fellowship) {
         this.fellowship = fellowship;
     }
+
 
     public Integer getProfession() {
         return profession;
@@ -239,6 +259,7 @@ public class User implements Serializable{
         this.profession = profession;
     }
 
+
     public String getQqOpenid() {
         return qqOpenid;
     }
@@ -246,6 +267,7 @@ public class User implements Serializable{
     public void setQqOpenid(String qqOpenid) {
         this.qqOpenid = qqOpenid;
     }
+
 
     public String getWcOpenid() {
         return wcOpenid;
@@ -255,6 +277,7 @@ public class User implements Serializable{
         this.wcOpenid = wcOpenid;
     }
 
+
     public Boolean getStatus() {
         return status;
     }
@@ -263,19 +286,30 @@ public class User implements Serializable{
         this.status = status;
     }
 
-    public Date getGmtModify() {
+
+    public java.util.Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(java.util.Date birthday) {
+        this.birthday = birthday;
+    }
+
+
+    public java.util.Date getGmtModify() {
         return gmtModify;
     }
 
-    public void setGmtModify(Date gmtModify) {
+    public void setGmtModify(java.util.Date gmtModify) {
         this.gmtModify = gmtModify;
     }
 
-    public Date getGmtCreate() {
+
+    public java.util.Date getGmtCreate() {
         return gmtCreate;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
+    public void setGmtCreate(java.util.Date gmtCreate) {
         this.gmtCreate = gmtCreate;
     }
 }

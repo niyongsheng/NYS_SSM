@@ -57,9 +57,11 @@
     
     [NUserManager login:NUserLoginTypePwd params:@{@"phone":_account.text, @"password":_password.text} completion:^(BOOL success, id description) {
         if (success) {
+            [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+            [SVProgressHUD dismissWithDelay:1.f];
             NPostNotification(NNotificationLoginStateChange, @YES)
         } else {
-            [MBProgressHUD showErrorMessage:description];
+//            [MBProgressHUD showErrorMessage:description];
         }
     }];
 }

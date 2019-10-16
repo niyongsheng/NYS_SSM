@@ -30,21 +30,27 @@ SINGLETON_FOR_CLASS(UserManager);
     [self login:loginType params:nil completion:completion];
 }
 
-#pragma mark -- 带参数登录 --
+#pragma mark -- 登录类型分发 --
 - (void)login:(UserLoginType)loginType params:(NSDictionary *)params completion:(loginBlock)completion {
-    self.loginType = loginType;
-    // 友盟登录类型
-    UMSocialPlatformType platFormType;
-    if (loginType == NUserLoginTypeQQ) {
-        platFormType = UMSocialPlatformType_QQ;
-    } else if (loginType == NUserLoginTypeWeChat){
-        platFormType = UMSocialPlatformType_WechatSession;
-    } else {
-        platFormType = UMSocialPlatformType_UnKnown;
-    }
     
-    // 第三方登录 + 传参
-    if (loginType != NUserLoginTypePwd) {
+    if (loginType == NUserLoginTypePwd) {
+        // 账号登录
+        [self loginToServer:loginType params:params completion:completion];
+    } else {
+        // 友盟登录类型
+        UMSocialPlatformType platFormType;
+        switch (loginType) {
+            case NUserLoginTypeQQ:
+                platFormType = UMSocialPlatformType_QQ;
+                break;
+            case NUserLoginTypeWeChat:
+                platFormType = UMSocialPlatformType_WechatSession;
+                break;
+            default:
+                platFormType = UMSocialPlatformType_UnKnown;
+                break;
+        }
+        
         [MBProgressHUD showActivityMessageInView:@"授权中..."];
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:platFormType currentViewController:nil completion:^(id result, NSError *error) {
             if (error) {
@@ -65,27 +71,25 @@ SINGLETON_FOR_CLASS(UserManager);
                 NLog(@"QQ gender: %@", resp.unionGender);
                 // 第三方平台SDK源数据
                 NLog(@"QQ originalResponse: %@", resp.originalResponse);
-
+                
                 NSDictionary *params = @{@"openid":resp.openid,
                                          @"nickname":resp.name,
                                          @"headimgurl":resp.iconurl,
                                          @"sex":[resp.unionGender isEqualToString:@"男"]?@1:@2,
                                          @"cityname":resp.originalResponse[@"city"]};
-                [self loginToServer:params completion:completion];
+                [self loginToServer:loginType params:params completion:completion];
             }
         }];
-    } else { // 账号登录
-        [self loginToServer:params completion:completion];
     }
 }
 
 #pragma mark —- 手动登录到服务器 —-
-- (void)loginToServer:(NSDictionary *)params completion:(loginBlock)completion {
+- (void)loginToServer:(UserLoginType)loginType params:(NSDictionary *)params completion:(loginBlock)completion {
 //    [MBProgressHUD showActivityMessageInView:@"登录中..."];
     
-    switch (self.loginType) {
+    switch (loginType) {
         case NUserLoginTypePwd: {
-            [NYSRequest getLoginWithParameters:params success:^(id response) {
+            [NYSRequest getLoginWithResMethod:POST parameters:params success:^(id response) {
                 [self LoginSuccess:response completion:completion];
             } failure:^(NSError *error) {
                 if (completion) {
@@ -135,51 +139,17 @@ SINGLETON_FOR_CLASS(UserManager);
 }
 
 #pragma mark —- 登录成功处理 —-
-- (void)LoginSuccess:(id )responseObject completion:(loginBlock)completion {
-//    NPostNotification(NNotificationLoginStateChange, @YES);
-    if (ValidDict(responseObject)) {
-        if (ValidDict(responseObject[@"returnValue"])) {
-            NSDictionary *data = responseObject[@"returnValue"];
-//            if (ValidStr(data[@"account"]) && ValidStr(data[@"yunxinToken"])) {
-//                // 登录IM
-//                [[IMManager sharedIMManager] IMLogin:data[@"account"] IMPwd:data[@"yunxinToken"] completion:^(BOOL success, NSString *des) {
-//                    [MBProgressHUD hideHUD];
-//                    if (success) {
-//                        self.currentUserInfo = [UserInfo modelWithDictionary:data];
-//                        [self saveUserInfo];
-//                        self.isLogined = YES;
-//                        if (completion) {
-//                            completion(YES, nil);
-//                        }
-//                        NPostNotification(NNotificationLoginStateChange, @YES);
-//                    } else {
-//                        if (completion) {
-//                            completion(NO, @"IM登录失败");
-//                        }
-//                        NPostNotification(NNotificationLoginStateChange, @NO);
-//                    }
-//                }];
-//            } else {
-//                if (completion) {
-//                    completion(NO, @"登录返回IM数据异常");
-//                }
-//                NPostNotification(NNotificationLoginStateChange, @NO);
-//            }
-            
-            self.currentUserInfo = [UserInfo modelWithDictionary:data];
-            [self saveUserInfo];
-            self.isLogined = YES;
-            if (completion) {
-                completion(YES, nil);
-            }
-            NPostNotification(NNotificationLoginStateChange, @YES);
-        }
-    } else {
-        if (completion) {
-            completion(NO, @"登录服务器返回数据异常");
-        }
-        NPostNotification(NNotificationLoginStateChange, @NO);
-    }
+- (void)LoginSuccess:(id)responseObject completion:(loginBlock)completion {
+    NPostNotification(NNotificationLoginStateChange, @YES);
+    NSDictionary *data = responseObject[@"data"];
+    self.currentUserInfo = [UserInfo modelWithDictionary:data];
+    
+    // 登录IM
+    [[IMManager sharedIMManager] IMLoginwithCurrentUserInfo:self.currentUserInfo completion:^(BOOL success, id  _Nullable description) {
+        
+    }];
+    [self saveUserInfo];
+    self.isLogined = YES;
 }
 
 #pragma mark —- 储存用户信息 —-
@@ -209,6 +179,9 @@ SINGLETON_FOR_CLASS(UserManager);
 
 #pragma mark -- 退出登录 --
 - (void)logout:(void (^)(BOOL, id))completion {
+    [[IMManager sharedIMManager] IMLogout];
+    
+    // 清除APP角标
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];
     

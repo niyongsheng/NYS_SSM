@@ -14,7 +14,7 @@
 #import <MJExtension/MJExtension.h>
 #import "CMFAQViewController.h"
 
-#define NHeaderHeight ((260 * Iphone6ScaleWidth) + NStatusBarHeight)
+#define NHeaderHeight ((200 * Iphone6ScaleWidth) + NStatusBarHeight)
 
 @interface NYSMeViewController () <UITableViewDelegate, UITableViewDataSource, headerViewDelegate, NYSTransitionProtocol> {
     NSArray *_dataSource;
@@ -30,7 +30,7 @@
     [super viewDidLoad];
     self.isHidenNaviBar = YES;
     self.StatusBarStyle = UIStatusBarStyleLightContent;
-    self.title = @"我的";
+//    self.title = @"我的";
     [self setupUI];
 }
 
@@ -78,7 +78,7 @@
     self.tableView.mj_header.hidden = YES;
     self.tableView.mj_footer.hidden = YES;
     self.tableView.showsVerticalScrollIndicator = NO;
-    [self.tableView registerClass:[NYSMeTableViewCell class] forCellReuseIdentifier:@"NYSMeTableViewCell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -129,73 +129,26 @@
     return [_dataSource[section] count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return NNormalSpace * 1.5;
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
+    return 70.0f;
 }
 
-/** 设置section圆角 */
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([cell respondsToSelector:@selector(tintColor)]) {
-        
-        if (tableView == self.tableView) {
-            // 圆角尺寸
-            CGFloat cornerRadius = 10.f;
-            
-            cell.backgroundColor = UIColor.clearColor;
-            CAShapeLayer *layer = [[CAShapeLayer alloc] init];
-            CGMutablePathRef pathRef = CGPathCreateMutable();
-            CGRect bounds = CGRectInset(cell.bounds, 10, 0);
-            BOOL addLine = NO;
-            
-            if (indexPath.row == 0 && indexPath.row == [tableView numberOfRowsInSection:indexPath.section]-1) {
-                CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius);
-            } else if (indexPath.row == 0) { // 分组首行
-                CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds));
-                CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius);
-                CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-                CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds));
-                addLine = YES;
-            } else if (indexPath.row == [tableView numberOfRowsInSection:indexPath.section]-1) { // 分组末行
-                CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds));
-                CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius);
-                CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius);
-                CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds));
-            } else {
-                CGPathAddRect(pathRef, nil, bounds);
-                addLine = YES;
-            }
-            
-            layer.path = pathRef;
-            CFRelease(pathRef);
-            layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
-            
-            if (addLine == YES) {
-                CALayer *lineLayer = [[CALayer alloc] init];
-                CGFloat lineHeight = (1.f / [UIScreen mainScreen].scale);
-                lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+10, bounds.size.height-lineHeight, bounds.size.width-10, lineHeight);
-                lineLayer.backgroundColor = tableView.separatorColor.CGColor;
-                [layer addSublayer:lineLayer];
-            }
-            UIView *testView = [[UIView alloc] initWithFrame:bounds];
-            [testView.layer insertSublayer:layer atIndex:0];
-            testView.backgroundColor = UIColor.clearColor;
-            cell.backgroundView = testView;
-        }
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NYSMeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NYSMeTableViewCell" forIndexPath:indexPath];
-    cell.cellData = _dataSource[indexPath.section][indexPath.row];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    NYSMeModel *cellModel = _dataSource[indexPath.section][indexPath.row];
+    cell.textLabel.text = cellModel.titleText;
+    cell.imageView.image = [UIImage imageNamed:cellModel.titleIcon];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSString *titleText = [_dataSource[indexPath.section][indexPath.row] titleText];
     if ([titleText isEqualToString:@"分享"]) {
        [[ShareManager sharedShareManager] showShareView];

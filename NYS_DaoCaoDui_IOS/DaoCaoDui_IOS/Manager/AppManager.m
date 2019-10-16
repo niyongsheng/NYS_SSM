@@ -17,7 +17,7 @@
 + (void)appStart {
     // 加载广告
     AdPageView *adView = [[AdPageView alloc] initWithFrame:NScreen_Bounds withTapBlock:^{
-        NYSRootNavigationController *loginNavi = [[NYSRootNavigationController alloc] initWithRootViewController:[[NYSRootWebViewController alloc] initWithUrl:@"https://github.com/niyongsheng"]];
+        NYSRootNavigationController *loginNavi = [[NYSRootNavigationController alloc] initWithRootViewController:[[NYSRootWebViewController alloc] initWithUrl:@"http://127.0.0.1:8080/api/swagger-ui.html"]];
         [NRootViewController presentViewController:loginNavi animated:YES completion:nil];
     }];
     adView = adView;

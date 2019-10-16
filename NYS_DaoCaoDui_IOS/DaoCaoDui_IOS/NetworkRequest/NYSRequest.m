@@ -13,35 +13,40 @@
 @implementation NYSRequest
 
 /** 登录*/
-+ (NSURLSessionTask *)getLoginWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)getLoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     // 将请求前缀与请求路径拼接成一个完整的URL
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Login];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 退出*/
-+ (NSURLSessionTask *)getLogoutWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)getLogoutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Logout];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 注册*/
-+ (NSURLSessionTask *)RegistWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)RegistWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Regist];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 忘记密码*/
-+ (NSURLSessionTask *)ResetWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)ResetWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Reset];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 验证码*/
-+ (NSURLSessionTask *)SendOneTimeCodeWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)SendOneTimeCodeWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_SendOneTimeCode];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
+
+
+
+// TODO 下面没改--------------------------------
+
 
 /** 获取个人信息*/
 + (NSURLSessionTask *)GetUserInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
@@ -141,6 +146,76 @@
 + (NSURLSessionTask *)VIPDetailstWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_VIPDetails];
     return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+
+/// POST/GET网络请求方法
+/// @param resMethod 请求方式
+/// @param URL 请求地址
+/// @param parameters 参数
+/// @param success 成功回调
+/// @param failure 失败回调
+/// @param isCache 是否缓存
++ (NSURLSessionTask *)requestWithResMethod:(ResMethod)resMethod URL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    [PPNetworkHelper openLog];
+    [PPNetworkHelper openNetworkActivityIndicator:YES];
+    [PPNetworkHelper setRequestTimeoutInterval:10];
+//    [PPNetworkHelper closeAES];
+    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
+    //    [PPNetworkCache removeAllHttpCache];
+    
+#pragma mark - AUTH认证
+    [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
+    [PPNetworkHelper setValue:NCurrentUser.account forHTTPHeaderField:@"Account"];
+    
+#pragma mark - Resquest
+    [SVProgressHUD show];
+    switch (resMethod) {
+        case POST: {
+                return [PPNetworkHelper POST:URL parameters:parameters success:^(id responseObject) {
+                    [SVProgressHUD dismiss];
+                    [self responseHandler:URL isCache:isCache parameters:parameters responseObject:responseObject success:success];
+                } failure:^(NSError *error) {
+                    [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
+                    [SVProgressHUD dismissWithDelay:.7f];
+                    failure(error);
+                }];
+            }
+            break;
+            
+        case GET: {
+            return [PPNetworkHelper GET:URL parameters:parameters success:^(id responseObject) {
+                [SVProgressHUD dismiss];
+                [self responseHandler:URL isCache:isCache parameters:parameters responseObject:responseObject success:success];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
+                [SVProgressHUD dismissWithDelay:.7f];
+                failure(error);
+            }];
+        }
+        break;
+            
+        default:
+            break;
+    }
+}
+
+/* 请求响应处理方法 */
++ (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
+    NLog(@"服务器：%@", responseObject);
+    if ([[responseObject objectForKey:@"status"] boolValue]) {
+        isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
+        success(responseObject);
+    } else {
+        NSInteger code = (NSInteger)[responseObject objectForKey:@"statusCode"];
+        NSString *info = [responseObject objectForKey:@"statusInfo"];
+        NSString *error = [NSString stringWithFormat:@"%d\n%@", code, info];
+        [SVProgressHUD showErrorWithStatus:error];
+        if (code == 6005 || code == 6010) {
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
+        }
+        [SVProgressHUD dismissWithDelay:1.f];
+    }
 }
 
 #pragma mark - 网络请求的公共方法

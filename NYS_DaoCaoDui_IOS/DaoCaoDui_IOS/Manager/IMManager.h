@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserInfo.h"
 
 typedef void (^loginBlock)(BOOL success, id _Nullable description);
 
@@ -17,16 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 SINGLETON_FOR_HEADER(IMManager);
 
 /** 初始化IM */
--(void)initIM;
+- (void)initRongCloudIM;
 
-/**
- 登录IM
- 
- @param IMID IM账号
- @param IMPwd IM密码
- @param completion block回调
- */
-- (void)IMLogin:(NSString *)IMID IMPwd:(NSString *)IMPwd completion:(loginBlock)completion;
+/// IM登录
+/// @param currentUserInfo 当前登录的用户
+/// @param completion 回调
+- (void)IMLoginwithCurrentUserInfo:(UserInfo *)currentUserInfo completion:(loginBlock)completion;
 
 /** 退出IM */
 - (void)IMLogout;

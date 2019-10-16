@@ -24,8 +24,8 @@
     [self.bgImgView setImage:bgImg];
 
     if (userInfo) { // 登录状态
-        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:userInfo.imgAddress] placeholderImage:ImageWithFile(@"default_icon")];
-        [self.nickNameView setNickName:userInfo.nickName sex:userInfo.sex age:26 level:userInfo.vipGrade];
+        [self.headImgView sd_setImageWithURL:[NSURL URLWithString:userInfo.icon] placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
+        [self.nickNameView setNickName:userInfo.nickname sex:userInfo.gender age:26 level:userInfo.grade];
     } else {
         [self.headImgView setImageWithURL:[NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1559388751209&di=2fbe67f6937a750695f38b37b822d26b&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170722%2F90b6ef3ed69348738e017d8b7cc3a577.png"] placeholder:ImageWithFile(@"default_icon")];
         [self.nickNameView setNickName:@"未登录" sex:0 age:0 level:0];

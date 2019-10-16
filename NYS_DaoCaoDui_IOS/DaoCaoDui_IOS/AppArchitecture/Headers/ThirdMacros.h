@@ -32,9 +32,7 @@
 #define JPUSH_CHANNEl     @"App Store"
 #define JPUSH_IsProd      NO
 
-// 网易云信
-#define NIMAppKey         @"5056956f77eaa68e9d459d80910225e1"
-#define NIMAppSecret      @"c34bd403b29a"
-#define NIMPushCerName    @""
+// 融云IM
+#define RCAPPKEY          @"bmdehs6pbg3ps"
 
 #endif /* ThirdMacros_h */

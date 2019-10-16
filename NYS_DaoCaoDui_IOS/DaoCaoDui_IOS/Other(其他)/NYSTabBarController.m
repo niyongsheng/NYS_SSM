@@ -8,7 +8,7 @@
 
 #import "NYSTabBarController.h"
 #import "NYSRootNavigationController.h"
-#import "NYSHomeViewController.h"
+#import "NYSChatListViewController.h"
 #import "NYSMagicBoxViewController.h"
 #import "NYSMeViewController.h"
 
@@ -22,9 +22,18 @@
     [super viewDidLoad];
     
     NSArray <NSDictionary *>*VCArray =
-    @[@{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSHomeViewController new]], @"normalImg":@"home_normal", @"selectImg":@"home_select", @"itemTitle":@"首页"},
-      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMagicBoxViewController new]], @"normalImg":@"magicBox_normal", @"selectImg":@"magicBox_select", @"itemTitle":@"百宝箱"},
-      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMeViewController new]], @"normalImg":@"me_normal", @"selectImg":@"me_select", @"itemTitle":@"我的"},
+    @[@{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSChatListViewController new]],
+        @"normalImg":@"会话默认",
+        @"selectImg":@"会话",
+        @"itemTitle":@"我们"},
+      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMagicBoxViewController new]],
+        @"normalImg":@"机器人",
+        @"selectImg":@"机器人",
+        @"itemTitle":@"机器人"},
+      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMeViewController new]],
+        @"normalImg":@"我的默认",
+        @"selectImg":@"我的",
+        @"itemTitle":@"我的"},
       ];
     
     NSMutableArray *tabBarConfs = @[].mutableCopy;
@@ -33,14 +42,14 @@
         
         AxcAE_TabBarConfigModel *model = [AxcAE_TabBarConfigModel new];
         model.itemTitle = [obj objectForKey:@"itemTitle"];
-        model.selectColor = UIColorFromHex(0x01BEFE);
+        model.selectColor = NNavBgColor;
         model.normalColor = UIColorFromHex(0xAFAFAF);
         model.selectImageName = [obj objectForKey:@"selectImg"];
         model.normalImageName = [obj objectForKey:@"normalImg"];
         
-        model.selectBackgroundColor = AxcAE_TabBarRGBA(248, 248, 248, 1);
+//        model.selectBackgroundColor = AxcAE_TabBarRGBA(248, 248, 248, 1);
         model.normalBackgroundColor = [UIColor clearColor];
-        // 缩放动画
+        // 动画
         model.interactionEffectStyle = AxcAE_TabBarInteractionEffectStyleSpring;
         
         UIViewController *vc = [obj objectForKey:@"vc"];

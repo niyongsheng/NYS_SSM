@@ -9,5 +9,9 @@
 #import "UserInfo.h"
 
 @implementation UserInfo
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"ID":@"id"};
+   // 映射可以设定多个映射字段
+//  return @{@"ID":@[@"id",@"uid",@"ID"]};
+}
 @end

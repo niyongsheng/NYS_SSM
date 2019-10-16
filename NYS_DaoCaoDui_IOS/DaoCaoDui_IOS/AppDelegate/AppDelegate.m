@@ -34,6 +34,9 @@
     // 初始化用户系统
     [self initUserManager];
     
+    // 初始化IM
+    [self initIMManager];
+    
     // 网络监听
     [self monitorNetworkStatus];
     

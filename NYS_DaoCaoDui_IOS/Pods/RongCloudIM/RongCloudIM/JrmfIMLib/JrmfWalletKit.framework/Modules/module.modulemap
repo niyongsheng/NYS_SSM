@@ -1,0 +1,6 @@
+framework module JrmfWalletKit {
+  umbrella header "JrmfWalletKit.h"
+
+  export *
+  module * { export * }
+}

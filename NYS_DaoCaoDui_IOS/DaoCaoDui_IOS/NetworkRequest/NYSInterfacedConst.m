@@ -10,25 +10,25 @@
 
 #if DevelopSever
 /** 接口前缀-开发服务器*/
-NSString *const CR_ApiPrefix = @"http://192.168.31.165:8080";
+NSString *const CR_ApiPrefix = @"http://192.168.31.182:8080/api";
 #elif TestSever
 /** 接口前缀-测试服务器*/
-NSString *const CR_ApiPrefix = @"http://139.159.193.26:8083/api";
+NSString *const CR_ApiPrefix = @"http://27j2657m01.zicp.vip:21324/api";
 #elif ProductSever
 /** 接口前缀-生产服务器*/
 NSString *const CR_ApiPrefix = @"";
 #endif
 
 /** 登录*/
-NSString *const CR_Login = @"/account/doLogin";
+NSString *const CR_Login = @"/user/login";
 /** 退出*/
-NSString *const CR_Logout = @"/account/logout";
+NSString *const CR_Logout = @"/user/logout";
 /** 验证码*/
-NSString *const CR_SendOneTimeCode = @"/account/sendCode";
+NSString *const CR_SendOneTimeCode = @"/user/getOnceCode";
 /** 注册*/
-NSString *const CR_Regist = @"/account/register";
+NSString *const CR_Regist = @"/user/phoneRegister";
 /** 忘记密码*/
-NSString *const CR_Reset = @"/account/resetPassword";
+NSString *const CR_Reset = @"";
 /** 获取个人信息*/
 NSString *const CR_GetUserInfo = @"/account/getAccountInfo";
 /** 修改个人信息*/

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 0
-#define TestSever    1
+#define DevelopSever 1
+#define TestSever    0
 #define ProductSever 0
 
 /** 接口前缀-服务器*/

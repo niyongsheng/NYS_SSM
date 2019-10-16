@@ -1076,6 +1076,7 @@
       <Position>6</Position>
       <Comment>积分</Comment>
       <DataType>float(7)|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="260" parent="236" name="gender">
@@ -1164,19 +1165,25 @@
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="236" name="gmtModify">
+    <column id="274" parent="236" name="birthday">
       <Position>21</Position>
+      <Comment>生日</Comment>
+      <DataType>date|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="275" parent="236" name="gmtModify">
+      <Position>22</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="236" name="gmtCreate">
-      <Position>22</Position>
+    <column id="276" parent="236" name="gmtCreate">
+      <Position>23</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="276" parent="236" name="PRIMARY">
+    <key id="277" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

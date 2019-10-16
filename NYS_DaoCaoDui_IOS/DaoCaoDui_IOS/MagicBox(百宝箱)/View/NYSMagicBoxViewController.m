@@ -28,6 +28,7 @@
     [super viewDidLoad];
     self.title = @"百宝箱";
     
+    self.StatusBarStyle = UIStatusBarStyleLightContent;
     self.magicBoxTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:self.magicBoxTableView];
     [self.view addSubview:self.indicatorView];

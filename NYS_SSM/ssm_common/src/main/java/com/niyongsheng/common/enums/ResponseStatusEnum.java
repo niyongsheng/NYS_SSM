@@ -1,5 +1,11 @@
 package com.niyongsheng.common.enums;
 
+import com.google.common.collect.Lists;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author niyongsheng.com
  * @version $
@@ -35,9 +41,9 @@ public enum ResponseStatusEnum {
     AUTH_PASSWORD_ERROR(false,6002,"密码错误"),
     AUTH_ONCECODE_ERROR(false,6003,"验证码错误"),
     AUTH_2PASSWORD_ERROR(false,6004,"密码不一致"),
-    AUTH_EXPIRE_ERROR(false,6005,"Token过期"),
+    AUTH_EXPIRE_ERROR(false,6005,"Token已失效"),
     AUTH_NULL_ERROR(false,6006,"Token或Account为空"),
-    AUTH_VERIFY_ERROR(false,6007,"Token验证失败"),
+    AUTH_VERIFY_ERROR(false,6007,"Token与账户不匹配"),
     AUTH_STATUS_ERROR(false,6008,"用户已禁用,请联系管理员!"),
     AUTH_REPEAT_ERROR(false,6009,"该手机号已注册"),
     AUTH_UNLOGIN_ERROR(false,6010,"未登录"),
@@ -109,5 +115,22 @@ public enum ResponseStatusEnum {
             }
         }
         return null;
+    }
+
+    /**
+     * 遍历枚举
+     * @return
+     */
+    public static List toList() {
+        List list = Lists.newArrayList();
+        for (ResponseStatusEnum responseStatusEnum : ResponseStatusEnum.values()) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("status", responseStatusEnum.getStatus());
+            map.put("code", responseStatusEnum.getStatusCode());
+            map.put("info", responseStatusEnum.getStatusInfo());
+            map.put("version", responseStatusEnum.getVersion());
+            list.add(map);
+        }
+        return list;
     }
 }

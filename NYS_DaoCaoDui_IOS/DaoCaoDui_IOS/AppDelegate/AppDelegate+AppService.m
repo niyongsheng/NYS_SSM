@@ -15,6 +15,7 @@
 #import "NYSTabBarController.h"
 #import "NYSLoginViewController.h"
 #import "NYSRootNavigationController.h"
+#import "IMManager.h"
 
 @implementation AppDelegate (AppService)
 
@@ -72,6 +73,11 @@
         NPostNotification(NNotificationLoginStateChange, @NO)
         NLog(@"没有登录过，显示登录页面");
     }
+}
+
+#pragma mark -- 初始化IM --
+- (void)initIMManager {
+    [[IMManager sharedIMManager] initRongCloudIM];
 }
 
 #pragma mark -- 登录状态处理 --

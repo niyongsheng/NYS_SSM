@@ -28,9 +28,6 @@
 		C8265C7A22A25E830072A3F1 /* me.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8265C7922A25E830072A3F1 /* me.plist */; };
 		C8265C7E22A2710E0072A3F1 /* man@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8265C7C22A2710D0072A3F1 /* man@2x.png */; };
 		C8265C7F22A2710E0072A3F1 /* woman@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8265C7D22A2710D0072A3F1 /* woman@2x.png */; };
-		C8265C8322A271E60072A3F1 /* default_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8265C8022A271E60072A3F1 /* default_icon@3x.png */; };
-		C8265C8422A271E60072A3F1 /* default_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C8265C8122A271E60072A3F1 /* default_icon.png */; };
-		C8265C8522A271E60072A3F1 /* default_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8265C8222A271E60072A3F1 /* default_icon@2x.png */; };
 		C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C8922A27E6B0072A3F1 /* NYSForgetPasswordViewController.m */; };
 		C8265C9C22A27E6B0072A3F1 /* NYSForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8265C8A22A27E6B0072A3F1 /* NYSForgetPasswordViewController.xib */; };
 		C8265C9D22A27E6B0072A3F1 /* NYSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C8C22A27E6B0072A3F1 /* NYSLoginViewController.m */; };
@@ -39,6 +36,7 @@
 		C8265CA022A27E6B0072A3F1 /* NYSRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8265C9022A27E6B0072A3F1 /* NYSRegisterViewController.xib */; };
 		C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C9822A27E6B0072A3F1 /* NGTextField.m */; };
 		C8265CA422A27E6B0072A3F1 /* NYSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C9A22A27E6B0072A3F1 /* NYSTextField.m */; };
+		C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */; };
 		C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB3229E748A003A7C58 /* NYSJSHandler.m */; };
 		C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB6229E7593003A7C58 /* NYSWebViewController.m */; };
 		C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB9229E769E003A7C58 /* NYSRootWebViewController.m */; };
@@ -50,7 +48,6 @@
 		C8424EC7229E78E6003A7C58 /* close_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8424EC4229E78E6003A7C58 /* close_icon@2x.png */; };
 		C8424EC8229E78E6003A7C58 /* close_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8424EC5229E78E6003A7C58 /* close_icon@3x.png */; };
 		C8424ED5229E8BE7003A7C58 /* NYSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424ED4229E8BE7003A7C58 /* NYSTabBarController.m */; };
-		C8424ED8229E8DCF003A7C58 /* NYSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424ED7229E8DCF003A7C58 /* NYSHomeViewController.m */; };
 		C8424EDB229E8DDF003A7C58 /* NYSMagicBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EDA229E8DDF003A7C58 /* NYSMagicBoxViewController.m */; };
 		C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EDD229E8DF1003A7C58 /* NYSMeViewController.m */; };
 		C857A383229CCBDA002B5396 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C857A382229CCBDA002B5396 /* AppManager.m */; };
@@ -98,7 +95,6 @@
 		C85DD72722A4C4B200E33636 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD72222A4C4B100E33636 /* NullSafe.m */; };
 		C85DD72822A4C4B200E33636 /* NYSInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD72422A4C4B100E33636 /* NYSInterfacedConst.m */; };
 		C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD72622A4C4B100E33636 /* NYSRequest.m */; };
-		C85DD72B22A4CD6B00E33636 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C85DD72A22A4CD6B00E33636 /* logo.png */; };
 		C85DD72D22A4CD9800E33636 /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = C85DD72C22A4CD9700E33636 /* qq.png */; };
 		C85DD72F22A4CDA100E33636 /* wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = C85DD72E22A4CDA100E33636 /* wechat.png */; };
 		C85DD73222A4F03A00E33636 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD73122A4F03A00E33636 /* IMManager.m */; };
@@ -128,6 +124,8 @@
 		C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4D82298EF8B00FA61A6 /* main.m */; };
 		C8F3B4E32298EF8C00FA61A6 /* DaoCaoDui_IOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4E22298EF8C00FA61A6 /* DaoCaoDui_IOSTests.m */; };
 		C8F3B4EE2298EF8C00FA61A6 /* DaoCaoDui_IOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4ED2298EF8C00FA61A6 /* DaoCaoDui_IOSUITests.m */; };
+		C8F857D92356FB6100521460 /* NYSChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F857D82356FB6100521460 /* NYSChatListViewController.m */; };
+		C8F857DC2356FBFC00521460 /* NYSConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F857DB2356FBFC00521460 /* NYSConversationViewController.m */; };
 		FD1C0ED7E3A24631E3DFD7FB /* libPods-DaoCaoDui_IOSUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B128DA3D685CD3981A4B1A3C /* libPods-DaoCaoDui_IOSUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -187,9 +185,6 @@
 		C8265C7922A25E830072A3F1 /* me.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = me.plist; sourceTree = "<group>"; };
 		C8265C7C22A2710D0072A3F1 /* man@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "man@2x.png"; sourceTree = "<group>"; };
 		C8265C7D22A2710D0072A3F1 /* woman@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "woman@2x.png"; sourceTree = "<group>"; };
-		C8265C8022A271E60072A3F1 /* default_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_icon@3x.png"; sourceTree = "<group>"; };
-		C8265C8122A271E60072A3F1 /* default_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_icon.png; sourceTree = "<group>"; };
-		C8265C8222A271E60072A3F1 /* default_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_icon@2x.png"; sourceTree = "<group>"; };
 		C8265C8822A27E6B0072A3F1 /* NYSForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSForgetPasswordViewController.h; sourceTree = "<group>"; };
 		C8265C8922A27E6B0072A3F1 /* NYSForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSForgetPasswordViewController.m; sourceTree = "<group>"; };
 		C8265C8A22A27E6B0072A3F1 /* NYSForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSForgetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -203,6 +198,8 @@
 		C8265C9822A27E6B0072A3F1 /* NGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NGTextField.m; sourceTree = "<group>"; };
 		C8265C9922A27E6B0072A3F1 /* NYSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSTextField.h; sourceTree = "<group>"; };
 		C8265C9A22A27E6B0072A3F1 /* NYSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSTextField.m; sourceTree = "<group>"; };
+		C82F63FC23571A8300BF41AA /* NYSChatDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSChatDataSource.h; sourceTree = "<group>"; };
+		C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSChatDataSource.m; sourceTree = "<group>"; };
 		C8424EB2229E748A003A7C58 /* NYSJSHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSJSHandler.h; sourceTree = "<group>"; };
 		C8424EB3229E748A003A7C58 /* NYSJSHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSJSHandler.m; sourceTree = "<group>"; };
 		C8424EB5229E7593003A7C58 /* NYSWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSWebViewController.h; sourceTree = "<group>"; };
@@ -218,8 +215,6 @@
 		C8424EC5229E78E6003A7C58 /* close_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_icon@3x.png"; sourceTree = "<group>"; };
 		C8424ED3229E8BE7003A7C58 /* NYSTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSTabBarController.h; sourceTree = "<group>"; };
 		C8424ED4229E8BE7003A7C58 /* NYSTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSTabBarController.m; sourceTree = "<group>"; };
-		C8424ED6229E8DCF003A7C58 /* NYSHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHomeViewController.h; sourceTree = "<group>"; };
-		C8424ED7229E8DCF003A7C58 /* NYSHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSHomeViewController.m; sourceTree = "<group>"; };
 		C8424ED9229E8DDF003A7C58 /* NYSMagicBoxViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMagicBoxViewController.h; sourceTree = "<group>"; };
 		C8424EDA229E8DDF003A7C58 /* NYSMagicBoxViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMagicBoxViewController.m; sourceTree = "<group>"; };
 		C8424EDC229E8DF1003A7C58 /* NYSMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMeViewController.h; sourceTree = "<group>"; };
@@ -291,7 +286,6 @@
 		C85DD72422A4C4B100E33636 /* NYSInterfacedConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSInterfacedConst.m; sourceTree = "<group>"; };
 		C85DD72522A4C4B100E33636 /* NYSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSRequest.h; sourceTree = "<group>"; };
 		C85DD72622A4C4B100E33636 /* NYSRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSRequest.m; sourceTree = "<group>"; };
-		C85DD72A22A4CD6B00E33636 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		C85DD72C22A4CD9700E33636 /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
 		C85DD72E22A4CDA100E33636 /* wechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wechat.png; sourceTree = "<group>"; };
 		C85DD73022A4F03A00E33636 /* IMManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMManager.h; sourceTree = "<group>"; };
@@ -338,6 +332,10 @@
 		C8F3B4E92298EF8C00FA61A6 /* DaoCaoDui_IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaoCaoDui_IOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F3B4ED2298EF8C00FA61A6 /* DaoCaoDui_IOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaoCaoDui_IOSUITests.m; sourceTree = "<group>"; };
 		C8F3B4EF2298EF8C00FA61A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8F857D72356FB6100521460 /* NYSChatListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSChatListViewController.h; sourceTree = "<group>"; };
+		C8F857D82356FB6100521460 /* NYSChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSChatListViewController.m; sourceTree = "<group>"; };
+		C8F857DA2356FBFC00521460 /* NYSConversationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSConversationViewController.h; sourceTree = "<group>"; };
+		C8F857DB2356FBFC00521460 /* NYSConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSConversationViewController.m; sourceTree = "<group>"; };
 		CC447199C510178BA899A11E /* Pods-DaoCaoDui_IOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOSTests.release.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOSTests/Pods-DaoCaoDui_IOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		F542CC7B0042CC1B522BB811 /* Pods-DaoCaoDui_IOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOSTests.debug.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOSTests/Pods-DaoCaoDui_IOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -428,6 +426,26 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C80334732355EB2200B073D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C82F63FC23571A8300BF41AA /* NYSChatDataSource.h */,
+				C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C80334762355EB2300B073D8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C8F857D72356FB6100521460 /* NYSChatListViewController.h */,
+				C8F857D82356FB6100521460 /* NYSChatListViewController.m */,
+				C8F857DA2356FBFC00521460 /* NYSConversationViewController.h */,
+				C8F857DB2356FBFC00521460 /* NYSConversationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C80E4712229FBE31005F841B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,9 +496,6 @@
 				C8265C7922A25E830072A3F1 /* me.plist */,
 				C8265C7C22A2710D0072A3F1 /* man@2x.png */,
 				C8265C7D22A2710D0072A3F1 /* woman@2x.png */,
-				C8265C8122A271E60072A3F1 /* default_icon.png */,
-				C8265C8222A271E60072A3F1 /* default_icon@2x.png */,
-				C8265C8022A271E60072A3F1 /* default_icon@3x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -532,8 +547,8 @@
 		C8424ECF229E88FB003A7C58 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
-				C8424ED6229E8DCF003A7C58 /* NYSHomeViewController.h */,
-				C8424ED7229E8DCF003A7C58 /* NYSHomeViewController.m */,
+				C80334762355EB2300B073D8 /* Controller */,
+				C80334732355EB2200B073D8 /* Model */,
 			);
 			path = "Home(首页)";
 			sourceTree = "<group>";
@@ -679,7 +694,6 @@
 		C85C44A4229BA71000B35652 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C85DD72A22A4CD6B00E33636 /* logo.png */,
 				C85DD72C22A4CD9700E33636 /* qq.png */,
 				C85DD72E22A4CDA100E33636 /* wechat.png */,
 				C85C44A6229BA73700B35652 /* back_icon@2x.png */,
@@ -949,10 +963,10 @@
 				C8265C6922A0FD210072A3F1 /* AppDelegate */,
 				C857A380229CCBA9002B5396 /* Manager */,
 				C8424ED2229E89BE003A7C58 /* Other(其他) */,
-				C8424ED1229E898C003A7C58 /* Me(我的) */,
-				C8424ED0229E8917003A7C58 /* MagicBox(百宝箱) */,
-				C8424ECF229E88FB003A7C58 /* Home(首页) */,
 				C8265C8622A27E6B0072A3F1 /* LoginRegister(登录注册) */,
+				C8424ECF229E88FB003A7C58 /* Home(首页) */,
+				C8424ED0229E8917003A7C58 /* MagicBox(百宝箱) */,
+				C8424ED1229E898C003A7C58 /* Me(我的) */,
 				C85C44F7229C0A6600B35652 /* AppArchitecture */,
 				C8F3B4D22298EF8B00FA61A6 /* Assets.xcassets */,
 				C8F3B4D42298EF8B00FA61A6 /* LaunchScreen.storyboard */,
@@ -1107,13 +1121,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8265C8422A271E60072A3F1 /* default_icon.png in Resources */,
 				C85C44D5229BAB2900B35652 /* left_arrow@3x.png in Resources */,
 				C89CA2C822BCADAE0086F9B0 /* snow.png in Resources */,
 				C89CA2C722BCADAE0086F9B0 /* rain.png in Resources */,
 				C85C44A8229BA73700B35652 /* back_icon@2x.png in Resources */,
 				C8424EC2229E7896003A7C58 /* close_icon_gray@3x.png in Resources */,
-				C85DD72B22A4CD6B00E33636 /* logo.png in Resources */,
 				C802A61822A62D85002E2A58 /* CMFAQViewController.xib in Resources */,
 				C8265C7F22A2710E0072A3F1 /* woman@2x.png in Resources */,
 				C85C44D6229BAB2900B35652 /* right_arrow.png in Resources */,
@@ -1159,7 +1171,6 @@
 				C85C44D4229BAB2900B35652 /* arrow_icon@2x.png in Resources */,
 				C85C44B8229BA88100B35652 /* loading_image@2x.png in Resources */,
 				C857A392229CD026002B5396 /* MBHUD_Error@3x.png in Resources */,
-				C8265C8522A271E60072A3F1 /* default_icon@2x.png in Resources */,
 				C85C44CF229BAB2900B35652 /* down_arrow@2x.png in Resources */,
 				C85C44C9229BAB2900B35652 /* left_arrow.png in Resources */,
 				C8265CA022A27E6B0072A3F1 /* NYSRegisterViewController.xib in Resources */,
@@ -1169,7 +1180,6 @@
 				C85C44A7229BA73700B35652 /* back_icon@3x.png in Resources */,
 				C85C44CA229BAB2900B35652 /* down_arrow.png in Resources */,
 				C85C44CB229BAB2900B35652 /* left_arrow@2x.png in Resources */,
-				C8265C8322A271E60072A3F1 /* default_icon@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1282,6 +1292,7 @@
 				C85DD72722A4C4B200E33636 /* NullSafe.m in Sources */,
 				C8EABF9822B4FBB9004B0DA4 /* NYSMagicBoxService.m in Sources */,
 				C857A3A0229CD138002B5396 /* HeaderModel.m in Sources */,
+				C8F857DC2356FBFC00521460 /* NYSConversationViewController.m in Sources */,
 				C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */,
 				C85DD72022A4BE8E00E33636 /* NYSTools.m in Sources */,
 				C802A61D22A62F03002E2A58 /* NSString+Size.m in Sources */,
@@ -1291,6 +1302,7 @@
 				C8F3B4CB2298EF8A00FA61A6 /* AppDelegate.m in Sources */,
 				C802A61922A62D85002E2A58 /* CMFAQViewController.m in Sources */,
 				C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */,
+				C8F857D92356FB6100521460 /* NYSChatListViewController.m in Sources */,
 				C8265C7222A215DF0072A3F1 /* NYSNickNameLbel.m in Sources */,
 				C8EABF9222B4F479004B0DA4 /* NYSMagicBoxPresenter.m in Sources */,
 				C857A383229CCBDA002B5396 /* AppManager.m in Sources */,
@@ -1313,8 +1325,8 @@
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C802A60322A62C39002E2A58 /* AppDelegate+PushService.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
+				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,
 				C85C44DD229BD82000B35652 /* NYSTransition.m in Sources */,
-				C8424ED8229E8DCF003A7C58 /* NYSHomeViewController.m in Sources */,
 				C8265C7822A252C80072A3F1 /* NYSMeModel.m in Sources */,
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,
@@ -1416,7 +1428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1469,7 +1481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1485,6 +1497,7 @@
 				CODE_SIGN_ENTITLEMENTS = DaoCaoDui_IOS/DaoCaoDui_IOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N92S3NU839;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1511,6 +1524,7 @@
 				CODE_SIGN_ENTITLEMENTS = DaoCaoDui_IOS/DaoCaoDui_IOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N92S3NU839;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

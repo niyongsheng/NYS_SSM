@@ -23,6 +23,7 @@
         <if test="qqOpenid != null">qqOpenid,</if>
         <if test="wcOpenid != null">wcOpenid,</if>
         <if test="status != null">status,</if>
+        <if test="birthday != null">birthday,</if>
         gmtCreate
         )
         VALUES (
@@ -45,6 +46,7 @@
         <if test="qqOpenid != null">#{qqOpenid},</if>
         <if test="wcOpenid != null">#{wcOpenid},</if>
         <if test="status != null">#{status},</if>
+        <if test="birthday != null">#{birthday},</if>
         NOW()
         )
     </insert>
@@ -112,6 +114,9 @@
         </if>
         <if test="profession != null">
             profession=#{profession},
+        </if>
+        <if test="birthday != null">
+            profession=#{birthday},
         </if>
         gmtModify = NOW()
         WHERE id = #{id}

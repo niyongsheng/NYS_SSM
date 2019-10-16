@@ -33,8 +33,6 @@ SINGLETON_FOR_HEADER(UserManager)
 
 /** 当前用户 */
 @property (nonatomic, strong) UserInfo *currentUserInfo;
-/** 登录类型 */
-@property (nonatomic, assign) UserLoginType loginType;
 /** 是否已登录 */
 @property (nonatomic, assign) BOOL isLogined;
 

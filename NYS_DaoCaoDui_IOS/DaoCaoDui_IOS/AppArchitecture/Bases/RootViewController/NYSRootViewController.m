@@ -28,8 +28,8 @@
     [super viewDidLoad];
     // 默认显示返回按钮
     self.isShowLiftBack = YES;
-    // 默认显示黑色状态栏样式
-    self.StatusBarStyle = UIStatusBarStyleLightContent;
+    // 默认显示状态栏样式
+//    self.StatusBarStyle = UIStatusBarStyleLightContent;
     // 默认禁用自动设置内边距
 //    self.automaticallyAdjustsScrollViewInsets = NO;
 

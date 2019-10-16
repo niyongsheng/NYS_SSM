@@ -15,7 +15,7 @@
 
 #pragma mark -- 颜色区 --
 // 主题色 导航栏颜色
-#define NNavBgColor     [UIColor colorWithHexString:@"24C0FC"]
+#define NNavBgColor     [UIColor colorWithHexString:@"FB2044"]
 #define NNavBgFontColor [UIColor colorWithHexString:@"ffffff"]
 
 // WKWebView 进度条颜色

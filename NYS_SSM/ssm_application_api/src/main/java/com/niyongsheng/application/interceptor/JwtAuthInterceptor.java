@@ -50,7 +50,7 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
 
         String token = request.getHeader("Token");
         String account = request.getHeader("Account");
-        // 判断是否携带AUTH信息
+
         if(token != null && account != null) {
             User jwtUser = JwtUtil.decryption(token, User.class);
             if(jwtUser != null) {
@@ -65,6 +65,7 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
                         responseMessage(response, response.getWriter(), responseDto);
                         return false;
                     }
+                    // 通过验证
                     return true;
                 } else {
                     ResponseDto responseDto = new ResponseDto(ResponseStatusEnum.AUTH_VERIFY_ERROR, null);
