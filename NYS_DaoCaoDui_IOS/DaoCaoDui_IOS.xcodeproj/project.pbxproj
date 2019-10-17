@@ -20,6 +20,8 @@
 		C802A61F22A62FB8002E2A58 /* FAQ.json in Resources */ = {isa = PBXBuildFile; fileRef = C802A61E22A62FB7002E2A58 /* FAQ.json */; };
 		C802A62122A6319C002E2A58 /* FAQ.plist in Resources */ = {isa = PBXBuildFile; fileRef = C802A62022A6319C002E2A58 /* FAQ.plist */; };
 		C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E4716229FBEB9005F841B /* NYSHeaderView.m */; };
+		C820659B2357F5040024A632 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C820659A2357F5040024A632 /* AuthenticationServices.framework */; };
+		C820659D2357F9CB0024A632 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C820659C2357F9CB0024A632 /* CallKit.framework */; };
 		C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6B22A0FEE10072A3F1 /* UserManager.m */; };
 		C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6E22A0FEFE0072A3F1 /* UserInfo.m */; };
 		C8265C7222A215DF0072A3F1 /* NYSNickNameLbel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C7122A215DE0072A3F1 /* NYSNickNameLbel.m */; };
@@ -37,6 +39,10 @@
 		C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C9822A27E6B0072A3F1 /* NGTextField.m */; };
 		C8265CA422A27E6B0072A3F1 /* NYSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C9A22A27E6B0072A3F1 /* NYSTextField.m */; };
 		C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */; };
+		C833CA0323581BC500492DA8 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = C833CA0223581BC500492DA8 /* QMUIConfigurationTemplate.m */; };
+		C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C836D7A82358103000DBDAEF /* NYSDCDViewController.m */; };
+		C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C836D7AA235810F400DBDAEF /* LayoutFittingView.m */; };
+		C836D7AE2358181100DBDAEF /* logo_app.png in Resources */ = {isa = PBXBuildFile; fileRef = C836D7AD2358181100DBDAEF /* logo_app.png */; };
 		C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB3229E748A003A7C58 /* NYSJSHandler.m */; };
 		C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB6229E7593003A7C58 /* NYSWebViewController.m */; };
 		C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB9229E769E003A7C58 /* NYSRootWebViewController.m */; };
@@ -172,6 +178,8 @@
 		C802A62022A6319C002E2A58 /* FAQ.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FAQ.plist; sourceTree = "<group>"; };
 		C80E4715229FBEB9005F841B /* NYSHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHeaderView.h; sourceTree = "<group>"; };
 		C80E4716229FBEB9005F841B /* NYSHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSHeaderView.m; sourceTree = "<group>"; };
+		C820659A2357F5040024A632 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		C820659C2357F9CB0024A632 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		C8265C6A22A0FEE10072A3F1 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		C8265C6B22A0FEE10072A3F1 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		C8265C6D22A0FEFE0072A3F1 /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -200,6 +208,13 @@
 		C8265C9A22A27E6B0072A3F1 /* NYSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSTextField.m; sourceTree = "<group>"; };
 		C82F63FC23571A8300BF41AA /* NYSChatDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSChatDataSource.h; sourceTree = "<group>"; };
 		C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSChatDataSource.m; sourceTree = "<group>"; };
+		C833CA0123581BC500492DA8 /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMUIConfigurationTemplate.h; path = Pods/QMUIKit/QMUIConfigurationTemplate/QMUIConfigurationTemplate.h; sourceTree = SOURCE_ROOT; };
+		C833CA0223581BC500492DA8 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMUIConfigurationTemplate.m; path = Pods/QMUIKit/QMUIConfigurationTemplate/QMUIConfigurationTemplate.m; sourceTree = SOURCE_ROOT; };
+		C836D7A72358103000DBDAEF /* NYSDCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSDCDViewController.h; sourceTree = "<group>"; };
+		C836D7A82358103000DBDAEF /* NYSDCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDCDViewController.m; sourceTree = "<group>"; };
+		C836D7AA235810F400DBDAEF /* LayoutFittingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutFittingView.m; sourceTree = "<group>"; };
+		C836D7AB235810F400DBDAEF /* LayoutFittingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutFittingView.h; sourceTree = "<group>"; };
+		C836D7AD2358181100DBDAEF /* logo_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_app.png; sourceTree = "<group>"; };
 		C8424EB2229E748A003A7C58 /* NYSJSHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSJSHandler.h; sourceTree = "<group>"; };
 		C8424EB3229E748A003A7C58 /* NYSJSHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSJSHandler.m; sourceTree = "<group>"; };
 		C8424EB5229E7593003A7C58 /* NYSWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSWebViewController.h; sourceTree = "<group>"; };
@@ -345,7 +360,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C820659D2357F9CB0024A632 /* CallKit.framework in Frameworks */,
 				C89CA2AC22BC79730086F9B0 /* JavaScriptCore.framework in Frameworks */,
+				C820659B2357F5040024A632 /* AuthenticationServices.framework in Frameworks */,
 				C89CA2AA22BC79590086F9B0 /* libz.tbd in Frameworks */,
 				8ABA955ABAA8EA6610DA8361 /* libPods-DaoCaoDui_IOS.a in Frameworks */,
 				C89CA2A822BC791C0086F9B0 /* JSPatchPlatform.framework in Frameworks */,
@@ -374,6 +391,8 @@
 		92C6E489B413E3C478A50E9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C820659C2357F9CB0024A632 /* CallKit.framework */,
+				C820659A2357F5040024A632 /* AuthenticationServices.framework */,
 				C89CA2AB22BC79730086F9B0 /* JavaScriptCore.framework */,
 				C89CA2A922BC79590086F9B0 /* libz.tbd */,
 				51FC0CF8F0CDC7E8EC2CB3CB /* libPods-DaoCaoDui_IOS.a */,
@@ -553,15 +572,19 @@
 			path = "Home(首页)";
 			sourceTree = "<group>";
 		};
-		C8424ED0229E8917003A7C58 /* MagicBox(百宝箱) */ = {
+		C8424ED0229E8917003A7C58 /* Daocaoren(稻草人) */ = {
 			isa = PBXGroup;
 			children = (
+				C836D7AB235810F400DBDAEF /* LayoutFittingView.h */,
+				C836D7AA235810F400DBDAEF /* LayoutFittingView.m */,
 				C8EABF9522B4FB5D004B0DA4 /* Service */,
 				C8EABF8822B4E1C5004B0DA4 /* Present */,
 				C8EABF8722B4E1BE004B0DA4 /* View */,
 				C8EABF8622B4E1A7004B0DA4 /* Model */,
+				C836D7A72358103000DBDAEF /* NYSDCDViewController.h */,
+				C836D7A82358103000DBDAEF /* NYSDCDViewController.m */,
 			);
-			path = "MagicBox(百宝箱)";
+			path = "Daocaoren(稻草人)";
 			sourceTree = "<group>";
 		};
 		C8424ED1229E898C003A7C58 /* Me(我的) */ = {
@@ -579,6 +602,8 @@
 		C8424ED2229E89BE003A7C58 /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
+				C833CA0123581BC500492DA8 /* QMUIConfigurationTemplate.h */,
+				C833CA0223581BC500492DA8 /* QMUIConfigurationTemplate.m */,
 				C8424ED3229E8BE7003A7C58 /* NYSTabBarController.h */,
 				C8424ED4229E8BE7003A7C58 /* NYSTabBarController.m */,
 			);
@@ -965,11 +990,12 @@
 				C8424ED2229E89BE003A7C58 /* Other(其他) */,
 				C8265C8622A27E6B0072A3F1 /* LoginRegister(登录注册) */,
 				C8424ECF229E88FB003A7C58 /* Home(首页) */,
-				C8424ED0229E8917003A7C58 /* MagicBox(百宝箱) */,
+				C8424ED0229E8917003A7C58 /* Daocaoren(稻草人) */,
 				C8424ED1229E898C003A7C58 /* Me(我的) */,
 				C85C44F7229C0A6600B35652 /* AppArchitecture */,
 				C8F3B4D22298EF8B00FA61A6 /* Assets.xcassets */,
 				C8F3B4D42298EF8B00FA61A6 /* LaunchScreen.storyboard */,
+				C836D7AD2358181100DBDAEF /* logo_app.png */,
 				C8F3B4D72298EF8B00FA61A6 /* Info.plist */,
 				C8F3B4D82298EF8B00FA61A6 /* main.m */,
 				C85C44A0229B801000B35652 /* PrefixHeader.pch */,
@@ -1129,6 +1155,7 @@
 				C802A61822A62D85002E2A58 /* CMFAQViewController.xib in Resources */,
 				C8265C7F22A2710E0072A3F1 /* woman@2x.png in Resources */,
 				C85C44D6229BAB2900B35652 /* right_arrow.png in Resources */,
+				C836D7AE2358181100DBDAEF /* logo_app.png in Resources */,
 				C8F3B4D62298EF8B00FA61A6 /* LaunchScreen.storyboard in Resources */,
 				C89CA2C622BCADAE0086F9B0 /* DazFire.png in Resources */,
 				C85C44D3229BAB2900B35652 /* arrow_icon@3x.png in Resources */,
@@ -1308,6 +1335,7 @@
 				C857A383229CCBDA002B5396 /* AppManager.m in Sources */,
 				C857A387229CD016002B5396 /* MBProgressHUD+NYS.m in Sources */,
 				C85C44F0229C03F300B35652 /* AESCipher.m in Sources */,
+				C833CA0323581BC500492DA8 /* QMUIConfigurationTemplate.m in Sources */,
 				C8265C7522A24E7F0072A3F1 /* NYSMeTableViewCell.m in Sources */,
 				C857A3A1229CD138002B5396 /* PPNetworkCache.m in Sources */,
 				C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */,
@@ -1315,6 +1343,7 @@
 				C85DD73722A4F90600E33636 /* ShareManager.m in Sources */,
 				C85C449A229B5E1A00B35652 /* NYSRootViewController.m in Sources */,
 				C8424EDB229E8DDF003A7C58 /* NYSMagicBoxViewController.m in Sources */,
+				C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */,
 				C85C44EE229C03F300B35652 /* OpenUDID.m in Sources */,
 				C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */,
 				C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */,
@@ -1326,6 +1355,7 @@
 				C802A60322A62C39002E2A58 /* AppDelegate+PushService.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,
+				C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */,
 				C85C44DD229BD82000B35652 /* NYSTransition.m in Sources */,
 				C8265C7822A252C80072A3F1 /* NYSMeModel.m in Sources */,
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,

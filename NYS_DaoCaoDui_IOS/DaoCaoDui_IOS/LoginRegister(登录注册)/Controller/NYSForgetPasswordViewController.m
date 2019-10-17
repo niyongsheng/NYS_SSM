@@ -43,11 +43,11 @@
 - (void)timerTriggerMethon {
     self.secondsCountDownInput --;
     [NYSTools animateTextChange:1.f withLayer:self.getCodeButton.layer];
-    [self.getCodeButton setTitle:[NSString stringWithFormat:@"Resend %ldS", self.secondsCountDownInput] forState:UIControlStateNormal];
+    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%lds后重发", self.secondsCountDownInput] forState:UIControlStateNormal];
     if (self.secondsCountDownInput <= 0) {
         [self.countDownTimer invalidate];
         [self.getCodeButton setTitle:@"Get Code" forState:UIControlStateNormal];
-        self.getCodeView.backgroundColor = [UIColor colorWithRed:0.04 green:0.46 blue:0.88 alpha:1.00];
+        self.getCodeView.backgroundColor = NNavBgColor;
         self.getCodeButton.userInteractionEnabled = YES;
     }
 }

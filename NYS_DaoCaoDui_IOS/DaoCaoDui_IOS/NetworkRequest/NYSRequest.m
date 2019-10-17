@@ -204,12 +204,14 @@
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
     NLog(@"服务器：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
+        [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"msg"]];
+        [SVProgressHUD dismissWithDelay:1.f];
         isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
         success(responseObject);
     } else {
-        NSInteger code = (NSInteger)[responseObject objectForKey:@"statusCode"];
-        NSString *info = [responseObject objectForKey:@"statusInfo"];
-        NSString *error = [NSString stringWithFormat:@"%d\n%@", code, info];
+        NSInteger code = [[responseObject objectForKey:@"statusCode"] integerValue];
+        NSString *info = [responseObject objectForKey:@"msg"];
+        NSString *error = [NSString stringWithFormat:@"%ld\n%@", (long)code, info];
         [SVProgressHUD showErrorWithStatus:error];
         if (code == 6005 || code == 6010) {
             [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];

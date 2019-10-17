@@ -104,9 +104,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HY4-7y-1ai">
-                    <rect key="frame" x="63" y="434.5" width="109" height="33"/>
+                    <rect key="frame" x="63" y="434.5" width="79" height="33"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                    <state key="normal" title="Forget PWD ?">
+                    <state key="normal" title="忘记密码?">
                         <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -114,9 +114,9 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ida-t8-SQH">
-                    <rect key="frame" x="228" y="434.5" width="89" height="33"/>
+                    <rect key="frame" x="225" y="434.5" width="92" height="33"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                    <state key="normal" title="Register&gt;&gt;">
+                    <state key="normal" title="马上注册&gt;&gt;">
                         <color key="titleColor" red="0.99289804699999995" green="0.14694470170000001" blue="0.29633250830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>

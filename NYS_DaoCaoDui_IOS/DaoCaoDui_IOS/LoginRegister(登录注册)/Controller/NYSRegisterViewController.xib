@@ -13,6 +13,9 @@
                 <outlet property="close" destination="uEq-Ri-c8D" id="UWh-8Y-DS7"/>
                 <outlet property="getCodeButton" destination="1bn-pa-06T" id="897-29-n7t"/>
                 <outlet property="getCodeView" destination="848-e2-OJ4" id="K6Z-7T-VsF"/>
+                <outlet property="oneTimeCode" destination="JU5-r1-7y0" id="ke3-BI-uPt"/>
+                <outlet property="password" destination="kud-DR-dt1" id="f14-aj-PeL"/>
+                <outlet property="phone" destination="UcF-EB-hFB" id="rK6-v4-nO9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

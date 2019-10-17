@@ -19,7 +19,7 @@
 #define NNavBgFontColor [UIColor colorWithHexString:@"ffffff"]
 
 // WKWebView 进度条颜色
-#define NWKProgressColor [UIColor colorWithHexString:@"218CFA"]
+#define NWKProgressColor [UIColor colorWithHexString:@"#8CCC0C"]
 
 // 默认页面背景色
 #define NViewBgColor [UIColor colorWithHexString:@"f2f2f2"]

@@ -29,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isHidenNaviBar = YES;
-    self.StatusBarStyle = UIStatusBarStyleLightContent;
 //    self.title = @"我的";
+    
     [self setupUI];
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate+PushService.h"
-#import <RongIMKit/RongIMKit.h>
+//#import <RongIMKit/RongIMKit.h>
 #import <JPUSHService.h>
 #import <AdSupport/AdSupport.h>
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -67,7 +67,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    //Optional
+    // Optional
     NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
 

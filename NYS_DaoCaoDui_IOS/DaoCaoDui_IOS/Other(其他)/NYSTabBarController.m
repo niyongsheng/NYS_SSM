@@ -9,7 +9,7 @@
 #import "NYSTabBarController.h"
 #import "NYSRootNavigationController.h"
 #import "NYSChatListViewController.h"
-#import "NYSMagicBoxViewController.h"
+#import "NYSDCDViewController.h"
 #import "NYSMeViewController.h"
 
 @interface NYSTabBarController () <AxcAE_TabBarDelegate>
@@ -26,10 +26,10 @@
         @"normalImg":@"会话默认",
         @"selectImg":@"会话",
         @"itemTitle":@"我们"},
-      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMagicBoxViewController new]],
+      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSDCDViewController new]],
         @"normalImg":@"机器人",
         @"selectImg":@"机器人",
-        @"itemTitle":@"机器人"},
+        @"itemTitle":@"稻草人"},
       @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMeViewController new]],
         @"normalImg":@"我的默认",
         @"selectImg":@"我的",
@@ -46,9 +46,34 @@
         model.normalColor = UIColorFromHex(0xAFAFAF);
         model.selectImageName = [obj objectForKey:@"selectImg"];
         model.normalImageName = [obj objectForKey:@"normalImg"];
-        
 //        model.selectBackgroundColor = AxcAE_TabBarRGBA(248, 248, 248, 1);
         model.normalBackgroundColor = [UIColor clearColor];
+        
+        if (idx == 1 ) { // 如果是中间的
+            // 设置凸出 矩形
+            model.bulgeStyle = AxcAE_TabBarConfigBulgeStyleSquare;
+            // 设置凸出高度
+            model.bulgeHeight = 30;
+            // 设置成图片文字展示
+            model.itemLayoutStyle = AxcAE_TabBarItemLayoutStyleTopPictureBottomTitle;
+            // 设置图片
+            model.selectImageName = [obj objectForKey:@"selectImg"];
+            model.normalImageName = [obj objectForKey:@"normalImg"];
+            model.selectBackgroundColor = model.normalBackgroundColor = [UIColor clearColor];
+            model.backgroundImageView.hidden = YES;
+            // 设置图片大小c上下左右全边距
+            model.componentMargin = UIEdgeInsetsMake(0, 0, 0, 0 );
+            // 设置图片的高度为40
+            model.icomImgViewSize = CGSizeMake(self.tabBar.frame.size.width / 5, 60);
+            model.titleLabelSize = CGSizeMake(self.tabBar.frame.size.width / 5, 20);
+            // 图文间距0
+            model.pictureWordsMargin = 0;
+            // 设置标题文字字号
+            model.titleLabel.font = [UIFont systemFontOfSize:11];
+            // 设置大小/边长 自动根据最大值进行裁切
+            model.itemSize = CGSizeMake(self.tabBar.frame.size.width / 5 - 5.0 ,self.tabBar.frame.size.height + 20);
+        }
+        
         // 动画
         model.interactionEffectStyle = AxcAE_TabBarInteractionEffectStyleSpring;
         

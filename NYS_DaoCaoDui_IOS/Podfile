@@ -21,19 +21,17 @@ target 'DaoCaoDui_IOS' do
     pod 'SGAdvertScrollView'
     pod 'IQKeyboardManager'
     pod 'JVFloatLabeledTextField'
+    pod 'QMUIKit'
 
+    pod 'JPush'
     pod 'RongCloudIM', '~> 2.9.25'
     pod 'RongCloudRTC', '~> 2.9.25'
-    pod 'JPush'
 
-    # 友盟分享
     pod 'UMCCommon'
     pod 'UMCShare/UI'
     pod 'UMCCommonLog'
-
     pod 'UMCAnalytics'
     pod 'UMCErrorCatch'
-    
     pod 'UMCShare/Social/ReducedWeChat'
     pod 'UMCShare/Social/ReducedQQ'
     

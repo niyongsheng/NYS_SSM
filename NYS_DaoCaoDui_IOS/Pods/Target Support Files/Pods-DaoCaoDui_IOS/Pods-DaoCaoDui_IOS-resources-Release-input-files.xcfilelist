@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-DaoCaoDui_IOS/Pods-DaoCaoDui_IOS-resources.sh
 ${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle
 ${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/Images.xcassets
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj

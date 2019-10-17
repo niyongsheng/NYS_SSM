@@ -52,7 +52,7 @@ static int const showtime = 3;
         // 2.跳过按钮
         CGFloat btnW = 60;
         CGFloat btnH = 30;
-        _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(NScreenWidth - btnW - 24, NTopHeight, btnW, btnH)];
+        _countBtn = [[UIButton alloc] initWithFrame:CGRectMake(NScreenWidth - btnW - 24, NStatusBarHeight + 15, btnW, btnH)];
         [_countBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         [_countBtn setTitle:[NSString stringWithFormat:@"跳过%d", showtime] forState:UIControlStateNormal];
         _countBtn.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -198,7 +198,6 @@ static int const showtime = 3;
     
     NSArray *imageArray = @[
                             @"https://img3.doubanio.com/view/photo/l/public/p2557500825.jpg",
-                            @"https://img3.doubanio.com/view/photo/l/public/p2549380481.jpg",
                             @"https://img3.doubanio.com/view/photo/l/public/p2558142430.jpg"];
     NSString *imageUrl = imageArray[arc4random() % imageArray.count];
 

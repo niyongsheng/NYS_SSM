@@ -11,8 +11,6 @@
 
 @interface NYSChatListViewController ()
 
-@property (nonatomic, assign) UIStatusBarStyle StatusBarStyle;
-
 @end
 
 @implementation NYSChatListViewController
@@ -20,15 +18,9 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (void)setStatusBarStyle:(UIStatusBarStyle)StatusBarStyle {
-    _StatusBarStyle = StatusBarStyle;
-    [self setNeedsStatusBarAppearanceUpdate];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.StatusBarStyle = UIStatusBarStyleLightContent;
     self.title = @"我们";
     self.conversationListTableView.separatorStyle = UITableViewCellEditingStyleNone;
     self.edgesForExtendedLayout = UIRectEdgeNone;
