@@ -72,14 +72,14 @@
     return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 /** 个人信息提供者*/
-+ (NSURLSessionTask *)DataProviderInfoForUserWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)DataProviderInfoForUserWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ProviderUserInfo];
-    return [self unmismanageRequestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 /** 群信息提供者*/
-+ (NSURLSessionTask *)DataProviderInfoForTeamWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)DataProviderInfoForGroupWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ProviderTeamInfo];
-    return [self unmismanageRequestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 创建群组*/
@@ -204,7 +204,7 @@
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
     NLog(@"服务器：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
-        [SVProgressHUD showErrorWithStatus:[responseObject objectForKey:@"msg"]];
+        [SVProgressHUD showSuccessWithStatus:[responseObject objectForKey:@"msg"]];
         [SVProgressHUD dismissWithDelay:1.f];
         isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
         success(responseObject);
@@ -213,10 +213,16 @@
         NSString *info = [responseObject objectForKey:@"msg"];
         NSString *error = [NSString stringWithFormat:@"%ld\n%@", (long)code, info];
         [SVProgressHUD showErrorWithStatus:error];
-        if (code == 6005 || code == 6010) {
+        if (code == 6005 || code == 6010 || code == 6011) {
+            // 退出登录通知
             [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
+        } else if (code == 4001) {
+            // 参数合法性提示
+            NSString *warnInfo = [responseObject objectForKey:@"data"];
+            NSString *warning = [NSString stringWithFormat:@"%ld\n%@", (long)code, warnInfo];
+            [SVProgressHUD showInfoWithStatus:warning];
         }
-        [SVProgressHUD dismissWithDelay:1.f];
+        [SVProgressHUD dismissWithDelay:2.f];
     }
 }
 

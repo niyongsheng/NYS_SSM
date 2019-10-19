@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.GroupDao">
+
+    <insert id="insert" parameterType="com.niyongsheng.persistence.domain.Group">
+        INSERT INTO dcd_group (
+        <if test="groupId != null">groupId,</if>
+        <if test="groupIcon != null">groupIcon,</if>
+        <if test="groupName != null">groupName,</if>
+        <if test="creator != null">creator,</if>
+        <if test="status != null">status,</if>
+        <if test="isneedVerify != null">isneedVerify,</if>
+        <if test="groupType != null">groupType,</if>
+        <if test="fellowship != null">fellowship,</if>
+        <if test="expireTime != null">expireTime,</if>
+        gmtCreate
+        )
+        VALUES (
+        <if test="groupId != null">#{groupId},</if>
+        <if test="groupIcon != null">#{groupIcon},</if>
+        <if test="groupName != null">#{groupName},</if>
+        <if test="creator != null">#{creator},</if>
+        <if test="status != null">#{status},</if>
+        <if test="isneedVerify != null">#{isneedVerify},</if>
+        <if test="groupType != null">#{groupType},</if>
+        <if test="fellowship != null">#{fellowship},</if>
+        <if test="expireTime != null">#{expireTime},</if>
+        NOW()
+        )
+    </insert>
+
+    <delete id="deleteByPrimaryKey" parameterType="object">
+        DELETE FROM dcd_group WHERE id = #{id}
+    </delete>
+
+    <update id="updateByPrimaryKey" parameterType="com.niyongsheng.persistence.domain.Group">
+        UPDATE dcd_group
+        SET
+        <if test="groupId != null">
+            groupId=#{groupId},
+        </if>
+        <if test="groupIcon != null">
+            groupIcon=#{groupIcon},
+        </if>
+        <if test="groupName !=null">
+            groupName=#{groupName},
+        </if>
+        <if test="creator != null">
+            creator=#{creator},
+        </if>
+        <if test="status != null">
+            status=#{status},
+        </if>
+        <if test="isneedVerify !=null">
+            isneedVerify=#{isneedVerify},
+        </if>
+        <if test="groupType !=null">
+            groupType=#{groupType},
+        </if>
+        <if test="fellowship !=null">
+            fellowship=#{fellowship},
+        </if>
+        <if test="expireTime != null">
+            expireTime=#{expireTime},
+        </if>
+        <if test="gmtModify != null">
+            gmtModify=NOW()
+        </if>
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="object" resultType="com.niyongsheng.persistence.domain.Group">
+        SELECT *
+        FROM dcd_group
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAllList" resultType="com.niyongsheng.persistence.domain.Group">
+        SELECT *
+        FROM
+        dcd_group
+    </select>
+
+    <select id="selectByGroupId" resultType="com.niyongsheng.persistence.domain.Group">
+        SELECT *
+        FROM dcd_group
+        WHERE id = #{groupId}
+    </select>
+
+</mapper>

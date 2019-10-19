@@ -53,7 +53,7 @@ public class RongCloudService {
         }
 
         System.out.println("getRongCloudToken:" + result.toString());
-        return result.toString();
+        return result.getToken();
     }
 
 }

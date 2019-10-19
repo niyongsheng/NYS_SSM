@@ -1,0 +1,6 @@
+framework module Pods_DaoCaoDui_IOS_DaoCaoDui_IOSUITests {
+  umbrella header "Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

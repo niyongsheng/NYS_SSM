@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition;
 import com.niyongsheng.application.utils.JwtUtil;
+import com.niyongsheng.common.config.AppRegularConfig;
 import com.niyongsheng.common.enums.NickeNameEnum;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
@@ -18,17 +19,24 @@ import com.niyongsheng.persistence.service.KeyValueRedisService;
 import com.niyongsheng.persistence.service.UserRedisService;
 import com.niyongsheng.persistence.service.UserService;
 import io.swagger.annotations.*;
+
+import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.core.MediaType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
 
 /**
  * @author niyongsheng.com
@@ -41,10 +49,11 @@ import java.util.List;
 @RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
 @Api(value = "用户信息", produces = MediaType.APPLICATION_JSON)
 //@CrossOrigin(origins = "*",allowedHeaders = {"Access-Control-Allow-*"}) // 跨域
+@Validated
 public class UserController {
 
-    // 验证码在redis中的key前缀（后面拼接手机号）
-    private static final String ONCECODE_KEY = "onceCode_";
+    /** 验证码在redis中的key前缀（后面拼接手机号）*/
+    public static final String ONCECODE_KEY = "onceCode_";
 
     @Autowired
     private UserService userService;
@@ -74,7 +83,9 @@ public class UserController {
             @ApiImplicitParam(name = "password", value = "密码", required = true)
     })
     public ResponseDto<User> login(HttpServletRequest request,
+                                   @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
                                    @RequestParam(value = "phone", required = true) String phone,
+                                   @Length(min = 6, max = 20, message = "密码长度6~20位")
                                    @RequestParam(value = "password", required = true) String password
     ) throws ResponseException {
         // 1.参数封装
@@ -107,14 +118,23 @@ public class UserController {
             // 3.3将token封装进User对象返回给客户端
             user.setToken(token);
         } else {
-            throw new ResponseException(ResponseStatusEnum.AUTH_ACCOUNT_ERROR);
+            throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
         }
 
-        // 4.将token存入数据库
-        userService.updateUser(user);
+        // 4.将token回存到数据库用户表
+        try {
+            userService.updateUser(user);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_UPDATE_ERROR);
+        }
 
         // 5.将user存入redis缓存
-        userRedisService.insertUser(user);
+        try {
+            userRedisService.insertUser(user);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.REDIS_INSERT_ERROR);
+        }
+
 
         // 6.返回登录的User对象
         return new ResponseDto(ResponseStatusEnum.AUTH_LOGIN_SUCESS, user);
@@ -128,8 +148,9 @@ public class UserController {
             @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "phone", value = "手机号", required = true),
     })
-    public ResponseDto<String> phoneRegister(HttpServletRequest request,
-                                      @RequestParam(value = "phone", required = true) String phone
+    public ResponseDto<String> getOnceCode(HttpServletRequest request,
+                                           @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
+                                           @RequestParam(value = "phone", required = true) String phone
     ) throws ResponseException {
 
         // 1.获取验证码
@@ -137,7 +158,11 @@ public class UserController {
         System.out.println(phone + "验证码：" + onceCode);
 
         // 2.Redis缓存3分钟过期,多次获取覆盖
-        keyValueRedisService.set(ONCECODE_KEY + phone, onceCode, 60L * 3 * 1000L);
+        try {
+            keyValueRedisService.set(ONCECODE_KEY + phone, onceCode, 60L * 3 * 1000L);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.REDIS_INSERT_ERROR);
+        }
 
         // 3.返回验证码
         return new ResponseDto(ResponseStatusEnum.AUTH_ONCECODE_SUCESS, onceCode);
@@ -150,28 +175,32 @@ public class UserController {
             @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "phone", value = "手机号", required = true),
-            @ApiImplicitParam(name = "onceCode", value = "验证码(6位)", required = true),
+            @ApiImplicitParam(name = "onceCode", value = "验证码(6位，3分钟内有效)", required = true),
             @ApiImplicitParam(name = "fellowship", value = "团契", required = true),
-            @ApiImplicitParam(name = "password", value = "密码", required = true)
+            @ApiImplicitParam(name = "password", value = "密码(6-21位的数字和字母组合)", required = true)
     })
     public ResponseDto<User> phoneRegister(HttpServletRequest request,
+                                           @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
                                            @RequestParam(value = "phone", required = true) String phone,
+                                           @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
                                            @RequestParam(value = "onceCode", required = true) String onceCode,
+                                           @NotBlank
                                            @RequestParam(value = "fellowship", required = true) Integer fellowship,
+                                           @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
                                            @RequestParam(value = "password", required = true) String password
     ) throws ResponseException {
 
-        // 1.验证码校验
+        // 1.Redis中验证码一致性校验
         if (!onceCode.equals(keyValueRedisService.get(ONCECODE_KEY + phone))) {
             throw new ResponseException(ResponseStatusEnum.AUTH_ONCECODE_ERROR);
         }
 
-        // 2.是否重复注册
+        // 2.重复注册校验
         if (userService.findUserByPhone(phone) != null) {
             throw new ResponseException(ResponseStatusEnum.AUTH_REPEAT_ERROR);
         }
 
-        // 2.创建User对象并初始化
+        // 3.创建User对象并初始化
         User registerUser = new User();
         registerUser.setPhone(phone);
         registerUser.setPassword(MD5Util.crypt(password));
@@ -180,7 +209,7 @@ public class UserController {
         registerUser.setProfession(1);
         String account = MathUtils.randomDigitNumber(7);
         while (true) {
-            // account排重
+            // 自动生成的account排重检查
             if (userService.findUserByAccount(account) == null) {
                 break;
             }
@@ -193,17 +222,22 @@ public class UserController {
         String nickName = EnumUtil.random(NickeNameEnum.class).toString();
         registerUser.setNickname(nickName);
 
-        // 4.注册RongCloud
+        // 4.注册RongCloud并设置注册用户的ImToken
         registerUser.setImToken(rongCloudService.rongCloudGetToken(account, nickName, iconUrl));
 
-        // 写入数据库
-        userService.addUser(registerUser);
+        // 5.写入数据库
+        try {
+            userService.addUser(registerUser);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
 
+        // 6.返回注册结果
         return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS);
     }
 
     @ResponseBody
-    @RequestMapping(value = "/logout", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     @ApiOperation(value = "用户登出接口", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
            /* @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
@@ -212,29 +246,46 @@ public class UserController {
     public ResponseDto logout(HttpServletRequest request) throws ResponseException {
 
         String account = request.getHeader("Account");
-        User user = userService.findUserByAccount(account);
+        User user = null;
+        try {
+            user = userService.findUserByAccount(account);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
         // 删除user的redis缓存
-        userRedisService.del(user);
+        try {
+            userRedisService.del(user);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.REDIS_DELETE_ERROR);
+        }
 
         return new ResponseDto(ResponseStatusEnum.AUTH_LOGOUT_SUCESS);
     }
 
     @ResponseBody
-    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    @ApiOperation(value = "查询所有的用户信息并分页展示", notes = "参数描述", hidden = false)
+    @RequestMapping(value = "/findAllUsers", method = RequestMethod.GET)
+    @ApiOperation(value = "查询所有的用户信息列表并分页展示", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum", value = "跳转到的页数", required = true, paramType = "query"),
             @ApiImplicitParam(name = "pageSize", value = "每页展示的记录数", required = true, paramType = "query")
     })
-    public ResponseDto<User> findAll(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                     @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
-                                     Model model) {
-        System.out.println("表现层：查询所有的用户信息...");
+    public ResponseDto<User> findAll(HttpServletRequest request, Model model,
+                                    @NotBlank
+                                    @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                    @NotBlank
+                                    @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
+    ) throws ResponseException {
+
         // 1.设置页码和分页大小
         PageHelper.startPage(pageNum, pageSize);
 
         // 2.调用service的方法
-        List<User> list = userService.findAll();
+        List<User> list = null;
+        try {
+            list = userService.findAll();
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
 
         // 3.包装分页对象
         PageInfo pageInfo = new PageInfo(list);
@@ -245,6 +296,33 @@ public class UserController {
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = "/providerInfoForUser", method = RequestMethod.GET)
+    @ApiOperation(value = "用户信息提供者接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "account", value = "账号", required = true),
+    })
+    public ResponseDto<User> ProviderInfoForUser(HttpServletRequest request,
+                                                 @NotBlank()
+                                                 @RequestParam(value = "account", required = true) String account
+    ) throws ResponseException {
+
+        // 1.数据库查询用户
+        User user = null;
+        try {
+            user = userService.findUserByAccount(account);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 2.数据校验
+        if (user == null) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
+        }
+
+        // 3.返回分页对象
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, user);
+    }
 
 
 

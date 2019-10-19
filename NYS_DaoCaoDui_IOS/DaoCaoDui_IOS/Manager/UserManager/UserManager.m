@@ -179,26 +179,30 @@ SINGLETON_FOR_CLASS(UserManager);
 
 #pragma mark -- 退出登录 --
 - (void)logout:(void (^)(BOOL, id))completion {
-    [[IMManager sharedIMManager] IMLogout];
-    
-    // 清除APP角标
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-    
-    [[IMManager sharedIMManager] IMLogout];
-    
-    self.currentUserInfo = nil;
-    self.isLogined = NO;
-    
-    // 移除缓存
-    YYCache *cache = [[YYCache alloc] initWithName:NUserCacheName];
-    [cache removeAllObjectsWithBlock:^{
-        if (completion) {
-            completion(YES, nil);
-        }
-    }];
-    
-    NPostNotification(NNotificationLoginStateChange, @NO);
+    [NYSRequest getLogoutWithResMethod:GET parameters:nil success:^(id response) {
+        [[IMManager sharedIMManager] IMLogout];
+        
+        // 清除APP角标
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+        
+        [[IMManager sharedIMManager] IMLogout];
+        
+        self.currentUserInfo = nil;
+        self.isLogined = NO;
+        
+        // 移除缓存
+        YYCache *cache = [[YYCache alloc] initWithName:NUserCacheName];
+        [cache removeAllObjectsWithBlock:^{
+            if (completion) {
+                completion(YES, nil);
+            }
+        }];
+        
+        NPostNotification(NNotificationLoginStateChange, @NO);
+    } failure:^(NSError *error) {
+        
+    } isCache:NO];
 }
 
 @end

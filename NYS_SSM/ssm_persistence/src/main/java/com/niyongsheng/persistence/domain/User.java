@@ -1,11 +1,15 @@
 package com.niyongsheng.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
-import java.util.Date;
 
+@Valid
 @ApiModel(value ="User")
 public class User implements Serializable{
 
@@ -31,6 +35,7 @@ public class User implements Serializable{
     private String gender;
 
     @ApiModelProperty(value = "手机号")
+    @Pattern(regexp = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$", message = "{Pattern.user.phone}")
     private String phone;
 
     @ApiModelProperty(value = "密码")
@@ -70,12 +75,18 @@ public class User implements Serializable{
     private Boolean status;
 
     @ApiModelProperty(value = "生日")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private java.util.Date birthday;
 
     @ApiModelProperty(value = "修改时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private java.util.Date gmtModify;
 
     @ApiModelProperty(value = "创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private java.util.Date gmtCreate;
 
     @Override

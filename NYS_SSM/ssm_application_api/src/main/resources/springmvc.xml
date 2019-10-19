@@ -16,14 +16,14 @@
         <!-- 只扫描Controller注解 -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <!-- 加载第三方框架配置属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:sdkConfig.properties" />
+    <!-- 加载框架配置属性文件 -->
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sdkConfig.properties"/>
 
     <!-- 配置的视图解析器对象 -->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
-<!--        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>-->
+        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>
     </bean>
 
     <!-- 静态资源放行 -->
@@ -61,19 +61,23 @@
     <bean id="qiniuSMSService" class="com.niyongsheng.common.qiniu.QiniuSMSService"></bean>
     <!-- 融云IM服务对象 -->
     <bean id="rongCloudService" class="com.niyongsheng.common.rongCloud.RongCloudService"></bean>
-
-    <!-- 配置自定义日期类型转换器 -->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-        <property name="converters">
-            <set>
-                <bean class="com.niyongsheng.common.date.StringToDateConverter"></bean>
-            </set>
+    <!--开启@Validated注解 用于@RequestParam参数校验-->
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
+    <!--注册国际化资源文件-->
+    <bean id="messageSource" class = "org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>ValidationMessages</value>
+            </list>
         </property>
+        <property name = "defaultEncoding" value="UTF-8"/>
+        <property name="useCodeAsDefaultMessage" value="true"/>
     </bean>
 
-    <!-- 开启SpringMVC注解的支持 -->
-    <mvc:annotation-driven conversion-service="conversionService">
 
+
+    <!-- 开启SpringMVC注解的支持 -->
+    <mvc:annotation-driven>
         <!-- 强化参数接收 -->
         <!--<mvc:argument-resolvers>
             <bean class="org.durcframework.common.form.FormModelMethodArgumentResolver" />

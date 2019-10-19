@@ -1,7 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-DaoCaoDui_IOS/Pods-DaoCaoDui_IOS-resources.sh
-${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle
-${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
-${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/Images.xcassets
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj
@@ -15,6 +12,5 @@ ${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/jrmf.cer
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle
 ${PODS_ROOT}/RongCloudIM/RongCloudIM/RongSticker.bundle
-${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
 ${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle
 ${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle

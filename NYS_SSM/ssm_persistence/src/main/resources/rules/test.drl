@@ -1,0 +1,10 @@
+import com.niyongsheng.persistence.domain.User
+
+dialect  "mvel"
+
+rule "grade" // 规则名，唯一
+    when
+        $user : User(grade<10 || grade>0) // 规则的条件部分
+    then
+        System.out.println("等级不符合要求！");
+end

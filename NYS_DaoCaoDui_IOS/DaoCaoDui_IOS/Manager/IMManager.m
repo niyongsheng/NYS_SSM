@@ -41,6 +41,12 @@ SINGLETON_FOR_CLASS(IMManager);
     } failure:^(RCErrorCode nErrorCode) {
         
     }];
+    // 判断是否重连
+    if ([[RCIMClient sharedRCIMClient] getConnectionStatus] != ConnectionStatus_Connected) {
+        [self IMLoginwithCurrentUserInfo:[UserManager sharedUserManager].currentUserInfo completion:^(BOOL success, id  _Nullable description) {
+            
+        }];
+    };
 }
 
 #pragma mark —- IM登录 --

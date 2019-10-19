@@ -8,6 +8,7 @@
 
 #import "NYSChatListViewController.h"
 #import "NYSConversationViewController.h"
+#import "OYRPopOption.h"
 
 @interface NYSChatListViewController ()
 
@@ -20,11 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createRightBtn];
     
     self.title = @"我们";
     self.conversationListTableView.separatorStyle = UITableViewCellEditingStyleNone;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-//    [self.conversationListTableView setSeparatorColor:[UIColor colorWithRed:0.85 green:0.84 blue:0.84 alpha:0.9]];
     
     // 设置需要显示哪些类型的会话
     [self setDisplayConversationTypes:@[
@@ -47,6 +48,47 @@
     [self setConversationAvatarStyle:RC_USER_AVATAR_CYCLE];
     // 移除群助手
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION)]];
+}
+
+- (void)createRightBtn {
+    UIImage *img = [UIImage imageNamed:@"icon_profile_more"];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 36 * 0.6, 28 * 0.6);
+    [btn setImage:img forState:UIControlStateNormal];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    [btn addTarget:self action:@selector(righBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+- (void)righBtnClick:(UIButton *)optionButton {
+    
+    // 注意：由convertRect: toView 获取到屏幕上该控件的绝对位置。
+    UIWindow *window = [[UIApplication sharedApplication].delegate window];
+    CGRect frame = [optionButton convertRect:optionButton.bounds toView:window];
+    
+    OYRPopOption *s = [[OYRPopOption alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight)];
+    s.option_optionContents = @[@"私聊", @"群聊", @"会议"];
+    s.option_optionImages = @[@"icon_quit_matchdetail",
+                              @"icon_nav_share",
+                              @"icon_invite_matchdetail"];
+    // 使用链式语法直接展示 无需再写 [s option_show];
+    [[s option_setupPopOption:^(NSInteger index, NSString *content) {
+        switch (index) {
+            case 0: {
+                NYSConversationViewController *privateConversationVC = [[NYSConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"7793477"];
+                
+                // 设置聊天会话界面要显示的标题
+                privateConversationVC.title = @"测试";
+                
+                // 显示聊天会话界面
+                [self.navigationController pushViewController:privateConversationVC animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    } whichFrame:frame animate:YES] option_show];
 }
 
 // 点击cell回调

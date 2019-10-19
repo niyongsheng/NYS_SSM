@@ -38,9 +38,9 @@ NSString *const CR_DoSign = @"/account/doSign";
 /** 积分记录*/
 NSString *const CR_SignRecord = @"/account/getScoreLog";
 /** 个人信息提供者*/
-NSString *const CR_ProviderUserInfo = @"/account/DataProviderInfoForUser";
+NSString *const CR_ProviderUserInfo = @"/user/providerInfoForUser";
 /** 群信息提供者*/
-NSString *const CR_ProviderTeamInfo = @"/im/DataProviderInfoForTeam";
+NSString *const CR_ProviderTeamInfo = @"/group/providerInfoForGroup";
 /** 创建群组*/
 NSString *const CR_CreateGroup = @"/im/createTeam";
 /** 修改群组资料*/

@@ -1,47 +1,44 @@
-project 'DaoCaoDui_IOS.xcodeproj'
-
-    platform :ios, '10.0'
-    inhibit_all_warnings!
+platform :ios, '10.0'
+inhibit_all_warnings!
 
 target 'DaoCaoDui_IOS' do
-    
-    pod 'ReactiveObjC'
-    pod 'Masonry'
-    pod 'SDAutoLayout'
-    pod 'SDWebImage'
-    pod 'SVProgressHUD'
-    pod 'MBProgressHUD', '~> 1.0.0'
-    pod 'MJRefresh'
-    pod 'MJExtension'
-    pod 'YYKit'
-    pod 'YTKKeyValueStore'
-    pod 'YTKNetwork'
-    pod 'AxcAE_TabBar'
-    pod 'SGPagingView'
-    pod 'SGAdvertScrollView'
-    pod 'IQKeyboardManager'
-    pod 'JVFloatLabeledTextField'
-    pod 'QMUIKit'
-
-    pod 'JPush'
-    pod 'RongCloudIM', '~> 2.9.25'
-    pod 'RongCloudRTC', '~> 2.9.25'
-
-    pod 'UMCCommon'
-    pod 'UMCShare/UI'
-    pod 'UMCCommonLog'
-    pod 'UMCAnalytics'
-    pod 'UMCErrorCatch'
-    pod 'UMCShare/Social/ReducedWeChat'
-    pod 'UMCShare/Social/ReducedQQ'
-    
-    
+  use_frameworks!
+  
+  pod 'ReactiveObjC'
+  pod 'Masonry'
+  pod 'SDAutoLayout'
+  pod 'SDWebImage'
+  pod 'SVProgressHUD'
+  pod 'MBProgressHUD', '~> 1.0.0'
+  pod 'MJRefresh'
+  pod 'MJExtension'
+  pod 'YYKit'
+  pod 'YTKKeyValueStore'
+  pod 'YTKNetwork'
+  pod 'AxcAE_TabBar'
+  pod 'SGPagingView'
+  pod 'SGAdvertScrollView'
+  pod 'IQKeyboardManager'
+  pod 'JVFloatLabeledTextField'
+  pod 'QMUIKit'
+  
+  pod 'JPush'
+  pod 'RongCloudIM', '~> 2.9.25'
+  pod 'RongCloudRTC', '~> 2.9.25'
+  
+  pod 'UMCCommon'
+  pod 'UMCShare/UI'
+  pod 'UMCCommonLog'
+  pod 'UMCAnalytics'
+  pod 'UMCErrorCatch'
+  pod 'UMCShare/Social/ReducedWeChat'
+  pod 'UMCShare/Social/ReducedQQ'
+  
   target 'DaoCaoDui_IOSTests' do
     inherit! :search_paths
   end
 
   target 'DaoCaoDui_IOSUITests' do
-    inherit! :search_paths
   end
 
 end

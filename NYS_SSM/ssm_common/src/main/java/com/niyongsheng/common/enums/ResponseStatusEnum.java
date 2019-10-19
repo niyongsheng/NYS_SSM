@@ -31,22 +31,36 @@ public enum ResponseStatusEnum {
     IO_TRANSFER_ERROR(false,1002,"文件转存失败"),
     IO_QNUPLOAD_ERROR(false,1003,"文件上传云服务器失败"),
     IO_IMGFORMAT_ERROR(false,1004,"非图片文件类型"),
+    /* 数据库 */
+    DB_INSERT_ERROR(true,2011,"数据库写入错误"),
+    DB_DELETE_ERROR(true,2012,"数据库删除错误"),
+    DB_UPDATE_ERROR(true,2013,"数据库更新错误"),
+    DB_SELECT_ERROR(true,2014,"数据库查询错误"),
+    /* Redis */
+    REDIS_INSERT_ERROR(true,2015,"Redis写入错误"),
+    REDIS_DELETE_ERROR(true,2016,"Redis删除错误"),
+    REDIS_UPDATE_ERROR(true,2017,"Redis更新错误"),
+    REDIS_SELECT_ERROR(true,2018,"Redis查询错误"),
 
     /* 参数错误 */
     PARAM_EMPTY_ERROR(false,3001,"参数为空"),
     PARAM_FORMAT_ERROR(false,3001,"参数格式不正确"),
 
     /* Auth错误 */
-    AUTH_ACCOUNT_ERROR(false,6001,"用户不存在"),
+    AUTH_UNEXISTENT_ERROR(false,6001,"用户不存在"),
     AUTH_PASSWORD_ERROR(false,6002,"密码错误"),
     AUTH_ONCECODE_ERROR(false,6003,"验证码错误"),
     AUTH_2PASSWORD_ERROR(false,6004,"密码不一致"),
     AUTH_EXPIRE_ERROR(false,6005,"Token已失效"),
     AUTH_NULL_ERROR(false,6006,"Token或Account为空"),
-    AUTH_VERIFY_ERROR(false,6007,"Token与账户不匹配"),
+    AUTH_VERIFY_ERROR(false,6007,"Token与Account不匹配"),
     AUTH_STATUS_ERROR(false,6008,"用户已禁用,请联系管理员!"),
     AUTH_REPEAT_ERROR(false,6009,"该手机号已注册"),
     AUTH_UNLOGIN_ERROR(false,6010,"未登录"),
+//    AUTH_ACCOUNTDIFFER_ERROR(false,6011,"Token与不匹配"),
+
+    /* 群组错误 */
+    GROUP_UNEXISTENT_ERROR(false,6011,"群组不存在"),
 
 
     /* 人脸识别错误ASFR：ArcSoftFaceRecognition */
@@ -86,6 +100,12 @@ public enum ResponseStatusEnum {
         this.statusCode = statusCode;
         this.statusInfo = statusInfo;
     }
+
+/*    ResponseStatusEnum(String statusInfo) {
+        this.status = false;
+        this.statusCode = 0000;
+        this.statusInfo = statusInfo;
+    }*/
 
     public Boolean getStatus() {
         return status;

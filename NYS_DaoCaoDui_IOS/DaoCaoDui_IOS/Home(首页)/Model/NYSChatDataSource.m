@@ -24,14 +24,16 @@
 - (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *groupInfo))completion; {
     RCGroup *groupInfo = [RCGroup new];
     
+    // 拼接请求参数
+//    [NYSRequest DataProviderInfoForGroupWithResMethod:GET parameters: success:^(id response) {
+//        <#code#>
+//    } failure:^(NSError *error) {
+//        <#code#>
+//    } isCache:YES];
+    
 //    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
 //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    // 拼接请求参数
-//    NSMutableDictionary *parames = [NSMutableDictionary dictionary];
-//    NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
-//    parames[@"account"] = [userdefaults objectForKey:@"account"];
-//    parames[@"token"] = [userdefaults objectForKey:@"token"];
-//    parames[@"groupId"]  = groupId;
+//
 //
 //    // url
 //    NSString *requestUrl = [NSString stringWithFormat:@"%@/api/communityActivity/getCommunityActivitiesGroupInfo",POSTURL];
@@ -58,57 +60,17 @@
 
 #pragma mark - RCIMUserInfoDataSource
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion {
-    RCUserInfo *user = [RCUserInfo new];
+    RCUserInfo *rcUserInfo = [RCUserInfo new];
     
-//    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    // 拼接请求参数
-//    NSMutableDictionary *parames = [NSMutableDictionary dictionary];
-//    NSUserDefaults * userdefaults = [NSUserDefaults standardUserDefaults];
-//    parames[@"account"] = [userdefaults objectForKey:@"account"];
-//    parames[@"token"] = [userdefaults objectForKey:@"token"];
-//    parames[@"staffAccount"]  = userId;
-//
-//    // url
-//    NSString *requestUrl = [NSString stringWithFormat:@"%@/api/account/getStaffInfo",POSTURL];
-//    NLog(@"requestUrl = %@",requestUrl);
-//    [manager POST:requestUrl parameters:parames progress:^(NSProgress * _Nonnull uploadProgress) {
-//
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//        NLog(@"请求成功JSON:%@", JSON);
-//        NSString * success = [NSString stringWithFormat:@"%@",JSON[@"success"]];
-//        if ([success isEqualToString:@"1"]) {
-//            NSDictionary * dic = JSON[@"returnValue"];
-//            if (dic != nil) {
-//                user.userId = dic[@"staffAccount"];
-//                switch ([dic[@"type"] integerValue]) {
-//                    case 1:
-//                        user.name = [NSString stringWithFormat:@"经理-%@", dic[@"trueName"]];
-//                        break;
-//                    case 2:
-//                        user.name = [NSString stringWithFormat:@"客服-%@", dic[@"trueName"]];
-//                        break;
-//                    case 3:
-//                        user.name = [NSString stringWithFormat:@"维修工-%@", dic[@"trueName"]];
-//                        break;
-//                    case 4:
-//                        user.name = [NSString stringWithFormat:@"保洁-%@", dic[@"trueName"]];
-//                        break;
-//
-//                    default:
-//                        break;
-//                }
-//
-//                user.portraitUri = dic[@"imgAddress"];
-//                completion(user);
-//            }
-//        } else {
-//            NLog(@"QMHPChatDataSource error:%@", [JSON objectForKey:@"error"]);
-//        }
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NLog(@"QMHPChatDataSource网络错误:%@", error.description);
-//    }];
+    // 拼接请求参数
+    [NYSRequest DataProviderInfoForUserWithResMethod:GET parameters:@{@"account" : [UserManager sharedUserManager].currentUserInfo.imToken} success:^(id response) {
+        rcUserInfo.userId = [[response objectForKey:@"data"] objectForKey:@"account"];
+        rcUserInfo.name = [[response objectForKey:@"data"] objectForKey:@"nickname"];
+        rcUserInfo.portraitUri = [[response objectForKey:@"data"] objectForKey:@"icon"];
+        completion(rcUserInfo);
+    } failure:^(NSError *error) {
+        
+    } isCache:YES];
 }
 
 

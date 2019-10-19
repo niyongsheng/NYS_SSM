@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 /**
  * @author niyongsheng.com
  * @version $
- * @des 拦截器1
+ * @des 登录状态AUTH拦截器（优化数据库负载使用redis完成用户数据校验，注意redis中用户数据一致性）
  * @updateAuthor $
  * @updateDes
  */
@@ -42,9 +42,10 @@ public class JwtAuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         response.setCharacterEncoding("utf-8");
-        // 获取请求的RUi:去除http:localhost:8080这部分剩下的
+        // RUi:去除http:localhost:8080剩下部分
         String uri = request.getRequestURI();
         if (uri.contains("/index.jsp") || uri.contains("/csrf")) {
+            // swagger静态资源放行
             return true;
         }
 
