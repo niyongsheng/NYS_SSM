@@ -46,6 +46,8 @@ UIKIT_EXTERN NSString *const CR_UpdateGroupInfo;
 UIKIT_EXTERN NSString *const CR_RemoveGroup;
 /** 群列表*/
 UIKIT_EXTERN NSString *const CR_GroupList;
+/** 用户列表*/
+UIKIT_EXTERN NSString *const CR_UserList;
 /** QQ登录*/
 UIKIT_EXTERN NSString *const CR_QQLogoin;
 /** 微信登录*/

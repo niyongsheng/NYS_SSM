@@ -40,7 +40,8 @@
     [self.chatSessionInputBarControl.pluginBoardView removeItemWithTag:PLUGIN_BOARD_ITEM_RED_PACKET_TAG];
 
     self.enableNewComingMessageIcon = YES; //开启消息提醒
-//    // 取消IQKeyboardManager Toolbar
+    self.enableUnreadMessageIcon = YES;
+    // 取消IQKeyboardManager Toolbar
 //    [[IQKeyboardManager sharedManager] disableToolbarInViewControllerClass:self];
 }
 

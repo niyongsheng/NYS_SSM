@@ -54,6 +54,8 @@ public class UserController {
 
     /** 验证码在redis中的key前缀（后面拼接手机号）*/
     public static final String ONCECODE_KEY = "onceCode_";
+    /* 默认用户头像 */
+    public static final String USERICON_URL = "http://pyd6p69m3.bkt.clouddn.com/config/icon/me_dcd.png";
 
     @Autowired
     private UserService userService;
@@ -216,8 +218,7 @@ public class UserController {
             account = MathUtils.randomDigitNumber(7);
         }
         registerUser.setAccount(account);
-        // TODO 从团契配置表读取
-        String iconUrl = "http://zhaijidi.qmook.com/morentouxiang@3x.png";
+        String iconUrl = USERICON_URL;
         registerUser.setIcon(iconUrl);
         String nickName = EnumUtil.random(NickeNameEnum.class).toString();
         registerUser.setNickname(nickName);
@@ -266,20 +267,17 @@ public class UserController {
     @RequestMapping(value = "/findAllUsers", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有的用户信息列表并分页展示", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageNum", value = "跳转到的页数", required = true, paramType = "query"),
-            @ApiImplicitParam(name = "pageSize", value = "每页展示的记录数", required = true, paramType = "query")
+            @ApiImplicitParam(name = "pageNum", value = "跳转到的页数"),
+            @ApiImplicitParam(name = "pageSize", value = "每页展示的记录数"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", paramType = "boolean")
     })
     public ResponseDto<User> findAll(HttpServletRequest request, Model model,
-                                    @NotBlank
-                                    @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                    @NotBlank
-                                    @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
+                                     @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                     @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                     @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak
     ) throws ResponseException {
 
-        // 1.设置页码和分页大小
-        PageHelper.startPage(pageNum, pageSize);
-
-        // 2.调用service的方法
+        // 1.调用service的方法
         List<User> list = null;
         try {
             list = userService.findAll();
@@ -287,14 +285,21 @@ public class UserController {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
 
-        // 3.包装分页对象
-        PageInfo pageInfo = new PageInfo(list);
-        model.addAttribute("pagingList", pageInfo);
+        // 2.是否分页
+        if (isPageBreak) {
+            // 2.1设置页码和分页大小
+            PageHelper.startPage(pageNum, pageSize);
 
-        // 4.返回分页对象
-        return new ResponseDto(ResponseStatusEnum.SUCCESS, pageInfo);
+            // 2.2包装分页对象
+            PageInfo pageInfo = new PageInfo(list);
+
+            model.addAttribute("pagingList", pageInfo);
+            return new ResponseDto(ResponseStatusEnum.SUCCESS, pageInfo);
+        } else {
+            model.addAttribute("pagingList", list);
+            return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+        }
     }
-
 
     @ResponseBody
     @RequestMapping(value = "/providerInfoForUser", method = RequestMethod.GET)

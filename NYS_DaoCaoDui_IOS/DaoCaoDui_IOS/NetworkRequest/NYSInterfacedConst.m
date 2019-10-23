@@ -49,6 +49,8 @@ NSString *const CR_UpdateGroupInfo = @"/im/updateTeam";
 NSString *const CR_RemoveGroup = @"/im/removeTeam";
 /** 群列表*/
 NSString *const CR_GroupList = @"/im/getTeamList";
+/** 用户列表*/
+NSString *const CR_UserList = @"/user/findAllUsers";
 /** QQ登录*/
 NSString *const CR_QQLogoin = @"/account/qqLogin";
 /** 微信登录*/

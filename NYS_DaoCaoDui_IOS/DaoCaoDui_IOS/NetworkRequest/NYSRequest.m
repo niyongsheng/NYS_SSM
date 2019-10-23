@@ -106,6 +106,12 @@
     return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 获取用户列表*/
++ (NSURLSessionTask *)GetUserListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UserList];
+    return [self requestWithResMethod:GET URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
 /** QQ登录*/
 + (NSURLSessionTask *)QQLogoinWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_QQLogoin];
@@ -202,10 +208,8 @@
 
 /* 请求响应处理方法 */
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
-    NLog(@"服务器：%@", responseObject);
+    NLog(@"[服务器Response]：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
-        [SVProgressHUD showSuccessWithStatus:[responseObject objectForKey:@"msg"]];
-        [SVProgressHUD dismissWithDelay:1.f];
         isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
         success(responseObject);
     } else {

@@ -21,6 +21,9 @@
 		C802A61F22A62FB8002E2A58 /* FAQ.json in Resources */ = {isa = PBXBuildFile; fileRef = C802A61E22A62FB7002E2A58 /* FAQ.json */; };
 		C802A62122A6319C002E2A58 /* FAQ.plist in Resources */ = {isa = PBXBuildFile; fileRef = C802A62022A6319C002E2A58 /* FAQ.plist */; };
 		C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E4716229FBEB9005F841B /* NYSHeaderView.m */; };
+		C8216128235D5E5800B17530 /* NYSContactsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8216127235D5E5800B17530 /* NYSContactsListViewController.m */; };
+		C821612E235D5EEC00B17530 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612B235D5EEC00B17530 /* ChineseString.m */; };
+		C821612F235D5EEC00B17530 /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612D235D5EEC00B17530 /* pinyin.m */; };
 		C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6B22A0FEE10072A3F1 /* UserManager.m */; };
 		C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6E22A0FEFE0072A3F1 /* UserInfo.m */; };
 		C8265C7222A215DF0072A3F1 /* NYSNickNameLbel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C7122A215DE0072A3F1 /* NYSNickNameLbel.m */; };
@@ -38,7 +41,6 @@
 		C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C9822A27E6B0072A3F1 /* NGTextField.m */; };
 		C8265CA422A27E6B0072A3F1 /* NYSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C9A22A27E6B0072A3F1 /* NYSTextField.m */; };
 		C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */; };
-		C833CA0323581BC500492DA8 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = C833CA0223581BC500492DA8 /* QMUIConfigurationTemplate.m */; };
 		C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C836D7A82358103000DBDAEF /* NYSDCDViewController.m */; };
 		C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C836D7AA235810F400DBDAEF /* LayoutFittingView.m */; };
 		C836D7AE2358181100DBDAEF /* logo_app.png in Resources */ = {isa = PBXBuildFile; fileRef = C836D7AD2358181100DBDAEF /* logo_app.png */; };
@@ -104,6 +106,7 @@
 		C85DD72F22A4CDA100E33636 /* wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = C85DD72E22A4CDA100E33636 /* wechat.png */; };
 		C85DD73222A4F03A00E33636 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD73122A4F03A00E33636 /* IMManager.m */; };
 		C85DD73722A4F90600E33636 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD73622A4F90600E33636 /* ShareManager.m */; };
+		C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */; };
 		C89CA2A822BC791C0086F9B0 /* JSPatchPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89CA2A722BC791C0086F9B0 /* JSPatchPlatform.framework */; };
 		C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89CA2AE22BCA15C0086F9B0 /* NYSEmitterViewController.m */; };
 		C89CA2BB22BCA2DE0086F9B0 /* stepPk_win_colour3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2B222BCA2DD0086F9B0 /* stepPk_win_colour3@2x.png */; };
@@ -176,6 +179,12 @@
 		C802A62022A6319C002E2A58 /* FAQ.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FAQ.plist; sourceTree = "<group>"; };
 		C80E4715229FBEB9005F841B /* NYSHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHeaderView.h; sourceTree = "<group>"; };
 		C80E4716229FBEB9005F841B /* NYSHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSHeaderView.m; sourceTree = "<group>"; };
+		C8216126235D5E5800B17530 /* NYSContactsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContactsListViewController.h; sourceTree = "<group>"; };
+		C8216127235D5E5800B17530 /* NYSContactsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContactsListViewController.m; sourceTree = "<group>"; };
+		C821612A235D5EEC00B17530 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
+		C821612B235D5EEC00B17530 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
+		C821612C235D5EEC00B17530 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		C821612D235D5EEC00B17530 /* pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinyin.m; sourceTree = "<group>"; };
 		C8265C6A22A0FEE10072A3F1 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		C8265C6B22A0FEE10072A3F1 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		C8265C6D22A0FEFE0072A3F1 /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -204,8 +213,6 @@
 		C8265C9A22A27E6B0072A3F1 /* NYSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSTextField.m; sourceTree = "<group>"; };
 		C82F63FC23571A8300BF41AA /* NYSChatDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSChatDataSource.h; sourceTree = "<group>"; };
 		C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSChatDataSource.m; sourceTree = "<group>"; };
-		C833CA0123581BC500492DA8 /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMUIConfigurationTemplate.h; path = Pods/QMUIKit/QMUIConfigurationTemplate/QMUIConfigurationTemplate.h; sourceTree = SOURCE_ROOT; };
-		C833CA0223581BC500492DA8 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMUIConfigurationTemplate.m; path = Pods/QMUIKit/QMUIConfigurationTemplate/QMUIConfigurationTemplate.m; sourceTree = SOURCE_ROOT; };
 		C836D7A72358103000DBDAEF /* NYSDCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSDCDViewController.h; sourceTree = "<group>"; };
 		C836D7A82358103000DBDAEF /* NYSDCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDCDViewController.m; sourceTree = "<group>"; };
 		C836D7AA235810F400DBDAEF /* LayoutFittingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutFittingView.m; sourceTree = "<group>"; };
@@ -305,6 +312,8 @@
 		C85DD73522A4F90600E33636 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		C85DD73622A4F90600E33636 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		C88452E394EE7ABEE72B3700 /* Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C884F408235DA8A6000DFB54 /* NYSContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContactsViewController.h; sourceTree = "<group>"; };
+		C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContactsViewController.m; sourceTree = "<group>"; };
 		C89CA2A722BC791C0086F9B0 /* JSPatchPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatchPlatform.framework; sourceTree = "<group>"; };
 		C89CA2AD22BCA15C0086F9B0 /* NYSEmitterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSEmitterViewController.h; sourceTree = "<group>"; };
 		C89CA2AE22BCA15C0086F9B0 /* NYSEmitterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSEmitterViewController.m; sourceTree = "<group>"; };
@@ -500,6 +509,28 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C8216125235D5D9800B17530 /* ContactsList */ = {
+			isa = PBXGroup;
+			children = (
+				C8216126235D5E5800B17530 /* NYSContactsListViewController.h */,
+				C8216127235D5E5800B17530 /* NYSContactsListViewController.m */,
+				C884F408235DA8A6000DFB54 /* NYSContactsViewController.h */,
+				C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */,
+			);
+			path = ContactsList;
+			sourceTree = "<group>";
+		};
+		C8216129235D5EEC00B17530 /* ChineseSorting */ = {
+			isa = PBXGroup;
+			children = (
+				C821612A235D5EEC00B17530 /* ChineseString.h */,
+				C821612B235D5EEC00B17530 /* ChineseString.m */,
+				C821612C235D5EEC00B17530 /* pinyin.h */,
+				C821612D235D5EEC00B17530 /* pinyin.m */,
+			);
+			path = ChineseSorting;
+			sourceTree = "<group>";
+		};
 		C8265C6922A0FD210072A3F1 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +601,7 @@
 		C8424ECF229E88FB003A7C58 /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				C8216125235D5D9800B17530 /* ContactsList */,
 				C89EDC2123584F8000DB07D9 /* View */,
 				C80334762355EB2300B073D8 /* Controller */,
 				C80334732355EB2200B073D8 /* Model */,
@@ -607,8 +639,6 @@
 		C8424ED2229E89BE003A7C58 /* Other(其他) */ = {
 			isa = PBXGroup;
 			children = (
-				C833CA0123581BC500492DA8 /* QMUIConfigurationTemplate.h */,
-				C833CA0223581BC500492DA8 /* QMUIConfigurationTemplate.m */,
 				C8424ED3229E8BE7003A7C58 /* NYSTabBarController.h */,
 				C8424ED4229E8BE7003A7C58 /* NYSTabBarController.m */,
 			);
@@ -766,6 +796,7 @@
 		C85C44D8229BD1AC00B35652 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C8216129235D5EEC00B17530 /* ChineseSorting */,
 				C89CA2C922BCB2100086F9B0 /* Emitter */,
 				C85DD71D22A4BE7600E33636 /* Tool */,
 				C857A384229CCF96002B5396 /* MBProgressHUD */,
@@ -1366,6 +1397,7 @@
 			files = (
 				C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */,
 				C8265C9F22A27E6B0072A3F1 /* NYSRegisterViewController.m in Sources */,
+				C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */,
 				C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */,
 				C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */,
 				C8EABF8B22B4EF70004B0DA4 /* NYSMagicBoxModel.m in Sources */,
@@ -1394,7 +1426,6 @@
 				C857A383229CCBDA002B5396 /* AppManager.m in Sources */,
 				C857A387229CD016002B5396 /* MBProgressHUD+NYS.m in Sources */,
 				C85C44F0229C03F300B35652 /* AESCipher.m in Sources */,
-				C833CA0323581BC500492DA8 /* QMUIConfigurationTemplate.m in Sources */,
 				C8265C7522A24E7F0072A3F1 /* NYSMeTableViewCell.m in Sources */,
 				C857A3A1229CD138002B5396 /* PPNetworkCache.m in Sources */,
 				C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */,
@@ -1405,13 +1436,16 @@
 				C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */,
 				C85C44EE229C03F300B35652 /* OpenUDID.m in Sources */,
 				C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */,
+				C821612E235D5EEC00B17530 /* ChineseString.m in Sources */,
 				C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */,
 				C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */,
 				C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */,
+				C8216128235D5E5800B17530 /* NYSContactsListViewController.m in Sources */,
 				C85DD73222A4F03A00E33636 /* IMManager.m in Sources */,
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C802A60322A62C39002E2A58 /* AppDelegate+PushService.m in Sources */,
+				C821612F235D5EEC00B17530 /* pinyin.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,
 				C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */,

@@ -50,28 +50,26 @@
         model.normalBackgroundColor = [UIColor clearColor];
         
         if (idx == 1 ) { // 如果是中间的
-            // 设置凸出 矩形
+            // 设置凸出
             model.bulgeStyle = AxcAE_TabBarConfigBulgeStyleSquare;
             // 设置凸出高度
-            model.bulgeHeight = 30;
-            // 设置成图片文字展示
-            model.itemLayoutStyle = AxcAE_TabBarItemLayoutStyleTopPictureBottomTitle;
-            // 设置图片
-            model.selectImageName = [obj objectForKey:@"selectImg"];
-            model.normalImageName = [obj objectForKey:@"normalImg"];
-            model.selectBackgroundColor = model.normalBackgroundColor = [UIColor clearColor];
-            model.backgroundImageView.hidden = YES;
-            // 设置图片大小c上下左右全边距
-            model.componentMargin = UIEdgeInsetsMake(0, 0, 0, 0 );
-            // 设置图片的高度为40
-            model.icomImgViewSize = CGSizeMake(self.tabBar.frame.size.width / 5, 60);
-            model.titleLabelSize = CGSizeMake(self.tabBar.frame.size.width / 5, 20);
-            // 图文间距0
-            model.pictureWordsMargin = 0;
-            // 设置标题文字字号
-            model.titleLabel.font = [UIFont systemFontOfSize:11];
-            // 设置大小/边长 自动根据最大值进行裁切
-            model.itemSize = CGSizeMake(self.tabBar.frame.size.width / 5 - 5.0 ,self.tabBar.frame.size.height + 20);
+            model.bulgeHeight = -5;
+            model.bulgeRoundedCorners = 2; // 修角
+            // 设置成纯文字展示
+            model.itemLayoutStyle = AxcAE_TabBarItemLayoutStyleTitle;
+            // 文字为加号
+            model.itemTitle = @"+";
+            // 字号大小
+            model.titleLabel.font = [UIFont systemFontOfSize:40];
+            model.normalColor = NNavBgColor;
+            model.selectColor = [UIColor whiteColor];
+            // 让Label上下左右全边距
+            model.componentMargin = UIEdgeInsetsMake(-5, 0, 0, 0 );
+            // 未选中选中为橘里橘气
+            model.normalBackgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
+            model.selectBackgroundColor = NNavBgColor;
+            // 设置大小/边长
+            model.itemSize = CGSizeMake(self.tabBar.frame.size.width / 5 - 20.0 ,self.tabBar.frame.size.height - 10);
         }
         
         // 动画

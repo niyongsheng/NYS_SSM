@@ -41,7 +41,7 @@
     [self monitorNetworkStatus];
     
     // 广告页
-    [AppManager appStart];
+//    [AppManager appStart];
     
     // FPS监测
     [AppManager showFPS];

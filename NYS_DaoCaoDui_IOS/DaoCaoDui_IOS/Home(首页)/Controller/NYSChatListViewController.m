@@ -9,6 +9,8 @@
 #import "NYSChatListViewController.h"
 #import "NYSConversationViewController.h"
 #import "OYRPopOption.h"
+#import "NYSContactsViewController.h"
+#import "NYSContactsListViewController.h"
 
 @interface NYSChatListViewController ()
 
@@ -29,19 +31,19 @@
     
     // 设置需要显示哪些类型的会话
     [self setDisplayConversationTypes:@[
-                                        @(ConversationType_PRIVATE),
-                                        @(ConversationType_DISCUSSION),
-                                        @(ConversationType_CHATROOM),
-                                        @(ConversationType_GROUP),
-                                        @(ConversationType_APPSERVICE),
-                                        @(ConversationType_SYSTEM)
-                                        ]];
+        @(ConversationType_PRIVATE),
+        @(ConversationType_DISCUSSION),
+        @(ConversationType_CHATROOM),
+        @(ConversationType_GROUP),
+        @(ConversationType_APPSERVICE),
+        @(ConversationType_SYSTEM)
+    ]];
     
     // 设置需要将哪些类型的会话在会话列表中聚合显示
     [self setCollectionConversationType:@[
-                                          @(ConversationType_DISCUSSION),
-                                          @(ConversationType_GROUP)
-                                          ]];
+        @(ConversationType_DISCUSSION),
+        @(ConversationType_GROUP)
+    ]];
     // 连接状态
     self.showConnectingStatusOnNavigatorBar = YES;
     // 会话列表头像 圆形显示
@@ -75,13 +77,19 @@
     [[s option_setupPopOption:^(NSInteger index, NSString *content) {
         switch (index) {
             case 0: {
-                NYSConversationViewController *privateConversationVC = [[NYSConversationViewController alloc] initWithConversationType:ConversationType_PRIVATE targetId:@"7793477"];
+                NYSContactsViewController *contactsListVC = [[NYSContactsViewController alloc] init];
+                [self.navigationController pushViewController:contactsListVC animated:YES];
+            }
+                break;
                 
-                // 设置聊天会话界面要显示的标题
-                privateConversationVC.title = @"测试";
+            case 1: {
                 
-                // 显示聊天会话界面
-                [self.navigationController pushViewController:privateConversationVC animated:YES];
+            }
+                break;
+            
+            case 2: {
+                [SVProgressHUD showInfoWithStatus:@"视频会议功能开发中..."];
+                [SVProgressHUD dismissWithDelay:2.f];
             }
                 break;
                 

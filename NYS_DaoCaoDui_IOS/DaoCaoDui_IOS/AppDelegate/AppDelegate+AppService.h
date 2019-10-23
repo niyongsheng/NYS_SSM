@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** 初始化用户系统 */
 - (void)initUserManager;
 
-///** 初始化IM*/
+/** 初始化IM*/
 - (void)initIMManager;
 
 /** 监听网络状态 */

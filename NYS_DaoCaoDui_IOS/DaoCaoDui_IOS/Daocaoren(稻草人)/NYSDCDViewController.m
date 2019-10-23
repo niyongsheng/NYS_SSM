@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     // 1.分页栏配置
-    NSArray *titleArr = @[@"测试1", @"测试2"];
+    NSArray *titleArr = @[@"推荐", @"后台", @"接口"];
     SGPageTitleViewConfigure *titleConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     titleConfigure.indicatorStyle = SGIndicatorStyleDynamic;
     titleConfigure.indicatorColor = [UIColor whiteColor];
@@ -34,7 +34,7 @@
     titleConfigure.indicatorHeight = 3.2f;
     titleConfigure.titleColor = [UIColor whiteColor];
     titleConfigure.titleSelectedColor = [UIColor whiteColor];
-    titleConfigure.titleFont = [UIFont systemFontOfSize:15.f];
+    titleConfigure.titleFont = [UIFont systemFontOfSize:16.f];
     titleConfigure.titleTextZoom = YES;
     titleConfigure.titleTextZoomRatio = 0.3f;
     
@@ -48,9 +48,10 @@
     //    self.pageTitleView.selectedIndex = 1;
     
     // 3.分页控制器
-    NYSRootWebViewController *homePageVC = [[NYSRootWebViewController alloc] initWithUrl:@"http://192.168.31.182:8080/api/"];
+    NYSRootWebViewController *homePageVC1 = [[NYSRootWebViewController alloc] initWithUrl:@"http://192.168.31.182:8080/api/swagger-ui.html"];
+    NYSRootWebViewController *homePageVC2 = [[NYSRootWebViewController alloc] initWithUrl:@"http://192.168.31.182:8080/api/"];
     NYSMagicBoxViewController *intelligentVC = [[NYSMagicBoxViewController alloc] init];
-    NSArray *childArr = @[homePageVC, intelligentVC];
+    NSArray *childArr = @[intelligentVC, homePageVC2, homePageVC1];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;
     [self.view addSubview:_pageContentCollectionView];

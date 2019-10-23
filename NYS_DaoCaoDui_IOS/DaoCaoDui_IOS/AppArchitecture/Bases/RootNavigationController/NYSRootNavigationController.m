@@ -11,11 +11,11 @@
 #import "NYSTransitionProtocol.h"
 #import "NYSTransition.h"
 
-@interface NYSRootNavigationController () <UINavigationControllerDelegate,UIGestureRecognizerDelegate>
+@interface NYSRootNavigationController () <UINavigationControllerDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic, weak) id popDelegate;
-@property (nonatomic,strong) UIPercentDrivenInteractiveTransition *interactivePopTransition;
-@property (nonatomic,strong) UIScreenEdgePanGestureRecognizer *popRecognizer;
-@property(nonatomic,assign) BOOL isSystemSlidBack; // 是否开启系统右滑返回
+@property (nonatomic, strong) UIPercentDrivenInteractiveTransition *interactivePopTransition;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer *popRecognizer;
+@property(nonatomic, assign) BOOL isSystemSlidBack; // 是否开启系统右滑返回
 @end
 
 @implementation NYSRootNavigationController

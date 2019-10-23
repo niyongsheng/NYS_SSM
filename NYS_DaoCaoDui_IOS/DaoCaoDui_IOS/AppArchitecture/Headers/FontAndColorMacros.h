@@ -15,11 +15,13 @@
 
 #pragma mark -- 颜色区 --
 // 主题色 导航栏颜色
-#define NNavBgColor     [UIColor colorWithHexString:@"FB2044"]
+#define NNavBgColor     [UIColor colorWithHexString:@"F63D53"]
+//#define NNavBgColor     [UIColor colorWithHexString:@"#EAEAEA"] // #FB2044
+//#define NNavBgColor     [UIColor colorWithHexString:@"#F0F0F0"]
 #define NNavBgFontColor [UIColor colorWithHexString:@"ffffff"]
 
 // WKWebView 进度条颜色
-#define NWKProgressColor [UIColor colorWithHexString:@"#8CCC0C"]
+#define NWKProgressColor [UIColor colorWithHexString:@"#F42A2C"]
 
 // 默认页面背景色
 #define NViewBgColor [UIColor colorWithHexString:@"f2f2f2"]

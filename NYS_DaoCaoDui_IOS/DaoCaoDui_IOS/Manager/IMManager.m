@@ -21,11 +21,13 @@ SINGLETON_FOR_CLASS(IMManager);
 #pragma mark —- 初始化IM -—
 - (void)initRongCloudIM {
     [[RCIM sharedRCIM] initWithAppKey:RCAPPKEY];
-
+    // 用户信息提供者
+    [RCIM sharedRCIM].userInfoDataSource = [NYSChatDataSource shareInstance];
+    [RCIM sharedRCIM].groupInfoDataSource = [NYSChatDataSource shareInstance];
     // 设置优先使用WebView打开URL
     [RCIM sharedRCIM].embeddedWebViewPreferred = YES;
     // 开启用户信息和群组信息的持久化
-    [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
+    [RCIM sharedRCIM].enablePersistentUserInfoCache = NO;
     // 开启输入状态提醒
     [RCIM sharedRCIM].enableTypingStatus = YES;
     // 开启消息撤回功能
@@ -51,23 +53,16 @@ SINGLETON_FOR_CLASS(IMManager);
 
 #pragma mark —- IM登录 --
 - (void)IMLoginwithCurrentUserInfo:(UserInfo *)currentUserInfo completion:(loginBlock)completion {
-//    [self initRongCloudIM];
     
     [[RCIM sharedRCIM] connectWithToken:currentUserInfo.imToken success:^(NSString *userId) {
         NLog(@"登陆成功。当前登录的用户ID：%@", userId);
-        // 用户信息提供者
-        [RCIM sharedRCIM].userInfoDataSource = [NYSChatDataSource shareInstance];
-        [RCIM sharedRCIM].groupInfoDataSource = [NYSChatDataSource shareInstance];
-        
+        // 设置当前登录的用户的用户信息
         RCUserInfo *RCCurrentUserInfo = [[RCUserInfo alloc] init];
         RCCurrentUserInfo.name = currentUserInfo.nickname;
         RCCurrentUserInfo.portraitUri = currentUserInfo.icon;
         RCCurrentUserInfo.userId = currentUserInfo.account;
-        RCCurrentUserInfo.extra = nil;
-        
-        // 设置当前登录的用户的用户信息
+        RCCurrentUserInfo.extra = [NSString stringWithFormat:@"%ld", (long)currentUserInfo.fellowship];
         [[RCIM sharedRCIM] setCurrentUserInfo:RCCurrentUserInfo];
-        
     } error:^(RCConnectErrorCode status) {
         NLog(@"IM登陆的错误码为:%ld", status);
     } tokenIncorrect:^{
