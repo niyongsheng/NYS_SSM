@@ -8,30 +8,21 @@ NYS_SSM
 * Spring+SpringMVC+MyBatis\Redis 服务端
 * Administrator 网页端
 * IOS+ANDROID 客户端
-
 ## <a id="What's_features:"></a>What's features:
-* TX Manager
-* Redis
-* Swagger
-* AdminLTE
-* Amis
-* RongCloud
-* QiniuCloud
-* Unit Test
-
+* Swagger2
+* AdminLTE Amis
+* RongCloud QiniuCloud ArcSoft
+* JWT TxManager UnitTest
 ## <a id="How_to_use:"></a>How to use:
 * 持续开发中...
 * 
-
-
 ## <a id="Application_Instance_by_NYS_SSM:"></a>Application Instance by NYS_SSM:
 RMOV | CI | CI
 ------------ | ------------- | -------------
 <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true" width="50" height="50"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_login.jpeg?raw=true"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_home.jpeg?raw=true">
 
-CI | CI
-------------- | -------------
-<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true" width="400" height="200"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true" width="400" height="200">
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true">
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true">
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/swagger.jpg?raw=true">
 
 <!--
@@ -48,10 +39,8 @@ CI | CI
 - [x] TomCat: >= 9.0
 - [x] JDK: >= 1.8
 - [x] IDE: IntelliJ IDEA
-
 ## Contribution
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYS_SSM/stargazers)
-
 ## Contact Me [:octocat:](https://niyongsheng.github.io)
 * E-mail: niyongsheng@Outlook.com
 * Weibo: [@Ni永胜](https://weibo.com/u/2198015423)
