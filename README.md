@@ -5,8 +5,9 @@ NYS_SSM
 [![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/NYS_SSM)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
-* 基于Spring+SpringMVC+MyBatis的后端框架
-* ssm framework.
+* Spring+SpringMVC+MyBatis\Redis 服务端
+* Administrator 网页端
+* IOS+ANDROID 客户端
 
 ## <a id="What's_features:"></a>What's features:
 * TX Manager
@@ -14,6 +15,8 @@ NYS_SSM
 * Swagger
 * AdminLTE
 * Amis
+* RongCloud
+* QiniuCloud
 * Unit Test
 
 ## <a id="How_to_use:"></a>How to use:
@@ -24,7 +27,11 @@ NYS_SSM
 ## <a id="Application_Instance_by_NYS_SSM:"></a>Application Instance by NYS_SSM:
 RMOV | CI | CI
 ------------ | ------------- | -------------
-<img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true" width="50" height="50"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true" width="400" height="200"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true" width="400" height="200">
+<img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true" width="50" height="50"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_login.jpeg?raw=true"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_home.jpeg?raw=true">
+
+CI | CI
+------------- | -------------
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true" width="400" height="200"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true" width="400" height="200">
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/swagger.jpg?raw=true">
 
 <!--
