@@ -17,7 +17,7 @@
           <element id="archive" name="ssm_common-1.0-SNAPSHOT.jar">
             <element id="module-output" name="ssm_common" />
           </element>
-          <element id="library" level="project" name="Maven: com.qiniu:qiniu-java-sdk:7.2.26" />
+          <element id="library" level="project" name="Maven: com.qiniu:qiniu-java-sdk:7.2.27" />
           <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.14.4" />
           <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.17.2" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
