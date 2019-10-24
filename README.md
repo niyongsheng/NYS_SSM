@@ -11,7 +11,7 @@ NYS_SSM
 ## <a id="What's_features:"></a>What's features:
 * Swagger2
 * AdminLTE Amis
-* RongCloud QiniuCloud ArcSoft
+* ArcSoft RongCloud QiniuCloud
 * JWT TxManager UnitTest
 ## <a id="How_to_use:"></a>How to use:
 * 持续开发中...
@@ -43,4 +43,4 @@ RMOV | CI | CI
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYS_SSM/stargazers)
 ## Contact Me [:octocat:](https://niyongsheng.github.io)
 * E-mail: niyongsheng@Outlook.com
-* Weibo: [@Ni永胜](https://weibo.com/u/2198015423)
+* Weibo: [@Ni永胜](https://weibo.com/u/7317805089)
