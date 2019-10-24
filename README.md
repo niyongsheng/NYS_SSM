@@ -8,14 +8,22 @@ NYS_SSM
 * Spring+SpringMVC+MyBatis\Redis 服务端
 * Administrator 网页端
 * IOS+ANDROID 客户端
+
 ## <a id="What's_features:"></a>What's features:
 * Swagger2
-* AdminLTE Amis
-* ArcSoft RongCloud QiniuCloud
-* JWT TxManager UnitTest
+* AdminLTE
+* Amis
+* ArcSoft
+* RongCloud
+* QiniuCloud
+* JWT
+* TxManager
+* UnitTest
+
 ## <a id="How_to_use:"></a>How to use:
 * 持续开发中...
 * 
+
 ## <a id="Application_Instance_by_NYS_SSM:"></a>Application Instance by NYS_SSM:
 RMOV | CI | CI
 ------------ | ------------- | -------------
@@ -39,8 +47,10 @@ RMOV | CI | CI
 - [x] TomCat: >= 9.0
 - [x] JDK: >= 1.8
 - [x] IDE: IntelliJ IDEA
+
 ## Contribution
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYS_SSM/stargazers)
+
 ## Contact Me [:octocat:](https://niyongsheng.github.io)
 * E-mail: niyongsheng@Outlook.com
 * Weibo: [@Ni永胜](https://weibo.com/u/7317805089)
