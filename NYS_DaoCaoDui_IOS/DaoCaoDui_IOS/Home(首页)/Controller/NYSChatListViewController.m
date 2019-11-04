@@ -11,6 +11,7 @@
 #import "OYRPopOption.h"
 #import "NYSContactsViewController.h"
 #import "NYSContactsListViewController.h"
+#import "NYSGroupListViewController.h"
 
 @interface NYSChatListViewController ()
 
@@ -83,7 +84,8 @@
                 break;
                 
             case 1: {
-                
+                NYSGroupListViewController *groupListVC = [[NYSGroupListViewController alloc] init];
+                [self.navigationController pushViewController:groupListVC animated:YES];
             }
                 break;
             

@@ -14,8 +14,7 @@
 
 #if NULLSAFE_ENABLED
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
-{
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
     NSMethodSignature *signature = [super methodSignatureForSelector:selector];
     if (!signature)
     {
@@ -42,8 +41,7 @@
     return signature;
 }
 
-- (void)forwardInvocation:(NSInvocation *)invocation
-{
+- (void)forwardInvocation:(NSInvocation *)invocation {
     invocation.target = nil;
     [invocation invoke];
 }

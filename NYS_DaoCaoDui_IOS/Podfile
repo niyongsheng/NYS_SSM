@@ -16,6 +16,7 @@ target 'DaoCaoDui_IOS' do
   pod 'YTKKeyValueStore'
   pod 'YTKNetwork'
   pod 'AxcAE_TabBar'
+  pod 'WRNavigationBar', '~>1.2.0'
   pod 'SGPagingView'
   pod 'SGAdvertScrollView'
   pod 'IQKeyboardManager'

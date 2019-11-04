@@ -84,7 +84,7 @@
     <select id="selectByGroupId" resultType="com.niyongsheng.persistence.domain.Group">
         SELECT *
         FROM dcd_group
-        WHERE id = #{groupId}
+        WHERE groupId = #{groupId}
     </select>
 
 </mapper>

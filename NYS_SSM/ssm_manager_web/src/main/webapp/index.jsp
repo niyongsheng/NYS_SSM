@@ -27,16 +27,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <script>
         function changeFrameHeight() {
-            var ifm = document.getElementById("mainiframe");
-            var navBar = document.getElementById("navBar");
-            var footer = document.getElementById("footer");
-            ifm.height = document.documentElement.clientHeight - 90;
+            var ifm = document.getElementById("mainIframe");
+            // var navBar = document.getElementById("navBar");
+            // var footer = document.getElementById("footer");
+            // var navBarHeight = window.getComputedStyle(navBar).height;
+            // var footerHeight = window.getComputedStyle(footer).height;
+            // var navBarHeight = $("#navBar").height();
+            // var footerHeight = $("#footer").height();
+            ifm.height = document.documentElement.clientHeight - 88;
+            // ifm.height = document.documentElement.clientHeight - navBarHeight - footerHeight;
+            out.println("导航栏高度：" + navBarHeight + "Footer高度：" + footerHeight);
         }
-        window.onload = function () {
+        // window.onpageshow = function () {
+        //     changeFrameHeight();
+        // };
+        // window.onloadstart = function () {
+        //     changeFrameHeight();
+        // };
+        // document.ready = function () {
+        //     changeFrameHeight1();
+        // };
+        // document.onload = function () {
+        //     changeFrameHeight();
+        // };
+        window.onresize = function () {
             changeFrameHeight();
-        };
-        // window.onresize = function () {
-        // }
+        }
     </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -254,8 +270,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <%-- iframe框架 --%>
-        <iframe name="iframe" id="mainiframe" src="${pageContext.request.contextPath}/home/infoBox" frameborder="0"
-                align="middle" width="100%" height="100%" scrolling="no"></iframe>
+        <iframe name="iframe" id="mainIframe" src="${pageContext.request.contextPath}/home/infoBox" frameborder="0"
+                align="middle" width="100%"  scrolling="auto" onload="changeFrameHeight()"></iframe>
     </div>
     <!-- /.content-wrapper -->
 
@@ -266,7 +282,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             塑造生命 成就使命
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2019-2020 <a href="http://daocaodui.org">daocaodui.org</a>.</strong> 硕鼠工作室 All rights
+        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top">daocaodui.top</a> @</strong>硕鼠工作室 All rights
         reserved.
     </footer>
 </div>

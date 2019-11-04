@@ -2,6 +2,7 @@ package com.niyongsheng.manager.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.niyongsheng.common.utils.MD5Util;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -143,7 +145,8 @@ public class UserController {
                         HttpServletResponse response,
                         @RequestParam(name="account") String account,
                         @RequestParam(name="password") String password,
-                        @RequestParam(name="verifycode") String verifycode) {
+                        @RequestParam(name="verifycode") String verifycode,
+                        @RequestParam(name="rememberMe", required = false) String rememberMe) {
 
         // 获取程序自动生成的验证码
         HttpSession session = request.getSession();
@@ -155,7 +158,7 @@ public class UserController {
         // 先判断验证码是否正确
         if (checkCode_session != null && checkCode_session.equalsIgnoreCase(verifycode)) { // 忽略大小写比较字符串
             // 4.调用UserDao的login方法
-            User user = userService.login(account, password);
+            User user = userService.login(account, MD5Util.crypt(password));
 
             // 5.判断user
             if (user == null) {
@@ -165,7 +168,23 @@ public class UserController {
                 // 转发
                 return "login";
             } else {
-                // 登录成功
+                // 登录成功,判断是否记住登录状态
+                if(rememberMe==null || rememberMe.length()==0){
+                    rememberMe = "0";
+                }
+                if (rememberMe.equalsIgnoreCase("1") || rememberMe.equalsIgnoreCase("on")) {
+                    // 创建Cookie保存用户信息，设定cookie失效时间
+                    String loginInfo = account + "#" + password;
+                    Cookie userCookie = new Cookie("loginInfo", loginInfo);
+                    userCookie.setMaxAge(1 * 24 * 60 * 60); // 存活期为一天 1*24*60*60
+                    userCookie.setPath("/");
+                    response.addCookie(userCookie);
+                    // 2天session时效
+                    session.setMaxInactiveInterval(60 * 60 * 24 * 2);
+                } else {
+                    // 5分钟session时效
+                    session.setMaxInactiveInterval(60 * 5);
+                }
                 // 存储数据（重定向是两次请求，将数据存储到session中）
                 session.setAttribute("user", user);
                 // 重定向
@@ -194,6 +213,5 @@ public class UserController {
     public String test() {
 
         return "amisAlert";
-//        return "login";
     }
 }

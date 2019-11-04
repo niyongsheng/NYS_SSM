@@ -25,15 +25,15 @@
     @[@{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSChatListViewController new]],
         @"normalImg":@"会话默认",
         @"selectImg":@"会话",
-        @"itemTitle":@"我们"},
-      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSDCDViewController new]],
+        @"itemTitle":@"We"},
+      @{@"vc":[[UINavigationController alloc] initWithRootViewController:[NYSDCDViewController new]],
         @"normalImg":@"机器人",
         @"selectImg":@"机器人",
         @"itemTitle":@"稻草人"},
       @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMeViewController new]],
         @"normalImg":@"我的默认",
         @"selectImg":@"我的",
-        @"itemTitle":@"我的"},
+        @"itemTitle":@"Me"},
       ];
     
     NSMutableArray *tabBarConfs = @[].mutableCopy;

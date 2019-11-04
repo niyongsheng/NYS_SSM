@@ -1,0 +1,19 @@
+# Qiniu Config
+Qiniu:
+  accessKey: tBMtajTiXFs946mwq8ZCHgeZa5Qyz7ky6J43nyex
+  secretKey: oohLN_c4DOxnRMIG0ltSam2EC4OQEhK_IXe9FNoz
+  bucketname: daocaodui
+  domain: http://pyd6p69m3.bkt.clouddn.com
+
+# ArcSoft Config
+ArcSoft:
+  appID: 3oyfPBaEuKDugSJqwECgW9jsnSkLJhXvj89fAQ2q6Jn3
+  appKeyLinux: VQi4oL9CQzXTmAGZFuVrQJbDutyo27JdE9deVeHtQ7G
+  appKeyWindows: VQi4oL9CQzXTmAGZFuVrQJbN2UBCvFZohzVJDWrCohL
+  rgbThreshold: 0.8
+  irThreshold: 0.8
+
+# RongCloud Config
+RongCloud:
+  appKey:
+  appSecret:

@@ -65,7 +65,7 @@
     self.webView = [[WKWebView alloc]initWithFrame:self.view.bounds configuration:configuration];
     _webView.navigationDelegate = self;
     _webView.backgroundColor = [UIColor clearColor];
-    _webView.allowsBackForwardNavigationGestures =YES; // 打开网页间的 滑动返回
+    _webView.allowsBackForwardNavigationGestures = YES; // 打开网页间的 滑动返回
     _webView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     // 监控进度
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
@@ -76,8 +76,7 @@
     _progressView.trackTintColor = [UIColor clearColor];
     _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 3.0);
     [_webView addSubview:_progressView];
-    
-    
+
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_url]];
     //加密header部分
     NSString *headerContentStr = [[HeaderModel new] modelToJSONString];

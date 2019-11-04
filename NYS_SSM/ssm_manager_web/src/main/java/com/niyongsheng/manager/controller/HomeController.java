@@ -1,5 +1,6 @@
 package com.niyongsheng.manager.controller;
 
+import com.sun.javafx.logging.PulseLogger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/home")
 public class HomeController {
+
+    @RequestMapping("/login")
+    public String index() {
+
+        return "login";
+    }
 
     @RequestMapping("/infoBox")
     public String infoBox(Model model) {

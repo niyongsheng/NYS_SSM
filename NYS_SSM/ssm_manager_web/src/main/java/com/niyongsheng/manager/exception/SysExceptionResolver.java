@@ -21,7 +21,7 @@ public class SysExceptionResolver implements HandlerExceptionResolver {
         if (e instanceof SysException) {
             exception = (SysException) e;
         } else {
-            exception = new SysException(7001, "未知错误ESYS");
+            exception = new SysException(7001, "未知错误");
         }
 
         // 创建ModelAndView对象

@@ -9,22 +9,34 @@
 <html>
 <head>
     <title>APIs</title>
-    <link rel="icon" href="https://github.com/niyongsheng/NYS_SSM/blob/master/logo.png?raw=true" type="image/x-icon"/>
+    <link rel="icon" href="${pageContext.request.contextPath}/file/logo.png" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <script src="https://use.fontawesome.com/e148434007.js"></script>
     <script>
-        function animation() {
-            const element =  document.querySelector('.mylogo')
+        function animationOut() {
+            const element =  document.querySelector('.myLogo')
             element.classList.add('animated', 'bounceOutRight', 'fast')
+        }
+        function animationIn() {
+            const element =  document.querySelector('.myLogo')
+            element.classList.add('animated', 'bounceInRight', 'fast')
         }
     </script>
 </head>
 <body>
-<h1 class="animated lightSpeedIn fast">NYS_SSM</h1>
-<img class="myLogo" src="https://github.com/niyongsheng/NYS_SSM/blob/master/logo.png?raw=true"/>
-<button class="animated rotateInDownLeft delay-2s" onclick="animation()">点火!</button>
-<hr class="animated fadeInLeft delay-1s" style="width: 400px;" align="left"/>
-<a class="animated zoomIn delay-3s" href="${pageContext.request.contextPath}/swagger-ui.html" style="font-size: 22px">📎 Swagger</a>
+<h1 class="animated lightSpeedIn fast">NYS_SSM
+<i class="fa fa-cog fa-spin fa-1x fa-fw "></i>
+</h1>
+
+<img class="myLogo" src="${pageContext.request.contextPath}/file/logo.png"/>
+<button class="animated rotateInDownLeft delay-2s" onclick="animationOut()">点火!</button>
+<%--<button class="animated rotateInDownRight delay-3s" onclick="animationIn()">回收!</button>--%>
+<hr class="animated fadeInLeft delay-1s" style="width: 300px;" align="left"/>
+
+<i class="fa fa-paper-plane fa-2x animated zoomIn delay-2s" aria-hidden="true"></i>
+<a class="animated zoomIn delay-2s" href="${pageContext.request.contextPath}/swagger-ui.html" style="font-size: 22px">Swagger</a>
 <br/>
-<a class="animated zoomIn delay-3s" href="https://github.com/niyongsheng/NYS_SSM/" style="font-size: 22px">📎 OpenSources</a>
+<i class="fa fa-github-alt fa-2x animated zoomIn delay-2s" aria-hidden="true"></i>
+<a class="animated zoomIn delay-2s" href="https://github.com/niyongsheng/NYS_SSM/" style="font-size: 22px">OpenSources</a>
 </body>
 </html>

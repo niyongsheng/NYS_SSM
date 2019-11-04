@@ -12,6 +12,7 @@
 
 #import "NYSRootWebViewController.h"
 #import "NYSMagicBoxViewController.h"
+#import "HomeViewController.h"
 
 @interface NYSDCDViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -49,7 +50,7 @@
     
     // 3.分页控制器
     NYSRootWebViewController *homePageVC1 = [[NYSRootWebViewController alloc] initWithUrl:@"http://192.168.31.182:8080/api/swagger-ui.html"];
-    NYSRootWebViewController *homePageVC2 = [[NYSRootWebViewController alloc] initWithUrl:@"http://192.168.31.182:8080/api/"];
+    HomeViewController *homePageVC2 = [[HomeViewController alloc] init];
     NYSMagicBoxViewController *intelligentVC = [[NYSMagicBoxViewController alloc] init];
     NSArray *childArr = @[intelligentVC, homePageVC2, homePageVC1];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];

@@ -160,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner">
-                    <h3>65%</h3>
+                    <h3>65<sub style="font-size: 20px">%</sub></h3>
 
                     <p>Unique Visitors</p>
                 </div>

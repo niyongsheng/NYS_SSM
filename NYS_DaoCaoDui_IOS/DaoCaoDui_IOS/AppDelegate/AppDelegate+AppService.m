@@ -11,6 +11,7 @@
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
 #import <JSPatchPlatform/JSPatch.h>
+#import <WRNavigationBar/WRNavigationBar.h>
 #import "OpenUDID.h"
 #import "NYSTabBarController.h"
 #import "NYSLoginViewController.h"
@@ -48,6 +49,29 @@
     }
 }
 
+#pragma mark -- WRNavigationBar 初始化 --
+- (void)initWRNavigationBar {
+    // 设置是 全局使用WRNavigationBar，还是局部使用WRNavigationBar，目前默认是全局使用 （局部使用待开发）
+    [WRNavigationBar wr_widely];
+    // WRNavigationBar 不会对 blackList 中的控制器有影响
+    [WRNavigationBar wr_setBlacklist:@[@"SpecialController",
+                                       @"TZPhotoPickerController",
+                                       @"TZGifPhotoPreviewController",
+                                       @"TZAlbumPickerController",
+                                       @"TZPhotoPreviewController",
+                                       @"TZVideoPlayerController"]];
+    
+    // 设置导航栏默认的背景颜色
+    [WRNavigationBar wr_setDefaultNavBarBarTintColor:NNavBgColor];
+    // 设置导航栏所有按钮的默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor whiteColor]];
+    // 设置导航栏标题默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTitleColor:NNavBgFontColor];
+    // 统一设置状态栏样式
+    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
+    // 如果需要设置导航栏底部分割线隐藏，可以在这里统一设置
+    [WRNavigationBar wr_setDefaultNavBarShadowImageHidden:YES];
+}
 
 #pragma mark -- 初始化用户系统 --
 - (void)initUserManager {

@@ -27,15 +27,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <script type="text/javascript">
-        function refreshCode() {
-            // 1.获取验证码图片对象
-            var vcode = document.getElementById("vcode");
-
-            // 2.设置src属性，加时间戳
-            vcode.src = "${pageContext.request.contextPath}/verification/checkCode?time="+new Date().getTime();
-        }
-
-/*        $(function(){
+        /*        $(function(){
             login.initPage();
         });
         var login = {
@@ -47,9 +39,61 @@
                 }
             }
         }*/
-
+        // 防止登录页面嵌套在iframe中
         if (window != top) {
             top.location.href = location.href;
+        }
+
+
+        // 启动函数来获取cookie中保存的用户信息
+        $(function() {
+            // cookie数据保存格式是key=value;key=value;形式，loginInfo为保存在cookie中的key值，具体看controller代码
+            var str = getCookie("loginInfo");
+            str = str.substring(1, str.length-1);
+            var account = str.split("#")[0];
+            var password = str.split("#")[1];
+            // 自动填充用户名和密码
+            $("#account").val(account);
+            $("#password").val(password);
+        });
+
+        // 获取cookie
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        // 选中记住密码触发事件，如果选中就赋值为1 ，否则赋值为0
+        function remember() {
+            var remFlag = $("input:checkbox").is(':checked');
+            if (remFlag) {
+                // cookie存用户名和密码,回显的是真实的用户名和密码,存在安全问题.
+                var conFlag = confirm("记录密码功能不宜在公共场所使用,以防密码泄露.您确定要使用此功能吗?");
+                if (conFlag) {
+                    // 确认标志
+                    $("#rememberMe").val("1");
+                } else {
+                    $("input:checkbox").removeAttr('checked');
+                    $("#rememberMe").val("0");
+                }
+            } else {
+                // 如果没选中设置remFlag为""
+                $("#rememberMe").val("0");
+            }
+        }
+
+        function refreshCode() {
+            // 1.获取验证码图片对象
+            var vcode = document.getElementById("vcode");
+
+            // 2.设置src属性，加时间戳
+            vcode.src = "${pageContext.request.contextPath}/verification/checkCode?time="+new Date().getTime();
         }
     </script>
 </head>
@@ -61,11 +105,11 @@
     <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Shape Life Achievement Mission</p>
 
             <form action="${pageContext.request.contextPath}/user/login" method="post">
                 <div class="input-group mb-3">
-                    <input name="account" type="number" class="form-control" placeholder="请输入管理员账号">
+                    <input name="account" type="number" class="form-control" id="account" placeholder="请输入您的账号">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-id-card"></span>
@@ -73,7 +117,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input name="password" type="password" class="form-control" placeholder="请输入管理员密码">
+                    <input name="password" type="password" class="form-control" id="password" placeholder="请输入您的密码">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -81,7 +125,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" name="verifycode" class="form-control" id="verifycode" placeholder="请输入图片验证码"/>
+                    <input name="verifycode" type="text" class="form-control" id="verifycode" placeholder="请输入图片验证码"/>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fa fa-shield-alt"></span>
@@ -92,8 +136,8 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
-                            <input type="checkbox" id="remember">
-                            <label for="remember">
+                            <input name="rememberMe" type="checkbox" class="form-control" id="rememberMe" onclick="remember();">
+                            <label for="rememberMe">
                                 记住我
                             </label>
                         </div>

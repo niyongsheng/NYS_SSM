@@ -60,22 +60,11 @@
             <artifactId>pinyin4j</artifactId>
             <version>2.5.1</version>
         </dependency>
-        <dependency>
-            <groupId>cn.rongcloud.im</groupId>
-            <artifactId>server-sdk-java</artifactId>
-            <version>3.0.7</version>
-        </dependency>
         <!-- RongCloud IM Server SDK -->
         <dependency>
             <groupId>cn.rongcloud.im</groupId>
             <artifactId>server-sdk-java</artifactId>
             <version>3.0.7</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>

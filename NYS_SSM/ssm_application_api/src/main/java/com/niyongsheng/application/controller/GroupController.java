@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -41,8 +43,8 @@ public class GroupController {
             @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
     })
     public ResponseDto<Group> FindAllGroups(HttpServletRequest request,
-                                            @NotBlank
-                                           @RequestParam(value = "fellowship", required = true) Integer fellowship
+                                            @NotNull
+                                            @RequestParam(value = "fellowship", required = true) Integer fellowship
     ) throws ResponseException {
 
         // 1.调用service的方法
@@ -65,7 +67,7 @@ public class GroupController {
             @ApiImplicitParam(name = "groupId", value = "群ID", required = true),
     })
     public ResponseDto<Group> ProviderInfoForGroup(HttpServletRequest request,
-                                                 @NotBlank()
+                                                 @NotEmpty
                                                  @RequestParam(value = "groupId", required = true) String groupId
     ) throws ResponseException {
 

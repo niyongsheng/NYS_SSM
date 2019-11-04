@@ -40,7 +40,21 @@ CGRect rectNav = self.navigationController.navigationBar.frame;\
 #define Iphone6ScaleWidth NScreenWidth/375.0
 #define Iphone6ScaleHeight NScreenHeight/667.0
 // 根据ip6的屏幕来拉伸
-#define RealValue(with) ((with)*(KScreenWidth/375.0f))
+#define RealValue(x) (x*(NScreenWidth/375.0))
+// 判断iphoneX
+#define isIphoneX ({\
+int tmp = 0;\
+if (@available(iOS 11.0, *)) {\
+if ([UIApplication sharedApplication].delegate.window.safeAreaInsets.top > 20) {\
+tmp = 1;\
+}else{\
+tmp = 0;\
+}\
+}else{\
+tmp = 0;\
+}\
+tmp;\
+})
 
 // 强弱引用
 #define NWeakSelf(type)  __weak typeof(type) weak##type = type;
