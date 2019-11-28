@@ -42,7 +42,7 @@ CGRect rectNav = self.navigationController.navigationBar.frame;\
 // 根据ip6的屏幕来拉伸
 #define RealValue(x) (x*(NScreenWidth/375.0))
 // 判断iphoneX
-#define isIphoneX ({\
+#define isIphonex ({\
 int tmp = 0;\
 if (@available(iOS 11.0, *)) {\
 if ([UIApplication sharedApplication].delegate.window.safeAreaInsets.top > 20) {\

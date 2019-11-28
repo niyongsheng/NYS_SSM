@@ -10,12 +10,10 @@
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
-#import <JSPatchPlatform/JSPatch.h>
 #import <WRNavigationBar/WRNavigationBar.h>
 #import "OpenUDID.h"
 #import "NYSTabBarController.h"
 #import "NYSLoginViewController.h"
-#import "NYSRootNavigationController.h"
 #import "IMManager.h"
 
 @implementation AppDelegate (AppService)
@@ -42,27 +40,20 @@
     [self.window makeKeyAndVisible];
     [[UIButton appearance] setExclusiveTouch:YES];
     // [[UIButton appearance] setShowsTouchWhenHighlighted:YES];
-    // 当某个class被包含在另外一个class内时，才修改外观。
-    [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
-    if (@available(iOS 11.0, *)) {
-        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-    }
+    // [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
 }
 
 #pragma mark -- WRNavigationBar 初始化 --
 - (void)initWRNavigationBar {
-    // 设置是 全局使用WRNavigationBar，还是局部使用WRNavigationBar，目前默认是全局使用 （局部使用待开发）
     [WRNavigationBar wr_widely];
-    // WRNavigationBar 不会对 blackList 中的控制器有影响
-    [WRNavigationBar wr_setBlacklist:@[@"SpecialController",
-                                       @"TZPhotoPickerController",
-                                       @"TZGifPhotoPreviewController",
-                                       @"TZAlbumPickerController",
-                                       @"TZPhotoPreviewController",
-                                       @"TZVideoPlayerController"]];
-    
+    [WRNavigationBar wr_setBlacklist:@[@"CMFAQViewController"]];
+//    [WRNavigationBar wr_local];
+//    [WRNavigationBar wr_setWhitelist:@[@"NYSDCDViewController",
+//                                       @"HomeDetailViewController"]];
     // 设置导航栏默认的背景颜色
     [WRNavigationBar wr_setDefaultNavBarBarTintColor:NNavBgColor];
+    // 设置导航栏默认的背景图
+//    [WRNavigationBar wr_setDefaultNavBarBackgroundImage:[UIImage imageNamed:@"bg_nav"]];
     // 设置导航栏所有按钮的默认颜色
     [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor whiteColor]];
     // 设置导航栏标题默认颜色
@@ -77,12 +68,12 @@
 - (void)initUserManager {
     NLog(@"设备IMEI ：%@",[OpenUDID value]);
     
-    if([NUserManager loadUserInfo]){
-
+    if([NUserManager loadUserInfo]) {
+        
         // 如果有本地数据，先展示TabBar 随后异步自动登录
         self.mainTabBar = [NYSTabBarController new];
         self.window.rootViewController = self.mainTabBar;
-
+        
         // 自动登录
         [NUserManager autoLoginToServer:^(BOOL success, NSString *des) {
             if (success) {
@@ -114,19 +105,16 @@
             self.mainTabBar = [NYSTabBarController new];
             
             CATransition *anima = [CATransition animation];
-            anima.type = @"cube";//设置动画的类型
-            anima.subtype = kCATransitionFromRight; //设置动画的方向
+            anima.type = @"cube"; // 设置动画的类型
+            anima.subtype = kCATransitionFromRight; // 设置动画的方向
             anima.duration = 0.3f;
             
             self.window.rootViewController = self.mainTabBar;
-            
             [NAppWindow.layer addAnimation:anima forKey:@"revealAnimation"];
-            
         }
-        
     } else { // 登陆失败加载登陆页面控制器
         self.mainTabBar = nil;
-
+        
         CATransition *anima = [CATransition animation];
         anima.type = @"fade"; // 设置动画的类型
         anima.subtype = kCATransitionFromRight; // 设置动画的方向
@@ -136,9 +124,6 @@
         
         [NAppWindow.layer addAnimation:anima forKey:@"revealAnimation"];
     }
-    
-    // 展示FPS
-    [AppManager showFPS];
 }
 
 #pragma mark -- 友盟 初始化 --
@@ -159,13 +144,6 @@
     //[[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
     
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:AppKey_TencentQQ  appSecret:nil redirectURL:nil];
-}
-
-#pragma mark -- JSPatch 初始化 --
-- (void)initJSPatch {
-    [JSPatch startWithAppKey:JSPatchKey];
-    [JSPatch setupRSAPublicKey:RSAPublicKey];
-    [JSPatch sync];
 }
 
 #pragma mark -- OpenURL 回调 --

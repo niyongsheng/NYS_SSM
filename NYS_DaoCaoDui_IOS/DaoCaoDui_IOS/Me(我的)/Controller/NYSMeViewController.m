@@ -12,7 +12,7 @@
 #import "NYSMeTableViewCell.h"
 #import "NYSMeModel.h"
 #import <MJExtension/MJExtension.h>
-#import "CMFAQViewController.h"
+#import "NYSFAQViewController.h"
 
 #define NHeaderHeight ((200 * Iphone6ScaleWidth) + NStatusBarHeight)
 
@@ -36,6 +36,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self wr_setNavBarBackgroundAlpha:0];
     [self getRequset];
 }
 
@@ -153,7 +154,7 @@
     if ([titleText isEqualToString:@"分享"]) {
        [[ShareManager sharedShareManager] showShareView];
     } else if ([titleText isEqualToString:@"关于"]) {
-        [self.navigationController pushViewController:[CMFAQViewController new] animated:YES];
+        [self.navigationController pushViewController:[NYSFAQViewController new] animated:YES];
     }
 }
 
@@ -166,7 +167,6 @@
     if (totalOffsetY < 0) {
         _headerView.frame = CGRectMake(offsetWidth/2, offset, self.view.width - offsetWidth, NHeaderHeight- totalOffsetY);
     }
-    
 }
 
 #pragma mark —- 退出 --

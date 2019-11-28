@@ -97,6 +97,11 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/AXIndicatorView/AXIndicatorView/Classes/AXIndicatorView.bundle"
+  install_resource "${PODS_ROOT}/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD.bundle"
+  install_resource "${PODS_ROOT}/AXWebViewController/AXWebViewController/AXWebViewController/AXWebViewController.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj"
@@ -110,10 +115,16 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/RongSticker.bundle"
+  install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle"
   install_resource "${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/AXIndicatorView/AXIndicatorView/Classes/AXIndicatorView.bundle"
+  install_resource "${PODS_ROOT}/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD/AXPracticalHUD.bundle"
+  install_resource "${PODS_ROOT}/AXWebViewController/AXWebViewController/AXWebViewController/AXWebViewController.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle"
+  install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj"
@@ -127,6 +138,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle"
   install_resource "${PODS_ROOT}/RongCloudIM/RongCloudIM/RongSticker.bundle"
+  install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
   install_resource "${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle"
   install_resource "${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle"
 fi

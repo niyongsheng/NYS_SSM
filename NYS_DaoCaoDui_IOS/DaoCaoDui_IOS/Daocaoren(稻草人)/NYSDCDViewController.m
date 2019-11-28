@@ -9,9 +9,7 @@
 #import "NYSDCDViewController.h"
 #import "LayoutFittingView.h"
 #import <SGPagingView/SGPagingView.h>
-
-#import "NYSRootWebViewController.h"
-#import "NYSMagicBoxViewController.h"
+#import <AXWebViewController.h>
 #import "HomeViewController.h"
 
 @interface NYSDCDViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
@@ -25,23 +23,22 @@
     [super viewDidLoad];
     
     // 1.分页栏配置
-    NSArray *titleArr = @[@"推荐", @"后台", @"接口"];
+    NSArray *titleArr = @[@"稻草堆", @"文章", @"音乐", @"代祷", @"活动", @"接口"];
     SGPageTitleViewConfigure *titleConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     titleConfigure.indicatorStyle = SGIndicatorStyleDynamic;
     titleConfigure.indicatorColor = [UIColor whiteColor];
     titleConfigure.showBottomSeparator = YES;
     titleConfigure.bottomSeparatorColor = NNavBgColor;
-    titleConfigure.indicatorDynamicWidth = 10;
-    titleConfigure.indicatorHeight = 3.2f;
+    titleConfigure.indicatorDynamicWidth = 4;
+    titleConfigure.indicatorHeight = 4;
     titleConfigure.titleColor = [UIColor whiteColor];
     titleConfigure.titleSelectedColor = [UIColor whiteColor];
-    titleConfigure.titleFont = [UIFont systemFontOfSize:16.f];
+    titleConfigure.titleFont = [UIFont fontWithName:@"HYZhuZiMeiXinTiW" size:15];;
     titleConfigure.titleTextZoom = YES;
-    titleConfigure.titleTextZoomRatio = 0.3f;
+    titleConfigure.titleTextZoomRatio = .7f;
     
     // 2.分页栏view
-    CGFloat pageTitleWidth = NScreenWidth - 200;
-    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake((NScreenWidth - pageTitleWidth)/4 - 40, 0, pageTitleWidth, 44) delegate:self titleNames:titleArr configure:titleConfigure];
+    self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(-20, 0, NScreenWidth, 44) delegate:self titleNames:titleArr configure:titleConfigure];
     self.pageTitleView.backgroundColor = [UIColor clearColor];
     LayoutFittingView *LFView = [[LayoutFittingView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 44)];
     [LFView addSubview:_pageTitleView];
@@ -49,10 +46,11 @@
     //    self.pageTitleView.selectedIndex = 1;
     
     // 3.分页控制器
-    NYSRootWebViewController *homePageVC1 = [[NYSRootWebViewController alloc] initWithUrl:@"http://192.168.31.182:8080/api/swagger-ui.html"];
-    HomeViewController *homePageVC2 = [[HomeViewController alloc] init];
-    NYSMagicBoxViewController *intelligentVC = [[NYSMagicBoxViewController alloc] init];
-    NSArray *childArr = @[intelligentVC, homePageVC2, homePageVC1];
+    HomeViewController *articlePageVC = [[HomeViewController alloc] init];
+    AXWebViewController *dcdWebVC0 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/web"];
+    AXWebViewController *dcdWebVC1 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/"];
+    AXWebViewController *dcdWebVC2 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/swagger-ui.html"];
+    NSArray *childArr = @[articlePageVC, dcdWebVC0, [UIViewController new], [UIViewController new], dcdWebVC1, dcdWebVC2];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;
     [self.view addSubview:_pageContentCollectionView];

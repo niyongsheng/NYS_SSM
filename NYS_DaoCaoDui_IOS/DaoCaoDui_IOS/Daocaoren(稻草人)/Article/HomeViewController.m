@@ -288,7 +288,7 @@
         [containerView layoutIfNeeded];
         toVC.view.alpha = 1.0f;
         UITabBar *tabBar = (UITabBar *)self.tabBarController.tabBar;
-        if (isIphoneX) {
+        if (isIphonex) {
             tabBar.frame = CGRectMake(0, NScreenHeight, NScreenWidth, 83);
         } else {
             tabBar.frame = CGRectMake(0, NScreenHeight, NScreenWidth, 49);

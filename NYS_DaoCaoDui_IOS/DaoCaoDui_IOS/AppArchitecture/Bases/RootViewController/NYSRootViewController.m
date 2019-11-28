@@ -32,7 +32,8 @@
     self.StatusBarStyle = UIStatusBarStyleLightContent;
     // 默认禁用自动设置内边距
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-
+    
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -104,8 +105,7 @@
  *
  *  @return collectionView
  */
-- (UICollectionView *)collectionView
-{
+- (UICollectionView *)collectionView {
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
         
@@ -120,14 +120,6 @@
         
         // 底部刷新
         _collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
-        
-        //#ifdef kiOS11Before
-        //
-        //#else
-        //        _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        //        _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
-        //        _collectionView.scrollIndicatorInsets = _collectionView.contentInset;
-        //#endif
         
         _collectionView.backgroundColor = NViewBgColor;
         _collectionView.scrollsToTop = YES;
@@ -275,7 +267,7 @@
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     // 默认进去类型
-    return   UIInterfaceOrientationPortrait;
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)didReceiveMemoryWarning {

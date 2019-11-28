@@ -8,8 +8,10 @@
 
 
 #import "PPNetworkHelper.h"
-#import "AFNetworking.h"
-#import "AFNetworkActivityIndicatorManager.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
+//#import "AFNetworking.h"
+//#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+//#import <AFNetworkActivityIndicatorManager.h>
 #import "AESCipher.h"
 #import "HeaderModel.h"
 
@@ -398,7 +400,7 @@ static AFHTTPSessionManager *_sessionManager;
 //    _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
     _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", @"text/xml", @"image/*", @"text/encode", nil];
     // 打开状态栏的等待菊花
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+//    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     // 开启加密模式
 //    [self closeAES];
 }
@@ -425,9 +427,9 @@ static AFHTTPSessionManager *_sessionManager;
     [_sessionManager.requestSerializer setValue:value forHTTPHeaderField:field];
 }
 
-+ (void)openNetworkActivityIndicator:(BOOL)open {
-    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:open];
-}
+//+ (void)openNetworkActivityIndicator:(BOOL)open {
+//    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:open];
+//}
 
 + (void)setSecurityPolicyWithCerPath:(NSString *)cerPath validatesDomainName:(BOOL)validatesDomainName {
     NSData *cerData = [NSData dataWithContentsOfFile:cerPath];

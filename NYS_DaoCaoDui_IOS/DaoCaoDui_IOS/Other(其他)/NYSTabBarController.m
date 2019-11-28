@@ -7,7 +7,7 @@
 //
 
 #import "NYSTabBarController.h"
-#import "NYSRootNavigationController.h"
+#import "NYSBaseNavigationController.h"
 #import "NYSChatListViewController.h"
 #import "NYSDCDViewController.h"
 #import "NYSMeViewController.h"
@@ -21,16 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray <NSDictionary *>*VCArray =
-    @[@{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSChatListViewController new]],
+    NSArray <NSDictionary *> *VCArray =
+    @[@{@"vc":[[NYSBaseNavigationController alloc] initWithRootViewController:[NYSChatListViewController new]],
         @"normalImg":@"会话默认",
         @"selectImg":@"会话",
         @"itemTitle":@"We"},
-      @{@"vc":[[UINavigationController alloc] initWithRootViewController:[NYSDCDViewController new]],
+      @{@"vc":[[NYSBaseNavigationController alloc] initWithRootViewController:[NYSDCDViewController new]],
         @"normalImg":@"机器人",
         @"selectImg":@"机器人",
         @"itemTitle":@"稻草人"},
-      @{@"vc":[[NYSRootNavigationController alloc] initWithRootViewController:[NYSMeViewController new]],
+      @{@"vc":[[NYSBaseNavigationController alloc] initWithRootViewController:[NYSMeViewController new]],
         @"normalImg":@"我的默认",
         @"selectImg":@"我的",
         @"itemTitle":@"Me"},

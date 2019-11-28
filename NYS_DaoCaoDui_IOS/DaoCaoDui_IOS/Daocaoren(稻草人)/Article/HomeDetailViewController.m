@@ -280,7 +280,7 @@
         titleLabel.frame = CGRectMake(15, 20, NScreenWidth-30, 30);
         contentLabel.frame = CGRectMake(15, (NScreenWidth-40)*1.3-30, NScreenWidth-44, 15);
         UITabBar *tabBar = (UITabBar *)self.tabBarController.tabBar;
-        if (isIphoneX) {
+        if (isIphonex) {
             tabBar.frame = CGRectMake(0, NScreenHeight-83, NScreenWidth, 83);
         } else {
             tabBar.frame = CGRectMake(0, NScreenHeight-49, NScreenWidth, 49);

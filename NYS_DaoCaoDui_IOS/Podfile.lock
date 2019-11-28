@@ -1,10 +1,4 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
   - AFNetworking/NSURLSession (3.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -12,13 +6,21 @@ PODS:
   - AFNetworking/Reachability (3.2.1)
   - AFNetworking/Security (3.2.1)
   - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - AxcAE_TabBar (1.0.5)
+  - AXIndicatorView (0.1.1)
+  - AXNavigationBackItemInjection (0.0.2)
+  - AXPracticalHUD (2.1.4):
+    - AXIndicatorView
+  - AXWebViewController (0.7.2):
+    - Aspects
+    - AXNavigationBackItemInjection
+    - AXPracticalHUD
+    - NJKWebViewProgress
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - IQKeyboardManager (6.5.0)
+  - IQKeyboardManager (6.5.4)
   - JCore (2.1.4)
   - JPush (3.2.6):
     - JCore (< 3.0.0, >= 2.0.0)
@@ -26,7 +28,12 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJExtension (3.2.1)
-  - MJRefresh (3.2.0)
+  - MJRefresh (3.2.3)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - ReactiveObjC (3.1.1)
   - RongCloudIM (2.9.25):
     - RongCloudIM/IMKit (= 2.9.25)
@@ -80,14 +87,15 @@ PODS:
   - WRNavigationBar (1.2.0)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
-  - YTKNetwork (2.0.4):
-    - AFNetworking (~> 3.0)
+  - YTKNetwork (2.1.4):
+    - AFNetworking/NSURLSession (~> 3.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AxcAE_TabBar
+  - AXWebViewController
   - IQKeyboardManager
   - JPush
   - JVFloatLabeledTextField
@@ -110,7 +118,7 @@ DEPENDENCIES:
   - UMCShare/Social/ReducedQQ
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
-  - WRNavigationBar (~> 1.2.0)
+  - WRNavigationBar (= 1.2.0)
   - YTKKeyValueStore
   - YTKNetwork
   - YYKit
@@ -118,7 +126,12 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - Aspects
     - AxcAE_TabBar
+    - AXIndicatorView
+    - AXNavigationBackItemInjection
+    - AXPracticalHUD
+    - AXWebViewController
     - FMDB
     - IQKeyboardManager
     - JCore
@@ -128,6 +141,7 @@ SPEC REPOS:
     - MBProgressHUD
     - MJExtension
     - MJRefresh
+    - NJKWebViewProgress
     - ReactiveObjC
     - RongCloudIM
     - RongCloudRTC
@@ -148,16 +162,22 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   AxcAE_TabBar: 1d5bcf6c4921889dc38839b6ba2c584a9b55251a
+  AXIndicatorView: 566b490a2dd9781d4ffbcc9752be9b9cdc6e728e
+  AXNavigationBackItemInjection: efe0446967f3cbcc85a9118decd1e145138912dd
+  AXPracticalHUD: 821d170b31e050c426ef8754b07b4264a8b1d861
+  AXWebViewController: 96566c473fce2806f4da696132b31777f5404c9f
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  IQKeyboardManager: 700e5155d6a292383b54e8678aec769e14fc78fc
+  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   JCore: d345c049141877eb61c33011455fdb5fcab1673f
   JPush: 41dd48a69bd8c08abc692dc7f2b23c0fb281471f
   JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
-  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   RongCloudIM: cd6836aa86fbf6c02f7b6b5c895ea4caa894d67f
   RongCloudRTC: 561024c315d3726a67e718fb99b59e50e4a5ee6c
@@ -173,9 +193,9 @@ SPEC CHECKSUMS:
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
   WRNavigationBar: dc952230effbb646785f962587caaac06c60f229
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
-  YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
+  YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 2d9a479483e892e535d8e0cd4efc2ab9bf481f19
+PODFILE CHECKSUM: 6f983ac1fab9cbf5e88c3f0cbe363f1cab66c9ff
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

@@ -13,6 +13,7 @@
 #import <Masonry.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
+#import <WRNavigationBar/WRNavigationBar.h>
 
 #import "UtilsMacros.h"
 #import "ThirdMacros.h"

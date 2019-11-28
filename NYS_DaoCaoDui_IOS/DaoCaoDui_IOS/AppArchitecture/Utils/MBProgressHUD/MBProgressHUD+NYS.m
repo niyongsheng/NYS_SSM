@@ -137,7 +137,8 @@ const NSInteger hideTime = 2;
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.backgroundColor = [UIColor colorWithRed:0.033 green:0.685 blue:0.978 alpha:0.8];
+//    label.backgroundColor = [UIColor colorWithRed:0.98 green:0.12 blue:0.26 alpha:0.8];
+    label.backgroundColor = [UIColor colorWithRed:1.00 green:0.71 blue:0.17 alpha:0.8];
     label.width = NScreenWidth;
     label.textContainerInset = UIEdgeInsetsMake(padding+padding, padding, 0, padding);
     

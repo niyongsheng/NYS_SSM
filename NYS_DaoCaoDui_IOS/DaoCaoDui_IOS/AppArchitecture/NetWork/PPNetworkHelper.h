@@ -320,7 +320,7 @@ typedef void(^PPNetworkStatus)(PPNetworkStatusType status);
  *
  *  @param open YES(打开), NO(关闭)
  */
-+ (void)openNetworkActivityIndicator:(BOOL)open;
+//+ (void)openNetworkActivityIndicator:(BOOL)open;
 
 /**
  配置自建证书的Https请求, 参考链接: http://blog.csdn.net/syg90178aw/article/details/52839103

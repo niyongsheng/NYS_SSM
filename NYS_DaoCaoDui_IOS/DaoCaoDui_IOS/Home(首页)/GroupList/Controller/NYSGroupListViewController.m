@@ -25,6 +25,7 @@ static NSString *CELL_ID = @"NYSGroupCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"小伙伴们"];
     
     [self initUI];
     [self.collectionView.mj_header beginRefreshing];
@@ -47,7 +48,7 @@ static NSString *CELL_ID = @"NYSGroupCollectionCell";
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     [self.collectionView setCollectionViewLayout:flowLayout];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([NYSGroupCollectionCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:CELL_ID];
-    self.collectionView.height = NScreenHeight - NStatusBarHeight - NGetNavBarHight;
+    self.collectionView.height = NScreenHeight;
     self.collectionView.mj_footer.hidden = YES;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

@@ -25,12 +25,11 @@
     // 导航栏主题 title文字属性
     UINavigationBar *navBar = [UINavigationBar appearance];
     // 导航栏背景图
-    //    [navBar setBackgroundImage:[UIImage imageNamed:@"tabBarBj"] forBarMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    [navBar setBackgroundImage:[UIImage imageWithColor:NNavBgColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [navBar setBarTintColor:NNavBgColor];
     [navBar setTintColor:NNavBgFontColor];
-    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName :NNavBgFontColor, NSFontAttributeName : [UIFont systemFontOfSize:18]}];
-    
-    [navBar setBackgroundImage:[UIImage imageWithColor:NNavBgColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName:NNavBgFontColor, NSFontAttributeName : [UIFont systemFontOfSize:18]}];
     // 去掉阴影线
     [navBar setShadowImage:[UIImage new]];
 }
@@ -58,7 +57,7 @@
     if (_isSystemSlidBack) {
         self.interactivePopGestureRecognizer.enabled = YES;
         [_popRecognizer setEnabled:NO];
-    }else{
+    } else {
         self.interactivePopGestureRecognizer.enabled = NO;
         [_popRecognizer setEnabled:YES];
     }
@@ -93,12 +92,11 @@
         if (vc.isHidenNaviBar) {
             vc.view.top = 0;
             [vc.navigationController setNavigationBarHidden:YES animated:animated];
-        }else{
+        } else {
             vc.view.top = NTopHeight;
             [vc.navigationController setNavigationBarHidden:NO animated:animated];
         }
     }
-    
 }
 
 /**
@@ -109,8 +107,7 @@
  */
 - (BOOL)popToAppointViewController:(NSString *)ClassName animated:(BOOL)animated {
     id vc = [self getCurrentViewControllerClass:ClassName];
-    if(vc != nil && [vc isKindOfClass:[UIViewController class]])
-    {
+    if (vc != nil && [vc isKindOfClass:[UIViewController class]]) {
         [self popToViewController:vc animated:animated];
         return YES;
     }
@@ -243,15 +240,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

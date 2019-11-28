@@ -23,9 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 初始化友盟 */
 - (void)initUMeng;
 
-/** 初始化JSPatch */
-- (void)initJSPatch;
-
 /** 初始化用户系统 */
 - (void)initUserManager;
 

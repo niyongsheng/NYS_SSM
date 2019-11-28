@@ -2,8 +2,6 @@ platform :ios, '10.0'
 inhibit_all_warnings!
 
 target 'DaoCaoDui_IOS' do
-  use_frameworks!
-  
   pod 'ReactiveObjC'
   pod 'Masonry'
   pod 'SDAutoLayout'
@@ -16,17 +14,16 @@ target 'DaoCaoDui_IOS' do
   pod 'YTKKeyValueStore'
   pod 'YTKNetwork'
   pod 'AxcAE_TabBar'
-  pod 'WRNavigationBar', '~>1.2.0'
+  pod 'WRNavigationBar', '1.2.0'
   pod 'SGPagingView'
   pod 'SGAdvertScrollView'
   pod 'IQKeyboardManager'
   pod 'JVFloatLabeledTextField'
-#  pod 'QMUIKit'
+  pod 'AXWebViewController'
   
   pod 'JPush'
   pod 'RongCloudIM', '~> 2.9.25'
   pod 'RongCloudRTC', '~> 2.9.25'
-  
   pod 'UMCCommon'
   pod 'UMCShare/UI'
   pod 'UMCCommonLog'

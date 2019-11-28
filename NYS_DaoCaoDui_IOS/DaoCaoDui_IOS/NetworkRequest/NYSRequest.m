@@ -164,7 +164,7 @@
 /// @param isCache 是否缓存
 + (NSURLSessionTask *)requestWithResMethod:(ResMethod)resMethod URL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     [PPNetworkHelper openLog];
-    [PPNetworkHelper openNetworkActivityIndicator:YES];
+//    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
 //    [PPNetworkHelper closeAES];
     NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
@@ -175,7 +175,7 @@
     [PPNetworkHelper setValue:NCurrentUser.account forHTTPHeaderField:@"Account"];
     
 #pragma mark - Resquest
-    [SVProgressHUD show];
+//    [SVProgressHUD show];
     switch (resMethod) {
         case POST: {
                 return [PPNetworkHelper POST:URL parameters:parameters success:^(id responseObject) {
@@ -268,7 +268,7 @@
 #pragma mark - 不处理错误网络请求的公共方法
 + (NSURLSessionTask *)unmismanageRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     [PPNetworkHelper openLog];
-    [PPNetworkHelper openNetworkActivityIndicator:YES];
+//    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
     
     return [PPNetworkHelper POST:URL parameters:parameters responseCache:^(id responseCache) {
