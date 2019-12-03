@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger,UserGender){
 /// 微信_Openid
 @property (nonatomic, strong) NSString * wcOpenid;
 /// 生日
-@property (nonatomic, assign) NSInteger birthday;
+@property (nonatomic, strong) NSString *birthday;
 /// 创建时间
 @property (nonatomic, assign) NSInteger gmtCreate;
 /// 修改时间

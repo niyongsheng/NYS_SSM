@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -132,7 +132,7 @@
                                 <constraint firstAttribute="width" constant="32" id="F19-22-uyG"/>
                                 <constraint firstAttribute="width" secondItem="Dj5-JN-kzi" secondAttribute="height" multiplier="1:1" id="Ygi-MM-ZSa"/>
                             </constraints>
-                            <state key="normal" backgroundImage="qq.png"/>
+                            <state key="normal" backgroundImage="qq"/>
                             <state key="highlighted" backgroundImage="QQ_helight"/>
                             <connections>
                                 <action selector="qqLogin:" destination="-1" eventType="touchUpInside" id="3rm-mt-48h"/>
@@ -144,7 +144,7 @@
                                 <constraint firstAttribute="width" constant="32" id="3CU-HX-IKe"/>
                                 <constraint firstAttribute="width" secondItem="MBL-Ng-Vl2" secondAttribute="height" multiplier="1:1" id="3bM-EZ-GWJ"/>
                             </constraints>
-                            <state key="normal" backgroundImage="wechat.png"/>
+                            <state key="normal" backgroundImage="wc"/>
                             <state key="highlighted" backgroundImage="weixin_helight"/>
                             <connections>
                                 <action selector="wechatLogin:" destination="-1" eventType="touchUpInside" id="tss-L3-Wix"/>
@@ -195,8 +195,8 @@
     <resources>
         <image name="QQ_helight" width="32" height="32"/>
         <image name="logo_60x60" width="180" height="180"/>
-        <image name="qq.png" width="32" height="32"/>
-        <image name="wechat.png" width="32" height="32"/>
+        <image name="qq" width="33" height="33"/>
+        <image name="wc" width="33" height="33"/>
         <image name="weixin_helight" width="32" height="28"/>
     </resources>
 </document>

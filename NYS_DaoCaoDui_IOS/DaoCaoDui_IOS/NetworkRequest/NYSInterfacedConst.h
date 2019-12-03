@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 0
+#define DevelopSever 1
 #define TestSever    0
-#define ProductSever 1
+#define ProductSever 0
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
@@ -38,6 +38,12 @@ UIKIT_EXTERN NSString *const CR_SignRecord;
 UIKIT_EXTERN NSString *const CR_ProviderUserInfo;
 /** 群信息提供者*/
 UIKIT_EXTERN NSString *const CR_ProviderTeamInfo;
+/** 单文件上传*/
+UIKIT_EXTERN NSString *const CR_UploadFile;
+/** 多图上传*/
+UIKIT_EXTERN NSString *const CR_UploadiImages;
+
+
 /** 创建群组*/
 UIKIT_EXTERN NSString *const CR_CreateGroup;
 /** 修改群组资料*/

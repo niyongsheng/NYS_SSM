@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.core.MediaType;
@@ -96,7 +97,12 @@ public class UserController {
         loginUser.setPassword(MD5Util.crypt(password));
 
         // 2.数据库查询用户
-        User user = userService.findUserByPhone(phone);
+        User user = null;
+        try {
+            user = userService.findUserByPhone(phone);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
 
         // 3.JWT处理
         if (user != null) {
@@ -144,7 +150,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/getOnceCode", method = RequestMethod.GET)
-    @ApiOperation(value = "获取手机验证码接口", notes = "参数描述", hidden = false)
+    @ApiOperation(value = "获取手机验证码接口", notes = "*3分钟过期,多次获取覆盖", hidden = false)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
@@ -307,7 +313,7 @@ public class UserController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "account", value = "账号", required = true),
     })
-    public ResponseDto<User> ProviderInfoForUser(HttpServletRequest request,
+    public ResponseDto<User> providerInfoForUser(HttpServletRequest request,
                                                  @NotBlank()
                                                  @RequestParam(value = "account", required = true) String account
     ) throws ResponseException {
@@ -329,9 +335,88 @@ public class UserController {
         return new ResponseDto(ResponseStatusEnum.SUCCESS, user);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/updateInfoForUser", method = RequestMethod.POST)
+    @ApiOperation(value = "用户信息修改接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "icon", value = "头像"),
+            @ApiImplicitParam(name = "truename", value = "姓名"),
+            @ApiImplicitParam(name = "nickname", value = "昵称"),
+            @ApiImplicitParam(name = "gender", value = "性别"),
+            @ApiImplicitParam(name = "phone", value = "手机"),
+            @ApiImplicitParam(name = "password", value = "密码"),
+            @ApiImplicitParam(name = "e_mail", value = "邮箱"),
+            @ApiImplicitParam(name = "introduction", value = "简介"),
+            @ApiImplicitParam(name = "address", value = "地址"),
+            @ApiImplicitParam(name = "qqOpenid", value = "qqOpenid"),
+            @ApiImplicitParam(name = "wcOpenid", value = "wcOpenid")
+    })
+    public  ResponseDto<User> updateInfoForUser(HttpServletRequest request,
+                                                @RequestParam(value = "icon", required = false) String icon,
+                                                @RequestParam(value = "truename", required = false) String truename,
+                                                @RequestParam(value = "nickname", required = false) String nickname,
+                                                @RequestParam(value = "gender", required = false) String gender,
+                                                @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
+                                                @RequestParam(value = "phone", required = false) String phone,
+                                                @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                                @RequestParam(value = "password", required = false) String password,
+                                                @Email
+                                                @RequestParam(value = "e_mail", required = false) String e_mail,
+                                                @RequestParam(value = "introduction", required = false) String introduction,
+                                                @RequestParam(value = "address", required = false) String address,
+                                                @RequestParam(value = "qqOpenid", required = false) String qqOpenid,
+                                                @RequestParam(value = "wcOpenid", required = false) String wcOpenid
+    ) throws ResponseException {
 
+        // 1.修改用户信息(sql中已做非空判断)
+        String account = request.getHeader("Account");
+        User user = new User();
+        user.setAccount(account);
+        user.setIcon(icon);
+        user.setTruename(truename);
+        user.setNickname(nickname);
+        user.setGender(gender);
+        user.setPhone(phone);
+        if (password != null && !"".equals(password.trim())) {
+            user.setPassword(MD5Util.crypt(password));
+        }
+        user.setEmail(e_mail);
+        user.setIntroduction(introduction);
+        user.setAddress(address);
+        user.setQqOpenid(qqOpenid);
+        user.setWcOpenid(wcOpenid);
 
-    private ResponseDto Register() {
+        // 2.更新用户数据
+        try {
+            userService.updateUser(user);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_UPDATE_ERROR);
+        }
+
+        // 3.数据库查询修改后的用户信息
+        try {
+            user = userService.findUserByAccount(account);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 4.数据校验
+        if (user == null) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
+        }
+
+        // 5.redis缓存刷新
+        try {
+            userRedisService.insertUser(user);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.REDIS_INSERT_ERROR);
+        }
+
+        // 6.返回成功信息
+        return new ResponseDto(ResponseStatusEnum.AUTH_UPDATE_SUCESS, user);
+    }
+
+    private ResponseDto register() {
 
         /*SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
         String timeText=format.format(new Date().getTime());*/

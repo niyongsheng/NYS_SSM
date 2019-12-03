@@ -24,6 +24,8 @@ public enum ResponseStatusEnum {
     AUTH_LOGIN_SUCESS(true,2001,"登陆成功"),
     AUTH_LOGOUT_SUCESS(true,2001,"登出成功"),
     AUTH_REGISTER_SUCESS(true,2001,"注册成功"),
+    AUTH_RESET_SUCESS(true,2001,"重置成功"),
+    AUTH_UPDATE_SUCESS(true,2001,"修改成功"),
     AUTH_ONCECODE_SUCESS(true,2001,"验证码已发送"),
 
     /* 文件读写错误 */
@@ -32,15 +34,15 @@ public enum ResponseStatusEnum {
     IO_QNUPLOAD_ERROR(false,1003,"文件上传云服务器失败"),
     IO_IMGFORMAT_ERROR(false,1004,"非图片文件类型"),
     /* 数据库 */
-    DB_INSERT_ERROR(true,2011,"数据库写入错误"),
-    DB_DELETE_ERROR(true,2012,"数据库删除错误"),
-    DB_UPDATE_ERROR(true,2013,"数据库更新错误"),
-    DB_SELECT_ERROR(true,2014,"数据库查询错误"),
+    DB_INSERT_ERROR(false,2011,"数据库写入错误"),
+    DB_DELETE_ERROR(false,2012,"数据库删除错误"),
+    DB_UPDATE_ERROR(false,2013,"数据库更新错误"),
+    DB_SELECT_ERROR(false,2014,"数据库查询错误"),
     /* Redis */
-    REDIS_INSERT_ERROR(true,2015,"Redis写入错误"),
-    REDIS_DELETE_ERROR(true,2016,"Redis删除错误"),
-    REDIS_UPDATE_ERROR(true,2017,"Redis更新错误"),
-    REDIS_SELECT_ERROR(true,2018,"Redis查询错误"),
+    REDIS_INSERT_ERROR(false,2015,"Redis写入错误"),
+    REDIS_DELETE_ERROR(false,2016,"Redis删除错误"),
+    REDIS_UPDATE_ERROR(false,2017,"Redis更新错误"),
+    REDIS_SELECT_ERROR(false,2018,"Redis查询错误"),
 
     /* 参数错误 */
     PARAM_EMPTY_ERROR(false,3001,"参数为空"),

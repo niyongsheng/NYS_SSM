@@ -11,6 +11,7 @@
 #import <SGPagingView/SGPagingView.h>
 #import <AXWebViewController.h>
 #import "HomeViewController.h"
+#import "NYSPrayViewController.h"
 
 @interface NYSDCDViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -23,7 +24,7 @@
     [super viewDidLoad];
     
     // 1.分页栏配置
-    NSArray *titleArr = @[@"稻草堆", @"文章", @"音乐", @"代祷", @"活动", @"接口"];
+    NSArray *titleArr = @[@"稻草堆", @"文章", @"音乐", @"代祷", @"活动", @"兑换"];
     SGPageTitleViewConfigure *titleConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     titleConfigure.indicatorStyle = SGIndicatorStyleDynamic;
     titleConfigure.indicatorColor = [UIColor whiteColor];
@@ -50,7 +51,7 @@
     AXWebViewController *dcdWebVC0 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/web"];
     AXWebViewController *dcdWebVC1 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/"];
     AXWebViewController *dcdWebVC2 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/swagger-ui.html"];
-    NSArray *childArr = @[articlePageVC, dcdWebVC0, [UIViewController new], [UIViewController new], dcdWebVC1, dcdWebVC2];
+    NSArray *childArr = @[articlePageVC, dcdWebVC0, [UIViewController new], [NYSPrayViewController new], dcdWebVC1, dcdWebVC2];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;
     [self.view addSubview:_pageContentCollectionView];

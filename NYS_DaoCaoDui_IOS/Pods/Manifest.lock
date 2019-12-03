@@ -17,6 +17,7 @@ PODS:
     - AXNavigationBackItemInjection
     - AXPracticalHUD
     - NJKWebViewProgress
+  - BarrageRenderer (2.1.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -96,6 +97,7 @@ PODS:
 DEPENDENCIES:
   - AxcAE_TabBar
   - AXWebViewController
+  - BarrageRenderer
   - IQKeyboardManager
   - JPush
   - JVFloatLabeledTextField
@@ -132,6 +134,7 @@ SPEC REPOS:
     - AXNavigationBackItemInjection
     - AXPracticalHUD
     - AXWebViewController
+    - BarrageRenderer
     - FMDB
     - IQKeyboardManager
     - JCore
@@ -168,6 +171,7 @@ SPEC CHECKSUMS:
   AXNavigationBackItemInjection: efe0446967f3cbcc85a9118decd1e145138912dd
   AXPracticalHUD: 821d170b31e050c426ef8754b07b4264a8b1d861
   AXWebViewController: 96566c473fce2806f4da696132b31777f5404c9f
+  BarrageRenderer: 00e5f8081d81f29c1fc12712ddf2f875bd9c6f77
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   JCore: d345c049141877eb61c33011455fdb5fcab1673f
@@ -196,6 +200,6 @@ SPEC CHECKSUMS:
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 6f983ac1fab9cbf5e88c3f0cbe363f1cab66c9ff
+PODFILE CHECKSUM: a32ad78f6b4c4de7bd6502d0dfca5a261fb05c3b
 
 COCOAPODS: 1.8.4

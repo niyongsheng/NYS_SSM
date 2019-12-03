@@ -51,25 +51,25 @@
 /** 获取个人信息*/
 + (NSURLSessionTask *)GetUserInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetUserInfo];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
-/** 更新个人信息*/
-+ (NSURLSessionTask *)UpdateUserInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+/** 修改个人信息*/
++ (NSURLSessionTask *)UpdateUserInfoWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UpdateUserInfo];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 签到*/
 + (NSURLSessionTask *)DosignWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DoSign];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 签到详情*/
 + (NSURLSessionTask *)GetDosignRecordWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_SignRecord];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 /** 个人信息提供者*/
 + (NSURLSessionTask *)DataProviderInfoForUserWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
@@ -82,22 +82,34 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 单文件上传*/
++ (NSURLSessionTask *)UploadFileWithFilePath:(NSString *)filePath parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UploadFile];
+    return [self fileRequestWithURL:url parameters:parameters filePath:filePath process:process success:success failure:failure];
+}
+
+/** 多图上传*/
++ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UploadiImages];
+    return [self imagesRequestWithURL:url parameters:parameters images:images fileNames:imageNames process:process success:success failure:failure];
+}
+
 /** 创建群组*/
 + (NSURLSessionTask *)CreateGroupWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CreateGroup];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 修改群组资料*/
 + (NSURLSessionTask *)UpdateGroupInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UpdateGroupInfo];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 解散群组*/
 + (NSURLSessionTask *)RemoveGroupInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_RemoveGroup];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 获取群列表*/
@@ -115,43 +127,43 @@
 /** QQ登录*/
 + (NSURLSessionTask *)QQLogoinWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_QQLogoin];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 微信登录*/
 + (NSURLSessionTask *)WCLogoinWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_WCLogoin];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 付费验证*/
 + (NSURLSessionTask *)VipValidateWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_VipValidate];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 更新提醒*/
 + (NSURLSessionTask *)UpdateTipWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UpdateTip];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 绑定QQ*/
 + (NSURLSessionTask *)BindQQWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_BindQQ];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** 绑定微信*/
 + (NSURLSessionTask *)BindWeChatWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_BindWeChat];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 /** VIP详情*/
 + (NSURLSessionTask *)VIPDetailstWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_VIPDetails];
-    return [self requestWithURL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return nil;
 }
 
 
@@ -180,7 +192,11 @@
         case POST: {
                 return [PPNetworkHelper POST:URL parameters:parameters success:^(id responseObject) {
                     [SVProgressHUD dismiss];
-                    [self responseHandler:URL isCache:isCache parameters:parameters responseObject:responseObject success:success];
+                    [self responseHandler:URL
+                                  isCache:isCache
+                               parameters:parameters
+                           responseObject:responseObject
+                                  success:success];
                 } failure:^(NSError *error) {
                     [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
                     [SVProgressHUD dismissWithDelay:.7f];
@@ -192,7 +208,11 @@
         case GET: {
             return [PPNetworkHelper GET:URL parameters:parameters success:^(id responseObject) {
                 [SVProgressHUD dismiss];
-                [self responseHandler:URL isCache:isCache parameters:parameters responseObject:responseObject success:success];
+                [self responseHandler:URL
+                              isCache:isCache
+                           parameters:parameters
+                       responseObject:responseObject
+                              success:success];
             } failure:^(NSError *error) {
                 [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
                 [SVProgressHUD dismissWithDelay:.7f];
@@ -206,7 +226,83 @@
     }
 }
 
-/* 请求响应处理方法 */
+/// 文件上传方法
+/// @param URL 请求地址
+/// @param parameters 参数
+/// @param filePath 文件路径
+/// @param process 进度
+/// @param success 成功
+/// @param failure 失败
++ (NSURLSessionTask *)fileRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters filePath:(NSString *)filePath process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    [PPNetworkHelper openLog];
+//    [PPNetworkHelper openNetworkActivityIndicator:YES];
+    [PPNetworkHelper setRequestTimeoutInterval:10];
+//    [PPNetworkHelper closeAES];
+    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
+    //    [PPNetworkCache removeAllHttpCache];
+    
+#pragma mark - AUTH认证
+    [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
+    [PPNetworkHelper setValue:NCurrentUser.account forHTTPHeaderField:@"Account"];
+    
+#pragma mark - Resquest
+    return [PPNetworkHelper uploadFileWithURL:URL
+                                   parameters:parameters
+                                         name:@"file"
+                                     filePath:filePath
+                                     progress:^(NSProgress *progress) {
+        process(progress);
+        NLog(@"文件上传进度:%.2f%%",100.0 * progress.completedUnitCount/progress.totalUnitCount);
+    } success:^(id responseObject) {
+        [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
+        [SVProgressHUD dismissWithDelay:.7f];
+        failure(error);
+    }];
+}
+
+/// 多图上传方法
+/// @param URL 请求地址
+/// @param parameters 参数
+/// @param images 图片数组
+/// @param imageNames 图片名数组
+/// @param process 进度
+/// @param success 成功
+/// @param failure 失败
++ (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    [PPNetworkHelper openLog];
+//    [PPNetworkHelper openNetworkActivityIndicator:YES];
+    [PPNetworkHelper setRequestTimeoutInterval:10];
+//    [PPNetworkHelper closeAES];
+    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
+    //    [PPNetworkCache removeAllHttpCache];
+    
+#pragma mark - AUTH认证
+    [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
+    [PPNetworkHelper setValue:NCurrentUser.account forHTTPHeaderField:@"Account"];
+    
+#pragma mark - Resquest
+    return [PPNetworkHelper uploadImagesWithURL:URL
+                                     parameters:parameters
+                                           name:@"file"
+                                         images:images
+                                      fileNames:imageNames
+                                     imageScale:.5f
+                                      imageType:@"image/jpg/png/jpeg"
+                                       progress:^(NSProgress *progress) {
+        process(progress);
+        NLog(@"图片上传进度:%.2f%%",100.0 * progress.completedUnitCount/progress.totalUnitCount);
+    } success:^(id responseObject) {
+        [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
+        [SVProgressHUD dismissWithDelay:.7f];
+        failure(error);
+    }];
+}
+
+#pragma mark - 请求响应处理方法
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
     NLog(@"[服务器Response]：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
@@ -217,7 +313,7 @@
         NSString *info = [responseObject objectForKey:@"msg"];
         NSString *error = [NSString stringWithFormat:@"%ld\n%@", (long)code, info];
         [SVProgressHUD showErrorWithStatus:error];
-        if (code == 6005 || code == 6010 || code == 6011) {
+        if (code == 6005 || code == 6010 || code == 6011 || code == 6001) {
             // 退出登录通知
             [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
         } else if (code == 4001) {
@@ -228,60 +324,6 @@
         }
         [SVProgressHUD dismissWithDelay:2.f];
     }
-}
-
-#pragma mark - 网络请求的公共方法
-+ (NSURLSessionTask *)requestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    [PPNetworkHelper openLog]; // 开启日志
-//    [PPNetworkHelper closeAES];
-//    [PPNetworkHelper openNetworkActivityIndicator:YES]; // 加载状态
-//    [PPNetworkHelper setRequestTimeoutInterval:10]; // 超时时长
-    //    [PPNetworkHelper setValue:@"9" forHTTPHeaderField:@"from-data"]; // 请求头
-    //    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
-    //    [PPNetworkCache removeAllHttpCache];
-    
-    // 发起请求
-    //    [SVProgressHUD show];
-    return [PPNetworkHelper POST:URL parameters:parameters success:^(id responseObject) {
-        //        [SVProgressHUD dismiss];
-        NLog(@"服务器：%@", responseObject);
-        if ([[responseObject objectForKey:@"success"] boolValue]) {
-            // 是否缓存
-//            isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
-            success(responseObject);
-        } else {
-            NSString *error = [responseObject objectForKey:@"error"];
-            [SVProgressHUD showErrorWithStatus:error];
-            if ([error isEqualToString:@"未登录。"] || [error isEqualToString:@"在别的设备登陆。"]) {
-                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
-            }
-            [SVProgressHUD dismissWithDelay:1.f];
-            success(responseObject);
-        }
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"网络错误:%ld", (long)error.code]];
-        [SVProgressHUD dismissWithDelay:.7f];
-        failure(error);
-    }];
-}
-
-#pragma mark - 不处理错误网络请求的公共方法
-+ (NSURLSessionTask *)unmismanageRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    [PPNetworkHelper openLog];
-//    [PPNetworkHelper openNetworkActivityIndicator:YES];
-    [PPNetworkHelper setRequestTimeoutInterval:10];
-    
-    return [PPNetworkHelper POST:URL parameters:parameters responseCache:^(id responseCache) {
-        isCache ? success(responseCache) : nil;
-    } success:^(id responseObject) {
-        success(responseObject);
-    } failure:^(NSError *error) {
-#if defined(DEBUG)||defined(_DEBUG)
-        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"网络错误:%ld", (long)error.code]];
-        [SVProgressHUD dismissWithDelay:.7f];
-#endif
-        failure(error);
-    }];
 }
 
 @end

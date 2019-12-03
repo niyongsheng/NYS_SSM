@@ -75,4 +75,8 @@ SINGLETON_FOR_HEADER(UserManager)
  */
 - (BOOL)loadUserInfo;
 
+/// 缓存用户数据
+/// @param userDict 当前登录用户信息
+- (void)saveUserInfo:(NSDictionary *)userDict;
+
 @end

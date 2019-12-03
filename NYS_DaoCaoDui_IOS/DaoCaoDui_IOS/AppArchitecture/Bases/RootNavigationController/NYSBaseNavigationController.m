@@ -7,8 +7,9 @@
 //
 
 #import "NYSBaseNavigationController.h"
+#import "NYSRootViewController.h"
 
-@interface NYSBaseNavigationController ()
+@interface NYSBaseNavigationController () <UINavigationControllerDelegate>
 
 @end
 
@@ -16,21 +17,36 @@
 
 + (void)initialize {
     UINavigationBar *navBar = [UINavigationBar appearance];
-    [navBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    [navBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    // 默认开启系统右划返回
-    self.interactivePopGestureRecognizer.enabled = YES;
+    self.delegate = self;
 }
 
+/// push hidden tabBar
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.childViewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
     }
     [super pushViewController:viewController animated:animated];
+}
+
+/// 隐藏导航栏
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    if ([viewController isKindOfClass:[NYSRootViewController class]]) {
+        NYSRootViewController * vc = (NYSRootViewController *)viewController;
+        if (vc.isHidenNaviBar) {
+            vc.view.top = 0;
+            [vc.navigationController setNavigationBarHidden:YES animated:animated];
+        } else {
+            vc.view.top = NTopHeight;
+            [vc.navigationController setNavigationBarHidden:NO animated:animated];
+        }
+    }
 }
 
 @end

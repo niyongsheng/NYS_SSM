@@ -116,10 +116,10 @@
             profession=#{profession},
         </if>
         <if test="birthday != null">
-            profession=#{birthday},
+            birthday=#{birthday},
         </if>
         gmtModify = NOW()
-        WHERE id = #{id}
+        WHERE account = #{account}
     </update>
 
     <select id="find" parameterType="java.lang.Integer" resultType="com.niyongsheng.persistence.domain.User">

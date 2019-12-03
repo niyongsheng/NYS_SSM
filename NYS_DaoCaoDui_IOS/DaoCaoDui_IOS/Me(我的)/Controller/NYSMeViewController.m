@@ -7,16 +7,17 @@
 //
 
 #import "NYSMeViewController.h"
-#import "NYSTransitionProtocol.h"
 #import "NYSHeaderView.h"
 #import "NYSMeTableViewCell.h"
 #import "NYSMeModel.h"
 #import <MJExtension/MJExtension.h>
+
+#import "NYSPersonalInfoViewController.h"
 #import "NYSFAQViewController.h"
 
 #define NHeaderHeight ((200 * Iphone6ScaleWidth) + NStatusBarHeight)
 
-@interface NYSMeViewController () <UITableViewDelegate, UITableViewDataSource, headerViewDelegate, NYSTransitionProtocol> {
+@interface NYSMeViewController () <UITableViewDelegate, UITableViewDataSource, headerViewDelegate> {
     NSArray *_dataSource;
     NYSHeaderView *_headerView;
     // 自定义导航栏View
@@ -36,7 +37,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self wr_setNavBarBackgroundAlpha:0];
     [self getRequset];
 }
 
@@ -47,29 +47,12 @@
 
 #pragma mark -- headerViewDelegate头像被点击 --
 - (void)headerViewClick {
-    NLog(@"headerViewClicked");
+    [self.navigationController pushViewController:[NYSPersonalInfoViewController new] animated:YES];
 }
 
 #pragma mark -- headerViewDelegate昵称被点击 --
 - (void)nickNameViewClick {
     [self.navigationController pushViewController:[NYSRootViewController new] animated:YES];
-}
-
-#pragma mark - NYSTransitionAnimatorDataSource
-- (UIImageView *)pushTransitionImageView {
-    return _headerView.headImgView;
-}
-
-- (UIImageView *)popTransitionImageView {
-    return nil;
-}
-
-- (UIView *)targetTransitionView {
-    return _headerView.headImgView;
-}
-
-- (BOOL)isNeedTransition {
-    return YES;
 }
 
 #pragma mark -- 创建页面 --

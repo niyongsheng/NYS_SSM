@@ -27,8 +27,8 @@
     [self createRightBtn];
     
     self.title = @"我们";
-    self.conversationListTableView.separatorStyle = UITableViewCellEditingStyleNone;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.conversationListTableView.tableFooterView = [UIView new];
     
     // 设置需要显示哪些类型的会话
     [self setDisplayConversationTypes:@[

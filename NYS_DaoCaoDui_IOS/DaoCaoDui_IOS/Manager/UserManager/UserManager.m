@@ -143,21 +143,21 @@ SINGLETON_FOR_CLASS(UserManager);
     NPostNotification(NNotificationLoginStateChange, @YES);
     NSDictionary *data = responseObject[@"data"];
     self.currentUserInfo = [UserInfo modelWithDictionary:data];
-    
     // 登录IM
     [[IMManager sharedIMManager] IMLoginwithCurrentUserInfo:self.currentUserInfo completion:^(BOOL success, id  _Nullable description) {
         
     }];
-    [self saveUserInfo];
+    // 缓存用户信息
+    [self saveUserInfo:data];
+    // 修改登录状态
     self.isLogined = YES;
 }
 
 #pragma mark —- 储存用户信息 —-
-- (void)saveUserInfo {
-    if (self.currentUserInfo) {
+- (void)saveUserInfo:(NSDictionary *)userDict {
+    if (userDict) {
         YYCache *cache = [[YYCache alloc] initWithName:NUserCacheName];
-        NSDictionary *dic = [self.currentUserInfo modelToJSONObject];
-        [cache setObject:dic forKey:NUserModelCache];
+        [cache setObject:userDict forKey:NUserModelCache];
     }
 }
 

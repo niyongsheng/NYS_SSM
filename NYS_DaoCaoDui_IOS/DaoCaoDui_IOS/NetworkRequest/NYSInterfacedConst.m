@@ -30,17 +30,24 @@ NSString *const CR_Regist = @"/user/phoneRegister";
 /** 忘记密码*/
 NSString *const CR_Reset = @"";
 /** 获取个人信息*/
-NSString *const CR_GetUserInfo = @"/account/getAccountInfo";
+NSString *const CR_GetUserInfo = @"";
 /** 修改个人信息*/
-NSString *const CR_UpdateUserInfo = @"/account/updateAccountInfo";
+NSString *const CR_UpdateUserInfo = @"/user/updateInfoForUser";
 /** 签到*/
-NSString *const CR_DoSign = @"/account/doSign";
+NSString *const CR_DoSign = @"";
 /** 积分记录*/
-NSString *const CR_SignRecord = @"/account/getScoreLog";
+NSString *const CR_SignRecord = @"";
 /** 个人信息提供者*/
 NSString *const CR_ProviderUserInfo = @"/user/providerInfoForUser";
 /** 群信息提供者*/
 NSString *const CR_ProviderTeamInfo = @"/group/providerInfoForGroup";
+/** 单文件上传*/
+NSString *const CR_UploadFile = @"/file/uploadFile";
+/** 多图上传*/
+NSString *const CR_UploadiImages = @"/file/uploadImages";
+
+
+
 /** 创建群组*/
 NSString *const CR_CreateGroup = @"/im/createTeam";
 /** 修改群组资料*/

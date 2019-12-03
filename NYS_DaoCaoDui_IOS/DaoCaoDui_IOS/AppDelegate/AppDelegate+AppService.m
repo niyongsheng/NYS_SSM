@@ -46,14 +46,14 @@
 #pragma mark -- WRNavigationBar 初始化 --
 - (void)initWRNavigationBar {
     [WRNavigationBar wr_widely];
-    [WRNavigationBar wr_setBlacklist:@[@"CMFAQViewController"]];
+    [WRNavigationBar wr_setBlacklist:@[@"NYSFAQViewController"]];
 //    [WRNavigationBar wr_local];
 //    [WRNavigationBar wr_setWhitelist:@[@"NYSDCDViewController",
 //                                       @"HomeDetailViewController"]];
     // 设置导航栏默认的背景颜色
     [WRNavigationBar wr_setDefaultNavBarBarTintColor:NNavBgColor];
     // 设置导航栏默认的背景图
-//    [WRNavigationBar wr_setDefaultNavBarBackgroundImage:[UIImage imageNamed:@"bg_nav"]];
+    [WRNavigationBar wr_setDefaultNavBarBackgroundImage:[UIImage imageNamed:@"bg_nav"]];
     // 设置导航栏所有按钮的默认颜色
     [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor whiteColor]];
     // 设置导航栏标题默认颜色
