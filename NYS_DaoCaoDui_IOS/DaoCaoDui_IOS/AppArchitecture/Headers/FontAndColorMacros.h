@@ -24,7 +24,7 @@
 #define NWKProgressColor [UIColor colorWithHexString:@"#F42A2C"]
 
 // 默认页面背景色
-#define NViewBgColor [UIColor colorWithHexString:@"f2f2f2"]
+#define NViewBgColor [UIColor whiteColor]
 // 分割线颜色
 #define NLineColor  [UIColor colorWithHexString:@"ededed"]
 // 次级字色

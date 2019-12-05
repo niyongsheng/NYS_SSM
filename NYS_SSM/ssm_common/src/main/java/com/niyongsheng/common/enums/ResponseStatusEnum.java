@@ -46,7 +46,8 @@ public enum ResponseStatusEnum {
 
     /* 参数错误 */
     PARAM_EMPTY_ERROR(false,3001,"参数为空"),
-    PARAM_FORMAT_ERROR(false,3001,"参数格式不正确"),
+    PARAM_FORMAT_ERROR(false,3002,"参数格式不正确"),
+    PARAM_CONVERSION_ERROR(false,3003,"参数格式转换失败"),
 
     /* Auth错误 */
     AUTH_UNEXISTENT_ERROR(false,6001,"用户不存在"),
@@ -89,7 +90,7 @@ public enum ResponseStatusEnum {
     SYS_ERROR(null,0,"系统错误");
 
     // *版本*
-    private static String version = "1.0.0";
+    private static String version = "NYS_SSM_DCD#1.0.0";
     // 状态
     private Boolean status;
     // 状态码

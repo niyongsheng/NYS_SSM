@@ -16,11 +16,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 初始化window
+    [self initWindow];
     
     // WRNavigationBar 初始化
     [self initWRNavigationBar];
-    // 初始化window
-    [self initWindow];
     
     // 初始化app服务
     [self initService];

@@ -48,6 +48,13 @@
 		<string>mqqbrowser</string>
 		<string>mttbrowser</string>
 	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>需要读取音乐资料,是否允许访问媒体资料库？</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
@@ -72,13 +79,10 @@
 	<string>需要添加新的提醒事项,是否允许访问提醒事项？</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>需要语音识别功能，是否允许访问语音识别系统？</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>汉仪铸字美心体W.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -90,6 +94,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -100,10 +106,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>汉仪铸字美心体W.ttf</string>
 	</array>
 </dict>
 </plist>

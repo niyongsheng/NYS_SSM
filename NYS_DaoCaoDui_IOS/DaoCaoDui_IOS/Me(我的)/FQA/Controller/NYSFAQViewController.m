@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"FQA";
+    self.StatusBarStyle = UIStatusBarStyleLightContent;
     
     [self initUI];
     [self.FAQTableView.mj_header beginRefreshing];

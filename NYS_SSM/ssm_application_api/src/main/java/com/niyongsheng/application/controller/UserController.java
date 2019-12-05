@@ -32,11 +32,13 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.core.MediaType;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TimeZone;
 
 
 /**
@@ -339,10 +341,11 @@ public class UserController {
     @RequestMapping(value = "/updateInfoForUser", method = RequestMethod.POST)
     @ApiOperation(value = "用户信息修改接口", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "icon", value = "头像"),
+            @ApiImplicitParam(name = "icon", value = "头像URL"),
             @ApiImplicitParam(name = "truename", value = "姓名"),
             @ApiImplicitParam(name = "nickname", value = "昵称"),
-            @ApiImplicitParam(name = "gender", value = "性别"),
+            @ApiImplicitParam(name = "gender", value = "性别:unknown默认未知 male男 female女 secret保密"),
+            @ApiImplicitParam(name = "birthday", value = "生日:yyyy-MM-dd"),
             @ApiImplicitParam(name = "phone", value = "手机"),
             @ApiImplicitParam(name = "password", value = "密码"),
             @ApiImplicitParam(name = "e_mail", value = "邮箱"),
@@ -356,6 +359,7 @@ public class UserController {
                                                 @RequestParam(value = "truename", required = false) String truename,
                                                 @RequestParam(value = "nickname", required = false) String nickname,
                                                 @RequestParam(value = "gender", required = false) String gender,
+                                                @RequestParam(value = "birthday", required = false) String birthday,
                                                 @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
                                                 @RequestParam(value = "phone", required = false) String phone,
                                                 @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
@@ -376,6 +380,18 @@ public class UserController {
         user.setTruename(truename);
         user.setNickname(nickname);
         user.setGender(gender);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        // 注意时区，否则格式转换会出现日期加减一天的情况
+        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
+        try {
+            if (birthday != null) {
+                // 把字符串转换日期
+                Date date = dateFormat.parse(birthday);
+                user.setBirthday(date);
+            }
+        } catch (ParseException e) {
+            throw new ResponseException(ResponseStatusEnum.PARAM_CONVERSION_ERROR);
+        }
         user.setPhone(phone);
         if (password != null && !"".equals(password.trim())) {
             user.setPassword(MD5Util.crypt(password));

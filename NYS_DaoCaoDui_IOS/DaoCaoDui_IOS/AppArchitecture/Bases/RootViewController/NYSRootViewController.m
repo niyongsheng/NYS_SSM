@@ -29,11 +29,13 @@
     // 默认显示返回按钮
     self.isShowLiftBack = YES;
     // 默认显示状态栏样式
-    self.StatusBarStyle = UIStatusBarStyleLightContent;
+//    self.StatusBarStyle = UIStatusBarStyleDefault;
     // 默认禁用自动设置内边距
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    // 防止右滑返回失效
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    // 初始化自定义导航栏
+//    [self setupNavBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,6 +49,26 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
+}
+
+- (void)setupNavBar {
+    self.navigationController.navigationBar.hidden = YES;
+    
+    [self.view addSubview:self.customNavBar];
+    // 设置自定义导航栏背景图片
+    self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"nav_img1"];
+    // 设置自定义导航栏标题颜色
+    self.customNavBar.titleLabelColor = [UIColor whiteColor];
+    if (self.navigationController.childViewControllers.count != 1) {
+        [self.customNavBar wr_setLeftButtonWithTitle:@"<" titleColor:[UIColor whiteColor]];
+    }
+}
+
+- (WRCustomNavigationBar *)customNavBar {
+    if (_customNavBar == nil) {
+        _customNavBar = [WRCustomNavigationBar CustomNavigationBar];
+    }
+    return _customNavBar;
 }
 
 - (void)showNoDataView {
@@ -227,7 +249,7 @@
         [btn setTitle:title forState:UIControlStateNormal];
         [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
         btn.titleLabel.font = [UIFont systemFontOfSize:16.f];
-        [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [btn setTitleColor:NNavBgFontColor forState:UIControlStateNormal];
         btn.tag = [tags[i++] integerValue];
         [btn sizeToFit];
         

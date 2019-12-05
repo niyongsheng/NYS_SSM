@@ -44,7 +44,7 @@ NSString *const CR_ProviderTeamInfo = @"/group/providerInfoForGroup";
 /** 单文件上传*/
 NSString *const CR_UploadFile = @"/file/uploadFile";
 /** 多图上传*/
-NSString *const CR_UploadiImages = @"/file/uploadImages";
+NSString *const CR_UploadiImages = @"/file/uploadFiles";
 
 
 

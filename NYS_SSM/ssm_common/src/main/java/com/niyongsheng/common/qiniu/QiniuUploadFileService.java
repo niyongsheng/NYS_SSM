@@ -64,7 +64,7 @@ public class QiniuUploadFileService {
         // 3.获取upToken
         String upToken = auth.uploadToken(bucketname);
 
-        // 4.时间戳重命名图片并转存
+        // 4.时间戳重命名并转存
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         String filePath = uploadPath + File.separator + fileName;
         try {
@@ -79,8 +79,8 @@ public class QiniuUploadFileService {
         try {
             Response response = uploadManager.put(filePath, fileName, upToken);
             System.out.println("**upload**response=" + response.bodyString());
-            map.put("qiniuUrl", domain + "/" + fileName);
-            map.put("msg", response.toString());
+            map.put("qiniuURL", domain + "/" + fileName);
+            map.put("info", response.toString());
         } catch (QiniuException e) {
             throw new ResponseException(ResponseStatusEnum.IO_QNUPLOAD_ERROR);
         } finally {
@@ -113,7 +113,7 @@ public class QiniuUploadFileService {
         long startTime = System.currentTimeMillis();
         System.out.println("**upload**开始时间:" + startTime);
 
-        // 1.时间戳重命名图片并转存
+        // 1.时间戳重命名并转存
         Map<String, Object> map = new HashMap<>();
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         String filePath = uploadPath + File.separator + fileName;

@@ -31,7 +31,7 @@ public class User implements Serializable{
     @ApiModelProperty(value = "积分")
     private Double score;
 
-    @ApiModelProperty(value = "性别")
+    @ApiModelProperty(value = "性别:unknown默认未知 male男 female女 secret保密")
     private String gender;
 
     @ApiModelProperty(value = "手机号")
@@ -59,10 +59,10 @@ public class User implements Serializable{
     @ApiModelProperty(value = "地址")
     private String address;
 
-    @ApiModelProperty(value = "团契")
+    @ApiModelProperty(value = "团契编号")
     private Integer fellowship;
 
-    @ApiModelProperty(value = "身份类型")
+    @ApiModelProperty(value = "身份类型:0特殊用户 1普通用户 2管理员 3敬拜 4服侍 5牧者")
     private Integer profession;
 
     @ApiModelProperty(value = "QQ")
@@ -71,11 +71,11 @@ public class User implements Serializable{
     @ApiModelProperty(value = "微信")
     private String wcOpenid;
 
-    @ApiModelProperty(value = "1有效0失效")
+    @ApiModelProperty(value = "账号状态:1有效 0失效")
     private Boolean status;
 
     @ApiModelProperty(value = "生日")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private java.util.Date birthday;
 

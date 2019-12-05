@@ -28,7 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self wr_setStatusBarStyle:UIStatusBarStyleDefault];
+//    self.StatusBarStyle = UIStatusBarStyleDefault;
+
     self.account.delegate = self;
     
     UIScreenEdgePanGestureRecognizer *gobackRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(forgetPassword:)];

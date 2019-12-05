@@ -180,7 +180,7 @@
     [PPNetworkHelper setRequestTimeoutInterval:10];
 //    [PPNetworkHelper closeAES];
     NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
-    //    [PPNetworkCache removeAllHttpCache];
+//    [PPNetworkCache removeAllHttpCache];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -198,8 +198,7 @@
                            responseObject:responseObject
                                   success:success];
                 } failure:^(NSError *error) {
-                    [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
-                    [SVProgressHUD dismissWithDelay:.7f];
+                    [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
                     failure(error);
                 }];
             }
@@ -214,8 +213,7 @@
                        responseObject:responseObject
                               success:success];
             } failure:^(NSError *error) {
-                [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
-                [SVProgressHUD dismissWithDelay:.7f];
+                [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
                 failure(error);
             }];
         }
@@ -226,7 +224,7 @@
     }
 }
 
-/// 文件上传方法
+/// 单文件上传方法
 /// @param URL 请求地址
 /// @param parameters 参数
 /// @param filePath 文件路径
@@ -235,11 +233,8 @@
 /// @param failure 失败
 + (NSURLSessionTask *)fileRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters filePath:(NSString *)filePath process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     [PPNetworkHelper openLog];
-//    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
-//    [PPNetworkHelper closeAES];
     NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
-    //    [PPNetworkCache removeAllHttpCache];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -252,12 +247,15 @@
                                      filePath:filePath
                                      progress:^(NSProgress *progress) {
         process(progress);
-        NLog(@"文件上传进度:%.2f%%",100.0 * progress.completedUnitCount/progress.totalUnitCount);
+        CGFloat process = progress.completedUnitCount/progress.totalUnitCount;
+        NLog(@"文件上传进度:%.2f%%",100.0 * process);
+        [SVProgressHUD showProgress:process * 100 status:@"文件上传进度"];
     } success:^(id responseObject) {
+        [SVProgressHUD dismiss];
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
     } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
-        [SVProgressHUD dismissWithDelay:.7f];
+        [SVProgressHUD dismiss];
+        [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
         failure(error);
     }];
 }
@@ -272,11 +270,8 @@
 /// @param failure 失败
 + (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     [PPNetworkHelper openLog];
-//    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
-//    [PPNetworkHelper closeAES];
     NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
-    //    [PPNetworkCache removeAllHttpCache];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -285,19 +280,22 @@
 #pragma mark - Resquest
     return [PPNetworkHelper uploadImagesWithURL:URL
                                      parameters:parameters
-                                           name:@"file"
+                                           name:@"files"
                                          images:images
                                       fileNames:imageNames
                                      imageScale:.5f
                                       imageType:@"image/jpg/png/jpeg"
                                        progress:^(NSProgress *progress) {
         process(progress);
-        NLog(@"图片上传进度:%.2f%%",100.0 * progress.completedUnitCount/progress.totalUnitCount);
+        CGFloat process = progress.completedUnitCount/progress.totalUnitCount;
+        NLog(@"图片上传进度:%.2f%%",100.0 * process);
+        [SVProgressHUD showProgress:process * 100 status:@"图片上传进度"];
     } success:^(id responseObject) {
+        [SVProgressHUD dismiss];
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
     } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code]];
-        [SVProgressHUD dismissWithDelay:.7f];
+        [SVProgressHUD dismiss];
+        [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
         failure(error);
     }];
 }

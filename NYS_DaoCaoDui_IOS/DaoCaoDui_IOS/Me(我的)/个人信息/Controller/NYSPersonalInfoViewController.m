@@ -10,6 +10,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIImageView+WebCache.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
+#import "NYSButtonFooterView.h"
+#import "KHAlertPickerController.h"
+#import "NYSBindPhoneViewController.h"
 
 @interface NYSPersonalInfoViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -17,9 +20,17 @@
 
 @implementation NYSPersonalInfoViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeFall tableView:self.tableView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = [NCurrentUser account];
+    
+    // 1.tableView
     self.tableView.height = NScreenHeight;
     self.tableView.mj_header.hidden = YES;
     self.tableView.mj_footer.hidden = YES;
@@ -27,8 +38,12 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
     [self.view addSubview:self.tableView];
+    
+    // 2.FooterView
+    NYSButtonFooterView *footerView = [[NYSButtonFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"退出登录"];
+    [footerView buttonForSendData:self action:@selector(userLogout:)];
+    self.tableView.tableFooterView = footerView;
 }
 
 #pragma mark —- tableview delegate —-
@@ -62,7 +77,7 @@
     if (indexPath.row == 0) {
         cell.textLabel.text = @"头像";
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        [imageView setImageURL:[NSURL URLWithString:[NCurrentUser icon]]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:[NCurrentUser icon]] placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
         imageView.layer.cornerRadius = 25.f;
         imageView.layer.masksToBounds = YES;
         cell.accessoryView = imageView;
@@ -82,21 +97,19 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", [NCurrentUser score]];
     } else if (indexPath.row == 5) {
         cell.textLabel.text = @"性别";
-        cell.detailTextLabel.text = [NCurrentUser gender];
-    } else if (indexPath.row == 6) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.text = @"生日";
-        if ([[NCurrentUser birthday] isEqualToString:@"male"]) {
+        if ([[NCurrentUser gender] isEqualToString:@"male"]) {
             cell.detailTextLabel.text = @"弟兄";
-        } else if ([[NCurrentUser birthday] isEqualToString:@"male"]) {
+        } else if ([[NCurrentUser gender] isEqualToString:@"female"]) {
             cell.detailTextLabel.text = @"姊妹";
-        } else if ([[NCurrentUser birthday] isEqualToString:@"secret"]) {
+        } else if ([[NCurrentUser gender] isEqualToString:@"secret"]) {
             cell.detailTextLabel.text = @"保密";
         } else {
             cell.detailTextLabel.text = @"未知";
         }
+    } else if (indexPath.row == 6) {
+        cell.textLabel.text = @"生日";
+        cell.detailTextLabel.text = [NCurrentUser birthday];
     } else if (indexPath.row == 7) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
         cell.textLabel.text = @"手机号";
         cell.detailTextLabel.text = [NCurrentUser phone];
     } else if (indexPath.row == 8) {
@@ -153,6 +166,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    WS(weakSelf);
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0: {
@@ -181,17 +195,43 @@
             break;
             
         case 5: { // 性别
-            
+            UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"性别" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            UIAlertAction *maleBtn = [UIAlertAction actionWithTitle:@"弟兄" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull   action) {
+                [weakSelf updateUserInfo:@{@"gender":@"male"}];
+            }];
+            UIAlertAction *femaleBtn = [UIAlertAction actionWithTitle:@"姊妹" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull   action) {
+                [weakSelf updateUserInfo:@{@"gender":@"female"}];
+            }];
+            UIAlertAction *secretBtn = [UIAlertAction actionWithTitle:@"保密" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull   action) {
+                [weakSelf updateUserInfo:@{@"gender":@"secret"}];
+            }];
+            [alertVc addAction:cancelBtn];
+            [alertVc addAction:maleBtn];
+            [alertVc addAction:femaleBtn];
+            [alertVc addAction:secretBtn];
+            [self presentViewController:alertVc animated:YES completion:nil];
         }
             break;
             
         case 6: { // 生日
-            
+            UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+            datePicker.datePickerMode = UIDatePickerModeDate;
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"yyyy-MM-dd";
+            KHAlertPickerController *alertPicker = [KHAlertPickerController alertPickerWithTitle:@"生日" DatePicker:datePicker DateFormatter:dateFormatter];
+            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                [weakSelf updateUserInfo:@{@"birthday":alertPicker.contentStr}];
+            }];
+            [alertPicker addCompletionAction:sureAction];
+            [self presentViewController:alertPicker animated:YES completion:nil];
         }
             break;
             
         case 7: { // 手机号
-            
+            NYSBindPhoneViewController *phoneBindVC = NYSBindPhoneViewController.new;
+            phoneBindVC.isShowPasswordView = [NCurrentUser password] ? NO : YES;
+            [self.navigationController pushViewController:phoneBindVC animated:YES];
         }
             break;
             
@@ -245,8 +285,7 @@
     
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-            // 设置照片来源
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
             [self presentViewController:imagePicker animated:YES completion:nil];
         }
@@ -271,15 +310,14 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    //    self.imageView.image = image;
     
     // 上传服务器
-    [NYSRequest UploadImagesWithImages:@[image] fileNames:nil parameters:@{} process:^(NSProgress *uploadProcess) {
-        
+    [NYSRequest UploadImagesWithImages:@[image] fileNames:nil parameters:@{@"fellowship":[NSString stringWithFormat:@"%ld", (long)[NCurrentUser fellowship]]} process:^(NSProgress *uploadProcess) {
+
     } success:^(id response) {
-        
+        [self updateUserInfo:@{@"icon":[[response[@"data"] firstObject] objectForKey:@"qiniuURL"]}];
     } failure:^(NSError *error) {
-        
+
     }];
 }
 
@@ -314,6 +352,23 @@
     } failure:^(NSError *error) {
         
     } isCache:NO];
+}
+
+#pragma mark —- 退出 --
+- (void)userLogout:(UIButton *)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"你确定要退出当先登录吗？" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [NUserManager logout:nil];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NLog(@"Cancel Action");
+    }];
+    
+    [alertController addAction:logoutAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

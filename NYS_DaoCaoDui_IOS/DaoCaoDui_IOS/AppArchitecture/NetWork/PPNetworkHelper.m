@@ -287,7 +287,7 @@ static AFHTTPSessionManager *_sessionManager;
             // 默认图片的文件名, 若fileNames为nil就使用
             
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            formatter.dateFormat = @"yyyyMMddHHmmss";
+            formatter.dateFormat = @"yyyy_MM_ddHH:mm:ss";
             NSString *str = [formatter stringFromDate:[NSDate date]];
             NSString *imageFileName = NSStringFormat(@"%@%ld.%@",str,i,imageType?:@"jpg");
             

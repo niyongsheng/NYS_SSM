@@ -6,11 +6,11 @@
 //  Copyright © 2018 NiYongsheng. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "NYSRootViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NYSLoginViewController : UIViewController
+@interface NYSLoginViewController : NYSRootViewController
 
 @end
 

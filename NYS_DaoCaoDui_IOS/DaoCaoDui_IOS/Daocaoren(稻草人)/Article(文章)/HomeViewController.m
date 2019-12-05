@@ -9,7 +9,6 @@
 #import "HomeViewController.h"
 #import "HomeCell.h"
 #import "HomeDetailViewController.h"
-#import <WRNavigationBar/WRNavigationBar.h>
 
 // offsetY > -64 的时候导航栏开始偏移
 #define NAVBAR_TRANSLATION_POINT 0

@@ -102,6 +102,10 @@
 		C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD72622A4C4B100E33636 /* NYSRequest.m */; };
 		C85DD73222A4F03A00E33636 /* IMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD73122A4F03A00E33636 /* IMManager.m */; };
 		C85DD73722A4F90600E33636 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C85DD73622A4F90600E33636 /* ShareManager.m */; };
+		C860A7352397891100902AB6 /* KHAlertPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C860A7322397891100902AB6 /* KHAlertPickerController.m */; };
+		C860A7362397891100902AB6 /* NSArray+SubArr.m in Sources */ = {isa = PBXBuildFile; fileRef = C860A7342397891100902AB6 /* NSArray+SubArr.m */; };
+		C860A73A23979A9400902AB6 /* NYSBindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C860A73823979A9400902AB6 /* NYSBindPhoneViewController.m */; };
+		C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */; };
 		C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */; };
 		C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89CA2AE22BCA15C0086F9B0 /* NYSEmitterViewController.m */; };
 		C89CA2BB22BCA2DE0086F9B0 /* stepPk_win_colour3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2B222BCA2DD0086F9B0 /* stepPk_win_colour3@2x.png */; };
@@ -125,6 +129,11 @@
 		C8A93E9B2366786D0062C813 /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A93E912366786B0062C813 /* HomeDetailViewController.m */; };
 		C8A93E9C2366786D0062C813 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A93E922366786B0062C813 /* HomeCell.m */; };
 		C8A93E9D2366786D0062C813 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A93E942366786D0062C813 /* HomeViewController.m */; };
+		C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AF0D1D23988E8F009BBEBE /* NYSButtonFooterView.m */; };
+		C8AF0D232398AE67009BBEBE /* nav_img1.png in Resources */ = {isa = PBXBuildFile; fileRef = C8AF0D212398AE66009BBEBE /* nav_img1.png */; };
+		C8AF0D242398AE67009BBEBE /* nav_img2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8AF0D222398AE67009BBEBE /* nav_img2.jpg */; };
+		C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AF0D272398B74E009BBEBE /* TableViewAnimationKit.m */; };
+		C8AF0D2D2398B74F009BBEBE /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C8AF0D2B2398B74E009BBEBE /* UITableView+XSAnimationKit.m */; };
 		C8B6B5632394AD8A0067ACD5 /* NYSPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6B5622394AD8A0067ACD5 /* NYSPersonalInfoViewController.m */; };
 		C8BA3AA0238F74010041FC6E /* 汉仪铸字美心体W.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8BA3A9F238F74010041FC6E /* 汉仪铸字美心体W.ttf */; };
 		C8BA3AA3238FBC2A0041FC6E /* NYSBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BA3AA2238FBC2A0041FC6E /* NYSBaseNavigationController.m */; };
@@ -315,6 +324,13 @@
 		C85DD73322A4F37F00E33636 /* ThirdMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdMacros.h; sourceTree = "<group>"; };
 		C85DD73522A4F90600E33636 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		C85DD73622A4F90600E33636 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		C860A7312397891100902AB6 /* KHAlertPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHAlertPickerController.h; sourceTree = "<group>"; };
+		C860A7322397891100902AB6 /* KHAlertPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHAlertPickerController.m; sourceTree = "<group>"; };
+		C860A7332397891100902AB6 /* NSArray+SubArr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SubArr.h"; sourceTree = "<group>"; };
+		C860A7342397891100902AB6 /* NSArray+SubArr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SubArr.m"; sourceTree = "<group>"; };
+		C860A73723979A9400902AB6 /* NYSBindPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBindPhoneViewController.h; sourceTree = "<group>"; };
+		C860A73823979A9400902AB6 /* NYSBindPhoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBindPhoneViewController.m; sourceTree = "<group>"; };
+		C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSBindPhoneViewController.xib; sourceTree = "<group>"; };
 		C88452E394EE7ABEE72B3700 /* Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C884F408235DA8A6000DFB54 /* NYSContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContactsViewController.h; sourceTree = "<group>"; };
 		C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContactsViewController.m; sourceTree = "<group>"; };
@@ -345,6 +361,16 @@
 		C8A93E932366786C0062C813 /* HomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailViewController.h; sourceTree = "<group>"; };
 		C8A93E942366786D0062C813 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C8A93E952366786D0062C813 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		C8AF0D1C23988E8F009BBEBE /* NYSButtonFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSButtonFooterView.h; sourceTree = "<group>"; };
+		C8AF0D1D23988E8F009BBEBE /* NYSButtonFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSButtonFooterView.m; sourceTree = "<group>"; };
+		C8AF0D212398AE66009BBEBE /* nav_img1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_img1.png; sourceTree = "<group>"; };
+		C8AF0D222398AE67009BBEBE /* nav_img2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nav_img2.jpg; sourceTree = "<group>"; };
+		C8AF0D262398B74E009BBEBE /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
+		C8AF0D272398B74E009BBEBE /* TableViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewAnimationKit.m; sourceTree = "<group>"; };
+		C8AF0D282398B74E009BBEBE /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
+		C8AF0D292398B74E009BBEBE /* TableViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitHeaders.h; sourceTree = "<group>"; };
+		C8AF0D2A2398B74E009BBEBE /* UITableView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XSAnimationKit.h"; sourceTree = "<group>"; };
+		C8AF0D2B2398B74E009BBEBE /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
 		C8B6B5612394AD8A0067ACD5 /* NYSPersonalInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPersonalInfoViewController.h; sourceTree = "<group>"; };
 		C8B6B5622394AD8A0067ACD5 /* NYSPersonalInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPersonalInfoViewController.m; sourceTree = "<group>"; };
 		C8BA3A9F238F74010041FC6E /* 汉仪铸字美心体W.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "汉仪铸字美心体W.ttf"; sourceTree = "<group>"; };
@@ -633,8 +659,8 @@
 		C8424ED0229E8917003A7C58 /* Daocaoren(稻草人) */ = {
 			isa = PBXGroup;
 			children = (
-				C8D695ED2390CC5C004B366B /* Pray */,
-				C8A93E89236678260062C813 /* Article */,
+				C8D695ED2390CC5C004B366B /* Pray(代祷) */,
+				C8A93E89236678260062C813 /* Article(文章) */,
 				C836D7AB235810F400DBDAEF /* LayoutFittingView.h */,
 				C836D7AA235810F400DBDAEF /* LayoutFittingView.m */,
 				C836D7A72358103000DBDAEF /* NYSDCDViewController.h */,
@@ -799,6 +825,8 @@
 				C85C44C7229BAB2900B35652 /* right_arrow.png */,
 				C85C44C8229BAB2900B35652 /* right_arrow@2x.png */,
 				C85C44BE229BAB2900B35652 /* right_arrow@3x.png */,
+				C8AF0D212398AE66009BBEBE /* nav_img1.png */,
+				C8AF0D222398AE67009BBEBE /* nav_img2.jpg */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -899,6 +927,7 @@
 		C85C44F7229C0A6600B35652 /* AppArchitecture */ = {
 			isa = PBXGroup;
 			children = (
+				C8AF0D252398B74E009BBEBE /* TableViewAnimationKit */,
 				C85C44D8229BD1AC00B35652 /* Utils */,
 				C85C44A4229BA71000B35652 /* Resource */,
 				C857A399229CD138002B5396 /* NetWork */,
@@ -940,6 +969,17 @@
 			path = UserManager;
 			sourceTree = "<group>";
 		};
+		C860A7302397891100902AB6 /* KHAlertPicker */ = {
+			isa = PBXGroup;
+			children = (
+				C860A7312397891100902AB6 /* KHAlertPickerController.h */,
+				C860A7322397891100902AB6 /* KHAlertPickerController.m */,
+				C860A7332397891100902AB6 /* NSArray+SubArr.h */,
+				C860A7342397891100902AB6 /* NSArray+SubArr.m */,
+			);
+			path = KHAlertPicker;
+			sourceTree = "<group>";
+		};
 		C89CA2B022BCA2AF0086F9B0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -977,7 +1017,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C8A93E89236678260062C813 /* Article */ = {
+		C8A93E89236678260062C813 /* Article(文章) */ = {
 			isa = PBXGroup;
 			children = (
 				C8A93E8B2366786A0062C813 /* HomeImage */,
@@ -988,7 +1028,7 @@
 				C8A93E8A236678680062C813 /* HomeViewController.h */,
 				C8A93E942366786D0062C813 /* HomeViewController.m */,
 			);
-			path = Article;
+			path = "Article(文章)";
 			sourceTree = "<group>";
 		};
 		C8A93E8B2366786A0062C813 /* HomeImage */ = {
@@ -1001,6 +1041,19 @@
 				C8A93E902366786A0062C813 /* Mine_photo_define@3x.png */,
 			);
 			path = HomeImage;
+			sourceTree = "<group>";
+		};
+		C8AF0D252398B74E009BBEBE /* TableViewAnimationKit */ = {
+			isa = PBXGroup;
+			children = (
+				C8AF0D262398B74E009BBEBE /* TableViewAnimationKit.h */,
+				C8AF0D272398B74E009BBEBE /* TableViewAnimationKit.m */,
+				C8AF0D282398B74E009BBEBE /* TableViewAnimationKitConfig.h */,
+				C8AF0D292398B74E009BBEBE /* TableViewAnimationKitHeaders.h */,
+				C8AF0D2A2398B74E009BBEBE /* UITableView+XSAnimationKit.h */,
+				C8AF0D2B2398B74E009BBEBE /* UITableView+XSAnimationKit.m */,
+			);
+			path = TableViewAnimationKit;
 			sourceTree = "<group>";
 		};
 		C8B6B55F2394AA8D0067ACD5 /* 个人信息 */ = {
@@ -1018,6 +1071,9 @@
 			children = (
 				C8B6B5612394AD8A0067ACD5 /* NYSPersonalInfoViewController.h */,
 				C8B6B5622394AD8A0067ACD5 /* NYSPersonalInfoViewController.m */,
+				C860A73723979A9400902AB6 /* NYSBindPhoneViewController.h */,
+				C860A73823979A9400902AB6 /* NYSBindPhoneViewController.m */,
+				C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1025,6 +1081,9 @@
 		C8B6B5642394AD930067ACD5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C860A7302397891100902AB6 /* KHAlertPicker */,
+				C8AF0D1C23988E8F009BBEBE /* NYSButtonFooterView.h */,
+				C8AF0D1D23988E8F009BBEBE /* NYSButtonFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1082,14 +1141,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		C8D695ED2390CC5C004B366B /* Pray */ = {
+		C8D695ED2390CC5C004B366B /* Pray(代祷) */ = {
 			isa = PBXGroup;
 			children = (
 				C8D695EE2390CC89004B366B /* NYSPrayViewController.h */,
 				C8D695EF2390CC89004B366B /* NYSPrayViewController.m */,
 				C8D695F02390CC89004B366B /* NYSPrayViewController.xib */,
 			);
-			path = Pray;
+			path = "Pray(代祷)";
 			sourceTree = "<group>";
 		};
 		C8EABF8C22B4F0BB004B0DA4 /* RootPresenter */ = {
@@ -1300,11 +1359,13 @@
 				C8265C9C22A27E6B0072A3F1 /* NYSForgetPasswordViewController.xib in Resources */,
 				C802A60F22A62D54002E2A58 /* CMFAQTableViewCell.xib in Resources */,
 				C8424EC8229E78E6003A7C58 /* close_icon@3x.png in Resources */,
+				C8AF0D242398AE67009BBEBE /* nav_img2.jpg in Resources */,
 				C8F3B4D32298EF8B00FA61A6 /* Assets.xcassets in Resources */,
 				C89CA2BF22BCA2DE0086F9B0 /* stepPk_win_colour5@2x.png in Resources */,
 				C89CA2C222BCA2DE0086F9B0 /* stepPk_win_colour7@2x.png in Resources */,
 				C857A394229CD026002B5396 /* MBHUD_Info@3x.png in Resources */,
 				C8424EC1229E7896003A7C58 /* close_icon_gray.png in Resources */,
+				C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */,
 				C8424EBC229E770A003A7C58 /* JSToOC.html in Resources */,
 				C8424EC0229E7896003A7C58 /* close_icon_gray@2x.png in Resources */,
 				C8D695F22390CC89004B366B /* NYSPrayViewController.xib in Resources */,
@@ -1325,6 +1386,7 @@
 				C85C44CD229BAB2900B35652 /* right_arrow@3x.png in Resources */,
 				C8BA3AA0238F74010041FC6E /* 汉仪铸字美心体W.ttf in Resources */,
 				C857A395229CD026002B5396 /* MBHUD_Success@2x.png in Resources */,
+				C8AF0D232398AE67009BBEBE /* nav_img1.png in Resources */,
 				C85C44B9229BA88100B35652 /* loading_image@3x.png in Resources */,
 				C85C44AD229BA78300B35652 /* webloaderrorview.png in Resources */,
 				C89CA2C122BCA2DE0086F9B0 /* stepPk_win_colour1@2x.png in Resources */,
@@ -1465,9 +1527,11 @@
 				C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */,
 				C8265C9F22A27E6B0072A3F1 /* NYSRegisterViewController.m in Sources */,
 				C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */,
+				C860A7352397891100902AB6 /* KHAlertPickerController.m in Sources */,
 				C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */,
 				C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */,
 				C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */,
+				C8AF0D2D2398B74F009BBEBE /* UITableView+XSAnimationKit.m in Sources */,
 				C857A3A2229CD138002B5396 /* PPNetworkHelper.m in Sources */,
 				C8D695F12390CC89004B366B /* NYSPrayViewController.m in Sources */,
 				C8BA3AA3238FBC2A0041FC6E /* NYSBaseNavigationController.m in Sources */,
@@ -1476,6 +1540,7 @@
 				C802A60A22A62D3F002E2A58 /* CMFAQModel.m in Sources */,
 				C802A61222A62D6D002E2A58 /* NYSFAQHeaderView.m in Sources */,
 				C85DD72722A4C4B200E33636 /* NullSafe.m in Sources */,
+				C860A73A23979A9400902AB6 /* NYSBindPhoneViewController.m in Sources */,
 				C857A3A0229CD138002B5396 /* HeaderModel.m in Sources */,
 				C8F857DC2356FBFC00521460 /* NYSConversationViewController.m in Sources */,
 				C8A93E9B2366786D0062C813 /* HomeDetailViewController.m in Sources */,
@@ -1512,9 +1577,12 @@
 				C8216128235D5E5800B17530 /* NYSContactsListViewController.m in Sources */,
 				C85DD73222A4F03A00E33636 /* IMManager.m in Sources */,
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
+				C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */,
+				C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */,
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */,
 				C802A60322A62C39002E2A58 /* AppDelegate+PushService.m in Sources */,
+				C860A7362397891100902AB6 /* NSArray+SubArr.m in Sources */,
 				C821612F235D5EEC00B17530 /* pinyin.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,

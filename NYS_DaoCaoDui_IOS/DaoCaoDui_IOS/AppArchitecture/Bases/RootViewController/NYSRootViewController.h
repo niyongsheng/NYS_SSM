@@ -8,19 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import <MJRefresh.h>
+#import "TableViewAnimationKitHeaders.h"
+#import <WRCustomNavigationBar.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSRootViewController : UIViewController
-/** 状态栏颜色 */
-@property (nonatomic, assign) UIStatusBarStyle StatusBarStyle;
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-
+/** 自定义导航栏 */
+@property (nonatomic, strong) WRCustomNavigationBar *customNavBar;
 /** 是否隐藏导航栏 */
 @property (nonatomic, assign) BOOL isHidenNaviBar;
+/** 状态栏颜色 */
+@property (nonatomic, assign) UIStatusBarStyle StatusBarStyle;
 /** 是否显示返回按钮,默认情况是YES */
 @property (nonatomic, assign) BOOL isShowLiftBack;
 

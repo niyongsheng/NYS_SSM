@@ -86,6 +86,7 @@ PODS:
     - UMCCommon
     - UMCShare/Core
   - WRNavigationBar (1.2.0)
+  - WXWaveView (1.0.1)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
   - YTKNetwork (2.1.4):
@@ -121,6 +122,7 @@ DEPENDENCIES:
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
   - WRNavigationBar (= 1.2.0)
+  - WXWaveView
   - YTKKeyValueStore
   - YTKNetwork
   - YYKit
@@ -159,6 +161,7 @@ SPEC REPOS:
     - UMCErrorCatch
     - UMCShare
     - WRNavigationBar
+    - WXWaveView
     - YTKKeyValueStore
     - YTKNetwork
     - YYKit
@@ -196,10 +199,11 @@ SPEC CHECKSUMS:
   UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
   WRNavigationBar: dc952230effbb646785f962587caaac06c60f229
+  WXWaveView: f8424284812536a3842bc5dd9afb943e53e911a8
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: a32ad78f6b4c4de7bd6502d0dfca5a261fb05c3b
+PODFILE CHECKSUM: 85748fa22bba55e0a75ed3898b39292e97f359d7
 
 COCOAPODS: 1.8.4

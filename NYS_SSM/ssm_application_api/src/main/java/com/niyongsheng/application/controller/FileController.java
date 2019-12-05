@@ -13,6 +13,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,11 +35,11 @@ public class FileController {
 
     @ResponseBody
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
-    @ApiOperation(value = "上传文件接口", notes = "参数描述", hidden = false)
-    public ResponseDto uploadFile(HttpServletRequest request,
+    @ApiOperation(value = "单文件上传接口", notes = "参数描述", hidden = false)
+    public ResponseDto<Map> uploadFile(HttpServletRequest request,
                                             @ApiParam(value = "团契编号", required = true)
                                             @RequestParam(value = "fellowship", required = true) String fellowship,
-                                            @ApiParam(value = "上传的文件", required = true)
+                                            @ApiParam(value = "上传的文件(file)", required = true)
                                             @RequestParam(value = "file", required = true) MultipartFile file
     ) throws ResponseException {
 
@@ -46,5 +49,28 @@ public class FileController {
         Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(file, uploadPath, false);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, resultMap);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/uploadFiles", method = RequestMethod.POST)
+    @ApiOperation(value = "多文件上传接口", notes = "参数描述", hidden = false)
+    public ResponseDto<List> uploadFiles(HttpServletRequest request,
+                                  @ApiParam(value = "团契编号", required = true)
+                                  @RequestParam(value = "fellowship", required = true) String fellowship,
+                                  @ApiParam(value = "上传的文件数组(file)", required = true)
+                                  @RequestParam(value = "files", required = true) MultipartFile[] files
+    ) throws ResponseException {
+
+        // 文件本地暂存绝对路径
+        String uploadPath = request.getSession().getServletContext().getRealPath("file");
+
+        // 循环上传
+        List<Map> fileList = new ArrayList<Map>();
+        for (MultipartFile multipartFile : files) {
+            // 上传文件
+            fileList.add(qiniuUploadFileService.qiniuUpload(multipartFile, uploadPath, false));
+        }
+
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, fileList);
     }
 }

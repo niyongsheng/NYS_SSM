@@ -18,11 +18,13 @@
 + (void)initialize {
     UINavigationBar *navBar = [UINavigationBar appearance];
 //    [navBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+//    [navBar setBarTintColor:NNavBgColor];
+    [navBar setShadowImage:[UIImage new]];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor redColor];
     self.delegate = self;
 }
 
