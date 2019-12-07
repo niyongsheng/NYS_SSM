@@ -4,8 +4,11 @@ import com.niyongsheng.common.utils.MD5Util;
 import com.niyongsheng.common.utils.MathUtils;
 import com.niyongsheng.common.utils.UUIDGenerator;
 import com.niyongsheng.persistence.domain.Account;
+import com.niyongsheng.persistence.domain.Banner;
 import com.niyongsheng.persistence.service.AccountService;
+import com.niyongsheng.persistence.service.BannerService;
 import com.niyongsheng.persistence.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,9 @@ public class TestMyUtils {
     private AccountService accountService;
 
     @Autowired
+    private BannerService bannerService;
+
+    @Autowired
     private UserService userService;
 
     /**
@@ -38,11 +44,9 @@ public class TestMyUtils {
      */
     @Test
     public void run1() throws Exception {
-        // 查询所有数据
-        List<Account> list = accountService.findAll();
-        for(Account account : list){
-            System.out.println(account);
-        }
+        // 查询
+        Banner banner = bannerService.getBaseMapper().selectById(1);
+        System.out.println(banner);
     }
 
     /**

@@ -180,29 +180,43 @@ SINGLETON_FOR_CLASS(UserManager);
 #pragma mark -- 退出登录 --
 - (void)logout:(void (^)(BOOL, id))completion {
     [NYSRequest getLogoutWithResMethod:GET parameters:nil success:^(id response) {
-        [[IMManager sharedIMManager] IMLogout];
-        
-        // 清除APP角标
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-        
-        [[IMManager sharedIMManager] IMLogout];
-        
-        self.currentUserInfo = nil;
-        self.isLogined = NO;
-        
-        // 移除缓存
-        YYCache *cache = [[YYCache alloc] initWithName:NUserCacheName];
-        [cache removeAllObjectsWithBlock:^{
-            if (completion) {
-                completion(YES, nil);
-            }
+        logoutSuccess(self, completion);
+    } failure:^(NSError *error) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"正常退出失败是否强制登录吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            logoutSuccess(self, completion);
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            NLog(@"Cancel Action");
         }];
         
-        NPostNotification(NNotificationLoginStateChange, @NO);
-    } failure:^(NSError *error) {
-        
+        [alertController addAction:logoutAction];
+        [alertController addAction:cancelAction];
+        [NAppWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
     } isCache:NO];
 }
+static void logoutSuccess(UserManager *object, void (^completion)(BOOL, id)) {
+    [[IMManager sharedIMManager] IMLogout];
+    
+    // 清除APP角标
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+    
+    [[IMManager sharedIMManager] IMLogout];
+    
+    object.currentUserInfo = nil;
+    object.isLogined = NO;
+    
+    // 移除缓存
+    YYCache *cache = [[YYCache alloc] initWithName:NUserCacheName];
+    [cache removeAllObjectsWithBlock:^{
+        if (completion) {
+            completion(YES, nil);
+        }
+    }];
+    
+    NPostNotification(NNotificationLoginStateChange, @NO);
+}
+
 
 @end

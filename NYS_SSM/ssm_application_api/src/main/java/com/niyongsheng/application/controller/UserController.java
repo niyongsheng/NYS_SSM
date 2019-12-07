@@ -195,7 +195,7 @@ public class UserController {
                                            @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
                                            @RequestParam(value = "onceCode", required = true) String onceCode,
                                            @NotBlank
-                                           @RequestParam(value = "fellowship", required = true) Integer fellowship,
+                                           @RequestParam(value = "fellowship", required = true) String fellowship,
                                            @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
                                            @RequestParam(value = "password", required = true) String password
     ) throws ResponseException {
@@ -214,7 +214,7 @@ public class UserController {
         User registerUser = new User();
         registerUser.setPhone(phone);
         registerUser.setPassword(MD5Util.crypt(password));
-        registerUser.setFellowship(fellowship);
+        registerUser.setFellowship(Integer.valueOf(fellowship));
         registerUser.setStatus(true);
         registerUser.setProfession(1);
         String account = MathUtils.randomDigitNumber(7);
@@ -249,8 +249,8 @@ public class UserController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     @ApiOperation(value = "用户登出接口", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
-           /* @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
-            @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),*/
+            @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header")
     })
     public ResponseDto logout(HttpServletRequest request) throws ResponseException {
 
@@ -402,7 +402,7 @@ public class UserController {
         user.setQqOpenid(qqOpenid);
         user.setWcOpenid(wcOpenid);
 
-        // 2.更新用户数据
+        // 2.更新用户DB数据
         try {
             userService.updateUser(user);
         } catch (Exception e) {
@@ -430,6 +430,54 @@ public class UserController {
 
         // 6.返回成功信息
         return new ResponseDto(ResponseStatusEnum.AUTH_UPDATE_SUCESS, user);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/resetUserPassword", method = RequestMethod.POST)
+    @ApiOperation(value = "重置密码接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "phone", value = "手机", required = true),
+            @ApiImplicitParam(name = "onceCode", value = "验证码(6位，3分钟内有效)", required = true),
+            @ApiImplicitParam(name = "password", value = "密码", required = true),
+            @ApiImplicitParam(name = "affirmPassword", value = "确认密码", required = true)
+    })
+    public  ResponseDto resetUserPassword(HttpServletRequest request,
+                                                @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
+                                                @RequestParam(value = "phone", required = true) String phone,
+                                                @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
+                                                @RequestParam(value = "onceCode", required = true) String onceCode,
+                                                @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                                @RequestParam(value = "password", required = true) String password,
+                                                @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                                @RequestParam(value = "affirmPassword", required = true) String affirmPassword
+    ) throws ResponseException {
+        // 1.Redis中验证码一致性校验
+        if (!onceCode.equals(keyValueRedisService.get(ONCECODE_KEY + phone))) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_ONCECODE_ERROR);
+        }
+
+        // 2.两次密码是否一致
+        if (!password.equals(affirmPassword)) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_2PASSWORD_ERROR);
+        }
+
+        // 3.修改用户密码(sql中已做非空判断)
+        String account = request.getHeader("Account");
+        User user = new User();
+        user.setAccount(account);
+        user.setPassword(password);
+
+        // 4.更新用户DB数据
+        try {
+            userService.updateUser(user);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_UPDATE_ERROR);
+        }
+
+        // 6.返回成功信息
+        return new ResponseDto(ResponseStatusEnum.SUCCESS);
     }
 
     private ResponseDto register() {

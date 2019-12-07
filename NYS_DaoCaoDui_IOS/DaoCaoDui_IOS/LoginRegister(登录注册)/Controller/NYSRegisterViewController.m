@@ -54,7 +54,7 @@
 - (void)timerTriggerMethon {
     self.secondsCountDownInput --;
     [NYSTools animateTextChange:1.f withLayer:self.getCodeButton.layer];
-    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%lds后重发", self.secondsCountDownInput] forState:UIControlStateNormal];
+    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%ld秒过期", self.secondsCountDownInput] forState:UIControlStateNormal];
     if (self.secondsCountDownInput <= 0) {
         [self.countDownTimer invalidate];
         [self.getCodeButton setTitle:@"Get Code" forState:UIControlStateNormal];
@@ -70,7 +70,10 @@
                             @"onceCode":_oneTimeCode.text,
                             @"password":_password.text};
     [NYSRequest RegistWithResMethod:POST parameters:param success:^(id response) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [SVProgressHUD showSuccessWithStatus:[response objectForKey:@"msg"]];
+        [SVProgressHUD dismissWithDelay:1.f completion:^{
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
     } failure:^(NSError *error) {
         
     } isCache:NO];

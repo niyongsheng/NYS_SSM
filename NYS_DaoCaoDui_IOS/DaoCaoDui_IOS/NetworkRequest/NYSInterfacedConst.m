@@ -28,7 +28,7 @@ NSString *const CR_SendOneTimeCode = @"/user/getOnceCode";
 /** 注册*/
 NSString *const CR_Regist = @"/user/phoneRegister";
 /** 忘记密码*/
-NSString *const CR_Reset = @"";
+NSString *const CR_Reset = @"/user/resetUserPassword";
 /** 获取个人信息*/
 NSString *const CR_GetUserInfo = @"";
 /** 修改个人信息*/

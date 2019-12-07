@@ -42,8 +42,9 @@
         <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}" />
     </bean>
 
-    <!-- 3.配置SqlSessionFactory对象 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- 3.配置mybatis-plus的SqlSessionFactory对象 -->
+    <!-- mybatis的sqlsessionFactorybean：org.mybatis.spring.SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <!-- 注入数据库连接池 -->
         <property name="dataSource" ref="dataSource" />
         <!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
@@ -73,10 +74,10 @@
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 注入sqlSessionFactory -->
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         <!-- 给出需要扫描dao接口包 -->
         <property name="basePackage" value="com.niyongsheng.persistence.dao" />
+        <!-- 注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
 

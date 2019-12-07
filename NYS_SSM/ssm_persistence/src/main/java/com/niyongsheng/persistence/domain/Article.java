@@ -1,14 +1,12 @@
 package com.niyongsheng.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author niyongsheng.com
@@ -18,40 +16,43 @@ import java.util.Date;
  * @updateDes
  */
 @Data
-@ApiModel(value ="Group")
-public class Group implements Serializable {
+@ApiModel(value = "Article")
+public class Article implements Serializable {
 
-    @ApiModelProperty(value = "ID")
+    @ApiModelProperty(value = "ID主键")
     private Integer id;
 
-    @ApiModelProperty(value = "群组ID")
-    private Integer groupId;
+    @ApiModelProperty(value = "标题")
+    private String title;
 
-    @ApiModelProperty(value = "组群头像")
-    private String groupIcon;
+    @ApiModelProperty(value = "副标题")
+    private String subtitle;
 
-    @ApiModelProperty(value = "群组名称")
-    private String groupName;
+    @ApiModelProperty(value = "作者")
+    private String author;
 
-    @ApiModelProperty(value = "创建人")
-    private String creator;
+    @ApiModelProperty(value = "发布者账号")
+    private String account;
 
-    @ApiModelProperty(value = "群成员数")
-    private Integer memberCount;
+    @ApiModelProperty(value = "主图")
+    private String icon;
 
-    @ApiModelProperty(value = "是否禁言")
-    private Boolean isBan;
+    @ApiModelProperty(value = "文章内容")
+    private String content;
 
-    @ApiModelProperty(value = "群组状态 0不可用 1可用")
+    @ApiModelProperty(value = "文章URL")
+    private String articleUrl;
+
+    @ApiModelProperty(value = "文章状态 0不可用 1可用")
     private Boolean status;
 
-    @ApiModelProperty(value = "是否需要验证")
-    private Boolean isVerify;
+    @ApiModelProperty(value = "是否置顶")
+    private Boolean isTop;
 
-    @ApiModelProperty(value = "群组类型  1官方群  2私人群")
-    private Integer groupType;
+    @ApiModelProperty(value = "文章类型 ：1普通 2转载")
+    private Integer articleType;
 
-    @ApiModelProperty(value = "所属团契")
+    @ApiModelProperty(value = "所属团契编号")
     private Integer fellowship;
 
     @ApiModelProperty(value = "过期时间")

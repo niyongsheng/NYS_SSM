@@ -117,7 +117,7 @@
                     <rect key="frame" x="252" y="434.5" width="65" height="27"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="马上注册&gt;&gt;">
-                        <color key="titleColor" red="0.99289804699999995" green="0.14694470170000001" blue="0.29633250830000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" red="0.99496036769999996" green="0.233691752" blue="0.38082110879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="regist:" destination="-1" eventType="touchUpInside" id="jv0-Pz-rc7"/>
@@ -168,8 +168,8 @@
                         <constraint firstAttribute="width" secondItem="3L3-CT-Qpu" secondAttribute="height" multiplier="1:1" id="rWq-8P-3vh"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="—————— 第三方登录 ——————" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lae-Nc-6am">
-                    <rect key="frame" x="98" y="551.5" width="179" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="——————  第三方登录  ——————" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lae-Nc-6am">
+                    <rect key="frame" x="95.5" y="551.5" width="184.5" height="12"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>

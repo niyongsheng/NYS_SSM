@@ -116,8 +116,8 @@
         self.mainTabBar = nil;
         
         CATransition *anima = [CATransition animation];
-        anima.type = @"fade"; // 设置动画的类型
-        anima.subtype = kCATransitionFromRight; // 设置动画的方向
+        anima.type = @"cube"; // 设置动画的类型
+        anima.subtype = kCATransitionFromLeft; // 设置动画的方向
         anima.duration = 0.3f;
         
         self.window.rootViewController = [NYSLoginViewController new];

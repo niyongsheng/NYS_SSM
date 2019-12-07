@@ -175,10 +175,8 @@
             CFRelease(pathRef);
             layer.fillColor = [UIColor colorWithWhite:1.f alpha:1.f].CGColor;
             layer.shadowColor = [UIColor grayColor].CGColor;
-            //        self.layer.shadowOffset = CGSizeMake(3, 3); // 有偏移量的情况,默认向右向下有阴影
-            // 设置偏移量为0,四周都有阴影
-            layer.shadowOffset = CGSizeZero;
-            layer.shadowOpacity = 0.3f;
+            layer.shadowOffset = CGSizeZero; // 设置偏移量为0,四周都有阴影
+            layer.shadowOpacity = 0.15f;
             
             if (addLine == YES) {
                 CALayer *lineLayer = [[CALayer alloc] init];

@@ -37,9 +37,11 @@
             <mvc:mapping path="/**"/>
             <!-- 不拦截的API方法 -->
             <mvc:exclude-mapping path="/user/phoneRegister"/>
-            <mvc:exclude-mapping path="/user/qqRegister"/>
-            <mvc:exclude-mapping path="/user/wcRegister"/>
+            <mvc:exclude-mapping path="/user/qqLogin"/>
+            <mvc:exclude-mapping path="/user/wcLogin"/>
             <mvc:exclude-mapping path="/user/login"/>
+            <mvc:exclude-mapping path="/user/logout"/>
+            <mvc:exclude-mapping path="/user/resetUserPassword"/>
             <mvc:exclude-mapping path="/user/getOnceCode"/>
             <!-- swagger放行-->
             <mvc:exclude-mapping path="/resources/**"/>

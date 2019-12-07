@@ -179,8 +179,9 @@
 //    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
 //    [PPNetworkHelper closeAES];
-    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
+    NLog(@"当前网络缓存大小cache = .2%fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
 //    [PPNetworkCache removeAllHttpCache];
+    NLog(@"接口：%@\n参数：%@", URL, parameters);
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -190,18 +191,18 @@
 //    [SVProgressHUD show];
     switch (resMethod) {
         case POST: {
-                return [PPNetworkHelper POST:URL parameters:parameters success:^(id responseObject) {
-                    [SVProgressHUD dismiss];
-                    [self responseHandler:URL
-                                  isCache:isCache
-                               parameters:parameters
-                           responseObject:responseObject
-                                  success:success];
-                } failure:^(NSError *error) {
-                    [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
-                    failure(error);
-                }];
-            }
+            return [PPNetworkHelper POST:URL parameters:parameters success:^(id responseObject) {
+                [SVProgressHUD dismiss];
+                [self responseHandler:URL
+                              isCache:isCache
+                           parameters:parameters
+                       responseObject:responseObject
+                              success:success];
+            } failure:^(NSError *error) {
+                [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+                failure(error);
+            }];
+        }
             break;
             
         case GET: {
@@ -217,7 +218,7 @@
                 failure(error);
             }];
         }
-        break;
+            break;
             
         default:
             break;

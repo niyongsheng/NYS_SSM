@@ -1,14 +1,15 @@
 package com.niyongsheng.persistence.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author niyongsheng.com
@@ -18,41 +19,35 @@ import java.util.Date;
  * @updateDes
  */
 @Data
-@ApiModel(value ="Group")
-public class Group implements Serializable {
+@ApiModel(value = "Banner")
+@TableName(value = "dcd_banner")
+public class Banner implements Serializable {
 
+    // value与数据库主键列名一致，若实体类属性名与表主键列名一致可省略value
+    @TableId(value = "id",type = IdType.AUTO) // 指定自增策略
     @ApiModelProperty(value = "ID")
     private Integer id;
 
-    @ApiModelProperty(value = "群组ID")
-    private Integer groupId;
+    @ApiModelProperty(value = "标题")
+    private String title;
 
-    @ApiModelProperty(value = "组群头像")
-    private String groupIcon;
+    @ApiModelProperty(value = "轮播图")
+    private String banner;
 
-    @ApiModelProperty(value = "群组名称")
-    private String groupName;
+    @ApiModelProperty(value = "轮播图跳转URL")
+    private String bannerUrl;
 
-    @ApiModelProperty(value = "创建人")
-    private String creator;
-
-    @ApiModelProperty(value = "群成员数")
-    private Integer memberCount;
-
-    @ApiModelProperty(value = "是否禁言")
-    private Boolean isBan;
-
-    @ApiModelProperty(value = "群组状态 0不可用 1可用")
-    private Boolean status;
-
-    @ApiModelProperty(value = "是否需要验证")
-    private Boolean isVerify;
-
-    @ApiModelProperty(value = "群组类型  1官方群  2私人群")
-    private Integer groupType;
+    @ApiModelProperty(value = "发布者账号")
+    private String account;
 
     @ApiModelProperty(value = "所属团契")
     private Integer fellowship;
+
+    @ApiModelProperty(value = "是否置顶")
+    private Boolean isTop;
+
+    @ApiModelProperty(value = "1有效0失效")
+    private Boolean status;
 
     @ApiModelProperty(value = "过期时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
