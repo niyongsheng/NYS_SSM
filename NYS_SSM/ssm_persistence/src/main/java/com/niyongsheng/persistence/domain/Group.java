@@ -1,5 +1,6 @@
 package com.niyongsheng.persistence.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
@@ -48,10 +49,10 @@ public class Group implements Serializable {
     @ApiModelProperty(value = "是否需要验证")
     private Boolean isVerify;
 
-    @ApiModelProperty(value = "群组类型  1官方群  2私人群")
+    @ApiModelProperty(value = "群组类型 1公开群  2私人群")
     private Integer groupType;
 
-    @ApiModelProperty(value = "所属团契")
+    @ApiModelProperty(value = "所属团契编号")
     private Integer fellowship;
 
     @ApiModelProperty(value = "过期时间")
@@ -68,4 +69,8 @@ public class Group implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private java.util.Date gmtCreate;
+
+    @TableField(value = "fellowshipName", exist = false)
+    @ApiModelProperty(value = "所属团契名称")
+    private String fellowshipName;
 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -23,6 +23,19 @@ public class TestMybatisPlus {
 
     @Autowired
     private BannerService bannerService;
+
+    /**
+     * 测试查询
+     * @throws Exception
+     */
+    @Test
+    public void run0() throws Exception {
+        // 查询所有
+        List<Banner> list = bannerService.getBaseMapper().selectList(null);
+        for (Banner banner : list) {
+            System.out.println(banner);
+        }
+    }
 
     /**
      * 测试查询

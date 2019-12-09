@@ -29,22 +29,19 @@ public class Banner implements Serializable {
     @ApiModelProperty(value = "标题")
     private String title;
 
-    @ApiModelProperty(value = "轮播图")
-    private String banner;
-
     @TableField(value = "bannerUrl")
-    @ApiModelProperty(value = "轮播图跳转URL")
+    @ApiModelProperty(value = "轮播图URL")
     private String bannerUrl;
+
+    @TableField(value = "targetUrl")
+    @ApiModelProperty(value = "轮播图跳转URL")
+    private String targetUrl;
 
     @ApiModelProperty(value = "发布者账号")
     private String account;
 
-    @ApiModelProperty(value = "所属团契")
+    @ApiModelProperty(value = "所属团契编号")
     private Integer fellowship;
-
-    @TableField(value = "fellowshipName", exist = false)
-    @ApiModelProperty(value = "所属团契名称")
-    private Integer fellowshipName;
 
     @TableField(value = "isTop")
     @ApiModelProperty(value = "是否置顶")
@@ -70,4 +67,8 @@ public class Banner implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private java.util.Date gmtCreate;
+
+    @TableField(value = "fellowshipName", exist = false)
+    @ApiModelProperty(value = "所属团契名称")
+    private String fellowshipName;
 }

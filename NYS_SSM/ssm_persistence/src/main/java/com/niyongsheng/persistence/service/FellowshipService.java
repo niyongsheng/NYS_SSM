@@ -1,9 +1,8 @@
 package com.niyongsheng.persistence.service;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.niyongsheng.persistence.domain.Banner;
-
-import java.util.List;
+import com.niyongsheng.persistence.domain.Fellowship;
 
 /**
  * @author niyongsheng.com
@@ -12,6 +11,5 @@ import java.util.List;
  * @updateAuthor $
  * @updateDes
  */
-public interface BannerService extends IService<Banner> {
-    List<Banner> selectAllMultiTable();
+public interface FellowshipService extends IService<Fellowship> {
 }

@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niyongsheng.persistence.dao.BannerDao;
 import com.niyongsheng.persistence.domain.Banner;
 import com.niyongsheng.persistence.service.BannerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -15,4 +18,12 @@ import org.springframework.stereotype.Service;
  */
 @Service("bannerService")
 public class BannerServiceImpl extends ServiceImpl<BannerDao, Banner> implements BannerService {
+
+    @Autowired
+    private BannerDao bannerDao;
+
+    @Override
+    public List<Banner> selectAllMultiTable() {
+        return bannerDao.selectAllMultiTable();
+    }
 }

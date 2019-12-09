@@ -1080,15 +1080,15 @@ fellowship</ColNames>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="236" name="banner">
+    <column id="269" parent="236" name="bannerUrl">
       <Position>3</Position>
-      <Comment>轮播图</Comment>
+      <Comment>轮播图URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="236" name="bannerUrl">
+    <column id="270" parent="236" name="targetUrl">
       <Position>4</Position>
-      <Comment>轮播图跳转URL</Comment>
+      <Comment>轮播图跳转目标URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1852,7 +1852,7 @@ account</ColNames>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="244" name="public">
+    <column id="393" parent="244" name="publicnotice">
       <Position>3</Position>
       <Comment>公告内容</Comment>
       <DataType>text|0s</DataType>
