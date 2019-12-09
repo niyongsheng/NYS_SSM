@@ -53,6 +53,7 @@
         <property name="typeAliasesPackage" value="com.niyongsheng.persistence.domain" />
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath:sqlmapper/*_sql_mapper.xml" />
+        <property name="globalConfig" ref="globalConfig" />
         <!-- 配置分页插件 -->
         <property name="plugins">
             <array>
@@ -71,6 +72,24 @@
             </array>
         </property>
     </bean>
+
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig">
+        <property name="dbConfig" ref="dbConfig"/>
+    </bean>
+
+    <bean id="dbConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig.DbConfig">
+        <property name="keyGenerator" ref="keyGenerator"/>
+        <!-- 全局列格式 -->
+<!--        <property name="columnFormat" value="%s"/>-->
+        <!-- 全局主键自增策略，0表示auto -->
+        <property name="idType" value="AUTO"/>
+        <!-- 全局表前缀配置 -->
+        <property name="tablePrefix" value="dcd_"/>
+    </bean>
+
+    <bean id="keyGenerator" class="com.baomidou.mybatisplus.extension.incrementer.H2KeyGenerator">
+    </bean>
+
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

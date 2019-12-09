@@ -3,19 +3,16 @@ package com.niyongsheng.application;
 import com.niyongsheng.common.utils.MD5Util;
 import com.niyongsheng.common.utils.MathUtils;
 import com.niyongsheng.common.utils.UUIDGenerator;
-import com.niyongsheng.persistence.domain.Account;
 import com.niyongsheng.persistence.domain.Banner;
 import com.niyongsheng.persistence.service.AccountService;
 import com.niyongsheng.persistence.service.BannerService;
 import com.niyongsheng.persistence.service.UserService;
-import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
 import java.util.UUID;
 
 /**
