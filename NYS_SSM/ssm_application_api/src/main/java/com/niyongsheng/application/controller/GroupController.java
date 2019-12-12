@@ -14,7 +14,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.core.MediaType;
@@ -33,8 +32,11 @@ import java.util.List;
 @Validated
 public class GroupController {
 
+    private final GroupService groupService;
     @Autowired
-    private GroupService groupService;
+    public GroupController(GroupService groupService) {
+        this.groupService = groupService;
+    }
 
     @ResponseBody
     @RequestMapping(value = "/findAllGroups", method = RequestMethod.GET)
@@ -43,14 +45,14 @@ public class GroupController {
             @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
     })
     public ResponseDto<Group> FindAllGroups(HttpServletRequest request,
-                                            @NotNull
+                                            @NotNull(message = "{NotBlank.fellowship}")
                                             @RequestParam(value = "fellowship", required = true) Integer fellowship
     ) throws ResponseException {
 
         // 1.调用service的方法
         List<Group> list = null;
         try {
-            list = groupService.selectList();
+            list = groupService.selectAllByFellowshipMultiTable(Integer.valueOf(fellowship));
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }

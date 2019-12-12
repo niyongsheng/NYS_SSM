@@ -8,13 +8,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +28,7 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/file", produces = MediaType.APPLICATION_JSON)
 @Api(value = "文件处理", produces = MediaType.APPLICATION_JSON)
+@Validated
 public class FileController {
     
     @Autowired

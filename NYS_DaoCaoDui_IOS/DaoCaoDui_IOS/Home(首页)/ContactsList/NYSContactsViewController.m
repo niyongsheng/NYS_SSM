@@ -36,7 +36,9 @@
 
 - (void)headerRereshing {
     WS(weakSelf);
-    [NYSRequest GetUserListWithResMethod:GET parameters:@{@"isPageBreak" : @"0"} success:^(id response) {
+    [NYSRequest GetUserListWithResMethod:GET
+                              parameters:@{@"isPageBreak" : @"0", @"fellowship" : @(NCurrentUser.fellowship)}
+                                 success:^(id response) {
         weakSelf.dataSource = [UserInfo mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];

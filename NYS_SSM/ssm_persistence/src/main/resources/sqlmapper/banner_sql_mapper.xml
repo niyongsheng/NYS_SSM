@@ -9,4 +9,12 @@
         on a.fellowship = b.id
     </select>
 
+    <select id="selectByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Banner">
+        select *
+        from dcd_banner a
+        inner join dcd_fellowship b
+        on a.fellowship = b.id
+        where a.fellowship = #{fellowship}
+    </select>
+
 </mapper>

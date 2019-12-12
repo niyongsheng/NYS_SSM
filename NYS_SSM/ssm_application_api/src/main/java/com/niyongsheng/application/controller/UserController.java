@@ -2,7 +2,6 @@ package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.niyongsheng.application.arcSoft.ArcSoftFaceRecognition;
 import com.niyongsheng.application.utils.JwtUtil;
 import com.niyongsheng.common.config.AppRegularConfig;
 import com.niyongsheng.common.enums.NickeNameEnum;
@@ -18,8 +17,10 @@ import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.KeyValueRedisService;
 import com.niyongsheng.persistence.service.UserRedisService;
 import com.niyongsheng.persistence.service.UserService;
-import io.swagger.annotations.*;
-
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -40,7 +41,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
-
 /**
  * @author niyongsheng.com
  * @version $
@@ -49,8 +49,8 @@ import java.util.TimeZone;
  * @updateDes
  */
 @RestController
-@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
 @Api(value = "用户信息", produces = MediaType.APPLICATION_JSON)
+@RequestMapping(value = "/user", produces = MediaType.APPLICATION_JSON)
 //@CrossOrigin(origins = "*",allowedHeaders = {"Access-Control-Allow-*"}) // 跨域
 @Validated
 public class UserController {
@@ -74,9 +74,6 @@ public class UserController {
 
     @Autowired
     private RongCloudService rongCloudService;
-
-    @Autowired
-    private ArcSoftFaceRecognition arcSoftFaceRecognition;
 
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -145,7 +142,6 @@ public class UserController {
             throw new ResponseException(ResponseStatusEnum.REDIS_INSERT_ERROR);
         }
 
-
         // 6.返回登录的User对象
         return new ResponseDto(ResponseStatusEnum.AUTH_LOGIN_SUCESS, user);
     }
@@ -194,7 +190,7 @@ public class UserController {
                                            @RequestParam(value = "phone", required = true) String phone,
                                            @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
                                            @RequestParam(value = "onceCode", required = true) String onceCode,
-                                           @NotBlank
+                                           @NotBlank(message = "{NotBlank.fellowship}")
                                            @RequestParam(value = "fellowship", required = true) String fellowship,
                                            @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
                                            @RequestParam(value = "password", required = true) String password
@@ -275,20 +271,23 @@ public class UserController {
     @RequestMapping(value = "/findAllUsers", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有的用户信息列表并分页展示", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "pageNum", value = "跳转到的页数"),
-            @ApiImplicitParam(name = "pageSize", value = "每页展示的记录数"),
-            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", paramType = "boolean")
+            @ApiImplicitParam(name = "pageNum", value = "页码"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契编号", required = true)
     })
-    public ResponseDto<User> findAll(HttpServletRequest request, Model model,
+    public ResponseDto<User> findAllUsers(HttpServletRequest request, Model model,
                                      @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
                                      @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                     @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak
+                                     @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                     @NotBlank(message = "{NotBlank.fellowship}")
+                                     @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
 
         // 1.调用service的方法
         List<User> list = null;
         try {
-            list = userService.findAll();
+            list = userService.selectAllByFellowshipMultiTable(Integer.valueOf(fellowship));
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
@@ -444,14 +443,14 @@ public class UserController {
             @ApiImplicitParam(name = "affirmPassword", value = "确认密码", required = true)
     })
     public  ResponseDto resetUserPassword(HttpServletRequest request,
-                                                @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
-                                                @RequestParam(value = "phone", required = true) String phone,
-                                                @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
-                                                @RequestParam(value = "onceCode", required = true) String onceCode,
-                                                @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
-                                                @RequestParam(value = "password", required = true) String password,
-                                                @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
-                                                @RequestParam(value = "affirmPassword", required = true) String affirmPassword
+                                          @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
+                                          @RequestParam(value = "phone", required = true) String phone,
+                                          @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
+                                          @RequestParam(value = "onceCode", required = true) String onceCode,
+                                          @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                          @RequestParam(value = "password", required = true) String password,
+                                          @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                          @RequestParam(value = "affirmPassword", required = true) String affirmPassword
     ) throws ResponseException {
         // 1.Redis中验证码一致性校验
         if (!onceCode.equals(keyValueRedisService.get(ONCECODE_KEY + phone))) {

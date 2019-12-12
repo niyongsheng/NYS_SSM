@@ -1,8 +1,10 @@
 package com.niyongsheng.persistence.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.Valid;
@@ -10,6 +12,7 @@ import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Valid
+@Data
 @ApiModel(value ="User")
 public class User implements Serializable{
 
@@ -62,6 +65,9 @@ public class User implements Serializable{
     @ApiModelProperty(value = "团契编号")
     private Integer fellowship;
 
+    @ApiModelProperty(value = "所属团契名称")
+    private String fellowshipName;
+
     @ApiModelProperty(value = "身份类型:0特殊用户 1普通用户 2管理员 3敬拜 4服侍 5牧者")
     private Integer profession;
 
@@ -88,239 +94,4 @@ public class User implements Serializable{
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private java.util.Date gmtCreate;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", account='" + account + '\'' +
-                ", truename='" + truename + '\'' +
-                ", icon='" + icon + '\'' +
-                ", grade=" + grade +
-                ", score=" + score +
-                ", gender='" + gender + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", token='" + token + '\'' +
-                ", imToken='" + imToken + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", introduction='" + introduction + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", fellowship=" + fellowship +
-                ", profession=" + profession +
-                ", qqOpenid='" + qqOpenid + '\'' +
-                ", wcOpenid='" + wcOpenid + '\'' +
-                ", status=" + status +
-                ", birthday=" + birthday +
-                ", gmtModify=" + gmtModify +
-                ", gmtCreate=" + gmtCreate +
-                '}';
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-
-    public String getTruename() {
-        return truename;
-    }
-
-    public void setTruename(String truename) {
-        this.truename = truename;
-    }
-
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-
-    public Integer getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Integer grade) {
-        this.grade = grade;
-    }
-
-
-    public Double getScore() {
-        return score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
-    }
-
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-
-    public String getImToken() {
-        return imToken;
-    }
-
-    public void setImToken(String imToken) {
-        this.imToken = imToken;
-    }
-
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-
-    public String getIntroduction() {
-        return introduction;
-    }
-
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
-
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-
-    public Integer getFellowship() {
-        return fellowship;
-    }
-
-    public void setFellowship(Integer fellowship) {
-        this.fellowship = fellowship;
-    }
-
-
-    public Integer getProfession() {
-        return profession;
-    }
-
-    public void setProfession(Integer profession) {
-        this.profession = profession;
-    }
-
-
-    public String getQqOpenid() {
-        return qqOpenid;
-    }
-
-    public void setQqOpenid(String qqOpenid) {
-        this.qqOpenid = qqOpenid;
-    }
-
-
-    public String getWcOpenid() {
-        return wcOpenid;
-    }
-
-    public void setWcOpenid(String wcOpenid) {
-        this.wcOpenid = wcOpenid;
-    }
-
-
-    public Boolean getStatus() {
-        return status;
-    }
-
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
-
-
-    public java.util.Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(java.util.Date birthday) {
-        this.birthday = birthday;
-    }
-
-
-    public java.util.Date getGmtModify() {
-        return gmtModify;
-    }
-
-    public void setGmtModify(java.util.Date gmtModify) {
-        this.gmtModify = gmtModify;
-    }
-
-
-    public java.util.Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(java.util.Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
 }

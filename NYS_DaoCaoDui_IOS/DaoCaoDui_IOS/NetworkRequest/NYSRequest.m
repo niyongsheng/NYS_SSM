@@ -94,6 +94,26 @@
     return [self imagesRequestWithURL:url parameters:parameters images:images fileNames:imageNames process:process success:success failure:failure];
 }
 
+/** 获取轮播图*/
++ (NSURLSessionTask *)GetBannerList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetBanners];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 获取公告*/
++ (NSURLSessionTask *)GetPublicnoticeList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetPublicnotices];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 获取文章列表*/
++ (NSURLSessionTask *)GetArticleList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetArticleList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+
+
 /** 创建群组*/
 + (NSURLSessionTask *)CreateGroupWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CreateGroup];
@@ -321,7 +341,9 @@
             NSString *warning = [NSString stringWithFormat:@"%ld\n%@", (long)code, warnInfo];
             [SVProgressHUD showInfoWithStatus:warning];
         }
-        [SVProgressHUD dismissWithDelay:2.f];
+        [SVProgressHUD dismissWithDelay:2.f completion:^{
+            success(responseObject);
+        }];
     }
 }
 

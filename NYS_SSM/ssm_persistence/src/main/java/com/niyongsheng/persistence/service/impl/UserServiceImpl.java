@@ -90,4 +90,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findByFuzzySearch(String nickname, String account, String phone) {
         return userDao.findByFuzzySearch(nickname, account, phone);
     }
+
+    @Override
+    public List<User> selectAllByFellowshipMultiTable(Integer fellowship) {
+        return userDao.selectAllByFellowshipMultiTable(fellowship);
+    }
 }

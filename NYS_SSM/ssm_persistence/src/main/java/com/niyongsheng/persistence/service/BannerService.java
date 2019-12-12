@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface BannerService extends IService<Banner> {
     List<Banner> selectAllMultiTable();
+
+    List<Banner> selectByFellowshipMultiTable(Integer fellowship);
 }

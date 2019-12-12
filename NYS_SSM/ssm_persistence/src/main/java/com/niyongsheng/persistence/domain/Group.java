@@ -2,14 +2,12 @@ package com.niyongsheng.persistence.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author niyongsheng.com
@@ -37,10 +35,13 @@ public class Group implements Serializable {
     @ApiModelProperty(value = "创建人")
     private String creator;
 
+    @ApiModelProperty(value = "群简介")
+    private String introduction;
+
     @ApiModelProperty(value = "群成员数")
     private Integer memberCount;
 
-    @ApiModelProperty(value = "是否禁言")
+  @ApiModelProperty(value = "是否禁言")
     private Boolean isBan;
 
     @ApiModelProperty(value = "群组状态 0不可用 1可用")

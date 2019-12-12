@@ -45,7 +45,12 @@ NSString *const CR_ProviderTeamInfo = @"/group/providerInfoForGroup";
 NSString *const CR_UploadFile = @"/file/uploadFile";
 /** 多图上传*/
 NSString *const CR_UploadiImages = @"/file/uploadFiles";
-
+/** 获取轮播图*/
+NSString *const CR_GetBanners = @"/banner/selectBannerList";
+/** 获取公告*/
+NSString *const CR_GetPublicnotices = @"/publicnotice/selectPublicnoticeList";
+/** 获取文章列表*/
+NSString *const CR_GetArticleList = @"/article/selectArticleList";
 
 
 /** 创建群组*/

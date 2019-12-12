@@ -26,4 +26,9 @@ public class BannerServiceImpl extends ServiceImpl<BannerDao, Banner> implements
     public List<Banner> selectAllMultiTable() {
         return bannerDao.selectAllMultiTable();
     }
+
+    @Override
+    public List<Banner> selectByFellowshipMultiTable(Integer fellowship) {
+        return bannerDao.selectByFellowshipMultiTable(fellowship);
+    }
 }

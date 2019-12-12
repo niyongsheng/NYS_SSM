@@ -12,11 +12,13 @@
 @property (nonatomic, strong) NSString * creator;
 @property (nonatomic, strong) NSString * expireTime;
 @property (nonatomic, assign) NSInteger fellowship;
+@property (nonatomic, strong) NSString * fellowshipName;
 @property (nonatomic, strong) NSString * gmtCreate;
 @property (nonatomic, strong) NSString * gmtModify;
 @property (nonatomic, strong) NSString * groupIcon;
 @property (nonatomic, assign) NSInteger groupId;
 @property (nonatomic, strong) NSString * groupName;
+@property (nonatomic, strong) NSString * introduction;
 @property (nonatomic, assign) NSInteger groupType;
 @property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, assign) BOOL isBan;

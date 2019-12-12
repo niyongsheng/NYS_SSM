@@ -65,4 +65,8 @@ public class Publicnotice implements Serializable {
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   private java.util.Date gmtCreate;
+
+  @TableField(value = "fellowshipName", exist = false)
+  @ApiModelProperty(value = "所属团契名称")
+  private String fellowshipName;
 }

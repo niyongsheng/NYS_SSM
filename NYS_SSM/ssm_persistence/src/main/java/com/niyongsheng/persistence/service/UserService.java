@@ -79,4 +79,10 @@ public interface UserService {
      */
     List<User> findByFuzzySearch(@Param("nickname") String nickname, @Param("account") String account, @Param("phone") String phone);
 
+    /**
+     * 连表条件查询
+     * @param fellowship
+     * @return
+     */
+    List<User> selectAllByFellowshipMultiTable(Integer fellowship);
 }

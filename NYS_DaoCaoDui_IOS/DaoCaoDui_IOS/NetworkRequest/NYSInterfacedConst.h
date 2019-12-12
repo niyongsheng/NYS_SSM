@@ -42,6 +42,13 @@ UIKIT_EXTERN NSString *const CR_ProviderTeamInfo;
 UIKIT_EXTERN NSString *const CR_UploadFile;
 /** 多图上传*/
 UIKIT_EXTERN NSString *const CR_UploadiImages;
+/** 获取轮播图*/
+UIKIT_EXTERN NSString *const CR_GetBanners;
+/** 获取公告*/
+UIKIT_EXTERN NSString *const CR_GetPublicnotices;
+/** 获取文章列表*/
+UIKIT_EXTERN NSString *const CR_GetArticleList;
+
 
 
 /** 创建群组*/

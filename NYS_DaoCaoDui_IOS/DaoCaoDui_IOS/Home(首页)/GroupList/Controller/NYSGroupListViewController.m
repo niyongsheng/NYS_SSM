@@ -37,7 +37,7 @@ static NSString *CELL_ID = @"NYSGroupCollectionCell";
     UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc] init];
     CGFloat itemWidth = (NScreenWidth - (4 * Magin)) / 2;
     // 设置单元格大小
-    flowLayout.itemSize = CGSizeMake(itemWidth, 90 * (NScreenWidth / 375));
+    flowLayout.itemSize = CGSizeMake(itemWidth, RealValue(100));
     // 最小行间距(默认为10)
     flowLayout.minimumLineSpacing = 15;
     // 最小item间距（默认为10）
@@ -66,7 +66,7 @@ static NSString *CELL_ID = @"NYSGroupCollectionCell";
 }
 
 - (void)headerRereshing {
-    [NYSRequest GetGroupListWithResMethod:GET parameters:@{@"fellowship" : @1} success:^(id response) {
+    [NYSRequest GetGroupListWithResMethod:GET parameters:@{@"fellowship" : @(NCurrentUser.fellowship)} success:^(id response) {
         [NYSGroupModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"idField" : @"id"};
         }];

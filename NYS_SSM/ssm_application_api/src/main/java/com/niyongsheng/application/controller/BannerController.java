@@ -13,9 +13,11 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotBlank;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -29,6 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/banner", produces = MediaType.APPLICATION_JSON)
 @Api(value = "轮播图", produces = MediaType.APPLICATION_JSON)
+@Validated
 public class BannerController {
 
     @Autowired
@@ -36,23 +39,25 @@ public class BannerController {
 
     @ResponseBody
     @RequestMapping(value = "/selectBannerList", method = RequestMethod.GET)
-    @ApiOperation(value = "查询所有的banner图", notes = "参数描述", hidden = false)
+    @ApiOperation(value = "查询所有的banner", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
-            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0")
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
     })
-    public ResponseDto<Banner> findAll(HttpServletRequest request, Model model,
+    public ResponseDto<Banner> selectBannerList(HttpServletRequest request, Model model,
                                      @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
                                      @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                     @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak
+                                     @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                     @NotBlank
+                                     @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
 
         // 1.调用service的方法
         List<Banner> list = null;
         try {
-//            list = bannerService.getBaseMapper().selectList(null);
-             list = bannerService.selectAllMultiTable();
+             list = bannerService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }

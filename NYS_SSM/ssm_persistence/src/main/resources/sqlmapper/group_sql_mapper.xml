@@ -74,7 +74,7 @@
         FROM dcd_group a
         INNER JOIN dcd_fellowship b
         ON a.fellowship = b.id
-        WHERE id = #{id}
+        WHERE a.id = #{id}
     </select>
 
     <select id="selectAllList" resultType="com.niyongsheng.persistence.domain.Group">
@@ -89,7 +89,15 @@
         FROM dcd_group a
         INNER JOIN dcd_fellowship b
         ON a.fellowship = b.id
-        WHERE groupId = #{groupId}
+        WHERE a.groupId = #{groupId}
+    </select>
+
+    <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Group">
+        SELECT *
+        FROM dcd_group a
+        INNER JOIN dcd_fellowship b
+        ON a.fellowship = b.id
+        WHERE a.fellowship = #{fellowship}
     </select>
 
 </mapper>

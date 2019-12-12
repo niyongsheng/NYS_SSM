@@ -10,7 +10,6 @@
 #import "NYSConversationViewController.h"
 #import "OYRPopOption.h"
 #import "NYSContactsViewController.h"
-#import "NYSContactsListViewController.h"
 #import "NYSGroupListViewController.h"
 
 @interface NYSChatListViewController ()

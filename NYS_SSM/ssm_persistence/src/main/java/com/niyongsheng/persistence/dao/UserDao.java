@@ -64,4 +64,11 @@ public interface UserDao {
      * @return
      */
     User findByPhone(String phone);
+
+    /**
+     * 连表条件查询
+     * @param fellowship
+     * @return
+     */
+    List<User> selectAllByFellowshipMultiTable(Integer fellowship);
 }

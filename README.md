@@ -18,6 +18,7 @@ NYS_SSM
 * QiniuCloud
 * JWT
 * TxManager
+* Mybatis-plus
 * UnitTest
 
 ## <a id="How_to_use:"></a>How to use:

@@ -27,9 +27,9 @@
         WHERE name = #{accountName}
     </select>
 
-    <insert id="updateAccount" parameterType="com.niyongsheng.persistence.domain.Account">
+    <update id="updateAccount" parameterType="com.niyongsheng.persistence.domain.Account">
         UPDATE account
         SET `name` = #{name},money = #{money}
         WHERE id = #{id}
-    </insert>
+    </update>
 </mapper>

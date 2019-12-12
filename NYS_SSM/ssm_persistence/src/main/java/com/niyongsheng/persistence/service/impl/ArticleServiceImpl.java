@@ -1,11 +1,13 @@
 package com.niyongsheng.persistence.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.niyongsheng.persistence.dao.ArticleDao;
-import com.niyongsheng.persistence.dao.BaseDao;
 import com.niyongsheng.persistence.domain.Article;
 import com.niyongsheng.persistence.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -15,13 +17,13 @@ import org.springframework.stereotype.Service;
  * @updateDes
  */
 @Service("articleService")
-public class ArticleServiceImpl  extends BaseServiceImpl<Article> implements ArticleService {
+public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> implements ArticleService {
 
     @Autowired
     ArticleDao articleDao;
 
     @Override
-    protected BaseDao getDao() {
-        return articleDao;
+    public List<Article> selectByFellowshipMultiTable(Integer fellowship) {
+        return articleDao.selectByFellowshipMultiTable(fellowship);
     }
 }

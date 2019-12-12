@@ -12,6 +12,7 @@ PODS:
   - AXNavigationBackItemInjection (0.0.2)
   - AXPracticalHUD (2.1.4):
     - AXIndicatorView
+  - AXRatingView (1.0.6)
   - AXWebViewController (0.7.2):
     - Aspects
     - AXNavigationBackItemInjection
@@ -30,6 +31,7 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJExtension (3.2.1)
   - MJRefresh (3.2.3)
+  - MSNumberScrollAnimatedView (0.0.2)
   - NJKWebViewProgress (0.2.3):
     - NJKWebViewProgress/Core (= 0.2.3)
     - NJKWebViewProgress/ProgressView (= 0.2.3)
@@ -68,6 +70,7 @@ PODS:
     - SDWebImage (~> 4.1.0)
   - SGPagingView (1.6.7)
   - SVProgressHUD (2.2.5)
+  - TXScrollLabelView (1.3.2)
   - UMCAnalytics (6.0.5):
     - UMCCommon
   - UMCCommon (2.1.1)
@@ -85,8 +88,11 @@ PODS:
   - UMCShare/UI (6.9.6):
     - UMCCommon
     - UMCShare/Core
+  - WMZBanner (1.0.4):
+    - SDWebImage
   - WRNavigationBar (1.2.0)
   - WXWaveView (1.0.1)
+  - XLForm (4.1.0)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
   - YTKNetwork (2.1.4):
@@ -97,6 +103,7 @@ PODS:
 
 DEPENDENCIES:
   - AxcAE_TabBar
+  - AXRatingView
   - AXWebViewController
   - BarrageRenderer
   - IQKeyboardManager
@@ -106,6 +113,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 1.0.0)
   - MJExtension
   - MJRefresh
+  - MSNumberScrollAnimatedView
   - ReactiveObjC
   - RongCloudIM (~> 2.9.25)
   - RongCloudRTC (~> 2.9.25)
@@ -114,6 +122,7 @@ DEPENDENCIES:
   - SGAdvertScrollView
   - SGPagingView
   - SVProgressHUD
+  - TXScrollLabelView
   - UMCAnalytics
   - UMCCommon
   - UMCCommonLog
@@ -121,20 +130,28 @@ DEPENDENCIES:
   - UMCShare/Social/ReducedQQ
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
+  - WMZBanner
   - WRNavigationBar (= 1.2.0)
   - WXWaveView
+  - XLForm
   - YTKKeyValueStore
   - YTKNetwork
   - YYKit
 
 SPEC REPOS:
-  trunk:
-    - AFNetworking
+  https://github.com/CocoaPods/Old-Specs:
     - Aspects
+    - MBProgressHUD
+    - NJKWebViewProgress
+    - YTKKeyValueStore
+    - YYKit
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
     - AxcAE_TabBar
     - AXIndicatorView
     - AXNavigationBackItemInjection
     - AXPracticalHUD
+    - AXRatingView
     - AXWebViewController
     - BarrageRenderer
     - FMDB
@@ -143,10 +160,9 @@ SPEC REPOS:
     - JPush
     - JVFloatLabeledTextField
     - Masonry
-    - MBProgressHUD
     - MJExtension
     - MJRefresh
-    - NJKWebViewProgress
+    - MSNumberScrollAnimatedView
     - ReactiveObjC
     - RongCloudIM
     - RongCloudRTC
@@ -155,16 +171,17 @@ SPEC REPOS:
     - SGAdvertScrollView
     - SGPagingView
     - SVProgressHUD
+    - TXScrollLabelView
     - UMCAnalytics
     - UMCCommon
     - UMCCommonLog
     - UMCErrorCatch
     - UMCShare
+    - WMZBanner
     - WRNavigationBar
     - WXWaveView
-    - YTKKeyValueStore
+    - XLForm
     - YTKNetwork
-    - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -173,6 +190,7 @@ SPEC CHECKSUMS:
   AXIndicatorView: 566b490a2dd9781d4ffbcc9752be9b9cdc6e728e
   AXNavigationBackItemInjection: efe0446967f3cbcc85a9118decd1e145138912dd
   AXPracticalHUD: 821d170b31e050c426ef8754b07b4264a8b1d861
+  AXRatingView: b975cd1a11c6c2e76c8999c166e089ed26f54133
   AXWebViewController: 96566c473fce2806f4da696132b31777f5404c9f
   BarrageRenderer: 00e5f8081d81f29c1fc12712ddf2f875bd9c6f77
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -184,6 +202,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   MJRefresh: 2b1214a2dc8f4df4c5dcb028ea2ad4e245425fb7
+  MSNumberScrollAnimatedView: 28c0cb5d10cb0b93b4b9aa421455c22157ac0ed5
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   RongCloudIM: cd6836aa86fbf6c02f7b6b5c895ea4caa894d67f
@@ -193,17 +212,20 @@ SPEC CHECKSUMS:
   SGAdvertScrollView: b1accd4ba84e8592f08f18df10174c98ea249d11
   SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TXScrollLabelView: 0e1650caf61198bf5dc0938ea6493254aeb80f90
   UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
   UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
+  WMZBanner: 460b4757a49a15f23c5ad953cda16950313ccfe0
   WRNavigationBar: dc952230effbb646785f962587caaac06c60f229
   WXWaveView: f8424284812536a3842bc5dd9afb943e53e911a8
+  XLForm: 7ee02761be8a369d1ad1bbffe738b97083d94f3e
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 85748fa22bba55e0a75ed3898b39292e97f359d7
+PODFILE CHECKSUM: 0ce84833b648644ca300bdf7c76fc6d6f30ad548
 
 COCOAPODS: 1.8.4

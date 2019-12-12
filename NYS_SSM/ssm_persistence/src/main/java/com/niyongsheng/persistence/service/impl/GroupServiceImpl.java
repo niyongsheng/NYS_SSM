@@ -7,6 +7,8 @@ import com.niyongsheng.persistence.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author niyongsheng.com
  * @version $
@@ -28,5 +30,10 @@ public class GroupServiceImpl extends BaseServiceImpl<Group> implements GroupSer
     @Override
     public Group selectByGroupId(String groupId) {
         return groupDao.selectByGroupId(groupId);
+    }
+
+    @Override
+    public List<Group> selectAllByFellowshipMultiTable(Integer fellowship) {
+        return groupDao.selectAllByFellowshipMultiTable(fellowship);
     }
 }

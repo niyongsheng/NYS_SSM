@@ -1,6 +1,7 @@
 package com.niyongsheng.persistence.dao;
 
 import com.niyongsheng.persistence.domain.Account;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -44,5 +45,5 @@ public interface AccountDao {
      * 更新账户
      * @param account
      */
-    void updateAccount(Account account);
+    void updateAccount(@Param("account") Account account);
 }

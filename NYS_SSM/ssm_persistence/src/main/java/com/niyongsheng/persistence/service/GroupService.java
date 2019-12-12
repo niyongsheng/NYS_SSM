@@ -2,6 +2,8 @@ package com.niyongsheng.persistence.service;
 
 import com.niyongsheng.persistence.domain.Group;
 
+import java.util.List;
+
 /**
  * @author niyongsheng.com
  * @version $
@@ -12,4 +14,6 @@ import com.niyongsheng.persistence.domain.Group;
 public interface GroupService extends BaseService<Group> {
 
     Group selectByGroupId(String groupId);
+
+    List<Group> selectAllByFellowshipMultiTable(Integer fellowship);
 }

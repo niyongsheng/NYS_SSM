@@ -19,8 +19,30 @@
 		C802A61D22A62F03002E2A58 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = C802A61B22A62F03002E2A58 /* NSString+Size.m */; };
 		C802A61F22A62FB8002E2A58 /* FAQ.json in Resources */ = {isa = PBXBuildFile; fileRef = C802A61E22A62FB7002E2A58 /* FAQ.json */; };
 		C802A62122A6319C002E2A58 /* FAQ.plist in Resources */ = {isa = PBXBuildFile; fileRef = C802A62022A6319C002E2A58 /* FAQ.plist */; };
+		C807696223A1FDC0004B6E1C /* NYSScrollNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = C807696123A1FDC0004B6E1C /* NYSScrollNumberView.m */; };
+		C807696423A1FDD5004B6E1C /* NYSScrollNumberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C807696323A1FDD5004B6E1C /* NYSScrollNumberView.xib */; };
+		C807696823A2160C004B6E1C /* NYSArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C807696723A2160C004B6E1C /* NYSArticleModel.m */; };
+		C807696C23A216B0004B6E1C /* NYSBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C807696B23A216B0004B6E1C /* NYSBannerModel.m */; };
+		C807696F23A216D8004B6E1C /* NYSPublicnotice.m in Sources */ = {isa = PBXBuildFile; fileRef = C807696E23A216D8004B6E1C /* NYSPublicnotice.m */; };
+		C807697923A24D8F004B6E1C /* CCDraggableCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C807697523A24D8F004B6E1C /* CCDraggableCardView.m */; };
+		C807697A23A24D8F004B6E1C /* CCDraggableContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C807697823A24D8F004B6E1C /* CCDraggableContainer.m */; };
+		C807698823A24DA7004B6E1C /* image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807697C23A24DA7004B6E1C /* image_1.jpg */; };
+		C807698923A24DA7004B6E1C /* image_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807697D23A24DA7004B6E1C /* image_2.jpg */; };
+		C807698A23A24DA7004B6E1C /* image_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807697E23A24DA7004B6E1C /* image_3.jpg */; };
+		C807698B23A24DA7004B6E1C /* image_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807697F23A24DA7004B6E1C /* image_4.jpg */; };
+		C807698C23A24DA7004B6E1C /* image_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807698023A24DA7004B6E1C /* image_5.jpg */; };
+		C807698D23A24DA7004B6E1C /* image_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807698123A24DA7004B6E1C /* image_6.jpg */; };
+		C807698E23A24DA7004B6E1C /* image_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807698223A24DA7004B6E1C /* image_7.jpg */; };
+		C807698F23A24DA7004B6E1C /* image_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807698323A24DA7004B6E1C /* image_8.jpg */; };
+		C807699023A24DA7004B6E1C /* image_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C807698423A24DA7004B6E1C /* image_9.jpg */; };
+		C807699123A24DA7004B6E1C /* liked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C807698523A24DA7004B6E1C /* liked@2x.png */; };
+		C807699223A24DA7004B6E1C /* nope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C807698623A24DA7004B6E1C /* nope@2x.png */; };
+		C807699323A24DA7004B6E1C /* userInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = C807698723A24DA7004B6E1C /* userInfo.png */; };
+		C807699B23A24DC6004B6E1C /* XibViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C807699423A24DC0004B6E1C /* XibViewController.m */; };
+		C807699C23A24DC6004B6E1C /* XibViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C807699523A24DC1004B6E1C /* XibViewController.xib */; };
+		C807699E23A24DC6004B6E1C /* CustomCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C807699923A24DC5004B6E1C /* CustomCardView.m */; };
+		C80D251723A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */; };
 		C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E4716229FBEB9005F841B /* NYSHeaderView.m */; };
-		C8216128235D5E5800B17530 /* NYSContactsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8216127235D5E5800B17530 /* NYSContactsListViewController.m */; };
 		C821612E235D5EEC00B17530 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612B235D5EEC00B17530 /* ChineseString.m */; };
 		C821612F235D5EEC00B17530 /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612D235D5EEC00B17530 /* pinyin.m */; };
 		C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6B22A0FEE10072A3F1 /* UserManager.m */; };
@@ -106,6 +128,34 @@
 		C860A7362397891100902AB6 /* NSArray+SubArr.m in Sources */ = {isa = PBXBuildFile; fileRef = C860A7342397891100902AB6 /* NSArray+SubArr.m */; };
 		C860A73A23979A9400902AB6 /* NYSBindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C860A73823979A9400902AB6 /* NYSBindPhoneViewController.m */; };
 		C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */; };
+		C87947E223A25DAC003EC2D7 /* QMHCAListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947C523A25DAC003EC2D7 /* QMHCAListViewController.m */; };
+		C87947E323A25DAC003EC2D7 /* QMHCAListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947C623A25DAC003EC2D7 /* QMHCAListViewController.xib */; };
+		C87947E423A25DAC003EC2D7 /* QMHCommunityActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947C823A25DAC003EC2D7 /* QMHCommunityActivityViewController.m */; };
+		C87947E523A25DAC003EC2D7 /* QMHCreateActViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947CA23A25DAC003EC2D7 /* QMHCreateActViewController.m */; };
+		C87947E623A25DAC003EC2D7 /* QMHCreateActViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947CB23A25DAC003EC2D7 /* QMHCreateActViewController.xib */; };
+		C87947E723A25DAC003EC2D7 /* QMHGroupCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947CD23A25DAC003EC2D7 /* QMHGroupCardViewController.m */; };
+		C87947E823A25DAC003EC2D7 /* QMHGroupCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947CE23A25DAC003EC2D7 /* QMHGroupCardViewController.xib */; };
+		C87947E923A25DAC003EC2D7 /* QMHMemberListCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */; };
+		C87947EA23A25DAC003EC2D7 /* QMHCommunityActivityDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D323A25DAC003EC2D7 /* QMHCommunityActivityDetail.m */; };
+		C87947EB23A25DAC003EC2D7 /* QMHCommunityActivityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D523A25DAC003EC2D7 /* QMHCommunityActivityList.m */; };
+		C87947EC23A25DAC003EC2D7 /* QMHMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D723A25DAC003EC2D7 /* QMHMemberModel.m */; };
+		C87947ED23A25DAC003EC2D7 /* QMHACCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947DA23A25DAC003EC2D7 /* QMHACCollectionViewCell.m */; };
+		C87947EE23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947DB23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib */; };
+		C87947EF23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947DD23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m */; };
+		C87947F023A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947DE23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib */; };
+		C87947F123A25DAC003EC2D7 /* QMHMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947E023A25DAC003EC2D7 /* QMHMemberView.m */; };
+		C87947F223A25DAC003EC2D7 /* QMHMemberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947E123A25DAC003EC2D7 /* QMHMemberView.xib */; };
+		C87947F623A2604A003EC2D7 /* QMHGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947F323A26049003EC2D7 /* QMHGroupMemberCell.xib */; };
+		C87947F723A2604A003EC2D7 /* QMHGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947F523A2604A003EC2D7 /* QMHGroupMemberCell.m */; };
+		C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947F923A26388003EC2D7 /* NSArray+NYS.m */; };
+		C879480123A26423003EC2D7 /* QMHLeftTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947FD23A26420003EC2D7 /* QMHLeftTextCell.m */; };
+		C879480223A26423003EC2D7 /* NYSDisplayIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947FE23A26421003EC2D7 /* NYSDisplayIconCell.m */; };
+		C879480323A26423003EC2D7 /* QMHLeftTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947FF23A26422003EC2D7 /* QMHLeftTextCell.xib */; };
+		C879480423A26423003EC2D7 /* NYSDisplayIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C879480023A26422003EC2D7 /* NYSDisplayIconCell.xib */; };
+		C879480823A264B1003EC2D7 /* QMHCommitSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = C879480523A264AF003EC2D7 /* QMHCommitSuccessView.m */; };
+		C879480923A264B1003EC2D7 /* QMHCommitSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C879480623A264B0003EC2D7 /* QMHCommitSuccessView.xib */; };
+		C879480C23A26503003EC2D7 /* XLRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C879480B23A26502003EC2D7 /* XLRatingView.m */; };
+		C883875523A0C3C300EFD29D /* NYSBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */; };
 		C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */; };
 		C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C89CA2AE22BCA15C0086F9B0 /* NYSEmitterViewController.m */; };
 		C89CA2BB22BCA2DE0086F9B0 /* stepPk_win_colour3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2B222BCA2DD0086F9B0 /* stepPk_win_colour3@2x.png */; };
@@ -141,8 +191,8 @@
 		C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C664C22363CFED009952E5 /* NYSGroupModel.m */; };
 		C8C664C72363D174009952E5 /* NYSGroupCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C664C52363D174009952E5 /* NYSGroupCollectionCell.m */; };
 		C8C664C82363D174009952E5 /* NYSGroupCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C664C62363D174009952E5 /* NYSGroupCollectionCell.xib */; };
-		C8D695F12390CC89004B366B /* NYSPrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D695EF2390CC89004B366B /* NYSPrayViewController.m */; };
-		C8D695F22390CC89004B366B /* NYSPrayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8D695F02390CC89004B366B /* NYSPrayViewController.xib */; };
+		C8D8AF3D23A1E1DC00737BBE /* NYSTodayItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */; };
+		C8D8AF4123A1E3D100737BBE /* NYSTodayItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */; };
 		C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EABF8E22B4F12D004B0DA4 /* NYSRootPresenter.m */; };
 		C8F3B4CB2298EF8A00FA61A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4CA2298EF8A00FA61A6 /* AppDelegate.m */; };
 		C8F3B4D32298EF8B00FA61A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8F3B4D22298EF8B00FA61A6 /* Assets.xcassets */; };
@@ -194,10 +244,41 @@
 		C802A61C22A62F03002E2A58 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
 		C802A61E22A62FB7002E2A58 /* FAQ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FAQ.json; sourceTree = "<group>"; };
 		C802A62022A6319C002E2A58 /* FAQ.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FAQ.plist; sourceTree = "<group>"; };
+		C807696023A1FDC0004B6E1C /* NYSScrollNumberView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSScrollNumberView.h; sourceTree = "<group>"; };
+		C807696123A1FDC0004B6E1C /* NYSScrollNumberView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSScrollNumberView.m; sourceTree = "<group>"; };
+		C807696323A1FDD5004B6E1C /* NYSScrollNumberView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSScrollNumberView.xib; sourceTree = "<group>"; };
+		C807696623A2160C004B6E1C /* NYSArticleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSArticleModel.h; sourceTree = "<group>"; };
+		C807696723A2160C004B6E1C /* NYSArticleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSArticleModel.m; sourceTree = "<group>"; };
+		C807696A23A216B0004B6E1C /* NYSBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBannerModel.h; sourceTree = "<group>"; };
+		C807696B23A216B0004B6E1C /* NYSBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBannerModel.m; sourceTree = "<group>"; };
+		C807696D23A216D8004B6E1C /* NYSPublicnotice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPublicnotice.h; sourceTree = "<group>"; };
+		C807696E23A216D8004B6E1C /* NYSPublicnotice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPublicnotice.m; sourceTree = "<group>"; };
+		C807697423A24D8F004B6E1C /* CCDraggableCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDraggableCardView.h; sourceTree = "<group>"; };
+		C807697523A24D8F004B6E1C /* CCDraggableCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDraggableCardView.m; sourceTree = "<group>"; };
+		C807697623A24D8F004B6E1C /* CCDraggableConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDraggableConfig.h; sourceTree = "<group>"; };
+		C807697723A24D8F004B6E1C /* CCDraggableContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDraggableContainer.h; sourceTree = "<group>"; };
+		C807697823A24D8F004B6E1C /* CCDraggableContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDraggableContainer.m; sourceTree = "<group>"; };
+		C807697C23A24DA7004B6E1C /* image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_1.jpg; sourceTree = "<group>"; };
+		C807697D23A24DA7004B6E1C /* image_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_2.jpg; sourceTree = "<group>"; };
+		C807697E23A24DA7004B6E1C /* image_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_3.jpg; sourceTree = "<group>"; };
+		C807697F23A24DA7004B6E1C /* image_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_4.jpg; sourceTree = "<group>"; };
+		C807698023A24DA7004B6E1C /* image_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_5.jpg; sourceTree = "<group>"; };
+		C807698123A24DA7004B6E1C /* image_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_6.jpg; sourceTree = "<group>"; };
+		C807698223A24DA7004B6E1C /* image_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_7.jpg; sourceTree = "<group>"; };
+		C807698323A24DA7004B6E1C /* image_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_8.jpg; sourceTree = "<group>"; };
+		C807698423A24DA7004B6E1C /* image_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_9.jpg; sourceTree = "<group>"; };
+		C807698523A24DA7004B6E1C /* liked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "liked@2x.png"; sourceTree = "<group>"; };
+		C807698623A24DA7004B6E1C /* nope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nope@2x.png"; sourceTree = "<group>"; };
+		C807698723A24DA7004B6E1C /* userInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = userInfo.png; sourceTree = "<group>"; };
+		C807699423A24DC0004B6E1C /* XibViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibViewController.m; sourceTree = "<group>"; };
+		C807699523A24DC1004B6E1C /* XibViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibViewController.xib; sourceTree = "<group>"; };
+		C807699723A24DC3004B6E1C /* XibViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XibViewController.h; sourceTree = "<group>"; };
+		C807699923A24DC5004B6E1C /* CustomCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCardView.m; sourceTree = "<group>"; };
+		C807699A23A24DC6004B6E1C /* CustomCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCardView.h; sourceTree = "<group>"; };
+		C80D251523A09A5900CF58CA /* NYSDaocaoduiHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSDaocaoduiHomeViewController.h; sourceTree = "<group>"; };
+		C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDaocaoduiHomeViewController.m; sourceTree = "<group>"; };
 		C80E4715229FBEB9005F841B /* NYSHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHeaderView.h; sourceTree = "<group>"; };
 		C80E4716229FBEB9005F841B /* NYSHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSHeaderView.m; sourceTree = "<group>"; };
-		C8216126235D5E5800B17530 /* NYSContactsListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContactsListViewController.h; sourceTree = "<group>"; };
-		C8216127235D5E5800B17530 /* NYSContactsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContactsListViewController.m; sourceTree = "<group>"; };
 		C821612A235D5EEC00B17530 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
 		C821612B235D5EEC00B17530 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
 		C821612C235D5EEC00B17530 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
@@ -331,6 +412,52 @@
 		C860A73723979A9400902AB6 /* NYSBindPhoneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBindPhoneViewController.h; sourceTree = "<group>"; };
 		C860A73823979A9400902AB6 /* NYSBindPhoneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBindPhoneViewController.m; sourceTree = "<group>"; };
 		C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSBindPhoneViewController.xib; sourceTree = "<group>"; };
+		C87947C423A25DAC003EC2D7 /* QMHCAListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCAListViewController.h; sourceTree = "<group>"; };
+		C87947C523A25DAC003EC2D7 /* QMHCAListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCAListViewController.m; sourceTree = "<group>"; };
+		C87947C623A25DAC003EC2D7 /* QMHCAListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHCAListViewController.xib; sourceTree = "<group>"; };
+		C87947C723A25DAC003EC2D7 /* QMHCommunityActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommunityActivityViewController.h; sourceTree = "<group>"; };
+		C87947C823A25DAC003EC2D7 /* QMHCommunityActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommunityActivityViewController.m; sourceTree = "<group>"; };
+		C87947C923A25DAC003EC2D7 /* QMHCreateActViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCreateActViewController.h; sourceTree = "<group>"; };
+		C87947CA23A25DAC003EC2D7 /* QMHCreateActViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCreateActViewController.m; sourceTree = "<group>"; };
+		C87947CB23A25DAC003EC2D7 /* QMHCreateActViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHCreateActViewController.xib; sourceTree = "<group>"; };
+		C87947CC23A25DAC003EC2D7 /* QMHGroupCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHGroupCardViewController.h; sourceTree = "<group>"; };
+		C87947CD23A25DAC003EC2D7 /* QMHGroupCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHGroupCardViewController.m; sourceTree = "<group>"; };
+		C87947CE23A25DAC003EC2D7 /* QMHGroupCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHGroupCardViewController.xib; sourceTree = "<group>"; };
+		C87947CF23A25DAC003EC2D7 /* QMHMemberListCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberListCollectionVC.h; sourceTree = "<group>"; };
+		C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberListCollectionVC.m; sourceTree = "<group>"; };
+		C87947D223A25DAC003EC2D7 /* QMHCommunityActivityDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommunityActivityDetail.h; sourceTree = "<group>"; };
+		C87947D323A25DAC003EC2D7 /* QMHCommunityActivityDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommunityActivityDetail.m; sourceTree = "<group>"; };
+		C87947D423A25DAC003EC2D7 /* QMHCommunityActivityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommunityActivityList.h; sourceTree = "<group>"; };
+		C87947D523A25DAC003EC2D7 /* QMHCommunityActivityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommunityActivityList.m; sourceTree = "<group>"; };
+		C87947D623A25DAC003EC2D7 /* QMHMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberModel.h; sourceTree = "<group>"; };
+		C87947D723A25DAC003EC2D7 /* QMHMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberModel.m; sourceTree = "<group>"; };
+		C87947D923A25DAC003EC2D7 /* QMHACCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHACCollectionViewCell.h; sourceTree = "<group>"; };
+		C87947DA23A25DAC003EC2D7 /* QMHACCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHACCollectionViewCell.m; sourceTree = "<group>"; };
+		C87947DB23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHACCollectionViewCell.xib; sourceTree = "<group>"; };
+		C87947DC23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberCollectionViewCell.h; sourceTree = "<group>"; };
+		C87947DD23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberCollectionViewCell.m; sourceTree = "<group>"; };
+		C87947DE23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHMemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		C87947DF23A25DAC003EC2D7 /* QMHMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberView.h; sourceTree = "<group>"; };
+		C87947E023A25DAC003EC2D7 /* QMHMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberView.m; sourceTree = "<group>"; };
+		C87947E123A25DAC003EC2D7 /* QMHMemberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHMemberView.xib; sourceTree = "<group>"; };
+		C87947F323A26049003EC2D7 /* QMHGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHGroupMemberCell.xib; sourceTree = "<group>"; };
+		C87947F423A2604A003EC2D7 /* QMHGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHGroupMemberCell.h; sourceTree = "<group>"; };
+		C87947F523A2604A003EC2D7 /* QMHGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHGroupMemberCell.m; sourceTree = "<group>"; };
+		C87947F823A26387003EC2D7 /* NSArray+NYS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NYS.h"; sourceTree = "<group>"; };
+		C87947F923A26388003EC2D7 /* NSArray+NYS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NYS.m"; sourceTree = "<group>"; };
+		C87947FB23A2641E003EC2D7 /* NYSDisplayIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSDisplayIconCell.h; sourceTree = "<group>"; };
+		C87947FC23A2641F003EC2D7 /* QMHLeftTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHLeftTextCell.h; sourceTree = "<group>"; };
+		C87947FD23A26420003EC2D7 /* QMHLeftTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHLeftTextCell.m; sourceTree = "<group>"; };
+		C87947FE23A26421003EC2D7 /* NYSDisplayIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSDisplayIconCell.m; sourceTree = "<group>"; };
+		C87947FF23A26422003EC2D7 /* QMHLeftTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHLeftTextCell.xib; sourceTree = "<group>"; };
+		C879480023A26422003EC2D7 /* NYSDisplayIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSDisplayIconCell.xib; sourceTree = "<group>"; };
+		C879480523A264AF003EC2D7 /* QMHCommitSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommitSuccessView.m; sourceTree = "<group>"; };
+		C879480623A264B0003EC2D7 /* QMHCommitSuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHCommitSuccessView.xib; sourceTree = "<group>"; };
+		C879480723A264B1003EC2D7 /* QMHCommitSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommitSuccessView.h; sourceTree = "<group>"; };
+		C879480A23A26502003EC2D7 /* XLRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLRatingView.h; sourceTree = "<group>"; };
+		C879480B23A26502003EC2D7 /* XLRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLRatingView.m; sourceTree = "<group>"; };
+		C883875323A0C3C300EFD29D /* NYSBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBannerCollectionViewCell.h; sourceTree = "<group>"; };
+		C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBannerCollectionViewCell.m; sourceTree = "<group>"; };
 		C88452E394EE7ABEE72B3700 /* Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C884F408235DA8A6000DFB54 /* NYSContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContactsViewController.h; sourceTree = "<group>"; };
 		C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContactsViewController.m; sourceTree = "<group>"; };
@@ -384,9 +511,9 @@
 		C8C664C52363D174009952E5 /* NYSGroupCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSGroupCollectionCell.m; sourceTree = "<group>"; };
 		C8C664C62363D174009952E5 /* NYSGroupCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSGroupCollectionCell.xib; sourceTree = "<group>"; };
 		C8CC2E3B22BE2F0F00B0B08E /* DaoCaoDui_IOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DaoCaoDui_IOS.entitlements; sourceTree = "<group>"; };
-		C8D695EE2390CC89004B366B /* NYSPrayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPrayViewController.h; sourceTree = "<group>"; };
-		C8D695EF2390CC89004B366B /* NYSPrayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPrayViewController.m; sourceTree = "<group>"; };
-		C8D695F02390CC89004B366B /* NYSPrayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSPrayViewController.xib; sourceTree = "<group>"; };
+		C8D8AF3B23A1E1DC00737BBE /* NYSTodayItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSTodayItemView.h; sourceTree = "<group>"; };
+		C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSTodayItemView.m; sourceTree = "<group>"; };
+		C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSTodayItemView.xib; sourceTree = "<group>"; };
 		C8EABF8D22B4F12D004B0DA4 /* NYSRootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRootPresenter.h; sourceTree = "<group>"; };
 		C8EABF8E22B4F12D004B0DA4 /* NYSRootPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRootPresenter.m; sourceTree = "<group>"; };
 		C8F3B4C62298EF8A00FA61A6 /* 稻草堆.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "稻草堆.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -524,6 +651,123 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C807696523A215F1004B6E1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C807696623A2160C004B6E1C /* NYSArticleModel.h */,
+				C807696723A2160C004B6E1C /* NYSArticleModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C807696923A2169C004B6E1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C807696A23A216B0004B6E1C /* NYSBannerModel.h */,
+				C807696B23A216B0004B6E1C /* NYSBannerModel.m */,
+				C807696D23A216D8004B6E1C /* NYSPublicnotice.h */,
+				C807696E23A216D8004B6E1C /* NYSPublicnotice.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C807697023A24D28004B6E1C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C807699723A24DC3004B6E1C /* XibViewController.h */,
+				C807699423A24DC0004B6E1C /* XibViewController.m */,
+				C807699523A24DC1004B6E1C /* XibViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C807697123A24D46004B6E1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C807699A23A24DC6004B6E1C /* CustomCardView.h */,
+				C807699923A24DC5004B6E1C /* CustomCardView.m */,
+				C807697323A24D8F004B6E1C /* CCDraggableCard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C807697223A24D53004B6E1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C807697323A24D8F004B6E1C /* CCDraggableCard */ = {
+			isa = PBXGroup;
+			children = (
+				C807697423A24D8F004B6E1C /* CCDraggableCardView.h */,
+				C807697523A24D8F004B6E1C /* CCDraggableCardView.m */,
+				C807697623A24D8F004B6E1C /* CCDraggableConfig.h */,
+				C807697723A24D8F004B6E1C /* CCDraggableContainer.h */,
+				C807697823A24D8F004B6E1C /* CCDraggableContainer.m */,
+			);
+			path = CCDraggableCard;
+			sourceTree = "<group>";
+		};
+		C807697B23A24DA7004B6E1C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C807697C23A24DA7004B6E1C /* image_1.jpg */,
+				C807697D23A24DA7004B6E1C /* image_2.jpg */,
+				C807697E23A24DA7004B6E1C /* image_3.jpg */,
+				C807697F23A24DA7004B6E1C /* image_4.jpg */,
+				C807698023A24DA7004B6E1C /* image_5.jpg */,
+				C807698123A24DA7004B6E1C /* image_6.jpg */,
+				C807698223A24DA7004B6E1C /* image_7.jpg */,
+				C807698323A24DA7004B6E1C /* image_8.jpg */,
+				C807698423A24DA7004B6E1C /* image_9.jpg */,
+				C807698523A24DA7004B6E1C /* liked@2x.png */,
+				C807698623A24DA7004B6E1C /* nope@2x.png */,
+				C807698723A24DA7004B6E1C /* userInfo.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C80D251223A099C200CF58CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C8A93E932366786C0062C813 /* HomeDetailViewController.h */,
+				C8A93E912366786B0062C813 /* HomeDetailViewController.m */,
+				C8A93E8A236678680062C813 /* HomeViewController.h */,
+				C8A93E942366786D0062C813 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C80D251323A099CE00CF58CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C8A93E952366786D0062C813 /* HomeCell.h */,
+				C8A93E922366786B0062C813 /* HomeCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C80D251423A09A0700CF58CA /* Today(推荐) */ = {
+			isa = PBXGroup;
+			children = (
+				C807696923A2169C004B6E1C /* Model */,
+				C883874423A0C1D100EFD29D /* View */,
+				C80D251823A09A6100CF58CA /* Controller */,
+			);
+			path = "Today(推荐)";
+			sourceTree = "<group>";
+		};
+		C80D251823A09A6100CF58CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C80D251523A09A5900CF58CA /* NYSDaocaoduiHomeViewController.h */,
+				C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C80E4712229FBE31005F841B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,8 +802,6 @@
 		C8216125235D5D9800B17530 /* ContactsList */ = {
 			isa = PBXGroup;
 			children = (
-				C8216126235D5E5800B17530 /* NYSContactsListViewController.h */,
-				C8216127235D5E5800B17530 /* NYSContactsListViewController.m */,
 				C884F408235DA8A6000DFB54 /* NYSContactsViewController.h */,
 				C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */,
 			);
@@ -659,8 +901,10 @@
 		C8424ED0229E8917003A7C58 /* Daocaoren(稻草人) */ = {
 			isa = PBXGroup;
 			children = (
+				C80D251423A09A0700CF58CA /* Today(推荐) */,
 				C8D695ED2390CC5C004B366B /* Pray(代祷) */,
 				C8A93E89236678260062C813 /* Article(文章) */,
+				C87947C223A25DAC003EC2D7 /* Activity(活动) */,
 				C836D7AB235810F400DBDAEF /* LayoutFittingView.h */,
 				C836D7AA235810F400DBDAEF /* LayoutFittingView.m */,
 				C836D7A72358103000DBDAEF /* NYSDCDViewController.h */,
@@ -875,6 +1119,8 @@
 			children = (
 				C802A61C22A62F03002E2A58 /* NSString+Size.h */,
 				C802A61B22A62F03002E2A58 /* NSString+Size.m */,
+				C87947F823A26387003EC2D7 /* NSArray+NYS.h */,
+				C87947F923A26388003EC2D7 /* NSArray+NYS.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -980,6 +1226,94 @@
 			path = KHAlertPicker;
 			sourceTree = "<group>";
 		};
+		C87947C223A25DAC003EC2D7 /* Activity(活动) */ = {
+			isa = PBXGroup;
+			children = (
+				C87947C323A25DAC003EC2D7 /* Controller */,
+				C87947D123A25DAC003EC2D7 /* Model */,
+				C87947D823A25DAC003EC2D7 /* View */,
+			);
+			path = "Activity(活动)";
+			sourceTree = "<group>";
+		};
+		C87947C323A25DAC003EC2D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C87947C423A25DAC003EC2D7 /* QMHCAListViewController.h */,
+				C87947C523A25DAC003EC2D7 /* QMHCAListViewController.m */,
+				C87947C623A25DAC003EC2D7 /* QMHCAListViewController.xib */,
+				C87947C723A25DAC003EC2D7 /* QMHCommunityActivityViewController.h */,
+				C87947C823A25DAC003EC2D7 /* QMHCommunityActivityViewController.m */,
+				C87947C923A25DAC003EC2D7 /* QMHCreateActViewController.h */,
+				C87947CA23A25DAC003EC2D7 /* QMHCreateActViewController.m */,
+				C87947CB23A25DAC003EC2D7 /* QMHCreateActViewController.xib */,
+				C87947CC23A25DAC003EC2D7 /* QMHGroupCardViewController.h */,
+				C87947CD23A25DAC003EC2D7 /* QMHGroupCardViewController.m */,
+				C87947CE23A25DAC003EC2D7 /* QMHGroupCardViewController.xib */,
+				C87947CF23A25DAC003EC2D7 /* QMHMemberListCollectionVC.h */,
+				C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C87947D123A25DAC003EC2D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C87947D223A25DAC003EC2D7 /* QMHCommunityActivityDetail.h */,
+				C87947D323A25DAC003EC2D7 /* QMHCommunityActivityDetail.m */,
+				C87947D423A25DAC003EC2D7 /* QMHCommunityActivityList.h */,
+				C87947D523A25DAC003EC2D7 /* QMHCommunityActivityList.m */,
+				C87947D623A25DAC003EC2D7 /* QMHMemberModel.h */,
+				C87947D723A25DAC003EC2D7 /* QMHMemberModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C87947D823A25DAC003EC2D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C879480723A264B1003EC2D7 /* QMHCommitSuccessView.h */,
+				C879480523A264AF003EC2D7 /* QMHCommitSuccessView.m */,
+				C879480623A264B0003EC2D7 /* QMHCommitSuccessView.xib */,
+				C879480A23A26502003EC2D7 /* XLRatingView.h */,
+				C879480B23A26502003EC2D7 /* XLRatingView.m */,
+				C87947FB23A2641E003EC2D7 /* NYSDisplayIconCell.h */,
+				C87947FE23A26421003EC2D7 /* NYSDisplayIconCell.m */,
+				C879480023A26422003EC2D7 /* NYSDisplayIconCell.xib */,
+				C87947FC23A2641F003EC2D7 /* QMHLeftTextCell.h */,
+				C87947FD23A26420003EC2D7 /* QMHLeftTextCell.m */,
+				C87947FF23A26422003EC2D7 /* QMHLeftTextCell.xib */,
+				C87947F423A2604A003EC2D7 /* QMHGroupMemberCell.h */,
+				C87947F523A2604A003EC2D7 /* QMHGroupMemberCell.m */,
+				C87947F323A26049003EC2D7 /* QMHGroupMemberCell.xib */,
+				C87947D923A25DAC003EC2D7 /* QMHACCollectionViewCell.h */,
+				C87947DA23A25DAC003EC2D7 /* QMHACCollectionViewCell.m */,
+				C87947DB23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib */,
+				C87947DC23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.h */,
+				C87947DD23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m */,
+				C87947DE23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib */,
+				C87947DF23A25DAC003EC2D7 /* QMHMemberView.h */,
+				C87947E023A25DAC003EC2D7 /* QMHMemberView.m */,
+				C87947E123A25DAC003EC2D7 /* QMHMemberView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C883874423A0C1D100EFD29D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C883875323A0C3C300EFD29D /* NYSBannerCollectionViewCell.h */,
+				C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */,
+				C8D8AF3B23A1E1DC00737BBE /* NYSTodayItemView.h */,
+				C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */,
+				C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */,
+				C807696023A1FDC0004B6E1C /* NYSScrollNumberView.h */,
+				C807696123A1FDC0004B6E1C /* NYSScrollNumberView.m */,
+				C807696323A1FDD5004B6E1C /* NYSScrollNumberView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C89CA2B022BCA2AF0086F9B0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1020,13 +1354,10 @@
 		C8A93E89236678260062C813 /* Article(文章) */ = {
 			isa = PBXGroup;
 			children = (
+				C807696523A215F1004B6E1C /* Model */,
+				C80D251323A099CE00CF58CA /* View */,
+				C80D251223A099C200CF58CA /* Controller */,
 				C8A93E8B2366786A0062C813 /* HomeImage */,
-				C8A93E952366786D0062C813 /* HomeCell.h */,
-				C8A93E922366786B0062C813 /* HomeCell.m */,
-				C8A93E932366786C0062C813 /* HomeDetailViewController.h */,
-				C8A93E912366786B0062C813 /* HomeDetailViewController.m */,
-				C8A93E8A236678680062C813 /* HomeViewController.h */,
-				C8A93E942366786D0062C813 /* HomeViewController.m */,
 			);
 			path = "Article(文章)";
 			sourceTree = "<group>";
@@ -1144,9 +1475,10 @@
 		C8D695ED2390CC5C004B366B /* Pray(代祷) */ = {
 			isa = PBXGroup;
 			children = (
-				C8D695EE2390CC89004B366B /* NYSPrayViewController.h */,
-				C8D695EF2390CC89004B366B /* NYSPrayViewController.m */,
-				C8D695F02390CC89004B366B /* NYSPrayViewController.xib */,
+				C807697B23A24DA7004B6E1C /* Resources */,
+				C807697223A24D53004B6E1C /* Model */,
+				C807697123A24D46004B6E1C /* View */,
+				C807697023A24D28004B6E1C /* Controller */,
 			);
 			path = "Pray(代祷)";
 			sourceTree = "<group>";
@@ -1342,16 +1674,21 @@
 				C89CA2C722BCADAE0086F9B0 /* rain.png in Resources */,
 				C85C44A8229BA73700B35652 /* back_icon@2x.png in Resources */,
 				C8C664C82363D174009952E5 /* NYSGroupCollectionCell.xib in Resources */,
+				C8D8AF4123A1E3D100737BBE /* NYSTodayItemView.xib in Resources */,
 				C8424EC2229E7896003A7C58 /* close_icon_gray@3x.png in Resources */,
 				C8265C7F22A2710E0072A3F1 /* woman@2x.png in Resources */,
 				C85C44D6229BAB2900B35652 /* right_arrow.png in Resources */,
+				C807699C23A24DC6004B6E1C /* XibViewController.xib in Resources */,
+				C807699223A24DA7004B6E1C /* nope@2x.png in Resources */,
 				C836D7AE2358181100DBDAEF /* logo_app.png in Resources */,
 				C8F3B4D62298EF8B00FA61A6 /* LaunchScreen.storyboard in Resources */,
 				C89CA2C622BCADAE0086F9B0 /* DazFire.png in Resources */,
 				C85C44D3229BAB2900B35652 /* arrow_icon@3x.png in Resources */,
 				C89CA2BB22BCA2DE0086F9B0 /* stepPk_win_colour3@2x.png in Resources */,
+				C807698D23A24DA7004B6E1C /* image_6.jpg in Resources */,
 				C85C44D7229BAB2900B35652 /* right_arrow@2x.png in Resources */,
 				C85C44D0229BAB2900B35652 /* down_arrow@3x.png in Resources */,
+				C87947EE23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib in Resources */,
 				C8A93E9A2366786D0062C813 /* Mine_photo_define@3x.png in Resources */,
 				C89CA2BE22BCA2DE0086F9B0 /* stepPk_win_colour8@2x.png in Resources */,
 				C8A93E982366786D0062C813 /* Home_demo_03.png in Resources */,
@@ -1368,19 +1705,26 @@
 				C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */,
 				C8424EBC229E770A003A7C58 /* JSToOC.html in Resources */,
 				C8424EC0229E7896003A7C58 /* close_icon_gray@2x.png in Resources */,
-				C8D695F22390CC89004B366B /* NYSPrayViewController.xib in Resources */,
+				C879480923A264B1003EC2D7 /* QMHCommitSuccessView.xib in Resources */,
+				C807699123A24DA7004B6E1C /* liked@2x.png in Resources */,
+				C807698823A24DA7004B6E1C /* image_1.jpg in Resources */,
+				C807696423A1FDD5004B6E1C /* NYSScrollNumberView.xib in Resources */,
 				C8265C9E22A27E6B0072A3F1 /* NYSLoginViewController.xib in Resources */,
 				C89CA2BC22BCA2DE0086F9B0 /* stepPk_win_colour4@2x.png in Resources */,
+				C87947E623A25DAC003EC2D7 /* QMHCreateActViewController.xib in Resources */,
 				C857A393229CD026002B5396 /* MBHUD_Info@2x.png in Resources */,
 				C857A396229CD026002B5396 /* MBHUD_Success@3x.png in Resources */,
+				C807699323A24DA7004B6E1C /* userInfo.png in Resources */,
 				C8265C7E22A2710E0072A3F1 /* man@2x.png in Resources */,
 				C85C44B7229BA88100B35652 /* loading_image.png in Resources */,
 				C8265C7A22A25E830072A3F1 /* me.plist in Resources */,
 				C85C44D1229BAB2900B35652 /* arrow_icon.png in Resources */,
 				C89CA2BD22BCA2DE0086F9B0 /* stepPk_win_colour2@2x.png in Resources */,
+				C807698E23A24DA7004B6E1C /* image_7.jpg in Resources */,
 				C857A398229CD026002B5396 /* MBHUD_Warn@3x.png in Resources */,
 				C802A61F22A62FB8002E2A58 /* FAQ.json in Resources */,
 				C8A93E972366786D0062C813 /* Home_demo_02.png in Resources */,
+				C807698A23A24DA7004B6E1C /* image_3.jpg in Resources */,
 				C857A391229CD026002B5396 /* MBHUD_Error@2x.png in Resources */,
 				C85C44AC229BA78300B35652 /* WebLoadErrorView.html in Resources */,
 				C85C44CD229BAB2900B35652 /* right_arrow@3x.png in Resources */,
@@ -1389,21 +1733,33 @@
 				C8AF0D232398AE67009BBEBE /* nav_img1.png in Resources */,
 				C85C44B9229BA88100B35652 /* loading_image@3x.png in Resources */,
 				C85C44AD229BA78300B35652 /* webloaderrorview.png in Resources */,
+				C807698C23A24DA7004B6E1C /* image_5.jpg in Resources */,
 				C89CA2C122BCA2DE0086F9B0 /* stepPk_win_colour1@2x.png in Resources */,
 				C8A93E992366786D0062C813 /* Mine_photo_define@2x.png in Resources */,
 				C89CA2C022BCA2DE0086F9B0 /* stepPk_win_colour6@2x.png in Resources */,
+				C807699023A24DA7004B6E1C /* image_9.jpg in Resources */,
 				C857A397229CD026002B5396 /* MBHUD_Warn@2x.png in Resources */,
+				C87947F623A2604A003EC2D7 /* QMHGroupMemberCell.xib in Resources */,
 				C85C44D4229BAB2900B35652 /* arrow_icon@2x.png in Resources */,
 				C8A93E962366786D0062C813 /* Home_demo_01.png in Resources */,
+				C879480423A26423003EC2D7 /* NYSDisplayIconCell.xib in Resources */,
+				C87947F023A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib in Resources */,
+				C87947E323A25DAC003EC2D7 /* QMHCAListViewController.xib in Resources */,
 				C85C44B8229BA88100B35652 /* loading_image@2x.png in Resources */,
+				C807698923A24DA7004B6E1C /* image_2.jpg in Resources */,
 				C857A392229CD026002B5396 /* MBHUD_Error@3x.png in Resources */,
+				C87947E823A25DAC003EC2D7 /* QMHGroupCardViewController.xib in Resources */,
+				C807698F23A24DA7004B6E1C /* image_8.jpg in Resources */,
 				C85C44CF229BAB2900B35652 /* down_arrow@2x.png in Resources */,
 				C85C44C9229BAB2900B35652 /* left_arrow.png in Resources */,
 				C8265CA022A27E6B0072A3F1 /* NYSRegisterViewController.xib in Resources */,
 				C8424EC6229E78E6003A7C58 /* close_icon.png in Resources */,
 				C802A62122A6319C002E2A58 /* FAQ.plist in Resources */,
+				C87947F223A25DAC003EC2D7 /* QMHMemberView.xib in Resources */,
+				C807698B23A24DA7004B6E1C /* image_4.jpg in Resources */,
 				C85C44A7229BA73700B35652 /* back_icon@3x.png in Resources */,
 				C85C44CA229BAB2900B35652 /* down_arrow.png in Resources */,
+				C879480323A26423003EC2D7 /* QMHLeftTextCell.xib in Resources */,
 				C85C44CB229BAB2900B35652 /* left_arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1525,15 +1881,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */,
+				C807697A23A24D8F004B6E1C /* CCDraggableContainer.m in Sources */,
 				C8265C9F22A27E6B0072A3F1 /* NYSRegisterViewController.m in Sources */,
+				C8D8AF3D23A1E1DC00737BBE /* NYSTodayItemView.m in Sources */,
 				C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */,
+				C87947E923A25DAC003EC2D7 /* QMHMemberListCollectionVC.m in Sources */,
 				C860A7352397891100902AB6 /* KHAlertPickerController.m in Sources */,
+				C807696223A1FDC0004B6E1C /* NYSScrollNumberView.m in Sources */,
 				C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */,
 				C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */,
+				C879480C23A26503003EC2D7 /* XLRatingView.m in Sources */,
 				C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */,
 				C8AF0D2D2398B74F009BBEBE /* UITableView+XSAnimationKit.m in Sources */,
 				C857A3A2229CD138002B5396 /* PPNetworkHelper.m in Sources */,
-				C8D695F12390CC89004B366B /* NYSPrayViewController.m in Sources */,
+				C80D251723A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m in Sources */,
 				C8BA3AA3238FBC2A0041FC6E /* NYSBaseNavigationController.m in Sources */,
 				C8265C9D22A27E6B0072A3F1 /* NYSLoginViewController.m in Sources */,
 				C8424ED5229E8BE7003A7C58 /* NYSTabBarController.m in Sources */,
@@ -1543,7 +1904,12 @@
 				C860A73A23979A9400902AB6 /* NYSBindPhoneViewController.m in Sources */,
 				C857A3A0229CD138002B5396 /* HeaderModel.m in Sources */,
 				C8F857DC2356FBFC00521460 /* NYSConversationViewController.m in Sources */,
+				C807696823A2160C004B6E1C /* NYSArticleModel.m in Sources */,
 				C8A93E9B2366786D0062C813 /* HomeDetailViewController.m in Sources */,
+				C87947EF23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m in Sources */,
+				C807696C23A216B0004B6E1C /* NYSBannerModel.m in Sources */,
+				C87947EC23A25DAC003EC2D7 /* QMHMemberModel.m in Sources */,
+				C87947E523A25DAC003EC2D7 /* QMHCreateActViewController.m in Sources */,
 				C8A93E9D2366786D0062C813 /* HomeViewController.m in Sources */,
 				C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */,
 				C85DD72022A4BE8E00E33636 /* NYSTools.m in Sources */,
@@ -1556,33 +1922,47 @@
 				C8C664BD2363CF60009952E5 /* NYSGroupListViewController.m in Sources */,
 				C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */,
 				C8F857D92356FB6100521460 /* NYSChatListViewController.m in Sources */,
+				C879480223A26423003EC2D7 /* NYSDisplayIconCell.m in Sources */,
 				C8265C7222A215DF0072A3F1 /* NYSNickNameLbel.m in Sources */,
 				C857A383229CCBDA002B5396 /* AppManager.m in Sources */,
 				C857A387229CD016002B5396 /* MBProgressHUD+NYS.m in Sources */,
 				C85C44F0229C03F300B35652 /* AESCipher.m in Sources */,
 				C8B6B5632394AD8A0067ACD5 /* NYSPersonalInfoViewController.m in Sources */,
+				C87947E723A25DAC003EC2D7 /* QMHGroupCardViewController.m in Sources */,
+				C87947EB23A25DAC003EC2D7 /* QMHCommunityActivityList.m in Sources */,
+				C87947F123A25DAC003EC2D7 /* QMHMemberView.m in Sources */,
 				C8265C7522A24E7F0072A3F1 /* NYSMeTableViewCell.m in Sources */,
 				C857A3A1229CD138002B5396 /* PPNetworkCache.m in Sources */,
+				C879480823A264B1003EC2D7 /* QMHCommitSuccessView.m in Sources */,
 				C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */,
+				C807696F23A216D8004B6E1C /* NYSPublicnotice.m in Sources */,
 				C85C449E229B5FD600B35652 /* NYSRootNavigationController.m in Sources */,
+				C807699B23A24DC6004B6E1C /* XibViewController.m in Sources */,
 				C85DD73722A4F90600E33636 /* ShareManager.m in Sources */,
 				C85C449A229B5E1A00B35652 /* NYSRootViewController.m in Sources */,
 				C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */,
+				C87947F723A2604A003EC2D7 /* QMHGroupMemberCell.m in Sources */,
 				C85C44EE229C03F300B35652 /* OpenUDID.m in Sources */,
 				C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */,
 				C821612E235D5EEC00B17530 /* ChineseString.m in Sources */,
 				C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */,
+				C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */,
 				C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */,
+				C87947E223A25DAC003EC2D7 /* QMHCAListViewController.m in Sources */,
 				C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */,
-				C8216128235D5E5800B17530 /* NYSContactsListViewController.m in Sources */,
 				C85DD73222A4F03A00E33636 /* IMManager.m in Sources */,
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
 				C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */,
+				C87947EA23A25DAC003EC2D7 /* QMHCommunityActivityDetail.m in Sources */,
+				C87947ED23A25DAC003EC2D7 /* QMHACCollectionViewCell.m in Sources */,
 				C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */,
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */,
+				C87947E423A25DAC003EC2D7 /* QMHCommunityActivityViewController.m in Sources */,
+				C807699E23A24DC6004B6E1C /* CustomCardView.m in Sources */,
 				C802A60322A62C39002E2A58 /* AppDelegate+PushService.m in Sources */,
 				C860A7362397891100902AB6 /* NSArray+SubArr.m in Sources */,
+				C807697923A24D8F004B6E1C /* CCDraggableCardView.m in Sources */,
 				C821612F235D5EEC00B17530 /* pinyin.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,
@@ -1593,8 +1973,10 @@
 				C85C44DD229BD82000B35652 /* NYSTransition.m in Sources */,
 				C8265C7822A252C80072A3F1 /* NYSMeModel.m in Sources */,
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,
+				C879480123A26423003EC2D7 /* QMHLeftTextCell.m in Sources */,
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,
 				C8265CA422A27E6B0072A3F1 /* NYSTextField.m in Sources */,
+				C883875523A0C3C300EFD29D /* NYSBannerCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

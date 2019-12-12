@@ -172,4 +172,12 @@
         WHERE phone = #{phone}
     </select>
 
+    <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.User">
+        select *
+        from dcd_user a
+        inner join dcd_fellowship b
+        on a.fellowship = b.id
+        where a.fellowship = #{fellowship}
+    </select>
+
 </mapper>

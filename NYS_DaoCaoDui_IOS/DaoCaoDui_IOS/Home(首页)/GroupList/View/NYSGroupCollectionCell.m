@@ -31,6 +31,7 @@
     
     self.bgView.layer.cornerRadius = 5;
     self.bgView.layer.masksToBounds = YES;
+    self.bgView.backgroundColor = [UIColor colorWithWhite:.95f alpha:.2f];
 }
 
 - (void)setGroupModel:(NYSGroupModel *)groupModel {
@@ -40,8 +41,8 @@
     self.name.textColor = groupModel.isTop ? [UIColor redColor] : [UIColor blackColor];
     self.name.text = groupModel.groupName;
     self.memberCount.text = [NSString stringWithFormat:@"%ld/2000", groupModel.memberCount];
-    self.introduction.text = groupModel.description;
-    self.fellowship.text = [NSString stringWithFormat:@"%ld", groupModel.fellowship];
+    self.introduction.text = groupModel.introduction;
+    self.fellowship.text = groupModel.fellowshipName;
 }
 
 - (IBAction)joinClicked:(UIButton *)sender {
