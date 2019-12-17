@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.MusicMenuDao">
+
+    <!-- 根据歌单ID查询到该歌单，连表查出歌单包含的歌曲列表 -->
+    <resultMap id="musicMenuMap_1" type="MusicMenu" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="musicList" column="id" select="com.niyongsheng.persistence.dao.Music_MusicMenuDao.getMusicsByMusicMenuId"/>
+    </resultMap>
+
+    <select id="selectMusicListById" resultMap="musicMenuMap_1">
+        select *
+        from dcd_musicMenu
+        where id = #{id}
+    </select>
+
+    <!-- 根据团契编号查询该团契下的歌单列表，连表查出歌单包含的歌曲列表、用户信息、团契信息 -->
+    <resultMap id="musicMenuMap_2" type="MusicMenu" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="musicList" column="id" select="com.niyongsheng.persistence.dao.Music_MusicMenuDao.getMusicsByMusicMenuId"/>
+        <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
+        <collection property="fel" column="fellowship" select="com.niyongsheng.persistence.dao.FellowshipDao.findOneById"/>
+    </resultMap>
+
+    <select id="selectAllByFellowship" resultMap="musicMenuMap_2">
+        select *
+        from dcd_musicMenu
+        where fellowship = #{fellowship}
+    </select>
+
+</mapper>

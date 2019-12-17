@@ -94,10 +94,10 @@
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Group">
         SELECT *
-        FROM dcd_group a
-        INNER JOIN dcd_fellowship b
-        ON a.fellowship = b.id
-        WHERE a.fellowship = #{fellowship}
+        FROM dcd_group g
+        INNER JOIN dcd_fellowship f
+        ON g.fellowship = f.id
+        WHERE g.fellowship = #{fellowship}
     </select>
 
 </mapper>

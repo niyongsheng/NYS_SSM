@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 1
+#define DevelopSever 0
 #define TestSever    0
-#define ProductSever 0
+#define ProductSever 1
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
@@ -48,7 +48,10 @@ UIKIT_EXTERN NSString *const CR_GetBanners;
 UIKIT_EXTERN NSString *const CR_GetPublicnotices;
 /** 获取文章列表*/
 UIKIT_EXTERN NSString *const CR_GetArticleList;
-
+/** 获取活动列表*/
+UIKIT_EXTERN NSString *const CR_GetActivityList;
+/** 获取代祷列表*/
+UIKIT_EXTERN NSString *const CR_GetPrayList;
 
 
 /** 创建群组*/

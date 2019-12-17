@@ -53,6 +53,12 @@ typedef void(^NYSUploadProcess)(NSProgress *uploadProcess);
 + (NSURLSessionTask *)GetPublicnoticeList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 获取文章列表*/
 + (NSURLSessionTask *)GetArticleList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 获取活动列表*/
++ (NSURLSessionTask *)GetActivityList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 获取代祷列表*/
++ (NSURLSessionTask *)GetPrayList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+
+
 
 
 /** 创建群组*/

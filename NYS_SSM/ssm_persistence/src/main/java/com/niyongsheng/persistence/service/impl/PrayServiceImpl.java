@@ -16,7 +16,7 @@ import java.util.List;
  * @updateAuthor $
  * @updateDes
  */
-@Service("PrayService")
+@Service("prayService")
 public class PrayServiceImpl extends ServiceImpl<PrayDao, Pray> implements PrayService {
 
     @Autowired

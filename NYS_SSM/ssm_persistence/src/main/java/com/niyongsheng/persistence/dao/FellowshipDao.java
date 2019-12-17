@@ -13,4 +13,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FellowshipDao extends BaseMapper<Fellowship> {
+
+    Fellowship findOneById(Integer id);
 }

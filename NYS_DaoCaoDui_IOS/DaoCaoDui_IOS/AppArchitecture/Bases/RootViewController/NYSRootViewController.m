@@ -131,7 +131,7 @@
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTopHeight - NTabBarHeight) collectionViewLayout:flow];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTabBarHeight) collectionViewLayout:flow];
         
         // 头部刷新
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];

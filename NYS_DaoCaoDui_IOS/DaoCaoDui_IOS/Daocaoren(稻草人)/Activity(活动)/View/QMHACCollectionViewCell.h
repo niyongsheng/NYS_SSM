@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class QMHCommunityActivityList;
+@class NYSActivityModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QMHACCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) QMHCommunityActivityList *collectionModel;
+@property (weak, nonatomic) NYSActivityModel *collectionModel;
 
 @property (strong, nonatomic) UIViewController  *fromViewController;
 

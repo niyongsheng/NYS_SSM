@@ -233,8 +233,8 @@
 - (NSArray *)bannerArray {
     if (!_bannerArray) {
         NYSBannerModel *banner1 = [[NYSBannerModel alloc] init];
-        banner1.title = @"爱是我们相聚在一起";
-        banner1.bannerUrl = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576145821137&di=6487b986f41ee370b7e94a2c12bfc110&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201606%2F16%2F20160616093400_YrVBx.jpeg";
+        banner1.title = @"爱使我们相聚一起";
+        banner1.bannerUrl = @"http://image.daocaodui.top/config/icon/banner.jpeg";
         _bannerArray = @[banner1];
     }
     return _bannerArray;
@@ -242,7 +242,7 @@
 
 - (NSMutableArray *)publicnoticeArray {
     if (!_publicnoticeArray) {
-        _publicnoticeArray = @[@"塑造生命，成就使命！", @"Jesus Christ Is Everything."].mutableCopy;
+        _publicnoticeArray = @[@"塑造生命，成就使命！", @"Amazing Grace, how sweet the sound\nThat saved a wretch like me\nI once was lost but now I'm found\nWas blind but now I see\nT'was grace that taught my heart to fear\nAnd grace my fear relieved\nHow precious did that grace appear\nThe hour I first believed\nThrough many dangers, toils and snares\nWe have already come\nT'was grace that brought us safe thus far\nAnd grace will lead us home\nWhen we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we first begun"].mutableCopy;
     }
     return _publicnoticeArray;
 }

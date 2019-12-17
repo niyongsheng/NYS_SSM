@@ -9,13 +9,35 @@
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
-			<string>icon_me_service_24x24_</string>
+			<string>icon_me_collect_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>
 		<dict>
 			<key>titleText</key>
-			<string>我的订单</string>
+			<string>我的分享</string>
+			<key>detailText</key>
+			<string></string>
+			<key>titleIcon</key>
+			<string>icon_me_feedback_24x25_</string>
+			<key>subIcon</key>
+			<string>right_arrow</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>titleText</key>
+			<string>神奇盒子</string>
+			<key>detailText</key>
+			<string></string>
+			<key>titleIcon</key>
+			<string>icon_me_box_24x24_</string>
+			<key>subIcon</key>
+			<string>right_arrow</string>
+		</dict>
+		<dict>
+			<key>titleText</key>
+			<string>随想笔记</string>
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
@@ -51,7 +73,7 @@
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
-			<string>icon_me_about_22x22_</string>
+			<string>icon_me_about_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>

@@ -3,16 +3,16 @@
 <mapper namespace="com.niyongsheng.persistence.dao.PrayDao">
     <select id="selectAllMultiTable" resultType="com.niyongsheng.persistence.domain.Pray">
         select *
-        from dcd_pray a
-        inner join dcd_fellowship b
-        on a.fellowship = b.id
+        from dcd_pray p
+        inner join dcd_fellowship f
+        on p.fellowship = f.id
     </select>
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Pray">
         select *
-        from dcd_pray a
-        inner join dcd_fellowship b
-        on a.fellowship = b.id
-        where a.fellowship = #{fellowship}
+        from dcd_pray p
+        inner join dcd_fellowship f
+        on p.fellowship = f.id
+        where p.fellowship = #{fellowship}
     </select>
 </mapper>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,12 +26,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r7-Di-HvU">
                                 <rect key="frame" x="0.0" y="160" width="160" height="30"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dingweiweizhizuobiaomianxing" translatesAutoresizingMaskIntoConstraints="NO" id="ShE-pK-Trc">
-                                        <rect key="frame" x="10" y="10" width="8" height="10"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_8x10_" translatesAutoresizingMaskIntoConstraints="NO" id="ShE-pK-Trc">
+                                        <rect key="frame" x="10" y="10.5" width="8" height="9.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jl-PZ-xeo">
                                         <rect key="frame" x="110" y="5" width="40" height="20"/>
-                                        <color key="backgroundColor" red="0.98318117859999998" green="0.071827836330000006" blue="0.58500802519999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0Jl-PZ-xeo" secondAttribute="height" multiplier="2:1" id="4su-ks-aBB"/>
                                             <constraint firstAttribute="width" constant="40" id="Xwk-R9-YQM"/>
@@ -65,7 +65,7 @@
                                     <constraint firstItem="sxD-pe-fbF" firstAttribute="centerY" secondItem="0r7-Di-HvU" secondAttribute="centerY" id="oiu-8p-K1Y"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-5s-Ykc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="custom_service_switch_to_admin.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-5s-Ykc">
                                 <rect key="frame" x="10" y="10" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="12L-Om-2ah"/>
@@ -73,7 +73,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们致力于打造智能小区,使 物业更人性化..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axr-Oa-ZAb">
-                                <rect key="frame" x="17" y="108" width="138" height="26.5"/>
+                                <rect key="frame" x="17" y="107.5" width="138" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -84,11 +84,11 @@
                                 <color key="textColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiaruwomen-2" translatesAutoresizingMaskIntoConstraints="NO" id="SYx-yo-Byf">
-                                <rect key="frame" x="17" y="95" width="9" height="9"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="members_icon_9x8_" translatesAutoresizingMaskIntoConstraints="NO" id="SYx-yo-Byf">
+                                <rect key="frame" x="17" y="95" width="9" height="8.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100/2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyW-or-qum">
-                                <rect key="frame" x="28" y="95.5" width="34" height="8.5"/>
+                                <rect key="frame" x="28" y="95" width="34" height="8.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="7"/>
                                 <color key="textColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -99,10 +99,10 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="act_top" translatesAutoresizingMaskIntoConstraints="NO" id="KTF-xy-eaJ">
                                         <rect key="frame" x="0.0" y="0.0" width="35" height="15"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhiding-2" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-w4-ASw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_icon_9x10_" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-w4-ASw">
                                         <rect key="frame" x="5" y="3" width="9" height="9.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推广" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lf-vT-7Ig">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="置顶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lf-vT-7Ig">
                                         <rect key="frame" x="16" y="3.5" width="14.5" height="8.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="7"/>
                                         <color key="textColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -178,9 +178,9 @@
     <resources>
         <image name="act_1" width="168" height="197.5"/>
         <image name="act_top" width="37" height="16"/>
-        <image name="dingweiweizhizuobiaomianxing" width="8" height="9.5"/>
-        <image name="jiaruwomen-2" width="9" height="8.5"/>
-        <image name="zhiding-2" width="9" height="9.5"/>
-        <image name="默认头像" width="61.5" height="61"/>
+        <image name="custom_service_switch_to_admin.png" width="28" height="28"/>
+        <image name="location_8x10_" width="8" height="9.5"/>
+        <image name="members_icon_9x8_" width="9" height="8.5"/>
+        <image name="top_icon_9x10_" width="9" height="9.5"/>
     </resources>
 </document>

@@ -12,8 +12,9 @@
 #import <AXWebViewController.h>
 #import "HomeViewController.h"
 #import "NYSDaocaoduiHomeViewController.h"
-#import "XibViewController.h"
-#import "QMHCommunityActivityViewController.h"
+#import "NYSPrayCardListViewController.h"
+#import "NYSActivityListViewController.h"
+#import "NYSMusicListViewController.h"
 
 @interface NYSDCDViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -53,7 +54,7 @@
     AXWebViewController *dcdWebVC0 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/web"];
     AXWebViewController *dcdWebVC1 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/"];
     AXWebViewController *dcdWebVC2 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/swagger-ui.html"];
-    NSArray *childArr = @[[NYSDaocaoduiHomeViewController new], articlePageVC, dcdWebVC0, [XibViewController new], [QMHCommunityActivityViewController new], dcdWebVC2];
+    NSArray *childArr = @[[NYSDaocaoduiHomeViewController new], articlePageVC, [NYSMusicListViewController new], [NYSPrayCardListViewController new], [NYSActivityListViewController new], dcdWebVC2];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;
     [self.view addSubview:_pageContentCollectionView];

@@ -13,6 +13,7 @@
 #import <MJExtension/MJExtension.h>
 #import <WXWaveView.h>
 
+#import "NYSMyCollectViewController.h"
 #import "NYSPersonalInfoViewController.h"
 #import "NYSFAQViewController.h"
 
@@ -136,6 +137,8 @@
         [[ShareManager sharedShareManager] showShareView];
     } else if ([titleText isEqualToString:@"关于"]) {
         [self.navigationController pushViewController:[NYSFAQViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"我的收藏"]) {
+        [self.navigationController pushViewController:[NYSMyCollectViewController new] animated:YES];
     }
 }
 

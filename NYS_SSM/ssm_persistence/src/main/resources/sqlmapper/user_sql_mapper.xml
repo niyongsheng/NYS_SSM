@@ -174,10 +174,10 @@
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.User">
         select *
-        from dcd_user a
-        inner join dcd_fellowship b
-        on a.fellowship = b.id
-        where a.fellowship = #{fellowship}
+        from dcd_user u
+        inner join dcd_fellowship f
+        on u.fellowship = f.id
+        where u.fellowship = #{fellowship}
     </select>
 
 </mapper>

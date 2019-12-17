@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.ActivityDao">
+
+    <select id="selectByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Activity">
+        select *
+        from dcd_activity a
+        inner join dcd_fellowship f
+        on a.fellowship = f.id
+        where a.fellowship = #{fellowship}
+    </select>
+
+</mapper>

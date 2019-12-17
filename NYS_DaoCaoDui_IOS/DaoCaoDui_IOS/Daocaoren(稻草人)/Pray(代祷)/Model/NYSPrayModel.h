@@ -1,0 +1,31 @@
+//
+//  NYSPrayModel.h
+//  DaoCaoDui_IOS
+//
+//  Created by 倪永胜 on 2019/12/13.
+//  Copyright © 2019 NiYongsheng. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface NYSPrayModel : NSObject
+@property (nonatomic, strong) NSString * account;
+@property (nonatomic, strong) NSString * content;
+@property (nonatomic, strong) NSObject * expireTime;
+@property (nonatomic, assign) NSInteger fellowship;
+@property (nonatomic, strong) NSString * fellowshipName;
+@property (nonatomic, strong) NSObject * gmtCreate;
+@property (nonatomic, strong) NSObject * gmtModify;
+@property (nonatomic, strong) NSString * icon;
+@property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, assign) BOOL isTop;
+@property (nonatomic, assign) NSInteger prayType;
+@property (nonatomic, strong) NSObject * prayUrl;
+@property (nonatomic, assign) BOOL status;
+@property (nonatomic, strong) NSString * subtitle;
+@property (nonatomic, strong) NSString * title;
+@end
+
+NS_ASSUME_NONNULL_END

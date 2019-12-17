@@ -7,7 +7,7 @@
 //
 
 #import "QMHACCollectionViewCell.h"
-#import "QMHCommunityActivityList.h"
+#import "NYSActivityModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
 #import "NYSConversationViewController.h"
@@ -29,6 +29,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    self.icon.contentMode = UIViewContentModeScaleAspectFill;
     self.icon.layer.cornerRadius = 30;
     self.icon.layer.masksToBounds = YES;
     
@@ -46,7 +47,7 @@
     return layoutAttributes;
 }
 
-- (void)setCollectionModel:(QMHCommunityActivityList *)collectionModel {
+- (void)setCollectionModel:(NYSActivityModel *)collectionModel {
     _collectionModel = collectionModel;
     
     // 随机背景色
@@ -55,15 +56,15 @@
     [self.bgBtnView setBackgroundImage:[UIImage imageNamed:bgimgName] forState:UIControlStateNormal];
     self.bgBtnView.userInteractionEnabled = NO;
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:collectionModel.imgAddress] placeholderImage:[UIImage imageNamed:@"logo"]];
-    self.title.textColor = [collectionModel.isTop boolValue] ? UIColorFromHex(0xFCC430) : [UIColor whiteColor];
-    self.title.text = collectionModel.title;
-    self.topView.hidden = [collectionModel.isTop boolValue] ? NO : YES;
-    self.memberCount.text = [NSString stringWithFormat:@"%@/2000", collectionModel.memberNum];
-    self.introduction.text = collectionModel.content;
-    self.community.text = collectionModel.comName;
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:collectionModel.icon] placeholderImage:[UIImage imageNamed:@"logo"]];
+    self.title.textColor = collectionModel.isTop ? UIColorFromHex(0xFCC430) : [UIColor whiteColor];
+    self.title.text = collectionModel.name;
+    self.topView.hidden = collectionModel.isTop ? NO : YES;
+    self.memberCount.text = [NSString stringWithFormat:@"%@/2000", @"0"];
+    self.introduction.text = collectionModel.introduction;
+    self.community.text = collectionModel.fellowshipName;
     
-    if ([collectionModel.inGroup boolValue]) {
+    if (!collectionModel.isTop) {
         self.joinBtn.enabled = YES;
         self.joinBtn.backgroundColor = UIColorFromHex(0xFB1295);
     } else {
@@ -74,12 +75,7 @@
 
 - (IBAction)joinClicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NYSConversationViewController *groupConversationVC = [[NYSConversationViewController alloc] initWithConversationType:ConversationType_GROUP targetId:self.collectionModel.groupId];
-        groupConversationVC.title = self.collectionModel.title;
-        [self.fromViewController.navigationController pushViewController:groupConversationVC animated:YES];
-    });
+
 }
 
 @end

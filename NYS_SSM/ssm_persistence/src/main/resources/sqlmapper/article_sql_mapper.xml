@@ -5,8 +5,8 @@
     <select id="selectByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Article">
         select *
         from dcd_article a
-        inner join dcd_fellowship b
-        on a.fellowship = b.id
+        inner join dcd_fellowship f
+        on a.fellowship = f.id
         where a.fellowship = #{fellowship}
     </select>
 </mapper>

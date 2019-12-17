@@ -51,6 +51,10 @@ NSString *const CR_GetBanners = @"/banner/selectBannerList";
 NSString *const CR_GetPublicnotices = @"/publicnotice/selectPublicnoticeList";
 /** 获取文章列表*/
 NSString *const CR_GetArticleList = @"/article/selectArticleList";
+/** 获取活动列表*/
+NSString *const CR_GetActivityList = @"/activity/selectActivityList";
+/** 获取代祷列表*/
+NSString *const CR_GetPrayList = @"/pray/selectPrayList";
 
 
 /** 创建群组*/

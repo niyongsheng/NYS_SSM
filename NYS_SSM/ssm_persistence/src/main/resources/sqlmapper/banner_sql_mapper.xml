@@ -4,17 +4,17 @@
 
     <select id="selectAllMultiTable" resultType="com.niyongsheng.persistence.domain.Banner">
         select *
-        from dcd_banner a
-        inner join dcd_fellowship b
-        on a.fellowship = b.id
+        from dcd_banner b
+        inner join dcd_fellowship f
+        on b.fellowship = f.id
     </select>
 
     <select id="selectByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Banner">
         select *
-        from dcd_banner a
-        inner join dcd_fellowship b
-        on a.fellowship = b.id
-        where a.fellowship = #{fellowship}
+        from dcd_banner b
+        inner join dcd_fellowship f
+        on b.fellowship = f.id
+        where b.fellowship = #{fellowship}
     </select>
 
 </mapper>
