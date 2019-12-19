@@ -55,6 +55,12 @@ NSString *const CR_GetArticleList = @"/article/selectArticleList";
 NSString *const CR_GetActivityList = @"/activity/selectActivityList";
 /** 获取代祷列表*/
 NSString *const CR_GetPrayList = @"/pray/selectPrayList";
+/** 获取歌单列表*/
+NSString *const CR_GetMusicMenuList = @"/musicSongMenu/selectMusicMenuList";
+/** 获取歌单（含歌曲列表）*/
+NSString *const CR_GetMusicMenu = @"/musicSongMenu/selectMusicListById";
+
+
 
 
 /** 创建群组*/

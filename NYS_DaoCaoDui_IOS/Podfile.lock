@@ -69,8 +69,6 @@ PODS:
   - SDWebImage (4.1.2):
     - SDWebImage/Core (= 4.1.2)
   - SDWebImage/Core (4.1.2)
-  - SGAdvertScrollView (1.2.7):
-    - SDWebImage (~> 4.1.0)
   - SGPagingView (1.6.7)
   - SVProgressHUD (2.2.5)
   - TXScrollLabelView (1.3.2)
@@ -93,7 +91,6 @@ PODS:
     - UMCShare/Core
   - WMZBanner (1.0.4):
     - SDWebImage
-  - WRNavigationBar (1.2.0)
   - WXWaveView (1.0.1)
   - XLForm (4.1.0)
   - YTKKeyValueStore (0.1.2):
@@ -125,7 +122,6 @@ DEPENDENCIES:
   - RongCloudRTC (~> 2.9.25)
   - SDAutoLayout
   - SDWebImage
-  - SGAdvertScrollView
   - SGPagingView
   - SVProgressHUD
   - TXScrollLabelView
@@ -137,7 +133,6 @@ DEPENDENCIES:
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
   - WMZBanner
-  - WRNavigationBar
   - WXWaveView
   - XLForm
   - YTKKeyValueStore
@@ -177,7 +172,6 @@ SPEC REPOS:
     - RongCloudRTC
     - SDAutoLayout
     - SDWebImage
-    - SGAdvertScrollView
     - SGPagingView
     - SVProgressHUD
     - TXScrollLabelView
@@ -187,7 +181,6 @@ SPEC REPOS:
     - UMCErrorCatch
     - UMCShare
     - WMZBanner
-    - WRNavigationBar
     - WXWaveView
     - XLForm
     - YTKNetwork
@@ -221,7 +214,6 @@ SPEC CHECKSUMS:
   RongCloudRTC: 561024c315d3726a67e718fb99b59e50e4a5ee6c
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
-  SGAdvertScrollView: b1accd4ba84e8592f08f18df10174c98ea249d11
   SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TXScrollLabelView: 0e1650caf61198bf5dc0938ea6493254aeb80f90
@@ -231,13 +223,12 @@ SPEC CHECKSUMS:
   UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
   WMZBanner: 460b4757a49a15f23c5ad953cda16950313ccfe0
-  WRNavigationBar: dc952230effbb646785f962587caaac06c60f229
   WXWaveView: f8424284812536a3842bc5dd9afb943e53e911a8
   XLForm: 7ee02761be8a369d1ad1bbffe738b97083d94f3e
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 65ceb6ac04399dc8f5fde59d6e529bd57f00b957
+PODFILE CHECKSUM: 772105508bb7a03e86f36d3e3e4998d6010f0798
 
 COCOAPODS: 1.8.4

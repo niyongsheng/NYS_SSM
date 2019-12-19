@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="LOb-EY-yOk" customClass="NYSIntroductionView">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="156"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="yKo-qw-yDc">
+                    <rect key="frame" x="0.0" y="0.0" width="372" height="156"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="吾生有崖,而知无崖." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1of-Co-lb1">
+                    <rect key="frame" x="50" y="30" width="272" height="96"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="yKo-qw-yDc" firstAttribute="leading" secondItem="LOb-EY-yOk" secondAttribute="leading" id="16X-BD-Az0"/>
+                <constraint firstItem="1of-Co-lb1" firstAttribute="top" secondItem="LOb-EY-yOk" secondAttribute="top" constant="30" id="6is-sn-ovn"/>
+                <constraint firstAttribute="trailing" secondItem="yKo-qw-yDc" secondAttribute="trailing" id="6oc-OS-x2g"/>
+                <constraint firstItem="yKo-qw-yDc" firstAttribute="top" secondItem="LOb-EY-yOk" secondAttribute="top" id="AxT-5v-MTX"/>
+                <constraint firstAttribute="bottom" secondItem="yKo-qw-yDc" secondAttribute="bottom" id="COj-e6-sMG"/>
+                <constraint firstItem="1of-Co-lb1" firstAttribute="centerX" secondItem="LOb-EY-yOk" secondAttribute="centerX" id="csC-c0-8b0"/>
+                <constraint firstItem="1of-Co-lb1" firstAttribute="centerY" secondItem="LOb-EY-yOk" secondAttribute="centerY" id="u8d-at-cTU"/>
+                <constraint firstAttribute="trailing" secondItem="1of-Co-lb1" secondAttribute="trailing" constant="50" id="zkq-VH-Lrg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="wuJ-kJ-DXT"/>
+            <connections>
+                <outlet property="bgImageView" destination="yKo-qw-yDc" id="vl1-uv-lx2"/>
+                <outlet property="titleLabel" destination="1of-Co-lb1" id="Teb-2C-V4J"/>
+            </connections>
+            <point key="canvasLocation" x="101.44927536231884" y="367.63392857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="1" width="639" height="1136"/>
+    </resources>
+</document>

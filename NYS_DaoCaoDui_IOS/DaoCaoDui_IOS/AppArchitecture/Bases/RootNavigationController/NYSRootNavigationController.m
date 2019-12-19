@@ -28,8 +28,8 @@
     [navBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 //    [navBar setBackgroundImage:[UIImage imageWithColor:NNavBgColor] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     [navBar setBarTintColor:NNavBgColor];
-    [navBar setTintColor:NNavBgFontColor];
-    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName:NNavBgFontColor, NSFontAttributeName : [UIFont systemFontOfSize:18]}];
+    [navBar setTintColor:NNavFontColor];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName:NNavFontColor, NSFontAttributeName : [UIFont systemFontOfSize:18]}];
     // 去掉阴影线
     [navBar setShadowImage:[UIImage new]];
 }
@@ -73,10 +73,9 @@
     if (self.viewControllers.count > 0) {
         if ([viewController conformsToProtocol:@protocol(NYSTransitionProtocol)] && [self isNeedTransition:viewController]) {
             viewController.hidesBottomBarWhenPushed = NO;
-        }else{
+        } else {
             viewController.hidesBottomBarWhenPushed = YES;
         }
-        
     }
     [super pushViewController:viewController animated:animated];
     // 修改tabBra的frame

@@ -16,9 +16,9 @@ target 'DaoCaoDui_IOS' do
   pod 'YTKKeyValueStore'
   pod 'YTKNetwork'
   pod 'AxcAE_TabBar'
-  pod 'WRNavigationBar'
+#  pod 'WRNavigationBar'
   pod 'SGPagingView'
-  pod 'SGAdvertScrollView'
+#  pod 'SGAdvertScrollView'
   pod 'JXCategoryView'
   pod 'JXPagingView/Pager'
   pod 'IQKeyboardManager'
@@ -42,12 +42,4 @@ target 'DaoCaoDui_IOS' do
   pod 'UMCErrorCatch'
   pod 'UMCShare/Social/ReducedWeChat'
   pod 'UMCShare/Social/ReducedQQ'
-  
-  target 'DaoCaoDui_IOSTests' do
-    inherit! :search_paths
-  end
-
-  target 'DaoCaoDui_IOSUITests' do
-  end
-
 end

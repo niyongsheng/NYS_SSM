@@ -124,7 +124,17 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 获取歌单列表*/
++ (NSURLSessionTask *)GetMusicMenuList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetMusicMenuList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
 
+/** 获取歌单（含歌曲列表）*/
++ (NSURLSessionTask *)GetMusicMenuById:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetMusicMenu];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
 
 
 

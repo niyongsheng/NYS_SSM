@@ -1,6 +1,0 @@
-framework module SGAdvertScrollView {
-  umbrella header "SGAdvertScrollView-umbrella.h"
-
-  export *
-  module * { export * }
-}

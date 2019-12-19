@@ -26,7 +26,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     self.isHidenNaviBar = YES;
-    self.StatusBarStyle = UIStatusBarStyleDefault;
+    self.customStatusBarStyle = UIStatusBarStyleDefault;
     [self showAnimation];
 }
 

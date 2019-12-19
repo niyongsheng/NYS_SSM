@@ -20,7 +20,7 @@
     [self initWindow];
     
     // WRNavigationBar 初始化
-    [self initWRNavigationBar];
+//    [self initWRNavigationBar];
     
     // 初始化app服务
     [self initService];

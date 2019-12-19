@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,14 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_app.png" translatesAutoresizingMaskIntoConstraints="NO" id="FAa-i5-B4r">
-                                <rect key="frame" x="152.5" y="572" width="70" height="70"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_60x60" translatesAutoresizingMaskIntoConstraints="NO" id="FAa-i5-B4r">
+                                <rect key="frame" x="152.5" y="567" width="70" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="VYq-kQ-VIv"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2019 NYS. All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Hk-TkN">
-                                <rect key="frame" x="71" y="635" width="233.5" height="25"/>
+                                <rect key="frame" x="71" y="627" width="233.5" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="aB0-2L-0SG"/>
                                 </constraints>
@@ -37,8 +38,8 @@
                             <constraint firstItem="FAa-i5-B4r" firstAttribute="width" secondItem="FAa-i5-B4r" secondAttribute="height" multiplier="1:1" id="2eg-qc-dtI"/>
                             <constraint firstItem="FAa-i5-B4r" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5ac-3V-riQ"/>
                             <constraint firstItem="sgC-Hk-TkN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="A31-KI-Jh5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FAa-i5-B4r" secondAttribute="bottom" constant="25" id="a35-jY-r9r"/>
-                            <constraint firstAttribute="bottom" secondItem="sgC-Hk-TkN" secondAttribute="bottom" constant="7" id="il5-xo-v1l"/>
+                            <constraint firstAttribute="bottom" secondItem="sgC-Hk-TkN" secondAttribute="bottom" constant="15" id="il5-xo-v1l"/>
+                            <constraint firstItem="sgC-Hk-TkN" firstAttribute="top" secondItem="FAa-i5-B4r" secondAttribute="bottom" constant="-10" id="nhM-Vy-Nuw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -49,6 +50,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_app.png" width="180" height="180"/>
+        <image name="logo_60x60" width="180" height="180"/>
     </resources>
 </document>

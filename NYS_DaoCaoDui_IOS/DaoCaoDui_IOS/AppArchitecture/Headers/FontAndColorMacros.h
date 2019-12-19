@@ -12,16 +12,20 @@
 #pragma mark -- 间距区 --
 // 默认间距
 #define NNormalSpace 12.0f
+#define SegmentViewHeight 44.0f
 
 #pragma mark -- 颜色区 --
 // 主题色 导航栏颜色
-#define NNavBgColor     [UIColor colorWithHexString:@"F63D53"]
-//#define NNavBgColor     [UIColor colorWithHexString:@"#EAEAEA"] // #FB2044
-//#define NNavBgColor     [UIColor colorWithHexString:@"#F0F0F0"]
-#define NNavBgFontColor [UIColor colorWithHexString:@"ffffff"]
+#define NNavBgColor     [UIColor colorWithHexString:@"FB2044"] // 红(深)
+#define NNavBgColorShallow     [UIColor colorWithHexString:@"F63D53"] // 红(浅)
+
+#define NBgColorLightGray     [UIColor colorWithHexString:@"EAEAEA"] // 浅灰
+#define NBgColorDrakGray     [UIColor colorWithHexString:@"F0F0F0"]
+//#define NBgColor [UIColor colorWithRed:1.00 green:0.00 blue:0.26 alpha:0.2]
+#define NNavFontColor [UIColor colorWithHexString:@"ffffff"] // 灰色
 
 // WKWebView 进度条颜色
-#define NWKProgressColor [UIColor colorWithHexString:@"#F42A2C"]
+#define NWKProgressColor [UIColor colorWithHexString:@"F42A2C"]
 
 // 默认页面背景色
 #define NViewBgColor [UIColor whiteColor]
@@ -31,10 +35,12 @@
 #define NFontColor1 [UIColor colorWithHexString:@"1f1f1f"]
 // 再次级字色
 #define NFontColor2 [UIColor colorWithHexString:@"5c5c5c"]
+// 分栏指示器文字灰色
+#define NFontGrayColorSegment RGBColor(161, 160, 160);
 
 
 #pragma mark -- 字体区 --
 
-#define NFontSize1 [UIFont systemFontOfSize:12.0f]
+#define NFontSize12 [UIFont systemFontOfSize:12.0f]
 
 #endif /* FontAndColorMacros_h */

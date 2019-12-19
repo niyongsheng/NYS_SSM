@@ -9,7 +9,7 @@
 #import "AppManager.h"
 #import "AdPageView.h"
 #import "YYFPSLabel.h"
-#import "NYSRootNavigationController.h"
+#import "NYSBaseNavigationController.h"
 #import "NYSRootWebViewController.h"
 
 
@@ -17,7 +17,7 @@
 + (void)appStart {
     // 加载广告
     AdPageView *adView = [[AdPageView alloc] initWithFrame:NScreen_Bounds withTapBlock:^{
-        NYSRootNavigationController *loginNavi = [[NYSRootNavigationController alloc] initWithRootViewController:[[NYSRootWebViewController alloc] initWithUrl:@"https://movie.douban.com/subject/30249161/"]];
+        NYSBaseNavigationController *loginNavi = [[NYSBaseNavigationController alloc] initWithRootViewController:[[NYSRootWebViewController alloc] initWithUrl:@"https://movie.douban.com/subject/30249161/"]];
         [NRootViewController presentViewController:loginNavi animated:YES completion:nil];
     }];
     adView = adView;
@@ -26,7 +26,7 @@
 + (void)showFPS {
     YYFPSLabel *_fpsLabel = [YYFPSLabel new];
     [_fpsLabel sizeToFit];
-    _fpsLabel.bottom = NScreenHeight - 55;
+    _fpsLabel.bottom = NScreenHeight - (isIphonex ? RealValue(80) : RealValue(55));
     _fpsLabel.right = NScreenWidth - 10;
     //    _fpsLabel.alpha = 0;
     [NAppWindow addSubview:_fpsLabel];

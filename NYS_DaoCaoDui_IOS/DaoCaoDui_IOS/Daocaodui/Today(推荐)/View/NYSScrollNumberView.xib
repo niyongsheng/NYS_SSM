@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5L2-ib-MIG" customClass="NYSScrollNumberView">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="172"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8C-I0-8IO">
+                    <rect key="frame" x="5" y="85.5" width="46.5" height="1"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="gL2-2K-6Ew"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNI-n4-Wvm">
+                    <rect key="frame" x="427.5" y="85.5" width="46.5" height="1"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="cmS-Nt-TTe"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日活动指数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkn-R2-9tt">
+                    <rect key="frame" x="215" y="147" width="49.5" height="10"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-S0-oll" customClass="MSNumberScrollAnimatedView">
+                    <rect key="frame" x="56.5" y="25" width="366" height="122"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="bdm-S0-oll" secondAttribute="height" multiplier="3:1" id="fJJ-Zp-4Hb"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="K8C-I0-8IO" firstAttribute="leading" secondItem="xsj-lU-sU1" secondAttribute="leading" constant="5" id="8Uc-hR-PrO"/>
+                <constraint firstItem="bdm-S0-oll" firstAttribute="top" secondItem="5L2-ib-MIG" secondAttribute="top" constant="25" id="IS3-xN-aSj"/>
+                <constraint firstItem="xsj-lU-sU1" firstAttribute="trailing" secondItem="xNI-n4-Wvm" secondAttribute="trailing" constant="5" id="RcK-9p-0C0"/>
+                <constraint firstItem="bdm-S0-oll" firstAttribute="leading" secondItem="K8C-I0-8IO" secondAttribute="trailing" constant="5" id="TUU-ie-rGv"/>
+                <constraint firstItem="lkn-R2-9tt" firstAttribute="top" secondItem="bdm-S0-oll" secondAttribute="bottom" id="YuN-Ta-IfA"/>
+                <constraint firstItem="xNI-n4-Wvm" firstAttribute="leading" secondItem="bdm-S0-oll" secondAttribute="trailing" constant="5" id="err-nV-YsY"/>
+                <constraint firstItem="xNI-n4-Wvm" firstAttribute="centerY" secondItem="bdm-S0-oll" secondAttribute="centerY" id="ilJ-Ao-riR"/>
+                <constraint firstItem="bdm-S0-oll" firstAttribute="centerY" secondItem="K8C-I0-8IO" secondAttribute="centerY" id="kjG-85-DLS"/>
+                <constraint firstItem="bdm-S0-oll" firstAttribute="centerY" secondItem="5L2-ib-MIG" secondAttribute="centerY" id="n8U-TB-XNo"/>
+                <constraint firstItem="lkn-R2-9tt" firstAttribute="centerX" secondItem="bdm-S0-oll" secondAttribute="centerX" id="u1Y-ZW-NkY"/>
+                <constraint firstItem="bdm-S0-oll" firstAttribute="centerX" secondItem="5L2-ib-MIG" secondAttribute="centerX" id="xXa-73-Wzb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="xsj-lU-sU1"/>
+            <connections>
+                <outlet property="customScrollAnimationView" destination="bdm-S0-oll" id="jUh-NL-brS"/>
+            </connections>
+            <point key="canvasLocation" x="178.98550724637681" y="200.89285714285714"/>
+        </view>
+    </objects>
+</document>

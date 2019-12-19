@@ -15,11 +15,11 @@
 @implementation NYSRootViewController
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return _StatusBarStyle;
+    return _customStatusBarStyle;
 }
 
-- (void)setStatusBarStyle:(UIStatusBarStyle)StatusBarStyle {
-    _StatusBarStyle = StatusBarStyle;
+- (void)setCustomStatusBarStyle:(UIStatusBarStyle)StatusBarStyle {
+    _customStatusBarStyle = StatusBarStyle;
     // 动态更新状态栏颜色
     [self setNeedsStatusBarAppearanceUpdate];
 }
@@ -29,9 +29,12 @@
     // 默认显示返回按钮
     self.isShowLiftBack = YES;
     // 默认显示状态栏样式
-//    self.StatusBarStyle = UIStatusBarStyleDefault;
+//    self.customStatusBarStyle = UIStatusBarStyleLightContent;
     // 默认禁用自动设置内边距
 //    self.automaticallyAdjustsScrollViewInsets = NO;
+    // 视图延伸延伸方向
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
     // 防止右滑返回失效
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     // 初始化自定义导航栏
@@ -44,6 +47,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+        
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -51,25 +55,25 @@
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 
-- (void)setupNavBar {
-    self.navigationController.navigationBar.hidden = YES;
-    
-    [self.view addSubview:self.customNavBar];
-    // 设置自定义导航栏背景图片
-    self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"nav_img1"];
-    // 设置自定义导航栏标题颜色
-    self.customNavBar.titleLabelColor = [UIColor whiteColor];
-    if (self.navigationController.childViewControllers.count != 1) {
-        [self.customNavBar wr_setLeftButtonWithTitle:@"<" titleColor:[UIColor whiteColor]];
-    }
-}
-
-- (WRCustomNavigationBar *)customNavBar {
-    if (_customNavBar == nil) {
-        _customNavBar = [WRCustomNavigationBar CustomNavigationBar];
-    }
-    return _customNavBar;
-}
+//- (void)setupNavBar {
+//    self.navigationController.navigationBar.hidden = YES;
+//
+//    [self.view addSubview:self.customNavBar];
+//    // 设置自定义导航栏背景图片
+//    self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"nav_img1"];
+//    // 设置自定义导航栏标题颜色
+//    self.customNavBar.titleLabelColor = [UIColor whiteColor];
+//    if (self.navigationController.childViewControllers.count != 1) {
+//        [self.customNavBar wr_setLeftButtonWithTitle:@"<" titleColor:[UIColor whiteColor]];
+//    }
+//}
+//
+//- (WRCustomNavigationBar *)customNavBar {
+//    if (_customNavBar == nil) {
+//        _customNavBar = [WRCustomNavigationBar CustomNavigationBar];
+//    }
+//    return _customNavBar;
+//}
 
 - (void)showNoDataView {
     _noDataView=[[UIImageView alloc] init];
@@ -98,7 +102,7 @@
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTabBarHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTopHeight) style:UITableViewStylePlain];
         _tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _tableView.estimatedRowHeight = 0;
         _tableView.estimatedSectionHeaderHeight = 0;
@@ -130,8 +134,7 @@
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-        
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTabBarHeight) collectionViewLayout:flow];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTopHeight) collectionViewLayout:flow];
         
         // 头部刷新
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
@@ -141,7 +144,7 @@
         _collectionView.mj_header = header;
         
         // 底部刷新
-        _collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+        _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
         
         _collectionView.backgroundColor = NViewBgColor;
         _collectionView.scrollsToTop = YES;
@@ -249,7 +252,7 @@
         [btn setTitle:title forState:UIControlStateNormal];
         [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
         btn.titleLabel.font = [UIFont systemFontOfSize:16.f];
-        [btn setTitleColor:NNavBgFontColor forState:UIControlStateNormal];
+        [btn setTitleColor:NNavFontColor forState:UIControlStateNormal];
         btn.tag = [tags[i++] integerValue];
         [btn sizeToFit];
         
@@ -288,7 +291,7 @@
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    // 默认进去类型
+    // 默认屏幕旋转类型
     return UIInterfaceOrientationPortrait;
 }
 
@@ -297,15 +300,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -17,18 +17,20 @@
 
 + (void)initialize {
     UINavigationBar *navBar = [UINavigationBar appearance];
-//    [navBar setBackgroundImage:[UIImage imageNamed:@"bg_nav"] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [navBar setBackgroundImage:[[UIImage imageWithColor:NNavBgColorShallow] imageByBlurRadius:40 tintColor:nil tintMode:0 saturation:1 maskImage:nil] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
 //    [navBar setBarTintColor:NNavBgColor];
-    [navBar setShadowImage:[UIImage new]];
+    [navBar setTintColor:NNavFontColor];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName:NNavFontColor, NSFontAttributeName : [UIFont systemFontOfSize:18]}];
+    [navBar setShadowImage:[UIImage new]]; // delete bottom line
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor redColor];
+
     self.delegate = self;
 }
 
-/// push hidden tabBar
+/// when push auto hidden tabbar
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.childViewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
@@ -36,11 +38,11 @@
     [super pushViewController:viewController animated:animated];
 }
 
-/// 隐藏导航栏
+/// navigation delegate hidden method
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     if ([viewController isKindOfClass:[NYSRootViewController class]]) {
-        NYSRootViewController * vc = (NYSRootViewController *)viewController;
+        NYSRootViewController *vc = (NYSRootViewController *)viewController;
         if (vc.isHidenNaviBar) {
             vc.view.top = 0;
             [vc.navigationController setNavigationBarHidden:YES animated:animated];
