@@ -30,6 +30,7 @@ target 'DaoCaoDui_IOS' do
   pod 'MSNumberScrollAnimatedView'
   pod 'TXScrollLabelView'
   pod 'Ono'
+  pod 'PYSearch'
 #  pod 'DFPlayer'
   
   pod 'JPush'

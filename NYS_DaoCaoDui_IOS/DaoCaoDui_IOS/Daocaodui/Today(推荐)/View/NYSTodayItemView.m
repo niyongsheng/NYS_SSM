@@ -7,6 +7,9 @@
 //
 
 #import "NYSTodayItemView.h"
+#import <PYSearchViewController.h>
+#import "NYSBaseNavigationController.h"
+#import "NYSRootViewController.h"
 
 @interface NYSTodayItemView ()
 @property (weak, nonatomic) IBOutlet UIView *myCustomView;
@@ -52,6 +55,19 @@
 
 - (IBAction)item1Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
+
+    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
+    PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches
+                                                                                          searchBarPlaceholder:@"你找啥？"
+                                                                                                didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+        [searchViewController.navigationController pushViewController:[[NYSRootViewController alloc] init] animated:YES];
+    }];
+    searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
+    searchViewController.searchHistoryStyle = PYSearchHistoryStyleARCBorderTag;
+//    searchViewController.delegate = self.fromController;
+    NYSBaseNavigationController *nav = [[NYSBaseNavigationController alloc] initWithRootViewController:searchViewController];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.fromController presentViewController:nav animated:YES completion:nil];
 }
 - (IBAction)item2Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];

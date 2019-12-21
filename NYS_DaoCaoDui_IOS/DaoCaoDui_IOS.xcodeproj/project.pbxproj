@@ -47,6 +47,8 @@
 		C81074E023AA4A9300CC7868 /* DFPlayerRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C81074D323AA4A9200CC7868 /* DFPlayerRequestManager.m */; };
 		C81074E123AA4A9300CC7868 /* DFPlayerResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C81074D523AA4A9200CC7868 /* DFPlayerResourceLoader.m */; };
 		C81074E223AA4A9300CC7868 /* DFPlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C81074D723AA4A9200CC7868 /* DFPlayerTool.m */; };
+		C8188D2323ADE04300E13F3A /* BibleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8188D2223ADE04300E13F3A /* BibleManager.m */; };
+		C8188D2523AE173800E13F3A /* secret.png in Resources */ = {isa = PBXBuildFile; fileRef = C8188D2423AE173800E13F3A /* secret.png */; };
 		C821612E235D5EEC00B17530 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612B235D5EEC00B17530 /* ChineseString.m */; };
 		C821612F235D5EEC00B17530 /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612D235D5EEC00B17530 /* pinyin.m */; };
 		C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6B22A0FEE10072A3F1 /* UserManager.m */; };
@@ -68,6 +70,18 @@
 		C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C82F63FD23571A8300BF41AA /* NYSChatDataSource.m */; };
 		C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C836D7A82358103000DBDAEF /* NYSDCDViewController.m */; };
 		C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C836D7AA235810F400DBDAEF /* LayoutFittingView.m */; };
+		C83B8E1923AC4D750051A22C /* NYSBibleVerseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E1823AC4D750051A22C /* NYSBibleVerseViewController.m */; };
+		C83B8E2523AC9AFF0051A22C /* SGActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E1C23AC9AFF0051A22C /* SGActionView.m */; };
+		C83B8E2623AC9AFF0051A22C /* SGAlertMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E1E23AC9AFF0051A22C /* SGAlertMenu.m */; };
+		C83B8E2723AC9AFF0051A22C /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2023AC9AFF0051A22C /* SGBaseMenu.m */; };
+		C83B8E2823AC9AFF0051A22C /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2223AC9AFF0051A22C /* SGGridMenu.m */; };
+		C83B8E2923AC9AFF0051A22C /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2423AC9AFF0051A22C /* SGSheetMenu.m */; };
+		C83B8E2B23ACC5000051A22C /* me1.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83B8E2A23ACC5000051A22C /* me1.plist */; };
+		C83B8E2F23ACC6600051A22C /* NYSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2E23ACC6600051A22C /* NYSAboutViewController.m */; };
+		C83B8E3A23ACC9210051A22C /* NYSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3923ACC9210051A22C /* NYSSettingViewController.m */; };
+		C83B8E3D23ACC9380051A22C /* NYSMyContributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3C23ACC9380051A22C /* NYSMyContributeViewController.m */; };
+		C83B8E4023ACCC020051A22C /* NYSAboutHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3F23ACCC020051A22C /* NYSAboutHeaderView.m */; };
+		C83B8E4223ACCC240051A22C /* NYSAboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83B8E4123ACCC240051A22C /* NYSAboutHeaderView.xib */; };
 		C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB3229E748A003A7C58 /* NYSJSHandler.m */; };
 		C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB6229E7593003A7C58 /* NYSWebViewController.m */; };
 		C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB9229E769E003A7C58 /* NYSRootWebViewController.m */; };
@@ -200,6 +214,11 @@
 		C8DDA11C23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DDA11A23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib */; };
 		C8DDA11F23AB592D003AF6F4 /* UIColor+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DDA11E23AB592D003AF6F4 /* UIColor+NYS.m */; };
 		C8DDA12223AB5D80003AF6F4 /* NYSBibleChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DDA12123AB5D80003AF6F4 /* NYSBibleChapterViewController.m */; };
+		C8E3B30923ADA86C00A0BCB4 /* NYSAboutFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B30823ADA86C00A0BCB4 /* NYSAboutFooterView.m */; };
+		C8E3B30B23ADA88300A0BCB4 /* NYSAboutFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */; };
+		C8E3B30E23ADB4ED00A0BCB4 /* NYSProtoclViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */; };
+		C8E3B31223ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B31123ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf */; };
+		C8E3B31423ADD3F600A0BCB4 /* en_kjv.xml in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B31323ADD3F600A0BCB4 /* en_kjv.xml */; };
 		C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EABF8E22B4F12D004B0DA4 /* NYSRootPresenter.m */; };
 		C8F3B4CB2298EF8A00FA61A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4CA2298EF8A00FA61A6 /* AppDelegate.m */; };
 		C8F3B4D32298EF8B00FA61A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8F3B4D22298EF8B00FA61A6 /* Assets.xcassets */; };
@@ -286,6 +305,9 @@
 		C81074D523AA4A9200CC7868 /* DFPlayerResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFPlayerResourceLoader.m; sourceTree = "<group>"; };
 		C81074D623AA4A9200CC7868 /* DFPlayerTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFPlayerTool.h; sourceTree = "<group>"; };
 		C81074D723AA4A9200CC7868 /* DFPlayerTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFPlayerTool.m; sourceTree = "<group>"; };
+		C8188D2123ADE04300E13F3A /* BibleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BibleManager.h; sourceTree = "<group>"; };
+		C8188D2223ADE04300E13F3A /* BibleManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BibleManager.m; sourceTree = "<group>"; };
+		C8188D2423AE173800E13F3A /* secret.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secret.png; sourceTree = "<group>"; };
 		C821612A235D5EEC00B17530 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
 		C821612B235D5EEC00B17530 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
 		C821612C235D5EEC00B17530 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
@@ -322,6 +344,28 @@
 		C836D7A82358103000DBDAEF /* NYSDCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDCDViewController.m; sourceTree = "<group>"; };
 		C836D7AA235810F400DBDAEF /* LayoutFittingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutFittingView.m; sourceTree = "<group>"; };
 		C836D7AB235810F400DBDAEF /* LayoutFittingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutFittingView.h; sourceTree = "<group>"; };
+		C83B8E1723AC4D750051A22C /* NYSBibleVerseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBibleVerseViewController.h; sourceTree = "<group>"; };
+		C83B8E1823AC4D750051A22C /* NYSBibleVerseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBibleVerseViewController.m; sourceTree = "<group>"; };
+		C83B8E1B23AC9AFF0051A22C /* SGActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGActionView.h; sourceTree = "<group>"; };
+		C83B8E1C23AC9AFF0051A22C /* SGActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGActionView.m; sourceTree = "<group>"; };
+		C83B8E1D23AC9AFF0051A22C /* SGAlertMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAlertMenu.h; sourceTree = "<group>"; };
+		C83B8E1E23AC9AFF0051A22C /* SGAlertMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAlertMenu.m; sourceTree = "<group>"; };
+		C83B8E1F23AC9AFF0051A22C /* SGBaseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseMenu.h; sourceTree = "<group>"; };
+		C83B8E2023AC9AFF0051A22C /* SGBaseMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseMenu.m; sourceTree = "<group>"; };
+		C83B8E2123AC9AFF0051A22C /* SGGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGridMenu.h; sourceTree = "<group>"; };
+		C83B8E2223AC9AFF0051A22C /* SGGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGridMenu.m; sourceTree = "<group>"; };
+		C83B8E2323AC9AFF0051A22C /* SGSheetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSheetMenu.h; sourceTree = "<group>"; };
+		C83B8E2423AC9AFF0051A22C /* SGSheetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSheetMenu.m; sourceTree = "<group>"; };
+		C83B8E2A23ACC5000051A22C /* me1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = me1.plist; sourceTree = "<group>"; };
+		C83B8E2D23ACC6600051A22C /* NYSAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAboutViewController.h; sourceTree = "<group>"; };
+		C83B8E2E23ACC6600051A22C /* NYSAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAboutViewController.m; sourceTree = "<group>"; };
+		C83B8E3823ACC9210051A22C /* NYSSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSSettingViewController.h; sourceTree = "<group>"; };
+		C83B8E3923ACC9210051A22C /* NYSSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSSettingViewController.m; sourceTree = "<group>"; };
+		C83B8E3B23ACC9380051A22C /* NYSMyContributeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMyContributeViewController.h; sourceTree = "<group>"; };
+		C83B8E3C23ACC9380051A22C /* NYSMyContributeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMyContributeViewController.m; sourceTree = "<group>"; };
+		C83B8E3E23ACCC020051A22C /* NYSAboutHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAboutHeaderView.h; sourceTree = "<group>"; };
+		C83B8E3F23ACCC020051A22C /* NYSAboutHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAboutHeaderView.m; sourceTree = "<group>"; };
+		C83B8E4123ACCC240051A22C /* NYSAboutHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSAboutHeaderView.xib; sourceTree = "<group>"; };
 		C8424EB2229E748A003A7C58 /* NYSJSHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSJSHandler.h; sourceTree = "<group>"; };
 		C8424EB3229E748A003A7C58 /* NYSJSHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSJSHandler.m; sourceTree = "<group>"; };
 		C8424EB5229E7593003A7C58 /* NYSWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSWebViewController.h; sourceTree = "<group>"; };
@@ -532,6 +576,13 @@
 		C8DDA11E23AB592D003AF6F4 /* UIColor+NYS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NYS.m"; sourceTree = "<group>"; };
 		C8DDA12023AB5D80003AF6F4 /* NYSBibleChapterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBibleChapterViewController.h; sourceTree = "<group>"; };
 		C8DDA12123AB5D80003AF6F4 /* NYSBibleChapterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBibleChapterViewController.m; sourceTree = "<group>"; };
+		C8E3B30723ADA86C00A0BCB4 /* NYSAboutFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAboutFooterView.h; sourceTree = "<group>"; };
+		C8E3B30823ADA86C00A0BCB4 /* NYSAboutFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAboutFooterView.m; sourceTree = "<group>"; };
+		C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSAboutFooterView.xib; sourceTree = "<group>"; };
+		C8E3B30C23ADB4ED00A0BCB4 /* NYSProtoclViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSProtoclViewController.h; sourceTree = "<group>"; };
+		C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSProtoclViewController.m; sourceTree = "<group>"; };
+		C8E3B31123ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserPrivacyAgreement.pdf; sourceTree = "<group>"; };
+		C8E3B31323ADD3F600A0BCB4 /* en_kjv.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = en_kjv.xml; sourceTree = "<group>"; };
 		C8EABF8D22B4F12D004B0DA4 /* NYSRootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRootPresenter.h; sourceTree = "<group>"; };
 		C8EABF8E22B4F12D004B0DA4 /* NYSRootPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRootPresenter.m; sourceTree = "<group>"; };
 		C8F3B4C62298EF8A00FA61A6 /* 稻草堆.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "稻草堆.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -583,14 +634,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C802A60422A62CFA002E2A58 /* FQA */ = {
+		C802A60422A62CFA002E2A58 /* FQA(常见问题) */ = {
 			isa = PBXGroup;
 			children = (
 				C802A60722A62D29002E2A58 /* View */,
 				C802A60622A62D22002E2A58 /* Model */,
 				C802A60522A62D08002E2A58 /* Controller */,
 			);
-			path = FQA;
+			path = "FQA(常见问题)";
 			sourceTree = "<group>";
 		};
 		C802A60522A62D08002E2A58 /* Controller */ = {
@@ -847,6 +898,8 @@
 			isa = PBXGroup;
 			children = (
 				C8265C7922A25E830072A3F1 /* me.plist */,
+				C83B8E2A23ACC5000051A22C /* me1.plist */,
+				C8188D2423AE173800E13F3A /* secret.png */,
 				C8265C7C22A2710D0072A3F1 /* man@2x.png */,
 				C8265C7D22A2710D0072A3F1 /* woman@2x.png */,
 			);
@@ -897,6 +950,107 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C83B8E1A23AC9AFF0051A22C /* SGActionView */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E1B23AC9AFF0051A22C /* SGActionView.h */,
+				C83B8E1C23AC9AFF0051A22C /* SGActionView.m */,
+				C83B8E1D23AC9AFF0051A22C /* SGAlertMenu.h */,
+				C83B8E1E23AC9AFF0051A22C /* SGAlertMenu.m */,
+				C83B8E1F23AC9AFF0051A22C /* SGBaseMenu.h */,
+				C83B8E2023AC9AFF0051A22C /* SGBaseMenu.m */,
+				C83B8E2123AC9AFF0051A22C /* SGGridMenu.h */,
+				C83B8E2223AC9AFF0051A22C /* SGGridMenu.m */,
+				C83B8E2323AC9AFF0051A22C /* SGSheetMenu.h */,
+				C83B8E2423AC9AFF0051A22C /* SGSheetMenu.m */,
+			);
+			path = SGActionView;
+			sourceTree = "<group>";
+		};
+		C83B8E2C23ACC63E0051A22C /* About(关于) */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E3123ACC6730051A22C /* View */,
+				C83B8E3023ACC6670051A22C /* Controller */,
+			);
+			path = "About(关于)";
+			sourceTree = "<group>";
+		};
+		C83B8E3023ACC6670051A22C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E2D23ACC6600051A22C /* NYSAboutViewController.h */,
+				C83B8E2E23ACC6600051A22C /* NYSAboutViewController.m */,
+				C8E3B30C23ADB4ED00A0BCB4 /* NYSProtoclViewController.h */,
+				C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */,
+				C8E3B31123ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C83B8E3123ACC6730051A22C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E3E23ACCC020051A22C /* NYSAboutHeaderView.h */,
+				C83B8E3F23ACCC020051A22C /* NYSAboutHeaderView.m */,
+				C83B8E4123ACCC240051A22C /* NYSAboutHeaderView.xib */,
+				C8E3B30723ADA86C00A0BCB4 /* NYSAboutFooterView.h */,
+				C8E3B30823ADA86C00A0BCB4 /* NYSAboutFooterView.m */,
+				C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C83B8E3223ACC9100051A22C /* MyContribute(我的发布) */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E3323ACC9100051A22C /* Controller */,
+				C83B8E3423ACC9100051A22C /* View */,
+			);
+			path = "MyContribute(我的发布)";
+			sourceTree = "<group>";
+		};
+		C83B8E3323ACC9100051A22C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E3B23ACC9380051A22C /* NYSMyContributeViewController.h */,
+				C83B8E3C23ACC9380051A22C /* NYSMyContributeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C83B8E3423ACC9100051A22C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C83B8E3523ACC9100051A22C /* Setting(设置) */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E3623ACC9100051A22C /* Controller */,
+				C83B8E3723ACC9100051A22C /* View */,
+			);
+			path = "Setting(设置)";
+			sourceTree = "<group>";
+		};
+		C83B8E3623ACC9100051A22C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C83B8E3823ACC9210051A22C /* NYSSettingViewController.h */,
+				C83B8E3923ACC9210051A22C /* NYSSettingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C83B8E3723ACC9100051A22C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C8424ECF229E88FB003A7C58 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,11 +1069,11 @@
 				C8CA7B9A23A9FFD30081D593 /* View */,
 				C8CA7B9923A9FFC70081D593 /* Controller */,
 				C80D251423A09A0700CF58CA /* Today(推荐) */,
-				C8A93E89236678260062C813 /* Article(文章) */,
-				C899EFAC23A3786800E78403 /* Music(音乐) */,
+				C878E1FB23AB0F63001A6FA3 /* Bible(读经) */,
+				C8A93E89236678260062C813 /* Article(分享) */,
 				C8D695ED2390CC5C004B366B /* Pray(代祷) */,
+				C899EFAC23A3786800E78403 /* Music(音频) */,
 				C87947C223A25DAC003EC2D7 /* Activity(活动) */,
-				C878E1FB23AB0F63001A6FA3 /* Bible */,
 			);
 			path = Daocaodui;
 			sourceTree = "<group>";
@@ -927,14 +1081,17 @@
 		C8424ED1229E898C003A7C58 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				C899EF9E23A32CDB00E78403 /* MyShare */,
-				C899EF9D23A32CB600E78403 /* MyCollect */,
-				C8B6B55F2394AA8D0067ACD5 /* MyInformation */,
+				C8B6B55F2394AA8D0067ACD5 /* MyInformation(个人信息) */,
+				C899EF9D23A32CB600E78403 /* MyCollect(我的收藏) */,
+				C83B8E3223ACC9100051A22C /* MyContribute(我的发布) */,
+				C83B8E3523ACC9100051A22C /* Setting(设置) */,
+				C899EF9E23A32CDB00E78403 /* MyShare(分享) */,
+				C83B8E2C23ACC63E0051A22C /* About(关于) */,
+				C802A60422A62CFA002E2A58 /* FQA(常见问题) */,
 				C8265C7B22A270EF0072A3F1 /* Resource */,
 				C80E4714229FBE4E005F841B /* Model */,
 				C80E4713229FBE41005F841B /* View */,
 				C80E4712229FBE31005F841B /* Controller */,
-				C802A60422A62CFA002E2A58 /* FQA */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -958,6 +1115,8 @@
 				C85DD73122A4F03A00E33636 /* IMManager.m */,
 				C85DD73522A4F90600E33636 /* ShareManager.h */,
 				C85DD73622A4F90600E33636 /* ShareManager.m */,
+				C8188D2123ADE04300E13F3A /* BibleManager.h */,
+				C8188D2223ADE04300E13F3A /* BibleManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1241,14 +1400,14 @@
 			path = KHAlertPicker;
 			sourceTree = "<group>";
 		};
-		C878E1FB23AB0F63001A6FA3 /* Bible */ = {
+		C878E1FB23AB0F63001A6FA3 /* Bible(读经) */ = {
 			isa = PBXGroup;
 			children = (
 				C8DDA11723AB4D75003AF6F4 /* View */,
 				C8DDA11423AB3B35003AF6F4 /* Resources */,
 				C878E1FC23AB0F71001A6FA3 /* Controller */,
 			);
-			path = Bible;
+			path = "Bible(读经)";
 			sourceTree = "<group>";
 		};
 		C878E1FC23AB0F71001A6FA3 /* Controller */ = {
@@ -1258,6 +1417,8 @@
 				C878E20123AB32C2001A6FA3 /* NYSBibleViewController.m */,
 				C8DDA12023AB5D80003AF6F4 /* NYSBibleChapterViewController.h */,
 				C8DDA12123AB5D80003AF6F4 /* NYSBibleChapterViewController.m */,
+				C83B8E1723AC4D750051A22C /* NYSBibleVerseViewController.h */,
+				C83B8E1823AC4D750051A22C /* NYSBibleVerseViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1354,19 +1515,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C899EF9D23A32CB600E78403 /* MyCollect */ = {
+		C899EF9D23A32CB600E78403 /* MyCollect(我的收藏) */ = {
 			isa = PBXGroup;
 			children = (
 				C899EF9F23A32CEF00E78403 /* Controller */,
 			);
-			path = MyCollect;
+			path = "MyCollect(我的收藏)";
 			sourceTree = "<group>";
 		};
-		C899EF9E23A32CDB00E78403 /* MyShare */ = {
+		C899EF9E23A32CDB00E78403 /* MyShare(分享) */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = MyShare;
+			path = "MyShare(分享)";
 			sourceTree = "<group>";
 		};
 		C899EF9F23A32CEF00E78403 /* Controller */ = {
@@ -1378,7 +1539,7 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		C899EFAC23A3786800E78403 /* Music(音乐) */ = {
+		C899EFAC23A3786800E78403 /* Music(音频) */ = {
 			isa = PBXGroup;
 			children = (
 				C81074C123AA4A9200CC7868 /* DFPlayer */,
@@ -1386,7 +1547,7 @@
 				C899EFAE23A378C700E78403 /* View */,
 				C899EFAD23A3788000E78403 /* Controller */,
 			);
-			path = "Music(音乐)";
+			path = "Music(音频)";
 			sourceTree = "<group>";
 		};
 		C899EFAD23A3788000E78403 /* Controller */ = {
@@ -1447,14 +1608,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C8A93E89236678260062C813 /* Article(文章) */ = {
+		C8A93E89236678260062C813 /* Article(分享) */ = {
 			isa = PBXGroup;
 			children = (
 				C807696523A215F1004B6E1C /* Model */,
 				C80D251323A099CE00CF58CA /* View */,
 				C80D251223A099C200CF58CA /* Controller */,
 			);
-			path = "Article(文章)";
+			path = "Article(分享)";
 			sourceTree = "<group>";
 		};
 		C8AF0D252398B74E009BBEBE /* TableViewAnimationKit */ = {
@@ -1470,14 +1631,14 @@
 			path = TableViewAnimationKit;
 			sourceTree = "<group>";
 		};
-		C8B6B55F2394AA8D0067ACD5 /* MyInformation */ = {
+		C8B6B55F2394AA8D0067ACD5 /* MyInformation(个人信息) */ = {
 			isa = PBXGroup;
 			children = (
 				C8B6B5652394AD9D0067ACD5 /* Model */,
 				C8B6B5642394AD930067ACD5 /* View */,
 				C8B6B5602394AD210067ACD5 /* Controller */,
 			);
-			path = MyInformation;
+			path = "MyInformation(个人信息)";
 			sourceTree = "<group>";
 		};
 		C8B6B5602394AD210067ACD5 /* Controller */ = {
@@ -1567,6 +1728,7 @@
 		C8CA7B9A23A9FFD30081D593 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C83B8E1A23AC9AFF0051A22C /* SGActionView */,
 				C836D7AB235810F400DBDAEF /* LayoutFittingView.h */,
 				C836D7AA235810F400DBDAEF /* LayoutFittingView.m */,
 			);
@@ -1600,6 +1762,7 @@
 			isa = PBXGroup;
 			children = (
 				C8DDA11523AB3B46003AF6F4 /* zh_cuv.xml */,
+				C8E3B31323ADD3F600A0BCB4 /* en_kjv.xml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1754,6 +1917,7 @@
 				C802A60F22A62D54002E2A58 /* CMFAQTableViewCell.xib in Resources */,
 				C8424EC8229E78E6003A7C58 /* close_icon@3x.png in Resources */,
 				C8F3B4D32298EF8B00FA61A6 /* Assets.xcassets in Resources */,
+				C8E3B30B23ADA88300A0BCB4 /* NYSAboutFooterView.xib in Resources */,
 				C89CA2BF22BCA2DE0086F9B0 /* stepPk_win_colour5@2x.png in Resources */,
 				C89CA2C222BCA2DE0086F9B0 /* stepPk_win_colour7@2x.png in Resources */,
 				C857A394229CD026002B5396 /* MBHUD_Info@3x.png in Resources */,
@@ -1763,18 +1927,23 @@
 				C8424EC0229E7896003A7C58 /* close_icon_gray@2x.png in Resources */,
 				C879480923A264B1003EC2D7 /* QMHCommitSuccessView.xib in Resources */,
 				C807696423A1FDD5004B6E1C /* NYSScrollNumberView.xib in Resources */,
+				C8E3B31423ADD3F600A0BCB4 /* en_kjv.xml in Resources */,
 				C8265C9E22A27E6B0072A3F1 /* NYSLoginViewController.xib in Resources */,
+				C83B8E2B23ACC5000051A22C /* me1.plist in Resources */,
 				C89CA2BC22BCA2DE0086F9B0 /* stepPk_win_colour4@2x.png in Resources */,
 				C87947E623A25DAC003EC2D7 /* QMHCreateActViewController.xib in Resources */,
 				C857A393229CD026002B5396 /* MBHUD_Info@2x.png in Resources */,
 				C857A396229CD026002B5396 /* MBHUD_Success@3x.png in Resources */,
 				C8265C7E22A2710E0072A3F1 /* man@2x.png in Resources */,
+				C8E3B31223ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf in Resources */,
 				C85C44B7229BA88100B35652 /* loading_image.png in Resources */,
 				C8CA7B9823A9C8C30081D593 /* nav_img2.png in Resources */,
+				C8188D2523AE173800E13F3A /* secret.png in Resources */,
 				C8265C7A22A25E830072A3F1 /* me.plist in Resources */,
 				C85C44D1229BAB2900B35652 /* arrow_icon.png in Resources */,
 				C89CA2BD22BCA2DE0086F9B0 /* stepPk_win_colour2@2x.png in Resources */,
 				C857A398229CD026002B5396 /* MBHUD_Warn@3x.png in Resources */,
+				C83B8E4223ACCC240051A22C /* NYSAboutHeaderView.xib in Resources */,
 				C8DDA11C23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib in Resources */,
 				C802A61F22A62FB8002E2A58 /* FAQ.json in Resources */,
 				C857A391229CD026002B5396 /* MBHUD_Error@2x.png in Resources */,
@@ -1866,6 +2035,7 @@
 				C8265C9F22A27E6B0072A3F1 /* NYSRegisterViewController.m in Sources */,
 				C81074E023AA4A9300CC7868 /* DFPlayerRequestManager.m in Sources */,
 				C8D8AF3D23A1E1DC00737BBE /* NYSTodayItemView.m in Sources */,
+				C83B8E2923AC9AFF0051A22C /* SGSheetMenu.m in Sources */,
 				C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */,
 				C87947E923A25DAC003EC2D7 /* QMHMemberListCollectionVC.m in Sources */,
 				C860A7352397891100902AB6 /* KHAlertPickerController.m in Sources */,
@@ -1875,6 +2045,7 @@
 				C81074DE23AA4A9300CC7868 /* DFPlayerLyricsTableview.m in Sources */,
 				C879480C23A26503003EC2D7 /* XLRatingView.m in Sources */,
 				C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */,
+				C83B8E2723AC9AFF0051A22C /* SGBaseMenu.m in Sources */,
 				C8AF0D2D2398B74F009BBEBE /* UITableView+XSAnimationKit.m in Sources */,
 				C857A3A2229CD138002B5396 /* PPNetworkHelper.m in Sources */,
 				C80D251723A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m in Sources */,
@@ -1885,6 +2056,7 @@
 				C899EFA223A32D1400E78403 /* NYSMyCollectViewController.m in Sources */,
 				C878E20223AB32C2001A6FA3 /* NYSBibleViewController.m in Sources */,
 				C802A60A22A62D3F002E2A58 /* CMFAQModel.m in Sources */,
+				C83B8E2F23ACC6600051A22C /* NYSAboutViewController.m in Sources */,
 				C899EFB123A378EE00E78403 /* NYSMusicListViewController.m in Sources */,
 				C802A61222A62D6D002E2A58 /* NYSFAQHeaderView.m in Sources */,
 				C85DD72722A4C4B200E33636 /* NullSafe.m in Sources */,
@@ -1895,6 +2067,7 @@
 				C81074C023AA393100CC7868 /* NYSMusicModel.m in Sources */,
 				C807696823A2160C004B6E1C /* NYSArticleModel.m in Sources */,
 				C8A93E9B2366786D0062C813 /* HomeDetailViewController.m in Sources */,
+				C83B8E4023ACCC020051A22C /* NYSAboutHeaderView.m in Sources */,
 				C87947EF23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m in Sources */,
 				C807696C23A216B0004B6E1C /* NYSBannerModel.m in Sources */,
 				C87947EC23A25DAC003EC2D7 /* QMHMemberModel.m in Sources */,
@@ -1903,7 +2076,9 @@
 				C8A93E9D2366786D0062C813 /* HomeViewController.m in Sources */,
 				C81074BA23AA37CA00CC7868 /* NYSMusicMenuModel.m in Sources */,
 				C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */,
+				C8E3B30923ADA86C00A0BCB4 /* NYSAboutFooterView.m in Sources */,
 				C85DD72022A4BE8E00E33636 /* NYSTools.m in Sources */,
+				C83B8E2523AC9AFF0051A22C /* SGActionView.m in Sources */,
 				C802A61D22A62F03002E2A58 /* NSString+Size.m in Sources */,
 				C899EFAB23A3682A00E78403 /* NYSPrayModel.m in Sources */,
 				C85C44EF229C03F300B35652 /* AdPageView.m in Sources */,
@@ -1923,14 +2098,18 @@
 				C85C44F0229C03F300B35652 /* AESCipher.m in Sources */,
 				C8B6B5632394AD8A0067ACD5 /* NYSPersonalInfoViewController.m in Sources */,
 				C87947E723A25DAC003EC2D7 /* QMHGroupCardViewController.m in Sources */,
+				C83B8E3D23ACC9380051A22C /* NYSMyContributeViewController.m in Sources */,
 				C87947EB23A25DAC003EC2D7 /* QMHCommunityActivityList.m in Sources */,
 				C81074B223AA226200CC7868 /* NYSMusicMenuHeaderView.m in Sources */,
 				C87947F123A25DAC003EC2D7 /* QMHMemberView.m in Sources */,
 				C8265C7522A24E7F0072A3F1 /* NYSMeTableViewCell.m in Sources */,
 				C857A3A1229CD138002B5396 /* PPNetworkCache.m in Sources */,
+				C83B8E2623AC9AFF0051A22C /* SGAlertMenu.m in Sources */,
 				C879480823A264B1003EC2D7 /* QMHCommitSuccessView.m in Sources */,
+				C83B8E3A23ACC9210051A22C /* NYSSettingViewController.m in Sources */,
 				C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */,
 				C807696F23A216D8004B6E1C /* NYSPublicnotice.m in Sources */,
+				C8188D2323ADE04300E13F3A /* BibleManager.m in Sources */,
 				C85C449E229B5FD600B35652 /* NYSRootNavigationController.m in Sources */,
 				C807699B23A24DC6004B6E1C /* NYSPrayCardListViewController.m in Sources */,
 				C85DD73722A4F90600E33636 /* ShareManager.m in Sources */,
@@ -1950,6 +2129,7 @@
 				C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */,
 				C85DD73222A4F03A00E33636 /* IMManager.m in Sources */,
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
+				C83B8E2823AC9AFF0051A22C /* SGGridMenu.m in Sources */,
 				C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */,
 				C87947EA23A25DAC003EC2D7 /* QMHCommunityActivityDetail.m in Sources */,
 				C87947ED23A25DAC003EC2D7 /* QMHACCollectionViewCell.m in Sources */,
@@ -1965,7 +2145,9 @@
 				C81074DD23AA4A9300CC7868 /* DFPlayerFileManager.m in Sources */,
 				C81074E123AA4A9300CC7868 /* DFPlayerResourceLoader.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,
+				C8E3B30E23ADB4ED00A0BCB4 /* NYSProtoclViewController.m in Sources */,
 				C81074DF23AA4A9300CC7868 /* DFPlayerRemoteApplication.m in Sources */,
+				C83B8E1923AC4D750051A22C /* NYSBibleVerseViewController.m in Sources */,
 				C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */,
 				C8A93E9C2366786D0062C813 /* HomeCell.m in Sources */,
 				C89EDC2423584FB000DB07D9 /* OYRPopOption.m in Sources */,

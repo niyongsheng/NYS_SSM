@@ -18,11 +18,21 @@
 
 @implementation NYSNickNameLbel
 
-- (void)setNickName:(NSString *)nickName sex:(UserGender)sex age:(NSInteger)age level:(NSInteger)level{
+- (void)setNickName:(NSString *)nickName enumSex:(UserGender)enumSex age:(NSInteger)age level:(NSInteger)level {
+    
+}
+
+- (void)setNickName:(NSString *)nickName sex:(NSString *)sex age:(NSInteger)age level:(NSInteger)level {
     self.nickNameLbl.text = nickName;
     
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:NSStringFormat(@"%ld",age)];
-    UIImage *img = sex==UserGenderMale ? ImageWithFile(@"man") : ImageWithFile(@"woman");
+    
+    UIImage *img = nil; // [UIImage imageNamed:@"secret"];
+    if ([sex isEqualToString:@"male"]) {
+        img = ImageWithFile(@"man");
+    } else if ([sex isEqualToString:@"female"]) {
+        img = ImageWithFile(@"woman");
+    }
     CGSize size = CGSizeMake(img.size.width+2, img.size.height);
     NSMutableAttributedString *attachText1= [NSMutableAttributedString attachmentStringWithContent:img contentMode:UIViewContentModeLeft attachmentSize:size alignToFont:[UIFont systemFontOfSize:18] alignment:YYTextVerticalAlignmentCenter];
     

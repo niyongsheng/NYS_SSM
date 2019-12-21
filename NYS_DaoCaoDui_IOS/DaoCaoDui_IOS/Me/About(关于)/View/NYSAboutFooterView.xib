@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="bTx-sj-AIn" customClass="NYSAboutFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2020 ShuoShuStudio.All Rights Reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dA-l8-e1B">
+                    <rect key="frame" x="37.5" y="88.5" width="305.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="硕鼠工作室 版权所有" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5E-Tb-SC8">
+                    <rect key="frame" x="133" y="69" width="114" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="0dA-l8-e1B" firstAttribute="centerX" secondItem="bTx-sj-AIn" secondAttribute="centerX" id="F8G-FX-JWL"/>
+                <constraint firstItem="0dA-l8-e1B" firstAttribute="centerX" secondItem="U5E-Tb-SC8" secondAttribute="centerX" id="dzG-EY-HpH"/>
+                <constraint firstItem="6ei-3N-66N" firstAttribute="bottom" secondItem="0dA-l8-e1B" secondAttribute="bottom" constant="10" id="mTc-i3-ksV"/>
+                <constraint firstItem="0dA-l8-e1B" firstAttribute="top" secondItem="U5E-Tb-SC8" secondAttribute="bottom" constant="5" id="x9b-rX-IFO"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="6ei-3N-66N"/>
+            <connections>
+                <outlet property="copyrightEN" destination="0dA-l8-e1B" id="klN-tW-iuF"/>
+                <outlet property="copyrightZH" destination="U5E-Tb-SC8" id="uXc-th-cqe"/>
+            </connections>
+            <point key="canvasLocation" x="107.24637681159422" y="370.64732142857139"/>
+        </view>
+    </objects>
+</document>

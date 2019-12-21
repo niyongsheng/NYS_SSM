@@ -9,6 +9,17 @@
 #ifndef ThirdMacros_h
 #define ThirdMacros_h
 
+// App Store ID
+#define APPID @"1438587731"
+// App Store详情页
+#define AppStoreURL [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPID]
+// APP 官网
+#define AppWebSiteURL @"http://www.daocaodui.top"
+// App APIs
+#define AppAPIsURL [NSString stringWithFormat:@"%@:8080/api/swagger-ui.html", AppWebSiteURL]
+// 隐私政策地址
+#define APPUserProtoclURL [NSString stringWithFormat:@"%@/protocl", AppWebSiteURL]
+
 // 友盟+
 #define UMengKey @"5da7bb714ca357079900067c"
 

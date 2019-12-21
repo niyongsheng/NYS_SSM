@@ -134,4 +134,18 @@
     return [formatter stringFromDate: date];
 }
 
+/// 计算年纪
+/// @param birthdayStr >=4位生日字符串（1991-01-01）
++ (NSInteger)getAgeWithBirthdayString:(NSString *)birthdayStr {
+    if (!birthdayStr) return 0;
+
+    NSInteger birthdayYear = [[birthdayStr substringToIndex:4] integerValue];
+
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy"];
+    NSInteger currentYear = [[format stringFromDate:[NSDate date]] integerValue];
+    
+    return currentYear - birthdayYear;
+}
+
 @end

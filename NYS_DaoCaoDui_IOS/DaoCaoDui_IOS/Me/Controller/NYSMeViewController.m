@@ -15,7 +15,9 @@
 
 #import "NYSMyCollectViewController.h"
 #import "NYSPersonalInfoViewController.h"
-#import "NYSFAQViewController.h"
+#import "NYSMyContributeViewController.h"
+#import "NYSSettingViewController.h"
+#import "NYSAboutViewController.h"
 
 #define NHeaderHeight ((200 * Iphone6ScaleWidth) + NStatusBarHeight)
 
@@ -111,7 +113,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60.0f;
+    return CellHeight;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -133,14 +135,17 @@
     NSString *titleText = [_dataSource[indexPath.section][indexPath.row] titleText];
     if ([titleText isEqualToString:@"分享"]) {
         [[ShareManager sharedShareManager] showShareView];
-    } else if ([titleText isEqualToString:@"关于"]) {
-        [self.navigationController pushViewController:[NYSFAQViewController new] animated:YES];
     } else if ([titleText isEqualToString:@"我的收藏"]) {
         [self.navigationController pushViewController:[NYSMyCollectViewController new] animated:YES];
-    }
+    } else if ([titleText isEqualToString:@"我的发布"]) {
+        [self.navigationController pushViewController:[NYSMyContributeViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"设置"]) {
+        [self.navigationController pushViewController:[NYSSettingViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"关于"]) {
+        [self.navigationController pushViewController:[NYSAboutViewController new] animated:YES];
+    } 
 }
 
-/** 设置section整体圆角 */
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([cell respondsToSelector:@selector(tintColor)]) {
         

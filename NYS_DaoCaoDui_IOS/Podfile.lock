@@ -40,6 +40,7 @@ PODS:
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
   - Ono (2.1.2)
+  - PYSearch (0.9.1)
   - ReactiveObjC (3.1.1)
   - RongCloudIM (2.9.25):
     - RongCloudIM/IMKit (= 2.9.25)
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - MJRefresh
   - MSNumberScrollAnimatedView
   - Ono
+  - PYSearch
   - ReactiveObjC
   - RongCloudIM (~> 2.9.25)
   - RongCloudRTC (~> 2.9.25)
@@ -167,6 +169,7 @@ SPEC REPOS:
     - MJRefresh
     - MSNumberScrollAnimatedView
     - Ono
+    - PYSearch
     - ReactiveObjC
     - RongCloudIM
     - RongCloudRTC
@@ -209,6 +212,7 @@ SPEC CHECKSUMS:
   MSNumberScrollAnimatedView: 28c0cb5d10cb0b93b4b9aa421455c22157ac0ed5
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   Ono: 26a7c1fc4df13ece7747560a1d80655807a8a000
+  PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   RongCloudIM: cd6836aa86fbf6c02f7b6b5c895ea4caa894d67f
   RongCloudRTC: 561024c315d3726a67e718fb99b59e50e4a5ee6c
@@ -229,6 +233,6 @@ SPEC CHECKSUMS:
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 772105508bb7a03e86f36d3e3e4998d6010f0798
+PODFILE CHECKSUM: c1efc892f481821260eb76fe228185d0adb5eb7e
 
 COCOAPODS: 1.8.4

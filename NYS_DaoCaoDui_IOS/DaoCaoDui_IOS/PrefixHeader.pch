@@ -13,6 +13,7 @@
 #import <Masonry.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
+#import <Ono/Ono.h>
 //#import <WRNavigationBar/WRNavigationBar.h>
 
 #import "UtilsMacros.h"
@@ -24,6 +25,7 @@
 #import "IMManager.h"
 #import "ShareManager.h"
 #import "UserManager.h"
+#import "BibleManager.h"
 #import "NYSTools.h"
 #import "NYSRequest.h"
 #import "PPNetworkHelper.h"

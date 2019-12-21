@@ -61,6 +61,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** 时间戳格式化yyyy年MM月dd日 HH时mm分 */
 + (NSString *)dateFormatWithInterval:(NSTimeInterval)interval;
 
+/// 计算年纪
+/// @param birthdayStr 生日字符串（1991-01-01）
++ (NSInteger)getAgeWithBirthdayString:(NSString *)birthdayStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

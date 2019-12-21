@@ -81,7 +81,7 @@ static NSInteger pageSize = 3;
         [NYSActivityModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"ID" : @"id"};
         }];
-        self.collectionDataArray = [NYSActivityModel mj_objectArrayWithKeyValuesArray:[[response objectForKey:@"data"] objectForKey:@"list"]];
+        self.collectionDataArray = [NYSActivityModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
         [self.collectionView reloadData];
         [self.collectionView.mj_header endRefreshing];
         [self.collectionView.mj_footer resetNoMoreData];
@@ -101,7 +101,7 @@ static NSInteger pageSize = 3;
         [NYSActivityModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"ID" : @"id"};
         }];
-        NSArray *tempArray = [NYSActivityModel mj_objectArrayWithKeyValuesArray:[[response objectForKey:@"data"] objectForKey:@"list"]];
+        NSArray *tempArray = [NYSActivityModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
         if (tempArray.count > 0) {
             [self.collectionDataArray addObjectsFromArray:tempArray];
             [self.collectionView reloadData];

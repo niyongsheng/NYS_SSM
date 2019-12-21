@@ -1,7 +1,6 @@
 package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
@@ -56,25 +55,26 @@ public class ActivityController {
 
         // 1.调用service的方法
         List<Activity> list = null;
-        try {
-            list = activityService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
-        } catch (Exception e) {
-            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
-        }
 
         // 2.是否分页
         if (isPageBreak) {
             // 2.1设置页码和分页大小
-            PageHelper.startPage(pageNum, pageSize);
+            PageHelper.startPage(pageNum, pageSize, false);
+            try {
+                list = activityService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
 
-            // 2.2包装分页对象
-            PageInfo pageInfo = new PageInfo(list);
-
-            model.addAttribute("pagingList", pageInfo);
-            return new ResponseDto(ResponseStatusEnum.SUCCESS, pageInfo);
         } else {
-            model.addAttribute("pagingList", list);
-            return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+            try {
+                list = activityService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
         }
+
+        model.addAttribute("pagingList", list);
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 }

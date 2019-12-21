@@ -15,33 +15,11 @@
 		</dict>
 		<dict>
 			<key>titleText</key>
-			<string>我的分享</string>
+			<string>我的发布</string>
 			<key>detailText</key>
 			<string></string>
 			<key>titleIcon</key>
 			<string>icon_me_feedback_24x25_</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>titleText</key>
-			<string>神奇盒子</string>
-			<key>detailText</key>
-			<string></string>
-			<key>titleIcon</key>
-			<string>icon_me_box_24x24_</string>
-			<key>subIcon</key>
-			<string>right_arrow</string>
-		</dict>
-		<dict>
-			<key>titleText</key>
-			<string>随想笔记</string>
-			<key>detailText</key>
-			<string></string>
-			<key>titleIcon</key>
-			<string>icon_me_home_24x24_</string>
 			<key>subIcon</key>
 			<string>right_arrow</string>
 		</dict>

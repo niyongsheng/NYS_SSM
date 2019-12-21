@@ -13,7 +13,8 @@
  */
 @interface NYSNickNameLbel : UIView
 
+- (void)setNickName:(NSString *)nickName enumSex:(UserGender)enumSex age:(NSInteger)age level:(NSInteger)level;
 
-- (void)setNickName:(NSString *)nickName sex:(UserGender)sex age:(NSInteger)age level:(NSInteger)level;
+- (void)setNickName:(NSString *)nickName sex:(NSString *)sex age:(NSInteger)age level:(NSInteger)level;
 
 @end

@@ -9,10 +9,20 @@
 #ifndef FontAndColorMacros_h
 #define FontAndColorMacros_h
 
+#pragma mark -- 设置区 --
+#define SettingKey_IsEnableNotification     @"SettingKey_IsEnableNotification"
+#define SettingKey_BibleFontSize            @"SettingKey_BibleFontSize"
+#define SettingKey_IsEnBible                @"SettingKey_IsEnBible"
+
+#define Settingdefault_IsEnableNotification 1
+#define Settingdefault_BibleFontSize 19.0f
+#define Settingdefault_BibleVersion @"zh_cuv"
+
 #pragma mark -- 间距区 --
 // 默认间距
 #define NNormalSpace 12.0f
 #define SegmentViewHeight 44.0f
+#define CellHeight 55.0f
 
 #pragma mark -- 颜色区 --
 // 主题色 导航栏颜色
@@ -21,7 +31,8 @@
 
 #define NBgColorLightGray     [UIColor colorWithHexString:@"EAEAEA"] // 浅灰
 #define NBgColorDrakGray     [UIColor colorWithHexString:@"F0F0F0"]
-//#define NBgColor [UIColor colorWithRed:1.00 green:0.00 blue:0.26 alpha:0.2]
+#define NBgSilverColor  RGBColor(145, 152, 159)
+#define NBgSilverColor1  RGBColor(189, 192, 186)
 #define NNavFontColor [UIColor colorWithHexString:@"ffffff"] // 灰色
 
 // WKWebView 进度条颜色

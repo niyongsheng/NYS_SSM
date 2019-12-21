@@ -225,8 +225,6 @@
 //    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
 //    [PPNetworkHelper closeAES];
-    NLog(@"当前网络缓存大小cache = .2%fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
-//    [PPNetworkCache removeAllHttpCache];
     NLog(@"接口：%@\n参数：%@", URL, parameters);
     
 #pragma mark - AUTH认证
@@ -281,7 +279,6 @@
 + (NSURLSessionTask *)fileRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters filePath:(NSString *)filePath process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     [PPNetworkHelper openLog];
     [PPNetworkHelper setRequestTimeoutInterval:10];
-    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -318,7 +315,6 @@
 + (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     [PPNetworkHelper openLog];
     [PPNetworkHelper setRequestTimeoutInterval:10];
-    NLog(@"当前网络缓存大小cache = %fKB", [PPNetworkCache getAllHttpCacheSize]/1024.f);
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];

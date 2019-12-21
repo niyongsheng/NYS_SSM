@@ -18,9 +18,12 @@
 #import "NYSBannerModel.h"
 #import "NYSPublicnotice.h"
 
+#import "SGActionView.h"
+
 #define HomeBannerHeight 160
 
 @interface NYSDaocaoduiHomeViewController () <UIScrollViewDelegate, TXScrollLabelViewDelegate>
+@property (nonatomic, strong) UIButton *publishBtn;
 @property (nonatomic, strong) UIScrollView *homeView;
 @property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -87,7 +90,7 @@
         }];
         dateLabel;
     });
-    
+        
     _titleLabel = ({
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.text = @"Today";
@@ -102,6 +105,19 @@
         titleLabel;
     });
     
+    _publishBtn = ({
+        UIButton *publishBtn = [[UIButton alloc] init];
+        [publishBtn setImage:[UIImage imageNamed:@"ic_compose_topic_l_30x30_"] forState:UIControlStateNormal];
+        [publishBtn addTapGesture:self sel:@selector(publish:)];
+        [self.homeView addSubview:publishBtn];
+        [publishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(45, 45));
+            make.right.mas_equalTo(NScreenWidth - 15);
+            make.centerY.mas_equalTo(_titleLabel.mas_centerY).offset(-10);
+        }];
+        publishBtn;
+    });
+    
     _bannerView = ({
         WMZBannerParam *param = BannerParam()
         // 自定义视图必传
@@ -109,10 +125,10 @@
         .wMyCellSet(^UICollectionViewCell *(NSIndexPath *indexPath, UICollectionView *collectionView, id model, UIImageView *bgImageView ,NSArray*dataArr) {
             // 自定义视图
             NYSBannerCollectionViewCell *cell = (NYSBannerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([NYSBannerCollectionViewCell class]) forIndexPath:indexPath];
-            [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_qm_intro_945x360_"]];
             cell.leftText.text = [(NYSBannerModel *)model title];
             // 毛玻璃效果必须实现
-            [bgImageView sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+            [bgImageView sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_qm_intro_945x360_"]];
             return cell;
         })
         .wFrameSet(CGRectMake(0, 0, BannerWitdh, RealValue(HomeBannerHeight)))
@@ -243,6 +259,18 @@
         weakSelf.scrollNumberView.customScrollAnimationView.number = @(arc4random()%5000);
         [weakSelf.scrollNumberView.customScrollAnimationView startAnimation];
     });
+}
+
+#pragma mark - 发布内容
+- (void)publish:(UIButton *)sender {
+    [SGActionView sharedActionView].style = SGActionViewStyleLight;
+    [SGActionView showGridMenuWithTitle:@"#发布📮"
+                             itemTitles:@[ @"分享", @"代祷", @"音频", @"活动"]
+                                 images:@[ [UIImage imageNamed:@"tabbar_compose_weibo"],
+                                           [UIImage imageNamed:@"tabbar_compose_wbcamera"],
+                                           [UIImage imageNamed:@"tabbar_compose_music"],
+                                           [UIImage imageNamed:@"tabbar_compose_review"]]
+    selectedHandle:nil];
 }
 
 - (NSArray *)bannerArray {

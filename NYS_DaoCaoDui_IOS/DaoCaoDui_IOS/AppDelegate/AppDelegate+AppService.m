@@ -21,16 +21,16 @@
 #pragma mark —- 初始化服务 --
 - (void)initService {
     // 注册登录状态监听
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loginStateChange:)
-                                                 name:NNotificationLoginStateChange
-                                               object:nil];
+    [NNotificationCenter addObserver:self
+                            selector:@selector(loginStateChange:)
+                                name:NNotificationLoginStateChange
+                              object:nil];
     
     // 网络状态监听
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(netWorkStateChange:)
-                                                 name:NNotificationNetWorkStateChange
-                                               object:nil];
+    [NNotificationCenter addObserver:self
+                            selector:@selector(netWorkStateChange:)
+                                name:NNotificationNetWorkStateChange
+                              object:nil];
 }
 
 #pragma mark —- 初始化window --

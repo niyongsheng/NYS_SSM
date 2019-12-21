@@ -25,5 +25,8 @@
 #pragma mark -- 网络状态相关 --
 // 网络状态变化
 #define NNotificationNetWorkStateChange @"KNotificationNetWorkStateChange"
+// 圣经版本刷新通知
+// 网络状态变化
+#define NNotificationBibleVersionChange @"KNotificationBibleVersionChange"
 
 #endif /* CommonMacros_h */

@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     // 1.分页栏配置
-    NSArray *titleArr = @[@"稻草堆", @"圣经", @"文章", @"音乐", @"代祷", @"活动"];
+    NSArray *titleArr = @[@"稻草堆", @"读经", @"分享", @"代祷", @"音频", @"活动"];
     SGPageTitleViewConfigure *segmentConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     segmentConfigure.indicatorStyle = SGIndicatorStyleDynamic;
     segmentConfigure.indicatorColor = [UIColor whiteColor];
@@ -41,7 +41,7 @@
     segmentConfigure.indicatorScrollStyle = SGIndicatorScrollStyleDefault;
     segmentConfigure.titleColor = [UIColor whiteColor];
     segmentConfigure.titleSelectedColor = [UIColor whiteColor];
-    segmentConfigure.titleFont = [UIFont fontWithName:@"HYZhuZiMeiXinTiW" size:15];;
+    segmentConfigure.titleFont = [UIFont fontWithName:@"HYZhuZiMeiXinTiW" size:15];
     segmentConfigure.titleTextZoom = YES;
     segmentConfigure.titleTextZoomRatio = .7f;
     
@@ -53,10 +53,12 @@
     self.navigationItem.titleView = LFView;
     
     // 3.分页控制器
-//    AXWebViewController *dcdWebVC0 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/web"];
-//    AXWebViewController *dcdWebVC1 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/"];
-//    AXWebViewController *dcdWebVC2 = [[AXWebViewController alloc] initWithAddress:@"http://www.daocaodui.top:8080/api/swagger-ui.html"];
-    NSArray *childArr = @[[NYSDaocaoduiHomeViewController new], [NYSBibleViewController new], [HomeViewController new], [NYSMusicMenuSegmentViewController new], [NYSPrayCardListViewController new], [NYSActivityListViewController new]];
+    NSArray *childArr = @[[NYSDaocaoduiHomeViewController new],
+                          [NYSBibleViewController new],
+                          [HomeViewController new],
+                          [NYSPrayCardListViewController new],
+                          [NYSMusicMenuSegmentViewController new],
+                          [NYSActivityListViewController new]];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;
     [self.view addSubview:_pageContentCollectionView];
