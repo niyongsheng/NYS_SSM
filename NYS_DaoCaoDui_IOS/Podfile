@@ -18,7 +18,6 @@ target 'DaoCaoDui_IOS' do
   pod 'AxcAE_TabBar'
 #  pod 'WRNavigationBar'
   pod 'SGPagingView'
-#  pod 'SGAdvertScrollView'
   pod 'JXCategoryView'
   pod 'JXPagingView/Pager'
   pod 'IQKeyboardManager'
@@ -31,7 +30,6 @@ target 'DaoCaoDui_IOS' do
   pod 'TXScrollLabelView'
   pod 'Ono'
   pod 'PYSearch'
-#  pod 'DFPlayer'
   
   pod 'JPush'
   pod 'RongCloudIM', '~> 2.9.25'

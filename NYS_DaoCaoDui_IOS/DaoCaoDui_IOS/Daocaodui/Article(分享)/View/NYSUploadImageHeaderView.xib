@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ny8-ZO-Iws" customClass="NYSUploadImageHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="402" height="253"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqg-44-qRw">
+                    <rect key="frame" x="0.0" y="0.0" width="402" height="253"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEr-Zn-fcI">
+                    <rect key="frame" x="146" y="51.5" width="110" height="110"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="NEr-Zn-fcI" secondAttribute="height" multiplier="1:1" id="Tfv-CC-k7R"/>
+                        <constraint firstAttribute="width" constant="110" id="vZW-bR-quU"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="camera"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="添加图片" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3S-k1-Qs3">
+                    <rect key="frame" x="170.5" y="171.5" width="61.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="yqg-44-qRw" secondAttribute="bottom" id="0ct-pB-FHb"/>
+                <constraint firstAttribute="trailing" secondItem="yqg-44-qRw" secondAttribute="trailing" id="6AV-ik-rfA"/>
+                <constraint firstItem="yqg-44-qRw" firstAttribute="top" secondItem="ny8-ZO-Iws" secondAttribute="top" id="GK0-f6-dtG"/>
+                <constraint firstItem="NEr-Zn-fcI" firstAttribute="centerX" secondItem="ny8-ZO-Iws" secondAttribute="centerX" id="OPl-Hn-Kal"/>
+                <constraint firstItem="yqg-44-qRw" firstAttribute="leading" secondItem="ny8-ZO-Iws" secondAttribute="leading" id="ZpJ-NF-A8d"/>
+                <constraint firstItem="NEr-Zn-fcI" firstAttribute="centerY" secondItem="ny8-ZO-Iws" secondAttribute="centerY" constant="-20" id="b8s-2w-lle"/>
+                <constraint firstItem="h3S-k1-Qs3" firstAttribute="centerX" secondItem="NEr-Zn-fcI" secondAttribute="centerX" id="euz-NT-XFp"/>
+                <constraint firstItem="h3S-k1-Qs3" firstAttribute="top" secondItem="NEr-Zn-fcI" secondAttribute="bottom" constant="10" id="tSJ-Fh-MVo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="hLh-jC-60z"/>
+            <connections>
+                <outlet property="bgImageView" destination="yqg-44-qRw" id="fGZ-5Z-Mht"/>
+                <outlet property="uploadBtn" destination="NEr-Zn-fcI" id="625-eE-o6w"/>
+                <outlet property="uploadTitle" destination="h3S-k1-Qs3" id="dvb-oi-TIT"/>
+            </connections>
+            <point key="canvasLocation" x="130.43478260869566" y="351.89732142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera" width="88.5" height="88.5"/>
+    </resources>
+</document>

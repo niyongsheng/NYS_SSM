@@ -318,21 +318,22 @@ public class UserController {
                                                  @NotBlank()
                                                  @RequestParam(value = "account", required = true) String account
     ) throws ResponseException {
+        // TODO 高并发情况下可以优先使用redis中的用户数据（保证修改同步刷新redis缓存）
 
         // 1.数据库查询用户
         User user = null;
         try {
             user = userService.findUserByAccount(account);
+            // 数据校验
+            if (user == null) {
+                throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
+            }
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
 
-        // 2.数据校验
-        if (user == null) {
-            throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
-        }
 
-        // 3.返回分页对象
+        // 2.返回查询对象
         return new ResponseDto(ResponseStatusEnum.SUCCESS, user);
     }
 
@@ -411,23 +412,23 @@ public class UserController {
         // 3.数据库查询修改后的用户信息
         try {
             user = userService.findUserByAccount(account);
+            // 数据校验
+            if (user == null) {
+                throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
+            }
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
 
-        // 4.数据校验
-        if (user == null) {
-            throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
-        }
 
-        // 5.redis缓存刷新
+        // 4.redis缓存刷新
         try {
             userRedisService.insertUser(user);
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.REDIS_INSERT_ERROR);
         }
 
-        // 6.返回成功信息
+        // 5.返回成功信息
         return new ResponseDto(ResponseStatusEnum.AUTH_UPDATE_SUCESS, user);
     }
 
@@ -479,24 +480,4 @@ public class UserController {
         return new ResponseDto(ResponseStatusEnum.SUCCESS);
     }
 
-    private ResponseDto register() {
-
-        /*SimpleDateFormat format =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); //设置格式
-        String timeText=format.format(new Date().getTime());*/
-
-
-        String time = "2018-1-9 12:17:22";
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        // 置要读取的时间字符串格式
-        Date date = null;
-        try {
-            date = format.parse(time);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        // 转换为Date类
-        Long timestamp = date.getTime();
-
-        return new ResponseDto();
-    }
 }

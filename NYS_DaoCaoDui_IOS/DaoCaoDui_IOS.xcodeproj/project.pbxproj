@@ -192,6 +192,13 @@
 		C89CA2C822BCADAE0086F9B0 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2C522BCADAE0086F9B0 /* snow.png */; };
 		C89EDC1E2358285E00DB07D9 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89EDC1D2358285E00DB07D9 /* CallKit.framework */; };
 		C89EDC2423584FB000DB07D9 /* OYRPopOption.m in Sources */ = {isa = PBXBuildFile; fileRef = C89EDC2323584FB000DB07D9 /* OYRPopOption.m */; };
+		C8A8051F23B1AA2800DA52DC /* NYSPublishArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A8051E23B1AA2800DA52DC /* NYSPublishArticleViewController.m */; };
+		C8A8052223B1AD5B00DA52DC /* NYSUploadImageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A8052123B1AD5B00DA52DC /* NYSUploadImageHeaderView.m */; };
+		C8A8052423B1AE0400DA52DC /* NYSUploadImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A8052323B1AE0400DA52DC /* NYSUploadImageHeaderView.xib */; };
+		C8A8052823B1B92B00DA52DC /* NYSInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A8052623B1B92B00DA52DC /* NYSInputTableViewCell.m */; };
+		C8A8052923B1B92C00DA52DC /* NYSInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A8052723B1B92B00DA52DC /* NYSInputTableViewCell.xib */; };
+		C8A8052D23B1C07300DA52DC /* NYSContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A8052B23B1C07300DA52DC /* NYSContentTableViewCell.m */; };
+		C8A8052E23B1C07300DA52DC /* NYSContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A8052C23B1C07300DA52DC /* NYSContentTableViewCell.xib */; };
 		C8A93E9B2366786D0062C813 /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A93E912366786B0062C813 /* HomeDetailViewController.m */; };
 		C8A93E9C2366786D0062C813 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A93E922366786B0062C813 /* HomeCell.m */; };
 		C8A93E9D2366786D0062C813 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A93E942366786D0062C813 /* HomeViewController.m */; };
@@ -207,6 +214,9 @@
 		C8C664C72363D174009952E5 /* NYSGroupCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C664C52363D174009952E5 /* NYSGroupCollectionCell.m */; };
 		C8C664C82363D174009952E5 /* NYSGroupCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C664C62363D174009952E5 /* NYSGroupCollectionCell.xib */; };
 		C8CA7B9823A9C8C30081D593 /* nav_img2.png in Resources */ = {isa = PBXBuildFile; fileRef = C8CA7B9723A9C8C20081D593 /* nav_img2.png */; };
+		C8D78C8D23B31A6000C0DC97 /* NYSPublishPrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D78C8C23B31A6000C0DC97 /* NYSPublishPrayViewController.m */; };
+		C8D78C9023B3299C00C0DC97 /* NYSPublishMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D78C8F23B3299C00C0DC97 /* NYSPublishMusicViewController.m */; };
+		C8D78C9323B32B3500C0DC97 /* NYSPublishActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D78C9223B32B3500C0DC97 /* NYSPublishActivityViewController.m */; };
 		C8D8AF3D23A1E1DC00737BBE /* NYSTodayItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */; };
 		C8D8AF4123A1E3D100737BBE /* NYSTodayItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */; };
 		C8DDA11623AB3B46003AF6F4 /* zh_cuv.xml in Resources */ = {isa = PBXBuildFile; fileRef = C8DDA11523AB3B46003AF6F4 /* zh_cuv.xml */; };
@@ -536,6 +546,17 @@
 		C89EDC1D2358285E00DB07D9 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		C89EDC2223584FAF00DB07D9 /* OYRPopOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OYRPopOption.h; sourceTree = "<group>"; };
 		C89EDC2323584FB000DB07D9 /* OYRPopOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OYRPopOption.m; sourceTree = "<group>"; };
+		C8A8051D23B1AA2800DA52DC /* NYSPublishArticleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPublishArticleViewController.h; sourceTree = "<group>"; };
+		C8A8051E23B1AA2800DA52DC /* NYSPublishArticleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPublishArticleViewController.m; sourceTree = "<group>"; };
+		C8A8052023B1AD5B00DA52DC /* NYSUploadImageHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSUploadImageHeaderView.h; sourceTree = "<group>"; };
+		C8A8052123B1AD5B00DA52DC /* NYSUploadImageHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSUploadImageHeaderView.m; sourceTree = "<group>"; };
+		C8A8052323B1AE0400DA52DC /* NYSUploadImageHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSUploadImageHeaderView.xib; sourceTree = "<group>"; };
+		C8A8052523B1B92B00DA52DC /* NYSInputTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSInputTableViewCell.h; sourceTree = "<group>"; };
+		C8A8052623B1B92B00DA52DC /* NYSInputTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSInputTableViewCell.m; sourceTree = "<group>"; };
+		C8A8052723B1B92B00DA52DC /* NYSInputTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSInputTableViewCell.xib; sourceTree = "<group>"; };
+		C8A8052A23B1C07300DA52DC /* NYSContentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContentTableViewCell.h; sourceTree = "<group>"; };
+		C8A8052B23B1C07300DA52DC /* NYSContentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContentTableViewCell.m; sourceTree = "<group>"; };
+		C8A8052C23B1C07300DA52DC /* NYSContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSContentTableViewCell.xib; sourceTree = "<group>"; };
 		C8A93E8A236678680062C813 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C8A93E912366786B0062C813 /* HomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailViewController.m; sourceTree = "<group>"; };
 		C8A93E922366786B0062C813 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
@@ -565,6 +586,12 @@
 		C8C664C62363D174009952E5 /* NYSGroupCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSGroupCollectionCell.xib; sourceTree = "<group>"; };
 		C8CA7B9723A9C8C20081D593 /* nav_img2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_img2.png; sourceTree = "<group>"; };
 		C8CC2E3B22BE2F0F00B0B08E /* DaoCaoDui_IOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DaoCaoDui_IOS.entitlements; sourceTree = "<group>"; };
+		C8D78C8B23B31A6000C0DC97 /* NYSPublishPrayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPublishPrayViewController.h; sourceTree = "<group>"; };
+		C8D78C8C23B31A6000C0DC97 /* NYSPublishPrayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPublishPrayViewController.m; sourceTree = "<group>"; };
+		C8D78C8E23B3299C00C0DC97 /* NYSPublishMusicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPublishMusicViewController.h; sourceTree = "<group>"; };
+		C8D78C8F23B3299C00C0DC97 /* NYSPublishMusicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPublishMusicViewController.m; sourceTree = "<group>"; };
+		C8D78C9123B32B3500C0DC97 /* NYSPublishActivityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPublishActivityViewController.h; sourceTree = "<group>"; };
+		C8D78C9223B32B3500C0DC97 /* NYSPublishActivityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPublishActivityViewController.m; sourceTree = "<group>"; };
 		C8D8AF3B23A1E1DC00737BBE /* NYSTodayItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSTodayItemView.h; sourceTree = "<group>"; };
 		C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSTodayItemView.m; sourceTree = "<group>"; };
 		C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSTodayItemView.xib; sourceTree = "<group>"; };
@@ -722,6 +749,8 @@
 				C807699723A24DC3004B6E1C /* NYSPrayCardListViewController.h */,
 				C807699423A24DC0004B6E1C /* NYSPrayCardListViewController.m */,
 				C807699523A24DC1004B6E1C /* NYSPrayCardListViewController.xib */,
+				C8D78C8B23B31A6000C0DC97 /* NYSPublishPrayViewController.h */,
+				C8D78C8C23B31A6000C0DC97 /* NYSPublishPrayViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -764,6 +793,8 @@
 				C8A93E912366786B0062C813 /* HomeDetailViewController.m */,
 				C8A93E8A236678680062C813 /* HomeViewController.h */,
 				C8A93E942366786D0062C813 /* HomeViewController.m */,
+				C8A8051D23B1AA2800DA52DC /* NYSPublishArticleViewController.h */,
+				C8A8051E23B1AA2800DA52DC /* NYSPublishArticleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -773,6 +804,15 @@
 			children = (
 				C8A93E952366786D0062C813 /* HomeCell.h */,
 				C8A93E922366786B0062C813 /* HomeCell.m */,
+				C8A8052023B1AD5B00DA52DC /* NYSUploadImageHeaderView.h */,
+				C8A8052123B1AD5B00DA52DC /* NYSUploadImageHeaderView.m */,
+				C8A8052323B1AE0400DA52DC /* NYSUploadImageHeaderView.xib */,
+				C8A8052523B1B92B00DA52DC /* NYSInputTableViewCell.h */,
+				C8A8052623B1B92B00DA52DC /* NYSInputTableViewCell.m */,
+				C8A8052723B1B92B00DA52DC /* NYSInputTableViewCell.xib */,
+				C8A8052A23B1C07300DA52DC /* NYSContentTableViewCell.h */,
+				C8A8052B23B1C07300DA52DC /* NYSContentTableViewCell.m */,
+				C8A8052C23B1C07300DA52DC /* NYSContentTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -906,14 +946,14 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		C8265C8622A27E6B0072A3F1 /* LogReg */ = {
+		C8265C8622A27E6B0072A3F1 /* LoginReg */ = {
 			isa = PBXGroup;
 			children = (
 				C8265C8722A27E6B0072A3F1 /* Controller */,
 				C8265C9122A27E6B0072A3F1 /* Model */,
 				C8265C9622A27E6B0072A3F1 /* View */,
 			);
-			path = LogReg;
+			path = LoginReg;
 			sourceTree = "<group>";
 		};
 		C8265C8722A27E6B0072A3F1 /* Controller */ = {
@@ -1448,6 +1488,8 @@
 				C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */,
 				C899EFA323A341C100E78403 /* NYSActivityListViewController.h */,
 				C899EFA423A341C100E78403 /* NYSActivityListViewController.m */,
+				C8D78C9123B32B3500C0DC97 /* NYSPublishActivityViewController.h */,
+				C8D78C9223B32B3500C0DC97 /* NYSPublishActivityViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1557,6 +1599,8 @@
 				C899EFB023A378EE00E78403 /* NYSMusicListViewController.m */,
 				C81074B323AA235100CC7868 /* NYSMusicMenuSegmentViewController.h */,
 				C81074B423AA235100CC7868 /* NYSMusicMenuSegmentViewController.m */,
+				C8D78C8E23B3299C00C0DC97 /* NYSPublishMusicViewController.h */,
+				C8D78C8F23B3299C00C0DC97 /* NYSPublishMusicViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1812,7 +1856,7 @@
 				C8265C6922A0FD210072A3F1 /* AppDelegate */,
 				C857A380229CCBA9002B5396 /* Manager */,
 				C8424ED2229E89BE003A7C58 /* TabBar */,
-				C8265C8622A27E6B0072A3F1 /* LogReg */,
+				C8265C8622A27E6B0072A3F1 /* LoginReg */,
 				C8424ECF229E88FB003A7C58 /* Home */,
 				C8424ED0229E8917003A7C58 /* Daocaodui */,
 				C8424ED1229E898C003A7C58 /* Me */,
@@ -1902,6 +1946,7 @@
 				C8265C7F22A2710E0072A3F1 /* woman@2x.png in Resources */,
 				C85C44D6229BAB2900B35652 /* right_arrow.png in Resources */,
 				C807699C23A24DC6004B6E1C /* NYSPrayCardListViewController.xib in Resources */,
+				C8A8052E23B1C07300DA52DC /* NYSContentTableViewCell.xib in Resources */,
 				C8F3B4D62298EF8B00FA61A6 /* LaunchScreen.storyboard in Resources */,
 				C89CA2C622BCADAE0086F9B0 /* DazFire.png in Resources */,
 				C81074B723AA299700CC7868 /* NYSMusicMenuHeaderView.xib in Resources */,
@@ -1972,9 +2017,11 @@
 				C802A62122A6319C002E2A58 /* FAQ.plist in Resources */,
 				C87947F223A25DAC003EC2D7 /* QMHMemberView.xib in Resources */,
 				C85C44A7229BA73700B35652 /* back_icon@3x.png in Resources */,
+				C8A8052423B1AE0400DA52DC /* NYSUploadImageHeaderView.xib in Resources */,
 				C85C44CA229BAB2900B35652 /* down_arrow.png in Resources */,
 				C879480323A26423003EC2D7 /* QMHLeftTextCell.xib in Resources */,
 				C85C44CB229BAB2900B35652 /* left_arrow@2x.png in Resources */,
+				C8A8052923B1B92C00DA52DC /* NYSInputTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2083,17 +2130,20 @@
 				C899EFAB23A3682A00E78403 /* NYSPrayModel.m in Sources */,
 				C85C44EF229C03F300B35652 /* AdPageView.m in Sources */,
 				C85DD72822A4C4B200E33636 /* NYSInterfacedConst.m in Sources */,
+				C8A8051F23B1AA2800DA52DC /* NYSPublishArticleViewController.m in Sources */,
 				C85C44F1229C03F300B35652 /* YYFPSLabel.m in Sources */,
 				C81074E223AA4A9300CC7868 /* DFPlayerTool.m in Sources */,
 				C8F3B4CB2298EF8A00FA61A6 /* AppDelegate.m in Sources */,
 				C802A61922A62D85002E2A58 /* NYSFAQViewController.m in Sources */,
 				C8C664BD2363CF60009952E5 /* NYSGroupListViewController.m in Sources */,
 				C8DDA11B23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.m in Sources */,
+				C8A8052823B1B92B00DA52DC /* NYSInputTableViewCell.m in Sources */,
 				C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */,
 				C8F857D92356FB6100521460 /* NYSChatListViewController.m in Sources */,
 				C879480223A26423003EC2D7 /* NYSDisplayIconCell.m in Sources */,
 				C8265C7222A215DF0072A3F1 /* NYSNickNameLbel.m in Sources */,
 				C857A383229CCBDA002B5396 /* AppManager.m in Sources */,
+				C8D78C9023B3299C00C0DC97 /* NYSPublishMusicViewController.m in Sources */,
 				C857A387229CD016002B5396 /* MBProgressHUD+NYS.m in Sources */,
 				C85C44F0229C03F300B35652 /* AESCipher.m in Sources */,
 				C8B6B5632394AD8A0067ACD5 /* NYSPersonalInfoViewController.m in Sources */,
@@ -2122,6 +2172,7 @@
 				C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */,
 				C821612E235D5EEC00B17530 /* ChineseString.m in Sources */,
 				C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */,
+				C8D78C9323B32B3500C0DC97 /* NYSPublishActivityViewController.m in Sources */,
 				C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */,
 				C899EFA523A341C100E78403 /* NYSActivityListViewController.m in Sources */,
 				C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */,
@@ -2131,6 +2182,7 @@
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
 				C83B8E2823AC9AFF0051A22C /* SGGridMenu.m in Sources */,
 				C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */,
+				C8A8052D23B1C07300DA52DC /* NYSContentTableViewCell.m in Sources */,
 				C87947EA23A25DAC003EC2D7 /* QMHCommunityActivityDetail.m in Sources */,
 				C87947ED23A25DAC003EC2D7 /* QMHACCollectionViewCell.m in Sources */,
 				C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */,
@@ -2142,6 +2194,7 @@
 				C807697923A24D8F004B6E1C /* CCDraggableCardView.m in Sources */,
 				C821612F235D5EEC00B17530 /* pinyin.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
+				C8A8052223B1AD5B00DA52DC /* NYSUploadImageHeaderView.m in Sources */,
 				C81074DD23AA4A9300CC7868 /* DFPlayerFileManager.m in Sources */,
 				C81074E123AA4A9300CC7868 /* DFPlayerResourceLoader.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,
@@ -2158,6 +2211,7 @@
 				C879480123A26423003EC2D7 /* QMHLeftTextCell.m in Sources */,
 				C8DDA11F23AB592D003AF6F4 /* UIColor+NYS.m in Sources */,
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,
+				C8D78C8D23B31A6000C0DC97 /* NYSPublishPrayViewController.m in Sources */,
 				C8265CA422A27E6B0072A3F1 /* NYSTextField.m in Sources */,
 				C883875523A0C3C300EFD29D /* NYSBannerCollectionViewCell.m in Sources */,
 			);

@@ -1,6 +1,8 @@
 package com.niyongsheng.persistence.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -20,12 +22,14 @@ import java.io.Serializable;
 @ApiModel(value = "Article")
 public class Article implements Serializable {
 
+    @TableId(value = "id", type = IdType.AUTO)
     @ApiModelProperty(value = "ID主键")
     private Integer id;
 
     @ApiModelProperty(value = "标题")
     private String title;
 
+    @TableField(value = "subtitle")
     @ApiModelProperty(value = "副标题")
     private String subtitle;
 
@@ -41,15 +45,18 @@ public class Article implements Serializable {
     @ApiModelProperty(value = "文章内容")
     private String content;
 
+    @TableField(value = "articleUrl")
     @ApiModelProperty(value = "文章URL")
     private String articleUrl;
 
     @ApiModelProperty(value = "文章状态 0不可用 1可用")
     private Boolean status;
 
+    @TableField(value = "isTop")
     @ApiModelProperty(value = "是否置顶")
     private Boolean isTop;
 
+    @TableField(value = "articleType")
     @ApiModelProperty(value = "文章类型 ：1普通 2转载")
     private Integer articleType;
 

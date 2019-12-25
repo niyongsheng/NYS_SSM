@@ -17,8 +17,12 @@
 
 #import "NYSBannerModel.h"
 #import "NYSPublicnotice.h"
-
+// 发布
 #import "SGActionView.h"
+#import "NYSPublishArticleViewController.h"
+#import "NYSPublishPrayViewController.h"
+#import "NYSPublishMusicViewController.h"
+#import "NYSPublishActivityViewController.h"
 
 #define HomeBannerHeight 160
 
@@ -265,12 +269,37 @@
 - (void)publish:(UIButton *)sender {
     [SGActionView sharedActionView].style = SGActionViewStyleLight;
     [SGActionView showGridMenuWithTitle:@"#发布📮"
-                             itemTitles:@[ @"分享", @"代祷", @"音频", @"活动"]
-                                 images:@[ [UIImage imageNamed:@"tabbar_compose_weibo"],
-                                           [UIImage imageNamed:@"tabbar_compose_wbcamera"],
-                                           [UIImage imageNamed:@"tabbar_compose_music"],
-                                           [UIImage imageNamed:@"tabbar_compose_review"]]
-    selectedHandle:nil];
+                             itemTitles:@[@"分享", @"代祷", @"音频", @"活动"]
+                                 images:@[[UIImage imageNamed:@"tabbar_compose_weibo"],
+                                          [UIImage imageNamed:@"tabbar_compose_wbcamera"],
+                                          [UIImage imageNamed:@"tabbar_compose_music"],
+                                          [UIImage imageNamed:@"tabbar_compose_review"]]
+                         selectedHandle:^(NSInteger index) {
+        switch (index) {
+            case 1: {
+                [self.navigationController pushViewController:NYSPublishArticleViewController.new animated:YES];
+            }
+                break;
+                
+            case 2: {
+                [self.navigationController pushViewController:NYSPublishPrayViewController.new animated:YES];
+            }
+                break;
+                
+            case 3: {
+                [self.navigationController pushViewController:NYSPublishMusicViewController.new animated:YES];
+            }
+                break;
+                
+            case 4: {
+                [self.navigationController pushViewController:NYSPublishActivityViewController.new animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 - (NSArray *)bannerArray {

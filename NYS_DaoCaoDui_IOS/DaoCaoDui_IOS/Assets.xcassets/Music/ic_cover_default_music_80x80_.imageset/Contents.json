@@ -2,12 +2,10 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ic_cover_default_music_80x80_@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ic_cover_default_music_80x80_@2x.png",
       "scale" : "2x"
     },
     {

@@ -15,7 +15,7 @@
 #import <RongIMKit/RongIMKit.h>
 
 static float Magin = 10;
-static NSInteger pageSize = 3;
+static NSInteger pageSize = 7;
 
 @interface NYSActivityListViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (strong, nonatomic) NSMutableArray *collectionDataArray;

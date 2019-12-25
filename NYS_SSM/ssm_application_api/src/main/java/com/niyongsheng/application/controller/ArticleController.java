@@ -5,21 +5,21 @@ import com.github.pagehelper.PageInfo;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
+import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import com.niyongsheng.persistence.domain.Article;
 import com.niyongsheng.persistence.service.ArticleService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author niyongsheng.com
@@ -37,6 +37,9 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private QiniuUploadFileService qiniuUploadFileService;
+
     @ResponseBody
     @RequestMapping(value = "/selectArticleList", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有的文章", notes = "参数描述", hidden = false)
@@ -47,11 +50,11 @@ public class ArticleController {
             @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
     })
     public ResponseDto<Article> selectBannerList(HttpServletRequest request, Model model,
-                                                @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
-                                                @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                                @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
-                                                @NotBlank
-                                                @RequestParam(value = "fellowship", required = true) String fellowship
+                                                 @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                 @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                 @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                 @NotBlank
+                                                 @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
 
         // 1.调用service的方法
@@ -76,5 +79,64 @@ public class ArticleController {
             model.addAttribute("pagingList", list);
             return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
         }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/publishArticle", method = RequestMethod.POST)
+    @ApiOperation(value = "发布分享", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "title", value = "标题", required = true),
+            @ApiImplicitParam(name = "subTitle", value = "子标题", required = true),
+            @ApiImplicitParam(name = "author", value = "原作者", required = true),
+            @ApiImplicitParam(name = "content", value = "内容", required = true),
+            @ApiImplicitParam(name = "articleUrl", value = "转发链接", required = true),
+            @ApiImplicitParam(name = "articleType", value = "类型（1原创/2转发）", required = true),
+            @ApiImplicitParam(name = "fellowship", value = "团契编号", required = true)
+//            @ApiImplicitParam(name = "iconImage", value = "封面图片", required = true)
+    })
+    public ResponseDto publishArticle(HttpServletRequest request, Model model,
+                                      @NotBlank
+                                      @RequestParam(value = "title", required = true) String title,
+                                      @NotBlank
+                                      @RequestParam(value = "subTitle", required = true) String subTitle,
+                                      @NotBlank
+                                      @RequestParam(value = "author", required = true) String author,
+                                      @NotBlank
+                                      @RequestParam(value = "content", required = true) String content,
+                                      @NotBlank
+                                      @RequestParam(value = "articleUrl", required = true) String articleUrl,
+                                      @NotBlank
+                                      @RequestParam(value = "articleType", required = true) String articleType,
+                                      @NotBlank
+                                      @RequestParam(value = "fellowship", required = true) String fellowship,
+                                      @ApiParam(value = "封面图片", required = true)
+                                      @RequestParam(value = "iconImage", required = true) MultipartFile iconImage
+    ) throws ResponseException {
+
+        // 1.上传图片
+        String uploadPath = request.getSession().getServletContext().getRealPath("file");
+        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(iconImage, uploadPath, false);
+
+        // 2.创建数据模型
+        Article article = new Article();
+        article.setAccount(request.getHeader("Account"));
+        article.setTitle(title);
+        article.setSubtitle(subTitle);
+        article.setAuthor(author);
+        article.setContent(content);
+        article.setArticleUrl(articleUrl);
+        article.setFellowship(Integer.valueOf(fellowship));
+        article.setArticleType(Integer.valueOf(articleType));
+        article.setIcon((String) resultMap.get("qiniuURL"));
+
+        // 3.插入数据库
+        try {
+            articleService.getBaseMapper().insert(article);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
+
+        // 4.返回结果
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
     }
 }

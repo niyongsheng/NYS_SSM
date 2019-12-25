@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotBlank;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class FileController {
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     @ApiOperation(value = "单文件上传接口", notes = "参数描述", hidden = false)
     public ResponseDto<Map> uploadFile(HttpServletRequest request,
+                                            @NotBlank
                                             @ApiParam(value = "团契编号", required = true)
                                             @RequestParam(value = "fellowship", required = true) String fellowship,
                                             @ApiParam(value = "上传的文件(file)", required = true)
@@ -56,6 +58,7 @@ public class FileController {
     @RequestMapping(value = "/uploadFiles", method = RequestMethod.POST)
     @ApiOperation(value = "多文件上传接口", notes = "参数描述", hidden = false)
     public ResponseDto<List> uploadFiles(HttpServletRequest request,
+                                  @NotBlank
                                   @ApiParam(value = "团契编号", required = true)
                                   @RequestParam(value = "fellowship", required = true) String fellowship,
                                   @ApiParam(value = "上传的文件数组(file)", required = true)

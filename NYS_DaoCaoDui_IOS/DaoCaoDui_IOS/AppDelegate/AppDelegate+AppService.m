@@ -10,7 +10,6 @@
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
-//#import <WRNavigationBar/WRNavigationBar.h>
 #import "OpenUDID.h"
 #import "NYSTabBarController.h"
 #import "NYSLoginViewController.h"
@@ -68,10 +67,9 @@
 #pragma mark -- 初始化用户系统 --
 - (void)initUserManager {
     NLog(@"设备IMEI ：%@",[OpenUDID value]);
-    
+    // 判断是否登陆过
     if([NUserManager loadUserInfo]) {
-        
-        // 如果有本地数据，先展示TabBar 随后异步自动登录
+        // 有本地缓存的用户数据，先展示TabBarVC随后异步自动登录
         self.mainTabBar = [NYSTabBarController new];
         self.window.rootViewController = self.mainTabBar;
         
