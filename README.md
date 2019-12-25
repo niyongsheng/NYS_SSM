@@ -22,8 +22,8 @@ NYS_SSM
 * UnitTest
 
 ## <a id="How_to_use:"></a>How to use:
-* 持续开发中...（完成度50%）
-* 开发完成后将开放Web\Service\Ios\Android所有代码。 
+* 个人持续开发中...（完成度50%）
+* 开发完成后将开放Web\Service\Ios\Android所有代码 
 
 ## <a id="Application_Instance_by_NYS_SSM:"></a>Application Instance by NYS_SSM:
 RMOV | CI | CI
