@@ -18,24 +18,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题内容" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ki8-UO-CHg">
-                        <rect key="frame" x="90" y="13" width="215" height="18.5"/>
+                        <rect key="frame" x="102" y="13" width="203" height="18.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBa-gZ-dcL">
-                        <rect key="frame" x="15" y="12.5" width="70" height="19.5"/>
+                        <rect key="frame" x="15" y="12.5" width="85" height="19.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="xrc-75-ZsH"/>
+                            <constraint firstAttribute="width" constant="85" id="xrc-75-ZsH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sff-m9-MVS">
+                        <rect key="frame" x="5.5" y="12" width="7.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ki8-UO-CHg" firstAttribute="leading" secondItem="tBa-gZ-dcL" secondAttribute="trailing" constant="5" id="Vr4-Tp-EoR"/>
+                    <constraint firstItem="ki8-UO-CHg" firstAttribute="leading" secondItem="tBa-gZ-dcL" secondAttribute="trailing" constant="2" id="86s-FP-WSP"/>
+                    <constraint firstItem="tBa-gZ-dcL" firstAttribute="leading" secondItem="Sff-m9-MVS" secondAttribute="trailing" constant="2" id="Enc-DU-FM3"/>
                     <constraint firstItem="ki8-UO-CHg" firstAttribute="centerY" secondItem="tBa-gZ-dcL" secondAttribute="centerY" id="agN-Yb-QWp"/>
                     <constraint firstItem="ki8-UO-CHg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bBR-Sb-AwT"/>
+                    <constraint firstItem="tBa-gZ-dcL" firstAttribute="centerY" secondItem="Sff-m9-MVS" secondAttribute="centerY" id="l0A-Jn-ga3"/>
                     <constraint firstAttribute="trailing" secondItem="ki8-UO-CHg" secondAttribute="trailing" constant="15" id="lNR-cR-c1M"/>
                     <constraint firstItem="tBa-gZ-dcL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="pQl-2V-YYE"/>
                 </constraints>
@@ -43,9 +51,10 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="content" destination="ki8-UO-CHg" id="DzX-Er-7xR"/>
+                <outlet property="requiredLabel" destination="Sff-m9-MVS" id="Ge8-Vd-bZ6"/>
                 <outlet property="title" destination="tBa-gZ-dcL" id="kFE-xm-uja"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="132.58928571428572"/>
+            <point key="canvasLocation" x="128" y="132"/>
         </tableViewCell>
     </objects>
 </document>

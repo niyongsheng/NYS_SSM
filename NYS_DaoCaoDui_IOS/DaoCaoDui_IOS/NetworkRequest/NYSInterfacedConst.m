@@ -59,8 +59,14 @@ NSString *const CR_GetPrayList = @"/pray/selectPrayList";
 NSString *const CR_GetMusicMenuList = @"/musicSongMenu/selectMusicMenuList";
 /** 获取歌单（含歌曲列表）*/
 NSString *const CR_GetMusicMenu = @"/musicSongMenu/selectMusicListById";
-
-
+/** 发布分享*/
+NSString *const CR_PublishArtcle = @"/article/publishArticle";
+/** 发布代祷*/
+NSString *const CR_PublishPray = @"/pray/publishPray";
+/** 发布音频*/
+NSString *const CR_PublishMusic = @"/music/publishMusic";
+/** 发布活动*/
+NSString *const CR_PublishActivity = @"/activity/publishActivity";
 
 
 /** 创建群组*/

@@ -224,6 +224,21 @@
 		C8DDA11C23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DDA11A23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib */; };
 		C8DDA11F23AB592D003AF6F4 /* UIColor+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DDA11E23AB592D003AF6F4 /* UIColor+NYS.m */; };
 		C8DDA12223AB5D80003AF6F4 /* NYSBibleChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DDA12123AB5D80003AF6F4 /* NYSBibleChapterViewController.m */; };
+		C8E22C7823B494570025C094 /* NYSAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E22C7723B494570025C094 /* NYSAlert.m */; };
+		C8E22C7C23B4972D0025C094 /* sign_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C7A23B4972C0025C094 /* sign_bg@3x.png */; };
+		C8E22C7D23B4972D0025C094 /* sign_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C7B23B4972D0025C094 /* sign_bg@2x.png */; };
+		C8E22C8023B497410025C094 /* sign_exchange@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C7E23B497400025C094 /* sign_exchange@3x.png */; };
+		C8E22C8123B497410025C094 /* sign_exchange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C7F23B497410025C094 /* sign_exchange@2x.png */; };
+		C8E22C8423B4974F0025C094 /* sign_out@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8223B4974E0025C094 /* sign_out@2x.png */; };
+		C8E22C8523B4974F0025C094 /* sign_out@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8323B4974F0025C094 /* sign_out@3x.png */; };
+		C8E22C8823B4975B0025C094 /* sign_success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8623B4975A0025C094 /* sign_success@3x.png */; };
+		C8E22C8923B4975B0025C094 /* sign_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8723B4975B0025C094 /* sign_success@2x.png */; };
+		C8E22C9023B498950025C094 /* nys_alert_success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8A23B498900025C094 /* nys_alert_success@3x.png */; };
+		C8E22C9123B498950025C094 /* nys_alert_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8B23B498910025C094 /* nys_alert_bg@2x.png */; };
+		C8E22C9223B498950025C094 /* nys_alert_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8C23B498920025C094 /* nys_alert_bg@3x.png */; };
+		C8E22C9323B498950025C094 /* nys_alert_fail@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8D23B498930025C094 /* nys_alert_fail@3x.png */; };
+		C8E22C9423B498950025C094 /* nys_alert_fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8E23B498940025C094 /* nys_alert_fail@2x.png */; };
+		C8E22C9523B498950025C094 /* nys_alert_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E22C8F23B498950025C094 /* nys_alert_success@2x.png */; };
 		C8E3B30923ADA86C00A0BCB4 /* NYSAboutFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B30823ADA86C00A0BCB4 /* NYSAboutFooterView.m */; };
 		C8E3B30B23ADA88300A0BCB4 /* NYSAboutFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */; };
 		C8E3B30E23ADB4ED00A0BCB4 /* NYSProtoclViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */; };
@@ -603,6 +618,22 @@
 		C8DDA11E23AB592D003AF6F4 /* UIColor+NYS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NYS.m"; sourceTree = "<group>"; };
 		C8DDA12023AB5D80003AF6F4 /* NYSBibleChapterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBibleChapterViewController.h; sourceTree = "<group>"; };
 		C8DDA12123AB5D80003AF6F4 /* NYSBibleChapterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBibleChapterViewController.m; sourceTree = "<group>"; };
+		C8E22C7623B494570025C094 /* NYSAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAlert.h; sourceTree = "<group>"; };
+		C8E22C7723B494570025C094 /* NYSAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAlert.m; sourceTree = "<group>"; };
+		C8E22C7A23B4972C0025C094 /* sign_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_bg@3x.png"; sourceTree = "<group>"; };
+		C8E22C7B23B4972D0025C094 /* sign_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_bg@2x.png"; sourceTree = "<group>"; };
+		C8E22C7E23B497400025C094 /* sign_exchange@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_exchange@3x.png"; sourceTree = "<group>"; };
+		C8E22C7F23B497410025C094 /* sign_exchange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_exchange@2x.png"; sourceTree = "<group>"; };
+		C8E22C8223B4974E0025C094 /* sign_out@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_out@2x.png"; sourceTree = "<group>"; };
+		C8E22C8323B4974F0025C094 /* sign_out@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_out@3x.png"; sourceTree = "<group>"; };
+		C8E22C8623B4975A0025C094 /* sign_success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_success@3x.png"; sourceTree = "<group>"; };
+		C8E22C8723B4975B0025C094 /* sign_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_success@2x.png"; sourceTree = "<group>"; };
+		C8E22C8A23B498900025C094 /* nys_alert_success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nys_alert_success@3x.png"; sourceTree = "<group>"; };
+		C8E22C8B23B498910025C094 /* nys_alert_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nys_alert_bg@2x.png"; sourceTree = "<group>"; };
+		C8E22C8C23B498920025C094 /* nys_alert_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nys_alert_bg@3x.png"; sourceTree = "<group>"; };
+		C8E22C8D23B498930025C094 /* nys_alert_fail@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nys_alert_fail@3x.png"; sourceTree = "<group>"; };
+		C8E22C8E23B498940025C094 /* nys_alert_fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nys_alert_fail@2x.png"; sourceTree = "<group>"; };
+		C8E22C8F23B498950025C094 /* nys_alert_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nys_alert_success@2x.png"; sourceTree = "<group>"; };
 		C8E3B30723ADA86C00A0BCB4 /* NYSAboutFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAboutFooterView.h; sourceTree = "<group>"; };
 		C8E3B30823ADA86C00A0BCB4 /* NYSAboutFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAboutFooterView.m; sourceTree = "<group>"; };
 		C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSAboutFooterView.xib; sourceTree = "<group>"; };
@@ -1300,6 +1331,7 @@
 		C85C44D8229BD1AC00B35652 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C8E22C7523B4941A0025C094 /* NYSAlert */,
 				C8AF0D252398B74E009BBEBE /* TableViewAnimationKit */,
 				C8BA3A9E238F74010041FC6E /* Fonts */,
 				C8216129235D5EEC00B17530 /* ChineseSorting */,
@@ -1821,6 +1853,37 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C8E22C7523B4941A0025C094 /* NYSAlert */ = {
+			isa = PBXGroup;
+			children = (
+				C8E22C7923B497040025C094 /* icons */,
+				C8E22C7623B494570025C094 /* NYSAlert.h */,
+				C8E22C7723B494570025C094 /* NYSAlert.m */,
+			);
+			path = NYSAlert;
+			sourceTree = "<group>";
+		};
+		C8E22C7923B497040025C094 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				C8E22C8B23B498910025C094 /* nys_alert_bg@2x.png */,
+				C8E22C8C23B498920025C094 /* nys_alert_bg@3x.png */,
+				C8E22C8E23B498940025C094 /* nys_alert_fail@2x.png */,
+				C8E22C8D23B498930025C094 /* nys_alert_fail@3x.png */,
+				C8E22C8F23B498950025C094 /* nys_alert_success@2x.png */,
+				C8E22C8A23B498900025C094 /* nys_alert_success@3x.png */,
+				C8E22C8223B4974E0025C094 /* sign_out@2x.png */,
+				C8E22C8323B4974F0025C094 /* sign_out@3x.png */,
+				C8E22C7F23B497410025C094 /* sign_exchange@2x.png */,
+				C8E22C7E23B497400025C094 /* sign_exchange@3x.png */,
+				C8E22C7B23B4972D0025C094 /* sign_bg@2x.png */,
+				C8E22C7A23B4972C0025C094 /* sign_bg@3x.png */,
+				C8E22C8723B4975B0025C094 /* sign_success@2x.png */,
+				C8E22C8623B4975A0025C094 /* sign_success@3x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		C8EABF8C22B4F0BB004B0DA4 /* RootPresenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1950,6 +2013,7 @@
 				C8F3B4D62298EF8B00FA61A6 /* LaunchScreen.storyboard in Resources */,
 				C89CA2C622BCADAE0086F9B0 /* DazFire.png in Resources */,
 				C81074B723AA299700CC7868 /* NYSMusicMenuHeaderView.xib in Resources */,
+				C8E22C9023B498950025C094 /* nys_alert_success@3x.png in Resources */,
 				C85C44D3229BAB2900B35652 /* arrow_icon@3x.png in Resources */,
 				C89CA2BB22BCA2DE0086F9B0 /* stepPk_win_colour3@2x.png in Resources */,
 				C85C44D7229BAB2900B35652 /* right_arrow@2x.png in Resources */,
@@ -1965,6 +2029,7 @@
 				C8E3B30B23ADA88300A0BCB4 /* NYSAboutFooterView.xib in Resources */,
 				C89CA2BF22BCA2DE0086F9B0 /* stepPk_win_colour5@2x.png in Resources */,
 				C89CA2C222BCA2DE0086F9B0 /* stepPk_win_colour7@2x.png in Resources */,
+				C8E22C7D23B4972D0025C094 /* sign_bg@2x.png in Resources */,
 				C857A394229CD026002B5396 /* MBHUD_Info@3x.png in Resources */,
 				C8424EC1229E7896003A7C58 /* close_icon_gray.png in Resources */,
 				C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */,
@@ -1973,6 +2038,7 @@
 				C879480923A264B1003EC2D7 /* QMHCommitSuccessView.xib in Resources */,
 				C807696423A1FDD5004B6E1C /* NYSScrollNumberView.xib in Resources */,
 				C8E3B31423ADD3F600A0BCB4 /* en_kjv.xml in Resources */,
+				C8E22C8023B497410025C094 /* sign_exchange@3x.png in Resources */,
 				C8265C9E22A27E6B0072A3F1 /* NYSLoginViewController.xib in Resources */,
 				C83B8E2B23ACC5000051A22C /* me1.plist in Resources */,
 				C89CA2BC22BCA2DE0086F9B0 /* stepPk_win_colour4@2x.png in Resources */,
@@ -1986,10 +2052,13 @@
 				C8188D2523AE173800E13F3A /* secret.png in Resources */,
 				C8265C7A22A25E830072A3F1 /* me.plist in Resources */,
 				C85C44D1229BAB2900B35652 /* arrow_icon.png in Resources */,
+				C8E22C7C23B4972D0025C094 /* sign_bg@3x.png in Resources */,
 				C89CA2BD22BCA2DE0086F9B0 /* stepPk_win_colour2@2x.png in Resources */,
 				C857A398229CD026002B5396 /* MBHUD_Warn@3x.png in Resources */,
 				C83B8E4223ACCC240051A22C /* NYSAboutHeaderView.xib in Resources */,
 				C8DDA11C23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib in Resources */,
+				C8E22C9423B498950025C094 /* nys_alert_fail@2x.png in Resources */,
+				C8E22C8523B4974F0025C094 /* sign_out@3x.png in Resources */,
 				C802A61F22A62FB8002E2A58 /* FAQ.json in Resources */,
 				C857A391229CD026002B5396 /* MBHUD_Error@2x.png in Resources */,
 				C85C44AC229BA78300B35652 /* WebLoadErrorView.html in Resources */,
@@ -2000,9 +2069,13 @@
 				C85C44B9229BA88100B35652 /* loading_image@3x.png in Resources */,
 				C85C44AD229BA78300B35652 /* webloaderrorview.png in Resources */,
 				C89CA2C122BCA2DE0086F9B0 /* stepPk_win_colour1@2x.png in Resources */,
+				C8E22C8423B4974F0025C094 /* sign_out@2x.png in Resources */,
 				C89CA2C022BCA2DE0086F9B0 /* stepPk_win_colour6@2x.png in Resources */,
 				C8DDA11623AB3B46003AF6F4 /* zh_cuv.xml in Resources */,
 				C857A397229CD026002B5396 /* MBHUD_Warn@2x.png in Resources */,
+				C8E22C9223B498950025C094 /* nys_alert_bg@3x.png in Resources */,
+				C8E22C8823B4975B0025C094 /* sign_success@3x.png in Resources */,
+				C8E22C8123B497410025C094 /* sign_exchange@2x.png in Resources */,
 				C87947F623A2604A003EC2D7 /* QMHGroupMemberCell.xib in Resources */,
 				C85C44D4229BAB2900B35652 /* arrow_icon@2x.png in Resources */,
 				C879480423A26423003EC2D7 /* NYSDisplayIconCell.xib in Resources */,
@@ -2012,12 +2085,16 @@
 				C87947E823A25DAC003EC2D7 /* QMHGroupCardViewController.xib in Resources */,
 				C85C44CF229BAB2900B35652 /* down_arrow@2x.png in Resources */,
 				C85C44C9229BAB2900B35652 /* left_arrow.png in Resources */,
+				C8E22C9523B498950025C094 /* nys_alert_success@2x.png in Resources */,
 				C8265CA022A27E6B0072A3F1 /* NYSRegisterViewController.xib in Resources */,
 				C8424EC6229E78E6003A7C58 /* close_icon.png in Resources */,
 				C802A62122A6319C002E2A58 /* FAQ.plist in Resources */,
+				C8E22C9123B498950025C094 /* nys_alert_bg@2x.png in Resources */,
 				C87947F223A25DAC003EC2D7 /* QMHMemberView.xib in Resources */,
+				C8E22C8923B4975B0025C094 /* sign_success@2x.png in Resources */,
 				C85C44A7229BA73700B35652 /* back_icon@3x.png in Resources */,
 				C8A8052423B1AE0400DA52DC /* NYSUploadImageHeaderView.xib in Resources */,
+				C8E22C9323B498950025C094 /* nys_alert_fail@3x.png in Resources */,
 				C85C44CA229BAB2900B35652 /* down_arrow.png in Resources */,
 				C879480323A26423003EC2D7 /* QMHLeftTextCell.xib in Resources */,
 				C85C44CB229BAB2900B35652 /* left_arrow@2x.png in Resources */,
@@ -2208,6 +2285,7 @@
 				C85C44DD229BD82000B35652 /* NYSTransition.m in Sources */,
 				C8265C7822A252C80072A3F1 /* NYSMeModel.m in Sources */,
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,
+				C8E22C7823B494570025C094 /* NYSAlert.m in Sources */,
 				C879480123A26423003EC2D7 /* QMHLeftTextCell.m in Sources */,
 				C8DDA11F23AB592D003AF6F4 /* UIColor+NYS.m in Sources */,
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,

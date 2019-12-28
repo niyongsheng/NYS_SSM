@@ -14,6 +14,8 @@
 #import "NYSInputTableViewCell.h"
 #import "NYSContentTableViewCell.h"
 #import "NYSMusicMenuModel.h"
+#import "NYSAlert.h"
+#import "KHAlertPickerController.h"
 
 @interface NYSPublishMusicViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
@@ -196,15 +198,6 @@
     self.bgimageView.image = image;
     [self.view layoutIfNeeded];
     [self.view updateConstraints];
-    
-    // 上传服务器
-//    [NYSRequest UploadImagesWithImages:@[image] fileNames:nil parameters:@{@"fellowship":[NSString stringWithFormat:@"%ld", (long)[NCurrentUser fellowship]]} process:^(NSProgress *uploadProcess) {
-//
-//    } success:^(id response) {
-//        [self updateUserInfo:@{@"icon":[[response[@"data"] firstObject] objectForKey:@"qiniuURL"]}];
-//    } failure:^(NSError *error) {
-//
-//    }];
 }
 
 #pragma mark - 立即发布

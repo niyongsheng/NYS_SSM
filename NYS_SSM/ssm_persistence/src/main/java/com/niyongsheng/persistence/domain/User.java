@@ -1,6 +1,5 @@
 package com.niyongsheng.persistence.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -10,6 +9,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Valid
 @Data
@@ -81,17 +82,17 @@ public class User implements Serializable{
     private Boolean status;
 
     @ApiModelProperty(value = "生日")
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private java.util.Date birthday;
+    private LocalDate birthday;
 
     @ApiModelProperty(value = "修改时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private java.util.Date gmtModify;
+    private LocalDateTime gmtModify;
 
     @ApiModelProperty(value = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private java.util.Date gmtCreate;
+    private LocalDateTime gmtCreate;
 }

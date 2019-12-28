@@ -1,9 +1,8 @@
 package com.niyongsheng.persistence.service.impl;
 
 import com.niyongsheng.common.utils.JacksonUtils;
-import com.niyongsheng.persistence.redisdao.RedisDao;
-import com.niyongsheng.persistence.dao.UserDao;
 import com.niyongsheng.persistence.domain.User;
+import com.niyongsheng.persistence.redisdao.RedisDao;
 import com.niyongsheng.persistence.service.UserRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class UserRedisServiceImpl implements UserRedisService {
     public User getUserById(String id) {
         String userJson = redisDao.get(USER + id);
         User user = new User();
-        if(!StringUtils.isEmpty(userJson)){
+        if (!StringUtils.isEmpty(userJson)) {
             user = JacksonUtils.jsonToPojo(userJson, User.class);
         }
         return user;

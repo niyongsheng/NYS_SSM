@@ -49,7 +49,8 @@ public class FileController {
         // 文件本地暂存绝对路径
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
         // 上传文件
-        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(file, uploadPath, false);
+        String prefix = request.getHeader("Account") + "_";
+        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(prefix, file, uploadPath, false);
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, resultMap);
     }
@@ -72,7 +73,8 @@ public class FileController {
         List<Map> fileList = new ArrayList<Map>();
         for (MultipartFile multipartFile : files) {
             // 上传文件
-            fileList.add(qiniuUploadFileService.qiniuUpload(multipartFile, uploadPath, false));
+            String prefix = request.getHeader("Account") + "_";
+            fileList.add(qiniuUploadFileService.qiniuUpload(prefix, multipartFile, uploadPath, false));
         }
 
         return new ResponseDto(ResponseStatusEnum.SUCCESS, fileList);

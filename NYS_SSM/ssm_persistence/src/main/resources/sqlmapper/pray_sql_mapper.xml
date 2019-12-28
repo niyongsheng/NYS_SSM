@@ -6,6 +6,7 @@
         from dcd_pray p
         inner join dcd_fellowship f
         on p.fellowship = f.id
+        order by a.isTop desc, a.id desc
     </select>
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Pray">
@@ -14,5 +15,6 @@
         inner join dcd_fellowship f
         on p.fellowship = f.id
         where p.fellowship = #{fellowship}
+        order by p.isTop desc, p.id desc
     </select>
 </mapper>

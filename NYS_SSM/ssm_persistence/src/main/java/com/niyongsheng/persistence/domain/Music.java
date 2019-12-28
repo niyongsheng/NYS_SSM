@@ -1,4 +1,5 @@
 package com.niyongsheng.persistence.domain;
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -10,6 +11,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @ApiModel(value ="Music")
@@ -72,17 +74,17 @@ public class Music implements Serializable {
   @TableField(value = "expireTime")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private java.util.Date expireTime;
+  private LocalDateTime expireTime;
 
   @ApiModelProperty(value = "修改时间")
   @TableField(value = "gmtModify")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private java.util.Date gmtModify;
+  private LocalDateTime gmtModify;
 
   @ApiModelProperty(value = "创建时间")
   @TableField(value = "gmtCreate")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private java.util.Date gmtCreate;
+  private LocalDateTime gmtCreate;
 }

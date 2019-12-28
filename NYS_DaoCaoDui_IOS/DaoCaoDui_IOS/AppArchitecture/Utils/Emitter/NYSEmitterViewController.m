@@ -289,7 +289,6 @@
     
     snowEmitter.emitterCells = cellArr;
     [self.view.layer addSublayer:snowEmitter];
-    
 }
 
 

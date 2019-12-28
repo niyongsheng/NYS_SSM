@@ -8,6 +8,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @author niyongsheng.com
@@ -41,7 +42,7 @@ public class Group implements Serializable {
     @ApiModelProperty(value = "群成员数")
     private Integer memberCount;
 
-  @ApiModelProperty(value = "是否禁言")
+    @ApiModelProperty(value = "是否禁言")
     private Boolean isBan;
 
     @ApiModelProperty(value = "群组状态 0不可用 1可用")
@@ -59,17 +60,17 @@ public class Group implements Serializable {
     @ApiModelProperty(value = "过期时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private java.util.Date expireTime;
+    private LocalDateTime expireTime;
 
     @ApiModelProperty(value = "修改时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private java.util.Date gmtModify;
+    private LocalDateTime gmtModify;
 
     @ApiModelProperty(value = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private java.util.Date gmtCreate;
+    private LocalDateTime gmtCreate;
 
     @TableField(value = "fellowshipName", exist = false)
     @ApiModelProperty(value = "所属团契名称")

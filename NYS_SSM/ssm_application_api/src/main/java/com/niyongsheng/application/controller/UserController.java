@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiOperation;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,13 +34,10 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.core.MediaType;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TimeZone;
 
 /**
  * @author niyongsheng.com
@@ -380,19 +378,14 @@ public class UserController {
         user.setTruename(truename);
         user.setNickname(nickname);
         user.setGender(gender);
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        // 注意时区，否则格式转换会出现日期加减一天的情况
-        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        try {
-            if (birthday != null) {
-                // 把字符串转换日期
-                Date date = dateFormat.parse(birthday);
-                user.setBirthday(date);
-            }
-        } catch (ParseException e) {
-            throw new ResponseException(ResponseStatusEnum.PARAM_CONVERSION_ERROR);
-        }
         user.setPhone(phone);
+        // 1.1日期字符串转date
+        if (!StringUtils.isEmpty(birthday)) {
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate dateTime = LocalDate.parse(birthday, dateFormat);
+            user.setBirthday(dateTime);
+        }
+        // 防止误操作和SQL冗余
         if (password != null && !"".equals(password.trim())) {
             user.setPassword(MD5Util.crypt(password));
         }

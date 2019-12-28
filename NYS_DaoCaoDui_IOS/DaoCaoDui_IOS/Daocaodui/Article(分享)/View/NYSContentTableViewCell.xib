@@ -32,12 +32,20 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZR-hP-pbf">
+                        <rect key="frame" x="5.5" y="64" width="7.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="G65-on-HnG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6aD-Fs-qgG"/>
+                    <constraint firstItem="i6F-CE-fuq" firstAttribute="centerY" secondItem="YZR-hP-pbf" secondAttribute="centerY" id="Ja3-tM-smK"/>
                     <constraint firstAttribute="trailing" secondItem="G65-on-HnG" secondAttribute="trailing" constant="10" id="LZi-xG-o2g"/>
                     <constraint firstItem="G65-on-HnG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="MBl-Ny-Upy"/>
                     <constraint firstItem="i6F-CE-fuq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="MH1-KR-Omy"/>
+                    <constraint firstItem="i6F-CE-fuq" firstAttribute="leading" secondItem="YZR-hP-pbf" secondAttribute="trailing" constant="2" id="SG7-T1-YLD"/>
                     <constraint firstItem="G65-on-HnG" firstAttribute="leading" secondItem="i6F-CE-fuq" secondAttribute="trailing" id="ege-ii-09a"/>
                     <constraint firstItem="G65-on-HnG" firstAttribute="centerY" secondItem="i6F-CE-fuq" secondAttribute="centerY" id="lLG-zX-Af6"/>
                 </constraints>
@@ -45,6 +53,7 @@
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="contentTextView" destination="G65-on-HnG" id="Rew-h0-R6X"/>
+                <outlet property="requiredLabel" destination="YZR-hP-pbf" id="JKW-aG-Yre"/>
                 <outlet property="title" destination="i6F-CE-fuq" id="Js5-Cd-9gV"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="166.74107142857142"/>

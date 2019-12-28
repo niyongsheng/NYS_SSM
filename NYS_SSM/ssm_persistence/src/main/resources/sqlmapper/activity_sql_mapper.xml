@@ -8,6 +8,7 @@
         inner join dcd_fellowship f
         on a.fellowship = f.id
         where a.fellowship = #{fellowship}
+        order by a.isTop desc, a.id desc
     </select>
 
 </mapper>

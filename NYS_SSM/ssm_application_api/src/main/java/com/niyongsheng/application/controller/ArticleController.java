@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.core.MediaType;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -87,27 +88,24 @@ public class ArticleController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "title", value = "标题", required = true),
             @ApiImplicitParam(name = "subTitle", value = "子标题", required = true),
-            @ApiImplicitParam(name = "author", value = "原作者", required = true),
+            @ApiImplicitParam(name = "author", value = "作者", required = false),
             @ApiImplicitParam(name = "content", value = "内容", required = true),
-            @ApiImplicitParam(name = "articleUrl", value = "转发链接", required = true),
+            @ApiImplicitParam(name = "articleUrl", value = "转发链接", required = false),
             @ApiImplicitParam(name = "articleType", value = "类型（1原创/2转发）", required = true),
             @ApiImplicitParam(name = "fellowship", value = "团契编号", required = true)
-//            @ApiImplicitParam(name = "iconImage", value = "封面图片", required = true)
     })
     public ResponseDto publishArticle(HttpServletRequest request, Model model,
-                                      @NotBlank
+                                      @NotBlank(message = "{NotBlank.title}")
                                       @RequestParam(value = "title", required = true) String title,
-                                      @NotBlank
+                                      @NotBlank(message = "{NotBlank.subTitle}")
                                       @RequestParam(value = "subTitle", required = true) String subTitle,
-                                      @NotBlank
-                                      @RequestParam(value = "author", required = true) String author,
-                                      @NotBlank
+                                      @RequestParam(value = "author", required = false) String author,
+                                      @NotBlank(message = "{NotBlank.content}")
                                       @RequestParam(value = "content", required = true) String content,
-                                      @NotBlank
-                                      @RequestParam(value = "articleUrl", required = true) String articleUrl,
-                                      @NotBlank
+                                      @RequestParam(value = "articleUrl", required = false) String articleUrl,
+                                      @NotBlank(message = "{NotBlank.type}")
                                       @RequestParam(value = "articleType", required = true) String articleType,
-                                      @NotBlank
+                                      @NotBlank(message = "{NotBlank.fellowship}")
                                       @RequestParam(value = "fellowship", required = true) String fellowship,
                                       @ApiParam(value = "封面图片", required = true)
                                       @RequestParam(value = "iconImage", required = true) MultipartFile iconImage
@@ -115,7 +113,8 @@ public class ArticleController {
 
         // 1.上传图片
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
-        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(iconImage, uploadPath, false);
+        String prefix = request.getHeader("Account") + "_";
+        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(prefix, iconImage, uploadPath, false);
 
         // 2.创建数据模型
         Article article = new Article();
@@ -127,12 +126,14 @@ public class ArticleController {
         article.setArticleUrl(articleUrl);
         article.setFellowship(Integer.valueOf(fellowship));
         article.setArticleType(Integer.valueOf(articleType));
-        article.setIcon((String) resultMap.get("qiniuURL"));
+        article.setIcon((String) resultMap.get("FileFullURL"));
+        article.setGmtCreate(LocalDateTime.now());
 
         // 3.插入数据库
         try {
             articleService.getBaseMapper().insert(article);
         } catch (Exception e) {
+            qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
             throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
         }
 

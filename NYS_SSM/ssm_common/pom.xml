@@ -48,6 +48,18 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-parameter-names</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
         </dependency>
@@ -64,7 +76,7 @@
         <dependency>
             <groupId>cn.rongcloud.im</groupId>
             <artifactId>server-sdk-java</artifactId>
-            <version>3.0.7</version>
+            <version>3.0.13</version>
         </dependency>
         <dependency>
             <groupId>javax.validation</groupId>

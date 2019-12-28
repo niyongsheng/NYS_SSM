@@ -10,6 +10,7 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @author niyongsheng.com
@@ -27,15 +28,15 @@ public class Activity implements Serializable {
   @TableId(value = "id", type = IdType.AUTO)
   private Integer id;
 
-  @ApiModelProperty(value = "歌单名称")
+  @ApiModelProperty(value = "活动名称")
   @TableField(value = "name")
   private String name;
 
-  @ApiModelProperty(value = "歌单封面URL")
+  @ApiModelProperty(value = "活动封面URL")
   @TableField(value = "icon")
   private String icon;
 
-  @ApiModelProperty(value = "歌单简介")
+  @ApiModelProperty(value = "活动简介")
   @TableField(value = "introduction")
   private String introduction;
 
@@ -51,6 +52,10 @@ public class Activity implements Serializable {
   @TableField(value = "fellowship")
   private Integer fellowship;
 
+  @ApiModelProperty(value = "活动类型 1普通活动  2打卡活动")
+  @TableField(value = "activityType")
+  private Integer activityType;
+
   @ApiModelProperty(value = "是否置顶")
   @TableField(value = "isTop")
   private Boolean isTop;
@@ -63,13 +68,13 @@ public class Activity implements Serializable {
   @TableField(value = "gmtModify")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private java.util.Date gmtModify;
+  private LocalDateTime gmtModify;
 
   @ApiModelProperty(value = "创建时间")
   @TableField(value = "gmtCreate")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private java.util.Date gmtCreate;
+  private LocalDateTime gmtCreate;
 
   @TableField(value = "fellowshipName", exist = false)
   @ApiModelProperty(value = "所属团契名称")

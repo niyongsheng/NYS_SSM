@@ -311,7 +311,7 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
     // 上传服务器
-    [NYSRequest UploadImagesWithImages:@[image] fileNames:nil parameters:@{@"fellowship":[NSString stringWithFormat:@"%ld", (long)[NCurrentUser fellowship]]} process:^(NSProgress *uploadProcess) {
+    [NYSRequest UploadImagesWithImages:@[image] fileNames:nil name:@"files" parameters:@{@"fellowship":[NSString stringWithFormat:@"%ld", (long)[NCurrentUser fellowship]]} process:^(NSProgress *uploadProcess) {
 
     } success:^(id response) {
         [self updateUserInfo:@{@"icon":[[response[@"data"] firstObject] objectForKey:@"qiniuURL"]}];

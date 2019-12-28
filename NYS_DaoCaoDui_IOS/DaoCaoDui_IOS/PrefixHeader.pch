@@ -9,6 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <YYKit.h>
 #import <Masonry.h>
 #import <SVProgressHUD.h>

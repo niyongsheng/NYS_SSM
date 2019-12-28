@@ -89,9 +89,9 @@
 }
 
 /** 多图上传*/
-+ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
++ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UploadiImages];
-    return [self imagesRequestWithURL:url parameters:parameters images:images fileNames:imageNames process:process success:success failure:failure];
+    return [self imagesRequestWithURL:url parameters:parameters images:images fileNames:imageNames name:name process:process success:success failure:failure];
 }
 
 /** 获取轮播图*/
@@ -136,6 +136,29 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 发布分享*/
++ (NSURLSessionTask *)PublishArtcleWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishArtcle];
+    return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
+}
+
+/** 发布代祷*/
++ (NSURLSessionTask *)PublishPrayWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishPray];
+    return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
+}
+
+/** 发布音频*/
++ (NSURLSessionTask *)PublishMusicWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishMusic];
+    return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
+}
+
+/** 发布活动*/
++ (NSURLSessionTask *)PublishActivityWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishActivity];
+    return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
+}
 
 
 
@@ -309,12 +332,14 @@
 /// @param parameters 参数
 /// @param images 图片数组
 /// @param imageNames 图片名数组
+/// @param name 服务器接收字段名
 /// @param process 进度
 /// @param success 成功
 /// @param failure 失败
-+ (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
-    [PPNetworkHelper openLog];
-    [PPNetworkHelper setRequestTimeoutInterval:10];
++ (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(nonnull NSString *)name process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NLog(@"接口URL:%@\n参数Params:%@", URL, parameters);
+    [PPNetworkHelper closeLog];
+    [PPNetworkHelper setRequestTimeoutInterval:15.0f];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -323,16 +348,15 @@
 #pragma mark - Resquest
     return [PPNetworkHelper uploadImagesWithURL:URL
                                      parameters:parameters
-                                           name:@"files"
+                                           name:name
                                          images:images
                                       fileNames:imageNames
-                                     imageScale:.5f
+                                     imageScale:0.65f
                                       imageType:@"image/jpg/png/jpeg"
                                        progress:^(NSProgress *progress) {
+        [SVProgressHUD showProgress:progress.fractionCompleted status:@"上传进度"];
+        NLog(@"图片上传进度:%.2f%%", progress.fractionCompleted);
         process(progress);
-        CGFloat process = progress.completedUnitCount/progress.totalUnitCount;
-        NLog(@"图片上传进度:%.2f%%",100.0 * process);
-        [SVProgressHUD showProgress:process * 100 status:@"图片上传进度"];
     } success:^(id responseObject) {
         [SVProgressHUD dismiss];
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];

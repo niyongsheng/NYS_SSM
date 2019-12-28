@@ -33,11 +33,15 @@ public enum ResponseStatusEnum {
     IO_TRANSFER_ERROR(false,1002,"文件转存失败"),
     IO_QNUPLOAD_ERROR(false,1003,"文件上传云服务器失败"),
     IO_IMGFORMAT_ERROR(false,1004,"非图片文件类型"),
+    IO_QNDELETE_ERROR(false,1005,"删除云服务器文件失败"),
+
     /* 数据库 */
+    DB_TR_ERROR(false,2111,"数据库事务管理出错"),
     DB_INSERT_ERROR(false,2011,"数据库写入出错"),
     DB_DELETE_ERROR(false,2012,"数据库删除出错"),
     DB_UPDATE_ERROR(false,2013,"数据库更新出错"),
     DB_SELECT_ERROR(false,2014,"数据库查询出错"),
+
     /* Redis */
     REDIS_INSERT_ERROR(false,2015,"Redis写入出错"),
     REDIS_DELETE_ERROR(false,2016,"Redis删除出错"),
@@ -84,7 +88,13 @@ public enum ResponseStatusEnum {
     QINIU_GETSMS_ERROR(false,8001,"获取验证码失败"),
 
     /* 融云错误 */
-    RONGCLOUD_GETTOKEN_ERROR(false,9001,"获取融云token失败"),
+    RONGCLOUD_GET_TOKEN_ERROR(false,9001,"获取IMToken失败"),
+    RONGCLOUD_CREATE_GROUP_ERROR(false,9002,"创建群组失败"),
+    RONGCLOUD_DISMISS_GROUP_ERROR(false,9003,"解散群组失败"),
+    RONGCLOUD_JOIN_GROUP_ERROR(false,9004,"加入群组失败"),
+    RONGCLOUD_QUIT_GROUP_ERROR(false,9005,"退出群组失败"),
+
+    RONGCLOUD_STATUS_CODE_GROUP_ERROR(false,9010,"群组状态码错误"),
 
     /* 系统错误❌ */
     SYS_ERROR(null,0,"系统错误");

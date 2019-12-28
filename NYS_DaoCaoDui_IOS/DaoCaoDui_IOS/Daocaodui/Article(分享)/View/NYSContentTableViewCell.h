@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (strong, nonatomic) NSString *placeholderStr;
+@property (weak, nonatomic) IBOutlet UILabel *requiredLabel;
 @end
 
 NS_ASSUME_NONNULL_END

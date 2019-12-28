@@ -15,7 +15,7 @@ typedef NS_ENUM(NSUInteger, ResMethod) {
 
 typedef void(^NYSRequestSuccess)(id response);
 typedef void(^NYSRequestFailure)(NSError *error);
-typedef void(^NYSUploadProcess)(NSProgress *uploadProcess);
+typedef void(^NYSUploadProcess)(NSProgress *progress);
 
 @interface NYSRequest : NSObject
 
@@ -46,7 +46,7 @@ typedef void(^NYSUploadProcess)(NSProgress *uploadProcess);
 /** 单文件上传*/
 + (NSURLSessionTask *)UploadFileWithFilePath:(NSString *)filePath parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
 /** 多图上传*/
-+ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
++ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
 /** 获取轮播图*/
 + (NSURLSessionTask *)GetBannerList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 获取公告*/
@@ -61,6 +61,14 @@ typedef void(^NYSUploadProcess)(NSProgress *uploadProcess);
 + (NSURLSessionTask *)GetMusicMenuList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 获取歌单（含歌曲列表）*/
 + (NSURLSessionTask *)GetMusicMenuById:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 发布分享*/
++ (NSURLSessionTask *)PublishArtcleWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
+/** 发布代祷*/
++ (NSURLSessionTask *)PublishPrayWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
+/** 发布音频*/
++ (NSURLSessionTask *)PublishMusicWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
+/** 发布活动*/
++ (NSURLSessionTask *)PublishActivityWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
 
 
 

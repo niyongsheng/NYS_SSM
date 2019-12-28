@@ -56,7 +56,14 @@ UIKIT_EXTERN NSString *const CR_GetPrayList;
 UIKIT_EXTERN NSString *const CR_GetMusicMenuList;
 /** 获取歌单（含歌曲列表）*/
 UIKIT_EXTERN NSString *const CR_GetMusicMenu;
-
+/** 发布分享*/
+UIKIT_EXTERN NSString *const CR_PublishArtcle;
+/** 发布代祷*/
+UIKIT_EXTERN NSString *const CR_PublishPray;
+/** 发布音频*/
+UIKIT_EXTERN NSString *const CR_PublishMusic;
+/** 发布活动*/
+UIKIT_EXTERN NSString *const CR_PublishActivity;
 
 
 

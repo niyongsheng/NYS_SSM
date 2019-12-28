@@ -12,6 +12,8 @@
 #import "NYSButtonFooterView.h"
 #import "NYSInputTableViewCell.h"
 #import "NYSContentTableViewCell.h"
+#import "NYSAlert.h"
+#import "KHAlertPickerController.h"
 
 @interface NYSPublishActivityViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
@@ -19,6 +21,12 @@
 }
 @property (strong, nonatomic) UIImageView *bgimageView;
 @property (strong, nonatomic) UISwitch *isNeedGroupSwitch;
+
+@property (strong, nonatomic) NSString *paramName;
+@property (strong, nonatomic) NSString *paramIntroduction;
+@property (strong, nonatomic) NSString *paramType;
+@property (strong, nonatomic) NSString *paramExpireDatetime;
+@property (strong, nonatomic) NSString *paramIsGroup;
 @end
 
 @implementation NYSPublishActivityViewController
@@ -62,8 +70,7 @@
         _bgimageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight)];
         _bgimageView.contentMode = UIViewContentModeScaleToFill;
         _bgimageView.image = [UIImage imageWithColor:[UIColor whiteColor]];
-//        _bgimageView.image = [UIImage imageNamed:@"1"];
-        // Blur
+        // Blur effect
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         effectView.frame = CGRectMake(0, 0, _bgimageView.frame.size.width, _bgimageView.frame.size.height);
@@ -82,6 +89,10 @@
     return _isNeedGroupSwitch;
 }
 
+- (void)isNeedGroupSwitchChanged:(UISwitch *)sender {
+    self.paramIsGroup = sender.on ? @"true" : @"false";
+}
+
 #pragma mark —- tableviewdDelegate —-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -94,38 +105,56 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
        
     if (indexPath.row == 0) {
-        NYSInputTableViewCell *titleCell = [tableView dequeueReusableCellWithIdentifier:@"NYSInputTableViewCell"];
-        if(titleCell == nil) {
-            titleCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
+        NYSInputTableViewCell *nameCell = [tableView dequeueReusableCellWithIdentifier:@"NYSInputTableViewCell"];
+        if(nameCell == nil) {
+            nameCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
         }
-        titleCell.title.text = @"标题：";
-        titleCell.content.placeholder = @"请输入活动的标题";
-        return titleCell;
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*活动名称："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:NNavBgColor} range:NSMakeRange(0, 1)];
+        nameCell.title.attributedText = attrStr;
+        nameCell.content.placeholder = @"请输入活动的名称";
+        return nameCell;
     } else if (indexPath.row == 1) {
         NYSContentTableViewCell *contentCell = [tableView dequeueReusableCellWithIdentifier:@"NYSContentTableViewCell"];
         if(contentCell == nil) {
             contentCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSContentTableViewCell" owner:self options:nil] firstObject];
         }
-        contentCell.title.text = @"活动介绍：";
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*活动介绍："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:NNavBgColor} range:NSMakeRange(0, 1)];
+        contentCell.title.attributedText = attrStr;
         contentCell.placeholderStr = @"请输入你要活动的介绍";
         return contentCell;
     } else if (indexPath.row == 2) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
         }
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*活动类型："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:NNavBgColor} range:NSMakeRange(0, 1)];
+        cell.textLabel.attributedText = attrStr;
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.text = @"活动类型：";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     } else if (indexPath.row == 3) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
         }
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*截止日期："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:[[UIColor darkGrayColor] colorWithAlphaComponent:0.4f]} range:NSMakeRange(0, 1)];
+        cell.textLabel.attributedText = attrStr;
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.text = @"截止日期：";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    } else if (indexPath.row == 4) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+        }NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*是否为活动创建群组："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:NNavBgColor} range:NSMakeRange(0, 1)];
+        cell.textLabel.attributedText = attrStr;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.accessoryView = self.isNeedGroupSwitch;
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
@@ -133,14 +162,71 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
         }
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.text = @"是否为活动创建群组：";
-        cell.accessoryView = self.isNeedGroupSwitch;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
+    }
+}
+
+/// 避免循环引用cell nil监听cell划出屏幕时的数据处理
+- (void)tableView:(UITableView*)tableView didEndDisplayingCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            self.paramName = [[(NYSInputTableViewCell *)cell content] text];
+            break;
+            
+        case 1:
+            self.paramIntroduction = [[(NYSContentTableViewCell *)cell contentTextView] text];
+            break;
+            
+        case 2: {
+            NSString *type = [[(UITableViewCell *)cell detailTextLabel] text];
+            if ([type isEqualToString:@"普通活动"]) {
+                self.paramType = @"1";
+            } else if ([type isEqualToString:@"打卡活动"]) {
+                self.paramType = @"2";
+            }  else {
+                self.paramType = @"";
+            }
+        }
+            
+        case 3:
+            self.paramExpireDatetime = [[(UITableViewCell *)cell detailTextLabel] text];
+            break;
+            
+        case 4:
+            self.paramIsGroup = self.isNeedGroupSwitch.on ? @"true" : @"false";
+            break;
+            
+        default:
+            break;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 2) {
+        KHAlertPickerController *alertPicker = [KHAlertPickerController  alertPickerWithTitle:@"分享类型" Separator:nil SourceArr:@[@"普通活动", @"打卡活动"]];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.detailTextLabel.text = [alertPicker.contentStr copy];
+            [cell reloadInputViews];
+        }];
+        [alertPicker addCompletionAction:sureAction];
+        [self presentViewController:alertPicker animated:YES completion:nil];
+    } else if (indexPath.row == 3) {
+        UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+        KHAlertPickerController *alertPicker = [KHAlertPickerController alertPickerWithTitle:@"活动截止时间" DatePicker:datePicker DateFormatter:dateFormatter];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.detailTextLabel.text = [alertPicker.contentStr copy];
+            [cell reloadInputViews];
+        }];
+        [alertPicker addCompletionAction:sureAction];
+        [self presentViewController:alertPicker animated:YES completion:nil];
+    }
 }
 
 /// 图片选择方法
@@ -180,22 +266,51 @@
     self.bgimageView.image = image;
     [self.view layoutIfNeeded];
     [self.view updateConstraints];
-    
-    // 上传服务器
-//    [NYSRequest UploadImagesWithImages:@[image] fileNames:nil parameters:@{@"fellowship":[NSString stringWithFormat:@"%ld", (long)[NCurrentUser fellowship]]} process:^(NSProgress *uploadProcess) {
-//
-//    } success:^(id response) {
-//        [self updateUserInfo:@{@"icon":[[response[@"data"] firstObject] objectForKey:@"qiniuURL"]}];
-//    } failure:^(NSError *error) {
-//
-//    }];
 }
 
 #pragma mark - 立即发布
 - (void)publishNow:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
-    NYSInputTableViewCell *cell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    NSString *params1 = cell.content.text;
+    
+    NYSInputTableViewCell *nameCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    nameCell ? self.paramName = nameCell.content.text : nil;
+    NYSContentTableViewCell *introductionCell = (NYSContentTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    introductionCell ? self.paramIntroduction = introductionCell.contentTextView.text : nil;
+    UITableViewCell *typeCell = (UITableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    NSString *type = nil;
+    typeCell ? type = typeCell.detailTextLabel.text : nil;
+    if ([type isEqualToString:@"普通活动"]) {
+        self.paramType = @"1";
+    } else if ([type isEqualToString:@"打卡活动"]) {
+        self.paramType = @"2";
+    } else {
+        self.paramType = @"";
+    }
+    UITableViewCell *expiretimeCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    expiretimeCell ? self.paramExpireDatetime = expiretimeCell.detailTextLabel.text : nil;
+    UITableViewCell *isNeedGroupCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
+    isNeedGroupCell ? self.paramIsGroup = (self.isNeedGroupSwitch.on ? @"true" : @"false") : nil;
+    
+    WS(weakSelf);
+    [NYSRequest PublishActivityWithImage:self.bgimageView.image
+                                  name:@"iconImage"
+                            parameters:@{@"name" : _paramName,
+                                         @"introduction" : _paramIntroduction,
+                                         @"activityType" : _paramType,
+                                         @"expireTime" : _paramExpireDatetime,
+                                         @"isNeedGroup" : _paramIsGroup,
+                                         @"fellowship" : @(NCurrentUser.fellowship)}
+                               process:^(NSProgress *progress) {
+        
+    } success:^(id response) {
+        if ([[response objectForKey:@"status"] boolValue]) {
+            [NYSAlert showSuccessAlertWithTitle:@"发布代祷" message:@"发布成功，快去刷新看看吧❤️" okButtonClickedBlock:^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end

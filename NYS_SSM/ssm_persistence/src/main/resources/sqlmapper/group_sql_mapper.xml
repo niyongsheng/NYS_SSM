@@ -9,10 +9,11 @@
         <if test="groupName != null">groupName,</if>
         <if test="creator != null">creator,</if>
         <if test="status != null">status,</if>
-        <if test="isneedVerify != null">isneedVerify,</if>
+        <if test="isVerify != null">isVerify,</if>
         <if test="groupType != null">groupType,</if>
         <if test="fellowship != null">fellowship,</if>
         <if test="expireTime != null">expireTime,</if>
+        <if test="introduction != null">introduction,</if>
         gmtCreate
         )
         VALUES (
@@ -21,10 +22,11 @@
         <if test="groupName != null">#{groupName},</if>
         <if test="creator != null">#{creator},</if>
         <if test="status != null">#{status},</if>
-        <if test="isneedVerify != null">#{isneedVerify},</if>
+        <if test="isVerify != null">#{isVerify},</if>
         <if test="groupType != null">#{groupType},</if>
         <if test="fellowship != null">#{fellowship},</if>
         <if test="expireTime != null">#{expireTime},</if>
+        <if test="introduction != null">#{introduction},</if>
         NOW()
         )
     </insert>

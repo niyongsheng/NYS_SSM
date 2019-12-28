@@ -35,6 +35,9 @@ public class TestMyUtils {
     @Autowired
     private UserService userService;
 
+//    @Autowired
+//    private QiniuUploadFileService qiniuUploadFileService;
+
     /**
      * 测试查询
      * @throws Exception

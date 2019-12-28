@@ -16,6 +16,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.backgroundColor = [UIColor clearColor];
+    self.requiredLabel.hidden = YES;
     
     // 手动为textview添加placeholder
     [_contentTextView addSubview:self.placeHolderLabel];

@@ -14,10 +14,8 @@ import com.niyongsheng.persistence.domain.Face;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.*;
-
-import static com.arcsoft.face.toolkit.ImageFactory.getGrayData;
-import static com.arcsoft.face.toolkit.ImageFactory.getRGBData;
 
 /**
  * @author niyongsheng.com
@@ -266,7 +264,7 @@ public class ArcSoftFaceRecognition {
             face.setId(i);
             face.setFaceRect(faceInfoGray.getRect().toString());
             face.setFaceOrient(faceInfoGray.getOrient());
-            face.setGmtCreate(new Date());
+            face.setGmtCreate(LocalDateTime.now());
 
             // 5.1特征码提取
             FaceFeature faceFeature = new FaceFeature();
@@ -363,7 +361,7 @@ public class ArcSoftFaceRecognition {
             face.setId(i);
             face.setFaceRect(faceInfo.getRect().toString());
             face.setFaceOrient(faceInfo.getOrient());
-            face.setGmtCreate(new Date());
+            face.setGmtCreate(LocalDateTime.now());
 
             // 6.1特征码提取
             FaceFeature faceFeature = new FaceFeature();
