@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @Data
 @ApiModel(value ="User_Music")
 @TableName(value = "dcd_user_music")
-public class User_Music implements Serializable {
+public class User_Music_Collection implements Serializable {
 
   @ApiModelProperty(value = "ID主键")
   @TableId(value = "id", type = IdType.AUTO)

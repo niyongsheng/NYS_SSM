@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -87,4 +88,8 @@ public class Activity implements Serializable {
   @TableField(value = "membersNum", exist = false)
   @ApiModelProperty(value = "群成员数量")
   private Integer membersNum;
+
+  @TableField(value = "userList", exist = false)
+  @ApiModelProperty(value = "群成员列表")
+  private List<User> userList;
 }

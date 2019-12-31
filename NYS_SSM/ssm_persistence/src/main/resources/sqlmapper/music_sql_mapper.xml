@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.MusicDao">
+
+    <resultMap id="musicMap_1" type="Music" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
+    </resultMap>
+
+    <select id="selectByFellowshipMultiTable" resultMap="musicMap_1" >
+        select *
+        from dcd_music m
+        inner join dcd_fellowship f
+        on m.fellowship = f.id
+        where m.fellowship = #{fellowship}
+        order by m.isTop desc
+    </select>
+
+</mapper>

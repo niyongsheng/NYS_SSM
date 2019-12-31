@@ -2,10 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.User_ActivityDao">
 
-    <select id="selectIsInGroupByUserAccount" resultType="java.lang.Boolean">
-        select (*, false)
+    <select id="selectIsInGroupByAccountAndActivityID" resultType="java.lang.Boolean">
+        select count(id)
         from dcd_user_activity
-        where account = #{account}
+        where account = #{account} and activityID = #{activityID}
+    </select>
+
+    <select id="selectGroupMembersNumByActivityID" resultType="java.lang.Integer">
+        select count(id)
+        from dcd_user_activity
+        where activityID = #{activityID}
+    </select>
+
+    <select id="selectUsersByActivityID" resultType="com.niyongsheng.persistence.domain.User">
+        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, ua.activityID
+        from dcd_user u, dcd_user_activity ua
+        where u.account = ua.account and ua.activityID = #{activityID}
+    </select>
+
+    <select id="selectActivitiesByAccount" resultType="com.niyongsheng.persistence.domain.Activity">
+        select a*, ua.account
+        from dcd_activity a, dcd_user_activity ua
+        where a.id = ua.activityID and ua.account = #{account}
     </select>
 
 </mapper>

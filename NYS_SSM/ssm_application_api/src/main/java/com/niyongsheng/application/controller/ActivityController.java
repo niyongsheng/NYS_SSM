@@ -72,20 +72,22 @@ public class ActivityController {
 
         // 1.调用service的方法
         List<Activity> list = null;
+        Integer fel = Integer.valueOf(fellowship);
+        String account = request.getHeader("Account");
 
         // 2.是否分页
         if (isPageBreak) {
             // 2.1设置页码和分页大小
             PageHelper.startPage(pageNum, pageSize, false);
             try {
-                list = activityService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+                list = activityService.selectByFellowshipMultiTable(fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
 
         } else {
             try {
-                list = activityService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+                list = activityService.selectByFellowshipMultiTable(fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }

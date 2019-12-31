@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niyongsheng.persistence.domain.Music;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author niyongsheng.com
  * @version $
@@ -13,4 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MusicDao extends BaseMapper<Music> {
+
+    List<Music> selectByFellowshipMultiTable(Integer fellowship);
 }

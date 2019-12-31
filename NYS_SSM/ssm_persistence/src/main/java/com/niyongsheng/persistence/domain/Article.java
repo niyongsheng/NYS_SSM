@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -89,4 +90,8 @@ public class Article implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime gmtCreate;
+
+    @TableField(value = "collectionUserList", exist = false)
+    @ApiModelProperty(value = "收藏用户列表")
+    private List<User> collectionUserList;
 }

@@ -20,17 +20,17 @@ import java.time.LocalDateTime;
  * @updateDes
  */
 @Data
-@ApiModel(value ="User_Article")
-@TableName(value = "dcd_user_article")
-public class User_Article implements Serializable {
+@ApiModel(value ="User_Pray")
+@TableName(value = "dcd_user_pray")
+public class User_Pray_Collection implements Serializable {
 
   @ApiModelProperty(value = "ID主键")
   @TableId(value = "id", type = IdType.AUTO)
   private Integer id;
 
-  @ApiModelProperty(value = "关联文章ID")
-  @TableField(value = "articleId")
-  private Integer articleId;
+  @ApiModelProperty(value = "关联代祷ID")
+  @TableField(value = "prayId")
+  private Integer prayId;
 
   @ApiModelProperty(value = "关联用户account")
   @TableField(value = "account")

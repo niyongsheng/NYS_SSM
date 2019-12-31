@@ -9,7 +9,12 @@
         order by a.isTop desc, a.id desc
     </select>
 
-    <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Pray">
+    <resultMap id="prayMap_1" type="Pray" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.selectCollectionUsersByPrayID"/>
+    </resultMap>
+
+    <select id="selectAllByFellowshipMultiTable" resultMap="prayMap_1">
         select *
         from dcd_pray p
         inner join dcd_fellowship f

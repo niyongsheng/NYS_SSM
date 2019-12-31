@@ -8,7 +8,7 @@
     <select id="getMusicsByMusicMenuId" resultMap="resultMusicMap_2">
         select m.*, mmm.musicMenuID
         from dcd_music m, dcd_music_musicMenu mmm
-        where m.id = mmm.musicID and mmm.musicMenuID = #{id}
+        where m.id = mmm.musicID and mmm.musicMenuID = #{musicMenuID}
     </select>
 
 
@@ -18,7 +18,7 @@
     <select id="getMusicMenusByMusicId" resultMap="resultMusicMenuMap_2">
         select mm.*, mmm.musicMenuID
         from dcd_musicMenu mm, dcd_music_musicMenu mmm
-        where mm.id = mmm.musicMenuID and mmm.musicID = #{id}
+        where mm.id = mmm.musicMenuID and mmm.musicID = #{musicID}
     </select>
 
 </mapper>

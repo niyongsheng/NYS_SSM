@@ -1,7 +1,7 @@
 package com.niyongsheng.persistence.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.niyongsheng.persistence.domain.User_Pray;
+import com.niyongsheng.persistence.domain.User_Music_Collection;
 
 /**
  * @author niyongsheng.com
@@ -10,5 +10,5 @@ import com.niyongsheng.persistence.domain.User_Pray;
  * @updateAuthor $
  * @updateDes
  */
-public interface User_PrayService extends IService<User_Pray> {
+public interface User_MusicService_Collection extends IService<User_Music_Collection> {
 }

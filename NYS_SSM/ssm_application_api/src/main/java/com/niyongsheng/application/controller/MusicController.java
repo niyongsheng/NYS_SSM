@@ -1,5 +1,6 @@
 package com.niyongsheng.application.controller;
 
+import com.github.pagehelper.PageHelper;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -37,6 +39,51 @@ public class MusicController {
 
     @Autowired
     private QiniuUploadFileService qiniuUploadFileService;
+
+
+    @ResponseBody
+    @RequestMapping(value = "/selectAllMusicList", method = RequestMethod.GET)
+    @ApiOperation(value = "查询所有的音乐列表", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+    })
+    public ResponseDto<Music> selectActivityList(HttpServletRequest request, Model model,
+                                                    @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                    @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                    @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                    @NotBlank
+                                                    @RequestParam(value = "fellowship", required = true) String fellowship
+    ) throws ResponseException {
+
+        // 1.调用service的方法
+        List<Music> list = null;
+        Integer fel = Integer.valueOf(fellowship);
+        String account = request.getHeader("Account");
+
+        // 2.是否分页
+        if (isPageBreak) {
+            // 2.1设置页码和分页大小
+            PageHelper.startPage(pageNum, pageSize, false);
+            try {
+                list = musicService.selectByFellowshipMultiTable(fel);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+
+        } else {
+            try {
+                list = musicService.selectByFellowshipMultiTable(fel);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        }
+
+        model.addAttribute("pagingList", list);
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+    }
 
     @ResponseBody
     @RequestMapping(value = "/publishMusic", method = RequestMethod.POST)

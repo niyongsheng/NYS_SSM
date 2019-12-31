@@ -33,8 +33,8 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity> impl
     private User_ActivityDao user_activityDao;
 
     @Override
-    public List<Activity> selectByFellowshipMultiTable(Integer fellowship) {
-        return activityDao.selectByFellowshipMultiTable(fellowship);
+    public List<Activity> selectByFellowshipMultiTable(Integer fellowship, String isInGroupAccount) {
+        return activityDao.selectByFellowshipMultiTable(fellowship, isInGroupAccount);
     }
 
     @Override

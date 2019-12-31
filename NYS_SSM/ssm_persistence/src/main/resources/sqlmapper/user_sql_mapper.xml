@@ -161,20 +161,20 @@
     </select>
 
     <select id="findByAccount" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT *
-        FROM dcd_user
+        SELECT u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship
+        FROM dcd_user u
         WHERE account = #{account}
     </select>
 
     <select id="findByPhone" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
         SELECT *
-        FROM dcd_user
+        FROM dcd_user u
         WHERE phone = #{phone}
     </select>
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.User">
-        select *
-        from dcd_user u
+        SELECT *
+        FROM dcd_user u
         inner join dcd_fellowship f
         on u.fellowship = f.id
         where u.fellowship = #{fellowship}

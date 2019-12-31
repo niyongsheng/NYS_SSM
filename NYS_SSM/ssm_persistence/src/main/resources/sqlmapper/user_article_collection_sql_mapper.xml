@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.User_Article_CollectionDao">
+
+    <select id="selectCollectionUsersByArticleID" resultType="com.niyongsheng.persistence.domain.User">
+        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uac.articleID
+        from dcd_user u, dcd_user_article_collection uac
+        where u.account = uac.account and uac.articleID = #{articleID}
+    </select>
+
+    <select id="selectArticlesByCollectionAccount" resultType="com.niyongsheng.persistence.domain.Article">
+        select a*, uac.account
+        from dcd_article a, dcd_user_article_collection uac
+        where a.id = uac.articleID and uac.account = #{account}
+    </select>
+
+</mapper>

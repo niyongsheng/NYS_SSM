@@ -1,5 +1,4 @@
 package com.niyongsheng.persistence.domain;
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -21,23 +20,19 @@ import java.time.LocalDateTime;
  * @updateDes
  */
 @Data
-@ApiModel(value ="usicMusicMenu")
-@TableName(value = "dcd_music_musicMenu")
-public class usicMusicMenu implements Serializable {
+@ApiModel(value ="User_Article")
+@TableName(value = "dcd_user_article")
+public class User_Article_Collection implements Serializable {
 
   @ApiModelProperty(value = "ID主键")
   @TableId(value = "id", type = IdType.AUTO)
   private Integer id;
 
-  @ApiModelProperty(value = "关联音乐ID")
-  @TableField(value = "musicId")
-  private Integer musicId;
+  @ApiModelProperty(value = "关联文章ID")
+  @TableField(value = "articleId")
+  private Integer articleId;
 
-  @ApiModelProperty(value = "关联歌单ID")
-  @TableField(value = "musicMenuId")
-  private Integer musicMenuId;
-
-  @ApiModelProperty(value = "发布者账号")
+  @ApiModelProperty(value = "关联用户account")
   @TableField(value = "account")
   private String account;
 

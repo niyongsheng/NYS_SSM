@@ -37,6 +37,10 @@ public class User_Activity implements Serializable {
     @TableField(value = "account")
     private String account;
 
+    @ApiModelProperty(value = "备注")
+    @TableField(value = "remark")
+    private String remark;
+
     @ApiModelProperty(value = "修改时间")
     @TableField(value = "gmtModify")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

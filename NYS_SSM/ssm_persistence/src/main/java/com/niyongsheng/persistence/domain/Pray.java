@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @ApiModel(value ="Pray")
@@ -87,4 +88,8 @@ public class Pray implements Serializable {
   @TableField(value = "fellowshipName", exist = false)
   @ApiModelProperty(value = "所属团契名称")
   private String fellowshipName;
+
+  @TableField(value = "collectionUserList", exist = false)
+  @ApiModelProperty(value = "收藏用户列表")
+  private List<User> collectionUserList;
 }
