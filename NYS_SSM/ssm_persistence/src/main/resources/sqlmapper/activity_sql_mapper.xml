@@ -2,7 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.ActivityDao">
 
-    <select id="selectByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.Activity">
+    <resultMap id="activityMap_1" type="Activity" autoMapping="true">
+        <id property="account" column="account"/>
+        <collection property="isInGroup" column="isInGroup" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectIsInGroupByUserAccount"/>
+    </resultMap>
+
+    <select id="selectByFellowshipMultiTable" resultMap="activityMap_1">
         select *
         from dcd_activity a
         inner join dcd_fellowship f

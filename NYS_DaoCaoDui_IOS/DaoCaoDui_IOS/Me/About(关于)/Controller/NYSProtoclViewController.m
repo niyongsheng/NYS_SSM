@@ -16,7 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"用户协议"];
     
     // 1、创建UIWebView:
     CGRect bouds = [[UIScreen mainScreen] bounds];
@@ -28,7 +27,7 @@
     webView.backgroundColor = [UIColor whiteColor];
     
     // 3、加载PDF
-    NSString *pdfString = [[NSBundle mainBundle] pathForResource:@"UserPrivacyAgreement" ofType:@"pdf"];
+    NSString *pdfString = [[NSBundle mainBundle] pathForResource:self.protoclPDFFileName ofType:@"pdf"];
     NSURL *filePath = [NSURL fileURLWithPath:pdfString];
     NSURLRequest *request = [NSURLRequest requestWithURL:filePath];
     [webView loadRequest:request];

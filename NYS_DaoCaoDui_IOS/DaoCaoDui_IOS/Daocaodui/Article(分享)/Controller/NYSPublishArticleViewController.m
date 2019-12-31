@@ -9,15 +9,16 @@
 #import "NYSPublishArticleViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "NYSUploadImageHeaderView.h"
-#import "NYSButtonFooterView.h"
+#import "NYSPublishFooterView.h"
 #import "NYSInputTableViewCell.h"
 #import "NYSContentTableViewCell.h"
 #import "NYSAlert.h"
 #import "KHAlertPickerController.h"
+#import "NYSProtoclViewController.h"
 
 @interface NYSPublishArticleViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
-    NYSButtonFooterView *_footerView;
+    NYSPublishFooterView *_footerView;
 }
 @property (strong, nonatomic) UIImageView *bgimageView;
 @property (strong, nonatomic) NSString *paramTitle;
@@ -57,8 +58,9 @@
     [_headerView uploadBtnForSendData:self action:@selector(selectImageSource:)];
     [self.tableView setTableHeaderView:_headerView];
     // footer
-    _footerView = [[NYSButtonFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即发布"];
-    [_footerView buttonForSendData:self action:@selector(publishNow:)];
+    _footerView = [[NYSPublishFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即发布"];
+    [_footerView publishButtonForSendData:self action:@selector(publishNow:)];
+    [_footerView EULAButtonForSendData:self action:@selector(EULAClicked:)];
     [self.tableView setTableFooterView:_footerView];
     
     [self.view addSubview:self.bgimageView];
@@ -313,10 +315,12 @@
     }];
 }
 
-- (void)addClicked:(id)sender {
-    [NYSAlert showFailAlertWithTitle:@"测试" message:@"失败" okButtonClickedBlock:^{
-        
-    }];
+/// 用户许可协议
+- (void)EULAClicked:(UIButton *)sender {
+    NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
+    protoclVC.protoclPDFFileName = @"PublishEULA";
+    protoclVC.title = @"许可协议";
+    [self.navigationController pushViewController:protoclVC animated:YES];
 }
 
 @end

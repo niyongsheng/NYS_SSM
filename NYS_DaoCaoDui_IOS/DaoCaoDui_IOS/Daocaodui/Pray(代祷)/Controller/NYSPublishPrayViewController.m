@@ -9,7 +9,8 @@
 #import "NYSPublishPrayViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "NYSUploadImageHeaderView.h"
-#import "NYSButtonFooterView.h"
+#import "NYSPublishFooterView.h"
+#import "NYSProtoclViewController.h"
 #import "NYSInputTableViewCell.h"
 #import "NYSContentTableViewCell.h"
 #import "KHAlertPickerController.h"
@@ -18,7 +19,7 @@
 
 @interface NYSPublishPrayViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
-    NYSButtonFooterView *_footerView;
+    NYSPublishFooterView *_footerView;
 }
 @property (strong, nonatomic) UIImageView *bgimageView;
 @property (strong, nonatomic) UISwitch *anonymitySwitch;
@@ -58,8 +59,9 @@
     [_headerView uploadBtnForSendData:self action:@selector(selectImageSource:)];
     [self.tableView setTableHeaderView:_headerView];
     // footer
-    _footerView = [[NYSButtonFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即发布"];
-    [_footerView buttonForSendData:self action:@selector(publishNow:)];
+    _footerView = [[NYSPublishFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即发布"];
+    [_footerView publishButtonForSendData:self action:@selector(publishNow:)];
+    [_footerView EULAButtonForSendData:self action:@selector(EULAClicked:)];
     [self.tableView setTableFooterView:_footerView];
     
     [self.view addSubview:self.bgimageView];
@@ -152,7 +154,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
         }
         NSDictionary *attributeDict = @{NSForegroundColorAttributeName: NNavBgColor};
-        NSString *textStr = @"*分享类型：";
+        NSString *textStr = @"*代祷类型：";
         NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:textStr];
         NSRange range = [textStr rangeOfString:@"*"];
         [attrStr setAttributes:attributeDict range:range];
@@ -323,6 +325,14 @@
     } failure:^(NSError *error) {
         
     }];
+}
+
+/// 用户许可协议
+- (void)EULAClicked:(UIButton *)sender {
+    NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
+    protoclVC.protoclPDFFileName = @"PublishEULA";
+    protoclVC.title = @"许可协议";
+    [self.navigationController pushViewController:protoclVC animated:YES];
 }
 
 @end

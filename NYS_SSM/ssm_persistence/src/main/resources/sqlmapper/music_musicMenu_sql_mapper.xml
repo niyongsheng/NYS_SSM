@@ -3,9 +3,7 @@
 <mapper namespace="com.niyongsheng.persistence.dao.Music_MusicMenuDao">
 
     <!-- 根据一个歌单ID,查询这个歌单下的所有歌曲列表 -->
-    <resultMap id="resultMusicMap_2" type="Music" autoMapping="true">
-
-    </resultMap>
+    <resultMap id="resultMusicMap_2" type="Music" autoMapping="true"/>
 
     <select id="getMusicsByMusicMenuId" resultMap="resultMusicMap_2">
         select m.*, mmm.musicMenuID
@@ -13,10 +11,9 @@
         where m.id = mmm.musicID and mmm.musicMenuID = #{id}
     </select>
 
-    <!-- 根据一个歌曲ID，查询这个歌曲所在的歌单列表 -->
-    <resultMap id="resultMusicMenuMap_2" type="MusicMenu" autoMapping="true">
 
-    </resultMap>
+    <!-- 根据一个歌曲ID，查询这个歌曲所在的歌单列表 -->
+    <resultMap id="resultMusicMenuMap_2" type="MusicMenu" autoMapping="true"/>
 
     <select id="getMusicMenusByMusicId" resultMap="resultMusicMenuMap_2">
         select mm.*, mmm.musicMenuID

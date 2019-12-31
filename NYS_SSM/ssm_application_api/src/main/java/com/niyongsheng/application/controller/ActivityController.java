@@ -9,6 +9,7 @@ import com.niyongsheng.common.rongCloud.RongCloudService;
 import com.niyongsheng.common.utils.MathUtils;
 import com.niyongsheng.persistence.domain.Activity;
 import com.niyongsheng.persistence.domain.Group;
+import com.niyongsheng.persistence.domain.User_Activity;
 import com.niyongsheng.persistence.service.ActivityService;
 import com.niyongsheng.persistence.service.GroupService;
 import io.swagger.annotations.*;
@@ -110,7 +111,7 @@ public class ActivityController {
                                        @RequestParam(value = "name", required = true) String name,
                                        @NotBlank(message = "{NotBlank.introduction}")
                                        @RequestParam(value = "introduction", required = true) String introduction,
-                                       @NotBlank
+                                       @NotBlank(message = "{NotBlank.type}")
                                        @RequestParam(value = "activityType", required = true) String activityType,
                                        @NotBlank
                                        @RequestParam(value = "isNeedGroup", required = true) String isNeedGroup,
@@ -148,7 +149,7 @@ public class ActivityController {
                 groupID = MathUtils.randomDigitNumber(5);
             }
             // 3.2注册融云群组
-            Integer statusCode = rongCloudService.createGroup(groupID, name, account);
+            Integer statusCode = rongCloudService.createGroup(account, groupID, name);
             if (statusCode != 200) {
                 qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
                 throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_GROUP_ERROR);
@@ -172,14 +173,22 @@ public class ActivityController {
             group.setFellowship(Integer.valueOf(fellowship));
             group.setGmtCreate(LocalDateTime.now());
 
-            // 3.5调用activityService创建活动和群主+事务管理
+            // 3.5创建用户_活动映射关系模型
+            User_Activity user_activity = new User_Activity();
+            user_activity.setAccount(activity.getAccount());
+            user_activity.setActivityId(activity.getId());
+            user_activity.setGmtCreate(LocalDateTime.now());
+
+            // 3.6调用activityService创建活动和群主+事务管理
             try {
-                activityService.createGroupActivity(activity, group);
+                activityService.createGroupActivity(activity, group, user_activity);
             } catch (Exception e) {
+                // 数据库异常解散群组，防止脏数据
+                rongCloudService.dismissGroup(account, groupID);
                 throw new ResponseException(ResponseStatusEnum.DB_TR_ERROR);
             }
 
-            // 3.6返回结果
+            // 3.7返回结果
             return (new ResponseDto(ResponseStatusEnum.SUCCESS));
         }
 

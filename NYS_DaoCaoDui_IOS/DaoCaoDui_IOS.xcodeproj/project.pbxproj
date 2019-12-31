@@ -219,6 +219,9 @@
 		C8D78C9323B32B3500C0DC97 /* NYSPublishActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D78C9223B32B3500C0DC97 /* NYSPublishActivityViewController.m */; };
 		C8D8AF3D23A1E1DC00737BBE /* NYSTodayItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */; };
 		C8D8AF4123A1E3D100737BBE /* NYSTodayItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */; };
+		C8D9816A23B9D2EF0025638A /* NYSPublishFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D9816923B9D2EF0025638A /* NYSPublishFooterView.m */; };
+		C8D9816C23B9DC1F0025638A /* UserPrivacyAgreement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C8D9816B23B9DC1E0025638A /* UserPrivacyAgreement.pdf */; };
+		C8D9816E23B9DC2A0025638A /* PublishEULA.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C8D9816D23B9DC290025638A /* PublishEULA.pdf */; };
 		C8DDA11623AB3B46003AF6F4 /* zh_cuv.xml in Resources */ = {isa = PBXBuildFile; fileRef = C8DDA11523AB3B46003AF6F4 /* zh_cuv.xml */; };
 		C8DDA11B23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DDA11923AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.m */; };
 		C8DDA11C23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8DDA11A23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.xib */; };
@@ -242,7 +245,6 @@
 		C8E3B30923ADA86C00A0BCB4 /* NYSAboutFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B30823ADA86C00A0BCB4 /* NYSAboutFooterView.m */; };
 		C8E3B30B23ADA88300A0BCB4 /* NYSAboutFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */; };
 		C8E3B30E23ADB4ED00A0BCB4 /* NYSProtoclViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */; };
-		C8E3B31223ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B31123ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf */; };
 		C8E3B31423ADD3F600A0BCB4 /* en_kjv.xml in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B31323ADD3F600A0BCB4 /* en_kjv.xml */; };
 		C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EABF8E22B4F12D004B0DA4 /* NYSRootPresenter.m */; };
 		C8F3B4CB2298EF8A00FA61A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4CA2298EF8A00FA61A6 /* AppDelegate.m */; };
@@ -251,6 +253,8 @@
 		C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F3B4D82298EF8B00FA61A6 /* main.m */; };
 		C8F857D92356FB6100521460 /* NYSChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F857D82356FB6100521460 /* NYSChatListViewController.m */; };
 		C8F857DC2356FBFC00521460 /* NYSConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F857DB2356FBFC00521460 /* NYSConversationViewController.m */; };
+		C8FFC6C923B9969F005EFB01 /* NYSFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FFC6C823B9969F005EFB01 /* NYSFileType.m */; };
+		C8FFC6CC23B99733005EFB01 /* NYSDocumentBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FFC6CB23B99733005EFB01 /* NYSDocumentBrowserViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -610,6 +614,10 @@
 		C8D8AF3B23A1E1DC00737BBE /* NYSTodayItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSTodayItemView.h; sourceTree = "<group>"; };
 		C8D8AF3C23A1E1DC00737BBE /* NYSTodayItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSTodayItemView.m; sourceTree = "<group>"; };
 		C8D8AF4023A1E3D100737BBE /* NYSTodayItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSTodayItemView.xib; sourceTree = "<group>"; };
+		C8D9816823B9D2EF0025638A /* NYSPublishFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSPublishFooterView.h; sourceTree = "<group>"; };
+		C8D9816923B9D2EF0025638A /* NYSPublishFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSPublishFooterView.m; sourceTree = "<group>"; };
+		C8D9816B23B9DC1E0025638A /* UserPrivacyAgreement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserPrivacyAgreement.pdf; sourceTree = "<group>"; };
+		C8D9816D23B9DC290025638A /* PublishEULA.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PublishEULA.pdf; sourceTree = "<group>"; };
 		C8DDA11523AB3B46003AF6F4 /* zh_cuv.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = zh_cuv.xml; sourceTree = "<group>"; };
 		C8DDA11823AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBibleBookCollectionViewCell.h; sourceTree = "<group>"; };
 		C8DDA11923AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBibleBookCollectionViewCell.m; sourceTree = "<group>"; };
@@ -639,7 +647,6 @@
 		C8E3B30A23ADA88300A0BCB4 /* NYSAboutFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSAboutFooterView.xib; sourceTree = "<group>"; };
 		C8E3B30C23ADB4ED00A0BCB4 /* NYSProtoclViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSProtoclViewController.h; sourceTree = "<group>"; };
 		C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSProtoclViewController.m; sourceTree = "<group>"; };
-		C8E3B31123ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserPrivacyAgreement.pdf; sourceTree = "<group>"; };
 		C8E3B31323ADD3F600A0BCB4 /* en_kjv.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = en_kjv.xml; sourceTree = "<group>"; };
 		C8EABF8D22B4F12D004B0DA4 /* NYSRootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRootPresenter.h; sourceTree = "<group>"; };
 		C8EABF8E22B4F12D004B0DA4 /* NYSRootPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRootPresenter.m; sourceTree = "<group>"; };
@@ -654,6 +661,10 @@
 		C8F857D82356FB6100521460 /* NYSChatListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSChatListViewController.m; sourceTree = "<group>"; };
 		C8F857DA2356FBFC00521460 /* NYSConversationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSConversationViewController.h; sourceTree = "<group>"; };
 		C8F857DB2356FBFC00521460 /* NYSConversationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSConversationViewController.m; sourceTree = "<group>"; };
+		C8FFC6C723B9969F005EFB01 /* NYSFileType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSFileType.h; sourceTree = "<group>"; };
+		C8FFC6C823B9969F005EFB01 /* NYSFileType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSFileType.m; sourceTree = "<group>"; };
+		C8FFC6CA23B99733005EFB01 /* NYSDocumentBrowserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSDocumentBrowserViewController.h; sourceTree = "<group>"; };
+		C8FFC6CB23B99733005EFB01 /* NYSDocumentBrowserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDocumentBrowserViewController.m; sourceTree = "<group>"; };
 		F7CA25A888C9523194DF3B3C /* Pods-DaoCaoDui_IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOS.release.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOS/Pods-DaoCaoDui_IOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -826,6 +837,7 @@
 				C8A93E942366786D0062C813 /* HomeViewController.m */,
 				C8A8051D23B1AA2800DA52DC /* NYSPublishArticleViewController.h */,
 				C8A8051E23B1AA2800DA52DC /* NYSPublishArticleViewController.m */,
+				C8D9816D23B9DC290025638A /* PublishEULA.pdf */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -844,6 +856,8 @@
 				C8A8052A23B1C07300DA52DC /* NYSContentTableViewCell.h */,
 				C8A8052B23B1C07300DA52DC /* NYSContentTableViewCell.m */,
 				C8A8052C23B1C07300DA52DC /* NYSContentTableViewCell.xib */,
+				C8D9816823B9D2EF0025638A /* NYSPublishFooterView.h */,
+				C8D9816923B9D2EF0025638A /* NYSPublishFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1054,7 +1068,7 @@
 				C83B8E2E23ACC6600051A22C /* NYSAboutViewController.m */,
 				C8E3B30C23ADB4ED00A0BCB4 /* NYSProtoclViewController.h */,
 				C8E3B30D23ADB4ED00A0BCB4 /* NYSProtoclViewController.m */,
-				C8E3B31123ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf */,
+				C8D9816B23B9DC1E0025638A /* UserPrivacyAgreement.pdf */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1616,6 +1630,7 @@
 		C899EFAC23A3786800E78403 /* Music(音频) */ = {
 			isa = PBXGroup;
 			children = (
+				C8FFC6C623B99655005EFB01 /* DocumentBrowser */,
 				C81074C123AA4A9200CC7868 /* DFPlayer */,
 				C8CA7B9B23AA00140081D593 /* Model */,
 				C899EFAE23A378C700E78403 /* View */,
@@ -1933,6 +1948,17 @@
 			path = DaoCaoDui_IOS;
 			sourceTree = "<group>";
 		};
+		C8FFC6C623B99655005EFB01 /* DocumentBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				C8FFC6C723B9969F005EFB01 /* NYSFileType.h */,
+				C8FFC6C823B9969F005EFB01 /* NYSFileType.m */,
+				C8FFC6CA23B99733005EFB01 /* NYSDocumentBrowserViewController.h */,
+				C8FFC6CB23B99733005EFB01 /* NYSDocumentBrowserViewController.m */,
+			);
+			path = DocumentBrowser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2019,6 +2045,7 @@
 				C85C44D7229BAB2900B35652 /* right_arrow@2x.png in Resources */,
 				C85C44D0229BAB2900B35652 /* down_arrow@3x.png in Resources */,
 				C81074D823AA4A9300CC7868 /* DFPlayer.bundle in Resources */,
+				C8D9816C23B9DC1F0025638A /* UserPrivacyAgreement.pdf in Resources */,
 				C87947EE23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib in Resources */,
 				C89CA2BE22BCA2DE0086F9B0 /* stepPk_win_colour8@2x.png in Resources */,
 				C8424EC7229E78E6003A7C58 /* close_icon@2x.png in Resources */,
@@ -2046,7 +2073,6 @@
 				C857A393229CD026002B5396 /* MBHUD_Info@2x.png in Resources */,
 				C857A396229CD026002B5396 /* MBHUD_Success@3x.png in Resources */,
 				C8265C7E22A2710E0072A3F1 /* man@2x.png in Resources */,
-				C8E3B31223ADBF3700A0BCB4 /* UserPrivacyAgreement.pdf in Resources */,
 				C85C44B7229BA88100B35652 /* loading_image.png in Resources */,
 				C8CA7B9823A9C8C30081D593 /* nav_img2.png in Resources */,
 				C8188D2523AE173800E13F3A /* secret.png in Resources */,
@@ -2069,6 +2095,7 @@
 				C85C44B9229BA88100B35652 /* loading_image@3x.png in Resources */,
 				C85C44AD229BA78300B35652 /* webloaderrorview.png in Resources */,
 				C89CA2C122BCA2DE0086F9B0 /* stepPk_win_colour1@2x.png in Resources */,
+				C8D9816E23B9DC2A0025638A /* PublishEULA.pdf in Resources */,
 				C8E22C8423B4974F0025C094 /* sign_out@2x.png in Resources */,
 				C89CA2C022BCA2DE0086F9B0 /* stepPk_win_colour6@2x.png in Resources */,
 				C8DDA11623AB3B46003AF6F4 /* zh_cuv.xml in Resources */,
@@ -2181,6 +2208,7 @@
 				C878E20223AB32C2001A6FA3 /* NYSBibleViewController.m in Sources */,
 				C802A60A22A62D3F002E2A58 /* CMFAQModel.m in Sources */,
 				C83B8E2F23ACC6600051A22C /* NYSAboutViewController.m in Sources */,
+				C8D9816A23B9D2EF0025638A /* NYSPublishFooterView.m in Sources */,
 				C899EFB123A378EE00E78403 /* NYSMusicListViewController.m in Sources */,
 				C802A61222A62D6D002E2A58 /* NYSFAQHeaderView.m in Sources */,
 				C85DD72722A4C4B200E33636 /* NullSafe.m in Sources */,
@@ -2249,6 +2277,7 @@
 				C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */,
 				C821612E235D5EEC00B17530 /* ChineseString.m in Sources */,
 				C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */,
+				C8FFC6C923B9969F005EFB01 /* NYSFileType.m in Sources */,
 				C8D78C9323B32B3500C0DC97 /* NYSPublishActivityViewController.m in Sources */,
 				C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */,
 				C899EFA523A341C100E78403 /* NYSActivityListViewController.m in Sources */,
@@ -2272,6 +2301,7 @@
 				C821612F235D5EEC00B17530 /* pinyin.m in Sources */,
 				C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */,
 				C8A8052223B1AD5B00DA52DC /* NYSUploadImageHeaderView.m in Sources */,
+				C8FFC6CC23B99733005EFB01 /* NYSDocumentBrowserViewController.m in Sources */,
 				C81074DD23AA4A9300CC7868 /* DFPlayerFileManager.m in Sources */,
 				C81074E123AA4A9300CC7868 /* DFPlayerResourceLoader.m in Sources */,
 				C82F63FE23571A8300BF41AA /* NYSChatDataSource.m in Sources */,

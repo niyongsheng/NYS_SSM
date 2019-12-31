@@ -10,20 +10,29 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "KHAlertPickerController.h"
 #import "NYSUploadImageHeaderView.h"
-#import "NYSButtonFooterView.h"
+#import "NYSPublishFooterView.h"
+#import "NYSProtoclViewController.h"
 #import "NYSInputTableViewCell.h"
-#import "NYSContentTableViewCell.h"
 #import "NYSMusicMenuModel.h"
 #import "NYSAlert.h"
 #import "KHAlertPickerController.h"
+#import "NYSDocumentBrowserViewController.h"
 
 @interface NYSPublishMusicViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
-    NYSButtonFooterView *_footerView;
+    NYSPublishFooterView *_footerView;
 }
 @property (strong, nonatomic) UIImageView *bgimageView;
 @property (strong, nonatomic) NSArray *musicTypeArray;
 
+@property (strong, nonatomic) NSString *paramTitle;
+@property (strong, nonatomic) NSString *paramSinger;
+@property (strong, nonatomic) NSString *paramWordAuthor;
+@property (strong, nonatomic) NSString *paramAnAuthor;
+@property (strong, nonatomic) NSData *paramAudioData;
+@property (strong, nonatomic) NSData *paramFileData;
+@property (strong, nonatomic) NSString *audioName;
+@property (strong, nonatomic) NSString *fileName;
 @end
 
 @implementation NYSPublishMusicViewController
@@ -38,11 +47,7 @@
         [NYSMusicMenuModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"idField" : @"id"};
         }];
-        NSMutableArray *titleArray = [NSMutableArray array];
-        for (NYSMusicMenuModel *musicMenu in [NYSMusicMenuModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]]) {
-            [titleArray addObject:musicMenu.name];
-        }
-        weakSelf.musicTypeArray = titleArray;
+        weakSelf.musicTypeArray = [NYSMusicMenuModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
     } failure:nil isCache:YES];
     
     // 初始化UI
@@ -67,8 +72,9 @@
     [_headerView uploadBtnForSendData:self action:@selector(selectImageSource:)];
     [self.tableView setTableHeaderView:_headerView];
     // footer
-    _footerView = [[NYSButtonFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即上传"];
-    [_footerView buttonForSendData:self action:@selector(publishNow:)];
+    _footerView = [[NYSPublishFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即上传"];
+    [_footerView publishButtonForSendData:self action:@selector(publishNow:)];
+    [_footerView EULAButtonForSendData:self action:@selector(EULAClicked:)];
     [self.tableView setTableFooterView:_footerView];
     
     [self.view addSubview:self.bgimageView];
@@ -81,8 +87,7 @@
         _bgimageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight)];
         _bgimageView.contentMode = UIViewContentModeScaleToFill;
         _bgimageView.image = [UIImage imageWithColor:[UIColor whiteColor]];
-//        _bgimageView.image = [UIImage imageNamed:@"1"];
-        // Blur
+        // Blur effect
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
         effectView.frame = CGRectMake(0, 0, _bgimageView.frame.size.width, _bgimageView.frame.size.height);
@@ -97,7 +102,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 7;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -107,7 +112,9 @@
         if(titleCell == nil) {
             titleCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
         }
-        titleCell.title.text = @"标题：";
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*标题："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName: NNavBgColor} range:NSMakeRange(0, 1)];
+        titleCell.title.attributedText = attrStr;
         titleCell.content.placeholder = @"请输入音频的标题";
         return titleCell;
     } else if (indexPath.row == 1) {
@@ -115,7 +122,9 @@
         if(titleCell == nil) {
             titleCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
         }
-        titleCell.title.text = @"歌手：";
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*歌手："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName: NNavBgColor} range:NSMakeRange(0, 1)];
+        titleCell.title.attributedText = attrStr;
         titleCell.content.placeholder = @"请输入音频的歌手";
         return titleCell;
     } else if (indexPath.row == 2) {
@@ -123,24 +132,60 @@
         if(titleCell == nil) {
             titleCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
         }
-        titleCell.title.text = @"词作者：";
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*词作者："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:[[UIColor darkGrayColor] colorWithAlphaComponent:0.4f]} range:NSMakeRange(0, 1)];
+        titleCell.title.attributedText = attrStr;
         titleCell.content.placeholder = @"请输入音频的词作者";
         return titleCell;
     } else if (indexPath.row == 3) {
-        NYSContentTableViewCell *contentCell = [tableView dequeueReusableCellWithIdentifier:@"NYSContentTableViewCell"];
-        if(contentCell == nil) {
-            contentCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSContentTableViewCell" owner:self options:nil] firstObject];
+        NYSInputTableViewCell *titleCell = [tableView dequeueReusableCellWithIdentifier:@"NYSInputTableViewCell"];
+        if(titleCell == nil) {
+            titleCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
         }
-        contentCell.title.text = @"音频内容：";
-        contentCell.placeholderStr = @"请输入你要音频的内容";
-        return contentCell;
-    } else {
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*曲作者："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:[[UIColor darkGrayColor] colorWithAlphaComponent:0.4f]} range:NSMakeRange(0, 1)];
+        titleCell.title.attributedText = attrStr;
+        titleCell.content.placeholder = @"请输入音频的曲作者";
+        return titleCell;
+    } else if (indexPath.row == 4) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
         }
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*音频文件："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName: NNavBgColor} range:NSMakeRange(0, 1)];
+        cell.textLabel.attributedText = attrStr;
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.text = @"音频类型：";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    } else if (indexPath.row == 5) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+        }
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*歌词文件："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName:[[UIColor darkGrayColor] colorWithAlphaComponent:0.4f]} range:NSMakeRange(0, 1)];
+        cell.textLabel.attributedText = attrStr;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    } else if (indexPath.row == 6) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"UITableViewCell"];
+        }
+        NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:@"*音频类型："];
+        [attrStr setAttributes:@{NSForegroundColorAttributeName: NNavBgColor} range:NSMakeRange(0, 1)];
+        cell.textLabel.attributedText = attrStr;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+        }
+        cell.backgroundColor = [UIColor clearColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
@@ -148,13 +193,41 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    WS(weakSelf);
     if (indexPath.row == 4) {
-        KHAlertPickerController *alertPicker = [KHAlertPickerController  alertPickerWithTitle:@"音频类型" Separator:nil SourceArr:self.musicTypeArray];
+        NYSDocumentBrowserViewController *audioBrowserVC = [NYSDocumentBrowserViewController new];
+        audioBrowserVC.callBack = ^(NSData *contentsData, NSArray *fileType, NSString *fileName, NSURL *fileURL) {
+            NLog(@"%@ \nType:%@   \nName:%@   \nURL:%@",contentsData, fileType, fileName, fileURL);
+            weakSelf.paramAudioData = contentsData;
+            weakSelf.audioName = [NSString stringWithFormat:@"%@.%@", fileName, fileType[2]];
+            
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.detailTextLabel.text = weakSelf.audioName;
+            [cell reloadInputViews];
+        };
+        [self presentViewController:audioBrowserVC animated:YES completion:nil];
+    } else if (indexPath.row == 5) {
+        NYSDocumentBrowserViewController *fileBrowserVC = [NYSDocumentBrowserViewController new];
+        fileBrowserVC.callBack = ^(NSData *contentsData, NSArray *fileType, NSString *fileName, NSURL *fileURL) {
+            NLog(@"%@ \nType:%@   \nName:%@   \nURL:%@",contentsData, fileType, fileName, fileURL);
+            weakSelf.paramFileData = contentsData;
+            weakSelf.fileName = [NSString stringWithFormat:@"%@.%@", fileName, fileType[2]];
+            
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.detailTextLabel.text = weakSelf.fileName;
+            [cell reloadInputViews];
+        };
+        [self presentViewController:fileBrowserVC animated:YES completion:nil];
+    } else if (indexPath.row == 6) {
+        NSMutableArray *titleArray = [NSMutableArray array];
+        for (NYSMusicMenuModel *musicMenu in self.musicTypeArray) {
+            [titleArray addObject:musicMenu.name];
+        }
+        KHAlertPickerController *alertPicker = [KHAlertPickerController  alertPickerWithTitle:@"音频类型" Separator:nil SourceArr:titleArray];
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.detailTextLabel.text = [alertPicker.contentStr copy];
-            [cell reloadInputViews]; // 不要使用reloadRowsAtIndexPaths刷新cell
+            [cell reloadInputViews];
         }];
         [alertPicker addCompletionAction:sureAction];
         [self presentViewController:alertPicker animated:YES completion:nil];
@@ -205,10 +278,57 @@
     [NYSTools zoomToShow:sender];
     
     NYSInputTableViewCell *titleCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    NSString *params1 = titleCell.content.text;
-    
-    UITableViewCell *musicTypeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
-    NSString *params2 = musicTypeCell.detailTextLabel.text;
+    self.paramTitle = titleCell.content.text;
+    NYSInputTableViewCell *singerCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+    self.paramSinger = singerCell.content.text;
+    NYSInputTableViewCell *wordCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+    self.paramWordAuthor = wordCell.content.text;
+    NYSInputTableViewCell *anCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]];
+    self.paramAnAuthor = anCell.content.text;
+    // 音频类型
+    NSString *musicType = @"";
+    UITableViewCell *musicTypeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:6 inSection:0]];
+    NSString *musicTypeName = musicTypeCell.detailTextLabel.text;
+    for (NYSMusicMenuModel *musicMenu in self.musicTypeArray) {
+        if ([musicMenu.name isEqualToString:musicTypeName]) {
+            musicType = [NSString stringWithFormat:@"%ld", musicMenu.idField];
+            break;
+        }
+    }
+    WS(weakSelf);
+    [NYSRequest PublishMusicWithImage:self.bgimageView.image
+                            imageName:@"iconImage"
+                        audioFileData:_paramAudioData
+                       audioParamName:@"musicFile"
+                            audioName:_audioName
+                             fileData:_paramFileData
+                        fileParamName:@"lyricFile"
+                             fileName:_fileName
+                           parameters:@{@"name" : _paramTitle,
+                                        @"singer" : _paramSinger,
+                                        @"wordAuthor" : _paramWordAuthor,
+                                        @"anAuthor" : _paramAnAuthor,
+                                        @"musicType" : musicType,
+                                        @"fellowship" : @(NCurrentUser.fellowship)}
+                              process:^(NSProgress *progress) {
+        
+    } success:^(id response) {
+        if ([[response objectForKey:@"status"] boolValue]) {
+            [NYSAlert showSuccessAlertWithTitle:@"上传音频" message:@"上传成功，快去刷新试听吧🎵" okButtonClickedBlock:^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+/// 用户许可协议
+- (void)EULAClicked:(UIButton *)sender {
+    NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
+    protoclVC.protoclPDFFileName = @"PublishEULA";
+    protoclVC.title = @"许可协议";
+    [self.navigationController pushViewController:protoclVC animated:YES];
 }
 
 @end

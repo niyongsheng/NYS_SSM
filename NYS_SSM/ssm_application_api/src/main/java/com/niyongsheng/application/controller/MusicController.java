@@ -70,7 +70,7 @@ public class MusicController {
 
         // 1.上传文件
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
-        String prefix = request.getHeader("Account") + "/" + this.getClass().getName() + "/";
+        String prefix = request.getHeader("Account") + "_";
         Map<String, Object> musicMap = qiniuUploadFileService.qiniuUpload(prefix, musicFile, uploadPath, false);
         Map<String, Object> lyricMap = qiniuUploadFileService.qiniuUpload(prefix, lyricFile, uploadPath, false);
         Map<String, Object> iconMap = qiniuUploadFileService.qiniuUpload(prefix, iconImage, uploadPath, false);

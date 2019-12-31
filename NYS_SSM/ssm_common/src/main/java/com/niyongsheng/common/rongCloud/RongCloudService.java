@@ -75,7 +75,7 @@ public class RongCloudService {
      * @return 状态码：成功200
      * @throws ResponseException 异常处理
      */
-    public Integer createGroup(String groupID, String name, String id) throws ResponseException {
+    public Integer createGroup(String id, String groupID, String name) throws ResponseException {
         RongCloud rongCloud = RongCloud.getInstance(rongCloudAppKey, rongcloudAppSecret);
         Group group = rongCloud.group;
 

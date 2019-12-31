@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSProtoclViewController : NYSRootViewController
 
+/// PDF协议文件名
+@property (weak, nonatomic) NSString *protoclPDFFileName;
 @end
 
 NS_ASSUME_NONNULL_END

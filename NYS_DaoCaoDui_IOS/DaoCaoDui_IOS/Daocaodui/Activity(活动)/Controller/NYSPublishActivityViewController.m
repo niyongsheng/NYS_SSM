@@ -9,7 +9,8 @@
 #import "NYSPublishActivityViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "NYSUploadImageHeaderView.h"
-#import "NYSButtonFooterView.h"
+#import "NYSPublishFooterView.h"
+#import "NYSProtoclViewController.h"
 #import "NYSInputTableViewCell.h"
 #import "NYSContentTableViewCell.h"
 #import "NYSAlert.h"
@@ -17,7 +18,7 @@
 
 @interface NYSPublishActivityViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
-    NYSButtonFooterView *_footerView;
+    NYSPublishFooterView *_footerView;
 }
 @property (strong, nonatomic) UIImageView *bgimageView;
 @property (strong, nonatomic) UISwitch *isNeedGroupSwitch;
@@ -56,8 +57,9 @@
     [_headerView uploadBtnForSendData:self action:@selector(selectImageSource:)];
     [self.tableView setTableHeaderView:_headerView];
     // footer
-    _footerView = [[NYSButtonFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即创建"];
-    [_footerView buttonForSendData:self action:@selector(publishNow:)];
+    _footerView = [[NYSPublishFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"立即创建"];
+    [_footerView publishButtonForSendData:self action:@selector(publishNow:)];
+    [_footerView EULAButtonForSendData:self action:@selector(EULAClicked:)];
     [self.tableView setTableFooterView:_footerView];
     
     [self.view addSubview:self.bgimageView];
@@ -290,17 +292,19 @@
     expiretimeCell ? self.paramExpireDatetime = expiretimeCell.detailTextLabel.text : nil;
     UITableViewCell *isNeedGroupCell = (NYSInputTableViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]];
     isNeedGroupCell ? self.paramIsGroup = (self.isNeedGroupSwitch.on ? @"true" : @"false") : nil;
+    // 过期时间
+    !_paramExpireDatetime ? self.paramExpireDatetime = @"" : nil;
     
     WS(weakSelf);
     [NYSRequest PublishActivityWithImage:self.bgimageView.image
-                                  name:@"iconImage"
-                            parameters:@{@"name" : _paramName,
-                                         @"introduction" : _paramIntroduction,
-                                         @"activityType" : _paramType,
-                                         @"expireTime" : _paramExpireDatetime,
-                                         @"isNeedGroup" : _paramIsGroup,
-                                         @"fellowship" : @(NCurrentUser.fellowship)}
-                               process:^(NSProgress *progress) {
+                                    name:@"iconImage"
+                              parameters:@{@"name" : _paramName,
+                                           @"introduction" : _paramIntroduction,
+                                           @"activityType" : _paramType,
+                                           @"expireTime" : _paramExpireDatetime,
+                                           @"isNeedGroup" : _paramIsGroup,
+                                           @"fellowship" : @(NCurrentUser.fellowship)}
+                                 process:^(NSProgress *progress) {
         
     } success:^(id response) {
         if ([[response objectForKey:@"status"] boolValue]) {
@@ -311,6 +315,14 @@
     } failure:^(NSError *error) {
         
     }];
+}
+
+/// 用户许可协议
+- (void)EULAClicked:(UIButton *)sender {
+    NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
+    protoclVC.protoclPDFFileName = @"PublishEULA";
+    protoclVC.title = @"许可协议";
+    [self.navigationController pushViewController:protoclVC animated:YES];
 }
 
 @end

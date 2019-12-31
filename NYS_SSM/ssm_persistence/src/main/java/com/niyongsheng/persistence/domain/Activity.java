@@ -79,4 +79,12 @@ public class Activity implements Serializable {
   @TableField(value = "fellowshipName", exist = false)
   @ApiModelProperty(value = "所属团契名称")
   private String fellowshipName;
+
+  @TableField(value = "isInGroup", exist = false)
+  @ApiModelProperty(value = "是否为群成员")
+  private Boolean isInGroup;
+
+  @TableField(value = "membersNum", exist = false)
+  @ApiModelProperty(value = "群成员数量")
+  private Integer membersNum;
 }

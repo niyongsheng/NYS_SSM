@@ -32,6 +32,9 @@
     self.icon.contentMode = UIViewContentModeScaleAspectFill;
     self.icon.layer.cornerRadius = 30;
     self.icon.layer.masksToBounds = YES;
+    CALayer *layer = [self.icon layer];
+    layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4f].CGColor;
+    layer.borderWidth = 1.0f;
     
     self.joinBtn.layer.cornerRadius = 10;
     self.joinBtn.layer.masksToBounds = YES;

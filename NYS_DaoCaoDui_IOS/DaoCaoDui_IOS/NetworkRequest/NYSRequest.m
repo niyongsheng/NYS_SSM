@@ -9,6 +9,7 @@
 #import "NYSRequest.h"
 #import "PPNetworkHelper.h"
 #import "NYSInterfacedConst.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 
 @implementation NYSRequest
 
@@ -89,7 +90,7 @@
 }
 
 /** 多图上传*/
-+ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
++ (NSURLSessionTask *)UploadImagesWithImages:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UploadiImages];
     return [self imagesRequestWithURL:url parameters:parameters images:images fileNames:imageNames name:name process:process success:success failure:failure];
 }
@@ -137,25 +138,25 @@
 }
 
 /** 发布分享*/
-+ (NSURLSessionTask *)PublishArtcleWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
++ (NSURLSessionTask *)PublishArtcleWithImage:(UIImage *)image name:(NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishArtcle];
     return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
 }
 
 /** 发布代祷*/
-+ (NSURLSessionTask *)PublishPrayWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
++ (NSURLSessionTask *)PublishPrayWithImage:(UIImage *)image name:(NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishPray];
     return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
 }
 
 /** 发布音频*/
-+ (NSURLSessionTask *)PublishMusicWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
++ (NSURLSessionTask *)PublishMusicWithImage:(UIImage *)image imageName:(NSString *)imageName audioFileData:(NSData *)audioFileData audioParamName:(NSString *)audioParamName audioName:(NSString *)audioName fileData:(NSData *)fileData fileParamName:(NSString *)fileParamName fileName:(NSString *)fileName parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishMusic];
-    return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
+    return [self uploadRequestWithURL:url parameters:parameters image:image imageName:imageName audioFileData:audioFileData audioParamName:audioParamName audioName:audioName fileData:fileData fileParamName:fileParamName fileName:fileName process:process success:success failure:failure];
 }
 
 /** 发布活动*/
-+ (NSURLSessionTask *)PublishActivityWithImage:(UIImage *)image name:(nonnull NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
++ (NSURLSessionTask *)PublishActivityWithImage:(UIImage *)image name:(NSString *)name parameters:(NSDictionary *)parameters process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishActivity];
     return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
 }
@@ -314,9 +315,8 @@
                                      filePath:filePath
                                      progress:^(NSProgress *progress) {
         process(progress);
-        CGFloat process = progress.completedUnitCount/progress.totalUnitCount;
-        NLog(@"文件上传进度:%.2f%%",100.0 * process);
-        [SVProgressHUD showProgress:process * 100 status:@"文件上传进度"];
+        [SVProgressHUD showProgress:progress.fractionCompleted status:@"文件上传进度"];
+        NLog(@"文件上传进度:%.2f%%", progress.fractionCompleted);
     } success:^(id responseObject) {
         [SVProgressHUD dismiss];
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
@@ -367,7 +367,68 @@
     }];
 }
 
-#pragma mark - 请求响应处理方法
+/// 多文件/多类型上传
+/// @param URL 上传接口地址
+/// @param parameters 参数
+/// @param image 图片
+/// @param imageName 图片参数名
+/// @param audioFileData 音频二进制数据
+/// @param audioParamName 音频参数名
+/// @param audioName 音频名
+/// @param fileData 文件二进制数据
+/// @param fileParamName 文件参数名
+/// @param fileName 文件名
+/// @param process 进度回调
+/// @param success 成功回调
+/// @param failure 失败回调
++ (NSURLSessionTask *)uploadRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters image:(UIImage *)image imageName:(NSString *)imageName audioFileData:(NSData *)audioFileData audioParamName:(NSString *)audioParamName audioName:(NSString *)audioName fileData:(NSData *)fileData fileParamName:(NSString *)fileParamName fileName:(NSString *)fileName process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NLog(@"接口URL:%@\n参数Params:%@", URL, parameters);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+#pragma mark - AUTH认证
+    [manager.requestSerializer setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
+    [manager.requestSerializer setValue:NCurrentUser.account forHTTPHeaderField:@"Account"];
+    
+    return [manager POST:URL parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        // 时间戳命名
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy_MM_ddHH:mm:ss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *imageFileName = [NSString stringWithFormat:@"image%@.png", str];
+        // 1.图片二进制文件
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5f);
+        [formData appendPartWithFileData:imageData
+                                    name:imageName
+                                fileName:imageFileName
+                                mimeType:@"image/jpg/png/jpeg"];
+        // 2.音频文件处理
+        audioFileData ? [formData appendPartWithFileData:audioFileData name:audioParamName fileName:audioName mimeType:@"audio/mpeg/mp3/m4a/wav"] : nil;
+        // 3.歌词文件处理
+        audioFileData ? [formData appendPartWithFileData:audioFileData name:fileParamName fileName:fileName mimeType:@"application/octet-stream"] : nil;
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        [SVProgressHUD showProgress:uploadProgress.fractionCompleted status:@"文件上传进度"];
+        NLog(@"文件上传进度:%.2f%%", uploadProgress.fractionCompleted);
+        process(uploadProgress);
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [SVProgressHUD dismiss];
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+        [self responseHandler:URL isCache:NO parameters:parameters responseObject:JSON success:success];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismiss];
+        [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+        failure(error);
+    }];
+}
+
+#pragma mark - 请求响应处理方法_____________________COMMON_________________________
+///  处理返回数据的通用模板
+/// @param URL API地址
+/// @param isCache 是否缓存
+/// @param parameters 参数
+/// @param responseObject 返回的JSON数据
+/// @param success 成功回调
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
     NLog(@"[服务器Response]：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {

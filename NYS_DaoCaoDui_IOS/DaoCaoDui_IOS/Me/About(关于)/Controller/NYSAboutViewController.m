@@ -208,7 +208,10 @@
     } else {
         switch (indexPath.row) {
             case 0: {
-                [self.navigationController pushViewController:NYSProtoclViewController.new animated:YES];
+                NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
+                protoclVC.protoclPDFFileName = @"UserPrivacyAgreement";
+                protoclVC.title = @"隐私协议";
+                [self.navigationController pushViewController:protoclVC animated:YES];
             }
                 break;
                 
