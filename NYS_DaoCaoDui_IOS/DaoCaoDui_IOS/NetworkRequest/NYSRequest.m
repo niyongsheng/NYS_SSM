@@ -44,17 +44,6 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
-
-
-// TODO 下面没改--------------------------------
-
-
-/** 获取个人信息*/
-+ (NSURLSessionTask *)GetUserInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetUserInfo];
-    return nil;
-}
-
 /** 修改个人信息*/
 + (NSURLSessionTask *)UpdateUserInfoWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UpdateUserInfo];
@@ -67,9 +56,9 @@
     return nil;
 }
 
-/** 签到详情*/
-+ (NSURLSessionTask *)GetDosignRecordWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_SignRecord];
+/** 积分记录详情*/
++ (NSURLSessionTask *)GetScoreRecordWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ScoreRecord];
     return nil;
 }
 /** 个人信息提供者*/
@@ -161,25 +150,22 @@
     return [self imagesRequestWithURL:url parameters:parameters images:@[image] fileNames:nil name:name process:process success:success failure:failure];
 }
 
-
-
-
-/** 创建群组*/
-+ (NSURLSessionTask *)CreateGroupWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CreateGroup];
-    return nil;
+/** 结束活动*/
++ (NSURLSessionTask *)DismissActivityWithActivityID:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DismissActivity];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:false isCache:NO];
 }
 
-/** 修改群组资料*/
-+ (NSURLSessionTask *)UpdateGroupInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UpdateGroupInfo];
-    return nil;
+/** 加入活动*/
++ (NSURLSessionTask *)JoinActivityWithActivityID:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_JoinActivity];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:false isCache:NO];
 }
 
-/** 解散群组*/
-+ (NSURLSessionTask *)RemoveGroupInfoWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_RemoveGroup];
-    return nil;
+/** 退出活动*/
++ (NSURLSessionTask *)QuitActivityWithActivityID:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_QuitActivity];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:false isCache:NO];
 }
 
 /** 获取群列表*/
@@ -193,6 +179,14 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UserList];
     return [self requestWithResMethod:GET URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
+
+
+
+
+
+
+
+// TODO 下面没改--------------------------------
 
 /** QQ登录*/
 + (NSURLSessionTask *)QQLogoinWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
@@ -245,7 +239,7 @@
 /// @param failure 失败回调
 /// @param isCache 是否缓存
 + (NSURLSessionTask *)requestWithResMethod:(ResMethod)resMethod URL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    [PPNetworkHelper openLog];
+    [PPNetworkHelper closeLog];
 //    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:10];
 //    [PPNetworkHelper closeAES];
@@ -301,7 +295,7 @@
 /// @param success 成功
 /// @param failure 失败
 + (NSURLSessionTask *)fileRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters filePath:(NSString *)filePath process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
-    [PPNetworkHelper openLog];
+    [PPNetworkHelper closeLog];
     [PPNetworkHelper setRequestTimeoutInterval:10];
     
 #pragma mark - AUTH认证

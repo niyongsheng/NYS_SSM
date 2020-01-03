@@ -93,8 +93,13 @@ public enum ResponseStatusEnum {
     RONGCLOUD_DISMISS_GROUP_ERROR(false,9003,"解散群组失败"),
     RONGCLOUD_JOIN_GROUP_ERROR(false,9004,"加入群组失败"),
     RONGCLOUD_QUIT_GROUP_ERROR(false,9005,"退出群组失败"),
+    RONGCLOUD_DISMISS_GROUP_OWNER_ERROR(false,9006,"非群主不能结束活动"),
 
     RONGCLOUD_STATUS_CODE_GROUP_ERROR(false,9010,"群组状态码错误"),
+    RONGCLOUD_STATUS_CODE_CREATE_GROUP_ERROR(false,9011,"创建群组出错"),
+    RONGCLOUD_STATUS_CODE_DISMISS_GROUP_ERROR(false,9012,"解散群组出错"),
+    RONGCLOUD_STATUS_CODE_JOIN_GROUP_ERROR(false,9013,"加入群组出错"),
+    RONGCLOUD_STATUS_CODE_QUIT_GROUP_ERROR(false,9014,"退出群组出错"),
 
     /* 系统错误❌ */
     SYS_ERROR(null,0,"系统错误");

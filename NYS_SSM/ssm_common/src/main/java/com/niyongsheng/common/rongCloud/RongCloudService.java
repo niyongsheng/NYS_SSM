@@ -120,6 +120,7 @@ public class RongCloudService {
      * 加入群组
      * @param id 用户id
      * @param groupID 群组id
+     * @param groupName 群组名称
      * @return 状态码：成功200
      * @throws ResponseException
      */

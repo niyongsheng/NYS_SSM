@@ -44,6 +44,23 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity> impl
         // 2.创建活动
         activityDao.insert(activity);
         // 3.添加群成员（群主）
+        user_activity.setActivityID(activity.getId());
         user_activityDao.insert(user_activity);
+    }
+
+    @Override
+    public void dismissGroupActivity(Activity activity) {
+        // NOTE: 由于数据库表结构有设置外键删除时触发事件，1、2可以省略
+ /*
+        // 1.删除用户-活动关系表(多记录删除)
+        user_activityDao.deleteRecordsByActivityID(activity.getId());
+        // 2.判断并删除群组
+        Integer groupId = activity.getGroupId();
+        if (groupId != null) {
+            groupDao.deleteByGroupId(groupId);
+        }
+  */
+        // 3.删除活动
+        activityDao.deleteById(activity.getId());
     }
 }

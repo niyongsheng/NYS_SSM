@@ -11,4 +11,6 @@ import com.niyongsheng.persistence.domain.User_Activity;
  * @updateDes
  */
 public interface User_ActivityService extends IService<User_Activity> {
+
+    void deleteOneByAccountAndActivityID(String account, Integer activityId);
 }

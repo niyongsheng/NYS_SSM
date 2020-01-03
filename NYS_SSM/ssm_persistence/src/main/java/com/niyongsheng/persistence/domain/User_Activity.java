@@ -30,8 +30,8 @@ public class User_Activity implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "关联活动ID")
-    @TableField(value = "activityId")
-    private Integer activityId;
+    @TableField(value = "activityID")
+    private Integer activityID;
 
     @ApiModelProperty(value = "关联用户account")
     @TableField(value = "account")

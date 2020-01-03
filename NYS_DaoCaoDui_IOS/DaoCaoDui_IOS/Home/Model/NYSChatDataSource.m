@@ -22,7 +22,6 @@
 #pragma mark - GroupInfoFetcherDelegate
 - (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *groupInfo))completion; {
     [NYSRequest DataProviderInfoForGroupWithResMethod:GET parameters:@{@"groupId" : groupId} success:^(id response) {
-//        NLog(@"RCIMGroupInfoDataSource:%@", response);
         RCGroup *rcGroupInfo = [RCGroup new];
         rcGroupInfo.groupId = [[response objectForKey:@"data"] objectForKey:@"groupId"];
         rcGroupInfo.groupName = [[response objectForKey:@"data"] objectForKey:@"groupName"];
@@ -30,13 +29,12 @@
         completion(rcGroupInfo);
     } failure:^(NSError *error) {
         
-    } isCache:YES];
+    } isCache:NO];
 }
 
 #pragma mark - RCIMUserInfoDataSource
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion {
     [NYSRequest DataProviderInfoForUserWithResMethod:GET parameters:@{@"account" : userId} success:^(id response) {
-//        NLog(@"RCIMUserInfoDataSource:%@", response);
         RCUserInfo *rcUserInfo = [RCUserInfo new];
         rcUserInfo.userId = [[response objectForKey:@"data"] objectForKey:@"account"];
         rcUserInfo.name = [[response objectForKey:@"data"] objectForKey:@"nickname"];

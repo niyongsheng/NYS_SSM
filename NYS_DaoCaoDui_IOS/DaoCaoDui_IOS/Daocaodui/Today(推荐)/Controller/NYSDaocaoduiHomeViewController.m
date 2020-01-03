@@ -129,10 +129,10 @@
         .wMyCellSet(^UICollectionViewCell *(NSIndexPath *indexPath, UICollectionView *collectionView, id model, UIImageView *bgImageView ,NSArray*dataArr) {
             // 自定义视图
             NYSBannerCollectionViewCell *cell = (NYSBannerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([NYSBannerCollectionViewCell class]) forIndexPath:indexPath];
-            [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_qm_intro_945x360_"]];
+            [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
             cell.leftText.text = [(NYSBannerModel *)model title];
             // 毛玻璃效果必须实现
-            [bgImageView sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_qm_intro_945x360_"]];
+            [bgImageView sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
             return cell;
         })
         .wFrameSet(CGRectMake(0, 0, BannerWitdh, RealValue(HomeBannerHeight)))

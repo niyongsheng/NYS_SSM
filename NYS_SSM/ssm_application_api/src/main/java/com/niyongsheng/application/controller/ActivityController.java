@@ -12,6 +12,7 @@ import com.niyongsheng.persistence.domain.Group;
 import com.niyongsheng.persistence.domain.User_Activity;
 import com.niyongsheng.persistence.service.ActivityService;
 import com.niyongsheng.persistence.service.GroupService;
+import com.niyongsheng.persistence.service.User_ActivityService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -32,6 +33,9 @@ import java.util.Map;
  * @author niyongsheng.com
  * @version $
  * @des
+ * 1.活动包含群组;
+ * 2.活动成员即群组成员;
+ * 3.活动结束对应群组/成员关系清空;
  * @updateAuthor $
  * @updateDes
  */
@@ -45,13 +49,17 @@ public class ActivityController {
     private ActivityService activityService;
 
     @Autowired
+    private GroupService groupService;
+
+    @Autowired
+    private User_ActivityService user_activityService;
+
+    @Autowired
     private QiniuUploadFileService qiniuUploadFileService;
 
     @Autowired
     private RongCloudService rongCloudService;
 
-    @Autowired
-    private GroupService groupService;
 
     @ResponseBody
     @RequestMapping(value = "/selectActivityList", method = RequestMethod.GET)
@@ -63,11 +71,11 @@ public class ActivityController {
             @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
     })
     public ResponseDto<Activity> selectActivityList(HttpServletRequest request, Model model,
-                                                  @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
-                                                  @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                                  @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
-                                                  @NotBlank
-                                                 @RequestParam(value = "fellowship", required = true) String fellowship
+                                                    @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                    @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                    @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                    @NotBlank
+                                                    @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
 
         // 1.调用service的方法
@@ -77,23 +85,23 @@ public class ActivityController {
 
         // 2.是否分页
         if (isPageBreak) {
-            // 2.1设置页码和分页大小
-            PageHelper.startPage(pageNum, pageSize, false);
             try {
+                // 2.1分页查询 设置页码和分页大小
+                PageHelper.startPage(pageNum, pageSize, false);
                 list = activityService.selectByFellowshipMultiTable(fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
-
         } else {
             try {
+                // 2.1无分页查询
                 list = activityService.selectByFellowshipMultiTable(fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
         }
 
-        model.addAttribute("pagingList", list);
+        // 3.返回查询结果
         return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 
@@ -148,13 +156,21 @@ public class ActivityController {
                 if (groupService.selectByGroupId(groupID) == null) {
                     break;
                 }
+                // 随机生成5位群id
                 groupID = MathUtils.randomDigitNumber(5);
             }
             // 3.2注册融云群组
-            Integer statusCode = rongCloudService.createGroup(account, groupID, name);
-            if (statusCode != 200) {
+            Integer createStatusCode = rongCloudService.createGroup(account, groupID, name);
+            if (createStatusCode != 200) {
                 qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
-                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_GROUP_ERROR);
+                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_CREATE_GROUP_ERROR);
+            }
+            Integer joinStatusCode = rongCloudService.joinGroup(account, groupID, name);
+            // 群主加入群组
+            if (joinStatusCode != 200) {
+                rongCloudService.dismissGroup(account, groupID);
+                qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
+                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_JOIN_GROUP_ERROR);
             }
             // 3.3设置群组id
             activity.setGroupId(Integer.valueOf(groupID));
@@ -178,7 +194,7 @@ public class ActivityController {
             // 3.5创建用户_活动映射关系模型
             User_Activity user_activity = new User_Activity();
             user_activity.setAccount(activity.getAccount());
-            user_activity.setActivityId(activity.getId());
+            user_activity.setActivityID(activity.getId());
             user_activity.setGmtCreate(LocalDateTime.now());
 
             // 3.6调用activityService创建活动和群主+事务管理
@@ -187,6 +203,7 @@ public class ActivityController {
             } catch (Exception e) {
                 // 数据库异常解散群组，防止脏数据
                 rongCloudService.dismissGroup(account, groupID);
+                qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
                 throw new ResponseException(ResponseStatusEnum.DB_TR_ERROR);
             }
 
@@ -198,10 +215,138 @@ public class ActivityController {
         try {
             activityService.getBaseMapper().insert(activity);
         } catch (Exception e) {
+            qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
             throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
         }
 
         // 5.返回结果
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/dismissActivity", method = RequestMethod.GET)
+    @ApiOperation(value = "结束活动", notes = "参数描述", hidden = false)
+    public ResponseDto dismissActivity(HttpServletRequest request, Model model,
+                                                    @NotBlank
+                                                    @ApiParam(name = "activityID", value = "活动ID", required = true)
+                                                    @RequestParam(value = "activityID", required = true) String activityID
+    ) throws ResponseException {
+        Activity activity = new Activity();
+        try {
+            // 0.获取活动信息
+            activity = activityService.getBaseMapper().selectById(activityID);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 1.判断权限是否是群主操作
+        String account = request.getHeader("Account");
+        if (!activity.getAccount().equals(account)) {
+            throw new ResponseException(ResponseStatusEnum.RONGCLOUD_DISMISS_GROUP_OWNER_ERROR);
+        }
+
+        try {
+            // 2.删除活动成员关系表/群组表/活动表
+            activityService.dismissGroupActivity(activity);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_TR_ERROR);
+        }
+
+        // 3.判断解散融云群组
+        Integer groupId = activity.getGroupId();
+        if (groupId != null) {
+            try {
+                rongCloudService.dismissGroup(account, String.valueOf(groupId));
+            } catch (ResponseException e) {
+                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_DISMISS_GROUP_ERROR);
+            }
+        }
+
+        // 4.返回成功结果
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/joinActivity", method = RequestMethod.GET)
+    @ApiOperation(value = "加入活动", notes = "参数描述", hidden = false)
+    public ResponseDto joinActivity(HttpServletRequest request, Model model,
+                                                    @NotBlank
+                                                    @ApiParam(name = "activityID", value = "活动ID", required = true)
+                                                    @RequestParam(value = "activityID", required = true) String activityID
+    ) throws ResponseException {
+        Activity activity = new Activity();
+        try {
+            // 0.获取活动信息
+            activity = activityService.getBaseMapper().selectById(activityID);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 1.判断活动是否有群组 加入融云群组操作
+        Integer groupId = activity.getGroupId();
+        String account = request.getHeader("Account");
+        if (groupId != null) {
+            try {
+                rongCloudService.joinGroup(account, String.valueOf(groupId), activity.getName());
+            } catch (ResponseException e) {
+                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_JOIN_GROUP_ERROR);
+            }
+        }
+
+        try {
+            // 2.插入活动成员关系表
+            User_Activity user_activity = new User_Activity();
+            user_activity.setAccount(account);
+            user_activity.setActivityID(activity.getId());
+            user_activity.setGmtCreate(LocalDateTime.now());
+            user_activityService.getBaseMapper().insert(user_activity);
+        } catch (Exception e) {
+            // 数据库写入出错时退出群组，防止脏数据（加入事务管理会覆盖错误提示，不方便定位错误）
+            rongCloudService.quitGroup(account, String.valueOf(groupId), activity.getName());
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
+
+        // 3.返回成功结果
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/quitActivity", method = RequestMethod.GET)
+    @ApiOperation(value = "退出活动", notes = "参数描述", hidden = false)
+    public ResponseDto quitActivity(HttpServletRequest request, Model model,
+                                    @NotBlank
+                                    @ApiParam(name = "activityID", value = "活动ID", required = true)
+                                    @RequestParam(value = "activityID", required = true) String activityID
+    ) throws ResponseException {
+        Activity activity = new Activity();
+        try {
+            // 0.获取活动信息
+            activity = activityService.getBaseMapper().selectById(activityID);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 1.判断活动是否有群组 退出融云群组操作
+        Integer groupId = activity.getGroupId();
+        String account = request.getHeader("Account");
+        if (groupId != null) {
+            try {
+                rongCloudService.quitGroup(account, String.valueOf(groupId), activity.getName());
+            } catch (ResponseException e) {
+                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_QUIT_GROUP_ERROR);
+            }
+        }
+
+        try {
+            // 2.删除活动成员关系表
+            user_activityService.deleteOneByAccountAndActivityID(account, activity.getId());
+        } catch (Exception e) {
+            // 数据库删除出错时重新加入群组，防止脏数据（加入事务管理会覆盖错误提示，不方便定位错误）
+            rongCloudService.joinGroup(account, String.valueOf(groupId), activity.getName());
+            throw new ResponseException(ResponseStatusEnum.DB_DELETE_ERROR);
+        }
+
+        // 3.返回成功结果
         return (new ResponseDto(ResponseStatusEnum.SUCCESS));
     }
 }

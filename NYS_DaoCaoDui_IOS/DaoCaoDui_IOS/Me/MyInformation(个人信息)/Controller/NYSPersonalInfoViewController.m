@@ -355,7 +355,6 @@
 
 #pragma mark —- 退出 --
 - (void)userLogout:(UIButton *)sender {
-//    [NYSTools zoomToShow:sender];
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"你确定要退出当前登录吗？" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {

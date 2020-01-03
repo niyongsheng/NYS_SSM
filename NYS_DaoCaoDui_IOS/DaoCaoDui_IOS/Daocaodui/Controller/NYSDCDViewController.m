@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     // 1.分页栏配置
-    NSArray *titleArr = @[@"稻草堆", @"读经", @"分享", @"代祷", @"音频", @"活动"];
+    NSArray *titleArr = @[@"稻草堆", @"读经", @"分享", @"代祷", @"活动", @"音频"];
     SGPageTitleViewConfigure *segmentConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     segmentConfigure.indicatorStyle = SGIndicatorStyleDynamic;
     segmentConfigure.indicatorColor = [UIColor whiteColor];
@@ -57,8 +57,9 @@
                           [NYSBibleViewController new],
                           [HomeViewController new],
                           [NYSPrayCardListViewController new],
-                          [NYSMusicMenuSegmentViewController new],
-                          [NYSActivityListViewController new]];
+                          [NYSActivityListViewController new],
+                          [NYSMusicMenuSegmentViewController new]
+                          ];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;
     [self.view addSubview:_pageContentCollectionView];
@@ -72,4 +73,5 @@
 - (void)pageContentCollectionView:(SGPageContentCollectionView *)pageContentCollectionView progress:(CGFloat)progress originalIndex:(NSInteger)originalIndex targetIndex:(NSInteger)targetIndex {
     [self.pageTitleView setPageTitleViewWithProgress:progress originalIndex:originalIndex targetIndex:targetIndex];
 }
+
 @end

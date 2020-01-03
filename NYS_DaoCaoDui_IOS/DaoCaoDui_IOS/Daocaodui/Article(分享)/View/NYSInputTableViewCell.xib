@@ -18,16 +18,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题内容" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ki8-UO-CHg">
-                        <rect key="frame" x="102" y="13" width="203" height="18.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="112" y="13" width="193" height="18.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBa-gZ-dcL">
-                        <rect key="frame" x="15" y="12.5" width="85" height="19.5"/>
+                        <rect key="frame" x="15" y="12" width="95" height="20.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="85" id="xrc-75-ZsH"/>
+                            <constraint firstAttribute="width" constant="95" id="xrc-75-ZsH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -54,7 +54,7 @@
                 <outlet property="requiredLabel" destination="Sff-m9-MVS" id="Ge8-Vd-bZ6"/>
                 <outlet property="title" destination="tBa-gZ-dcL" id="kFE-xm-uja"/>
             </connections>
-            <point key="canvasLocation" x="128" y="132"/>
+            <point key="canvasLocation" x="127.53623188405798" y="131.91964285714286"/>
         </tableViewCell>
     </objects>
 </document>

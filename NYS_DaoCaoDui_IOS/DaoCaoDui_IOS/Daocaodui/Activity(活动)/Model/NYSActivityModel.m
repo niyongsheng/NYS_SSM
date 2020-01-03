@@ -9,5 +9,9 @@
 #import "NYSActivityModel.h"
 
 @implementation NYSActivityModel
-
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+             @"userList" : @"UserInfo"
+             };
+}
 @end

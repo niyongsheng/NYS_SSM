@@ -35,8 +35,10 @@
         [self addSubview:self.EULA];
         
         self.sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.sendBtn.backgroundColor = NNavBgColorShallow;
+        [self.sendBtn setBackgroundImage:[UIImage imageWithColor:NNavBgColorShallow] forState:UIControlStateNormal];
+        [self.sendBtn setBackgroundImage:[UIImage imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateSelected];
         self.sendBtn.layer.cornerRadius = 20.f;
+        self.sendBtn.clipsToBounds = YES;
         self.sendBtn.frame = CGRectMake(80, 50, NScreenWidth - 160, 40);
         [self setupWithBtn:self.sendBtn withTitle:title withTitleColor:[UIColor whiteColor] withFontSize:17];
         [self addSubview:self.sendBtn];
@@ -58,7 +60,7 @@
     sender.selected = !sender.selected;
 
     self.sendBtn.selected = !self.sendBtn.selected;
-    self.sendBtn.backgroundColor = self.isAgree.selected ? [UIColor lightGrayColor] : NNavBgColorShallow;
+    self.sendBtn.userInteractionEnabled = !self.sendBtn.userInteractionEnabled;
 }
 
 - (void)publishButtonForSendData:(id)target action:(SEL)action {

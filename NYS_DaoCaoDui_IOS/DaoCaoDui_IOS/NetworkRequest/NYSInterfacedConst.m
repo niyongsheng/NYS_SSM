@@ -29,14 +29,12 @@ NSString *const CR_SendOneTimeCode = @"/user/getOnceCode";
 NSString *const CR_Regist = @"/user/phoneRegister";
 /** 忘记密码*/
 NSString *const CR_Reset = @"/user/resetUserPassword";
-/** 获取个人信息*/
-NSString *const CR_GetUserInfo = @"";
 /** 修改个人信息*/
 NSString *const CR_UpdateUserInfo = @"/user/updateInfoForUser";
 /** 签到*/
 NSString *const CR_DoSign = @"";
 /** 积分记录*/
-NSString *const CR_SignRecord = @"";
+NSString *const CR_ScoreRecord = @"";
 /** 个人信息提供者*/
 NSString *const CR_ProviderUserInfo = @"/user/providerInfoForUser";
 /** 群信息提供者*/
@@ -67,18 +65,20 @@ NSString *const CR_PublishPray = @"/pray/publishPray";
 NSString *const CR_PublishMusic = @"/music/publishMusic";
 /** 发布活动*/
 NSString *const CR_PublishActivity = @"/activity/publishActivity";
-
-
-/** 创建群组*/
-NSString *const CR_CreateGroup = @"/im/createTeam";
-/** 修改群组资料*/
-NSString *const CR_UpdateGroupInfo = @"/im/updateTeam";
-/** 解散群组*/
-NSString *const CR_RemoveGroup = @"/im/removeTeam";
+/** 结束活动*/
+NSString *const CR_DismissActivity = @"/activity/dismissActivity";
+/** 加入活动*/
+NSString *const CR_JoinActivity = @"/activity/joinActivity";
+/** 退出活动*/
+NSString *const CR_QuitActivity = @"/activity/quitActivity";
 /** 群列表*/
 NSString *const CR_GroupList = @"/group/findAllGroups";
 /** 用户列表*/
 NSString *const CR_UserList = @"/user/findAllUsers";
+
+
+
+
 /** QQ登录*/
 NSString *const CR_QQLogoin = @"/account/qqLogin";
 /** 微信登录*/

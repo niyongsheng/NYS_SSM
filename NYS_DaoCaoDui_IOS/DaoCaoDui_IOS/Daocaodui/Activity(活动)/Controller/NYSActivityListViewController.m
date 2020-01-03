@@ -9,10 +9,9 @@
 #import "NYSActivityListViewController.h"
 #import <MJRefresh.h>
 #import "NYSActivityModel.h"
-#import "QMHACCollectionViewCell.h"
-#import "QMHGroupCardViewController.h"
-//#import "QMHMyGroupViewController.h"
+#import "NYSActivityCollectionViewCell.h"
 #import <RongIMKit/RongIMKit.h>
+#import "NYSActivityInfoViewController.h"
 
 static float Magin = 10;
 static NSInteger pageSize = 7;
@@ -54,7 +53,7 @@ static NSInteger pageSize = 7;
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
 
     [self.collectionView setCollectionViewLayout:flowLayout];
-    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([QMHACCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"QMHACCollectionViewCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([NYSActivityCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"NYSActivityCollectionViewCell"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.height = NScreenHeight - NTopHeight;
@@ -120,11 +119,11 @@ static NSInteger pageSize = 7;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _collectionDataArray.count;
+    return self.collectionDataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    QMHACCollectionViewCell *cell = (QMHACCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"QMHACCollectionViewCell" forIndexPath:indexPath];
+    NYSActivityCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NYSActivityCollectionViewCell" forIndexPath:indexPath];
     cell.collectionModel = self.collectionDataArray[indexPath.row];
     cell.fromViewController = self;
     
@@ -132,7 +131,10 @@ static NSInteger pageSize = 7;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    NYSActivityInfoViewController *actInfoVC = NYSActivityInfoViewController.new;
+    actInfoVC.activityModel = self.collectionDataArray[indexPath.row];
+    [self.navigationController pushViewController:actInfoVC animated:YES];
+    
 }
 
 

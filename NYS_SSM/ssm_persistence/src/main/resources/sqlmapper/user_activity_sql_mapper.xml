@@ -2,13 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.User_ActivityDao">
 
-    <select id="selectIsInGroupByAccountAndActivityID" resultType="java.lang.Boolean">
+    <delete id="deleteRecordsByActivityID">
+        delete
+        from dcd_user_activity
+        where activityID = #{activityID}
+    </delete>
+
+    <delete id="deleteOneByAccountAndActivityID">
+        delete
+        from dcd_user_activity
+        where account = #{account} and activityID = #{activityID}
+    </delete>
+
+    <select id="selectIsInActivityByAccountAndActivityID" resultType="java.lang.Boolean">
         select count(id)
         from dcd_user_activity
         where account = #{account} and activityID = #{activityID}
     </select>
 
-    <select id="selectGroupMembersNumByActivityID" resultType="java.lang.Integer">
+    <select id="selectActivityMembersNumByActivityID" resultType="java.lang.Integer">
         select count(id)
         from dcd_user_activity
         where activityID = #{activityID}

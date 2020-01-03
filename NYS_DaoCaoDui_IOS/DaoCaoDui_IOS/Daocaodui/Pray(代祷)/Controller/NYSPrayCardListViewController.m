@@ -21,9 +21,10 @@ CCDraggableContainerDelegate
 
 @property (nonatomic, strong) NSMutableArray *dataSources;
 
-@property (weak, nonatomic) IBOutlet UIButton *disLikeButton;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
-@property (weak, nonatomic) IBOutlet UIButton *detailBtn;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *ccollectionButton;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
+@property (weak, nonatomic) IBOutlet UILabel *bibleLabel;
 
 @end
 
@@ -89,10 +90,10 @@ CCDraggableContainerDelegate
     
     CGFloat scale = 1 + ((kBoundaryRatio > fabs(widthRatio) ? fabs(widthRatio) : kBoundaryRatio)) / 4;
     if (draggableDirection == CCDraggableDirectionLeft) {
-        self.disLikeButton.transform = CGAffineTransformMakeScale(scale, scale);
+        self.nextButton.transform = CGAffineTransformMakeScale(scale, scale);
     }
     if (draggableDirection == CCDraggableDirectionRight) {
-        self.likeButton.transform = CGAffineTransformMakeScale(scale, scale);
+        self.ccollectionButton.transform = CGAffineTransformMakeScale(scale, scale);
     }
 }
 

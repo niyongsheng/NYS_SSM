@@ -82,6 +82,9 @@
 		C83B8E3D23ACC9380051A22C /* NYSMyContributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3C23ACC9380051A22C /* NYSMyContributeViewController.m */; };
 		C83B8E4023ACCC020051A22C /* NYSAboutHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3F23ACCC020051A22C /* NYSAboutHeaderView.m */; };
 		C83B8E4223ACCC240051A22C /* NYSAboutHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83B8E4123ACCC240051A22C /* NYSAboutHeaderView.xib */; };
+		C83CDF3D23BDD900007E3B17 /* NYSMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CDF3C23BDD900007E3B17 /* NYSMembersViewController.m */; };
+		C83CDF4423BDD965007E3B17 /* NYSMemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CDF4223BDD965007E3B17 /* NYSMemberCollectionViewCell.m */; };
+		C83CDF4723BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83CDF4623BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib */; };
 		C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB3229E748A003A7C58 /* NYSJSHandler.m */; };
 		C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB6229E7593003A7C58 /* NYSWebViewController.m */; };
 		C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB9229E769E003A7C58 /* NYSRootWebViewController.m */; };
@@ -146,33 +149,12 @@
 		C860A73A23979A9400902AB6 /* NYSBindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C860A73823979A9400902AB6 /* NYSBindPhoneViewController.m */; };
 		C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */; };
 		C878E20223AB32C2001A6FA3 /* NYSBibleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C878E20123AB32C2001A6FA3 /* NYSBibleViewController.m */; };
-		C87947E223A25DAC003EC2D7 /* QMHCAListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947C523A25DAC003EC2D7 /* QMHCAListViewController.m */; };
-		C87947E523A25DAC003EC2D7 /* QMHCreateActViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947CA23A25DAC003EC2D7 /* QMHCreateActViewController.m */; };
-		C87947E623A25DAC003EC2D7 /* QMHCreateActViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947CB23A25DAC003EC2D7 /* QMHCreateActViewController.xib */; };
-		C87947E723A25DAC003EC2D7 /* QMHGroupCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947CD23A25DAC003EC2D7 /* QMHGroupCardViewController.m */; };
-		C87947E823A25DAC003EC2D7 /* QMHGroupCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947CE23A25DAC003EC2D7 /* QMHGroupCardViewController.xib */; };
-		C87947E923A25DAC003EC2D7 /* QMHMemberListCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */; };
-		C87947EA23A25DAC003EC2D7 /* QMHCommunityActivityDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D323A25DAC003EC2D7 /* QMHCommunityActivityDetail.m */; };
-		C87947EB23A25DAC003EC2D7 /* QMHCommunityActivityList.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D523A25DAC003EC2D7 /* QMHCommunityActivityList.m */; };
-		C87947EC23A25DAC003EC2D7 /* QMHMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947D723A25DAC003EC2D7 /* QMHMemberModel.m */; };
-		C87947ED23A25DAC003EC2D7 /* QMHACCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947DA23A25DAC003EC2D7 /* QMHACCollectionViewCell.m */; };
-		C87947EE23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947DB23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib */; };
-		C87947EF23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947DD23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m */; };
-		C87947F023A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947DE23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib */; };
-		C87947F123A25DAC003EC2D7 /* QMHMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947E023A25DAC003EC2D7 /* QMHMemberView.m */; };
-		C87947F223A25DAC003EC2D7 /* QMHMemberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947E123A25DAC003EC2D7 /* QMHMemberView.xib */; };
-		C87947F623A2604A003EC2D7 /* QMHGroupMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947F323A26049003EC2D7 /* QMHGroupMemberCell.xib */; };
-		C87947F723A2604A003EC2D7 /* QMHGroupMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947F523A2604A003EC2D7 /* QMHGroupMemberCell.m */; };
+		C87947ED23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947DA23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m */; };
+		C87947EE23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947DB23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib */; };
 		C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947F923A26388003EC2D7 /* NSArray+NYS.m */; };
-		C879480123A26423003EC2D7 /* QMHLeftTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947FD23A26420003EC2D7 /* QMHLeftTextCell.m */; };
-		C879480223A26423003EC2D7 /* NYSDisplayIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947FE23A26421003EC2D7 /* NYSDisplayIconCell.m */; };
-		C879480323A26423003EC2D7 /* QMHLeftTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947FF23A26422003EC2D7 /* QMHLeftTextCell.xib */; };
-		C879480423A26423003EC2D7 /* NYSDisplayIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C879480023A26422003EC2D7 /* NYSDisplayIconCell.xib */; };
-		C879480823A264B1003EC2D7 /* QMHCommitSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = C879480523A264AF003EC2D7 /* QMHCommitSuccessView.m */; };
-		C879480923A264B1003EC2D7 /* QMHCommitSuccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C879480623A264B0003EC2D7 /* QMHCommitSuccessView.xib */; };
-		C879480C23A26503003EC2D7 /* XLRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C879480B23A26502003EC2D7 /* XLRatingView.m */; };
 		C883875523A0C3C300EFD29D /* NYSBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */; };
 		C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */; };
+		C8914B4A23BD8DEF009842EF /* NYSActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8914B4923BD8DEF009842EF /* NYSActivityInfoViewController.m */; };
 		C899EFA223A32D1400E78403 /* NYSMyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C899EFA123A32D1400E78403 /* NYSMyCollectViewController.m */; };
 		C899EFA523A341C100E78403 /* NYSActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C899EFA423A341C100E78403 /* NYSActivityListViewController.m */; };
 		C899EFA823A3446F00E78403 /* NYSActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C899EFA723A3446F00E78403 /* NYSActivityModel.m */; };
@@ -395,6 +377,11 @@
 		C83B8E3E23ACCC020051A22C /* NYSAboutHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAboutHeaderView.h; sourceTree = "<group>"; };
 		C83B8E3F23ACCC020051A22C /* NYSAboutHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAboutHeaderView.m; sourceTree = "<group>"; };
 		C83B8E4123ACCC240051A22C /* NYSAboutHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSAboutHeaderView.xib; sourceTree = "<group>"; };
+		C83CDF3B23BDD900007E3B17 /* NYSMembersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMembersViewController.h; sourceTree = "<group>"; };
+		C83CDF3C23BDD900007E3B17 /* NYSMembersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMembersViewController.m; sourceTree = "<group>"; };
+		C83CDF4123BDD965007E3B17 /* NYSMemberCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMemberCollectionViewCell.h; sourceTree = "<group>"; };
+		C83CDF4223BDD965007E3B17 /* NYSMemberCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMemberCollectionViewCell.m; sourceTree = "<group>"; };
+		C83CDF4623BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSMemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		C8424EB2229E748A003A7C58 /* NYSJSHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSJSHandler.h; sourceTree = "<group>"; };
 		C8424EB3229E748A003A7C58 /* NYSJSHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSJSHandler.m; sourceTree = "<group>"; };
 		C8424EB5229E7593003A7C58 /* NYSWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSWebViewController.h; sourceTree = "<group>"; };
@@ -493,52 +480,18 @@
 		C860A73923979A9400902AB6 /* NYSBindPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSBindPhoneViewController.xib; sourceTree = "<group>"; };
 		C878E20023AB32C2001A6FA3 /* NYSBibleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBibleViewController.h; sourceTree = "<group>"; };
 		C878E20123AB32C2001A6FA3 /* NYSBibleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBibleViewController.m; sourceTree = "<group>"; };
-		C87947C423A25DAC003EC2D7 /* QMHCAListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCAListViewController.h; sourceTree = "<group>"; };
-		C87947C523A25DAC003EC2D7 /* QMHCAListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCAListViewController.m; sourceTree = "<group>"; };
-		C87947C923A25DAC003EC2D7 /* QMHCreateActViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCreateActViewController.h; sourceTree = "<group>"; };
-		C87947CA23A25DAC003EC2D7 /* QMHCreateActViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCreateActViewController.m; sourceTree = "<group>"; };
-		C87947CB23A25DAC003EC2D7 /* QMHCreateActViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHCreateActViewController.xib; sourceTree = "<group>"; };
-		C87947CC23A25DAC003EC2D7 /* QMHGroupCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHGroupCardViewController.h; sourceTree = "<group>"; };
-		C87947CD23A25DAC003EC2D7 /* QMHGroupCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHGroupCardViewController.m; sourceTree = "<group>"; };
-		C87947CE23A25DAC003EC2D7 /* QMHGroupCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHGroupCardViewController.xib; sourceTree = "<group>"; };
-		C87947CF23A25DAC003EC2D7 /* QMHMemberListCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberListCollectionVC.h; sourceTree = "<group>"; };
-		C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberListCollectionVC.m; sourceTree = "<group>"; };
-		C87947D223A25DAC003EC2D7 /* QMHCommunityActivityDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommunityActivityDetail.h; sourceTree = "<group>"; };
-		C87947D323A25DAC003EC2D7 /* QMHCommunityActivityDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommunityActivityDetail.m; sourceTree = "<group>"; };
-		C87947D423A25DAC003EC2D7 /* QMHCommunityActivityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommunityActivityList.h; sourceTree = "<group>"; };
-		C87947D523A25DAC003EC2D7 /* QMHCommunityActivityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommunityActivityList.m; sourceTree = "<group>"; };
-		C87947D623A25DAC003EC2D7 /* QMHMemberModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberModel.h; sourceTree = "<group>"; };
-		C87947D723A25DAC003EC2D7 /* QMHMemberModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberModel.m; sourceTree = "<group>"; };
-		C87947D923A25DAC003EC2D7 /* QMHACCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHACCollectionViewCell.h; sourceTree = "<group>"; };
-		C87947DA23A25DAC003EC2D7 /* QMHACCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHACCollectionViewCell.m; sourceTree = "<group>"; };
-		C87947DB23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHACCollectionViewCell.xib; sourceTree = "<group>"; };
-		C87947DC23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberCollectionViewCell.h; sourceTree = "<group>"; };
-		C87947DD23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberCollectionViewCell.m; sourceTree = "<group>"; };
-		C87947DE23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHMemberCollectionViewCell.xib; sourceTree = "<group>"; };
-		C87947DF23A25DAC003EC2D7 /* QMHMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHMemberView.h; sourceTree = "<group>"; };
-		C87947E023A25DAC003EC2D7 /* QMHMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHMemberView.m; sourceTree = "<group>"; };
-		C87947E123A25DAC003EC2D7 /* QMHMemberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHMemberView.xib; sourceTree = "<group>"; };
-		C87947F323A26049003EC2D7 /* QMHGroupMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHGroupMemberCell.xib; sourceTree = "<group>"; };
-		C87947F423A2604A003EC2D7 /* QMHGroupMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHGroupMemberCell.h; sourceTree = "<group>"; };
-		C87947F523A2604A003EC2D7 /* QMHGroupMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHGroupMemberCell.m; sourceTree = "<group>"; };
+		C87947D923A25DAC003EC2D7 /* NYSActivityCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSActivityCollectionViewCell.h; sourceTree = "<group>"; };
+		C87947DA23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSActivityCollectionViewCell.m; sourceTree = "<group>"; };
+		C87947DB23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSActivityCollectionViewCell.xib; sourceTree = "<group>"; };
 		C87947F823A26387003EC2D7 /* NSArray+NYS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NYS.h"; sourceTree = "<group>"; };
 		C87947F923A26388003EC2D7 /* NSArray+NYS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NYS.m"; sourceTree = "<group>"; };
-		C87947FB23A2641E003EC2D7 /* NYSDisplayIconCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSDisplayIconCell.h; sourceTree = "<group>"; };
-		C87947FC23A2641F003EC2D7 /* QMHLeftTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHLeftTextCell.h; sourceTree = "<group>"; };
-		C87947FD23A26420003EC2D7 /* QMHLeftTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHLeftTextCell.m; sourceTree = "<group>"; };
-		C87947FE23A26421003EC2D7 /* NYSDisplayIconCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSDisplayIconCell.m; sourceTree = "<group>"; };
-		C87947FF23A26422003EC2D7 /* QMHLeftTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHLeftTextCell.xib; sourceTree = "<group>"; };
-		C879480023A26422003EC2D7 /* NYSDisplayIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSDisplayIconCell.xib; sourceTree = "<group>"; };
-		C879480523A264AF003EC2D7 /* QMHCommitSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMHCommitSuccessView.m; sourceTree = "<group>"; };
-		C879480623A264B0003EC2D7 /* QMHCommitSuccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QMHCommitSuccessView.xib; sourceTree = "<group>"; };
-		C879480723A264B1003EC2D7 /* QMHCommitSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMHCommitSuccessView.h; sourceTree = "<group>"; };
-		C879480A23A26502003EC2D7 /* XLRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLRatingView.h; sourceTree = "<group>"; };
-		C879480B23A26502003EC2D7 /* XLRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLRatingView.m; sourceTree = "<group>"; };
 		C883875323A0C3C300EFD29D /* NYSBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBannerCollectionViewCell.h; sourceTree = "<group>"; };
 		C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBannerCollectionViewCell.m; sourceTree = "<group>"; };
 		C88452E394EE7ABEE72B3700 /* Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C884F408235DA8A6000DFB54 /* NYSContactsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSContactsViewController.h; sourceTree = "<group>"; };
 		C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSContactsViewController.m; sourceTree = "<group>"; };
+		C8914B4823BD8DEF009842EF /* NYSActivityInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSActivityInfoViewController.h; sourceTree = "<group>"; };
+		C8914B4923BD8DEF009842EF /* NYSActivityInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSActivityInfoViewController.m; sourceTree = "<group>"; };
 		C899EFA023A32D1400E78403 /* NYSMyCollectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMyCollectViewController.h; sourceTree = "<group>"; };
 		C899EFA123A32D1400E78403 /* NYSMyCollectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMyCollectViewController.m; sourceTree = "<group>"; };
 		C899EFA323A341C100E78403 /* NYSActivityListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSActivityListViewController.h; sourceTree = "<group>"; };
@@ -1522,18 +1475,12 @@
 		C87947C323A25DAC003EC2D7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C87947C423A25DAC003EC2D7 /* QMHCAListViewController.h */,
-				C87947C523A25DAC003EC2D7 /* QMHCAListViewController.m */,
-				C87947C923A25DAC003EC2D7 /* QMHCreateActViewController.h */,
-				C87947CA23A25DAC003EC2D7 /* QMHCreateActViewController.m */,
-				C87947CB23A25DAC003EC2D7 /* QMHCreateActViewController.xib */,
-				C87947CC23A25DAC003EC2D7 /* QMHGroupCardViewController.h */,
-				C87947CD23A25DAC003EC2D7 /* QMHGroupCardViewController.m */,
-				C87947CE23A25DAC003EC2D7 /* QMHGroupCardViewController.xib */,
-				C87947CF23A25DAC003EC2D7 /* QMHMemberListCollectionVC.h */,
-				C87947D023A25DAC003EC2D7 /* QMHMemberListCollectionVC.m */,
 				C899EFA323A341C100E78403 /* NYSActivityListViewController.h */,
 				C899EFA423A341C100E78403 /* NYSActivityListViewController.m */,
+				C8914B4823BD8DEF009842EF /* NYSActivityInfoViewController.h */,
+				C8914B4923BD8DEF009842EF /* NYSActivityInfoViewController.m */,
+				C83CDF3B23BDD900007E3B17 /* NYSMembersViewController.h */,
+				C83CDF3C23BDD900007E3B17 /* NYSMembersViewController.m */,
 				C8D78C9123B32B3500C0DC97 /* NYSPublishActivityViewController.h */,
 				C8D78C9223B32B3500C0DC97 /* NYSPublishActivityViewController.m */,
 			);
@@ -1543,12 +1490,6 @@
 		C87947D123A25DAC003EC2D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C87947D223A25DAC003EC2D7 /* QMHCommunityActivityDetail.h */,
-				C87947D323A25DAC003EC2D7 /* QMHCommunityActivityDetail.m */,
-				C87947D423A25DAC003EC2D7 /* QMHCommunityActivityList.h */,
-				C87947D523A25DAC003EC2D7 /* QMHCommunityActivityList.m */,
-				C87947D623A25DAC003EC2D7 /* QMHMemberModel.h */,
-				C87947D723A25DAC003EC2D7 /* QMHMemberModel.m */,
 				C899EFA623A3446F00E78403 /* NYSActivityModel.h */,
 				C899EFA723A3446F00E78403 /* NYSActivityModel.m */,
 			);
@@ -1558,29 +1499,12 @@
 		C87947D823A25DAC003EC2D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C879480723A264B1003EC2D7 /* QMHCommitSuccessView.h */,
-				C879480523A264AF003EC2D7 /* QMHCommitSuccessView.m */,
-				C879480623A264B0003EC2D7 /* QMHCommitSuccessView.xib */,
-				C879480A23A26502003EC2D7 /* XLRatingView.h */,
-				C879480B23A26502003EC2D7 /* XLRatingView.m */,
-				C87947FB23A2641E003EC2D7 /* NYSDisplayIconCell.h */,
-				C87947FE23A26421003EC2D7 /* NYSDisplayIconCell.m */,
-				C879480023A26422003EC2D7 /* NYSDisplayIconCell.xib */,
-				C87947FC23A2641F003EC2D7 /* QMHLeftTextCell.h */,
-				C87947FD23A26420003EC2D7 /* QMHLeftTextCell.m */,
-				C87947FF23A26422003EC2D7 /* QMHLeftTextCell.xib */,
-				C87947F423A2604A003EC2D7 /* QMHGroupMemberCell.h */,
-				C87947F523A2604A003EC2D7 /* QMHGroupMemberCell.m */,
-				C87947F323A26049003EC2D7 /* QMHGroupMemberCell.xib */,
-				C87947D923A25DAC003EC2D7 /* QMHACCollectionViewCell.h */,
-				C87947DA23A25DAC003EC2D7 /* QMHACCollectionViewCell.m */,
-				C87947DB23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib */,
-				C87947DC23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.h */,
-				C87947DD23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m */,
-				C87947DE23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib */,
-				C87947DF23A25DAC003EC2D7 /* QMHMemberView.h */,
-				C87947E023A25DAC003EC2D7 /* QMHMemberView.m */,
-				C87947E123A25DAC003EC2D7 /* QMHMemberView.xib */,
+				C87947D923A25DAC003EC2D7 /* NYSActivityCollectionViewCell.h */,
+				C87947DA23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m */,
+				C87947DB23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib */,
+				C83CDF4123BDD965007E3B17 /* NYSMemberCollectionViewCell.h */,
+				C83CDF4223BDD965007E3B17 /* NYSMemberCollectionViewCell.m */,
+				C83CDF4623BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2046,7 +1970,7 @@
 				C85C44D0229BAB2900B35652 /* down_arrow@3x.png in Resources */,
 				C81074D823AA4A9300CC7868 /* DFPlayer.bundle in Resources */,
 				C8D9816C23B9DC1F0025638A /* UserPrivacyAgreement.pdf in Resources */,
-				C87947EE23A25DAC003EC2D7 /* QMHACCollectionViewCell.xib in Resources */,
+				C87947EE23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib in Resources */,
 				C89CA2BE22BCA2DE0086F9B0 /* stepPk_win_colour8@2x.png in Resources */,
 				C8424EC7229E78E6003A7C58 /* close_icon@2x.png in Resources */,
 				C8265C9C22A27E6B0072A3F1 /* NYSForgetPasswordViewController.xib in Resources */,
@@ -2062,14 +1986,12 @@
 				C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */,
 				C8424EBC229E770A003A7C58 /* JSToOC.html in Resources */,
 				C8424EC0229E7896003A7C58 /* close_icon_gray@2x.png in Resources */,
-				C879480923A264B1003EC2D7 /* QMHCommitSuccessView.xib in Resources */,
 				C807696423A1FDD5004B6E1C /* NYSScrollNumberView.xib in Resources */,
 				C8E3B31423ADD3F600A0BCB4 /* en_kjv.xml in Resources */,
 				C8E22C8023B497410025C094 /* sign_exchange@3x.png in Resources */,
 				C8265C9E22A27E6B0072A3F1 /* NYSLoginViewController.xib in Resources */,
 				C83B8E2B23ACC5000051A22C /* me1.plist in Resources */,
 				C89CA2BC22BCA2DE0086F9B0 /* stepPk_win_colour4@2x.png in Resources */,
-				C87947E623A25DAC003EC2D7 /* QMHCreateActViewController.xib in Resources */,
 				C857A393229CD026002B5396 /* MBHUD_Info@2x.png in Resources */,
 				C857A396229CD026002B5396 /* MBHUD_Success@3x.png in Resources */,
 				C8265C7E22A2710E0072A3F1 /* man@2x.png in Resources */,
@@ -2078,6 +2000,7 @@
 				C8188D2523AE173800E13F3A /* secret.png in Resources */,
 				C8265C7A22A25E830072A3F1 /* me.plist in Resources */,
 				C85C44D1229BAB2900B35652 /* arrow_icon.png in Resources */,
+				C83CDF4723BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib in Resources */,
 				C8E22C7C23B4972D0025C094 /* sign_bg@3x.png in Resources */,
 				C89CA2BD22BCA2DE0086F9B0 /* stepPk_win_colour2@2x.png in Resources */,
 				C857A398229CD026002B5396 /* MBHUD_Warn@3x.png in Resources */,
@@ -2103,13 +2026,9 @@
 				C8E22C9223B498950025C094 /* nys_alert_bg@3x.png in Resources */,
 				C8E22C8823B4975B0025C094 /* sign_success@3x.png in Resources */,
 				C8E22C8123B497410025C094 /* sign_exchange@2x.png in Resources */,
-				C87947F623A2604A003EC2D7 /* QMHGroupMemberCell.xib in Resources */,
 				C85C44D4229BAB2900B35652 /* arrow_icon@2x.png in Resources */,
-				C879480423A26423003EC2D7 /* NYSDisplayIconCell.xib in Resources */,
-				C87947F023A25DAC003EC2D7 /* QMHMemberCollectionViewCell.xib in Resources */,
 				C85C44B8229BA88100B35652 /* loading_image@2x.png in Resources */,
 				C857A392229CD026002B5396 /* MBHUD_Error@3x.png in Resources */,
-				C87947E823A25DAC003EC2D7 /* QMHGroupCardViewController.xib in Resources */,
 				C85C44CF229BAB2900B35652 /* down_arrow@2x.png in Resources */,
 				C85C44C9229BAB2900B35652 /* left_arrow.png in Resources */,
 				C8E22C9523B498950025C094 /* nys_alert_success@2x.png in Resources */,
@@ -2117,13 +2036,11 @@
 				C8424EC6229E78E6003A7C58 /* close_icon.png in Resources */,
 				C802A62122A6319C002E2A58 /* FAQ.plist in Resources */,
 				C8E22C9123B498950025C094 /* nys_alert_bg@2x.png in Resources */,
-				C87947F223A25DAC003EC2D7 /* QMHMemberView.xib in Resources */,
 				C8E22C8923B4975B0025C094 /* sign_success@2x.png in Resources */,
 				C85C44A7229BA73700B35652 /* back_icon@3x.png in Resources */,
 				C8A8052423B1AE0400DA52DC /* NYSUploadImageHeaderView.xib in Resources */,
 				C8E22C9323B498950025C094 /* nys_alert_fail@3x.png in Resources */,
 				C85C44CA229BAB2900B35652 /* down_arrow.png in Resources */,
-				C879480323A26423003EC2D7 /* QMHLeftTextCell.xib in Resources */,
 				C85C44CB229BAB2900B35652 /* left_arrow@2x.png in Resources */,
 				C8A8052923B1B92C00DA52DC /* NYSInputTableViewCell.xib in Resources */,
 			);
@@ -2188,13 +2105,11 @@
 				C8D8AF3D23A1E1DC00737BBE /* NYSTodayItemView.m in Sources */,
 				C83B8E2923AC9AFF0051A22C /* SGSheetMenu.m in Sources */,
 				C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */,
-				C87947E923A25DAC003EC2D7 /* QMHMemberListCollectionVC.m in Sources */,
 				C860A7352397891100902AB6 /* KHAlertPickerController.m in Sources */,
 				C807696223A1FDC0004B6E1C /* NYSScrollNumberView.m in Sources */,
 				C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */,
 				C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */,
 				C81074DE23AA4A9300CC7868 /* DFPlayerLyricsTableview.m in Sources */,
-				C879480C23A26503003EC2D7 /* XLRatingView.m in Sources */,
 				C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */,
 				C83B8E2723AC9AFF0051A22C /* SGBaseMenu.m in Sources */,
 				C8AF0D2D2398B74F009BBEBE /* UITableView+XSAnimationKit.m in Sources */,
@@ -2220,11 +2135,8 @@
 				C807696823A2160C004B6E1C /* NYSArticleModel.m in Sources */,
 				C8A93E9B2366786D0062C813 /* HomeDetailViewController.m in Sources */,
 				C83B8E4023ACCC020051A22C /* NYSAboutHeaderView.m in Sources */,
-				C87947EF23A25DAC003EC2D7 /* QMHMemberCollectionViewCell.m in Sources */,
 				C807696C23A216B0004B6E1C /* NYSBannerModel.m in Sources */,
-				C87947EC23A25DAC003EC2D7 /* QMHMemberModel.m in Sources */,
 				C8DDA12223AB5D80003AF6F4 /* NYSBibleChapterViewController.m in Sources */,
-				C87947E523A25DAC003EC2D7 /* QMHCreateActViewController.m in Sources */,
 				C8A93E9D2366786D0062C813 /* HomeViewController.m in Sources */,
 				C81074BA23AA37CA00CC7868 /* NYSMusicMenuModel.m in Sources */,
 				C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */,
@@ -2245,22 +2157,17 @@
 				C8A8052823B1B92B00DA52DC /* NYSInputTableViewCell.m in Sources */,
 				C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */,
 				C8F857D92356FB6100521460 /* NYSChatListViewController.m in Sources */,
-				C879480223A26423003EC2D7 /* NYSDisplayIconCell.m in Sources */,
 				C8265C7222A215DF0072A3F1 /* NYSNickNameLbel.m in Sources */,
 				C857A383229CCBDA002B5396 /* AppManager.m in Sources */,
 				C8D78C9023B3299C00C0DC97 /* NYSPublishMusicViewController.m in Sources */,
 				C857A387229CD016002B5396 /* MBProgressHUD+NYS.m in Sources */,
 				C85C44F0229C03F300B35652 /* AESCipher.m in Sources */,
 				C8B6B5632394AD8A0067ACD5 /* NYSPersonalInfoViewController.m in Sources */,
-				C87947E723A25DAC003EC2D7 /* QMHGroupCardViewController.m in Sources */,
 				C83B8E3D23ACC9380051A22C /* NYSMyContributeViewController.m in Sources */,
-				C87947EB23A25DAC003EC2D7 /* QMHCommunityActivityList.m in Sources */,
 				C81074B223AA226200CC7868 /* NYSMusicMenuHeaderView.m in Sources */,
-				C87947F123A25DAC003EC2D7 /* QMHMemberView.m in Sources */,
 				C8265C7522A24E7F0072A3F1 /* NYSMeTableViewCell.m in Sources */,
 				C857A3A1229CD138002B5396 /* PPNetworkCache.m in Sources */,
 				C83B8E2623AC9AFF0051A22C /* SGAlertMenu.m in Sources */,
-				C879480823A264B1003EC2D7 /* QMHCommitSuccessView.m in Sources */,
 				C83B8E3A23ACC9210051A22C /* NYSSettingViewController.m in Sources */,
 				C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */,
 				C807696F23A216D8004B6E1C /* NYSPublicnotice.m in Sources */,
@@ -2270,27 +2177,26 @@
 				C85DD73722A4F90600E33636 /* ShareManager.m in Sources */,
 				C85C449A229B5E1A00B35652 /* NYSRootViewController.m in Sources */,
 				C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */,
-				C87947F723A2604A003EC2D7 /* QMHGroupMemberCell.m in Sources */,
 				C81074D923AA4A9300CC7868 /* DFPlayer.m in Sources */,
 				C81074DB23AA4A9300CC7868 /* DFPlayerModel.m in Sources */,
 				C85C44EE229C03F300B35652 /* OpenUDID.m in Sources */,
+				C8914B4A23BD8DEF009842EF /* NYSActivityInfoViewController.m in Sources */,
 				C8265C6F22A0FEFE0072A3F1 /* UserInfo.m in Sources */,
 				C821612E235D5EEC00B17530 /* ChineseString.m in Sources */,
 				C8EABF8F22B4F12D004B0DA4 /* NYSRootPresenter.m in Sources */,
+				C83CDF3D23BDD900007E3B17 /* NYSMembersViewController.m in Sources */,
 				C8FFC6C923B9969F005EFB01 /* NYSFileType.m in Sources */,
 				C8D78C9323B32B3500C0DC97 /* NYSPublishActivityViewController.m in Sources */,
 				C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */,
 				C899EFA523A341C100E78403 /* NYSActivityListViewController.m in Sources */,
 				C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */,
-				C87947E223A25DAC003EC2D7 /* QMHCAListViewController.m in Sources */,
 				C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */,
 				C85DD73222A4F03A00E33636 /* IMManager.m in Sources */,
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
 				C83B8E2823AC9AFF0051A22C /* SGGridMenu.m in Sources */,
 				C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */,
 				C8A8052D23B1C07300DA52DC /* NYSContentTableViewCell.m in Sources */,
-				C87947EA23A25DAC003EC2D7 /* QMHCommunityActivityDetail.m in Sources */,
-				C87947ED23A25DAC003EC2D7 /* QMHACCollectionViewCell.m in Sources */,
+				C87947ED23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m in Sources */,
 				C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */,
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */,
@@ -2311,12 +2217,12 @@
 				C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */,
 				C8A93E9C2366786D0062C813 /* HomeCell.m in Sources */,
 				C89EDC2423584FB000DB07D9 /* OYRPopOption.m in Sources */,
+				C83CDF4423BDD965007E3B17 /* NYSMemberCollectionViewCell.m in Sources */,
 				C8C664C72363D174009952E5 /* NYSGroupCollectionCell.m in Sources */,
 				C85C44DD229BD82000B35652 /* NYSTransition.m in Sources */,
 				C8265C7822A252C80072A3F1 /* NYSMeModel.m in Sources */,
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,
 				C8E22C7823B494570025C094 /* NYSAlert.m in Sources */,
-				C879480123A26423003EC2D7 /* QMHLeftTextCell.m in Sources */,
 				C8DDA11F23AB592D003AF6F4 /* UIColor+NYS.m in Sources */,
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,
 				C8D78C8D23B31A6000C0DC97 /* NYSPublishPrayViewController.m in Sources */,

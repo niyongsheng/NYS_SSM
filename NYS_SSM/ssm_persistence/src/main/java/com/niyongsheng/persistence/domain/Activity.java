@@ -65,6 +65,12 @@ public class Activity implements Serializable {
   @TableField(value = "status")
   private Boolean status;
 
+  @ApiModelProperty(value = "过期时间")
+  @TableField(value = "expireTime")
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+  private LocalDateTime expireTime;
+
   @ApiModelProperty(value = "修改时间")
   @TableField(value = "gmtModify")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

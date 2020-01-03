@@ -9,10 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NYSPrayCardListViewController">
             <connections>
+                <outlet property="bibleLabel" destination="OG8-1j-pQK" id="EHx-Oo-OiT"/>
+                <outlet property="ccollectionButton" destination="Lkf-b6-BAY" id="JIv-jM-xDc"/>
                 <outlet property="container" destination="gk2-rd-zvm" id="Gen-Fp-sKw"/>
-                <outlet property="detailBtn" destination="Kie-MP-iKf" id="64h-uH-cwP"/>
-                <outlet property="disLikeButton" destination="XJf-DX-922" id="gtf-2U-daa"/>
-                <outlet property="likeButton" destination="Lkf-b6-BAY" id="JIv-jM-xDc"/>
+                <outlet property="nextButton" destination="XJf-DX-922" id="gtf-2U-daa"/>
+                <outlet property="refreshButton" destination="Kie-MP-iKf" id="64h-uH-cwP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +30,7 @@
                         <constraint firstAttribute="height" constant="28" id="oTm-1X-lvj"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                    <state key="normal" image="userInfo">
+                    <state key="normal" image="ic_refresh_gray_18x14_">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -62,6 +63,12 @@
                         <action selector="dislikeEvent:" destination="-1" eventType="touchUpInside" id="FwG-wz-cNg"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我劝你，第一要为万人恳求、祷告、代求、祝谢；提前2:1 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG8-1j-pQK">
+                    <rect key="frame" x="20" y="163.5" width="335" height="48"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gk2-rd-zvm" customClass="CCDraggableContainer">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
                     <constraints>
@@ -76,21 +83,25 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Kie-MP-iKf" firstAttribute="centerX" secondItem="gk2-rd-zvm" secondAttribute="centerX" id="0Hm-9D-xNl"/>
+                <constraint firstItem="OG8-1j-pQK" firstAttribute="centerY" secondItem="gk2-rd-zvm" secondAttribute="centerY" id="1HT-u9-UZE"/>
                 <constraint firstItem="Lkf-b6-BAY" firstAttribute="centerY" secondItem="Kie-MP-iKf" secondAttribute="centerY" id="K7E-91-LSD"/>
+                <constraint firstItem="OG8-1j-pQK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="M1E-uK-RDy"/>
                 <constraint firstItem="gk2-rd-zvm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PGw-n8-bmX"/>
+                <constraint firstItem="OG8-1j-pQK" firstAttribute="centerX" secondItem="gk2-rd-zvm" secondAttribute="centerX" id="RYR-TK-ORF"/>
                 <constraint firstItem="Kie-MP-iKf" firstAttribute="centerY" secondItem="XJf-DX-922" secondAttribute="centerY" id="Waw-wY-Fph"/>
                 <constraint firstItem="gk2-rd-zvm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YRg-Kq-9Ii"/>
                 <constraint firstItem="Lkf-b6-BAY" firstAttribute="leading" secondItem="Kie-MP-iKf" secondAttribute="trailing" constant="39" id="e54-gi-e0W"/>
                 <constraint firstItem="Kie-MP-iKf" firstAttribute="top" secondItem="gk2-rd-zvm" secondAttribute="bottom" constant="69" id="e6G-id-h9M"/>
                 <constraint firstItem="Kie-MP-iKf" firstAttribute="leading" secondItem="XJf-DX-922" secondAttribute="trailing" constant="39" id="kH6-BW-IYR"/>
+                <constraint firstAttribute="trailing" secondItem="OG8-1j-pQK" secondAttribute="trailing" constant="20" symbolic="YES" id="pIA-qb-aVA"/>
                 <constraint firstAttribute="trailing" secondItem="gk2-rd-zvm" secondAttribute="trailing" id="uwI-WW-5Ad"/>
             </constraints>
             <point key="canvasLocation" x="133" y="124"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_refresh_gray_18x14_" width="18" height="14"/>
         <image name="liked" width="85" height="85"/>
         <image name="nope" width="85" height="85"/>
-        <image name="userInfo" width="56" height="56"/>
     </resources>
 </document>

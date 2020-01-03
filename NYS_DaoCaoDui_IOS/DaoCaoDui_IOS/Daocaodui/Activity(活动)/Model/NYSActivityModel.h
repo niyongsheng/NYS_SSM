@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class UserInfo;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSActivityModel : NSObject
@@ -16,13 +18,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * fellowshipName;
 @property (nonatomic, strong) NSString * gmtCreate;
 @property (nonatomic, strong) NSString * gmtModify;
+@property (nonatomic, strong) NSString * expireTime;
 @property (nonatomic, assign) NSInteger groupId;
+@property (nonatomic, assign) NSInteger activityType;
 @property (nonatomic, strong) NSString * icon;
 @property (nonatomic, assign) NSInteger ID;
 @property (nonatomic, strong) NSString * introduction;
 @property (nonatomic, assign) BOOL isTop;
+@property (nonatomic, assign) BOOL isInGroup;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, assign) BOOL status;
+@property (nonatomic, strong) NSArray<UserInfo *> * userList;
 @end
 
 NS_ASSUME_NONNULL_END

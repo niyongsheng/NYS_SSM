@@ -35,6 +35,10 @@
         DELETE FROM dcd_group WHERE id = #{id}
     </delete>
 
+    <delete id="deleteByGroupId">
+        DELETE FROM dcd_group WHERE groupId = #{groupId}
+    </delete>
+
     <update id="updateByPrimaryKey" parameterType="com.niyongsheng.persistence.domain.Group">
         UPDATE dcd_group
         SET

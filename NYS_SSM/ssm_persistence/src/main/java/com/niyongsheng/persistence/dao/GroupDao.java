@@ -18,4 +18,6 @@ public interface GroupDao extends BaseDao {
     Group selectByGroupId(String groupId);
 
     List<Group> selectAllByFellowshipMultiTable(Integer fellowship);
+
+    void deleteByGroupId(Integer groupId);
 }

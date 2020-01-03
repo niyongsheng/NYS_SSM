@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 0
+#define DevelopSever 1
 #define TestSever    0
-#define ProductSever 1
+#define ProductSever 0
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
@@ -26,14 +26,12 @@ UIKIT_EXTERN NSString *const CR_SendOneTimeCode;
 UIKIT_EXTERN NSString *const CR_Regist;
 /** 忘记密码*/
 UIKIT_EXTERN NSString *const CR_Reset;
-/** 获取个人信息*/
-UIKIT_EXTERN NSString *const CR_GetUserInfo;
 /** 修改个人信息*/
 UIKIT_EXTERN NSString *const CR_UpdateUserInfo;
 /** 签到*/
 UIKIT_EXTERN NSString *const CR_DoSign;
 /** 积分记录*/
-UIKIT_EXTERN NSString *const CR_SignRecord;
+UIKIT_EXTERN NSString *const CR_ScoreRecord;
 /** 个人信息提供者*/
 UIKIT_EXTERN NSString *const CR_ProviderUserInfo;
 /** 群信息提供者*/
@@ -64,19 +62,19 @@ UIKIT_EXTERN NSString *const CR_PublishPray;
 UIKIT_EXTERN NSString *const CR_PublishMusic;
 /** 发布活动*/
 UIKIT_EXTERN NSString *const CR_PublishActivity;
-
-
-
-/** 创建群组*/
-UIKIT_EXTERN NSString *const CR_CreateGroup;
-/** 修改群组资料*/
-UIKIT_EXTERN NSString *const CR_UpdateGroupInfo;
-/** 解散群组*/
-UIKIT_EXTERN NSString *const CR_RemoveGroup;
+/** 结束活动*/
+UIKIT_EXTERN NSString *const CR_DismissActivity;
+/** 加入活动*/
+UIKIT_EXTERN NSString *const CR_JoinActivity;
+/** 退出活动*/
+UIKIT_EXTERN NSString *const CR_QuitActivity;
 /** 群列表*/
 UIKIT_EXTERN NSString *const CR_GroupList;
 /** 用户列表*/
 UIKIT_EXTERN NSString *const CR_UserList;
+
+
+
 /** QQ登录*/
 UIKIT_EXTERN NSString *const CR_QQLogoin;
 /** 微信登录*/

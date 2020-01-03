@@ -23,5 +23,17 @@ public interface ActivityService extends IService<Activity> {
      */
     List<Activity> selectByFellowshipMultiTable(Integer fellowship, String isInGroupAccount);
 
+    /**
+     * 创建活动群组
+     * @param activity 活动
+     * @param group 群组
+     * @param user_activity 活动-群组 关系对照
+     */
     void createGroupActivity(Activity activity, Group group, User_Activity user_activity);
+
+    /**
+     * 结束活动
+     * @param activity
+     */
+    void dismissGroupActivity(Activity activity);
 }

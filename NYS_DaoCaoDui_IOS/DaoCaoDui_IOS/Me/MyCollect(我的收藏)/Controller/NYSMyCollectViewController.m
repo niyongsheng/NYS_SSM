@@ -8,8 +8,7 @@
 
 #import "NYSMyCollectViewController.h"
 #import <SGPagingView.h>
-#import "QMHCAListViewController.h"
-#import "QMHCreateActViewController.h"
+#import "NYSActivityListViewController.h"
 
 @interface NYSMyCollectViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -22,9 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"我的收藏"];
-
-    UIBarButtonItem *createActivity = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createActivityClicked:)];
-    self.navigationItem.rightBarButtonItem = createActivity;
     
     NSArray *titleArr = @[@"文章", @"音乐", @"代祷"];
     SGPageTitleViewConfigure *segmentConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
@@ -47,13 +43,8 @@
     [self.view addSubview:_pageTitleView];
     self.pageTitleView.selectedIndex = self.index;
     
-    QMHCAListViewController *acListVC1 = [[QMHCAListViewController alloc] init];
-    acListVC1.activitylistUrl = @"/api/activity/getDefaultList";
-    QMHCAListViewController *acListVC2 = [[QMHCAListViewController alloc] init];
-    acListVC2.activitylistUrl = @"/api/activity/getMemberNumList";
-    QMHCAListViewController *acListVC3 = [[QMHCAListViewController alloc] init];
-    acListVC3.activitylistUrl = @"/api/activity/getActiveList";
-    NSArray *childArr = @[acListVC1, acListVC2, acListVC3];
+    NYSActivityListViewController *acListVC1 = [[NYSActivityListViewController alloc] init];
+    NSArray *childArr = @[acListVC1, acListVC1, acListVC1];
 
     CGFloat ContentCollectionViewHeight = NScreenHeight - CGRectGetMaxY(_pageTitleView.frame);
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), NScreenWidth, ContentCollectionViewHeight) parentVC:self childVCs:childArr];
@@ -69,13 +60,6 @@
 
 - (void)pageContentCollectionView:(SGPageContentCollectionView *)pageContentCollectionView progress:(CGFloat)progress originalIndex:(NSInteger)originalIndex targetIndex:(NSInteger)targetIndex {
     [self.pageTitleView setPageTitleViewWithProgress:progress originalIndex:originalIndex targetIndex:targetIndex];
-}
-
-/** 创建活动 */
-- (void)createActivityClicked:(id)sender {
-    QMHCreateActViewController *cVC = [[QMHCreateActViewController alloc] init];
-    cVC.title = @"创建活动";
-    [self.navigationController pushViewController:cVC animated:YES];
 }
 
 @end

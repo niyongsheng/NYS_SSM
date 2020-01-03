@@ -48,7 +48,9 @@
             return @{@"idField" : @"id"};
         }];
         weakSelf.musicTypeArray = [NYSMusicMenuModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
-    } failure:nil isCache:YES];
+    } failure:^(NSError *error) {
+        
+    } isCache:YES];
     
     // 初始化UI
     [self initUI];
