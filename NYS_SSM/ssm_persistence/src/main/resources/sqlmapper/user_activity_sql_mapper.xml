@@ -11,7 +11,7 @@
     <delete id="deleteOneByAccountAndActivityID">
         delete
         from dcd_user_activity
-        where account = #{account} and activityID = #{activityID}
+        where account = #{account} and activityID = #{activityId}
     </delete>
 
     <select id="selectIsInActivityByAccountAndActivityID" resultType="java.lang.Boolean">

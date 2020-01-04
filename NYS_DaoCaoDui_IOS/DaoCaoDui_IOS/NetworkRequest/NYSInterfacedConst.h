@@ -48,6 +48,8 @@ UIKIT_EXTERN NSString *const CR_GetPublicnotices;
 UIKIT_EXTERN NSString *const CR_GetArticleList;
 /** 获取活动列表*/
 UIKIT_EXTERN NSString *const CR_GetActivityList;
+/** 获取打卡活动列表*/
+UIKIT_EXTERN NSString *const CR_GetClockActivityList;
 /** 获取代祷列表*/
 UIKIT_EXTERN NSString *const CR_GetPrayList;
 /** 获取歌单列表*/

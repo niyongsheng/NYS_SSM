@@ -310,6 +310,7 @@
         if ([[response objectForKey:@"status"] boolValue]) {
             [NYSAlert showSuccessAlertWithTitle:@"发布代祷" message:@"发布成功，快去刷新看看吧❤️" okButtonClickedBlock:^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
+                [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
             }];
         }
     } failure:^(NSError *error) {

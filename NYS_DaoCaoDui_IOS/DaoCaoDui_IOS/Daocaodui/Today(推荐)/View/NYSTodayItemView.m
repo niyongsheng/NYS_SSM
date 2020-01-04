@@ -10,6 +10,8 @@
 #import <PYSearchViewController.h>
 #import "NYSBaseNavigationController.h"
 #import "NYSRootViewController.h"
+#import "NYSRankingViewController.h"
+#import "NYSFellowshipStoryViewController.h"
 
 @interface NYSTodayItemView ()
 @property (weak, nonatomic) IBOutlet UIView *myCustomView;
@@ -56,7 +58,7 @@
 - (IBAction)item1Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
 
-    NSArray *hotSeaches = @[@"Java", @"Python", @"Objective-C", @"Swift", @"C", @"C++", @"PHP", @"C#", @"Perl", @"Go", @"JavaScript", @"R", @"Ruby", @"MATLAB"];
+    NSArray *hotSeaches = @[@"信心", @"爱心", @"盼望", @"喜乐", @"清心", @"节制"];
     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches
                                                                                           searchBarPlaceholder:@"你找啥？"
                                                                                                 didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
@@ -71,12 +73,14 @@
 }
 - (IBAction)item2Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
+    [self.fromController.navigationController pushViewController:NYSFellowshipStoryViewController.new animated:YES];
 }
 - (IBAction)item3Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
 }
 - (IBAction)item4Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
+    [self.fromController.navigationController pushViewController:NYSRankingViewController.new animated:YES];
 }
 
 @end

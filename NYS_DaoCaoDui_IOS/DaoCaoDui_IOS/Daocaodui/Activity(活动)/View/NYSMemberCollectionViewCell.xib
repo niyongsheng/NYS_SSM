@@ -23,7 +23,6 @@
                             <constraint firstAttribute="width" secondItem="ILx-9f-HXX" secondAttribute="height" multiplier="1:1" id="VIp-XZ-5eF"/>
                             <constraint firstAttribute="width" constant="50" id="WMn-UU-0Vh"/>
                         </constraints>
-                        <state key="normal" image="me_photo_80x80_"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11M-bU-VuN">
                         <rect key="frame" x="83.5" y="118.5" width="55" height="14.5"/>
@@ -60,7 +59,4 @@
             <point key="canvasLocation" x="100" y="80"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="me_photo_80x80_" width="80" height="80"/>
-    </resources>
 </document>

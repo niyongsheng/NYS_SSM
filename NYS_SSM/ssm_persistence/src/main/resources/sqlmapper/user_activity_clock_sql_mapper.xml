@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.User_Activity_ClockDao">
+
+    <select id="selectTodayClockedUsersByActivityID" resultType="com.niyongsheng.persistence.domain.User">
+        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uac.activityID
+        from dcd_user u, dcd_user_activity_clock uac
+        where datediff(uac.gmtCreate, NOW()) = 0 and u.account = uac.account and uac.activityID = #{activityID}
+    </select>
+
+    <select id="selectTodayUnclockUsersByActivityID" resultType="com.niyongsheng.persistence.domain.User">
+        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, ua.activityID
+        from dcd_user u, dcd_user_activity ua
+        where u.account = ua.account and ua.activityID = #{activityID}
+        and not exists
+        (
+        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uac.activityID
+        from dcd_user u, dcd_user_activity_clock uac
+        where datediff(uac.gmtCreate, NOW()) = 0 and u.account = uac.account and uac.activityID = #{activityID} and u.account = ua.account
+        )
+    </select>
+
+</mapper>

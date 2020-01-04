@@ -108,6 +108,12 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 获取打卡活动列表*/
++ (NSURLSessionTask *)GetClockActivityList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetClockActivityList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
 /** 获取代祷列表*/
 + (NSURLSessionTask *)GetPrayList:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetPrayList];
@@ -443,7 +449,7 @@
             [SVProgressHUD showInfoWithStatus:warning];
         }
         [SVProgressHUD dismissWithDelay:2.f completion:^{
-            success(responseObject);
+//            success(responseObject);
         }];
     }
 }

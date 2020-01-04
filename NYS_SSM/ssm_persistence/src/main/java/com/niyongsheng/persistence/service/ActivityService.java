@@ -32,8 +32,24 @@ public interface ActivityService extends IService<Activity> {
     void createGroupActivity(Activity activity, Group group, User_Activity user_activity);
 
     /**
+     * 创建活动
+     * @param activity 活动
+     * @param user_activity 活动-群组 关系对照
+     */
+    void createActivity(Activity activity, User_Activity user_activity);
+
+    /**
      * 结束活动
      * @param activity
      */
     void dismissGroupActivity(Activity activity);
+
+    /**
+     * 查询打卡活动列表
+     * @param activityType
+     * @param fel
+     * @param account
+     * @return
+     */
+    List<Activity> selectByTypeAndFellowshipMultiTable(int activityType, Integer fel, String account);
 }

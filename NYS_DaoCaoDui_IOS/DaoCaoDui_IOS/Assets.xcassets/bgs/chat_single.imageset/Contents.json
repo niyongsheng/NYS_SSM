@@ -2,16 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "chat_single.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bg_qm_intro_945x360_@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bg_qm_intro_945x360_@3x.png",
       "scale" : "3x"
     }
   ],

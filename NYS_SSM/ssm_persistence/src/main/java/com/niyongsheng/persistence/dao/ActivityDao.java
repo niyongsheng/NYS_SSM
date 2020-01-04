@@ -17,5 +17,20 @@ import java.util.List;
 @Repository
 public interface ActivityDao extends BaseMapper<Activity> {
 
+    /**
+     * 查询活动列表（活动成员）
+     * @param fellowship
+     * @param isInGroupAccount
+     * @return
+     */
     List<Activity> selectByFellowshipMultiTable(@Param("fellowship") Integer fellowship, @Param("isInGroupAccount") String isInGroupAccount);
+
+    /**
+     * 查询打卡活动列表（已打卡/未打卡 活动成员）
+     * @param activityType
+     * @param fellowship
+     * @param isInGroupAccount
+     * @return
+     */
+    List<Activity> selectByTypeAndFellowshipMultiTable(@Param("activityType") int activityType, @Param("fellowship") Integer fellowship, @Param("isInGroupAccount") String isInGroupAccount);
 }

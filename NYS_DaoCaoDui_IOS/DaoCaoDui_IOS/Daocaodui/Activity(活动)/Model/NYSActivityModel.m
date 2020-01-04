@@ -11,7 +11,9 @@
 @implementation NYSActivityModel
 + (NSDictionary *)mj_objectClassInArray {
     return @{
-             @"userList" : @"UserInfo"
-             };
+        @"userList" : @"UserInfo",
+        @"clockedUserList" : @"UserInfo",
+        @"unclockUserList" : @"UserInfo"
+    };
 }
 @end

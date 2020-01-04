@@ -63,7 +63,7 @@ public class ActivityController {
 
     @ResponseBody
     @RequestMapping(value = "/selectActivityList", method = RequestMethod.GET)
-    @ApiOperation(value = "查询所有的活动", notes = "参数描述", hidden = false)
+    @ApiOperation(value = "查询活动列表", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
@@ -96,6 +96,50 @@ public class ActivityController {
             try {
                 // 2.1无分页查询
                 list = activityService.selectByFellowshipMultiTable(fel, account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        }
+
+        // 3.返回查询结果
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/selectClockActivityList", method = RequestMethod.GET)
+    @ApiOperation(value = "查询打卡活动列表", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+    })
+    public ResponseDto<Activity> selectClockActivityList(HttpServletRequest request, Model model,
+                                                    @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                    @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                    @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                    @NotBlank
+                                                    @RequestParam(value = "fellowship", required = true) String fellowship
+    ) throws ResponseException {
+
+        // 1.调用service的方法
+        List<Activity> list = null;
+        Integer fel = Integer.valueOf(fellowship);
+        String account = request.getHeader("Account");
+
+        // 2.是否分页
+        if (isPageBreak) {
+            try {
+                // 2.1分页查询 设置页码和分页大小
+                PageHelper.startPage(pageNum, pageSize, false);
+                list = activityService.selectByTypeAndFellowshipMultiTable(2, fel, account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        } else {
+            try {
+                // 2.1无分页查询
+                list = activityService.selectByTypeAndFellowshipMultiTable(2, fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
@@ -146,43 +190,54 @@ public class ActivityController {
         activity.setActivityType(Integer.valueOf(activityType));
         activity.setFellowship(Integer.valueOf(fellowship));
         activity.setIcon(activityIcon);
+        // 日期字符串转date
+        if (!StringUtils.isEmpty(expireTime)) {
+            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime expireLocalDateTime = LocalDateTime.parse(expireTime, dateFormat);
+            activity.setExpireTime(expireLocalDateTime);
+        }
         activity.setGmtCreate(LocalDateTime.now());
 
-        // 3.创建群组-活动/群主-写入数据库
+        // 3.创建用户_活动映射关系模型
+        User_Activity user_activity = new User_Activity();
+        user_activity.setAccount(activity.getAccount());
+        user_activity.setGmtCreate(LocalDateTime.now());
+
+        // 4.创建群组-活动/群主-写入数据库
         if (Boolean.parseBoolean(isNeedGroup)) {
             String groupID = MathUtils.randomDigitNumber(5);
             while (true) {
-                // 3.1自动生成的groupID排重检查
+                // 4.1自动生成的groupID排重检查
                 if (groupService.selectByGroupId(groupID) == null) {
                     break;
                 }
                 // 随机生成5位群id
                 groupID = MathUtils.randomDigitNumber(5);
             }
-            // 3.2注册融云群组
+            // 4.2注册融云群组
             Integer createStatusCode = rongCloudService.createGroup(account, groupID, name);
             if (createStatusCode != 200) {
                 qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
                 throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_CREATE_GROUP_ERROR);
             }
             Integer joinStatusCode = rongCloudService.joinGroup(account, groupID, name);
-            // 群主加入群组
+            // 4.3群主加入群组
             if (joinStatusCode != 200) {
                 rongCloudService.dismissGroup(account, groupID);
                 qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
                 throw new ResponseException(ResponseStatusEnum.RONGCLOUD_STATUS_CODE_JOIN_GROUP_ERROR);
             }
-            // 3.3设置群组id
+            // 4.4设置群组id
             activity.setGroupId(Integer.valueOf(groupID));
 
-            // 3.4创建群组数据模型
+            // 4.5创建群组数据模型
             Group group = new Group();
             group.setGroupId(Integer.valueOf(groupID));
             group.setGroupIcon(activityIcon);
             group.setGroupName(name);
             group.setCreator(account);
             group.setIntroduction(introduction);
-            // 3.4.1日期字符串转LocalDateTime
+            // 4.5.1日期字符串转LocalDateTime
             if (!StringUtils.isEmpty(expireTime)) {
                 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
                 LocalDateTime dateTime = LocalDateTime.parse(expireTime, dateFormat);
@@ -191,13 +246,7 @@ public class ActivityController {
             group.setFellowship(Integer.valueOf(fellowship));
             group.setGmtCreate(LocalDateTime.now());
 
-            // 3.5创建用户_活动映射关系模型
-            User_Activity user_activity = new User_Activity();
-            user_activity.setAccount(activity.getAccount());
-            user_activity.setActivityID(activity.getId());
-            user_activity.setGmtCreate(LocalDateTime.now());
-
-            // 3.6调用activityService创建活动和群主+事务管理
+            // 4.6调用activityService创建活动/群组/成员关系+事务管理
             try {
                 activityService.createGroupActivity(activity, group, user_activity);
             } catch (Exception e) {
@@ -207,19 +256,20 @@ public class ActivityController {
                 throw new ResponseException(ResponseStatusEnum.DB_TR_ERROR);
             }
 
-            // 3.7返回结果
+            // 4.7返回结果
             return (new ResponseDto(ResponseStatusEnum.SUCCESS));
         }
 
-        // 4.插入数据库活动表
+        // 4.调用activityService创建活动/成员关系+事务管理
         try {
-            activityService.getBaseMapper().insert(activity);
+            activityService.createActivity(activity, user_activity);
         } catch (Exception e) {
+            // 数据库异常删除七牛云活动图片，防止脏数据
             qiniuUploadFileService.qiniuDelete((String) resultMap.get("FileKey"));
-            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+            throw new ResponseException(ResponseStatusEnum.DB_TR_ERROR);
         }
 
-        // 5.返回结果
+        // 5.返回成功结果
         return (new ResponseDto(ResponseStatusEnum.SUCCESS));
     }
 

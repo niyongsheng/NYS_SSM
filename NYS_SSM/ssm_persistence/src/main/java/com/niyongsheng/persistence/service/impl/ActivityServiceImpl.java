@@ -39,11 +39,21 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity> impl
 
     @Override
     public void createGroupActivity(Activity activity, Group group, User_Activity user_activity) {
-        // 1.创建群组
-        groupDao.insert(group);
-        // 2.创建活动
+        // NOTE:由于外键依赖关系，创建顺序不能颠倒
+        // 1.创建活动
         activityDao.insert(activity);
-        // 3.添加群成员（群主）
+        // 2.创建群组
+        groupDao.insert(group);
+        // 3.添加活动成员（活动发起人）
+        user_activity.setActivityID(activity.getId());
+        user_activityDao.insert(user_activity);
+    }
+
+    @Override
+    public void createActivity(Activity activity, User_Activity user_activity) {
+        // 1.创建活动
+        activityDao.insert(activity);
+        // 2.添加活动成员（活动发起人）
         user_activity.setActivityID(activity.getId());
         user_activityDao.insert(user_activity);
     }
@@ -62,5 +72,10 @@ public class ActivityServiceImpl extends ServiceImpl<ActivityDao, Activity> impl
   */
         // 3.删除活动
         activityDao.deleteById(activity.getId());
+    }
+
+    @Override
+    public List<Activity> selectByTypeAndFellowshipMultiTable(int activityType, Integer fel, String account) {
+        return activityDao.selectByTypeAndFellowshipMultiTable(activityType, fel, account);
     }
 }

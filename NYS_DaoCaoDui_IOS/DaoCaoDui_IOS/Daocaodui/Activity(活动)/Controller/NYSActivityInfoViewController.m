@@ -193,7 +193,7 @@
                                    parameters:@{@"activityID" : @(self.activityModel.ID)}
                                       success:^(id response) {
         [NYSAlert showSuccessAlertWithTitle:@"活动报名" message:@"恭喜你^^报名成功啦！" okButtonClickedBlock:^{
-            
+            [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
         }];
     } failure:^(NSError *error) {
         
@@ -209,7 +209,10 @@
                                        parameters:@{@"activityID" : @(self.activityModel.ID)}
                                           success:^(id response) {
             if ([[response objectForKey:@"status"] boolValue]) {
+                [SVProgressHUD showSuccessWithStatus:@"退出活动"];
+                [SVProgressHUD dismissWithDelay:1.f];
                 [weakSelf.navigationController popViewControllerAnimated:YES];
+                [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
             }
         } failure:^(NSError *error) {
             
@@ -234,7 +237,10 @@
                                        parameters:@{@"activityID" : @(self.activityModel.ID)}
                                           success:^(id response) {
             if ([[response objectForKey:@"status"] boolValue]) {
+                [SVProgressHUD showSuccessWithStatus:@"活动结束"];
+                [SVProgressHUD dismissWithDelay:1.f];
                 [weakSelf.navigationController popViewControllerAnimated:YES];
+                [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
             }
         } failure:^(NSError *error) {
             

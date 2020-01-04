@@ -88,14 +88,22 @@ public class Activity implements Serializable {
   private String fellowshipName;
 
   @TableField(value = "isInGroup", exist = false)
-  @ApiModelProperty(value = "是否为群成员")
+  @ApiModelProperty(value = "是否为活动成员")
   private Boolean isInGroup;
 
   @TableField(value = "membersNum", exist = false)
-  @ApiModelProperty(value = "群成员数量")
+  @ApiModelProperty(value = "活动成员数量")
   private Integer membersNum;
 
   @TableField(value = "userList", exist = false)
-  @ApiModelProperty(value = "群成员列表")
+  @ApiModelProperty(value = "活动成员列表")
   private List<User> userList;
+
+  @TableField(value = "clockedUserList", exist = false)
+  @ApiModelProperty(value = "已打卡活动成员列表")
+  private List<User> clockedUserList;
+
+  @TableField(value = "unclockUserList", exist = false)
+  @ApiModelProperty(value = "未打卡活动成员列表")
+  private List<User> unclockUserList;
 }

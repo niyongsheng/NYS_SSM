@@ -44,7 +44,7 @@
     // 连接状态
     self.showConnectingStatusOnNavigatorBar = YES;
     // 会话列表头像 圆形显示
-    [self setConversationAvatarStyle:RC_USER_AVATAR_CYCLE];
+    [self setConversationAvatarStyle:RC_USER_AVATAR_RECTANGLE];
     // 移除群助手
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION)]];
 }

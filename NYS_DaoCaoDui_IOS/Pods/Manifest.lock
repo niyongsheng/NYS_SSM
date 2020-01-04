@@ -94,6 +94,7 @@ PODS:
     - SDWebImage
   - WXWaveView (1.0.1)
   - XLForm (4.1.0)
+  - XRWaterfallLayout (0.1.2)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
   - YTKNetwork (2.1.4):
@@ -137,6 +138,7 @@ DEPENDENCIES:
   - WMZBanner
   - WXWaveView
   - XLForm
+  - XRWaterfallLayout
   - YTKKeyValueStore
   - YTKNetwork
   - YYKit
@@ -186,6 +188,7 @@ SPEC REPOS:
     - WMZBanner
     - WXWaveView
     - XLForm
+    - XRWaterfallLayout
     - YTKNetwork
 
 SPEC CHECKSUMS:
@@ -229,10 +232,11 @@ SPEC CHECKSUMS:
   WMZBanner: 460b4757a49a15f23c5ad953cda16950313ccfe0
   WXWaveView: f8424284812536a3842bc5dd9afb943e53e911a8
   XLForm: 7ee02761be8a369d1ad1bbffe738b97083d94f3e
+  XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: c1efc892f481821260eb76fe228185d0adb5eb7e
+PODFILE CHECKSUM: eaabbfdd14c1b758d4cc5d64c8575595dbc48813
 
 COCOAPODS: 1.8.4

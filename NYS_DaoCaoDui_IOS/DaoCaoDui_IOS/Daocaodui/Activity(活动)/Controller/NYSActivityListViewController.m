@@ -12,11 +12,12 @@
 #import "NYSActivityCollectionViewCell.h"
 #import <RongIMKit/RongIMKit.h>
 #import "NYSActivityInfoViewController.h"
+#import <XRWaterfallLayout.h>
 
 static float Magin = 10;
 static NSInteger pageSize = 7;
 
-@interface NYSActivityListViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface NYSActivityListViewController () <UICollectionViewDelegate, UICollectionViewDataSource, XRWaterfallLayoutDelegate>
 @property (strong, nonatomic) NSMutableArray *collectionDataArray;
 @property (nonatomic, assign) NSInteger pageNum;
 
@@ -30,6 +31,7 @@ static NSInteger pageSize = 7;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [NNotificationCenter addObserver:self selector:@selector(refreshActivityList:) name:@"RefreshActivityListNotification" object:nil];
     
     [self initUI];
     [self headerRereshing];
@@ -37,22 +39,12 @@ static NSInteger pageSize = 7;
 
 #pragma mark — 初始化页面
 - (void)initUI {
-    int count = 2;
-    // 自动瀑布流布局
-    UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    CGFloat itemWidth = (NScreenWidth - 15 - count * Magin) / count;
-    // 设置单元格大小
-    flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth * 19/16 * Iphone6ScaleWidth);
-    // 最小行间距(默认为10)
-    flowLayout.minimumLineSpacing = 15;
-    // 最小item间距（默认为10）
-    flowLayout.minimumInteritemSpacing = 15;
-    // 设置senction的内边距
-    flowLayout.sectionInset = UIEdgeInsetsMake(Magin, Magin, Magin, Magin);
-    // 设置UICollectionView的滑动方向
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-
-    [self.collectionView setCollectionViewLayout:flowLayout];
+    // 创建瀑布流布局
+    XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:2];
+    [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+    waterfall.delegate = self;
+    
+    [self.collectionView setCollectionViewLayout:waterfall];
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([NYSActivityCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"NYSActivityCollectionViewCell"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -67,6 +59,10 @@ static NSInteger pageSize = 7;
         [self.view.superview layoutIfNeeded];
         [self.collectionView.superview layoutIfNeeded];
     }];
+}
+
+- (void)refreshActivityList:(NSNotification *)notification {
+    [self headerRereshing];
 }
 
 - (void)headerRereshing {
@@ -126,7 +122,7 @@ static NSInteger pageSize = 7;
     NYSActivityCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NYSActivityCollectionViewCell" forIndexPath:indexPath];
     cell.collectionModel = self.collectionDataArray[indexPath.row];
     cell.fromViewController = self;
-    
+    [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return cell;
 }
 
@@ -137,5 +133,10 @@ static NSInteger pageSize = 7;
     
 }
 
+#pragma mark - XRWaterfallLayoutDelegate
+- (CGFloat)waterfallLayout:(XRWaterfallLayout *)waterfallLayout itemHeightForWidth:(CGFloat)itemWidth atIndexPath:(NSIndexPath *)indexPath {
+    CGFloat itemHeight = itemWidth - 20 + [[self.collectionDataArray[indexPath.row] introduction] heightForFont:[UIFont systemFontOfSize:11.f] width:itemWidth - 20];
+    return itemHeight;
+}
 
 @end

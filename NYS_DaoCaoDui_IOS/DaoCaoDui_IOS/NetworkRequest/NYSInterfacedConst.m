@@ -51,6 +51,8 @@ NSString *const CR_GetPublicnotices = @"/publicnotice/selectPublicnoticeList";
 NSString *const CR_GetArticleList = @"/article/selectArticleList";
 /** 获取活动列表*/
 NSString *const CR_GetActivityList = @"/activity/selectActivityList";
+/** 获取打卡活动列表*/
+NSString *const CR_GetClockActivityList = @"/activity/selectClockActivityList";
 /** 获取代祷列表*/
 NSString *const CR_GetPrayList = @"/pray/selectPrayList";
 /** 获取歌单列表*/

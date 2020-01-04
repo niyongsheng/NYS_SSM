@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, assign) BOOL status;
 @property (nonatomic, strong) NSArray<UserInfo *> * userList;
+@property (nonatomic, strong) NSArray<UserInfo *> * clockedUserList;
+@property (nonatomic, strong) NSArray<UserInfo *> * unclockUserList;
 @end
 
 NS_ASSUME_NONNULL_END

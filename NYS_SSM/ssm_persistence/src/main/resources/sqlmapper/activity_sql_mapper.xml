@@ -4,8 +4,8 @@
 
     <resultMap id="activityMap_1" type="Activity" autoMapping="true">
         <id property="id" column="id"/>
-        <association property="isInGroup" javaType="boolean" column="{activityID = id, account = isInGroupAccount}" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectIsInGroupByAccountAndActivityID"/>
-        <association property="membersNum" javaType="integer" column="id" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectGroupMembersNumByActivityID"/>
+        <association property="isInGroup" javaType="boolean" column="{activityID = id, account = isInGroupAccount}" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectIsInActivityByAccountAndActivityID"/>
+        <association property="membersNum" javaType="integer" column="id" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectActivityMembersNumByActivityID"/>
         <collection property="userList" column="id" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectUsersByActivityID"/>
     </resultMap>
     <!-- 连表查询用户是否在群内isInGroup -->
@@ -15,6 +15,24 @@
         inner join dcd_fellowship f
         on a.fellowship = f.id
         where a.fellowship = #{fellowship}
+        order by a.isTop desc, a.id desc
+    </select>
+
+    <resultMap id="activityMap_2" type="Activity" autoMapping="true">
+        <id property="id" column="id"/>
+        <association property="isInGroup" javaType="boolean" column="{activityID = id, account = isInGroupAccount}" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectIsInActivityByAccountAndActivityID"/>
+        <association property="membersNum" javaType="integer" column="id" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectActivityMembersNumByActivityID"/>
+        <collection property="userList" column="id" select="com.niyongsheng.persistence.dao.User_ActivityDao.selectUsersByActivityID"/>
+        <collection property="clockedUserList" column="id" select="com.niyongsheng.persistence.dao.User_Activity_ClockDao.selectTodayClockedUsersByActivityID"/>
+        <collection property="unclockUserList" column="id" select="com.niyongsheng.persistence.dao.User_Activity_ClockDao.selectTodayUnclockUsersByActivityID"/>
+    </resultMap>
+
+    <select id="selectByTypeAndFellowshipMultiTable" resultMap="activityMap_2">
+        select *, #{isInGroupAccount} as isInGroupAccount
+        from dcd_activity a
+        inner join dcd_fellowship f
+        on a.fellowship = f.id
+        where a.fellowship = #{fellowship} and a.activityType = #{activityType}
         order by a.isTop desc, a.id desc
     </select>
 

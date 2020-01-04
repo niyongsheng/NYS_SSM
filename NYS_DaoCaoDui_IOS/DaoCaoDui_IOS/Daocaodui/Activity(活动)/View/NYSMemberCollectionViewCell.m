@@ -26,8 +26,7 @@
 
 - (void)setMemberModel:(UserInfo *)memberModel {
     _memberModel = memberModel;
-    
-    [self.icon sd_setBackgroundImageWithURL:[NSURL URLWithString:memberModel.icon] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
+    [self.icon setBackgroundImageWithURL:[NSURL URLWithString:memberModel.icon] forState:UIControlStateNormal placeholder:[UIImage imageNamed:@"me_photo_80x80_"]];
     [self.nickname setText:memberModel.nickname];
     [self.account setText:memberModel.account];
 }

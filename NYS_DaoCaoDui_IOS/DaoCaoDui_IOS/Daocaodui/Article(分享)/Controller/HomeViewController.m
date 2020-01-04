@@ -104,7 +104,7 @@
     NYSArticleModel *article = self.articleArray[indexPath.row];
     cell.titleLabel.text = [article title];
     cell.contentLabel.text = [article subtitle];
-    [cell.bgimageView sd_setImageWithURL:[NSURL URLWithString:article.icon] placeholderImage:[UIImage imageNamed:@"bg_ocr_intro_345x200_"]];
+    [cell.bgimageView sd_setImageWithURL:[NSURL URLWithString:article.icon] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cell.transform = CGAffineTransformMakeScale(1, 1);
     
     return cell;

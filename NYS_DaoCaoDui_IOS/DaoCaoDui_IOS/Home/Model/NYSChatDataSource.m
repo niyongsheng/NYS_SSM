@@ -7,6 +7,11 @@
 //
 
 #import "NYSChatDataSource.h"
+#import "NYSGroupModel.h"
+#import "UserInfo.h"
+
+#define SigleIcon @"http://image.daocaodui.top/config/icon/chat_single.png"
+#define GroupIcon @"http://image.daocaodui.top/config/icon/chat_group.png"
 
 @implementation NYSChatDataSource
 
@@ -20,29 +25,27 @@
 }
 
 #pragma mark - GroupInfoFetcherDelegate
-- (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *groupInfo))completion; {
+- (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *groupInfo))completion {
     [NYSRequest DataProviderInfoForGroupWithResMethod:GET parameters:@{@"groupId" : groupId} success:^(id response) {
-        RCGroup *rcGroupInfo = [RCGroup new];
-        rcGroupInfo.groupId = [[response objectForKey:@"data"] objectForKey:@"groupId"];
-        rcGroupInfo.groupName = [[response objectForKey:@"data"] objectForKey:@"groupName"];
-        rcGroupInfo.portraitUri = [[response objectForKey:@"data"] objectForKey:@"groupIcon"];
-        completion(rcGroupInfo);
+        NYSGroupModel *groupModel = [NYSGroupModel mj_objectWithKeyValues:[response objectForKey:@"data"]];
+        RCGroup *groupInfo = [[RCGroup alloc] initWithGroupId:groupId groupName:groupModel.groupName portraitUri:groupModel.groupIcon];
+        completion(groupInfo);
     } failure:^(NSError *error) {
-        
-    } isCache:NO];
+        completion([[RCGroup alloc] initWithGroupId:groupId groupName:@"Group" portraitUri:GroupIcon]);
+    } isCache:YES];
 }
 
 #pragma mark - RCIMUserInfoDataSource
-- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *))completion {
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *userInfo))completion {
     [NYSRequest DataProviderInfoForUserWithResMethod:GET parameters:@{@"account" : userId} success:^(id response) {
-        RCUserInfo *rcUserInfo = [RCUserInfo new];
-        rcUserInfo.userId = [[response objectForKey:@"data"] objectForKey:@"account"];
-        rcUserInfo.name = [[response objectForKey:@"data"] objectForKey:@"nickname"];
-        rcUserInfo.portraitUri = [[response objectForKey:@"data"] objectForKey:@"icon"];
-        rcUserInfo.extra = [[response objectForKey:@"data"] objectForKey:@"fellowship"];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//        });
+        UserInfo *userInfo = [UserInfo mj_objectWithKeyValues:[response objectForKey:@"data"]];
+        RCUserInfo *rcUserInfo = [[RCUserInfo alloc] initWithUserId:userId name:userInfo.nickname portrait:userInfo.icon];
+        rcUserInfo.extra = [NSString stringWithFormat:@"%ld", userInfo.fellowship];
         completion(rcUserInfo);
     } failure:^(NSError *error) {
-        
+        completion([[RCUserInfo alloc] initWithUserId:userId name:@"User" portrait:SigleIcon]);
     } isCache:YES];
 }
 
