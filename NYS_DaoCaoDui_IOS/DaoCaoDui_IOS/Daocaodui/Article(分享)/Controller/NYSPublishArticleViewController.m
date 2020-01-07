@@ -35,8 +35,6 @@
     [super viewDidLoad];
     [self setTitle:@"分享"];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addClicked:)];
-    
     [self initUI];
 }
 
@@ -308,6 +306,7 @@
         if ([[response objectForKey:@"status"] boolValue]) {
             [NYSAlert showSuccessAlertWithTitle:@"发布分享" message:@"发布成功，快去刷新看看吧^^" okButtonClickedBlock:^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
+                [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
             }];
         }
     } failure:^(NSError *error) {

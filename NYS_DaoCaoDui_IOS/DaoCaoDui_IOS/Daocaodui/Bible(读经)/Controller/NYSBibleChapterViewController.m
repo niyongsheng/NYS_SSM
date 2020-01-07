@@ -61,7 +61,7 @@
     self.collectionView.mj_footer.hidden = YES;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, NTabBarHeight, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     [self.view addSubview:self.collectionView];
 }
 

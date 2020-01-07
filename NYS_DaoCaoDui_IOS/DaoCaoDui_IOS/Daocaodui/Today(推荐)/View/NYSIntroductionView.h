@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYSWeekBibleModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSIntroductionView : UIView
-
+@property (weak, nonatomic) NYSWeekBibleModel *weekBibleModel;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -118,20 +118,74 @@
     }
 }
 
-/** 时间戳格式化yyyy-MM-dd HH:mm:ss */
-+ (NSString *)timeFormatWithInterval:(NSTimeInterval)interval {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+/// 将某个时间转化成 时间戳
+/// @param formatTime 时间z字符串
+/// @param format 格式（@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
++ (NSInteger)timeSwitchTimestamp:(NSString *)formatTime andFormatter:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    return [formatter stringFromDate: date];
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    [formatter setDateFormat:format];
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    
+    [formatter setTimeZone:timeZone];
+    NSDate* date = [formatter dateFromString:formatTime];
+    
+    // 时间转时间戳的方法:
+    NSInteger timeSp = [[NSNumber numberWithDouble:[date timeIntervalSince1970]] integerValue];
+    return timeSp;
 }
 
-/** 时间戳格式化yyyy年MM月dd日 HH时mm分 */
-+ (NSString *)dateFormatWithInterval:(NSTimeInterval)interval {
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:interval];
+/// 将某个时间戳转化成 时间
+/// @param timestamp 时间戳
+/// @param format 格式（@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
++ (NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format {
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy年MM月dd日 HH时mm分"];
-    return [formatter stringFromDate: date];
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:format];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    
+    return confromTimespStr;
+}
+
+/**
+ 时间戳转换成XX分钟之前
+ @param timestamp 时间戳
+ */
++ (NSString *)timeBeforeInfoWithTimestamp:(NSInteger)timestamp {
+    // 获取此时时间戳长度
+    NSTimeInterval nowTimeinterval = [[NSDate date] timeIntervalSince1970];
+    int timeInt = nowTimeinterval - timestamp; // 时间差
+    
+    int year = timeInt / (3600 * 24 * 30 *12);
+    int month = timeInt / (3600 * 24 * 30);
+    int day = timeInt / (3600 * 24);
+    int hour = timeInt / 3600;
+    int minute = timeInt / 60;
+    int second = timeInt;
+    if (year > 0) {
+        return [NSString stringWithFormat:@"%d年以前", year];
+    }else if(month > 0){
+        return [NSString stringWithFormat:@"%d个月以前", month];
+    }else if(day > 0){
+        return [NSString stringWithFormat:@"%d天以前", day];
+    }else if(hour > 0){
+        return [NSString stringWithFormat:@"%d小时以前", hour];
+    }else if(minute > 0){
+        return [NSString stringWithFormat:@"%d分钟以前", minute];
+    }else if(second > 0){
+        return [NSString stringWithFormat:@"%d秒钟以前", second];
+    }
+    return [NSString stringWithFormat:@"刚刚"];
 }
 
 /// 计算年纪

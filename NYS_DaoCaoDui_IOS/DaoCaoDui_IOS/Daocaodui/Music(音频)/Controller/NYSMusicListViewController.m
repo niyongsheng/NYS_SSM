@@ -64,7 +64,7 @@
 
 #pragma mark -- initUI --
 - (void)setupUI {
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, NTabBarHeight + SegmentViewHeight, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 2*NTabBarHeight + SegmentViewHeight, 0);
     self.tableView.mj_footer.hidden = YES;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

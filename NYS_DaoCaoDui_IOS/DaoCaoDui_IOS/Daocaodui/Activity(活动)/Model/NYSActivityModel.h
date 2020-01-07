@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * introduction;
 @property (nonatomic, assign) BOOL isTop;
 @property (nonatomic, assign) BOOL isInGroup;
+@property (nonatomic, assign) BOOL isClockedToday;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, assign) BOOL status;
 @property (nonatomic, strong) NSArray<UserInfo *> * userList;

@@ -9,5 +9,9 @@
 #import "NYSPrayModel.h"
 
 @implementation NYSPrayModel
-
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+             @"user" : @"UserInfo",
+             @"collectionUserList" : @"UserInfo"};
+}
 @end

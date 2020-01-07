@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.ScorelogDao">
+
+    <select id="selectUserScorelogByFellowshipMultiTable"
+            resultType="com.niyongsheng.persistence.domain.Scorelog">
+        select *
+        from dcd_scorelog
+        where account = #{account} and fellowship = #{fellowship}
+        order by gmtCreate desc
+    </select>
+
+    <select id="isSignedToday" resultType="java.lang.Boolean">
+        select count(id)
+        from dcd_scorelog
+        where datediff(gmtCreate, NOW()) = 0 and type = #{type} and account = #{account} and fellowship = #{fellowship}
+    </select>
+
+</mapper>

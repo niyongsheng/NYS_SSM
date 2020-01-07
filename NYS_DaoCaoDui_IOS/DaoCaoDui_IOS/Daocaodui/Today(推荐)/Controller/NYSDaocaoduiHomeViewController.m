@@ -13,8 +13,8 @@
 #import <MSNumberScrollAnimatedView.h>
 #import "NYSTodayItemView.h"
 #import "NYSScrollNumberView.h"
+#import "NYSWeekBibleModel.h"
 #import "NYSIntroductionView.h"
-
 #import "NYSBannerModel.h"
 #import "NYSPublicnotice.h"
 // 发布
@@ -236,6 +236,7 @@
 
 - (void)headerRereshing {
     WS(weakSelf);
+    // 轮播图数据
     [NYSRequest GetBannerList:GET parameters:@{@"fellowship" : @(NCurrentUser.fellowship)} success:^(id response) {
         [weakSelf.homeView.mj_header endRefreshing];
         self.bannerArray = [NYSBannerModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
@@ -243,8 +244,8 @@
         [self.bannerView updateUI];
     } failure:^(NSError *error) {
         [weakSelf.homeView.mj_header endRefreshing];
-    } isCache:NO];
-    
+    } isCache:YES];
+    // 公告数据
     [NYSRequest GetPublicnoticeList:GET parameters:@{@"fellowship" : @(NCurrentUser.fellowship)} success:^(id response) {
         [weakSelf.homeView.mj_header endRefreshing];
         NSArray *tempArray = [NYSPublicnotice mj_objectArrayWithKeyValuesArray:response[@"data"]];
@@ -256,8 +257,17 @@
         [weakSelf.scrollLabelView beginScrolling];
     } failure:^(NSError *error) {
         [weakSelf.homeView.mj_header endRefreshing];
-    } isCache:NO];
+    } isCache:YES];
+    // 每周经文数据
+    [NYSRequest GetWeekBibleWithResMethod:GET parameters:@{@"fellowship" : @(NCurrentUser.fellowship)} success:^(id response) {
+        [weakSelf.homeView.mj_header endRefreshing];
+        self.introductionView.weekBibleModel = [NYSWeekBibleModel mj_objectWithKeyValues:response[@"data"]];
+    } failure:^(NSError *error) {
+        [weakSelf.homeView.mj_header endRefreshing];
+    } isCache:YES];
     
+    
+    // 手动延时随机数
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [NYSTools animateTextChange:0.5f withLayer:weakSelf.dateLabel.layer];
         weakSelf.scrollNumberView.customScrollAnimationView.number = @(arc4random()%5000);

@@ -18,6 +18,7 @@
     // 加载广告
     AdPageView *adView = [[AdPageView alloc] initWithFrame:NScreen_Bounds withTapBlock:^{
         NYSBaseNavigationController *loginNavi = [[NYSBaseNavigationController alloc] initWithRootViewController:[[NYSRootWebViewController alloc] initWithUrl:@"https://movie.douban.com/subject/30249161/"]];
+        loginNavi.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [NRootViewController presentViewController:loginNavi animated:YES completion:nil];
     }];
     adView = adView;

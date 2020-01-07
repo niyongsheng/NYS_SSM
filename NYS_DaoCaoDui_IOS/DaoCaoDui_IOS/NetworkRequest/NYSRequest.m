@@ -11,6 +11,8 @@
 #import "NYSInterfacedConst.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 
+#define RequestTimeout 17
+
 @implementation NYSRequest
 
 /** 登录*/
@@ -51,16 +53,16 @@
 }
 
 /** 签到*/
-+ (NSURLSessionTask *)DosignWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)DosignWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DoSign];
-    return nil;
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+/** 积分记录详情*/
++ (NSURLSessionTask *)GetScoreRecordWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ScoreRecord];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
-/** 积分记录详情*/
-+ (NSURLSessionTask *)GetScoreRecordWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ScoreRecord];
-    return nil;
-}
 /** 个人信息提供者*/
 + (NSURLSessionTask *)DataProviderInfoForUserWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ProviderUserInfo];
@@ -183,7 +185,31 @@
 /** 获取用户列表*/
 + (NSURLSessionTask *)GetUserListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UserList];
-    return [self requestWithResMethod:GET URL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 打卡*/
++ (NSURLSessionTask *)PunchClockActivityWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PunchClock];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+
+/** 提醒打卡*/
++ (NSURLSessionTask *)AlertClockActivityWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_AlertClock];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+
+/** 获取本周经文*/
++ (NSURLSessionTask *)GetWeekBibleWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_WeekBible];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 获取推荐物品列表*/
++ (NSURLSessionTask *)GetRecommendListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Recommend];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 
@@ -247,7 +273,7 @@
 + (NSURLSessionTask *)requestWithResMethod:(ResMethod)resMethod URL:(NSString *)URL parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     [PPNetworkHelper closeLog];
 //    [PPNetworkHelper openNetworkActivityIndicator:YES];
-    [PPNetworkHelper setRequestTimeoutInterval:10];
+    [PPNetworkHelper setRequestTimeoutInterval:RequestTimeout];
 //    [PPNetworkHelper closeAES];
     NLog(@"接口：%@\n参数：%@", URL, parameters);
     
@@ -302,7 +328,7 @@
 /// @param failure 失败
 + (NSURLSessionTask *)fileRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters filePath:(NSString *)filePath process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     [PPNetworkHelper closeLog];
-    [PPNetworkHelper setRequestTimeoutInterval:10];
+    [PPNetworkHelper setRequestTimeoutInterval:RequestTimeout];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -339,7 +365,7 @@
 + (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(nonnull NSString *)name process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NLog(@"接口URL:%@\n参数Params:%@", URL, parameters);
     [PPNetworkHelper closeLog];
-    [PPNetworkHelper setRequestTimeoutInterval:15.0f];
+    [PPNetworkHelper setRequestTimeoutInterval:20.0f];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];

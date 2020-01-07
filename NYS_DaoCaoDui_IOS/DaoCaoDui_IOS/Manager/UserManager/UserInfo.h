@@ -60,9 +60,12 @@ typedef NS_ENUM(NSInteger,UserGender){
 /// 生日
 @property (nonatomic, strong) NSString *birthday;
 /// 创建时间
-@property (nonatomic, assign) NSInteger gmtCreate;
+@property (nonatomic, strong) NSString *gmtCreate;
 /// 修改时间
-@property (nonatomic, assign) NSInteger gmtModify;
+@property (nonatomic, strong) NSString *gmtModify;
+
+/// 备注信息
+@property (nonatomic, strong) NSString *remark;
 
 @end
 

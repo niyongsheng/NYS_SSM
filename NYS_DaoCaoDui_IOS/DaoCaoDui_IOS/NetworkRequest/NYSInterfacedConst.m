@@ -32,9 +32,9 @@ NSString *const CR_Reset = @"/user/resetUserPassword";
 /** 修改个人信息*/
 NSString *const CR_UpdateUserInfo = @"/user/updateInfoForUser";
 /** 签到*/
-NSString *const CR_DoSign = @"";
+NSString *const CR_DoSign = @"/scorelog/signToday";
 /** 积分记录*/
-NSString *const CR_ScoreRecord = @"";
+NSString *const CR_ScoreRecord = @"/scorelog/selectScorelogList";
 /** 个人信息提供者*/
 NSString *const CR_ProviderUserInfo = @"/user/providerInfoForUser";
 /** 群信息提供者*/
@@ -77,6 +77,14 @@ NSString *const CR_QuitActivity = @"/activity/quitActivity";
 NSString *const CR_GroupList = @"/group/findAllGroups";
 /** 用户列表*/
 NSString *const CR_UserList = @"/user/findAllUsers";
+/** 打卡*/
+NSString *const CR_PunchClock = @"/activity/punchClockActivity";
+/** 提醒打卡*/
+NSString *const CR_AlertClock = @"/activity/alertClockActivity";
+/** 本周经文*/
+NSString *const CR_WeekBible = @"/bible/selectWeekBible";
+/** 好物推荐*/
+NSString *const CR_Recommend = @"/recommend/selectRecommendList";
 
 
 

@@ -8,6 +8,7 @@
 
 #import "NYSPagingViewTableHeaderView.h"
 #import "YNRippleAnimatView.h"
+#import "NYSAlert.h"
 
 @interface NYSPagingViewTableHeaderView ()
 @property (nonatomic, strong) UIImageView *imageView;
@@ -30,7 +31,7 @@
         // 下拉放大
         self.imageViewFrame = self.imageView.frame;
 
-        _introductionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height - 50, NScreenWidth - 20, 50)];
+        _introductionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height - 90, NScreenWidth - 20, 80)];
         _introductionLabel.numberOfLines = 0;
         _introductionLabel.font = [UIFont systemFontOfSize:18.f];
         _introductionLabel.textAlignment = NSTextAlignmentCenter;
@@ -38,7 +39,8 @@
         [self addSubview:_introductionLabel];
         
         CGFloat maxRadius = [UIScreen mainScreen].bounds.size.width * 0.4;
-        _rippleView = [[YNRippleAnimatView alloc] initMinRadius:20 maxRadius:maxRadius];
+        _rippleView = [[YNRippleAnimatView alloc] initMinRadius:1 maxRadius:maxRadius];
+        _rippleView.alpha = 0.85f;
         _rippleView.rippleCount = 5;
         _rippleView.rippleDuration = 4;
         _rippleView.image = [UIImage imageNamed:@"tabbar_compose_idea"];
@@ -58,7 +60,7 @@
     _datasource = datasource;
     [_imageView setImageWithURL:[NSURL URLWithString:[datasource icon]] placeholder:[UIImage imageNamed:@"bg_ocr_intro_345x200_"]];
     [_introductionLabel setText:[datasource introduction]];
-    [_rippleView startAnimation];
+    ![datasource isClockedToday] ? [_rippleView startAnimation] : nil;
 }
          
 - (void)scrollViewDidScroll:(CGFloat)contentOffsetY {
@@ -69,7 +71,39 @@
 }
 
 - (void)clockClicked:(UIView *)sender {
+    if ([self.datasource isClockedToday]) {
+        [SVProgressHUD showInfoWithStatus:@"今天已经打过卡了\n明天再来吧"];
+        [SVProgressHUD dismissWithDelay:1.5f];
+        return;
+    }
     
+    WS(weakSelf);
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:@"今日打卡" message:@"来3:14 我们若将起初确实的信心坚持到底，就在基督里有分了。" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"打卡备注";
+    }];
+    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NLog(@"取消");
+    }];
+    UIAlertAction *sureBtn = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [NYSRequest PunchClockActivityWithResMethod:GET
+                              parameters:@{@"activityID" : @(self.datasource.ID),
+                                           @"remark" : alertVc.textFields.firstObject.text}
+                                 success:^(id response) {
+            if ([[response objectForKey:@"status"] boolValue]) {
+                [NYSAlert showSuccessAlertWithTitle:@"活动打卡" message:@"恭喜你，打卡成功^^" okButtonClickedBlock:^{
+                    [weakSelf.fromController.navigationController popViewControllerAnimated:YES];
+                    [NNotificationCenter postNotificationName:@"RefreshClockActivityListNotification" object:nil];
+                }];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }];
+    [sureBtn setValue:[UIColor redColor] forKey:@"titleTextColor"];
+    [alertVc addAction:cancelBtn];
+    [alertVc addAction:sureBtn];
+    [self.fromController presentViewController:alertVc animated:YES completion:nil];
 }
 
 @end

@@ -193,7 +193,9 @@
                                    parameters:@{@"activityID" : @(self.activityModel.ID)}
                                       success:^(id response) {
         [NYSAlert showSuccessAlertWithTitle:@"活动报名" message:@"恭喜你^^报名成功啦！" okButtonClickedBlock:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
             [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
+            [NNotificationCenter postNotificationName:@"RefreshClockActivityListNotification" object:nil];
         }];
     } failure:^(NSError *error) {
         
@@ -213,6 +215,7 @@
                 [SVProgressHUD dismissWithDelay:1.f];
                 [weakSelf.navigationController popViewControllerAnimated:YES];
                 [NNotificationCenter postNotificationName:@"RefreshActivityListNotification" object:nil];
+                [NNotificationCenter postNotificationName:@"RefreshClockActivityListNotification" object:nil];
             }
         } failure:^(NSError *error) {
             

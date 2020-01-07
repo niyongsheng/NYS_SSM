@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 1
+#define DevelopSever 0
 #define TestSever    0
-#define ProductSever 0
+#define ProductSever 1
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
@@ -74,6 +74,14 @@ UIKIT_EXTERN NSString *const CR_QuitActivity;
 UIKIT_EXTERN NSString *const CR_GroupList;
 /** 用户列表*/
 UIKIT_EXTERN NSString *const CR_UserList;
+/** 打卡*/
+UIKIT_EXTERN NSString *const CR_PunchClock;
+/** 提醒打卡*/
+UIKIT_EXTERN NSString *const CR_AlertClock;
+/** 本周经文*/
+UIKIT_EXTERN NSString *const CR_WeekBible;
+/** 好物推荐*/
+UIKIT_EXTERN NSString *const CR_Recommend;
 
 
 

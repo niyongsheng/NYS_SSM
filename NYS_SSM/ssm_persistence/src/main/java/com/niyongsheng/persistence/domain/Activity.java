@@ -91,6 +91,10 @@ public class Activity implements Serializable {
   @ApiModelProperty(value = "是否为活动成员")
   private Boolean isInGroup;
 
+  @TableField(value = "isClockedToday", exist = false)
+  @ApiModelProperty(value = "今天是否已打卡")
+  private Boolean isClockedToday;
+
   @TableField(value = "membersNum", exist = false)
   @ApiModelProperty(value = "活动成员数量")
   private Integer membersNum;

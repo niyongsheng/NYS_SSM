@@ -24,4 +24,9 @@ public class User_ActivityServiceImpl extends ServiceImpl<User_ActivityDao, User
     public void deleteOneByAccountAndActivityID(String account, Integer activityId) {
         user_activityDao.deleteOneByAccountAndActivityID(account, activityId);
     }
+
+    @Override
+    public Boolean isActivityMember(String account, Integer activityId) {
+        return user_activityDao.selectIsInActivityByAccountAndActivityID(activityId, account);
+    }
 }

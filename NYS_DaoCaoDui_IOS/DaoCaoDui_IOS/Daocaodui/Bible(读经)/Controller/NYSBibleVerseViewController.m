@@ -44,7 +44,7 @@
 
 #pragma mark -- initUI --
 - (void)initUI {
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, NTabBarHeight, 0);
     self.tableView.mj_header.hidden = YES;
     self.tableView.mj_footer.hidden = YES;
     self.tableView.showsVerticalScrollIndicator = YES;

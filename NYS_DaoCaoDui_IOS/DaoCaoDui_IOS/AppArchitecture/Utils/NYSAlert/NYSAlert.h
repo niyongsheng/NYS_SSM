@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 带按钮回调的失败提示弹框 */
 + (void)showFailAlertWithTitle:(NSString *)title message:(NSString *)message okButtonClickedBlock:(void(^)(void))okButtonClickedBlock;
 
+#pragma mark - 带block回调的签到弹窗
+/** 带block回调的签到弹窗 */
++ (void)showSignAlertWithMessage:(NSAttributedString *)signMessageText infoButtonClickedBlock:(void(^)(void))buttonClickedBlock;
 
 /*------------------------ TODO -----------------------------*/
 #pragma mark - 带block回调的弹窗

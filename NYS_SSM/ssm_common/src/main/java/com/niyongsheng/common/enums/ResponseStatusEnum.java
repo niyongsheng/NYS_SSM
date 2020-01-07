@@ -101,6 +101,13 @@ public enum ResponseStatusEnum {
     RONGCLOUD_STATUS_CODE_JOIN_GROUP_ERROR(false,9013,"加入群组出错"),
     RONGCLOUD_STATUS_CODE_QUIT_GROUP_ERROR(false,9014,"退出群组出错"),
 
+    /* 活动错误 */
+    ACTIVITY_STATUS_MEMBER_ERROR(false,10001,"您还不是活动成员，请先报名！"),
+    ACTIVITY_STATUS_RECLOCK_ERROR(false,10002,"您今天已经打卡，明天再来吧！"),
+
+    /* 签到错误 */
+    SCORE_STATUS_RESIGN_ERROR(false,20001,"您今天已经签到，明天再来吧！"),
+
     /* 系统错误❌ */
     SYS_ERROR(null,0,"系统错误");
 

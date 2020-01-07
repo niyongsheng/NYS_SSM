@@ -18,6 +18,9 @@
 #import "NYSMyContributeViewController.h"
 #import "NYSSettingViewController.h"
 #import "NYSAboutViewController.h"
+#import "NYSAlert.h"
+#import "NYSScorelogModel.h"
+#import "NYSScorelogListViewController.h"
 
 #define NHeaderHeight ((200 * Iphone6ScaleWidth) + NStatusBarHeight)
 
@@ -72,7 +75,7 @@
 
 #pragma mark -- headerViewDelegate昵称被点击 --
 - (void)nickNameViewClick {
-    [self.navigationController pushViewController:NYSRootViewController.new animated:YES];
+    [self.navigationController pushViewController:NYSScorelogListViewController.new animated:YES];
 }
 
 #pragma mark -- initUI --
@@ -114,36 +117,6 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return CellHeight;
-}
-
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    NYSMeModel *cellModel = _dataSource[indexPath.section][indexPath.row];
-    cell.textLabel.text = cellModel.titleText;
-    cell.imageView.image = [UIImage imageNamed:cellModel.titleIcon];
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSString *titleText = [_dataSource[indexPath.section][indexPath.row] titleText];
-    if ([titleText isEqualToString:@"分享"]) {
-        [[ShareManager sharedShareManager] showShareView];
-    } else if ([titleText isEqualToString:@"我的收藏"]) {
-        [self.navigationController pushViewController:[NYSMyCollectViewController new] animated:YES];
-    } else if ([titleText isEqualToString:@"我的发布"]) {
-        [self.navigationController pushViewController:[NYSMyContributeViewController new] animated:YES];
-    } else if ([titleText isEqualToString:@"设置"]) {
-        [self.navigationController pushViewController:[NYSSettingViewController new] animated:YES];
-    } else if ([titleText isEqualToString:@"关于"]) {
-        [self.navigationController pushViewController:[NYSAboutViewController new] animated:YES];
-    } 
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -196,6 +169,53 @@
             testView.backgroundColor = UIColor.clearColor;
             cell.backgroundView = testView;
         }
+    }
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    NYSMeModel *cellModel = _dataSource[indexPath.section][indexPath.row];
+    cell.textLabel.text = cellModel.titleText;
+    cell.imageView.image = [UIImage imageNamed:cellModel.titleIcon];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WS(weakSelf);
+    NSString *titleText = [_dataSource[indexPath.section][indexPath.row] titleText];
+    if ([titleText isEqualToString:@"分享"]) {
+        [[ShareManager sharedShareManager] showShareView];
+    } else if ([titleText isEqualToString:@"我的收藏"]) {
+        [self.navigationController pushViewController:[NYSMyCollectViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"我的发布"]) {
+        [self.navigationController pushViewController:[NYSMyContributeViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"设置"]) {
+        [self.navigationController pushViewController:[NYSSettingViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"关于"]) {
+        [self.navigationController pushViewController:[NYSAboutViewController new] animated:YES];
+    } else if ([titleText isEqualToString:@"签到"]) {
+        [NYSRequest DosignWithResMethod:GET
+                             parameters:@{@"fellowship" : @(NCurrentUser.fellowship)}
+                                success:^(id response) {
+            if ([[response objectForKey:@"status"] boolValue]) {
+                NYSScorelogModel *scorelog = [NYSScorelogModel mj_objectWithKeyValues:[response objectForKey:@"data"]];
+                NSString *amount = [NSString stringWithFormat:@"%ld", [scorelog amount]];
+                NSString *str = [NSString stringWithFormat:@"恭喜您^^\n获得%@粒稻壳", amount];
+                NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+                [attrStr setAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:[str rangeOfString:amount]];
+                [NYSAlert showSignAlertWithMessage:attrStr infoButtonClickedBlock:^{
+                    [weakSelf.navigationController pushViewController:NYSScorelogListViewController.new animated:YES];
+                }];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
     }
 }
 

@@ -12,6 +12,7 @@
 #import "NYSRootViewController.h"
 #import "NYSRankingViewController.h"
 #import "NYSFellowshipStoryViewController.h"
+#import "NYSRecommendViewController.h"
 
 @interface NYSTodayItemView ()
 @property (weak, nonatomic) IBOutlet UIView *myCustomView;
@@ -77,6 +78,7 @@
 }
 - (IBAction)item3Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
+    [self.fromController.navigationController pushViewController:NYSRecommendViewController.new animated:YES];
 }
 - (IBAction)item4Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];

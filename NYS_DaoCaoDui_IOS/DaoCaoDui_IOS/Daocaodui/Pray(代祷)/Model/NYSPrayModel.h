@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class UserInfo;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSPrayModel : NSObject
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSObject * expireTime;
 @property (nonatomic, assign) NSInteger fellowship;
 @property (nonatomic, strong) NSString * fellowshipName;
-@property (nonatomic, strong) NSObject * gmtCreate;
+@property (nonatomic, strong) NSString * gmtCreate;
 @property (nonatomic, strong) NSObject * gmtModify;
 @property (nonatomic, strong) NSString * icon;
 @property (nonatomic, assign) NSInteger ID;
@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL status;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
+@property (nonatomic, strong) UserInfo * user;
+@property (nonatomic, strong) NSArray<UserInfo *> * collectionUserList;
 @end
 
 NS_ASSUME_NONNULL_END

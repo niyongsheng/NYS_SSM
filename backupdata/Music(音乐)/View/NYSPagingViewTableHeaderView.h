@@ -12,8 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSPagingViewTableHeaderView : UIView
-@property(strong, nonatomic) NYSActivityModel *datasource;
-
+@property (strong, nonatomic) NYSActivityModel *datasource;
+@property (strong, nonatomic) UIViewController *fromController;
 - (void)scrollViewDidScroll:(CGFloat)contentOffsetY;
 @end
 

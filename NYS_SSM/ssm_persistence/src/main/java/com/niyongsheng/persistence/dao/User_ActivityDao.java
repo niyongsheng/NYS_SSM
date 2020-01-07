@@ -59,4 +59,5 @@ public interface User_ActivityDao extends BaseMapper<User_Activity> {
     * @param activityId 活动id
     */
    void deleteOneByAccountAndActivityID(@Param("account") String account, @Param("activityId") Integer activityId);
+
 }

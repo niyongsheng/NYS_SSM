@@ -10,6 +10,7 @@
 #import "CCDraggableContainer.h"
 #import "NYSPrayCustomCardView.h"
 #import "NYSPrayModel.h"
+#import "NYSPrayCardInfoViewController.h"
 
 @interface NYSPrayCardListViewController ()
 <
@@ -30,7 +31,12 @@ CCDraggableContainerDelegate
 
 @implementation NYSPrayCardListViewController
 
-- (IBAction)reloadDataEvent:(id)sender {
+- (IBAction)reloadDataEvent:(UIButton *)sender {
+    [UIView animateWithDuration:1 animations:^{
+        sender.imageView.transform = CGAffineTransformMakeRotation(M_PI);
+        sender.imageView.transform = CGAffineTransformIdentity;
+    }];
+
     if (self.container) {
         [self loadData];
     }
@@ -46,6 +52,7 @@ CCDraggableContainerDelegate
 
 - (void)loadUI {
     // 初始化Container
+    self.container.style = 1;
     self.container.delegate = self;
     self.container.dataSource = self;
     [self.view addSubview:self.container];
@@ -72,7 +79,6 @@ CCDraggableContainerDelegate
 }
 
 #pragma mark - CCDraggableContainer DataSource
-
 - (CCDraggableCardView *)draggableContainer:(CCDraggableContainer *)draggableContainer viewForIndex:(NSInteger)index {
     NYSPrayCustomCardView *cardView = [[NYSPrayCustomCardView alloc] initWithFrame:draggableContainer.bounds];
     cardView.pray = self.dataSources[index];
@@ -85,7 +91,6 @@ CCDraggableContainerDelegate
 }
 
 #pragma mark - CCDraggableContainer Delegate
-
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer draggableDirection:(CCDraggableDirection)draggableDirection widthRatio:(CGFloat)widthRatio heightRatio:(CGFloat)heightRatio {
     
     CGFloat scale = 1 + ((kBoundaryRatio > fabs(widthRatio) ? fabs(widthRatio) : kBoundaryRatio)) / 4;
@@ -98,14 +103,17 @@ CCDraggableContainerDelegate
 }
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer cardView:(CCDraggableCardView *)cardView didSelectIndex:(NSInteger)didSelectIndex {
-    
-    NSLog(@"点击了Tag为%ld的Card", (long)didSelectIndex);
-    
+    NLog(@"点击了Tag为%ld的代祷卡", (long)didSelectIndex);
+    NYSPrayCardInfoViewController *prayInfoVC = NYSPrayCardInfoViewController.new;
+    prayInfoVC.prayModel = self.dataSources[didSelectIndex];
+    prayInfoVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    prayInfoVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:prayInfoVC animated:YES completion:nil];
 }
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer finishedDraggableLastCard:(BOOL)finishedDraggableLastCard {
-    
-    [draggableContainer reloadData];
+    [NYSTools shakToShow:self.refreshButton];
+//    [draggableContainer reloadData];
 }
 
 @end

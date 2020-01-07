@@ -158,6 +158,7 @@
     messageLabel.adjustsFontSizeToFitWidth = YES;
     messageLabel.font = [UIFont systemFontOfSize:15];
     messageLabel.textAlignment = NSTextAlignmentCenter;
+    messageLabel.numberOfLines = 0;
     [messageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(signImageView.mas_bottom).mas_offset(14);
         make.left.right.mas_equalTo(bgImageView);
@@ -285,6 +286,75 @@
     }];
     
     [self colourBarEffectWithView:bgView];
+}
+
+#pragma mark - 带block回调的签到弹窗
++ (void)showSignAlertWithMessage:(NSAttributedString *)signMessageText infoButtonClickedBlock:(void(^)(void))buttonClickedBlock {
+    // 大背景
+    UIView *bgView = [[UIView alloc] init];
+    [[[[UIApplication sharedApplication] delegate] window] addSubview:bgView];
+    bgView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5f];
+    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    // 背景图片
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sign_yellow_bg"]];
+    [bgView addSubview:bgImageView];
+    [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(bgView);
+        make.centerY.mas_equalTo(bgView).mas_offset(0);
+        make.size.mas_equalTo(CGSizeMake(NScreenWidth, RealValue(450)));
+    }];
+    
+    // 签到label
+    UILabel *signLabel = [[UILabel alloc] init];
+    [signLabel setTextColor:[UIColor colorWithRed:1.00 green:0.76 blue:0.09 alpha:1.00]];
+    [signLabel setNumberOfLines:0];
+    signLabel.attributedText = signMessageText;
+    signLabel.adjustsFontSizeToFitWidth = YES;
+    signLabel.textAlignment = NSTextAlignmentCenter;
+    signLabel.font = [UIFont systemFontOfSize:16];
+    [bgImageView addSubview:signLabel];
+    [signLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(bgImageView);
+        make.centerY.mas_equalTo(bgImageView).mas_offset(- RealValue(30));
+    }];
+    
+    // 查看详情按钮
+    UIButton *conversionButton = [[UIButton alloc] init];
+    [bgView addSubview:conversionButton];
+    conversionButton.backgroundColor = NNavBgColorShallow;
+    [conversionButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [conversionButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [conversionButton setTitle:@"查看详情" forState:UIControlStateNormal];
+    conversionButton.layer.cornerRadius = 6;
+    conversionButton.titleEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 12);
+    [conversionButton setImage:[UIImage imageNamed:@"sign_exchange"] forState:UIControlStateNormal];
+    [conversionButton setImage:[UIImage imageNamed:@"sign_exchange"] forState:UIControlStateHighlighted];
+    conversionButton.imageEdgeInsets = UIEdgeInsetsMake(0, 71, 0, 0);
+    [[conversionButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        buttonClickedBlock();
+        [bgView removeFromSuperview];
+    }];
+    [conversionButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(bgView);
+        make.top.mas_equalTo(signLabel.mas_bottom).mas_offset(RealValue(20));
+        make.size.mas_equalTo(CGSizeMake(85, 30));
+    }];
+    
+    // 取消按钮
+    UIButton *cancelButton = [[UIButton alloc] init];
+    [bgView addSubview:cancelButton];
+    [cancelButton setBackgroundImage:[UIImage imageNamed:@"sign_out"] forState:UIControlStateNormal];
+    [[cancelButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [bgView removeFromSuperview];
+    }];
+    [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(bgImageView.mas_right).mas_offset(-55);
+        make.bottom.mas_equalTo(bgImageView.mas_top).mas_offset(110);
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
 }
 
 #pragma mark - 带block回调的弹窗

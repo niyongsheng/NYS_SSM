@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.WeekBibleDao">
+
+    <select id="selectByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.WeekBible">
+        select *
+        from dcd_weekBible wb
+        inner join dcd_fellowship f
+        on wb.fellowship = f.id
+        where wb.fellowship = #{fellowship}
+    </select>
+
+    <select id="selectWeekBibleByWeekOfYearAndFellowship" resultType="com.niyongsheng.persistence.domain.WeekBible">
+        select *
+        from dcd_weekBible
+        where fellowship = #{fellowship} and weekOfYear = #{weekOfYear}
+    </select>
+
+</mapper>

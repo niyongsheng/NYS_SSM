@@ -12,7 +12,6 @@ PODS:
   - AXNavigationBackItemInjection (0.0.2)
   - AXPracticalHUD (2.1.4):
     - AXIndicatorView
-  - AXRatingView (1.0.6)
   - AXWebViewController (0.7.2):
     - Aspects
     - AXNavigationBackItemInjection
@@ -72,6 +71,7 @@ PODS:
   - SDWebImage/Core (4.1.2)
   - SGPagingView (1.6.7)
   - SVProgressHUD (2.2.5)
+  - Toast (4.0.0)
   - TXScrollLabelView (1.3.2)
   - UMCAnalytics (6.0.5):
     - UMCCommon
@@ -93,7 +93,6 @@ PODS:
   - WMZBanner (1.0.4):
     - SDWebImage
   - WXWaveView (1.0.1)
-  - XLForm (4.1.0)
   - XRWaterfallLayout (0.1.2)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
@@ -105,7 +104,6 @@ PODS:
 
 DEPENDENCIES:
   - AxcAE_TabBar
-  - AXRatingView
   - AXWebViewController
   - BarrageRenderer
   - IQKeyboardManager
@@ -127,6 +125,7 @@ DEPENDENCIES:
   - SDWebImage
   - SGPagingView
   - SVProgressHUD
+  - Toast
   - TXScrollLabelView
   - UMCAnalytics
   - UMCCommon
@@ -137,7 +136,6 @@ DEPENDENCIES:
   - UMCShare/UI
   - WMZBanner
   - WXWaveView
-  - XLForm
   - XRWaterfallLayout
   - YTKKeyValueStore
   - YTKNetwork
@@ -156,7 +154,6 @@ SPEC REPOS:
     - AXIndicatorView
     - AXNavigationBackItemInjection
     - AXPracticalHUD
-    - AXRatingView
     - AXWebViewController
     - BarrageRenderer
     - FMDB
@@ -179,6 +176,7 @@ SPEC REPOS:
     - SDWebImage
     - SGPagingView
     - SVProgressHUD
+    - Toast
     - TXScrollLabelView
     - UMCAnalytics
     - UMCCommon
@@ -187,7 +185,6 @@ SPEC REPOS:
     - UMCShare
     - WMZBanner
     - WXWaveView
-    - XLForm
     - XRWaterfallLayout
     - YTKNetwork
 
@@ -198,7 +195,6 @@ SPEC CHECKSUMS:
   AXIndicatorView: 566b490a2dd9781d4ffbcc9752be9b9cdc6e728e
   AXNavigationBackItemInjection: efe0446967f3cbcc85a9118decd1e145138912dd
   AXPracticalHUD: 821d170b31e050c426ef8754b07b4264a8b1d861
-  AXRatingView: b975cd1a11c6c2e76c8999c166e089ed26f54133
   AXWebViewController: 96566c473fce2806f4da696132b31777f5404c9f
   BarrageRenderer: 00e5f8081d81f29c1fc12712ddf2f875bd9c6f77
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -223,6 +219,7 @@ SPEC CHECKSUMS:
   SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
   SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TXScrollLabelView: 0e1650caf61198bf5dc0938ea6493254aeb80f90
   UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
   UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
@@ -231,12 +228,11 @@ SPEC CHECKSUMS:
   UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
   WMZBanner: 460b4757a49a15f23c5ad953cda16950313ccfe0
   WXWaveView: f8424284812536a3842bc5dd9afb943e53e911a8
-  XLForm: 7ee02761be8a369d1ad1bbffe738b97083d94f3e
   XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: 19be749c30f0512ada07180f4637b4b67bc8ddc2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: eaabbfdd14c1b758d4cc5d64c8575595dbc48813
+PODFILE CHECKSUM: 01d21b74a6d29e1f2f7e2ca683151ab0f6f3701d
 
 COCOAPODS: 1.8.4

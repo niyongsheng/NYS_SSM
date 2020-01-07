@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class UserInfo;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSMusicMenuModel : NSObject
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSObject * musicList;
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, assign) BOOL status;
-@property (nonatomic, strong) NSObject * user;
+@property (nonatomic, strong) UserInfo * user;
 @end
 
 NS_ASSUME_NONNULL_END

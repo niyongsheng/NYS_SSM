@@ -11,4 +11,6 @@ import com.niyongsheng.persistence.domain.User_Activity_Clock;
  * @updateDes
  */
 public interface User_Activity_ClockService extends IService<User_Activity_Clock> {
+
+    Boolean isClockedToday(String account, Integer activityId);
 }

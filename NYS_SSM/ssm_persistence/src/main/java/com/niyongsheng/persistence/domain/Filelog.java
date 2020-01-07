@@ -38,6 +38,10 @@ public class Filelog implements Serializable {
   @TableField(value = "remark")
   private String remark;
 
+  @ApiModelProperty(value = "所属团契编号")
+  @TableField(value = "fellowship")
+  private Integer fellowship;
+
   @ApiModelProperty(value = "修改时间")
   @TableField(value = "gmtModify")
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

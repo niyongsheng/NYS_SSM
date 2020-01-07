@@ -43,7 +43,11 @@
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.imageView.layer setMasksToBounds:YES];
     
-    self.iconBtn.layer.cornerRadius = 32.0f;
+    self.iconBtn.layer.cornerRadius = 25.0f;
+    self.iconBtn.layer.masksToBounds = YES;
+    CALayer *layer = [self.iconBtn layer];
+    layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
+    layer.borderWidth = 0.5f;
     
     self.titleLabel.textColor = [UIColor blackColor];
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
@@ -56,7 +60,7 @@
 
 - (void)cc_layoutSubviews {
     self.imageView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height - 64);
-    self.iconBtn.frame = CGRectMake(5, self.frame.size.height - 64, 64, 64);
+    self.iconBtn.frame = CGRectMake(5, self.frame.size.height - 55, 50, 50);
     self.titleLabel.frame = CGRectMake(self.iconBtn.right + 5, self.frame.size.height - 64, self.frame.size.width - self.iconBtn.width - 10, 64);
 }
 
@@ -66,7 +70,7 @@
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:pray.icon] placeholderImage:[UIImage imageNamed:@"bg_ocr_intro_345x200_"]];
     self.imageView.transform = CGAffineTransformIdentity;
     
-    [self.iconBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:@""] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
+    [self.iconBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[pray.user icon]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
     self.iconBtn.transform = CGAffineTransformIdentity;
     
     self.titleLabel.text = pray.subtitle;

@@ -3,9 +3,10 @@
 <mapper namespace="com.niyongsheng.persistence.dao.User_Activity_ClockDao">
 
     <select id="selectTodayClockedUsersByActivityID" resultType="com.niyongsheng.persistence.domain.User">
-        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uac.activityID
+        select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uac.activityID, uac.gmtCreate, uac.remark
         from dcd_user u, dcd_user_activity_clock uac
         where datediff(uac.gmtCreate, NOW()) = 0 and u.account = uac.account and uac.activityID = #{activityID}
+        order by uac.gmtCreate
     </select>
 
     <select id="selectTodayUnclockUsersByActivityID" resultType="com.niyongsheng.persistence.domain.User">
@@ -18,6 +19,12 @@
         from dcd_user u, dcd_user_activity_clock uac
         where datediff(uac.gmtCreate, NOW()) = 0 and u.account = uac.account and uac.activityID = #{activityID} and u.account = ua.account
         )
+    </select>
+
+    <select id="isClockedToday" resultType="java.lang.Boolean">
+        select count(id)
+        from dcd_user_activity_clock
+        where datediff(gmtCreate, NOW()) = 0 and account = #{account} and activityID = #{activityId}
     </select>
 
 </mapper>

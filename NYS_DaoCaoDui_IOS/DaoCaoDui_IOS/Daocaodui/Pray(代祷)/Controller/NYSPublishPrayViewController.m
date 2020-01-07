@@ -16,6 +16,7 @@
 #import "KHAlertPickerController.h"
 #import "NYSAlert.h"
 #import "KHAlertPickerController.h"
+#import "NYSPrayCardInfoViewController.h"
 
 @interface NYSPublishPrayViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;

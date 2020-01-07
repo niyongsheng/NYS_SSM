@@ -10,9 +10,11 @@ import com.niyongsheng.common.utils.MathUtils;
 import com.niyongsheng.persistence.domain.Activity;
 import com.niyongsheng.persistence.domain.Group;
 import com.niyongsheng.persistence.domain.User_Activity;
+import com.niyongsheng.persistence.domain.User_Activity_Clock;
 import com.niyongsheng.persistence.service.ActivityService;
 import com.niyongsheng.persistence.service.GroupService;
 import com.niyongsheng.persistence.service.User_ActivityService;
+import com.niyongsheng.persistence.service.User_Activity_ClockService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -53,6 +55,9 @@ public class ActivityController {
 
     @Autowired
     private User_ActivityService user_activityService;
+
+    @Autowired
+    private User_Activity_ClockService user_activity_clockService;
 
     @Autowired
     private QiniuUploadFileService qiniuUploadFileService;
@@ -277,7 +282,7 @@ public class ActivityController {
     @RequestMapping(value = "/dismissActivity", method = RequestMethod.GET)
     @ApiOperation(value = "结束活动", notes = "参数描述", hidden = false)
     public ResponseDto dismissActivity(HttpServletRequest request, Model model,
-                                                    @NotBlank
+                                                    @NotBlank(message = "{NotBlank.activityID}")
                                                     @ApiParam(name = "activityID", value = "活动ID", required = true)
                                                     @RequestParam(value = "activityID", required = true) String activityID
     ) throws ResponseException {
@@ -320,7 +325,7 @@ public class ActivityController {
     @RequestMapping(value = "/joinActivity", method = RequestMethod.GET)
     @ApiOperation(value = "加入活动", notes = "参数描述", hidden = false)
     public ResponseDto joinActivity(HttpServletRequest request, Model model,
-                                                    @NotBlank
+                                                    @NotBlank(message = "{NotBlank.activityID}")
                                                     @ApiParam(name = "activityID", value = "活动ID", required = true)
                                                     @RequestParam(value = "activityID", required = true) String activityID
     ) throws ResponseException {
@@ -364,7 +369,7 @@ public class ActivityController {
     @RequestMapping(value = "/quitActivity", method = RequestMethod.GET)
     @ApiOperation(value = "退出活动", notes = "参数描述", hidden = false)
     public ResponseDto quitActivity(HttpServletRequest request, Model model,
-                                    @NotBlank
+                                    @NotBlank(message = "{NotBlank.activityID}")
                                     @ApiParam(name = "activityID", value = "活动ID", required = true)
                                     @RequestParam(value = "activityID", required = true) String activityID
     ) throws ResponseException {
@@ -395,6 +400,62 @@ public class ActivityController {
             rongCloudService.joinGroup(account, String.valueOf(groupId), activity.getName());
             throw new ResponseException(ResponseStatusEnum.DB_DELETE_ERROR);
         }
+
+        // 3.返回成功结果
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/punchClockActivity", method = RequestMethod.GET)
+    @ApiOperation(value = "活动打卡", notes = "参数描述", hidden = false)
+    public ResponseDto punchClockActivity(HttpServletRequest request, Model model,
+                                       @NotBlank(message = "{NotBlank.activityID}")
+                                       @ApiParam(name = "activityID", value = "打卡活动ID", required = true)
+                                       @RequestParam(value = "activityID", required = true) String activityID,
+                                       @NotBlank(message = "{NotBlank.remark}")
+                                       @ApiParam(name = "remark", value = "打卡备注", required = true)
+                                       @RequestParam(value = "remark", required = true) String remark
+    ) throws ResponseException {
+        // 1.判断是否为活动成员
+        String account = request.getHeader("Account");
+        Boolean isActivityMember = user_activityService.isActivityMember(account, Integer.valueOf(activityID));
+        if (!isActivityMember) {
+            throw  new ResponseException(ResponseStatusEnum.ACTIVITY_STATUS_MEMBER_ERROR);
+        }
+
+        // 2.今天是否已打过卡
+        Boolean isClockedToday = user_activity_clockService.isClockedToday(account, Integer.valueOf(activityID));
+        if (isClockedToday) {
+            throw  new ResponseException(ResponseStatusEnum.ACTIVITY_STATUS_RECLOCK_ERROR);
+        }
+
+        // 2.插入打卡表
+        User_Activity_Clock user_activity_clock = new User_Activity_Clock();
+        user_activity_clock.setAccount(account);
+        user_activity_clock.setActivityId(Integer.valueOf(activityID));
+        user_activity_clock.setRemark(remark);
+        user_activity_clock.setGmtCreate(LocalDateTime.now());
+        try {
+            user_activity_clockService.getBaseMapper().insert(user_activity_clock);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
+
+        // 3.返回成功结果
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/alertClockActivity", method = RequestMethod.GET)
+    @ApiOperation(value = "提醒小伙伴打卡", notes = "参数描述", hidden = false)
+    public ResponseDto alertClockActivity(HttpServletRequest request, Model model,
+                                          @NotBlank(message = "{NotBlank.account}")
+                                          @ApiParam(name = "account", value = "提醒的用户账号", required = true)
+                                          @RequestParam(value = "account", required = true) String account,
+                                          @ApiParam(name = "remark", value = "留言信息", required = false)
+                                          @RequestParam(value = "remark", required = false) String remark
+    ) throws ResponseException {
+        // TODO
 
         // 3.返回成功结果
         return (new ResponseDto(ResponseStatusEnum.SUCCESS));

@@ -49,6 +49,9 @@
 		C81074E223AA4A9300CC7868 /* DFPlayerTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C81074D723AA4A9200CC7868 /* DFPlayerTool.m */; };
 		C8188D2323ADE04300E13F3A /* BibleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8188D2223ADE04300E13F3A /* BibleManager.m */; };
 		C8188D2523AE173800E13F3A /* secret.png in Resources */ = {isa = PBXBuildFile; fileRef = C8188D2423AE173800E13F3A /* secret.png */; };
+		C81A55CA23C47554006BB897 /* NYSPrayCardInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C81A55C923C47554006BB897 /* NYSPrayCardInfoViewController.m */; };
+		C81A55CD23C47B9D006BB897 /* NYSTimeCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = C81A55CB23C47B9B006BB897 /* NYSTimeCircle.m */; };
+		C81A55CF23C47ECC006BB897 /* 04b_03b.TTF in Resources */ = {isa = PBXBuildFile; fileRef = C81A55CE23C47ECC006BB897 /* 04b_03b.TTF */; };
 		C821612E235D5EEC00B17530 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612B235D5EEC00B17530 /* ChineseString.m */; };
 		C821612F235D5EEC00B17530 /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = C821612D235D5EEC00B17530 /* pinyin.m */; };
 		C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8265C6B22A0FEE10072A3F1 /* UserManager.m */; };
@@ -76,7 +79,6 @@
 		C83B8E2723AC9AFF0051A22C /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2023AC9AFF0051A22C /* SGBaseMenu.m */; };
 		C83B8E2823AC9AFF0051A22C /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2223AC9AFF0051A22C /* SGGridMenu.m */; };
 		C83B8E2923AC9AFF0051A22C /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2423AC9AFF0051A22C /* SGSheetMenu.m */; };
-		C83B8E2B23ACC5000051A22C /* me1.plist in Resources */ = {isa = PBXBuildFile; fileRef = C83B8E2A23ACC5000051A22C /* me1.plist */; };
 		C83B8E2F23ACC6600051A22C /* NYSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E2E23ACC6600051A22C /* NYSAboutViewController.m */; };
 		C83B8E3A23ACC9210051A22C /* NYSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3923ACC9210051A22C /* NYSSettingViewController.m */; };
 		C83B8E3D23ACC9380051A22C /* NYSMyContributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83B8E3C23ACC9380051A22C /* NYSMyContributeViewController.m */; };
@@ -165,6 +167,10 @@
 		C8871F1A23C099F800CDDA35 /* YNRippleAnimatView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8871F1823C099F700CDDA35 /* YNRippleAnimatView.m */; };
 		C8871F1E23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8871F1D23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.m */; };
 		C8871F2023C0AA6700CDDA35 /* meteor.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C8871F1F23C0AA6700CDDA35 /* meteor.mp4 */; };
+		C88CEDDB23C32B8A00B0E8F4 /* sign_yellow_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C88CEDD923C32B8900B0E8F4 /* sign_yellow_bg@2x.png */; };
+		C88CEDDC23C32B8A00B0E8F4 /* sign_yellow_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C88CEDDA23C32B8900B0E8F4 /* sign_yellow_bg@3x.png */; };
+		C88CEDDF23C3528A00B0E8F4 /* NYSScorelogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C88CEDDE23C3528A00B0E8F4 /* NYSScorelogModel.m */; };
+		C88CEDE323C3555800B0E8F4 /* NYSScorelogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C88CEDE223C3555800B0E8F4 /* NYSScorelogListViewController.m */; };
 		C8914B4A23BD8DEF009842EF /* NYSActivityInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8914B4923BD8DEF009842EF /* NYSActivityInfoViewController.m */; };
 		C899EFA223A32D1400E78403 /* NYSMyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C899EFA123A32D1400E78403 /* NYSMyCollectViewController.m */; };
 		C899EFA523A341C100E78403 /* NYSActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C899EFA423A341C100E78403 /* NYSActivityListViewController.m */; };
@@ -202,6 +208,11 @@
 		C8B6B5632394AD8A0067ACD5 /* NYSPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6B5622394AD8A0067ACD5 /* NYSPersonalInfoViewController.m */; };
 		C8BA3AA0238F74010041FC6E /* 汉仪铸字美心体W.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8BA3A9F238F74010041FC6E /* 汉仪铸字美心体W.ttf */; };
 		C8BA3AA3238FBC2A0041FC6E /* NYSBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BA3AA2238FBC2A0041FC6E /* NYSBaseNavigationController.m */; };
+		C8C0FAB023C42A6100EBE7E0 /* NYSWeekBibleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FAAF23C42A6100EBE7E0 /* NYSWeekBibleModel.m */; };
+		C8C0FAB723C4408600EBE7E0 /* NYSRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FAB623C4408600EBE7E0 /* NYSRecommendModel.m */; };
+		C8C0FABA23C440B900EBE7E0 /* NYSRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FAB923C440B900EBE7E0 /* NYSRecommendViewController.m */; };
+		C8C0FAC123C4432000EBE7E0 /* NYSRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FABF23C4432000EBE7E0 /* NYSRecommendTableViewCell.m */; };
+		C8C0FAC223C4432000EBE7E0 /* NYSRecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C0FAC023C4432000EBE7E0 /* NYSRecommendTableViewCell.xib */; };
 		C8C664BD2363CF60009952E5 /* NYSGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C664BC2363CF60009952E5 /* NYSGroupListViewController.m */; };
 		C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C664C22363CFED009952E5 /* NYSGroupModel.m */; };
 		C8C664C72363D174009952E5 /* NYSGroupCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C664C52363D174009952E5 /* NYSGroupCollectionCell.m */; };
@@ -330,6 +341,11 @@
 		C8188D2123ADE04300E13F3A /* BibleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BibleManager.h; sourceTree = "<group>"; };
 		C8188D2223ADE04300E13F3A /* BibleManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BibleManager.m; sourceTree = "<group>"; };
 		C8188D2423AE173800E13F3A /* secret.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secret.png; sourceTree = "<group>"; };
+		C81A55C823C47554006BB897 /* NYSPrayCardInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPrayCardInfoViewController.h; sourceTree = "<group>"; };
+		C81A55C923C47554006BB897 /* NYSPrayCardInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCardInfoViewController.m; sourceTree = "<group>"; };
+		C81A55CB23C47B9B006BB897 /* NYSTimeCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSTimeCircle.m; sourceTree = "<group>"; };
+		C81A55CC23C47B9C006BB897 /* NYSTimeCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSTimeCircle.h; sourceTree = "<group>"; };
+		C81A55CE23C47ECC006BB897 /* 04b_03b.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = 04b_03b.TTF; sourceTree = "<group>"; };
 		C821612A235D5EEC00B17530 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
 		C821612B235D5EEC00B17530 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
 		C821612C235D5EEC00B17530 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
@@ -378,7 +394,6 @@
 		C83B8E2223AC9AFF0051A22C /* SGGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGridMenu.m; sourceTree = "<group>"; };
 		C83B8E2323AC9AFF0051A22C /* SGSheetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSheetMenu.h; sourceTree = "<group>"; };
 		C83B8E2423AC9AFF0051A22C /* SGSheetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSheetMenu.m; sourceTree = "<group>"; };
-		C83B8E2A23ACC5000051A22C /* me1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = me1.plist; sourceTree = "<group>"; };
 		C83B8E2D23ACC6600051A22C /* NYSAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSAboutViewController.h; sourceTree = "<group>"; };
 		C83B8E2E23ACC6600051A22C /* NYSAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSAboutViewController.m; sourceTree = "<group>"; };
 		C83B8E3823ACC9210051A22C /* NYSSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSSettingViewController.h; sourceTree = "<group>"; };
@@ -520,6 +535,12 @@
 		C8871F1C23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSFellowshipStoryViewController.h; sourceTree = "<group>"; };
 		C8871F1D23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSFellowshipStoryViewController.m; sourceTree = "<group>"; };
 		C8871F1F23C0AA6700CDDA35 /* meteor.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = meteor.mp4; sourceTree = "<group>"; };
+		C88CEDD923C32B8900B0E8F4 /* sign_yellow_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_yellow_bg@2x.png"; sourceTree = "<group>"; };
+		C88CEDDA23C32B8900B0E8F4 /* sign_yellow_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign_yellow_bg@3x.png"; sourceTree = "<group>"; };
+		C88CEDDD23C3528A00B0E8F4 /* NYSScorelogModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSScorelogModel.h; sourceTree = "<group>"; };
+		C88CEDDE23C3528A00B0E8F4 /* NYSScorelogModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSScorelogModel.m; sourceTree = "<group>"; };
+		C88CEDE123C3555800B0E8F4 /* NYSScorelogListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSScorelogListViewController.h; sourceTree = "<group>"; };
+		C88CEDE223C3555800B0E8F4 /* NYSScorelogListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSScorelogListViewController.m; sourceTree = "<group>"; };
 		C8914B4823BD8DEF009842EF /* NYSActivityInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSActivityInfoViewController.h; sourceTree = "<group>"; };
 		C8914B4923BD8DEF009842EF /* NYSActivityInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSActivityInfoViewController.m; sourceTree = "<group>"; };
 		C899EFA023A32D1400E78403 /* NYSMyCollectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMyCollectViewController.h; sourceTree = "<group>"; };
@@ -579,6 +600,15 @@
 		C8BA3A9F238F74010041FC6E /* 汉仪铸字美心体W.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "汉仪铸字美心体W.ttf"; sourceTree = "<group>"; };
 		C8BA3AA1238FBC2A0041FC6E /* NYSBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBaseNavigationController.h; sourceTree = "<group>"; };
 		C8BA3AA2238FBC2A0041FC6E /* NYSBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBaseNavigationController.m; sourceTree = "<group>"; };
+		C8C0FAAE23C42A6100EBE7E0 /* NYSWeekBibleModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSWeekBibleModel.h; sourceTree = "<group>"; };
+		C8C0FAAF23C42A6100EBE7E0 /* NYSWeekBibleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSWeekBibleModel.m; sourceTree = "<group>"; };
+		C8C0FAB523C4408600EBE7E0 /* NYSRecommendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRecommendModel.h; sourceTree = "<group>"; };
+		C8C0FAB623C4408600EBE7E0 /* NYSRecommendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRecommendModel.m; sourceTree = "<group>"; };
+		C8C0FAB823C440B900EBE7E0 /* NYSRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRecommendViewController.h; sourceTree = "<group>"; };
+		C8C0FAB923C440B900EBE7E0 /* NYSRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRecommendViewController.m; sourceTree = "<group>"; };
+		C8C0FABE23C4432000EBE7E0 /* NYSRecommendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRecommendTableViewCell.h; sourceTree = "<group>"; };
+		C8C0FABF23C4432000EBE7E0 /* NYSRecommendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRecommendTableViewCell.m; sourceTree = "<group>"; };
+		C8C0FAC023C4432000EBE7E0 /* NYSRecommendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSRecommendTableViewCell.xib; sourceTree = "<group>"; };
 		C8C664BB2363CF60009952E5 /* NYSGroupListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSGroupListViewController.h; sourceTree = "<group>"; };
 		C8C664BC2363CF60009952E5 /* NYSGroupListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSGroupListViewController.m; sourceTree = "<group>"; };
 		C8C664C12363CFED009952E5 /* NYSGroupModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSGroupModel.h; sourceTree = "<group>"; };
@@ -764,6 +794,8 @@
 				C807696B23A216B0004B6E1C /* NYSBannerModel.m */,
 				C807696D23A216D8004B6E1C /* NYSPublicnotice.h */,
 				C807696E23A216D8004B6E1C /* NYSPublicnotice.m */,
+				C8C0FAAE23C42A6100EBE7E0 /* NYSWeekBibleModel.h */,
+				C8C0FAAF23C42A6100EBE7E0 /* NYSWeekBibleModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -774,6 +806,8 @@
 				C807699723A24DC3004B6E1C /* NYSPrayCardListViewController.h */,
 				C807699423A24DC0004B6E1C /* NYSPrayCardListViewController.m */,
 				C807699523A24DC1004B6E1C /* NYSPrayCardListViewController.xib */,
+				C81A55C823C47554006BB897 /* NYSPrayCardInfoViewController.h */,
+				C81A55C923C47554006BB897 /* NYSPrayCardInfoViewController.m */,
 				C8D78C8B23B31A6000C0DC97 /* NYSPublishPrayViewController.h */,
 				C8D78C8C23B31A6000C0DC97 /* NYSPublishPrayViewController.m */,
 			);
@@ -783,6 +817,8 @@
 		C807697123A24D46004B6E1C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C81A55CC23C47B9C006BB897 /* NYSTimeCircle.h */,
+				C81A55CB23C47B9B006BB897 /* NYSTimeCircle.m */,
 				C807699A23A24DC6004B6E1C /* NYSPrayCustomCardView.h */,
 				C807699923A24DC5004B6E1C /* NYSPrayCustomCardView.m */,
 				C807697323A24D8F004B6E1C /* CCDraggableCard */,
@@ -848,8 +884,9 @@
 		C80D251423A09A0700CF58CA /* Today(推荐) */ = {
 			isa = PBXGroup;
 			children = (
-				C8871F1B23C0A94900CDDA35 /* FellowshipStory */,
-				C867BCBF23BF514B0075625C /* Ranking */,
+				C8C0FAB123C43FC000EBE7E0 /* Recommend(好物推荐) */,
+				C8871F1B23C0A94900CDDA35 /* FellowshipStory(团契故事) */,
+				C867BCBF23BF514B0075625C /* Ranking(排行榜) */,
 				C807696923A2169C004B6E1C /* Model */,
 				C883874423A0C1D100EFD29D /* View */,
 				C80D251823A09A6100CF58CA /* Controller */,
@@ -968,7 +1005,6 @@
 			isa = PBXGroup;
 			children = (
 				C8265C7922A25E830072A3F1 /* me.plist */,
-				C83B8E2A23ACC5000051A22C /* me1.plist */,
 				C8188D2423AE173800E13F3A /* secret.png */,
 				C8265C7C22A2710D0072A3F1 /* man@2x.png */,
 				C8265C7D22A2710D0072A3F1 /* woman@2x.png */,
@@ -1151,6 +1187,7 @@
 		C8424ED1229E898C003A7C58 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				C88CEDE023C3551D00B0E8F4 /* MyScorelog(积分记录) */,
 				C8B6B55F2394AA8D0067ACD5 /* MyInformation(个人信息) */,
 				C899EF9D23A32CB600E78403 /* MyCollect(我的收藏) */,
 				C83B8E3223ACC9100051A22C /* MyContribute(我的发布) */,
@@ -1471,13 +1508,13 @@
 			path = KHAlertPicker;
 			sourceTree = "<group>";
 		};
-		C867BCBF23BF514B0075625C /* Ranking */ = {
+		C867BCBF23BF514B0075625C /* Ranking(排行榜) */ = {
 			isa = PBXGroup;
 			children = (
 				C867BCC423BF5B5B0075625C /* View */,
 				C867BCC023BF51B00075625C /* Controller */,
 			);
-			path = Ranking;
+			path = "Ranking(排行榜)";
 			sourceTree = "<group>";
 		};
 		C867BCC023BF51B00075625C /* Controller */ = {
@@ -1598,14 +1635,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		C8871F1B23C0A94900CDDA35 /* FellowshipStory */ = {
+		C8871F1B23C0A94900CDDA35 /* FellowshipStory(团契故事) */ = {
 			isa = PBXGroup;
 			children = (
 				C8871F1F23C0AA6700CDDA35 /* meteor.mp4 */,
 				C8871F1C23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.h */,
 				C8871F1D23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.m */,
 			);
-			path = FellowshipStory;
+			path = "FellowshipStory(团契故事)";
+			sourceTree = "<group>";
+		};
+		C88CEDE023C3551D00B0E8F4 /* MyScorelog(积分记录) */ = {
+			isa = PBXGroup;
+			children = (
+				C88CEDE523C3556F00B0E8F4 /* Model */,
+				C88CEDE423C3556600B0E8F4 /* Controller */,
+			);
+			path = "MyScorelog(积分记录)";
+			sourceTree = "<group>";
+		};
+		C88CEDE423C3556600B0E8F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C88CEDE123C3555800B0E8F4 /* NYSScorelogListViewController.h */,
+				C88CEDE223C3555800B0E8F4 /* NYSScorelogListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C88CEDE523C3556F00B0E8F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C88CEDDD23C3528A00B0E8F4 /* NYSScorelogModel.h */,
+				C88CEDDE23C3528A00B0E8F4 /* NYSScorelogModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C899EF9D23A32CB600E78403 /* MyCollect(我的收藏) */ = {
@@ -1770,8 +1834,47 @@
 			isa = PBXGroup;
 			children = (
 				C8BA3A9F238F74010041FC6E /* 汉仪铸字美心体W.ttf */,
+				C81A55CE23C47ECC006BB897 /* 04b_03b.TTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C8C0FAB123C43FC000EBE7E0 /* Recommend(好物推荐) */ = {
+			isa = PBXGroup;
+			children = (
+				C8C0FAB423C43FF200EBE7E0 /* Model */,
+				C8C0FAB323C43FEC00EBE7E0 /* View */,
+				C8C0FAB223C43FE300EBE7E0 /* Controller */,
+			);
+			path = "Recommend(好物推荐)";
+			sourceTree = "<group>";
+		};
+		C8C0FAB223C43FE300EBE7E0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C8C0FAB823C440B900EBE7E0 /* NYSRecommendViewController.h */,
+				C8C0FAB923C440B900EBE7E0 /* NYSRecommendViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C8C0FAB323C43FEC00EBE7E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C8C0FABE23C4432000EBE7E0 /* NYSRecommendTableViewCell.h */,
+				C8C0FABF23C4432000EBE7E0 /* NYSRecommendTableViewCell.m */,
+				C8C0FAC023C4432000EBE7E0 /* NYSRecommendTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C8C0FAB423C43FF200EBE7E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C8C0FAB523C4408600EBE7E0 /* NYSRecommendModel.h */,
+				C8C0FAB623C4408600EBE7E0 /* NYSRecommendModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C8C664B72363CEB1009952E5 /* GroupList */ = {
@@ -1886,6 +1989,8 @@
 		C8E22C7923B497040025C094 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				C88CEDD923C32B8900B0E8F4 /* sign_yellow_bg@2x.png */,
+				C88CEDDA23C32B8900B0E8F4 /* sign_yellow_bg@3x.png */,
 				C8E22C8B23B498910025C094 /* nys_alert_bg@2x.png */,
 				C8E22C8C23B498920025C094 /* nys_alert_bg@3x.png */,
 				C8E22C8E23B498940025C094 /* nys_alert_fail@2x.png */,
@@ -2068,16 +2173,17 @@
 				C8424EC1229E7896003A7C58 /* close_icon_gray.png in Resources */,
 				C860A73B23979A9500902AB6 /* NYSBindPhoneViewController.xib in Resources */,
 				C8424EBC229E770A003A7C58 /* JSToOC.html in Resources */,
+				C88CEDDC23C32B8A00B0E8F4 /* sign_yellow_bg@3x.png in Resources */,
 				C8424EC0229E7896003A7C58 /* close_icon_gray@2x.png in Resources */,
 				C807696423A1FDD5004B6E1C /* NYSScrollNumberView.xib in Resources */,
 				C8E3B31423ADD3F600A0BCB4 /* en_kjv.xml in Resources */,
 				C8E22C8023B497410025C094 /* sign_exchange@3x.png in Resources */,
 				C8265C9E22A27E6B0072A3F1 /* NYSLoginViewController.xib in Resources */,
-				C83B8E2B23ACC5000051A22C /* me1.plist in Resources */,
 				C89CA2BC22BCA2DE0086F9B0 /* stepPk_win_colour4@2x.png in Resources */,
 				C857A393229CD026002B5396 /* MBHUD_Info@2x.png in Resources */,
 				C857A396229CD026002B5396 /* MBHUD_Success@3x.png in Resources */,
 				C8265C7E22A2710E0072A3F1 /* man@2x.png in Resources */,
+				C8C0FAC223C4432000EBE7E0 /* NYSRecommendTableViewCell.xib in Resources */,
 				C85C44B7229BA88100B35652 /* loading_image.png in Resources */,
 				C8CA7B9823A9C8C30081D593 /* nav_img2.png in Resources */,
 				C8188D2523AE173800E13F3A /* secret.png in Resources */,
@@ -2086,6 +2192,7 @@
 				C85C44D1229BAB2900B35652 /* arrow_icon.png in Resources */,
 				C83CDF4723BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib in Resources */,
 				C8E22C7C23B4972D0025C094 /* sign_bg@3x.png in Resources */,
+				C88CEDDB23C32B8A00B0E8F4 /* sign_yellow_bg@2x.png in Resources */,
 				C89CA2BD22BCA2DE0086F9B0 /* stepPk_win_colour2@2x.png in Resources */,
 				C857A398229CD026002B5396 /* MBHUD_Warn@3x.png in Resources */,
 				C83B8E4223ACCC240051A22C /* NYSAboutHeaderView.xib in Resources */,
@@ -2107,6 +2214,7 @@
 				C89CA2C022BCA2DE0086F9B0 /* stepPk_win_colour6@2x.png in Resources */,
 				C8DDA11623AB3B46003AF6F4 /* zh_cuv.xml in Resources */,
 				C857A397229CD026002B5396 /* MBHUD_Warn@2x.png in Resources */,
+				C81A55CF23C47ECC006BB897 /* 04b_03b.TTF in Resources */,
 				C8E22C9223B498950025C094 /* nys_alert_bg@3x.png in Resources */,
 				C8E22C8823B4975B0025C094 /* sign_success@3x.png in Resources */,
 				C8E22C8123B497410025C094 /* sign_exchange@2x.png in Resources */,
@@ -2182,6 +2290,7 @@
 				C81074DA23AA4A9300CC7868 /* DFPlayerControlManager.m in Sources */,
 				C81074B523AA235100CC7868 /* NYSMusicMenuSegmentViewController.m in Sources */,
 				C8265C6C22A0FEE10072A3F1 /* UserManager.m in Sources */,
+				C8C0FAB023C42A6100EBE7E0 /* NYSWeekBibleModel.m in Sources */,
 				C81074BD23AA38CD00CC7868 /* NYSMusicListModel.m in Sources */,
 				C807697A23A24D8F004B6E1C /* CCDraggableContainer.m in Sources */,
 				C8265C9F22A27E6B0072A3F1 /* NYSRegisterViewController.m in Sources */,
@@ -2190,6 +2299,7 @@
 				C83B8E2923AC9AFF0051A22C /* SGSheetMenu.m in Sources */,
 				C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */,
 				C860A7352397891100902AB6 /* KHAlertPickerController.m in Sources */,
+				C81A55CD23C47B9D006BB897 /* NYSTimeCircle.m in Sources */,
 				C807696223A1FDC0004B6E1C /* NYSScrollNumberView.m in Sources */,
 				C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */,
 				C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */,
@@ -2227,6 +2337,7 @@
 				C852821A23C07D32000429A1 /* NYSPagingViewTableHeaderView.m in Sources */,
 				C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */,
 				C8E3B30923ADA86C00A0BCB4 /* NYSAboutFooterView.m in Sources */,
+				C88CEDE323C3555800B0E8F4 /* NYSScorelogListViewController.m in Sources */,
 				C85DD72022A4BE8E00E33636 /* NYSTools.m in Sources */,
 				C83B8E2523AC9AFF0051A22C /* SGActionView.m in Sources */,
 				C802A61D22A62F03002E2A58 /* NSString+Size.m in Sources */,
@@ -2241,6 +2352,7 @@
 				C802A61922A62D85002E2A58 /* NYSFAQViewController.m in Sources */,
 				C8C664BD2363CF60009952E5 /* NYSGroupListViewController.m in Sources */,
 				C8DDA11B23AB4DD3003AF6F4 /* NYSBibleBookCollectionViewCell.m in Sources */,
+				C8C0FABA23C440B900EBE7E0 /* NYSRecommendViewController.m in Sources */,
 				C8A8052823B1B92B00DA52DC /* NYSInputTableViewCell.m in Sources */,
 				C8265CA322A27E6B0072A3F1 /* NGTextField.m in Sources */,
 				C867BCC823BF5C560075625C /* NYSRankingTableViewCell.m in Sources */,
@@ -2276,9 +2388,11 @@
 				C8FFC6C923B9969F005EFB01 /* NYSFileType.m in Sources */,
 				C8D78C9323B32B3500C0DC97 /* NYSPublishActivityViewController.m in Sources */,
 				C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */,
+				C8C0FAB723C4408600EBE7E0 /* NYSRecommendModel.m in Sources */,
 				C899EFA523A341C100E78403 /* NYSActivityListViewController.m in Sources */,
 				C89CA2AF22BCA15C0086F9B0 /* NYSEmitterViewController.m in Sources */,
 				C8871F1E23C0A9A300CDDA35 /* NYSFellowshipStoryViewController.m in Sources */,
+				C88CEDDF23C3528A00B0E8F4 /* NYSScorelogModel.m in Sources */,
 				C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */,
 				C85DD73222A4F03A00E33636 /* IMManager.m in Sources */,
 				C85C44F5229C045B00B35652 /* SandBoxHelper.m in Sources */,
@@ -2311,6 +2425,8 @@
 				C83CDF4423BDD965007E3B17 /* NYSMemberCollectionViewCell.m in Sources */,
 				C8C664C72363D174009952E5 /* NYSGroupCollectionCell.m in Sources */,
 				C85C44DD229BD82000B35652 /* NYSTransition.m in Sources */,
+				C81A55CA23C47554006BB897 /* NYSPrayCardInfoViewController.m in Sources */,
+				C8C0FAC123C4432000EBE7E0 /* NYSRecommendTableViewCell.m in Sources */,
 				C8265C7822A252C80072A3F1 /* NYSMeModel.m in Sources */,
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,
 				C8E22C7823B494570025C094 /* NYSAlert.m in Sources */,

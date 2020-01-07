@@ -55,11 +55,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (BOOL)isValidPhone:(NSString *)phone;
 
-/** 时间戳格式化yyyy-MM-dd HH:mm:ss */
-+ (NSString *)timeFormatWithInterval:(NSTimeInterval)interval;
+/// 将某个时间转化成 时间戳
+/// @param formatTime 时间z字符串
+/// @param format 格式（@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
++ (NSInteger)timeSwitchTimestamp:(NSString *)formatTime andFormatter:(NSString *)format;
 
-/** 时间戳格式化yyyy年MM月dd日 HH时mm分 */
-+ (NSString *)dateFormatWithInterval:(NSTimeInterval)interval;
+/// 将某个时间戳转化成 时间
+/// @param timestamp 时间戳
+/// @param format 格式（@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
++ (NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format;
+
+/**
+ 时间戳转换成XX分钟之前
+ @param timestamp 时间戳
+ */
++ (NSString *)timeBeforeInfoWithTimestamp:(NSInteger)timestamp;
 
 /// 计算年纪
 /// @param birthdayStr 生日字符串（1991-01-01）

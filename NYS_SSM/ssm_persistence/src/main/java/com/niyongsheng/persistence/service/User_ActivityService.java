@@ -12,5 +12,18 @@ import com.niyongsheng.persistence.domain.User_Activity;
  */
 public interface User_ActivityService extends IService<User_Activity> {
 
+    /**
+     * 退出活动
+     * @param account
+     * @param activityId
+     */
     void deleteOneByAccountAndActivityID(String account, Integer activityId);
+
+    /**
+     * 是否为活动成员
+     * @param account
+     * @param activityId
+     * @return
+     */
+    Boolean isActivityMember(String account, Integer activityId);
 }

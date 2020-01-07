@@ -81,6 +81,7 @@
 	<string>需要语音识别功能，是否允许访问语音识别系统？</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>04b_03b.TTF</string>
 		<string>汉仪铸字美心体W.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>

@@ -41,7 +41,7 @@ static NSInteger pageSize = 7;
 - (void)initUI {
     // 创建瀑布流布局
     XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:2];
-    [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [waterfall setColumnSpacing:Magin rowSpacing:Magin sectionInset:UIEdgeInsetsMake(Magin, Magin, Magin, Magin)];
     waterfall.delegate = self;
     
     [self.collectionView setCollectionViewLayout:waterfall];
