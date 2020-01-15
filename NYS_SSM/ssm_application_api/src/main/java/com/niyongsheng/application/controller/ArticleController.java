@@ -1,7 +1,6 @@
 package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
@@ -58,28 +57,27 @@ public class ArticleController {
                                                  @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
 
-        // 1.调用service的方法
+        // 1.是否分页，调用service的方法
         List<Article> list = null;
-        try {
-            list = articleService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
-        } catch (Exception e) {
-            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
-        }
-
-        // 2.是否分页
         if (isPageBreak) {
-            // 2.1设置页码和分页大小
-            PageHelper.startPage(pageNum, pageSize);
-
-            // 2.2包装分页对象
-            PageInfo pageInfo = new PageInfo(list);
-
-            model.addAttribute("pagingList", pageInfo);
-            return new ResponseDto(ResponseStatusEnum.SUCCESS, pageInfo);
+            try {
+                // 2.1分页查询 设置页码和分页大小
+                PageHelper.startPage(pageNum, pageSize, false);
+                list = articleService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
         } else {
-            model.addAttribute("pagingList", list);
-            return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+            try {
+                // 2.1无分页查询
+                list = articleService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
         }
+
+        // 3.返回查询结果
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 
     @ResponseBody

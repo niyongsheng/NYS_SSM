@@ -1,0 +1,122 @@
+//
+//  NYSAticleListViewController.m
+//  DaoCaoDui_IOS
+//
+//  Created by 倪永胜 on 2020/1/15.
+//  Copyright © 2020 NiYongsheng. All rights reserved.
+//
+
+#import "NYSAticleListViewController.h"
+#import "NYSArticleTableViewCell.h"
+#import "NYSArticleModel.h"
+#import "NYSArticleDetailViewController.h"
+
+static NSInteger pageSize = 5;
+@interface NYSAticleListViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (nonatomic, strong) NSMutableArray *datasourceArray;
+@property (nonatomic, assign) NSInteger pageNum;
+@end
+
+@implementation NYSAticleListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.tableView.height = NScreenHeight - NTopHeight - NTabBarHeight;
+    self.tableView.showsVerticalScrollIndicator = YES;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)headerRereshing {
+    self.pageNum = 1;
+    NSMutableDictionary *parames = [NSMutableDictionary dictionary];
+    parames[@"fellowship"] = @(NCurrentUser.fellowship);
+    parames[@"isPageBreak"] = @"1";
+    parames[@"pageSize"] = @(pageSize);
+    parames[@"pageNum"] = @(self.pageNum);
+    WS(weakSelf);
+    [NYSRequest GetArticleList:GET
+                    parameters:parames
+                       success:^(id response) {
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer resetNoMoreData];
+        [NYSArticleModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"idField" : @"id"};
+        }];
+        weakSelf.datasourceArray = [NYSArticleModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+        [weakSelf.tableView reloadData];
+    } failure:^(NSError *error) {
+        [weakSelf.tableView.mj_header endRefreshing];
+    } isCache:YES];
+}
+
+- (void)footerRereshing {
+    ++ self.pageNum;
+    NSMutableDictionary *parames = [NSMutableDictionary dictionary];
+    parames[@"fellowship"] = @(NCurrentUser.fellowship);
+    parames[@"isPageBreak"] = @"1";
+    parames[@"pageSize"] = @(pageSize);
+    parames[@"pageNum"] = @(self.pageNum);
+    WS(weakSelf);
+    [NYSRequest GetArticleList:GET
+                    parameters:parames
+                       success:^(id response) {
+        [NYSArticleModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"idField" : @"id"};
+        }];
+        NSArray *tempArray = [NYSArticleModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
+        if (tempArray.count > 0) {
+            [weakSelf.datasourceArray addObjectsFromArray:tempArray];
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView.mj_footer endRefreshing];
+        } else {
+            [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } failure:^(NSError *error) {
+        [weakSelf.tableView.mj_footer endRefreshing];
+    } isCache:YES];
+}
+
+#pragma mark —- tableview delegate —-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.datasourceArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 450;
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    NYSArticleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NYSArticleTableViewCell"];
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"NYSArticleTableViewCell" owner:self options:nil] firstObject];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.articleModel = self.datasourceArray[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [UIView animateWithDuration:.2f delay:0 usingSpringWithDamping:1.f initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        cell.transform = CGAffineTransformMakeScale(0.9, 0.9);
+    } completion:^(BOOL finished) {
+        cell.transform = CGAffineTransformIdentity;
+        NYSArticleDetailViewController *articleVC = [[NYSArticleDetailViewController alloc] init];
+        articleVC.articleModel = self.datasourceArray[indexPath.row];
+        articleVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        articleVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self presentViewController:articleVC animated:YES completion:nil];
+    }];
+}
+
+@end

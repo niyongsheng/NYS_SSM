@@ -10,7 +10,8 @@
 #import "LayoutFittingView.h"
 #import <SGPagingView/SGPagingView.h>
 #import <AXWebViewController.h>
-#import "HomeViewController.h"
+//#import "HomeViewController.h"
+#import "NYSAticleListViewController.h"
 #import "NYSDaocaoduiHomeViewController.h"
 #import "NYSPrayCardListViewController.h"
 #import "NYSActivityListViewController.h"
@@ -55,7 +56,7 @@
     // 3.分页控制器
     NSArray *childArr = @[[NYSDaocaoduiHomeViewController new],
                           [NYSBibleViewController new],
-                          [HomeViewController new],
+                          [NYSAticleListViewController new],
                           [NYSPrayCardListViewController new],
                           [NYSActivityListViewController new],
                           [NYSMusicMenuSegmentViewController new]

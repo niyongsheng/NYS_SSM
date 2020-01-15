@@ -22,9 +22,10 @@
     self.clipsToBounds = YES;
     self.titleLabel.layer.cornerRadius = 2.0f;
     self.titleLabel.layer.masksToBounds = YES;
-    self.titleLabel.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.5];
-    self.titleLabel.font = [[UIFont systemFontOfSize:15.f] fontWithItalic];
-    self.titleLabel.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.7f];
+    self.titleLabel.backgroundColor = [UIColor colorWithWhite:0.6 alpha:0.2];
+//    self.titleLabel.font = [[UIFont systemFontOfSize:15.f] fontWithItalic];
+    self.titleLabel.font = [UIFont fontWithName:@"HYZhuZiMeiXinTiW" size:15];
+    self.titleLabel.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     self.bgImageView.image = [[UIImage imageNamed:@"1"] imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
 }
 

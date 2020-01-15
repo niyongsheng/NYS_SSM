@@ -75,7 +75,7 @@ CCDraggableContainerDelegate
         [weakSelf.container reloadData];
     } failure:^(NSError *error) {
         
-    } isCache:NO];
+    } isCache:YES];
 }
 
 #pragma mark - CCDraggableContainer DataSource

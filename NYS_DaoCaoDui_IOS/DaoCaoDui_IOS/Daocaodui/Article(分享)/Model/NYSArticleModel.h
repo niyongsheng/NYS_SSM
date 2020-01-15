@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class UserInfo;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSArticleModel : NSObject
 @property (nonatomic, strong) NSString * account;
 /// 文章类型 ：1普通 2转载
 @property (nonatomic, assign) NSInteger articleType;
-@property (nonatomic, strong) NSObject * articleUrl;
+@property (nonatomic, strong) NSString * articleUrl;
 @property (nonatomic, strong) NSString * author;
 @property (nonatomic, strong) NSString * content;
 @property (nonatomic, strong) NSObject * expireTime;
@@ -28,7 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL status;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
-
+@property (nonatomic, strong) UserInfo * user;
+@property (nonatomic, strong) NSArray<UserInfo *> * collectionUserList;
 @end
 
 NS_ASSUME_NONNULL_END

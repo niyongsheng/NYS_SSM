@@ -40,6 +40,12 @@
         <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}" />
         <!-- 当获取连接失败重试次数 -->
         <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}" />
+        <!-- 帮助进程数 -->
+        <property name="numHelperThreads" value="${jdbc.numHelperThreads}" />
+        <!-- 定时内连接，防止连接超时关闭 -->
+        <property name="preferredTestQuery" value="SELECT 1" />
+        <property name="idleConnectionTestPeriod" value="18000" />
+        <property name="testConnectionOnCheckout" value="true" />
     </bean>
 
     <!-- 3.配置mybatis-plus的SqlSessionFactory对象 -->

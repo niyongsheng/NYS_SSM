@@ -14,7 +14,7 @@
 #import "NYSActivityInfoViewController.h"
 #import <XRWaterfallLayout.h>
 
-static float Magin = 10;
+static float Magin = 15;
 static NSInteger pageSize = 7;
 
 @interface NYSActivityListViewController () <UICollectionViewDelegate, UICollectionViewDataSource, XRWaterfallLayoutDelegate>
@@ -34,14 +34,14 @@ static NSInteger pageSize = 7;
     [NNotificationCenter addObserver:self selector:@selector(refreshActivityList:) name:@"RefreshActivityListNotification" object:nil];
     
     [self initUI];
-    [self headerRereshing];
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark — 初始化页面
 - (void)initUI {
     // 创建瀑布流布局
     XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:2];
-    [waterfall setColumnSpacing:Magin rowSpacing:Magin sectionInset:UIEdgeInsetsMake(Magin, Magin, Magin, Magin)];
+    [waterfall setColumnSpacing:Magin rowSpacing:Magin sectionInset:UIEdgeInsetsMake(0, Magin, Magin, Magin)];
     waterfall.delegate = self;
     
     [self.collectionView setCollectionViewLayout:waterfall];
@@ -56,8 +56,7 @@ static NSInteger pageSize = 7;
 - (void)updateUI {
     [self.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.7f animations:^{
-        [self.view.superview layoutIfNeeded];
-        [self.collectionView.superview layoutIfNeeded];
+        [self.view layoutIfNeeded];
     }];
 }
 
@@ -130,7 +129,6 @@ static NSInteger pageSize = 7;
     NYSActivityInfoViewController *actInfoVC = NYSActivityInfoViewController.new;
     actInfoVC.activityModel = self.collectionDataArray[indexPath.row];
     [self.navigationController pushViewController:actInfoVC animated:YES];
-    
 }
 
 #pragma mark - XRWaterfallLayoutDelegate

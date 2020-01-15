@@ -45,7 +45,7 @@
     _headerView = [[[NSBundle mainBundle] loadNibNamed:@"NYSUploadImageHeaderView" owner:self options:nil] objectAtIndex:0];
     _headerView.bgImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.activityModel.icon]]];
     _headerView.uploadTitle.text = @"活动封面";
-    _headerView.frame = CGRectMake(0, 0, NScreenWidth, 200);
+    _headerView.frame = CGRectMake(0, 0, NScreenWidth, 165);
     [self.tableView setTableHeaderView:_headerView];
     // footer
     if ([self.activityModel.account isEqualToString:NCurrentUser.account]) {

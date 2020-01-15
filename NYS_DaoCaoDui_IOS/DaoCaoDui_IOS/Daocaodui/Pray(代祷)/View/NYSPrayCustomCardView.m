@@ -73,7 +73,7 @@
     [self.iconBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[pray.user icon]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
     self.iconBtn.transform = CGAffineTransformIdentity;
     
-    self.titleLabel.text = pray.subtitle;
+    self.titleLabel.text = pray.title;
     self.titleLabel.transform = CGAffineTransformIdentity;
 }
 

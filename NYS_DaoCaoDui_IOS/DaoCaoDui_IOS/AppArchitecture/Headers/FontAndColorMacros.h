@@ -53,5 +53,5 @@
 #pragma mark -- 字体区 --
 
 #define NFontSize12 [UIFont systemFontOfSize:12.0f]
-
+#define NFontSize17 [UIFont systemFontOfSize:17.0f] // 文章字体
 #endif /* FontAndColorMacros_h */

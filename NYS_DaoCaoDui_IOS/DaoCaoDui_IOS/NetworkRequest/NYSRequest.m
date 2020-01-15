@@ -11,7 +11,7 @@
 #import "NYSInterfacedConst.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 
-#define RequestTimeout 17
+#define RequestTimeout 20
 
 @implementation NYSRequest
 
@@ -57,6 +57,7 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DoSign];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
 }
+
 /** 积分记录详情*/
 + (NSURLSessionTask *)GetScoreRecordWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ScoreRecord];
@@ -293,7 +294,9 @@
                        responseObject:responseObject
                               success:success];
             } failure:^(NSError *error) {
+#if defined(DEBUG)
                 [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+#endif
                 failure(error);
             }];
         }
@@ -308,7 +311,9 @@
                        responseObject:responseObject
                               success:success];
             } failure:^(NSError *error) {
+#if defined(DEBUG)
                 [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+#endif
                 failure(error);
             }];
         }
@@ -348,7 +353,9 @@
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
+#if defined(DEBUG)
         [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+#endif
         failure(error);
     }];
 }
@@ -365,7 +372,7 @@
 + (NSURLSessionTask *)imagesRequestWithURL:(NSString *)URL parameters:(NSDictionary *)parameters images:(NSArray<UIImage *> *)images fileNames:(NSArray<NSString *> *)imageNames name:(nonnull NSString *)name process:(NYSUploadProcess)process success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NLog(@"接口URL:%@\n参数Params:%@", URL, parameters);
     [PPNetworkHelper closeLog];
-    [PPNetworkHelper setRequestTimeoutInterval:20.0f];
+    [PPNetworkHelper setRequestTimeoutInterval:25.0f];
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -388,7 +395,9 @@
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
+#if defined(DEBUG)
         [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+#endif
         failure(error);
     }];
 }
@@ -443,7 +452,9 @@
         [self responseHandler:URL isCache:NO parameters:parameters responseObject:JSON success:success];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismiss];
+#if defined(DEBUG)
         [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
+#endif
         failure(error);
     }];
 }

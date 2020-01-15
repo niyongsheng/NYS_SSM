@@ -104,7 +104,7 @@
         return titleCell;
     } else if (indexPath.row == 1) {
         NYSInputTableViewCell *titleCell = [tableView dequeueReusableCellWithIdentifier:@"NYSInputTableViewCell"];
-        if(titleCell == nil) {
+        if (titleCell == nil) {
             titleCell = [[[NSBundle mainBundle] loadNibNamed:@"NYSInputTableViewCell" owner:self options:nil] firstObject];
         }
         NSDictionary *attributeDict = @{NSForegroundColorAttributeName: NNavBgColor};

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 0
+#define DevelopSever 1
 #define TestSever    0
-#define ProductSever 1
+#define ProductSever 0
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
