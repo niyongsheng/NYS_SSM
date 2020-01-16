@@ -161,7 +161,7 @@
         cardView.transform = CGAffineTransformRotate(cardView.originalTransform, (gesture.view.center.x - self.cardCenter.x) / self.cardCenter.x * (M_PI_4 / 12));
         [gesture setTranslation:CGPointZero inView:self]; // 设置坐标原点位上次的坐标
     
-        if (self.delegate && [self.delegate respondsToSelector:@selector(draggableContainer:draggableDirection:widthRatio:heightRatio:)]) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(draggableContainer:draggableDirection:widthRatio:heightRatio:currentIndex:)]) {
     
             
             /*
@@ -186,7 +186,7 @@
             } else if (widthRatio == 0) {
                 self.direction = CCDraggableDirectionDefault;
             }
-            [self.delegate draggableContainer:self draggableDirection:self.direction widthRatio:widthRatio heightRatio:heightRatio];
+            [self.delegate draggableContainer:self draggableDirection:self.direction widthRatio:widthRatio heightRatio:heightRatio currentIndex:gesture.view.tag];
         }
     }
     
@@ -359,8 +359,9 @@
 - (void)originalLayout {
     
     // self.delegate所触发方法, 委托对象用来改变一些UI的缩放、透明度等...
-    if (self.delegate && [self.delegate respondsToSelector:@selector(draggableContainer:draggableDirection:widthRatio:heightRatio:)]) {
-        [self.delegate draggableContainer:self draggableDirection:self.direction widthRatio:0 heightRatio:0];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(draggableContainer:draggableDirection:widthRatio:heightRatio:currentIndex:)]) {
+        UIView *firstView = [self.currentCards firstObject];
+        [self.delegate draggableContainer:self draggableDirection:self.direction widthRatio:0 heightRatio:0 currentIndex:firstView.tag];
     }
     
     for (int i = 0; i < self.currentCards.count; i++) {

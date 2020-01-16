@@ -22,7 +22,8 @@
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer
         draggableDirection:(CCDraggableDirection)draggableDirection
                 widthRatio:(CGFloat)widthRatio
-               heightRatio:(CGFloat)heightRatio;
+               heightRatio:(CGFloat)heightRatio
+              currentIndex:(NSInteger)currentIndex;
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer
                   cardView:(CCDraggableCardView *)cardView

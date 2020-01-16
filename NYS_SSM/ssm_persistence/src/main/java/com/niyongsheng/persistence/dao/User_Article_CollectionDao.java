@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niyongsheng.persistence.domain.Article;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.domain.User_Article_Collection;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,4 +31,19 @@ public interface User_Article_CollectionDao extends BaseMapper<User_Article_Coll
      * @return
      */
     List<Article> selectArticlesByCollectionAccount(String account);
+
+    /**
+     * 是否已经收藏
+     * @param account
+     * @param articleID
+     * @return
+     */
+    Boolean isCollection(@Param("account") String account, @Param("articleID") Integer articleID);
+
+    /**
+     * 取消收藏
+     * @param account
+     * @param articleID
+     */
+    void cancelCollection(@Param("account") String account, @Param("articleID") Integer articleID);
 }

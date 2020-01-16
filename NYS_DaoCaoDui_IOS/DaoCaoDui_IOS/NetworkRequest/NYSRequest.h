@@ -85,6 +85,24 @@ typedef void(^NYSUploadProcess)(NSProgress *progress);
 + (NSURLSessionTask *)GetWeekBibleWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 获取推荐物品列表*/
 + (NSURLSessionTask *)GetRecommendListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 收藏/取消收藏文章*/
++ (NSURLSessionTask *)articleCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 收藏/取消收藏代祷*/
++ (NSURLSessionTask *)prayCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 收藏/取消收藏音乐*/
++ (NSURLSessionTask *)musicCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 收藏文章列表*/
++ (NSURLSessionTask *)getCollectionArticleListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 收藏代祷列表*/
++ (NSURLSessionTask *)getCollectionPrayListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 收藏音乐列表*/
++ (NSURLSessionTask *)getCollectionMusicListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+
+
+
+
+
+
 
 
 

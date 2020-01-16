@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString * singer;
 @property (nonatomic, assign) BOOL status;
+@property (nonatomic, assign) BOOL isCollection;
 @property (nonatomic, strong) NSString * wordAuthor;
 @end
 

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.User_Article_CollectionDao">
+    <delete id="cancelCollection">
+        delete from dcd_user_article_collection
+        where articleID = #{articleID} and account = #{account}
+    </delete>
 
     <select id="selectCollectionUsersByArticleID" resultType="com.niyongsheng.persistence.domain.User">
         select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uac.articleID
@@ -9,9 +13,15 @@
     </select>
 
     <select id="selectArticlesByCollectionAccount" resultType="com.niyongsheng.persistence.domain.Article">
-        select a*, uac.account
+        select a.*, uac.account
         from dcd_article a, dcd_user_article_collection uac
         where a.id = uac.articleID and uac.account = #{account}
+    </select>
+
+    <select id="isCollection" resultType="java.lang.Boolean">
+        select count(id)
+        from dcd_user_article_collection
+        where articleID = #{articleID} and account = #{account}
     </select>
 
 </mapper>

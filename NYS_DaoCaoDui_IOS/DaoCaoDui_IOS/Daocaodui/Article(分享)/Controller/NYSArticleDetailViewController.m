@@ -28,6 +28,7 @@
         [_collectionBtn setBackgroundImage:[UIImage imageNamed:@"collection_unselect"] forState:UIControlStateNormal];
         [_collectionBtn setBackgroundImage:[UIImage imageNamed:@"collection_selected"] forState:UIControlStateSelected];
         [_collectionBtn addTarget:self action:@selector(collectionBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        _collectionBtn.selected = self.articleModel.isCollection;
     }
     return _collectionBtn;
 }
@@ -99,7 +100,17 @@
 }
 
 - (void)collectionBtnClicked:(UIButton *)sender {
-    self.collectionBtn.selected = !self.collectionBtn.selected;
+    [NYSRequest articleCollectionInOrOutWithResMethod:GET
+                                           parameters:@{@"articleID" : @(self.articleModel.idField)}
+                                              success:^(id response) {
+        if ([[response objectForKey:@"status"] boolValue]) {
+            self.collectionBtn.selected = !self.collectionBtn.selected;
+            [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
+            [SVProgressHUD dismissWithDelay:1.f];
+        }
+    } failure:^(NSError *error) {
+        
+    } isCache:NO];
 }
 
 @end

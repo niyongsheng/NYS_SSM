@@ -82,6 +82,20 @@ UIKIT_EXTERN NSString *const CR_AlertClock;
 UIKIT_EXTERN NSString *const CR_WeekBible;
 /** 好物推荐*/
 UIKIT_EXTERN NSString *const CR_Recommend;
+/** 收藏/取消收藏文章*/
+UIKIT_EXTERN NSString *const CR_CollectionArticle;
+/** 收藏/取消收藏代祷*/
+UIKIT_EXTERN NSString *const CR_CollectionPray;
+/** 收藏/取消收藏音乐*/
+UIKIT_EXTERN NSString *const CR_CollectionMusic;
+/** 收藏文章列表*/
+UIKIT_EXTERN NSString *const CR_CollectionArticleList;
+/** 收藏代祷列表*/
+UIKIT_EXTERN NSString *const CR_CollectionPrayList;
+/** 收藏音乐列表*/
+UIKIT_EXTERN NSString *const CR_CollectionMusicList;
+
+
 
 
 

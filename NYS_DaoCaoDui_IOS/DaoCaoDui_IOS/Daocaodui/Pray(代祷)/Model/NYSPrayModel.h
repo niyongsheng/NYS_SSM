@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL status;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
+@property (nonatomic, assign) BOOL isCollection;
 @property (nonatomic, strong) UserInfo * user;
 @property (nonatomic, strong) NSArray<UserInfo *> * collectionUserList;
 @end

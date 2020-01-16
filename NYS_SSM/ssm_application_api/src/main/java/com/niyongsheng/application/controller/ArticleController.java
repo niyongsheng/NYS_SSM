@@ -6,7 +6,9 @@ import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import com.niyongsheng.persistence.domain.Article;
+import com.niyongsheng.persistence.domain.User_Article_Collection;
 import com.niyongsheng.persistence.service.ArticleService;
+import com.niyongsheng.persistence.service.User_Article_CollectionService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotBlank;
 import javax.ws.rs.core.MediaType;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,6 +42,9 @@ public class ArticleController {
 
     @Autowired
     private QiniuUploadFileService qiniuUploadFileService;
+
+    @Autowired
+    private User_Article_CollectionService user_article_collectionService;
 
     @ResponseBody
     @RequestMapping(value = "/selectArticleList", method = RequestMethod.GET)
@@ -71,6 +77,47 @@ public class ArticleController {
             try {
                 // 2.1无分页查询
                 list = articleService.selectByFellowshipMultiTable(Integer.valueOf(fellowship));
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        }
+
+        // 3.返回查询结果
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/selectCollectionArticleList", method = RequestMethod.GET)
+    @ApiOperation(value = "查询收藏的文章", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+    })
+    public ResponseDto<Article> selectCollectionArticleList(HttpServletRequest request, Model model,
+                                                 @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                 @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                 @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                 @NotBlank
+                                                 @RequestParam(value = "fellowship", required = true) String fellowship
+    ) throws ResponseException {
+
+        // 1.是否分页，调用service的方法
+        List<Article> list = null;
+        String account = request.getHeader("Account");
+        if (isPageBreak) {
+            try {
+                // 2.1分页查询 设置页码和分页大小
+                PageHelper.startPage(pageNum, pageSize, false);
+                list = user_article_collectionService.selectArticlesByCollectionAccount(account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        } else {
+            try {
+                // 2.1无分页查询
+                list = user_article_collectionService.selectArticlesByCollectionAccount(account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
@@ -137,5 +184,41 @@ public class ArticleController {
 
         // 4.返回结果
         return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/collectionInOrOut", method = RequestMethod.GET)
+    @ApiOperation(value = "收藏/取消收藏", notes = "参数描述", hidden = false)
+    public ResponseDto collectionInOrOut(HttpServletRequest request, Model model,
+                                    @NotBlank
+                                    @ApiParam(name = "articleID", value = "文章ID", required = true)
+                                    @RequestParam(value = "articleID", required = true) String articleID
+    ) throws ResponseException {
+        String account = request.getHeader("Account");
+        Boolean isCollection = user_article_collectionService.isCollection(account, Integer.valueOf(articleID));
+        // 判断然后收藏/取消收藏
+        if (isCollection) {
+            try {
+                user_article_collectionService.cancelCollection(account, Integer.valueOf(articleID));
+            } catch (NumberFormatException e) {
+                throw new ResponseException(ResponseStatusEnum.DB_DELETE_ERROR);
+            }
+            HashMap<String, String> msg = new HashMap<>();
+            msg.put("info", "取消收藏成功");
+            return new ResponseDto(ResponseStatusEnum.SUCCESS,msg);
+        } else {
+            User_Article_Collection user_article_collection = new User_Article_Collection();
+            user_article_collection.setAccount(account);
+            user_article_collection.setArticleId(Integer.valueOf(articleID));
+            user_article_collection.setGmtCreate(LocalDateTime.now());
+            try {
+                user_article_collectionService.getBaseMapper().insert(user_article_collection);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+            }
+            HashMap<String, String> msg = new HashMap<>();
+            msg.put("info", "收藏成功");
+            return new ResponseDto(ResponseStatusEnum.SUCCESS,msg);
+        }
     }
 }

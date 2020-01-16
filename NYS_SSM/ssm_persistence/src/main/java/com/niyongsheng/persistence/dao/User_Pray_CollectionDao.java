@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niyongsheng.persistence.domain.Pray;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.domain.User_Pray_Collection;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,4 +31,19 @@ public interface User_Pray_CollectionDao extends BaseMapper<User_Pray_Collection
      * @return
      */
     List<Pray> selectPrayersByCollectionAccount(String account);
+
+    /**
+     * 是否收藏
+     * @param account
+     * @param prayID
+     * @return
+     */
+    Boolean isCollection(@Param("account") String account, @Param("prayID") Integer prayID);
+
+    /**
+     * 取消收藏
+     * @param account
+     * @param prayID
+     */
+    void cancelCollection(@Param("account") String account, @Param("prayID") Integer prayID);
 }

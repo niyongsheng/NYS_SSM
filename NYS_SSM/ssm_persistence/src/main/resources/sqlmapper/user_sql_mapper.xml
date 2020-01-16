@@ -169,7 +169,9 @@
     <select id="findByPhone" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
         SELECT *
         FROM dcd_user u
-        WHERE phone = #{phone}
+        inner join dcd_fellowship f
+        on u.fellowship = f.id
+        WHERE u.phone = #{phone}
     </select>
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.User">

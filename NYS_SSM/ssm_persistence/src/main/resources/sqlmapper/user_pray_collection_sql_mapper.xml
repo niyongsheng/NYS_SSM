@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.User_Pray_CollectionDao">
 
+    <delete id="cancelCollection">
+        delete from dcd_user_pray_collection
+        where prayID = #{prayID} and account = #{account}
+    </delete>
+
     <select id="selectCollectionUsersByPrayID" resultType="com.niyongsheng.persistence.domain.User">
         select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, uyc.prayID
         from dcd_user u, dcd_user_pray_collection uyc
@@ -9,9 +14,15 @@
     </select>
 
     <select id="selectPrayersByCollectionAccount" resultType="com.niyongsheng.persistence.domain.Pray">
-        select p*, uyc.account
+        select p.*, uyc.account
         from dcd_pray p, dcd_user_pray_collection uyc
         where p.id = uyc.prayID and uyc.account = #{account}
+    </select>
+
+    <select id="isCollection" resultType="java.lang.Boolean">
+        select count(id)
+        from dcd_user_pray_collection
+        where prayID = #{prayID} and account = #{account}
     </select>
 
 </mapper>

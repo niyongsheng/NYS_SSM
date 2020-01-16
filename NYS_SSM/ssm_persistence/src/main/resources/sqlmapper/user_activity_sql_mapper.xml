@@ -33,7 +33,7 @@
     </select>
 
     <select id="selectActivitiesByAccount" resultType="com.niyongsheng.persistence.domain.Activity">
-        select a*, ua.account
+        select a.*, ua.account
         from dcd_activity a, dcd_user_activity ua
         where a.id = ua.activityID and ua.account = #{account}
     </select>

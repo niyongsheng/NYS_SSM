@@ -96,4 +96,8 @@ public class Pray implements Serializable {
   @ApiModelProperty(value = "用户信息")
   @TableField(value = "user", exist = false)
   private User user;
+
+  @TableField(value = "isCollection", exist = false)
+  @ApiModelProperty(value = "是否收藏")
+  private Boolean isCollection;
 }

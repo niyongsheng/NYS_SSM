@@ -85,7 +85,18 @@ NSString *const CR_AlertClock = @"/activity/alertClockActivity";
 NSString *const CR_WeekBible = @"/bible/selectWeekBible";
 /** 好物推荐*/
 NSString *const CR_Recommend = @"/recommend/selectRecommendList";
-
+/** 收藏/取消收藏文章*/
+NSString *const CR_CollectionArticle = @"/article/collectionInOrOut";
+/** 收藏/取消收藏代祷*/
+NSString *const CR_CollectionPray = @"/pray/collectionInOrOut";
+/** 收藏/取消收藏音乐*/
+NSString *const CR_CollectionMusic = @"/music/collectionInOrOut";
+/** 收藏文章列表*/
+NSString *const CR_CollectionArticleList = @"/article/selectCollectionArticleList";
+/** 收藏代祷列表*/
+NSString *const CR_CollectionPrayList = @"/pray/selectCollectionPrayList";
+/** 收藏音乐列表*/
+NSString *const CR_CollectionMusicList = @"/music/selectCollectionMusicList";
 
 
 

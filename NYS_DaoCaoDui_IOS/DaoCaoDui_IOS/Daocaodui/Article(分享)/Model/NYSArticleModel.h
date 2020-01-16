@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, assign) BOOL isTop;
 @property (nonatomic, assign) BOOL status;
+@property (nonatomic, assign) BOOL isCollection;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) UserInfo * user;

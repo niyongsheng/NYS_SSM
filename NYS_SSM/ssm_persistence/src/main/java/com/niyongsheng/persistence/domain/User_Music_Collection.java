@@ -20,8 +20,8 @@ import java.time.LocalDateTime;
  * @updateDes
  */
 @Data
-@ApiModel(value ="User_Music")
-@TableName(value = "dcd_user_music")
+@ApiModel(value ="User_Music_Collection")
+@TableName(value = "dcd_user_music_collection")
 public class User_Music_Collection implements Serializable {
 
   @ApiModelProperty(value = "ID主键")

@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.User_Music_CollectionDao">
 
+    <delete id="cancelCollection">
+        delete from dcd_user_music_collection
+        where musicID = #{musicID} and account = #{account}
+    </delete>
+
     <select id="selectCollectionUsersByMusicID" resultType="com.niyongsheng.persistence.domain.User">
         select u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship, umc.musicID
         from dcd_user u, dcd_user_music_collection umc
@@ -9,9 +14,15 @@
     </select>
 
     <select id="selectArticlesByCollectionAccount" resultType="com.niyongsheng.persistence.domain.Music">
-        select m*, umc.account
+        select m.*, umc.account
         from dcd_music m, dcd_user_music_collection umc
         where m.id = umc.musicID and umc.account = #{account}
+    </select>
+
+    <select id="isCollection" resultType="java.lang.Boolean">
+        select count(id)
+        from dcd_user_music_collection
+        where musicID = #{musicID} and account = #{account}
     </select>
 
 </mapper>

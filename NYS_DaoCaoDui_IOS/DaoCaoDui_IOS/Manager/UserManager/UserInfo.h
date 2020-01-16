@@ -27,6 +27,8 @@ typedef NS_ENUM(NSInteger,UserGender){
 @property (nonatomic, strong) NSString * email;
 /// 团契代号
 @property (nonatomic, assign) NSInteger fellowship;
+/// 团契名称
+@property (nonatomic, strong) NSString *fellowshipName;
 /// 性别
 @property (nonatomic, strong) NSString * gender;
 /// 等级

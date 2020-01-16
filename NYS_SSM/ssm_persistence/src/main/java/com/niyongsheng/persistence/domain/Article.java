@@ -98,4 +98,8 @@ public class Article implements Serializable {
     @ApiModelProperty(value = "发布用户信息")
     @TableField(value = "user", exist = false)
     private User user;
+
+    @TableField(value = "isCollection", exist = false)
+    @ApiModelProperty(value = "是否收藏")
+    private Boolean isCollection;
 }

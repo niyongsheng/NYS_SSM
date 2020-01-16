@@ -23,10 +23,12 @@ CCDraggableContainerDelegate
 @property (nonatomic, strong) NSMutableArray *dataSources;
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
-@property (weak, nonatomic) IBOutlet UIButton *ccollectionButton;
+@property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 @property (weak, nonatomic) IBOutlet UILabel *bibleLabel;
 
+/// 记录当前cardView index
+@property (assign, nonatomic) NSInteger currentIndex;
 @end
 
 @implementation NYSPrayCardListViewController
@@ -48,6 +50,17 @@ CCDraggableContainerDelegate
 
 - (IBAction)likeEvent:(id)sender {
     [self.container removeForDirection:CCDraggableDirectionRight];
+    [NYSRequest prayCollectionInOrOutWithResMethod:GET
+                                           parameters:@{@"prayID" : @([self.dataSources[self.currentIndex] ID])}
+                                              success:^(id response) {
+        if ([[response objectForKey:@"status"] boolValue]) {
+            self.collectionButton.selected = !self.collectionButton.selected;
+            [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
+            [SVProgressHUD dismissWithDelay:1.f];
+        }
+    } failure:^(NSError *error) {
+        
+    } isCache:NO];
 }
 
 - (void)loadUI {
@@ -91,14 +104,27 @@ CCDraggableContainerDelegate
 }
 
 #pragma mark - CCDraggableContainer Delegate
-- (void)draggableContainer:(CCDraggableContainer *)draggableContainer draggableDirection:(CCDraggableDirection)draggableDirection widthRatio:(CGFloat)widthRatio heightRatio:(CGFloat)heightRatio {
+- (void)draggableContainer:(CCDraggableContainer *)draggableContainer draggableDirection:(CCDraggableDirection)draggableDirection widthRatio:(CGFloat)widthRatio heightRatio:(CGFloat)heightRatio currentIndex:(NSInteger)currentIndex {
+    self.currentIndex = currentIndex;
+    self.collectionButton.selected = [self.dataSources[currentIndex] isCollection];
     
     CGFloat scale = 1 + ((kBoundaryRatio > fabs(widthRatio) ? fabs(widthRatio) : kBoundaryRatio)) / 4;
     if (draggableDirection == CCDraggableDirectionLeft) {
         self.nextButton.transform = CGAffineTransformMakeScale(scale, scale);
     }
     if (draggableDirection == CCDraggableDirectionRight) {
-        self.ccollectionButton.transform = CGAffineTransformMakeScale(scale, scale);
+        self.collectionButton.transform = CGAffineTransformMakeScale(scale, scale);
+        [NYSRequest prayCollectionInOrOutWithResMethod:GET
+                                               parameters:@{@"prayID" : @([self.dataSources[currentIndex] ID])}
+                                                  success:^(id response) {
+            if ([[response objectForKey:@"status"] boolValue]) {
+                self.collectionButton.selected = !self.collectionButton.selected;
+                [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
+                [SVProgressHUD dismissWithDelay:1.f];
+            }
+        } failure:^(NSError *error) {
+            
+        } isCache:NO];
     }
 }
 
@@ -113,7 +139,6 @@ CCDraggableContainerDelegate
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer finishedDraggableLastCard:(BOOL)finishedDraggableLastCard {
     [NYSTools shakToShow:self.refreshButton];
-//    [draggableContainer reloadData];
 }
 
 @end

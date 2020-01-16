@@ -92,8 +92,8 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", [NCurrentUser grade]];
     } else if (indexPath.row == 4) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.text = @"积分";
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", [NCurrentUser score]];
+        cell.textLabel.text = @"稻壳";
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld粒", [NCurrentUser score]];
     } else if (indexPath.row == 5) {
         cell.textLabel.text = @"性别";
         if ([[NCurrentUser gender] isEqualToString:@"male"]) {
@@ -125,7 +125,7 @@
     } else if (indexPath.row == 11) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.textLabel.text = @"团契";
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld", [NCurrentUser fellowship]];
+        cell.detailTextLabel.text = [NCurrentUser fellowshipName];
     } else if (indexPath.row == 12) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         cell.textLabel.text = @"身份";

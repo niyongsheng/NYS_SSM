@@ -19,7 +19,7 @@ static NSInteger pageSize = 50;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setTitle:@"积分记录"];
+    [self setTitle:@"稻壳记录"];
     
     self.tableView.showsVerticalScrollIndicator = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
