@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface ArticleService extends IService<Article> {
 
-    List<Article> selectByFellowshipMultiTable(Integer fellowship);
+    List<Article> selectByFellowshipMultiTable(Integer fellowship, String account);
 }

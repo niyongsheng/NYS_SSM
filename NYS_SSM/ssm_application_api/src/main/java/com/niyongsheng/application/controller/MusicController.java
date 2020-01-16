@@ -73,14 +73,14 @@ public class MusicController {
             // 2.1设置页码和分页大小
             PageHelper.startPage(pageNum, pageSize, false);
             try {
-                list = musicService.selectByFellowshipMultiTable(fel);
+                list = musicService.selectByFellowshipMultiTable(fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
 
         } else {
             try {
-                list = musicService.selectByFellowshipMultiTable(fel);
+                list = musicService.selectByFellowshipMultiTable(fel, account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }

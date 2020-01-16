@@ -23,7 +23,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     ArticleDao articleDao;
 
     @Override
-    public List<Article> selectByFellowshipMultiTable(Integer fellowship) {
-        return articleDao.selectByFellowshipMultiTable(fellowship);
+    public List<Article> selectByFellowshipMultiTable(Integer fellowship, String account) {
+        return articleDao.selectByFellowshipMultiTable(fellowship, account);
     }
 }

@@ -23,7 +23,7 @@ public class MusicServiceImpl extends ServiceImpl<MusicDao, Music> implements Mu
     private MusicDao musicDao;
 
     @Override
-    public List<Music> selectByFellowshipMultiTable(Integer fellowship) {
-        return musicDao.selectByFellowshipMultiTable(fellowship);
+    public List<Music> selectByFellowshipMultiTable(Integer fellowship, String account) {
+        return musicDao.selectByFellowshipMultiTable(fellowship, account);
     }
 }

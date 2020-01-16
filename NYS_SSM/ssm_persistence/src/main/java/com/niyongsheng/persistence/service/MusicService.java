@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface MusicService extends IService<Music> {
 
-    List<Music> selectByFellowshipMultiTable(Integer fellowship);
+    List<Music> selectByFellowshipMultiTable(Integer fellowship, String account);
 }

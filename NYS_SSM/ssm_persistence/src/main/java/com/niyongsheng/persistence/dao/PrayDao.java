@@ -2,6 +2,7 @@ package com.niyongsheng.persistence.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niyongsheng.persistence.domain.Pray;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,5 +22,5 @@ public interface PrayDao extends BaseMapper<Pray> {
      */
     List<Pray> selectAllMultiTable();
 
-    List<Pray> selectAllByFellowshipMultiTable(Integer fellowship);
+    List<Pray> selectAllByFellowshipMultiTable(@Param("fellowship") Integer fellowship, @Param("isCollectionAccount") String isCollectionAccount);
 }

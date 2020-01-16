@@ -64,19 +64,20 @@ public class PrayController {
     ) throws ResponseException {
 
         // 1.是否分页，调用service的方法
+        String account = request.getHeader("Account");
         List<Pray> list = null;
         if (isPageBreak) {
             try {
                 // 2.1分页查询 设置页码和分页大小
                 PageHelper.startPage(pageNum, pageSize, false);
-                list = prayService.selectAllByFellowshipMultiTable(Integer.valueOf(fellowship));
+                list = prayService.selectAllByFellowshipMultiTable(Integer.valueOf(fellowship), account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }
         } else {
             try {
                 // 2.1无分页查询
-                list = prayService.selectAllByFellowshipMultiTable(Integer.valueOf(fellowship));
+                list = prayService.selectAllByFellowshipMultiTable(Integer.valueOf(fellowship), account);
             } catch (Exception e) {
                 throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
             }

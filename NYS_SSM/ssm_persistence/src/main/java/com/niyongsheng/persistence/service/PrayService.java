@@ -15,5 +15,5 @@ import java.util.List;
 public interface PrayService extends IService<Pray> {
     List<Pray> selectAllMultiTable();
 
-    List<Pray> selectAllByFellowshipMultiTable(Integer fellowship);
+    List<Pray> selectAllByFellowshipMultiTable(Integer fellowship, String account);
 }

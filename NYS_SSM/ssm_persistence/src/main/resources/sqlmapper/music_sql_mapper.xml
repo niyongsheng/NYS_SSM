@@ -5,10 +5,11 @@
     <resultMap id="musicMap_1" type="Music" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
+        <collection property="isCollection" column="{articleID = id, account = isCollectionAccount}" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.isCollection"/>
     </resultMap>
 
     <select id="selectByFellowshipMultiTable" resultMap="musicMap_1" >
-        select *
+        select *, #{isCollectionAccount} as isCollectionAccount
         from dcd_music m
         inner join dcd_fellowship f
         on m.fellowship = f.id

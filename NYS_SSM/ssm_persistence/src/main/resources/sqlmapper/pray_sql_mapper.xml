@@ -13,11 +13,11 @@
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.selectCollectionUsersByPrayID"/>
         <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
-        <collection property="isCollection" column="{prayID = id, account = account}" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.isCollection"/>
+        <collection property="isCollection" column="{prayID = id, account = isCollectionAccount}" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.isCollection"/>
     </resultMap>
 
     <select id="selectAllByFellowshipMultiTable" resultMap="prayMap_1">
-        select *
+        select *, #{isCollectionAccount} as isCollectionAccount
         from dcd_pray p
         inner join dcd_fellowship f
         on p.fellowship = f.id

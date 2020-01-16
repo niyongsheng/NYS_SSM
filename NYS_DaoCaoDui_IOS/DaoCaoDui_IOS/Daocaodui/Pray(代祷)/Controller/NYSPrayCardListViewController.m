@@ -69,6 +69,8 @@ CCDraggableContainerDelegate
     self.container.delegate = self;
     self.container.dataSource = self;
     [self.view addSubview:self.container];
+    
+    [self.collectionButton setBackgroundImage:[UIImage imageNamed:@"liked"] forState:UIControlStateSelected];
 }
 
 - (void)viewDidLoad {
