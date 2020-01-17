@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="NYSMusicTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oN-8n-6cJ">
+                        <rect key="frame" x="289" y="29" width="21" height="22"/>
+                        <state key="normal" image="ic_sub_photo_album_dislike_21x21_"/>
+                        <state key="selected" image="ic_sub_photo_album_like_21x21_"/>
+                        <connections>
+                            <action selector="collectionClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VJG-Ye-OdP"/>
+                        </connections>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_disc_90x90_" translatesAutoresizingMaskIntoConstraints="NO" id="yOU-Za-2BT">
+                        <rect key="frame" x="10" y="25" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="yOU-Za-2BT" secondAttribute="height" multiplier="1:1" id="q44-p1-gvu"/>
+                            <constraint firstAttribute="width" constant="50" id="t34-wB-nhS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《xxx》" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xq4-U9-qqD">
+                        <rect key="frame" x="75" y="24.5" width="61" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌手" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7TS-sr-DRz">
+                        <rect key="frame" x="75" y="57" width="27" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4t-qP-d9H">
+                        <rect key="frame" x="278.5" y="59" width="42" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPW-GI-gHN">
+                        <rect key="frame" x="254.5" y="54" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="bHk-fS-Bny"/>
+                            <constraint firstAttribute="width" secondItem="lPW-GI-gHN" secondAttribute="height" multiplier="1:1" id="kGL-u7-wl7"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="chat_single"/>
+                        <connections>
+                            <action selector="uploaderClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="W5U-lS-2YG"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yOU-Za-2BT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2a1-ag-EdM"/>
+                    <constraint firstItem="7TS-sr-DRz" firstAttribute="centerY" secondItem="yOU-Za-2BT" secondAttribute="centerY" constant="15" id="47D-Ug-TsI"/>
+                    <constraint firstItem="yOU-Za-2BT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6uD-Vi-XHl"/>
+                    <constraint firstItem="7TS-sr-DRz" firstAttribute="leading" secondItem="Xq4-U9-qqD" secondAttribute="leading" id="8t7-pr-7Ja"/>
+                    <constraint firstItem="J4t-qP-d9H" firstAttribute="leading" secondItem="lPW-GI-gHN" secondAttribute="trailing" constant="2" id="AFW-UB-vvL"/>
+                    <constraint firstItem="1oN-8n-6cJ" firstAttribute="centerY" secondItem="Xq4-U9-qqD" secondAttribute="centerY" constant="5" id="FFq-G9-rNm"/>
+                    <constraint firstItem="J4t-qP-d9H" firstAttribute="centerX" secondItem="1oN-8n-6cJ" secondAttribute="centerX" id="JUb-QT-uO8"/>
+                    <constraint firstItem="J4t-qP-d9H" firstAttribute="centerY" secondItem="lPW-GI-gHN" secondAttribute="centerY" id="K6z-b2-9Mo"/>
+                    <constraint firstItem="1oN-8n-6cJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xq4-U9-qqD" secondAttribute="trailing" constant="5" id="MxN-OJ-FPQ"/>
+                    <constraint firstItem="lPW-GI-gHN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7TS-sr-DRz" secondAttribute="trailing" constant="5" id="bft-Qm-2gd"/>
+                    <constraint firstItem="Xq4-U9-qqD" firstAttribute="leading" secondItem="yOU-Za-2BT" secondAttribute="trailing" constant="15" id="czp-bl-DYx"/>
+                    <constraint firstAttribute="trailing" secondItem="1oN-8n-6cJ" secondAttribute="trailing" constant="25" id="olZ-3Z-R6C"/>
+                    <constraint firstItem="J4t-qP-d9H" firstAttribute="centerY" secondItem="7TS-sr-DRz" secondAttribute="centerY" id="qnw-HS-Kfd"/>
+                    <constraint firstItem="Xq4-U9-qqD" firstAttribute="centerY" secondItem="yOU-Za-2BT" secondAttribute="centerY" constant="-15" id="uml-Oa-kHa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="collection" destination="1oN-8n-6cJ" id="5KI-tx-o0b"/>
+                <outlet property="icon" destination="yOU-Za-2BT" id="R5U-JZ-DzB"/>
+                <outlet property="singer" destination="7TS-sr-DRz" id="yd2-64-2Bl"/>
+                <outlet property="time" destination="J4t-qP-d9H" id="fNU-3H-rKI"/>
+                <outlet property="title" destination="Xq4-U9-qqD" id="Lk4-b4-6Ma"/>
+                <outlet property="uploader" destination="lPW-GI-gHN" id="i3j-5h-R7W"/>
+            </connections>
+            <point key="canvasLocation" x="142.75362318840581" y="145.3125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chat_single" width="216" height="216"/>
+        <image name="ic_disc_90x90_" width="90" height="90"/>
+        <image name="ic_sub_photo_album_dislike_21x21_" width="21" height="21"/>
+        <image name="ic_sub_photo_album_like_21x21_" width="21" height="21"/>
+    </resources>
+</document>

@@ -13,8 +13,15 @@
         where u.account = umc.account and umc.musicID = #{musicID}
     </select>
 
-    <select id="selectArticlesByCollectionAccount" resultType="com.niyongsheng.persistence.domain.Music">
-        select m.*, umc.account
+    <resultMap id="musicMap_1" type="Music" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
+        <collection property="isCollection" column="{musicID = id, account = isCollectionAccount}" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.isCollection"/>
+        <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
+    </resultMap>
+
+    <select id="selectArticlesByCollectionAccount" resultMap="musicMap_1">
+        select m.*, umc.account, #{account} as isCollectionAccount
         from dcd_music m, dcd_user_music_collection umc
         where m.id = umc.musicID and umc.account = #{account}
     </select>

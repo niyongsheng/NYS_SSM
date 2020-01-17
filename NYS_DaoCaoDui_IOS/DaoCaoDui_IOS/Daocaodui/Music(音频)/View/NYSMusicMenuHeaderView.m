@@ -10,6 +10,11 @@
 
 @interface NYSMusicMenuHeaderView ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *musicCount;
+@property (weak, nonatomic) IBOutlet UILabel *introduction;
+@property (weak, nonatomic) IBOutlet UIButton *playBtn;
 
 @end
 
@@ -18,9 +23,25 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-//    self.titleLabel.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.5];
-    self.bgImageView.image = [UIImage imageNamed:@"ic_cover_default_music_80x80_"];
-//    self.bgImageView.image = [[UIImage imageNamed:@"makeup"] imageByBlurRadius:10 tintColor:nil tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+    CALayer *layer = [self.playBtn layer];
+    layer.borderColor = NNavBgColorShallow.CGColor;
+    layer.borderWidth = 1.5f;
+    
+    self.bgImageView.layer.cornerRadius = 7.f;
+    self.playBtn.layer.cornerRadius = 4.f;
+}
+
+- (void)setMusicMenu:(NYSMusicListModel *)musicMenu {
+    _musicMenu = musicMenu;
+    
+    self.title.text = musicMenu.name;
+    self.time.text = [NSString stringWithFormat:@"%@ 创建", musicMenu.gmtCreate];
+    self.musicCount.text = [NSString stringWithFormat:@"歌曲数：%ld首", musicMenu.musicList.count];
+    self.introduction.text = [NSString stringWithFormat:@"简介：%@", musicMenu.introduction];
+    [self.bgImageView setImageWithURL:[NSURL URLWithString:musicMenu.icon] placeholder:[UIImage imageNamed:@"ic_cover_default_music_80x80_"]];
+}
+
+- (IBAction)playBtnClicked:(UIButton *)sender {
 }
 
 @end

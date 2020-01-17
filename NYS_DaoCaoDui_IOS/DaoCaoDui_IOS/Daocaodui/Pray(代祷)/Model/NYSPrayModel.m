@@ -14,4 +14,7 @@
              @"user" : @"UserInfo",
              @"collectionUserList" : @"UserInfo"};
 }
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"idField" : @"id"};
+}
 @end

@@ -96,4 +96,8 @@ public class Music implements Serializable {
   @TableField(value = "isCollection", exist = false)
   @ApiModelProperty(value = "是否收藏")
   private Boolean isCollection;
+
+  @ApiModelProperty(value = "用户信息")
+  @TableField(value = "user", exist = false)
+  private User user;
 }

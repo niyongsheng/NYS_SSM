@@ -8,7 +8,9 @@
 
 #import "NYSMyCollectViewController.h"
 #import <SGPagingView.h>
-#import "NYSActivityListViewController.h"
+#import "NYSArticleCollectionListViewController.h"
+#import "NYSPrayCollectionListViewController.h"
+#import "NYSMusicCollectionListViewController.h"
 
 @interface NYSMyCollectViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -22,7 +24,7 @@
     [super viewDidLoad];
     [self setTitle:@"我的收藏"];
     
-    NSArray *titleArr = @[@"文章", @"音乐", @"代祷"];
+    NSArray *titleArr = @[@"文章", @"代祷", @"音乐"];
     SGPageTitleViewConfigure *segmentConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
     segmentConfigure.indicatorStyle = SGIndicatorStyleCover;
     segmentConfigure.indicatorColor = [UIColor whiteColor];
@@ -42,9 +44,8 @@
     self.pageTitleView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_pageTitleView];
     self.pageTitleView.selectedIndex = self.index;
-    
-    NYSActivityListViewController *acListVC1 = [[NYSActivityListViewController alloc] init];
-    NSArray *childArr = @[acListVC1, acListVC1, acListVC1];
+
+    NSArray *childArr = @[NYSArticleCollectionListViewController.new, NYSPrayCollectionListViewController.new, NYSMusicCollectionListViewController.new];
 
     CGFloat ContentCollectionViewHeight = NScreenHeight - CGRectGetMaxY(_pageTitleView.frame);
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), NScreenWidth, ContentCollectionViewHeight) parentVC:self childVCs:childArr];

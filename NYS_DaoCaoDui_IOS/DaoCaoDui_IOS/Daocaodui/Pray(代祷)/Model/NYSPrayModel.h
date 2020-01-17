@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString * gmtCreate;
 @property (nonatomic, strong) NSObject * gmtModify;
 @property (nonatomic, strong) NSString * icon;
-@property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, assign) NSInteger idField;
 @property (nonatomic, assign) BOOL isTop;
 @property (nonatomic, assign) NSInteger prayType;
 @property (nonatomic, strong) NSObject * prayUrl;

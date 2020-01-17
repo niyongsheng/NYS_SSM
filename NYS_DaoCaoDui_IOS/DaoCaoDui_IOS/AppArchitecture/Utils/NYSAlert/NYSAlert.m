@@ -355,6 +355,9 @@
         make.bottom.mas_equalTo(bgImageView.mas_top).mas_offset(110);
         make.size.mas_equalTo(CGSizeMake(30, 30));
     }];
+    
+    // 彩带效果
+    [self colourBarEffectWithView:bgView];
 }
 
 #pragma mark - 带block回调的弹窗

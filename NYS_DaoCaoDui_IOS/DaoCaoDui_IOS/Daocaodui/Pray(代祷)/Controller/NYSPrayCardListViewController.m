@@ -51,7 +51,7 @@ CCDraggableContainerDelegate
 - (IBAction)likeEvent:(id)sender {
     [self.container removeForDirection:CCDraggableDirectionRight];
     [NYSRequest prayCollectionInOrOutWithResMethod:GET
-                                           parameters:@{@"prayID" : @([self.dataSources[self.currentIndex] ID])}
+                                           parameters:@{@"prayID" : @([self.dataSources[self.currentIndex] idField])}
                                               success:^(id response) {
         if ([[response objectForKey:@"status"] boolValue]) {
             self.collectionButton.selected = !self.collectionButton.selected;
@@ -84,7 +84,7 @@ CCDraggableContainerDelegate
     WS(weakSelf);
     [NYSRequest GetPrayList:GET parameters:@{@"fellowship" : @(NCurrentUser.fellowship)} success:^(id response) {
         [NYSPrayModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-            return @{@"ID" : @"id"};
+            return @{@"idField" : @"id"};
         }];
         weakSelf.dataSources = [NYSPrayModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
         [weakSelf.container reloadData];

@@ -28,7 +28,7 @@ public class MusicMenuServiceImpl extends ServiceImpl<MusicMenuDao, MusicMenu> i
     }
 
     @Override
-    public MusicMenu selectMusicListById(Integer id) {
-        return musicMenuDao.selectMusicListById(id);
+    public MusicMenu selectMusicListById(Integer id, String account) {
+        return musicMenuDao.selectMusicListById(id, account);
     }
 }

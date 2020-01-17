@@ -12,8 +12,15 @@
         where u.account = uac.account and uac.articleID = #{articleID}
     </select>
 
-    <select id="selectArticlesByCollectionAccount" resultType="com.niyongsheng.persistence.domain.Article">
-        select a.*, uac.account
+    <resultMap id="articleMap_1" type="Article" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Article_CollectionDao.selectCollectionUsersByArticleID"/>
+        <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
+        <collection property="isCollection" column="{articleID = id, account = isCollectionAccount}" select="com.niyongsheng.persistence.dao.User_Article_CollectionDao.isCollection"/>
+    </resultMap>
+
+    <select id="selectArticlesByCollectionAccount" resultMap="articleMap_1">
+        select a.*, uac.account, #{account} as isCollectionAccount
         from dcd_article a, dcd_user_article_collection uac
         where a.id = uac.articleID and uac.account = #{account}
     </select>

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSMyContributeViewController : NYSRootViewController
-
+@property (nonatomic, assign) NSInteger index;
 @end
 
 NS_ASSUME_NONNULL_END

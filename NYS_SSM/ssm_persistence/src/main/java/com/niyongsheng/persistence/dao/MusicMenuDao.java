@@ -2,6 +2,7 @@ package com.niyongsheng.persistence.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niyongsheng.persistence.domain.MusicMenu;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public interface MusicMenuDao extends BaseMapper<MusicMenu> {
 
     List<MusicMenu> selectAllByFellowship(Integer fellowship);
 
-    MusicMenu selectMusicListById(Integer id);
+    MusicMenu selectMusicListById(@Param("id") Integer id, @Param("account") String account);
 }

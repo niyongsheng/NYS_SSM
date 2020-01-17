@@ -11,7 +11,11 @@
 @implementation NYSMusicListModel
 + (NSDictionary *)mj_objectClassInArray {
     return @{
-             @"musicList" : @"NYSMusicModel"
-             };
+        @"user" : @"UserInfo",
+        @"musicList" : @"NYSMusicModel"
+    };
+}
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"idField" : @"id"};
 }
 @end

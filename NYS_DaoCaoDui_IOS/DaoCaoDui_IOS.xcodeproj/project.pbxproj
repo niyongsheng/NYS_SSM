@@ -27,6 +27,11 @@
 		C807699B23A24DC6004B6E1C /* NYSPrayCardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C807699423A24DC0004B6E1C /* NYSPrayCardListViewController.m */; };
 		C807699C23A24DC6004B6E1C /* NYSPrayCardListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C807699523A24DC1004B6E1C /* NYSPrayCardListViewController.xib */; };
 		C807699E23A24DC6004B6E1C /* NYSPrayCustomCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C807699923A24DC5004B6E1C /* NYSPrayCustomCardView.m */; };
+		C80A418223D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A418123D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m */; };
+		C80A418B23D18CC700EAC2D6 /* NYSCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A418923D18CC700EAC2D6 /* NYSCollectionTableViewCell.m */; };
+		C80A418C23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80A418A23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib */; };
+		C80A418F23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A418E23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m */; };
+		C80A419223D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A419123D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m */; };
 		C80D251723A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */; };
 		C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E4716229FBEB9005F841B /* NYSHeaderView.m */; };
 		C81074AD23AA14AF00CC7868 /* NYSIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81074AC23AA14AF00CC7868 /* NYSIntroductionView.m */; };
@@ -189,6 +194,8 @@
 		C89CA2C622BCADAE0086F9B0 /* DazFire.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2C322BCADAE0086F9B0 /* DazFire.png */; };
 		C89CA2C722BCADAE0086F9B0 /* rain.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2C422BCADAE0086F9B0 /* rain.png */; };
 		C89CA2C822BCADAE0086F9B0 /* snow.png in Resources */ = {isa = PBXBuildFile; fileRef = C89CA2C522BCADAE0086F9B0 /* snow.png */; };
+		C89D5BC423D1462700A9EE15 /* NYSMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C89D5BC223D1462700A9EE15 /* NYSMusicTableViewCell.m */; };
+		C89D5BC523D1462700A9EE15 /* NYSMusicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C89D5BC323D1462700A9EE15 /* NYSMusicTableViewCell.xib */; };
 		C89EDC1E2358285E00DB07D9 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89EDC1D2358285E00DB07D9 /* CallKit.framework */; };
 		C89EDC2423584FB000DB07D9 /* OYRPopOption.m in Sources */ = {isa = PBXBuildFile; fileRef = C89EDC2323584FB000DB07D9 /* OYRPopOption.m */; };
 		C8A8051F23B1AA2800DA52DC /* NYSPublishArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A8051E23B1AA2800DA52DC /* NYSPublishArticleViewController.m */; };
@@ -308,6 +315,15 @@
 		C807699723A24DC3004B6E1C /* NYSPrayCardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSPrayCardListViewController.h; sourceTree = "<group>"; };
 		C807699923A24DC5004B6E1C /* NYSPrayCustomCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCustomCardView.m; sourceTree = "<group>"; };
 		C807699A23A24DC6004B6E1C /* NYSPrayCustomCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSPrayCustomCardView.h; sourceTree = "<group>"; };
+		C80A418023D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSArticleCollectionListViewController.h; sourceTree = "<group>"; };
+		C80A418123D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSArticleCollectionListViewController.m; sourceTree = "<group>"; };
+		C80A418823D18CC700EAC2D6 /* NYSCollectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSCollectionTableViewCell.h; sourceTree = "<group>"; };
+		C80A418923D18CC700EAC2D6 /* NYSCollectionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSCollectionTableViewCell.m; sourceTree = "<group>"; };
+		C80A418A23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		C80A418D23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPrayCollectionListViewController.h; sourceTree = "<group>"; };
+		C80A418E23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCollectionListViewController.m; sourceTree = "<group>"; };
+		C80A419023D1A50400EAC2D6 /* NYSMusicCollectionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMusicCollectionListViewController.h; sourceTree = "<group>"; };
+		C80A419123D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMusicCollectionListViewController.m; sourceTree = "<group>"; };
 		C80D251523A09A5900CF58CA /* NYSDaocaoduiHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSDaocaoduiHomeViewController.h; sourceTree = "<group>"; };
 		C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDaocaoduiHomeViewController.m; sourceTree = "<group>"; };
 		C80E4715229FBEB9005F841B /* NYSHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHeaderView.h; sourceTree = "<group>"; };
@@ -573,6 +589,9 @@
 		C89CA2C322BCADAE0086F9B0 /* DazFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DazFire.png; sourceTree = "<group>"; };
 		C89CA2C422BCADAE0086F9B0 /* rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rain.png; sourceTree = "<group>"; };
 		C89CA2C522BCADAE0086F9B0 /* snow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow.png; sourceTree = "<group>"; };
+		C89D5BC123D1462700A9EE15 /* NYSMusicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMusicTableViewCell.h; sourceTree = "<group>"; };
+		C89D5BC223D1462700A9EE15 /* NYSMusicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMusicTableViewCell.m; sourceTree = "<group>"; };
+		C89D5BC323D1462700A9EE15 /* NYSMusicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSMusicTableViewCell.xib; sourceTree = "<group>"; };
 		C89EDC1D2358285E00DB07D9 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		C89EDC2223584FAF00DB07D9 /* OYRPopOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OYRPopOption.h; sourceTree = "<group>"; };
 		C89EDC2323584FB000DB07D9 /* OYRPopOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OYRPopOption.m; sourceTree = "<group>"; };
@@ -862,6 +881,23 @@
 				C807697823A24D8F004B6E1C /* CCDraggableContainer.m */,
 			);
 			path = CCDraggableCard;
+			sourceTree = "<group>";
+		};
+		C80A417E23D18B5700EAC2D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C80A418823D18CC700EAC2D6 /* NYSCollectionTableViewCell.h */,
+				C80A418923D18CC700EAC2D6 /* NYSCollectionTableViewCell.m */,
+				C80A418A23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C80A417F23D18B5F00EAC2D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C80D251223A099C200CF58CA /* Controller */ = {
@@ -1702,6 +1738,8 @@
 		C899EF9D23A32CB600E78403 /* MyCollect(我的收藏) */ = {
 			isa = PBXGroup;
 			children = (
+				C80A417F23D18B5F00EAC2D6 /* Model */,
+				C80A417E23D18B5700EAC2D6 /* View */,
 				C899EF9F23A32CEF00E78403 /* Controller */,
 			);
 			path = "MyCollect(我的收藏)";
@@ -1719,6 +1757,12 @@
 			children = (
 				C899EFA023A32D1400E78403 /* NYSMyCollectViewController.h */,
 				C899EFA123A32D1400E78403 /* NYSMyCollectViewController.m */,
+				C80A418023D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.h */,
+				C80A418123D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m */,
+				C80A418D23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.h */,
+				C80A418E23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m */,
+				C80A419023D1A50400EAC2D6 /* NYSMusicCollectionListViewController.h */,
+				C80A419123D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1754,6 +1798,9 @@
 				C81074B023AA226200CC7868 /* NYSMusicMenuHeaderView.h */,
 				C81074B123AA226200CC7868 /* NYSMusicMenuHeaderView.m */,
 				C81074B623AA299700CC7868 /* NYSMusicMenuHeaderView.xib */,
+				C89D5BC123D1462700A9EE15 /* NYSMusicTableViewCell.h */,
+				C89D5BC223D1462700A9EE15 /* NYSMusicTableViewCell.m */,
+				C89D5BC323D1462700A9EE15 /* NYSMusicTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2165,6 +2212,7 @@
 				C81074AF23AA14BE00CC7868 /* NYSIntroductionView.xib in Resources */,
 				C89CA2C822BCADAE0086F9B0 /* snow.png in Resources */,
 				C89CA2C722BCADAE0086F9B0 /* rain.png in Resources */,
+				C89D5BC523D1462700A9EE15 /* NYSMusicTableViewCell.xib in Resources */,
 				C85C44A8229BA73700B35652 /* back_icon@2x.png in Resources */,
 				C8C664C82363D174009952E5 /* NYSGroupCollectionCell.xib in Resources */,
 				C8D8AF4123A1E3D100737BBE /* NYSTodayItemView.xib in Resources */,
@@ -2218,6 +2266,7 @@
 				C8265C7A22A25E830072A3F1 /* me.plist in Resources */,
 				C867BCC923BF5C560075625C /* NYSRankingTableViewCell.xib in Resources */,
 				C85C44D1229BAB2900B35652 /* arrow_icon.png in Resources */,
+				C80A418C23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib in Resources */,
 				C83CDF4723BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib in Resources */,
 				C8E22C7C23B4972D0025C094 /* sign_bg@3x.png in Resources */,
 				C88CEDDB23C32B8A00B0E8F4 /* sign_yellow_bg@2x.png in Resources */,
@@ -2336,6 +2385,7 @@
 				C8F3B4D92298EF8B00FA61A6 /* main.m in Sources */,
 				C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */,
 				C81074DE23AA4A9300CC7868 /* DFPlayerLyricsTableview.m in Sources */,
+				C80A418223D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m in Sources */,
 				C85DD72922A4C4B200E33636 /* NYSRequest.m in Sources */,
 				C83B8E2723AC9AFF0051A22C /* SGBaseMenu.m in Sources */,
 				C8AF0D2D2398B74F009BBEBE /* UITableView+XSAnimationKit.m in Sources */,
@@ -2359,6 +2409,7 @@
 				C857A3A0229CD138002B5396 /* HeaderModel.m in Sources */,
 				C8F857DC2356FBFC00521460 /* NYSConversationViewController.m in Sources */,
 				C899EFA823A3446F00E78403 /* NYSActivityModel.m in Sources */,
+				C89D5BC423D1462700A9EE15 /* NYSMusicTableViewCell.m in Sources */,
 				C81074C023AA393100CC7868 /* NYSMusicModel.m in Sources */,
 				C807696823A2160C004B6E1C /* NYSArticleModel.m in Sources */,
 				C8D5574423CF014E00034B85 /* NYSArticleContentTableViewCell.m in Sources */,
@@ -2403,6 +2454,7 @@
 				C83B8E2623AC9AFF0051A22C /* SGAlertMenu.m in Sources */,
 				C83B8E3A23ACC9210051A22C /* NYSSettingViewController.m in Sources */,
 				C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */,
+				C80A419223D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m in Sources */,
 				C807696F23A216D8004B6E1C /* NYSPublicnotice.m in Sources */,
 				C8188D2323ADE04300E13F3A /* BibleManager.m in Sources */,
 				C85C449E229B5FD600B35652 /* NYSRootNavigationController.m in Sources */,
@@ -2433,6 +2485,7 @@
 				C8AF0D1E23988E8F009BBEBE /* NYSButtonFooterView.m in Sources */,
 				C8A8052D23B1C07300DA52DC /* NYSContentTableViewCell.m in Sources */,
 				C87947ED23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m in Sources */,
+				C80A418B23D18CC700EAC2D6 /* NYSCollectionTableViewCell.m in Sources */,
 				C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */,
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */,
@@ -2464,6 +2517,7 @@
 				C85C44E1229C026D00B35652 /* AppDelegate+AppService.m in Sources */,
 				C8E22C7823B494570025C094 /* NYSAlert.m in Sources */,
 				C8D5574823CF063100034B85 /* NYSArticleFooterView.m in Sources */,
+				C80A418F23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m in Sources */,
 				C8DDA11F23AB592D003AF6F4 /* UIColor+NYS.m in Sources */,
 				C852821323C07766000429A1 /* NYSClockListTableViewCell.m in Sources */,
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,

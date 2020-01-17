@@ -9,5 +9,9 @@
 #import "NYSMusicMenuModel.h"
 
 @implementation NYSMusicMenuModel
-
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+        @"user" : @"UserInfo"
+    };
+}
 @end

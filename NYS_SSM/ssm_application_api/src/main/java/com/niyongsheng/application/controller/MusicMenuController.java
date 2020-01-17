@@ -134,9 +134,10 @@ public class MusicMenuController {
     ) throws ResponseException {
 
         // 1.调用service的SQL方法
+        String account = request.getHeader("Account");
         MusicMenu musicMenu = new MusicMenu();
         try {
-            musicMenu = musicMenuService.selectMusicListById(Integer.valueOf(id));
+            musicMenu = musicMenuService.selectMusicListById(Integer.valueOf(id), account);
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }

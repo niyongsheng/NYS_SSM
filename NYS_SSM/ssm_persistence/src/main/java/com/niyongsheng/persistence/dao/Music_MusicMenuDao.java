@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.niyongsheng.persistence.domain.Music;
 import com.niyongsheng.persistence.domain.MusicMenu;
 import com.niyongsheng.persistence.domain.Music_MusicMenu;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public interface Music_MusicMenuDao extends BaseMapper<Music_MusicMenu> {
      * @param musicMenuID 歌单id
      * @return
      */
-    List<Music> getMusicsByMusicMenuId(Integer musicMenuID);
+    List<Music> getMusicsByMusicMenuId(@Param("musicMenuID") Integer musicMenuID, @Param("account") String account);
 
     /**
      * 根据一个歌曲ID，查询这个歌曲所在的歌单列表

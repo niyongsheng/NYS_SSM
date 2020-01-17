@@ -12,6 +12,7 @@
 #import "NYSMusicModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "DFPlayer.h"
+#import "NYSMusicTableViewCell.h"
 
 @interface NYSMusicListViewController () <UITableViewDelegate, UITableViewDataSource, DFPlayerDelegate, DFPlayerDataSource> {
     NSArray *_dataSource;
@@ -87,6 +88,7 @@
         weakSelf.musicMenu = [NYSMusicListModel mj_objectWithKeyValues:[response objectForKey:@"data"]];
         [weakSelf.tableView reloadData];
         [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeToTop tableView:weakSelf.tableView];
+        self->_headerView.musicMenu = weakSelf.musicMenu;
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
     } isCache:YES];
@@ -102,20 +104,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60.0f;
+    return 65.0f;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
+    NYSMusicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NYSMusicTableViewCell"];
+    if(cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"NYSMusicTableViewCell" owner:self options:nil] firstObject];
     }
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    NYSMusicModel *musicModel = [self.musicMenu musicList][indexPath.row];
-    cell.textLabel.text = musicModel.name;
-    cell.detailTextLabel.text = musicModel.anAuthor;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:musicModel.icon] placeholderImage:[UIImage imageNamed:@"ic_disc_90x90_"]];
+    cell.musicModel = [self.musicMenu musicList][indexPath.row];
     return cell;
 }
 

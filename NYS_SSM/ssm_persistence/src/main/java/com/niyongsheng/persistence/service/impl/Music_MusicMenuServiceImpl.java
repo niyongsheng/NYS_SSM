@@ -24,7 +24,7 @@ public class Music_MusicMenuServiceImpl extends ServiceImpl<Music_MusicMenuDao, 
     private Music_MusicMenuDao music_musicMenuDao;
 
     @Override
-    public List<Music> getMusicsByMusicMenuId(Integer id) {
-        return music_musicMenuDao.getMusicsByMusicMenuId(id);
+    public List<Music> getMusicsByMusicMenuId(Integer id, String isCollectionAccount) {
+        return music_musicMenuDao.getMusicsByMusicMenuId(id, isCollectionAccount);
     }
 }

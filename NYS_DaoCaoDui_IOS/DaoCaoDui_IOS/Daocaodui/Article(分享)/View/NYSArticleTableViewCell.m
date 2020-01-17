@@ -37,7 +37,7 @@
 - (void)setArticleModel:(NYSArticleModel *)articleModel {
     _articleModel = articleModel;
     
-    [self.backgroudImageView setImageWithURL:[NSURL URLWithString:articleModel.icon] placeholder:[UIImage imageNamed:@"placeholder"]];
+    [self.backgroudImageView setImageWithURL:[NSURL URLWithString:articleModel.icon] placeholder:[UIImage imageNamed:@"doulist_cover_122x122_"]];
     [self.title setText:articleModel.title];
     [self.subtitle setText:articleModel.subtitle];
 }

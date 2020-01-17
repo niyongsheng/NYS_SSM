@@ -16,5 +16,5 @@ public interface MusicMenuService extends IService<MusicMenu> {
 
     List<MusicMenu> selectAllByFellowship(Integer fellowship);
 
-    MusicMenu selectMusicListById(Integer id);
+    MusicMenu selectMusicListById(Integer id, String account);
 }

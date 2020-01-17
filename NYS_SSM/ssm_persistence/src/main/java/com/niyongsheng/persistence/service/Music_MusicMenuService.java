@@ -14,5 +14,5 @@ import java.util.List;
  * @updateDes
  */
 public interface Music_MusicMenuService extends IService<Music_MusicMenu> {
-    List<Music> getMusicsByMusicMenuId(Integer id);
+    List<Music> getMusicsByMusicMenuId(Integer id, String isCollectionAccount);
 }

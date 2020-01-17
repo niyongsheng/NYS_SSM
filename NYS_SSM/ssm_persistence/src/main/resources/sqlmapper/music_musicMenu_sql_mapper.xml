@@ -3,10 +3,15 @@
 <mapper namespace="com.niyongsheng.persistence.dao.Music_MusicMenuDao">
 
     <!-- 根据一个歌单ID,查询这个歌单下的所有歌曲列表 -->
-    <resultMap id="resultMusicMap_2" type="Music" autoMapping="true"/>
+    <resultMap id="resultMusicMap_2" type="Music" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
+        <collection property="isCollection" column="{musicID = id, account = isCollectionAccount}" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.isCollection"/>
+        <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
+    </resultMap>
 
     <select id="getMusicsByMusicMenuId" resultMap="resultMusicMap_2">
-        select m.*, mmm.musicMenuID
+        select m.*, mmm.musicMenuID, #{account} as isCollectionAccount
         from dcd_music m, dcd_music_musicMenu mmm
         where m.id = mmm.musicID and mmm.musicMenuID = #{musicMenuID}
     </select>

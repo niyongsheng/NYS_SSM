@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NYSCollectionTableViewCell" rowHeight="173" id="KGk-i7-Jjw" customClass="NYSCollectionTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="173"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="173"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_ocr_intro_345x200_" translatesAutoresizingMaskIntoConstraints="NO" id="44B-Dc-Npy">
+                        <rect key="frame" x="15" y="15" width="307" height="143"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgo-c0-ULI">
+                        <rect key="frame" x="291" y="25" width="21" height="22"/>
+                        <state key="normal" image="ic_sub_photo_album_dislike_21x21_"/>
+                        <state key="selected" image="ic_sub_photo_album_like_21x21_"/>
+                        <connections>
+                            <action selector="collectionBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i61-PE-J4v"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2G-3N-CeO">
+                        <rect key="frame" x="25" y="117.5" width="287" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtY-gj-6R9">
+                        <rect key="frame" x="25" y="138.5" width="287" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO.001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-Y1-B3g">
+                        <rect key="frame" x="25" y="25" width="60.5" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="LtY-gj-6R9" firstAttribute="bottom" secondItem="44B-Dc-Npy" secondAttribute="bottom" constant="-5" id="3tp-v9-hlI"/>
+                    <constraint firstAttribute="trailing" secondItem="44B-Dc-Npy" secondAttribute="trailing" constant="15" id="4Nd-Q5-5Ok"/>
+                    <constraint firstItem="LtY-gj-6R9" firstAttribute="leading" secondItem="44B-Dc-Npy" secondAttribute="leading" constant="10" id="EPr-eR-51U"/>
+                    <constraint firstItem="LtY-gj-6R9" firstAttribute="trailing" secondItem="44B-Dc-Npy" secondAttribute="trailing" constant="-10" id="EZe-Fm-J60"/>
+                    <constraint firstItem="KeK-Y1-B3g" firstAttribute="leading" secondItem="44B-Dc-Npy" secondAttribute="leading" constant="10" id="H4c-XS-AeR"/>
+                    <constraint firstItem="pgo-c0-ULI" firstAttribute="top" secondItem="44B-Dc-Npy" secondAttribute="top" constant="10" id="JPk-87-zxc"/>
+                    <constraint firstItem="44B-Dc-Npy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Oui-1a-WGd"/>
+                    <constraint firstItem="E2G-3N-CeO" firstAttribute="leading" secondItem="44B-Dc-Npy" secondAttribute="leading" constant="10" id="Tf6-xT-KKu"/>
+                    <constraint firstItem="E2G-3N-CeO" firstAttribute="trailing" secondItem="44B-Dc-Npy" secondAttribute="trailing" constant="-10" id="ZSc-mY-5bu"/>
+                    <constraint firstItem="KeK-Y1-B3g" firstAttribute="top" secondItem="44B-Dc-Npy" secondAttribute="top" constant="10" id="dZp-3U-1LZ"/>
+                    <constraint firstAttribute="bottom" secondItem="44B-Dc-Npy" secondAttribute="bottom" constant="15" id="f0H-pq-rUf"/>
+                    <constraint firstItem="LtY-gj-6R9" firstAttribute="top" secondItem="E2G-3N-CeO" secondAttribute="bottom" id="koS-G6-n1i"/>
+                    <constraint firstItem="44B-Dc-Npy" firstAttribute="trailing" secondItem="pgo-c0-ULI" secondAttribute="trailing" constant="10" id="qmL-dL-ac3"/>
+                    <constraint firstItem="44B-Dc-Npy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="tOI-yg-nU3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bgimageView" destination="44B-Dc-Npy" id="Rqw-tE-V1A"/>
+                <outlet property="collectionBtn" destination="pgo-c0-ULI" id="748-Mm-0DG"/>
+                <outlet property="number" destination="KeK-Y1-B3g" id="Huq-tW-mYY"/>
+                <outlet property="subtitle" destination="LtY-gj-6R9" id="eIs-eA-p3R"/>
+                <outlet property="title" destination="E2G-3N-CeO" id="LlQ-wb-cpr"/>
+            </connections>
+            <point key="canvasLocation" x="144.20289855072465" y="162.38839285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg_ocr_intro_345x200_" width="345" height="200"/>
+        <image name="ic_sub_photo_album_dislike_21x21_" width="21" height="21"/>
+        <image name="ic_sub_photo_album_like_21x21_" width="21" height="21"/>
+    </resources>
+</document>

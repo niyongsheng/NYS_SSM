@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class UserInfo;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSMusicModel : NSObject
@@ -28,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL status;
 @property (nonatomic, assign) BOOL isCollection;
 @property (nonatomic, strong) NSString * wordAuthor;
+@property (nonatomic, strong) UserInfo * user;
 @end
 
 NS_ASSUME_NONNULL_END

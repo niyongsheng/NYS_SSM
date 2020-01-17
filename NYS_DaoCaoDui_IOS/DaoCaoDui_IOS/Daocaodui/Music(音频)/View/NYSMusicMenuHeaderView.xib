@@ -15,20 +15,77 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-FG-Bcc">
-                    <rect key="frame" x="0.0" y="0.0" width="397" height="230"/>
+                    <rect key="frame" x="20" y="40" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="dgq-FG-Bcc" secondAttribute="height" multiplier="1:1" id="A5G-9c-EAv"/>
+                        <constraint firstAttribute="width" constant="150" id="Wnm-Zr-Vhk"/>
+                    </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5X-c5-K84">
+                    <rect key="frame" x="190" y="15" width="35" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-01-01 创建" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJN-r6-8cO">
+                    <rect key="frame" x="190" y="46" width="95.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲数：1首" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeV-zf-BgG">
+                    <rect key="frame" x="190" y="67.5" width="67" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介：xxxxxxxxxx" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqI-87-BeI">
+                    <rect key="frame" x="190" y="89.5" width="100" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7N-cP-V9L">
+                    <rect key="frame" x="307" y="190" width="70" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="hpK-Gk-NJ6"/>
+                        <constraint firstAttribute="width" constant="70" id="wUC-yt-wvP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <state key="normal" title="播放全部">
+                        <color key="titleColor" red="0.99496036769999996" green="0.233691752" blue="0.38082110879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="playBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="Q4x-Wm-WTd"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dgq-FG-Bcc" secondAttribute="trailing" id="08x-vD-Krg"/>
-                <constraint firstItem="dgq-FG-Bcc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MbD-5M-6Xd"/>
-                <constraint firstAttribute="bottom" secondItem="dgq-FG-Bcc" secondAttribute="bottom" id="Nqb-Ya-mll"/>
-                <constraint firstItem="dgq-FG-Bcc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Rho-YH-pGf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JqI-87-BeI" secondAttribute="bottom" constant="42" id="CDG-ay-U8S"/>
+                <constraint firstItem="R5X-c5-K84" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Dtg-TJ-LcW"/>
+                <constraint firstItem="dgq-FG-Bcc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="G0k-e1-h5Q"/>
+                <constraint firstItem="BeV-zf-BgG" firstAttribute="top" secondItem="bJN-r6-8cO" secondAttribute="bottom" constant="7" id="HAZ-cU-aLh"/>
+                <constraint firstItem="dgq-FG-Bcc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="HKr-3F-CuX"/>
+                <constraint firstItem="bJN-r6-8cO" firstAttribute="leading" secondItem="R5X-c5-K84" secondAttribute="leading" id="KrY-Mr-z37"/>
+                <constraint firstItem="bJN-r6-8cO" firstAttribute="top" secondItem="R5X-c5-K84" secondAttribute="bottom" constant="10" id="Q1k-QB-3j0"/>
+                <constraint firstItem="JqI-87-BeI" firstAttribute="top" secondItem="BeV-zf-BgG" secondAttribute="bottom" constant="7" id="Z5h-gQ-LDZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JqI-87-BeI" secondAttribute="trailing" constant="10" id="fac-yn-mgn"/>
+                <constraint firstItem="BeV-zf-BgG" firstAttribute="leading" secondItem="bJN-r6-8cO" secondAttribute="leading" id="jdi-cH-nHl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="m7N-cP-V9L" secondAttribute="bottom" constant="10" id="kgd-9A-w4T"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="m7N-cP-V9L" secondAttribute="trailing" constant="20" id="lg4-oT-EQA"/>
+                <constraint firstItem="R5X-c5-K84" firstAttribute="leading" secondItem="dgq-FG-Bcc" secondAttribute="trailing" constant="20" id="pXr-uV-H0W"/>
+                <constraint firstItem="JqI-87-BeI" firstAttribute="leading" secondItem="bJN-r6-8cO" secondAttribute="leading" id="xBi-Sy-pVC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="bgImageView" destination="dgq-FG-Bcc" id="qug-Si-z0C"/>
+                <outlet property="introduction" destination="JqI-87-BeI" id="0PC-5y-YVl"/>
+                <outlet property="musicCount" destination="BeV-zf-BgG" id="EN1-VZ-nRC"/>
+                <outlet property="playBtn" destination="m7N-cP-V9L" id="kiZ-Xt-znx"/>
+                <outlet property="time" destination="bJN-r6-8cO" id="13j-Tg-Grw"/>
+                <outlet property="title" destination="R5X-c5-K84" id="Xaf-7Y-OKk"/>
             </connections>
             <point key="canvasLocation" x="119.56521739130436" y="342.85714285714283"/>
         </view>

@@ -9,5 +9,12 @@
 #import "NYSMusicModel.h"
 
 @implementation NYSMusicModel
-
++ (NSDictionary *)mj_objectClassInArray {
+    return @{
+        @"user" : @"UserInfo"
+    };
+}
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"idField" : @"id"};
+}
 @end
