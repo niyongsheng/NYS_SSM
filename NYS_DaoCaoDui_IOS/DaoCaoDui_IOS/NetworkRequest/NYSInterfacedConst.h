@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 1
+#define DevelopSever 0
 #define TestSever    0
-#define ProductSever 0
+#define ProductSever 1
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
@@ -110,20 +110,19 @@ UIKIT_EXTERN NSString *const CR_DeletePray;
 UIKIT_EXTERN NSString *const CR_DeleteMusic;
 /** 获取团契列表*/
 UIKIT_EXTERN NSString *const CR_FellowshipList;
-
-
-
 /** QQ登录*/
 UIKIT_EXTERN NSString *const CR_QQLogoin;
 /** 微信登录*/
 UIKIT_EXTERN NSString *const CR_WCLogoin;
+
+
+
+
+
+
 /** 付费验证*/
 UIKIT_EXTERN NSString *const CR_VipValidate;
 /** 更新提醒*/
 UIKIT_EXTERN NSString *const CR_UpdateTip;
-/** 绑定QQ*/
-UIKIT_EXTERN NSString *const CR_BindQQ;
-/** 绑定微信*/
-UIKIT_EXTERN NSString *const CR_BindWeChat;
 /** VIP详情*/
 UIKIT_EXTERN NSString *const CR_VIPDetails;

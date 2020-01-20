@@ -21,10 +21,13 @@ SINGLETON_FOR_CLASS(IMManager);
 #pragma mark —- 初始化IM -—
 - (void)initRongCloudIM {
     [[RCIM sharedRCIM] initWithAppKey:RCAPPKEY];
-    // 用户信息提供者
+    [RCIM sharedRCIM].globalNavigationBarTintColor = [UIColor whiteColor];
+    // 信息提供者
     [RCIM sharedRCIM].userInfoDataSource = [NYSChatDataSource shareInstance];
     [RCIM sharedRCIM].groupInfoDataSource = [NYSChatDataSource shareInstance];
     [RCIM sharedRCIM].groupMemberDataSource = [NYSChatDataSource shareInstance];
+    // 开启多端同步未读状态
+    [RCIM sharedRCIM].enableSyncReadStatus = YES;
     // 设置优先使用WebView打开URL
     [RCIM sharedRCIM].embeddedWebViewPreferred = YES;
     // 开启用户信息和群组信息的持久化

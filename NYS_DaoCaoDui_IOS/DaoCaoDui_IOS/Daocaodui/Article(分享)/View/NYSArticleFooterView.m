@@ -26,11 +26,15 @@
     self.icon.layer.cornerRadius = 20.f;
     self.icon.layer.masksToBounds = YES;
     self.shareBtn.layer.cornerRadius = 7.f;
+    
+    CALayer *layer = [self.icon layer];
+    layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4f].CGColor;
+    layer.borderWidth = 0.7f;
 }
 
 - (IBAction)iconClicked:(UIButton *)sender {
     NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
-    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", sender.tag];
+    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", (long)sender.tag];
     NYSBaseNavigationController *navVC = [[NYSBaseNavigationController alloc] initWithRootViewController:personalInfoCardVC];
     navVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.fromViewController presentViewController:navVC animated:YES completion:nil];

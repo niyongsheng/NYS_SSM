@@ -55,7 +55,7 @@ public class UserController {
     /** 验证码在redis中的key前缀（后面拼接手机号）*/
     public static final String ONCECODE_KEY = "onceCode_";
     /* 默认用户头像 */
-    public static final String USERICON_URL = "http://pyd6p69m3.bkt.clouddn.com/config/icon/me_dcd.png";
+    public static final String USERICON_URL = "http://file.daocaodui.top/1575438242063_jpeg";
 
     @Autowired
     private UserService userService;
@@ -95,7 +95,7 @@ public class UserController {
         // 2.数据库查询用户
         User user = null;
         try {
-            user = userService.findUserByPhone(phone);
+            user = userService.findUserByPhone(loginUser.getPhone());
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
@@ -198,7 +198,7 @@ public class UserController {
             throw new ResponseException(ResponseStatusEnum.AUTH_ONCECODE_ERROR);
         }
 
-        // 2.重复注册校验
+        // 2.重复手机号注册校验
         if (userService.findUserByPhone(phone) != null) {
             throw new ResponseException(ResponseStatusEnum.AUTH_REPEAT_ERROR);
         }
@@ -210,6 +210,7 @@ public class UserController {
         registerUser.setFellowship(Integer.valueOf(fellowship));
         registerUser.setStatus(true);
         registerUser.setProfession(1);
+        // 生成account
         String account = MathUtils.randomDigitNumber(7);
         while (true) {
             // 自动生成的account排重检查
@@ -219,10 +220,23 @@ public class UserController {
             account = MathUtils.randomDigitNumber(7);
         }
         registerUser.setAccount(account);
+        // 默认头像
         String iconUrl = USERICON_URL;
         registerUser.setIcon(iconUrl);
+        // 随机昵称
         String nickName = EnumUtil.random(NickeNameEnum.class).toString();
         registerUser.setNickname(nickName);
+        // 3.1封装JWT载荷对象
+        HashMap<String, Object> cryptMap = new HashMap<>();
+        cryptMap.put("id", registerUser.getId());
+        cryptMap.put("account", registerUser.getAccount());
+        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("status", registerUser.getStatus());
+        cryptMap.put("fellowship", registerUser.getFellowship());
+        // 3.2JWT加密生成token和时效（一个月）
+        String token = JwtUtil.encryption(cryptMap, 60L * 60L * 1000L * 24L * 30L);
+        // 3.3将token封装进User对象返回给客户端
+        registerUser.setToken(token);
 
         // 4.注册RongCloud并设置注册用户的ImToken
         registerUser.setImToken(rongCloudService.rongCloudGetToken(account, nickName, iconUrl));
@@ -235,7 +249,165 @@ public class UserController {
         }
 
         // 6.返回注册结果
-        return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS);
+        return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, registerUser);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/qqRegister", method = RequestMethod.POST)
+    @ApiOperation(value = "QQ登录注册接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "qqUnionId", value = "uid", required = true),
+            @ApiImplicitParam(name = "iconUrl", value = "QQ头像", required = true),
+            @ApiImplicitParam(name = "nickname", value = "QQ昵称", required = true),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = false)
+    })
+    public ResponseDto<User> qqRegister(HttpServletRequest request,
+                                        @NotBlank(message = "{NotBlank.unionId}")
+                                        @RequestParam(value = "qqUnionId", required = true) String qqUnionId,
+                                        @RequestParam(value = "iconUrl", required = true) String iconUrl,
+                                        @RequestParam(value = "nickname", required = true) String nickname,
+                                        @RequestParam(value = "fellowship", required = false) String fellowship
+    ) throws ResponseException {
+
+        // 1.查询QQ号是否已注册（登录流程）
+        try {
+            User qqUser = userService.findUserByQqOpenId(qqUnionId);
+            if ( qqUser != null) {
+                if (!qqUser.getStatus()) {
+                    throw new ResponseException(ResponseStatusEnum.AUTH_STATUS_ERROR);
+                }
+                return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, qqUser);
+            }
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 2.创建User对象并初始化（注册流程）
+        if (StringUtils.isEmpty(fellowship)) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_ERROR);
+        }
+        User registerUser = new User();
+        registerUser.setQqOpenid(qqUnionId);
+        registerUser.setIcon(iconUrl);
+        registerUser.setNickname(nickname);
+        registerUser.setFellowship(Integer.valueOf(fellowship));
+        registerUser.setStatus(true);
+        registerUser.setProfession(1);
+        // 生成account
+        String account = MathUtils.randomDigitNumber(7);
+        while (true) {
+            // 自动生成的account排重检查
+            if (userService.findUserByAccount(account) == null) {
+                break;
+            }
+            account = MathUtils.randomDigitNumber(7);
+        }
+        registerUser.setAccount(account);
+        // 2.1封装JWT载荷对象
+        HashMap<String, Object> cryptMap = new HashMap<>();
+        cryptMap.put("id", registerUser.getId());
+        cryptMap.put("account", registerUser.getAccount());
+        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("status", registerUser.getStatus());
+        cryptMap.put("fellowship", registerUser.getFellowship());
+        // 2.2JWT加密生成token和时效（一个月）
+        String token = JwtUtil.encryption(cryptMap, 60L * 60L * 1000L * 24L * 30L);
+        // 2.3将token封装进User对象返回给客户端
+        registerUser.setToken(token);
+
+        // 3.注册RongCloud并设置注册用户的ImToken
+        registerUser.setImToken(rongCloudService.rongCloudGetToken(account, nickname, iconUrl));
+
+        // 4.写入数据库
+        try {
+            userService.addUser(registerUser);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
+
+        // 5.返回注册结果
+        return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, registerUser);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/wxRegister", method = RequestMethod.POST)
+    @ApiOperation(value = "微信登录注册接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "wxUnionId", value = "uid", required = true),
+            @ApiImplicitParam(name = "iconUrl", value = "微信头像", required = true),
+            @ApiImplicitParam(name = "nickname", value = "微信昵称", required = true),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = false)
+    })
+    public ResponseDto<User> wxRegister(HttpServletRequest request,
+                                        @NotBlank(message = "{NotBlank.unionId}")
+                                        @RequestParam(value = "wxUnionId", required = true) String wxUnionId,
+                                        @RequestParam(value = "iconUrl", required = true) String iconUrl,
+                                        @RequestParam(value = "nickname", required = true) String nickname,
+                                        @RequestParam(value = "fellowship", required = false) String fellowship
+    ) throws ResponseException {
+
+        // 1.查询微信号是否已注册（登录流程）
+        try {
+            User wxUser = userService.findUserByWxOpenId(wxUnionId);
+            if ( wxUser != null) {
+                if (!wxUser.getStatus()) {
+                    throw new ResponseException(ResponseStatusEnum.AUTH_STATUS_ERROR);
+                }
+                return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, wxUser);
+            }
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 2.创建User对象并初始化（注册流程）
+        if (StringUtils.isEmpty(fellowship)) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_ERROR);
+        }
+        User registerUser = new User();
+        registerUser.setQqOpenid(wxUnionId);
+        registerUser.setIcon(iconUrl);
+        registerUser.setNickname(nickname);
+        registerUser.setFellowship(Integer.valueOf(fellowship));
+        registerUser.setStatus(true);
+        registerUser.setProfession(1);
+        // 生成account
+        String account = MathUtils.randomDigitNumber(7);
+        while (true) {
+            // 自动生成的account排重检查
+            if (userService.findUserByAccount(account) == null) {
+                break;
+            }
+            account = MathUtils.randomDigitNumber(7);
+        }
+        registerUser.setAccount(account);
+        // 2.1封装JWT载荷对象
+        HashMap<String, Object> cryptMap = new HashMap<>();
+        cryptMap.put("id", registerUser.getId());
+        cryptMap.put("account", registerUser.getAccount());
+        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("status", registerUser.getStatus());
+        cryptMap.put("fellowship", registerUser.getFellowship());
+        // 2.2JWT加密生成token和时效（一个月）
+        String token = JwtUtil.encryption(cryptMap, 60L * 60L * 1000L * 24L * 30L);
+        // 2.3将token封装进User对象返回给客户端
+        registerUser.setToken(token);
+
+        // 3.注册RongCloud并设置注册用户的ImToken
+        registerUser.setImToken(rongCloudService.rongCloudGetToken(account, nickname, iconUrl));
+
+        // 4.写入数据库
+        try {
+            userService.addUser(registerUser);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
+
+        // 5.返回注册结果
+        return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, registerUser);
     }
 
     @ResponseBody
@@ -314,7 +486,7 @@ public class UserController {
                                                  @NotBlank()
                                                  @RequestParam(value = "account", required = true) String account
     ) throws ResponseException {
-        // TODO 高并发情况下可以优先使用redis中的用户数据（保证修改同步刷新redis缓存）
+        // TODO 高并发情况下可以优先使用redis中的用户数据降低服务器负载（注意：数据修改同步刷新redis缓存）
 
         // 1.数据库查询用户
         User user = null;
@@ -327,7 +499,6 @@ public class UserController {
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
-
 
         // 2.返回查询对象
         return new ResponseDto(ResponseStatusEnum.SUCCESS, user);
@@ -383,15 +554,29 @@ public class UserController {
             LocalDate dateTime = LocalDate.parse(birthday, dateFormat);
             user.setBirthday(dateTime);
         }
-        // 防止误操作和SQL冗余
+        // 防止误操作
         if (password != null && !"".equals(password.trim())) {
             user.setPassword(MD5Util.crypt(password));
         }
         user.setEmail(e_mail);
         user.setIntroduction(introduction);
         user.setAddress(address);
-        user.setQqOpenid(qqOpenid);
-        user.setWcOpenid(wcOpenid);
+        if (!StringUtils.isEmpty(qqOpenid)) {
+            User userByQqOpenId = userService.findUserByQqOpenId(qqOpenid);
+            if (userByQqOpenId != null) {
+                throw new ResponseException(ResponseStatusEnum.AUTH_REPEAT_QQ_ERROR);
+            } else {
+                user.setQqOpenid(qqOpenid);
+            }
+        }
+        if (!StringUtils.isEmpty(wcOpenid)) {
+            User userByWxOpenId = userService.findUserByWxOpenId(wcOpenid);
+            if (userByWxOpenId != null) {
+                throw new ResponseException(ResponseStatusEnum.AUTH_REPEAT_WX_ERROR);
+            } else {
+                user.setWcOpenid(wcOpenid);
+            }
+        }
 
         // 2.更新用户DB数据
         try {

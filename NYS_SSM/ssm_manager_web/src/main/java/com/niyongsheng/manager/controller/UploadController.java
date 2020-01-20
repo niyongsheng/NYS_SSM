@@ -38,7 +38,8 @@ public class UploadController {
         String uploadPath = request.getSession().getServletContext().getRealPath("file");
         
         // 上传文件
-        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(file, uploadPath, true);
+        String prefix = request.getHeader("Account") + "_";
+        Map<String, Object> resultMap = qiniuUploadFileService.qiniuUpload(prefix, file, uploadPath, true);
 
         return resultMap;
     }

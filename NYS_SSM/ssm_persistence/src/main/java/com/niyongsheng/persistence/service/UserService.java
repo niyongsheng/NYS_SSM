@@ -20,13 +20,13 @@ public interface UserService {
      * @param password 密码
      * @return
      */
-    public User login(String account, String password);
+    User login(String account, String password);
 
     /**
      * 用户列表
      * @return
      * */
-    public List<User> findAll();
+    List<User> findAll();
 
     /**
      * 添加用户
@@ -85,4 +85,19 @@ public interface UserService {
      * @return
      */
     List<User> selectAllByFellowshipMultiTable(Integer fellowship);
+
+    /**
+     * 通过QQ用户唯一标识查询用户
+     * @param qqOpenId
+     * @return
+     */
+    User findUserByQqOpenId(String qqOpenId);
+
+    /**
+     * 通过微信用户唯一标识查询用户
+     * @param wxOpenId
+     * @return
+     */
+    User findUserByWxOpenId(String wxOpenId);
+
 }

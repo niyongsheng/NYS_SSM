@@ -65,23 +65,24 @@
     NLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
 
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    // 注册用户通知设置
+    [application registerForRemoteNotifications];
+}
+
 #pragma mark - RongCloudRegisterDelegate
 - (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left {
     
 }
 
 #pragma mark - JPUSHRegisterDelegate
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler  API_AVAILABLE(ios(10.0)) {
     // iOS 10 Support 前台监听通知APP自动响应
     NSDictionary * userInfo = notification.request.content.userInfo;
-    if (@available(iOS 10.0, *)) {
-        if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-            [JPUSHService handleRemoteNotification:userInfo];
-        }
-        completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
-    } else {
-        // Fallback on earlier versions
+    if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
     }
+    completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
     
     switch ([userInfo[@"type"] integerValue]) {
         case 0: {
@@ -99,7 +100,7 @@
     }
 }
 
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler  API_AVAILABLE(ios(10.0)) {
     // iOS 10 Support 后台点击通知拉起APP响应
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if ([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
@@ -113,7 +114,7 @@
             NSString *type = [userInfo valueForKey:@"type"]; // 任务单type 单子类型:1投诉单;2报修单;3预约单;4房屋审核单
             NSString *requestId = [userInfo valueForKey:@"requestId"]; // 任务单ID
             
-            NLog(@"content =[%@], badge=[%ld], sound=[%@], type=[%@], requestId=[%@]", content, badge, sound, type, requestId);
+            NLog(@"content =[%@], badge=[%ld], sound=[%@], type=[%@], requestId=[%@]", content, (long)badge, sound, type, requestId);
             // 跳转控制器
             switch ([type integerValue]) {
                 case 0: {
@@ -129,6 +130,15 @@
         [JPUSHService handleRemoteNotification:userInfo];
     }
     completionHandler();
+}
+
+/*
+ * @brief handle UserNotifications.framework [openSettingsForNotification:]
+ * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
+ * @param notification 当前管理的通知对象
+ */
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(UNNotification *)notification NS_AVAILABLE_IOS(12.0) {
+    
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

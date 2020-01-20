@@ -10,6 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIImageView+WebCache.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
+#import <UMShare/UMShare.h>
 #import "NYSButtonFooterView.h"
 #import "KHAlertPickerController.h"
 #import "NYSBindPhoneViewController.h"
@@ -260,12 +261,31 @@
             break;
             
         case 13: { // qq
-            
+            [SVProgressHUD showWithStatus:@"授权中..."];
+            [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_QQ currentViewController:nil completion:^(id result, NSError *error) {
+                [SVProgressHUD dismiss];
+                if (error) {
+                    [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+                    [SVProgressHUD dismissWithDelay:1.f];
+                } else {
+                    UMSocialUserInfoResponse *resp = result;
+                    [self updateUserInfo:@{@"qqOpenid" : resp.uid}];
+                }
+            }];
         }
             break;
             
         case 14: { // wc
-            
+            [SVProgressHUD showWithStatus:@"授权中..."];
+                [[UMSocialManager defaultManager] getUserInfoWithPlatform:UMSocialPlatformType_WechatSession currentViewController:nil completion:^(id result, NSError *error) {
+                    if (error) {
+                        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+                        [SVProgressHUD dismissWithDelay:1.5f];
+                    } else {
+                        UMSocialUserInfoResponse *resp = result;
+                        [self updateUserInfo:@{@"wcOpenid" : resp.uid}];
+                    }
+                }];
         }
             break;
             

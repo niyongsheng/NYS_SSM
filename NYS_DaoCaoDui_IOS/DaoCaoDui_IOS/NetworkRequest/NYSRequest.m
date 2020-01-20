@@ -297,64 +297,42 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// TODO 下面没改--------------------------------
-
 /** QQ登录*/
-+ (NSURLSessionTask *)QQLogoinWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)QQLogoinWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_QQLogoin];
-    return nil;
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 微信登录*/
-+ (NSURLSessionTask *)WCLogoinWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)WCLogoinWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_WCLogoin];
-    return nil;
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
+
+
+
+
+
+
+
+
+
+
 
 /** 付费验证*/
-+ (NSURLSessionTask *)VipValidateWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)VipValidateWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_VipValidate];
-    return nil;
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
-
 /** 更新提醒*/
-+ (NSURLSessionTask *)UpdateTipWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)UpdateTipWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UpdateTip];
-    return nil;
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
-
-/** 绑定QQ*/
-+ (NSURLSessionTask *)BindQQWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_BindQQ];
-    return nil;
-}
-
-/** 绑定微信*/
-+ (NSURLSessionTask *)BindWeChatWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
-    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_BindWeChat];
-    return nil;
-}
-
 /** VIP详情*/
-+ (NSURLSessionTask *)VIPDetailstWithParameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)VIPDetailstWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_VIPDetails];
-    return nil;
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 
@@ -566,25 +544,33 @@
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NLog(@"[服务器Response]：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
+        // 0.正常无异常
         isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
         success(responseObject);
     } else {
+        NSError *error = nil;
         NSInteger code = [[responseObject objectForKey:@"statusCode"] integerValue];
-        NSString *info = [responseObject objectForKey:@"msg"];
-        NSString *error = [NSString stringWithFormat:@"%ld\n%@", (long)code, info];
-        [SVProgressHUD showErrorWithStatus:error];
-        if (code == 6005 || code == 6010 || code == 6011 || code == 6001 || code == 6006) {
-            // 退出登录通知
+        if (code == 6005 || code == 6010 || code == 6001 || code == 6006) {
+            NSString *errorInfo = [responseObject objectForKey:@"msg"];
+            NSString *errorStr = [NSString stringWithFormat:@"%ld\n%@", (long)code, errorInfo];
+            error = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : @"登录状态异常", NSLocalizedFailureReasonErrorKey : errorInfo, NSLocalizedRecoverySuggestionErrorKey : @"重新登录"}];
+            [SVProgressHUD showErrorWithStatus:errorStr];
+            // 1.登录状态异常
             [NUserManager logout:nil];
-//            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
         } else if (code == 4001) {
-            // 参数合法性提示
+            // 2.参数不合法异常
             NSString *warnInfo = [responseObject objectForKey:@"data"];
-            NSString *warning = [NSString stringWithFormat:@"%ld\n%@", (long)code, warnInfo];
-            [SVProgressHUD showInfoWithStatus:warning];
+            NSString *warningStr = [NSString stringWithFormat:@"%ld\n%@", (long)code, warnInfo];
+            error = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : @"服务器接收到的参数异常", NSLocalizedFailureReasonErrorKey : warnInfo, NSLocalizedRecoverySuggestionErrorKey : @"检查请求参数合法性"}];
+            [SVProgressHUD showInfoWithStatus:warningStr];
+        } else {
+            // 3.未知异常
+            NSString *unknowStr = [responseObject objectForKey:@"msg"];
+            [SVProgressHUD showInfoWithStatus:unknowStr];
+            error = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : @"Service Exception!", NSLocalizedFailureReasonErrorKey : unknowStr}];
+            failure(error);
         }
-        [SVProgressHUD dismissWithDelay:2.f completion:^{
-            NSError *error = nil;
+        [SVProgressHUD dismissWithDelay:1.5f completion:^{
             failure(error);
         }];
     }

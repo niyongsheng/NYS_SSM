@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NYSChatDataSource : NSObject <RCIMUserInfoDataSource, RCIMGroupInfoDataSource>
+@interface NYSChatDataSource : NSObject <RCIMUserInfoDataSource, RCIMGroupInfoDataSource, RCIMGroupMemberDataSource>
 
 + (NYSChatDataSource *)shareInstance;
 

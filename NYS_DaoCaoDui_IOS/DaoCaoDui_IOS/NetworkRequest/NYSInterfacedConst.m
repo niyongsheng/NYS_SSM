@@ -113,21 +113,19 @@ NSString *const CR_DeletePray = @"/pray/deletePrayById";
 NSString *const CR_DeleteMusic = @"/music/deleteMusicById";
 /** 获取团契列表*/
 NSString *const CR_FellowshipList = @"/fellowship/selectFellowshipList";
-
-
-
-
 /** QQ登录*/
-NSString *const CR_QQLogoin = @"/account/qqLogin";
+NSString *const CR_QQLogoin = @"/user/qqRegister";
 /** 微信登录*/
-NSString *const CR_WCLogoin = @"/account/wechatLogin";
+NSString *const CR_WCLogoin = @"/user/wxRegister";
+
+
+
+
+
+
 /** 付费验证*/
-NSString *const CR_VipValidate = @"/account/validate";
+NSString *const CR_VipValidate = @"";
 /** 更新提醒*/
-NSString *const CR_UpdateTip = @"/shelf/getReviewData";
-/** 绑定QQ*/
-NSString *const CR_BindQQ = @"/account/updateQQ";
-/** 绑定微信*/
-NSString *const CR_BindWeChat = @"/account/updateWeChat";
+NSString *const CR_UpdateTip = @"";
 /** VIP详情*/
-NSString *const CR_VIPDetails = @"/account/getValidateLog";
+NSString *const CR_VIPDetails = @"";

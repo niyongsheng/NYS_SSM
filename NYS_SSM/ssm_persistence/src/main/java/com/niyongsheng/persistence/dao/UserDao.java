@@ -71,4 +71,18 @@ public interface UserDao {
      * @return
      */
     List<User> selectAllByFellowshipMultiTable(Integer fellowship);
+
+    /**
+     * 通过QQ用户唯一标识查询用户
+     * @param qqOpenId
+     * @return
+     */
+    User findUserByQqOpenId(String qqOpenId);
+
+    /**
+     * 通过微信用户唯一标识查询用户
+     * @param wxOpenId
+     * @return
+     */
+    User findUserByWxOpenId(String wxOpenId);
 }

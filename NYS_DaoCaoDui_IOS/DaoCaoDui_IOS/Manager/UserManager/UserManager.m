@@ -8,6 +8,9 @@
 
 #import "UserManager.h"
 #import <UMShare/UMShare.h>
+#import "KHAlertPickerController.h"
+#import "NYSFellowshipModel.h"
+#import "NYSEmitterUtil.h"
 
 @implementation UserManager
 
@@ -32,52 +35,47 @@ SINGLETON_FOR_CLASS(UserManager);
 
 #pragma mark -- 登录类型分发 --
 - (void)login:(UserLoginType)loginType params:(NSDictionary *)params completion:(loginBlock)completion {
-    
     if (loginType == NUserLoginTypePwd) {
-        // 账号登录
+        // 1.账号密码登录
         [self loginToServer:loginType params:params completion:completion];
     } else {
-        // 友盟登录类型
+        // 2.友盟登录类型
         UMSocialPlatformType platFormType;
         switch (loginType) {
-            case NUserLoginTypeQQ:
-                platFormType = UMSocialPlatformType_QQ;
-                break;
-            case NUserLoginTypeWeChat:
-                platFormType = UMSocialPlatformType_WechatSession;
-                break;
-            default:
-                platFormType = UMSocialPlatformType_UnKnown;
-                break;
+            case NUserLoginTypeQQ : platFormType = UMSocialPlatformType_QQ; break;
+            case NUserLoginTypeWeChat : platFormType = UMSocialPlatformType_WechatSession; break;
+            default : platFormType = UMSocialPlatformType_UnKnown; break;
         }
         
-        [MBProgressHUD showActivityMessageInView:@"授权中..."];
+        [SVProgressHUD showWithStatus:@"授权中..."];
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:platFormType currentViewController:nil completion:^(id result, NSError *error) {
             if (error) {
-                [MBProgressHUD hideHUD];
+                [SVProgressHUD dismiss];
                 if (completion) {
-                    completion(NO,error.localizedDescription);
+                    completion(NO, error.localizedDescription);
                 }
             } else {
                 UMSocialUserInfoResponse *resp = result;
-                // 授权信息
-                NLog(@"QQ uid: %@", resp.uid);
-                NLog(@"QQ openid: %@", resp.openid);
-                NLog(@"QQ accessToken: %@", resp.accessToken);
-                NLog(@"QQ expiration: %@", resp.expiration);
-                // 用户信息
-                NLog(@"QQ name: %@", resp.name);
-                NLog(@"QQ iconurl: %@", resp.iconurl);
-                NLog(@"QQ gender: %@", resp.unionGender);
                 // 第三方平台SDK源数据
-                NLog(@"QQ originalResponse: %@", resp.originalResponse);
+                NLog(@"UMSocialManager originalResponse: %@", resp.originalResponse);
                 
-                NSDictionary *params = @{@"openid":resp.openid,
-                                         @"nickname":resp.name,
-                                         @"headimgurl":resp.iconurl,
-                                         @"sex":[resp.unionGender isEqualToString:@"男"]?@1:@2,
-                                         @"cityname":resp.originalResponse[@"city"]};
-                [self loginToServer:loginType params:params completion:completion];
+                NSDictionary *qqParams = @{@"qqUnionId" : resp.uid,
+                                           @"nickname" : resp.name,
+                                           @"iconUrl" : resp.iconurl,
+                                           @"fellowship" : params ? [params stringValueForKey:@"fellowship" default:@""] : @"",
+                                           @"gender" : [resp.unionGender isEqualToString:@"男"] ? @1 : @2,
+                                           @"city" : resp.originalResponse[@"city"]};
+                NSDictionary *wcParams = @{@"wxUnionId" : resp.uid,
+                                           @"nickname" : resp.name,
+                                           @"iconUrl" : resp.iconurl,
+                                           @"fellowship" : params ? [params stringValueForKey:@"fellowship" default:@""] : @"",
+                                           @"gender" : [resp.unionGender isEqualToString:@"男"] ? @1 : @2,
+                                           @"city" : resp.originalResponse[@"city"]};
+                if (loginType == NUserLoginTypeQQ) {
+                    [self loginToServer:loginType params:qqParams completion:completion];
+                } else if (loginType == NUserLoginTypeWeChat) {
+                    [self loginToServer:loginType params:wcParams completion:completion];
+                }
             }
         }];
     }
@@ -85,8 +83,6 @@ SINGLETON_FOR_CLASS(UserManager);
 
 #pragma mark —- 手动登录到服务器 —-
 - (void)loginToServer:(UserLoginType)loginType params:(NSDictionary *)params completion:(loginBlock)completion {
-//    [MBProgressHUD showActivityMessageInView:@"登录中..."];
-    
     switch (loginType) {
         case NUserLoginTypePwd: {
             [NYSRequest LoginWithResMethod:POST parameters:params success:^(id response) {
@@ -100,22 +96,26 @@ SINGLETON_FOR_CLASS(UserManager);
             break;
             
         case NUserLoginTypeQQ: {
-            [NYSRequest QQLogoinWithParameters:params success:^(id response) {
+            [NYSRequest QQLogoinWithResMethod:POST
+                                   parameters:params
+                                      success:^(id response) {
                 [self LoginSuccess:response completion:completion];
             } failure:^(NSError *error) {
-                if (completion) {
-                    completion(NO, error.localizedDescription);
+                if (error.code == 6013) {
+                    [self chooseFellowship:NUserLoginTypeQQ params:params.mutableCopy completion:completion];
                 }
             } isCache:NO];
         }
             break;
             
         case NUserLoginTypeWeChat: {
-            [NYSRequest WCLogoinWithParameters:params success:^(id response) {
+            [NYSRequest WCLogoinWithResMethod:POST
+                                   parameters:params
+                                      success:^(id response) {
                 [self LoginSuccess:response completion:completion];
             } failure:^(NSError *error) {
-                if (completion) {
-                    completion(NO, error.localizedDescription);
+                if (error.code == 6013) {
+                    [self chooseFellowship:NUserLoginTypeQQ params:params.mutableCopy completion:completion];
                 }
             } isCache:NO];
         }
@@ -124,6 +124,49 @@ SINGLETON_FOR_CLASS(UserManager);
         default:
             break;
     }
+}
+
+#pragma mark -- 首次第三方登录选择要注册的团契id —-
+- (void)chooseFellowship:(UserLoginType)loginType params:(NSMutableDictionary *)params completion:(loginBlock)completion {
+    WS(weakSelf);
+    [NYSRequest GetFellowshipListWithResMethod:GET
+                                    parameters:nil success:^(id response) {
+        [NYSFellowshipModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"idField" : @"id"};
+        }];
+        NSMutableArray<NYSFellowshipModel *> *fellowshipArray = [NYSFellowshipModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
+        
+        NSMutableArray *titleArray = [NSMutableArray array];
+        for (NYSFellowshipModel *fellowship in fellowshipArray) {
+            [titleArray addObject:fellowship.fellowshipName];
+        }
+        // 团契选框
+        KHAlertPickerController *alertPicker = [KHAlertPickerController  alertPickerWithTitle:@"选择团契" Separator:nil SourceArr:titleArray];
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"注册" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            for (NYSFellowshipModel *fellowship in fellowshipArray) {
+                if ([fellowship.fellowshipName isEqualToString:alertPicker.contentStr]) {
+                    [params setValuesForKeysWithDictionary:@{@"fellowship" : @(fellowship.idField)}];
+                }
+            }
+            // 第三方登录注册
+            [NYSRequest QQLogoinWithResMethod:POST
+                                   parameters:params
+                                      success:^(id response) {
+                [weakSelf LoginSuccess:response completion:completion];
+            } failure:^(NSError *error) {
+                
+            } isCache:NO];
+        }];
+        UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"其他团契" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"telprompt://%@", @"18853936112"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        }];
+        [alertPicker addCompletionAction:sureAction];
+        [alertPicker addCompletionAction:otherAction];
+        [NRootViewController presentViewController:alertPicker animated:YES completion:nil];
+    } failure:^(NSError *error) {
+        
+    } isCache:YES];
 }
 
 #pragma mark -- 自动登录到服务器 —-

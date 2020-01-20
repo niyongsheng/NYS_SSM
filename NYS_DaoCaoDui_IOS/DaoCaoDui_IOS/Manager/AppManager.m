@@ -25,6 +25,7 @@
 }
 
 + (void)showFPS {
+    // 显示FPS
     YYFPSLabel *_fpsLabel = [YYFPSLabel new];
     [_fpsLabel sizeToFit];
     _fpsLabel.bottom = NScreenHeight - (isIphonex ? RealValue(80) : RealValue(55));

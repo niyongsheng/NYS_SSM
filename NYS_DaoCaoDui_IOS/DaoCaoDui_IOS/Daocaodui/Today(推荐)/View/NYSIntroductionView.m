@@ -31,7 +31,7 @@
 - (void)setWeekBibleModel:(NYSWeekBibleModel *)weekBibleModel {
     _weekBibleModel = weekBibleModel;
     
-    self.titleLabel.text = weekBibleModel.bible;
+    weekBibleModel.bible ? self.titleLabel.text = weekBibleModel.bible : nil;
     if (weekBibleModel.iconUrl) {
         UIImage *bgImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:weekBibleModel.iconUrl]]];
         self.bgImageView.image = [bgImage imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];

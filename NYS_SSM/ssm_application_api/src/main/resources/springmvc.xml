@@ -37,6 +37,8 @@
             <mvc:mapping path="/**"/>
             <!-- 不拦截的API方法 -->
             <mvc:exclude-mapping path="/user/phoneRegister"/>
+            <mvc:exclude-mapping path="/user/qqRegister"/>
+            <mvc:exclude-mapping path="/user/wxRegister"/>
             <mvc:exclude-mapping path="/user/qqLogin"/>
             <mvc:exclude-mapping path="/user/wcLogin"/>
             <mvc:exclude-mapping path="/user/login"/>

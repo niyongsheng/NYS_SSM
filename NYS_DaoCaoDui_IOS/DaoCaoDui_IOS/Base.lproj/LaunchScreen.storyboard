@@ -23,8 +23,8 @@
                                     <constraint firstAttribute="width" constant="70" id="VYq-kQ-VIv"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2019 NYS. All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Hk-TkN">
-                                <rect key="frame" x="71" y="627" width="233.5" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2019 Daocaodui. All Rights Reserved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Hk-TkN">
+                                <rect key="frame" x="53" y="627" width="269" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="aB0-2L-0SG"/>
                                 </constraints>

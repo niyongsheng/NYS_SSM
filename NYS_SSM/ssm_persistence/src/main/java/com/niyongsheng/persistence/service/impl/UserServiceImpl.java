@@ -95,4 +95,22 @@ public class UserServiceImpl implements UserService {
     public List<User> selectAllByFellowshipMultiTable(Integer fellowship) {
         return userDao.selectAllByFellowshipMultiTable(fellowship);
     }
+
+    @Override
+    public User findUserByQqOpenId(String qqOpenId) {
+        try {
+            return userDao.findUserByQqOpenId(qqOpenId);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
+    public User findUserByWxOpenId(String wxOpenId) {
+        try {
+            return userDao.findUserByWxOpenId(wxOpenId);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

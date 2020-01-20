@@ -67,9 +67,6 @@ public class User implements Serializable{
     @ApiModelProperty(value = "团契编号")
     private Integer fellowship;
 
-    @ApiModelProperty(value = "所属团契名称")
-    private String fellowshipName;
-
     @ApiModelProperty(value = "身份类型:0特殊用户 1普通用户 2管理员 3敬拜 4服侍 5牧者")
     private Integer profession;
 
@@ -100,4 +97,8 @@ public class User implements Serializable{
     @TableField(value = "remark", exist = false)
     @ApiModelProperty(value = "备注信息")
     private String remark;
+
+    @TableField(value = "fellowshipName", exist = false)
+    @ApiModelProperty(value = "所属团契名称")
+    private String fellowshipName;
 }

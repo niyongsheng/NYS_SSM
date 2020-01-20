@@ -36,7 +36,7 @@
     
     self.title.text = musicMenu.name;
     self.time.text = [NSString stringWithFormat:@"%@ 创建", musicMenu.gmtCreate];
-    self.musicCount.text = [NSString stringWithFormat:@"歌曲数：%ld首", musicMenu.musicList.count];
+    self.musicCount.text = [NSString stringWithFormat:@"歌曲数：%lu首", (unsigned long)musicMenu.musicList.count];
     self.introduction.text = [NSString stringWithFormat:@"简介：%@", musicMenu.introduction];
     [self.bgImageView setImageWithURL:[NSURL URLWithString:musicMenu.icon] placeholder:[UIImage imageNamed:@"ic_cover_default_music_80x80_"]];
 }

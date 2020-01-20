@@ -22,11 +22,11 @@ public enum ResponseStatusEnum {
 
     /* 成功 */
     AUTH_LOGIN_SUCESS(true,2001,"登陆成功"),
-    AUTH_LOGOUT_SUCESS(true,2001,"登出成功"),
     AUTH_REGISTER_SUCESS(true,2001,"注册成功"),
     AUTH_RESET_SUCESS(true,2001,"重置成功"),
     AUTH_UPDATE_SUCESS(true,2001,"修改成功"),
     AUTH_ONCECODE_SUCESS(true,2001,"验证码已发送"),
+    AUTH_LOGOUT_SUCESS(true,2002,"登出成功"),
 
     /* 文件读写错误 */
     IO_EMPTY_ERROR(false,1001,"空文件"),
@@ -66,10 +66,9 @@ public enum ResponseStatusEnum {
     AUTH_STATUS_ERROR(false,6008,"用户已禁用,请联系管理员!"),
     AUTH_REPEAT_ERROR(false,6009,"该手机号已注册"),
     AUTH_UNLOGIN_ERROR(false,6010,"未登录"),
-//    AUTH_ACCOUNTDIFFER_ERROR(false,6011,"Token与不匹配"),
-
-    /* 群组错误 */
-    GROUP_UNEXISTENT_ERROR(false,6011,"群组不存在"),
+    AUTH_REPEAT_QQ_ERROR(false,6011,"该QQ号已绑定账号"),
+    AUTH_REPEAT_WX_ERROR(false,6012,"该微信号已绑定账号"),
+    AUTH_FELLOWSHIP_ERROR(false,6013,"请选择你要注册的团契"),
 
 
     /* 人脸识别错误ASFR：ArcSoftFaceRecognition */
@@ -97,6 +96,7 @@ public enum ResponseStatusEnum {
     RONGCLOUD_QUIT_GROUP_ERROR(false,9005,"退出群组失败"),
     RONGCLOUD_DISMISS_GROUP_OWNER_ERROR(false,9006,"非群主不能结束活动"),
     RONGCLOUD_GETMEMBER_GROUP_ERROR(false,9007,"获取群成员失败"),
+    GROUP_UNEXISTENT_ERROR(false,9008,"群组不存在"),
 
     RONGCLOUD_STATUS_CODE_GROUP_ERROR(false,9010,"群组状态码错误"),
     RONGCLOUD_STATUS_CODE_CREATE_GROUP_ERROR(false,9011,"创建群组出错"),

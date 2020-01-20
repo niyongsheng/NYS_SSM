@@ -10,27 +10,23 @@
 #define ThirdMacros_h
 
 // App Store ID
-#define APPID @"1438587731"
+#define APPID @"1495581916"
 // App Store详情页
 #define AppStoreURL [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPID]
 // APP 官网
-//#define AppWebSiteURL @"http://www.daocaodui.top"
-#define AppWebSiteURL @"https://github.com/niyongsheng/NYS_SSM"
+#define AppWebSiteURL @"http://www.daocaodui.top"
+#define GitHubURL @"https://github.com/niyongsheng/NYS_SSM"
 // App APIs
 #define AppAPIsURL [NSString stringWithFormat:@"%@:8080/api/swagger-ui.html", AppWebSiteURL]
 // 隐私政策地址
 #define APPUserProtoclURL [NSString stringWithFormat:@"%@/protocl", AppWebSiteURL]
 
 // 友盟+
-#define UMengKey @"5da7bb714ca357079900067c"
-
-// JSPatch
-#define JSPatchKey @"3582a1fb789ad2ce"
-#define RSAPublicKey @"-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxGb4JS0jbYCZjFQbH5O+jMV67\nfHV601XxH1DZw6Zw4TswLWKgYwkAX7Sz2yWTx3mrgF6yIyslGN01fr5NQlLBjQ1Y\nZL24WtOba6Q2PDrLTFCQuxR55nF/79bAo9gom/+W6Kc6LlL6/lyMZEOOZcO2VO2m\noZeMTGkRQ02qWCi0UQIDAQAB\n-----END PUBLIC KEY-----"
+#define UMengKey          @"5da7bb714ca357079900067c"
 
 // 微信
-#define AppKey_Wechat     @""
-#define Secret_Wechat     @""
+#define AppKey_Wechat     @"wxb9604af97b923ffc"
+#define Secret_Wechat     @"9ecfdb6c24bd12f07254c90a46a4ab40"
 
 // 腾讯QQ
 #define AppKey_TencentQQ  @"1110076569"

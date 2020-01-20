@@ -134,7 +134,7 @@
         [self.fellowshipBtn setTitle:[NSString stringWithFormat:@"@%@", alertPicker.contentStr] forState:UIControlStateNormal];
     }];
     UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"其他团契" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"18853936112"];
+        NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"telprompt://%@", @"18853936112"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     }];
     [alertPicker addCompletionAction:sureAction];

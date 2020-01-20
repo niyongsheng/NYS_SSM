@@ -230,19 +230,18 @@
 /** 加载App Store评论页 */
 - (void)loadAppStoreControllerWithAppID:(NSString *)appID {
     [SVProgressHUD showWithStatus:@"Loading..."];
-        SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
-        storeProductViewContorller.delegate = self;
-        [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:appID} completionBlock:^(BOOL result, NSError * _Nullable error) {
-            if(error) {
-                [SVProgressHUD dismiss];
-                [SVProgressHUD showErrorWithStatus:@"Load Error"];
-                [SVProgressHUD dismissWithDelay:0.5f];
-                NLog(@"error %@ with userInfo %@", error, [error userInfo]);
-            } else {
-                [SVProgressHUD dismiss];
-                [self presentViewController:storeProductViewContorller animated:YES completion:nil];
-            }
-        }];
+    SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
+    storeProductViewContorller.delegate = self;
+    [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:appID} completionBlock:^(BOOL result, NSError * _Nullable error) {
+        if (error) {
+            [SVProgressHUD showErrorWithStatus:@"Load Error"];
+            [SVProgressHUD dismissWithDelay:0.5f];
+            NLog(@"error %@ with userInfo %@", error, [error userInfo]);
+        } else {
+            [SVProgressHUD dismiss];
+            [self presentViewController:storeProductViewContorller animated:YES completion:nil];
+        }
+    }];
 }
 
 - (void)aboutItemClicked:(id)sender {

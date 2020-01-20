@@ -26,57 +26,53 @@ SINGLETON_FOR_CLASS(ShareManager);
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
     // 创建网页内容对象
-    NSString* thumbURL =  @"https://mobile.umeng.com/images/pic/home/social/img-1.png";
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"欢迎使用【友盟+】社会化组件U-Share" descr:@"欢迎使用【友盟+】社会化组件U-Share，SDK包最小，集成成本最低，助力您的产品开发、运营与推广！" thumImage:thumbURL];
+    NSString* thumbURL = @"http://file.daocaodui.top/config/icon/logo_dcd.png";
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"欢迎使用【稻草堆】" descr:@"塑造生命，成就使命！\n稻草堆APP旨在更好的帮助弟兄姊妹分享、读经、代祷建立规律的属灵生活和亲密的关系。" thumImage:thumbURL];
     // 设置网页地址
-    shareObject.webpageUrl = @"http://mobile.umeng.com/social";
+    shareObject.webpageUrl = @"http://www.daocaodui.top/download";
     
     // 分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
     
     // 调用分享接口
     [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:nil completion:^(id data, NSError *error) {
+#if defined(DEBUG)
+        [self alertWithError:error];
+#endif
         if (error) {
             UMSocialLogInfo(@"************Share fail with error %@*********",error);
         } else {
             if ([data isKindOfClass:[UMSocialShareResponse class]]) {
                 UMSocialShareResponse *resp = data;
                 // 分享结果消息
-                UMSocialLogInfo(@"response message is %@",resp.message);
+                UMSocialLogInfo(@"response message is %@", resp.message);
                 // 第三方原始返回的数据
-                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-                
+                UMSocialLogInfo(@"response originalResponse data is %@", resp.originalResponse);
             } else {
-                UMSocialLogInfo(@"response data is %@",data);
+                UMSocialLogInfo(@"response data is %@", data);
             }
         }
-        [self alertWithError:error];
     }];
 }
 
 - (void)alertWithError:(NSError *)error {
     NSString *result = nil;
-    if (!error) {
-        result = [NSString stringWithFormat:@"Share succeed"];
-    } else {
+    if (error) {
         NSMutableString *str = [NSMutableString string];
         if (error.userInfo) {
             for (NSString *key in error.userInfo) {
                 [str appendFormat:@"%@ = %@\n", key, error.userInfo[key]];
             }
         }
-        if (error) {
-            result = [NSString stringWithFormat:@"Share fail with error code: %d\n%@",(int)error.code, str];
-        } else {
-            result = [NSString stringWithFormat:@"Share fail"];
-        }
+        result = [NSString stringWithFormat:@"失败: %d\n%@",(int)error.code, str];
+    } else {
+        result = [NSString stringWithFormat:@"成功"];
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"share"
-                                                    message:result
-                                                   delegate:nil
-                                          cancelButtonTitle:NSLocalizedString(@"sure", @"确定")
-                                          otherButtonTitles:nil];
-    [alert show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"分享结果" message:result preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"确定") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alertController addAction:alertAction];
+    [NRootViewController presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

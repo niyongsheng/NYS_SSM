@@ -123,9 +123,9 @@
     </update>
 
     <select id="find" parameterType="java.lang.Integer" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT *
-        FROM dcd_user
-        WHERE id = #{id}
+        SELECT u.*, f.fellowshipName
+        FROM dcd_user u
+        WHERE u.id = #{id}
     </select>
 
     <select id="findAll" resultType="com.niyongsheng.persistence.domain.User">
@@ -135,15 +135,11 @@
     </select>
 
     <select id="login" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT * FROM dcd_user
-        WHERE 1 = 1
-        AND profession = 0
-        <if test="account != null and account != ''">
-            AND phone = #{account}
-        </if>
-        <if test="password != null and password != ''">
-            AND password = #{password}
-        </if>
+        SELECT u.*, f.fellowshipName
+        FROM dcd_user u
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        WHERE u.phone = #{account} AND u.password = #{password}
     </select>
 
     <select id="findByFuzzySearch" resultType="com.niyongsheng.persistence.domain.User">
@@ -163,11 +159,11 @@
     <select id="findByAccount" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
         SELECT u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship
         FROM dcd_user u
-        WHERE account = #{account}
+        WHERE u.account = #{account}
     </select>
 
     <select id="findByPhone" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT *
+        SELECT u.*, f.fellowshipName
         FROM dcd_user u
         inner join dcd_fellowship f
         on u.fellowship = f.id
@@ -175,11 +171,27 @@
     </select>
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT *
+        SELECT u.*, f.fellowshipName
         FROM dcd_user u
         inner join dcd_fellowship f
         on u.fellowship = f.id
         where u.fellowship = #{fellowship}
+    </select>
+
+    <select id="findUserByQqOpenId" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT u.*, f.fellowshipName
+        FROM dcd_user u
+        inner join dcd_fellowship f
+        on u.fellowship = f.id
+        WHERE u.qqOpenid = #{qqOpenId}
+    </select>
+
+    <select id="findUserByWxOpenId" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT u.*, f.fellowshipName
+        FROM dcd_user u
+        inner join dcd_fellowship f
+        on u.fellowship = f.id
+        WHERE u.wcOpenid = #{wxOpenId}
     </select>
 
 </mapper>
