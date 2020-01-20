@@ -7,10 +7,7 @@ import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import com.niyongsheng.common.rongCloud.RongCloudService;
 import com.niyongsheng.common.utils.MathUtils;
-import com.niyongsheng.persistence.domain.Activity;
-import com.niyongsheng.persistence.domain.Group;
-import com.niyongsheng.persistence.domain.User_Activity;
-import com.niyongsheng.persistence.domain.User_Activity_Clock;
+import com.niyongsheng.persistence.domain.*;
 import com.niyongsheng.persistence.service.ActivityService;
 import com.niyongsheng.persistence.service.GroupService;
 import com.niyongsheng.persistence.service.User_ActivityService;
@@ -455,9 +452,25 @@ public class ActivityController {
                                           @ApiParam(name = "remark", value = "留言信息", required = false)
                                           @RequestParam(value = "remark", required = false) String remark
     ) throws ResponseException {
-        // TODO
+        // TODO 发送推送
 
         // 3.返回成功结果
         return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/selectActivityMemberListById", method = RequestMethod.GET)
+    @ApiOperation(value = "查询活动成员列表", notes = "参数描述", hidden = false)
+    public ResponseDto<User> selectActivityMemberListById(HttpServletRequest request, Model model,
+                                       @NotBlank(message = "{NotBlank.activityID}")
+                                       @ApiParam(name = "activityID", value = "活动ID", required = true)
+                                       @RequestParam(value = "activityID", required = true) String activityID
+    ) throws ResponseException {
+        try {
+            List<User> list = user_activityService.selectUsersByActivityID(Integer.valueOf(activityID));
+            return (new ResponseDto(ResponseStatusEnum.SUCCESS, list));
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
     }
 }

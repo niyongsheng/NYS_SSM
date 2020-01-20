@@ -54,12 +54,12 @@
     self.navigationItem.titleView = LFView;
     
     // 3.分页控制器
-    NSArray *childArr = @[[NYSDaocaoduiHomeViewController new],
-                          [NYSBibleViewController new],
-                          [NYSAticleListViewController new],
-                          [NYSPrayCardListViewController new],
-                          [NYSActivityListViewController new],
-                          [NYSMusicMenuSegmentViewController new]
+    NSArray *childArr = @[[[NYSDaocaoduiHomeViewController alloc] init],
+                          [[NYSBibleViewController alloc] init],
+                          [[NYSAticleListViewController alloc] init],
+                          [[NYSPrayCardListViewController alloc] init],
+                          [[NYSActivityListViewController alloc] init],
+                          [[NYSMusicMenuSegmentViewController alloc] init]
                           ];
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) parentVC:self childVCs:childArr];
     self.pageContentCollectionView.delegatePageContentCollectionView = self;

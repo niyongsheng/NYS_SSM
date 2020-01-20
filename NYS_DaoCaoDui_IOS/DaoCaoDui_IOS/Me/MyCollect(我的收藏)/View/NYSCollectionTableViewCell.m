@@ -26,7 +26,7 @@
     // Blur effect
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
-    effectView.frame = CGRectMake(0,  RealValue(75), NScreenWidth, _bgimageView.frame.size.height);
+    effectView.frame = CGRectMake(0,  RealValue(160), NScreenWidth, _bgimageView.frame.size.height);
     [_bgimageView addSubview:effectView];
 }
 
@@ -34,7 +34,7 @@
     [NYSTools zoomToShow:sender];
     
     if (self.collectionArticleModel) {
-        [NYSRequest articleCollectionInOrOutWithResMethod:GET
+        [NYSRequest ArticleCollectionInOrOutWithResMethod:GET
                                                parameters:@{@"articleID" : @(self.collectionArticleModel.idField)}
                                                   success:^(id response) {
             if ([[response objectForKey:@"status"] boolValue]) {
@@ -48,7 +48,7 @@
     }
     
     if (self.collectionPrayModel) {
-        [NYSRequest prayCollectionInOrOutWithResMethod:GET
+        [NYSRequest PrayCollectionInOrOutWithResMethod:GET
                                                parameters:@{@"prayID" : @(self.collectionPrayModel.idField)}
                                                   success:^(id response) {
             if ([[response objectForKey:@"status"] boolValue]) {
@@ -62,7 +62,7 @@
     }
     
     if (self.collectionMusicModel) {
-        [NYSRequest musicCollectionInOrOutWithResMethod:GET
+        [NYSRequest MusicCollectionInOrOutWithResMethod:GET
                                                parameters:@{@"musicID" : @(self.collectionMusicModel.idField)}
                                                   success:^(id response) {
             if ([[response objectForKey:@"status"] boolValue]) {

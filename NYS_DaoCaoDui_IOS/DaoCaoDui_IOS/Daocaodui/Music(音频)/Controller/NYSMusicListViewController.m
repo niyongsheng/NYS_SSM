@@ -113,6 +113,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NYSMusicTableViewCell" owner:self options:nil] firstObject];
     }
     cell.musicModel = [self.musicMenu musicList][indexPath.row];
+    cell.fromViewController = self;
     return cell;
 }
 

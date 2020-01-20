@@ -13,7 +13,7 @@
 @property (nonatomic, assign) CGFloat minRadius;
 @property (nonatomic, assign) CGFloat maxRadius;
 @property (nonatomic, strong) UIImageView *imageView;
-
+@property (nonatomic, strong) CALayer *animationLayer;
 @end
 @implementation YNRippleAnimatView
 
@@ -33,7 +33,7 @@
 }
 
 - (void)startAnimation {
-    CALayer * animationLayer = [CALayer layer];
+    _animationLayer = [CALayer layer];
     for (int i = 0; i<_rippleCount; i++) {
         CALayer * pulsingLayer = [CALayer layer];
         pulsingLayer.frame = CGRectMake(0, 0, _maxRadius*2, _maxRadius*2);
@@ -65,11 +65,14 @@
         
         animationGroup.animations = @[scaleAnimation, opacityAnimation];
         [pulsingLayer addAnimation:animationGroup forKey:@"plulsing"];
-        [animationLayer addSublayer:pulsingLayer];
+        [_animationLayer addSublayer:pulsingLayer];
     }
     
-    [self.layer  addSublayer:animationLayer];
-    
+    [self.layer  addSublayer:_animationLayer];
+}
+
+- (void)stopAnimation {
+    [_animationLayer removeFromSuperlayer];
 }
 
 - (UIImageView*)imageView {
@@ -87,7 +90,7 @@
     UIImageView *tmpImgView = [self imageView];
     [tmpImgView setImage:image];
     tmpImgView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    tmpImgView.layer.cornerRadius = image.size.width / 2;
+//    tmpImgView.layer.cornerRadius = image.size.width / 2;
 }
 
 - (void)setImageSize:(CGSize)imageSize {
@@ -97,11 +100,10 @@
     tmpImgView.layer.cornerRadius = imageSize.width / 2;
 }
 
-- (void) setFrame:(CGRect)frame {
+- (void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     
     self.layer.cornerRadius = self.bounds.size.width / 2;
 }
-
 
 @end

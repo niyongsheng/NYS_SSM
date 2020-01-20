@@ -11,5 +11,6 @@
 @class NYSPrayModel;
 
 @interface NYSPrayCustomCardView : CCDraggableCardView
-@property (nonatomic, weak) NYSPrayModel *pray;
+@property (weak, nonatomic) NYSPrayModel *pray;
+@property (strong, nonatomic) UIViewController *fromViewController;
 @end

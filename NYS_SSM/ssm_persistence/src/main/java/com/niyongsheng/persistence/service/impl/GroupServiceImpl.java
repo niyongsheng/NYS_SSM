@@ -33,7 +33,7 @@ public class GroupServiceImpl extends BaseServiceImpl<Group> implements GroupSer
     }
 
     @Override
-    public List<Group> selectAllByFellowshipMultiTable(Integer fellowship) {
+    public List<Group> selectAllByFellowshipMultiTable(Integer fellowship){
         return groupDao.selectAllByFellowshipMultiTable(fellowship);
     }
 }

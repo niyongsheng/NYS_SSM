@@ -8,11 +8,14 @@ import io.rong.methods.user.User;
 import io.rong.models.Result;
 import io.rong.models.group.GroupMember;
 import io.rong.models.group.GroupModel;
+import io.rong.models.response.GroupUser;
 import io.rong.models.response.GroupUserQueryResult;
 import io.rong.models.response.TokenResult;
 import io.rong.models.user.UserModel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -63,7 +66,7 @@ public class RongCloudService {
             throw new ResponseException(ResponseStatusEnum.RONGCLOUD_GET_TOKEN_ERROR);
         }
 
-        System.out.println("getRongCloudToken:" + result.toString());
+        System.out.println("getRongCloudToken: " + result.toString());
         return result.getToken();
     }
 
@@ -88,7 +91,7 @@ public class RongCloudService {
             throw new ResponseException(ResponseStatusEnum.RONGCLOUD_CREATE_GROUP_ERROR);
         }
 
-        System.out.println("Create Group:  " + groupResult.toString());
+        System.out.println("Create Group: " + groupResult.toString());
         return groupResult.getCode();
     }
 
@@ -137,7 +140,7 @@ public class RongCloudService {
             throw new ResponseException(ResponseStatusEnum.RONGCLOUD_JOIN_GROUP_ERROR);
         }
 
-        System.out.println("Join Group:  " + groupJoinResult.toString());
+        System.out.println("Join Group: " + groupJoinResult.toString());
         return groupJoinResult.getCode();
     }
 
@@ -161,7 +164,28 @@ public class RongCloudService {
             throw new ResponseException(ResponseStatusEnum.RONGCLOUD_QUIT_GROUP_ERROR);
         }
 
-        System.out.println("Quit Group:  " + groupQuitResult.toString());
+        System.out.println("Quit Group: " + groupQuitResult.toString());
         return groupQuitResult.getCode();
+    }
+
+    /**
+     * 查询融云群成员列表
+     * @param GroupID 群组id
+     * @return
+     * @throws ResponseException
+     */
+    public List<GroupUser> getGroupMember(String GroupID) throws ResponseException {
+        RongCloud rongCloud = RongCloud.getInstance(rongCloudAppKey, rongcloudAppSecret);
+        Group group = rongCloud.group;
+
+        GroupModel groupModel = new GroupModel().setId(GroupID);
+        GroupUserQueryResult groupUserQueryResult = null;
+        try {
+            groupUserQueryResult = group.get(groupModel);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.RONGCLOUD_GETMEMBER_GROUP_ERROR);
+        }
+        System.out.println("Group Member: " + groupUserQueryResult.toString());
+        return groupUserQueryResult.getMembers();
     }
 }

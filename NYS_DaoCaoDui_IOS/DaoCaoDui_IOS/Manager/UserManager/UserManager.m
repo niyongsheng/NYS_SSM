@@ -89,7 +89,7 @@ SINGLETON_FOR_CLASS(UserManager);
     
     switch (loginType) {
         case NUserLoginTypePwd: {
-            [NYSRequest getLoginWithResMethod:POST parameters:params success:^(id response) {
+            [NYSRequest LoginWithResMethod:POST parameters:params success:^(id response) {
                 [self LoginSuccess:response completion:completion];
             } failure:^(NSError *error) {
                 if (completion) {
@@ -179,7 +179,7 @@ SINGLETON_FOR_CLASS(UserManager);
 
 #pragma mark -- 退出登录 --
 - (void)logout:(void (^)(BOOL, id))completion {
-    [NYSRequest getLogoutWithResMethod:GET parameters:nil success:^(id response) {
+    [NYSRequest LogoutWithResMethod:GET parameters:nil success:^(id response) {
         logoutSuccess(self, completion);
     } failure:^(NSError *error) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"正常退出失败是否强制登录吗？" preferredStyle:UIAlertControllerStyleAlert];

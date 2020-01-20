@@ -36,6 +36,13 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_icon" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-gs-U84">
+                        <rect key="frame" x="279" y="25" width="55" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="P3l-Wx-dHs"/>
+                            <constraint firstAttribute="width" secondItem="W2z-gs-U84" secondAttribute="height" multiplier="16:9" id="bik-0s-OLK"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="h7t-Mp-3em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3Mn-QD-Nb1"/>
@@ -43,12 +50,14 @@
                     <constraint firstItem="nLn-3F-1Fs" firstAttribute="bottom" secondItem="h7t-Mp-3em" secondAttribute="bottom" id="75A-kj-GAf"/>
                     <constraint firstItem="HxT-1v-N4f" firstAttribute="leading" secondItem="vwF-ok-5eV" secondAttribute="leading" id="NCq-kL-bb4"/>
                     <constraint firstItem="nLn-3F-1Fs" firstAttribute="trailing" secondItem="h7t-Mp-3em" secondAttribute="trailing" id="S7b-f4-jBA"/>
+                    <constraint firstItem="W2z-gs-U84" firstAttribute="top" secondItem="h7t-Mp-3em" secondAttribute="top" constant="10" id="XuY-Sh-Sa7"/>
                     <constraint firstItem="h7t-Mp-3em" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="YvI-zu-bfB"/>
                     <constraint firstItem="nLn-3F-1Fs" firstAttribute="top" secondItem="h7t-Mp-3em" secondAttribute="top" id="Yzd-Aa-2ec"/>
                     <constraint firstItem="h7t-Mp-3em" firstAttribute="trailing" secondItem="vwF-ok-5eV" secondAttribute="trailing" constant="15" id="fT9-NC-DGz"/>
                     <constraint firstItem="nLn-3F-1Fs" firstAttribute="leading" secondItem="h7t-Mp-3em" secondAttribute="leading" id="h9c-ek-VUP"/>
                     <constraint firstAttribute="bottom" secondItem="h7t-Mp-3em" secondAttribute="bottom" constant="15" id="hAt-Vn-K2P"/>
                     <constraint firstItem="HxT-1v-N4f" firstAttribute="trailing" secondItem="vwF-ok-5eV" secondAttribute="trailing" id="ix0-rn-gui"/>
+                    <constraint firstItem="W2z-gs-U84" firstAttribute="trailing" secondItem="h7t-Mp-3em" secondAttribute="trailing" constant="-10" id="n7I-cU-IPA"/>
                     <constraint firstAttribute="trailing" secondItem="h7t-Mp-3em" secondAttribute="trailing" constant="15" id="rpz-d1-2uB"/>
                     <constraint firstItem="vwF-ok-5eV" firstAttribute="leading" secondItem="h7t-Mp-3em" secondAttribute="leading" constant="15" id="xFQ-eT-NhF"/>
                     <constraint firstItem="vwF-ok-5eV" firstAttribute="top" secondItem="h7t-Mp-3em" secondAttribute="top" constant="15" id="zII-zB-ECj"/>
@@ -58,13 +67,15 @@
             <connections>
                 <outlet property="backgroudImageView" destination="h7t-Mp-3em" id="4vA-Ey-IGe"/>
                 <outlet property="bgView" destination="nLn-3F-1Fs" id="2Tn-Qp-JDQ"/>
+                <outlet property="isTopImageview" destination="W2z-gs-U84" id="zVa-vN-cgz"/>
                 <outlet property="subtitle" destination="HxT-1v-N4f" id="sDl-5S-tKv"/>
                 <outlet property="title" destination="vwF-ok-5eV" id="Qet-ya-Buj"/>
             </connections>
-            <point key="canvasLocation" x="160.1449275362319" y="276.89732142857139"/>
+            <point key="canvasLocation" x="160.1449275362319" y="276.22767857142856"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="1" width="639" height="1136"/>
+        <image name="top_icon" width="48.5" height="27.5"/>
     </resources>
 </document>

@@ -26,4 +26,9 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, Article> impleme
     public List<Article> selectByFellowshipMultiTable(Integer fellowship, String account) {
         return articleDao.selectByFellowshipMultiTable(fellowship, account);
     }
+
+    @Override
+    public List<Article> selectMyArticleList(Integer fellowship, String account) {
+        return articleDao.selectMyArticleList(fellowship, account);
+    }
 }

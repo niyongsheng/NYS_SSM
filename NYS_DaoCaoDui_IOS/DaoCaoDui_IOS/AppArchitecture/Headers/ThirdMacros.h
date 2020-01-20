@@ -14,7 +14,8 @@
 // App Store详情页
 #define AppStoreURL [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPID]
 // APP 官网
-#define AppWebSiteURL @"http://www.daocaodui.top"
+//#define AppWebSiteURL @"http://www.daocaodui.top"
+#define AppWebSiteURL @"https://github.com/niyongsheng/NYS_SSM"
 // App APIs
 #define AppAPIsURL [NSString stringWithFormat:@"%@:8080/api/swagger-ui.html", AppWebSiteURL]
 // 隐私政策地址
@@ -32,8 +33,8 @@
 #define Secret_Wechat     @""
 
 // 腾讯QQ
-#define AppKey_TencentQQ  @""
-#define Secret_TencentQQ  @""
+#define AppKey_TencentQQ  @"1110076569"
+#define Secret_TencentQQ  @"tAixo5nNiK9hum4k"
 
 // 支付宝支付
 #define AlipayAPPID       @""
@@ -41,7 +42,7 @@
 // 极光推送
 #define JPUSH_APPKEY      @"7049e8a4eee98723b86a4e6b"
 #define JPUSH_CHANNEl     @"App Store"
-#define JPUSH_IsProd      NO
+#define JPUSH_IsProd      YES
 
 // 融云IM
 #define RCAPPKEY          @"bmdehs6pbg3ps"

@@ -39,6 +39,8 @@ NSString *const CR_ScoreRecord = @"/scorelog/selectScorelogList";
 NSString *const CR_ProviderUserInfo = @"/user/providerInfoForUser";
 /** 群信息提供者*/
 NSString *const CR_ProviderTeamInfo = @"/group/providerInfoForGroup";
+/** 群组成员信息提供者*/
+NSString *const CR_ProviderTeamMembersInfo = @"/group/selectGroupMemberListById";
 /** 单文件上传*/
 NSString *const CR_UploadFile = @"/file/uploadFile";
 /** 多图上传*/
@@ -97,6 +99,21 @@ NSString *const CR_CollectionArticleList = @"/article/selectCollectionArticleLis
 NSString *const CR_CollectionPrayList = @"/pray/selectCollectionPrayList";
 /** 收藏音乐列表*/
 NSString *const CR_CollectionMusicList = @"/music/selectCollectionMusicList";
+/** 发布的文章列表*/
+NSString *const CR_PublishArticleList = @"/article/selectMyArticleList";
+/** 发布的代祷列表*/
+NSString *const CR_PublishPrayList = @"/pray/selectMyPrayList";
+/** 发布的音乐列表*/
+NSString *const CR_PublishMusicList = @"/music/selectMyMusicList";
+/** 删除文章*/
+NSString *const CR_DeleteArticle = @"/article/deleteArticleById";
+/** 删除代祷*/
+NSString *const CR_DeletePray = @"/pray/deletePrayById";
+/** 删除音乐*/
+NSString *const CR_DeleteMusic = @"/music/deleteMusicById";
+/** 获取团契列表*/
+NSString *const CR_FellowshipList = @"/fellowship/selectFellowshipList";
+
 
 
 

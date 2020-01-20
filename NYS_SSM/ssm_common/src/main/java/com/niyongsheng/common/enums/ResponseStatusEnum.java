@@ -41,6 +41,8 @@ public enum ResponseStatusEnum {
     DB_DELETE_ERROR(false,2012,"数据库删除出错"),
     DB_UPDATE_ERROR(false,2013,"数据库更新出错"),
     DB_SELECT_ERROR(false,2014,"数据库查询出错"),
+    DB_DELETE_EMPTY_ERROR(false,2015,"删除的对象不存在"),
+    DB_DELETE_POWER_ERROR(false,2016,"没有删除权限"),
 
     /* Redis */
     REDIS_INSERT_ERROR(false,2015,"Redis写入出错"),
@@ -94,6 +96,7 @@ public enum ResponseStatusEnum {
     RONGCLOUD_JOIN_GROUP_ERROR(false,9004,"加入群组失败"),
     RONGCLOUD_QUIT_GROUP_ERROR(false,9005,"退出群组失败"),
     RONGCLOUD_DISMISS_GROUP_OWNER_ERROR(false,9006,"非群主不能结束活动"),
+    RONGCLOUD_GETMEMBER_GROUP_ERROR(false,9007,"获取群成员失败"),
 
     RONGCLOUD_STATUS_CODE_GROUP_ERROR(false,9010,"群组状态码错误"),
     RONGCLOUD_STATUS_CODE_CREATE_GROUP_ERROR(false,9011,"创建群组出错"),

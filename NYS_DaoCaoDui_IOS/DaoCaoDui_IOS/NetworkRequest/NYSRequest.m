@@ -16,14 +16,14 @@
 @implementation NYSRequest
 
 /** 登录*/
-+ (NSURLSessionTask *)getLoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)LoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     // 将请求前缀与请求路径拼接成一个完整的URL
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Login];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 退出*/
-+ (NSURLSessionTask *)getLogoutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)LogoutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Logout];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
@@ -69,9 +69,15 @@
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ProviderUserInfo];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
-/** 群信息提供者*/
+/** 群组信息提供者*/
 + (NSURLSessionTask *)DataProviderInfoForGroupWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ProviderTeamInfo];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 群组成员信息提供者*/
++ (NSURLSessionTask *)DataProviderInfoForGroupMembersWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_ProviderTeamMembersInfo];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
@@ -214,40 +220,93 @@
 }
 
 /** 收藏/取消收藏文章*/
-+ (NSURLSessionTask *)articleCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)ArticleCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CollectionArticle];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 收藏/取消收藏代祷*/
-+ (NSURLSessionTask *)prayCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)PrayCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CollectionPray];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 收藏/取消收藏音乐*/
-+ (NSURLSessionTask *)musicCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)MusicCollectionInOrOutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CollectionMusic];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 收藏文章列表*/
-+ (NSURLSessionTask *)getCollectionArticleListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)GetCollectionArticleListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CollectionArticleList];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 收藏代祷列表*/
-+ (NSURLSessionTask *)getCollectionPrayListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)GetCollectionPrayListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CollectionPrayList];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
 /** 收藏音乐列表*/
-+ (NSURLSessionTask *)getCollectionMusicListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)GetCollectionMusicListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_CollectionMusicList];
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
+
+/** 收藏文章列表*/
++ (NSURLSessionTask *)GetPublishArticleListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishArticleList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 收藏代祷列表*/
++ (NSURLSessionTask *)GetPublishPrayListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishPrayList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 收藏音乐列表*/
++ (NSURLSessionTask *)GetPublishMusicListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_PublishMusicList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 删除文章*/
++ (NSURLSessionTask *)DeleteArticleByIdWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DeleteArticle];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+
+/** 删除代祷*/
++ (NSURLSessionTask *)DeletePrayByIdWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DeletePray];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+
+/** 删除音乐*/
++ (NSURLSessionTask *)DeleteMusicByIdWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DeleteMusic];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+
+/** 获取团契列表*/
++ (NSURLSessionTask *)GetFellowshipListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_FellowshipList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -327,7 +386,8 @@
                               isCache:isCache
                            parameters:parameters
                        responseObject:responseObject
-                              success:success];
+                              success:success
+                              failure:failure];
             } failure:^(NSError *error) {
 #if defined(DEBUG)
                 [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
@@ -344,7 +404,8 @@
                               isCache:isCache
                            parameters:parameters
                        responseObject:responseObject
-                              success:success];
+                              success:success
+                              failure:failure];
             } failure:^(NSError *error) {
 #if defined(DEBUG)
                 [MBProgressHUD showTopTipMessage:[NSString stringWithFormat:@"Oops!连接失败,请检查网络:%ld", (long)error.code] isWindow:YES];
@@ -385,7 +446,7 @@
         NLog(@"文件上传进度:%.2f%%", progress.fractionCompleted);
     } success:^(id responseObject) {
         [SVProgressHUD dismiss];
-        [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
+        [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success failure:failure];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
 #if defined(DEBUG)
@@ -427,7 +488,7 @@
         process(progress);
     } success:^(id responseObject) {
         [SVProgressHUD dismiss];
-        [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success];
+        [self responseHandler:URL isCache:NO parameters:parameters responseObject:responseObject success:success failure:failure];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
 #if defined(DEBUG)
@@ -484,7 +545,7 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [SVProgressHUD dismiss];
         NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        [self responseHandler:URL isCache:NO parameters:parameters responseObject:JSON success:success];
+        [self responseHandler:URL isCache:NO parameters:parameters responseObject:JSON success:success failure:failure];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismiss];
 #if defined(DEBUG)
@@ -495,13 +556,14 @@
 }
 
 #pragma mark - 请求响应处理方法_____________________COMMON_________________________
-///  处理返回数据的通用模板
-/// @param URL API地址
-/// @param isCache 是否缓存
-/// @param parameters 参数
-/// @param responseObject 返回的JSON数据
-/// @param success 成功回调
-+ (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success {
+/// 处理返回数据的通用模板
+///  @param URL API地址
+///  @param isCache 是否缓存
+///  @param parameters 参数
+///  @param responseObject 返回的JSON数据
+///  @param success 成功回调
+///  @param failure 失败回调
++ (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NLog(@"[服务器Response]：%@", responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
         isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;
@@ -511,9 +573,10 @@
         NSString *info = [responseObject objectForKey:@"msg"];
         NSString *error = [NSString stringWithFormat:@"%ld\n%@", (long)code, info];
         [SVProgressHUD showErrorWithStatus:error];
-        if (code == 6005 || code == 6010 || code == 6011 || code == 6001) {
+        if (code == 6005 || code == 6010 || code == 6011 || code == 6001 || code == 6006) {
             // 退出登录通知
-            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
+            [NUserManager logout:nil];
+//            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:@"errorAutoLogOutNotification" object:nil userInfo:nil]];
         } else if (code == 4001) {
             // 参数合法性提示
             NSString *warnInfo = [responseObject objectForKey:@"data"];
@@ -521,7 +584,8 @@
             [SVProgressHUD showInfoWithStatus:warning];
         }
         [SVProgressHUD dismissWithDelay:2.f completion:^{
-//            success(responseObject);
+            NSError *error = nil;
+            failure(error);
         }];
     }
 }

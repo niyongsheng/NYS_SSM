@@ -314,7 +314,7 @@
     [NYSRequest UploadImagesWithImages:@[image] fileNames:nil name:@"files" parameters:@{@"fellowship":[NSString stringWithFormat:@"%ld", (long)[NCurrentUser fellowship]]} process:^(NSProgress *uploadProcess) {
 
     } success:^(id response) {
-        [self updateUserInfo:@{@"icon":[[response[@"data"] firstObject] objectForKey:@"qiniuURL"]}];
+        [self updateUserInfo:@{@"icon":[[response[@"data"] firstObject] objectForKey:@"FileFullURL"]}];
     } failure:^(NSError *error) {
 
     }];

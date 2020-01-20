@@ -12,6 +12,7 @@
 #import "NYSContentTableViewCell.h"
 #import "NYSMembersViewController.h"
 #import "NYSAlert.h"
+#import "NYSPersonalInfoCardViewController.h"
 
 @interface NYSActivityInfoViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
@@ -176,6 +177,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 3) {
+        NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+        personalInfoCardVC.account = self.activityModel.account;
+        [self.navigationController pushViewController:personalInfoCardVC animated:YES];
+    }
     
     if (indexPath.row == 4) {
         NYSMembersViewController *membersVC = NYSMembersViewController.new;

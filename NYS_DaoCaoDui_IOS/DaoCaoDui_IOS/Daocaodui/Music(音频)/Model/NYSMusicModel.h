@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isCollection;
 @property (nonatomic, strong) NSString * wordAuthor;
 @property (nonatomic, strong) UserInfo * user;
+@property (nonatomic, strong) NSArray<UserInfo *> * collectionUserList;
 @end
 
 NS_ASSUME_NONNULL_END

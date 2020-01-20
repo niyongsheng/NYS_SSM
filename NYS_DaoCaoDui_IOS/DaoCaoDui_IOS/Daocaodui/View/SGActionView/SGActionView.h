@@ -64,7 +64,7 @@ typedef void(^SGMenuActionHandler)(NSInteger index);
  *
  *	@param 	title           标题
  *	@param 	itemTitles      行标题
- *	@param 	itemSubTitles 	行子标题
+ *	@param 	selectedIndex 	行子标题
  *	@param 	handler         回调，index从 0 开始
  */
 + (void)showSheetWithTitle:(NSString *)title

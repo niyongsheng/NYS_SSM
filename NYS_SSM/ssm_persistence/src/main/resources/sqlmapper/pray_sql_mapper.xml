@@ -24,4 +24,19 @@
         where p.fellowship = #{fellowship}
         order by p.isTop desc, p.id desc
     </select>
+
+    <resultMap id="myPrayMap" type="Pray" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.selectCollectionUsersByPrayID"/>
+    </resultMap>
+
+    <select id="selectMyPrayList" resultMap="myPrayMap">
+        select *
+        from dcd_pray p
+        inner join dcd_fellowship f
+        on p.fellowship = f.id
+        where p.fellowship = #{fellowship} and p.account = #{account}
+        order by p.isTop desc, p.id desc
+    </select>
+
 </mapper>

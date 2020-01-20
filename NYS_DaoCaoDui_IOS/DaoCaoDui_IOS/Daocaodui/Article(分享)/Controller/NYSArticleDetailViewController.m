@@ -100,7 +100,7 @@
 }
 
 - (void)collectionBtnClicked:(UIButton *)sender {
-    [NYSRequest articleCollectionInOrOutWithResMethod:GET
+    [NYSRequest ArticleCollectionInOrOutWithResMethod:GET
                                            parameters:@{@"articleID" : @(self.articleModel.idField)}
                                               success:^(id response) {
         if ([[response objectForKey:@"status"] boolValue]) {

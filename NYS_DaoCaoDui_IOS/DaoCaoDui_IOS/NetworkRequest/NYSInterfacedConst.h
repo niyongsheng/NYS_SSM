@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define DevelopSever 0
+#define DevelopSever 1
 #define TestSever    0
-#define ProductSever 1
+#define ProductSever 0
 
 /** 接口前缀-服务器*/
 UIKIT_EXTERN NSString *const CR_ApiPrefix;
@@ -34,8 +34,10 @@ UIKIT_EXTERN NSString *const CR_DoSign;
 UIKIT_EXTERN NSString *const CR_ScoreRecord;
 /** 个人信息提供者*/
 UIKIT_EXTERN NSString *const CR_ProviderUserInfo;
-/** 群信息提供者*/
+/** 群组信息提供者*/
 UIKIT_EXTERN NSString *const CR_ProviderTeamInfo;
+/** 群组成员信息提供者*/
+UIKIT_EXTERN NSString *const CR_ProviderTeamMembersInfo;
 /** 单文件上传*/
 UIKIT_EXTERN NSString *const CR_UploadFile;
 /** 多图上传*/
@@ -94,8 +96,20 @@ UIKIT_EXTERN NSString *const CR_CollectionArticleList;
 UIKIT_EXTERN NSString *const CR_CollectionPrayList;
 /** 收藏音乐列表*/
 UIKIT_EXTERN NSString *const CR_CollectionMusicList;
-
-
+/** 发布的文章列表*/
+UIKIT_EXTERN NSString *const CR_PublishArticleList;
+/** 发布的代祷列表*/
+UIKIT_EXTERN NSString *const CR_PublishPrayList;
+/** 发布的音乐列表*/
+UIKIT_EXTERN NSString *const CR_PublishMusicList;
+/** 删除文章*/
+UIKIT_EXTERN NSString *const CR_DeleteArticle;
+/** 删除代祷*/
+UIKIT_EXTERN NSString *const CR_DeletePray;
+/** 删除音乐*/
+UIKIT_EXTERN NSString *const CR_DeleteMusic;
+/** 获取团契列表*/
+UIKIT_EXTERN NSString *const CR_FellowshipList;
 
 
 

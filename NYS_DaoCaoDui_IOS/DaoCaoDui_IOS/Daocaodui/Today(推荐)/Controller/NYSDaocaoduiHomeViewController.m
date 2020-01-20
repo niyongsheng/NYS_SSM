@@ -54,7 +54,6 @@
     self.homeView.delegate = self;
     self.scrollLabelView.delegate = self;
     
-    [self.scrollLabelView beginScrolling];
     [self headerRereshing];
 }
 
@@ -155,10 +154,10 @@
         .wBannerControlColorSet(NNavBgColor)
         .wDataSet(self.bannerArray)
         .wEventCenterClickSet(^(id anyID, NSInteger index,BOOL isCenter,UICollectionViewCell *cell) {
-            NLog(@"判断居中点击\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@",anyID,index,isCenter,cell);
+            NLog(@"首页轮播图点击\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@",anyID,index,isCenter,cell);
         })
         .wEventScrollEndSet( ^(id anyID, NSInteger index, BOOL isCenter,UICollectionViewCell *cell) {
-//             NLog(@"轮播图滚动\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@", anyID, index, isCenter, cell);
+             NLog(@"首页轮播图滚动\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@", anyID, index, isCenter, cell);
         })
         // 让第一个和最后一个居中 设置为size.width的一半
         .wSectionInsetSet(UIEdgeInsetsMake(0,BannerWitdh*0.4, 0, BannerWitdh*0.4))
@@ -191,6 +190,7 @@
             make.centerX.mas_equalTo(self.view.mas_centerX);
             make.size.mas_equalTo(CGSizeMake(NScreenWidth*0.9, RealValue(80)));
         }];
+        [scrollLabelView beginScrolling];
         scrollLabelView;
     });
     
@@ -231,6 +231,7 @@
         scrollNumberView;
     });
     
+    // 滚动范围
     [self.homeView setContentSize:CGSizeMake(0, RealValue(810))];
 }
 
@@ -324,7 +325,7 @@
 
 - (NSMutableArray *)publicnoticeArray {
     if (!_publicnoticeArray) {
-        _publicnoticeArray = @[@"塑造生命，成就使命！", @"Amazing Grace, how sweet the sound\nThat saved a wretch like me\nI once was lost but now I'm found\nWas blind but now I see\nT'was grace that taught my heart to fear\nAnd grace my fear relieved\nHow precious did that grace appear\nThe hour I first believed\nThrough many dangers, toils and snares\nWe have already come\nT'was grace that brought us safe thus far\nAnd grace will lead us home\nWhen we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we first begun"].mutableCopy;
+        _publicnoticeArray = @[@"我爱我家稻草堆", @"Amazing Grace, how sweet the sound\nThat saved a wretch like me\nI once was lost but now I'm found\nWas blind but now I see\nT'was grace that taught my heart to fear\nAnd grace my fear relieved\nHow precious did that grace appear\nThe hour I first believed\nThrough many dangers, toils and snares\nWe have already come\nT'was grace that brought us safe thus far\nAnd grace will lead us home\nWhen we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we first begun"].mutableCopy;
     }
     return _publicnoticeArray;
 }
@@ -337,7 +338,7 @@
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     [formatter setDateFormat:@"MM月dd日"];
     NSString *dateTime = [formatter stringFromDate:date];
-    NSArray*weekdays = [NSArray arrayWithObjects: [NSNull null],@"礼拜天",@"礼拜一",@"礼拜二",@"礼拜三",@"礼拜四",@"礼拜五",@"礼拜六",nil];
+    NSArray*weekdays = [NSArray arrayWithObjects:[NSNull null], @"礼拜天", @"礼拜一", @"礼拜二", @"礼拜三", @"礼拜四", @"礼拜五", @"礼拜六", nil];
     NSCalendar*calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSTimeZone*timeZone = [[NSTimeZone alloc]initWithName:@"Asia/Shanghai"];
     [calendar setTimeZone: timeZone];

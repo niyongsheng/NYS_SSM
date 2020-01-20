@@ -58,10 +58,9 @@
 
 - (IBAction)item1Clicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
-
-    NSArray *hotSeaches = @[@"信心", @"爱心", @"盼望", @"喜乐", @"清心", @"节制"];
+    NSArray *hotSeaches = @[@"仁爱", @"喜乐", @"和平", @"忍耐", @"恩慈", @"良善", @"信实", @"温柔", @"节制"];
     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches
-                                                                                          searchBarPlaceholder:@"你找啥？"
+                                                                                          searchBarPlaceholder:nil
                                                                                                 didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         [searchViewController.navigationController pushViewController:[[NYSRootViewController alloc] init] animated:YES];
     }];

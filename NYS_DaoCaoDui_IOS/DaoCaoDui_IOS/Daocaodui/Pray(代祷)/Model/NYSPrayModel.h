@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger prayType;
 @property (nonatomic, strong) NSObject * prayUrl;
 @property (nonatomic, assign) BOOL status;
+@property (nonatomic, assign) BOOL anonymity;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, assign) BOOL isCollection;

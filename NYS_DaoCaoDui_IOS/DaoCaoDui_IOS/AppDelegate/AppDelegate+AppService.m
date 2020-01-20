@@ -9,6 +9,7 @@
 #import "AppDelegate+AppService.h"
 #import <UMShare/UMShare.h>
 #import <UMCommon/UMCommon.h>
+#import <UMCommonLog/UMCommonLogManager.h>
 #import <UMAnalytics/MobClick.h>
 #import "OpenUDID.h"
 #import "NYSTabBarController.h"
@@ -41,6 +42,10 @@
     // [[UIButton appearance] setShowsTouchWhenHighlighted:YES];
     // [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
     [NApplication setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    // 暂时不适配暗黑模式
+    if (@available(iOS 13.0, *)) {
+        [self.window setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
+    }
 }
 /*
 #pragma mark -- WRNavigationBar 初始化 --
@@ -127,22 +132,22 @@
 
 #pragma mark -- 友盟 初始化 --
 - (void)initUMeng {
-    // 友盟+
-    [UMConfigure setLogEnabled:YES];
+    // 友盟统计+分享
+    [UMCommonLogManager setUpUMCommonLogManager];
     [MobClick setScenarioType:E_UM_NORMAL];
     [MobClick setCrashReportEnabled:YES];
+    [UMConfigure setLogEnabled:YES];
     [UMConfigure initWithAppkey:UMengKey channel:@"App Store"];
     
     [self configUSharePlatforms];
 }
 
-#pragma mark -- 配置第三方 --
+#pragma mark -- 配置第三方登录 --
 - (void)configUSharePlatforms {
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:AppKey_TencentQQ  appSecret:Secret_TencentQQ redirectURL:nil];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:AppKey_Wechat appSecret:Secret_Wechat redirectURL:nil];
-    /* 移除相应平台的分享，如微信收藏 */
-    //[[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
-    
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:AppKey_TencentQQ  appSecret:nil redirectURL:nil];
+    // 移除相应平台的分享item微信收藏
+//     [[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
 }
 
 #pragma mark -- OpenURL 回调 --

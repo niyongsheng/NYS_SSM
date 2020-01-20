@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSRecommendTableViewCell : UITableViewCell
 @property (weak, nonatomic) NYSRecommendModel *recommendModel;
+@property (strong, nonatomic) UIViewController *fromViewController;
 @end
 
 NS_ASSUME_NONNULL_END

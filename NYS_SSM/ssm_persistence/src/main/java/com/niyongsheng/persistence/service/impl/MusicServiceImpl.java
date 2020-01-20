@@ -26,4 +26,9 @@ public class MusicServiceImpl extends ServiceImpl<MusicDao, Music> implements Mu
     public List<Music> selectByFellowshipMultiTable(Integer fellowship, String account) {
         return musicDao.selectByFellowshipMultiTable(fellowship, account);
     }
+
+    @Override
+    public List<Music> selectMyMusicList(Integer fellowship, String account) {
+        return musicDao.selectMyMusicList(fellowship, account);
+    }
 }

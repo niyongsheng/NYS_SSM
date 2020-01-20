@@ -20,6 +20,6 @@
 
 - (instancetype) initMinRadius:(CGFloat)minRadius maxRadius:(CGFloat)maxRadius;
 - (void)startAnimation;
-
+- (void)stopAnimation;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "NYSMembersViewController.h"
 #import "NYSMemberCollectionViewCell.h"
+#import "NYSPersonalInfoCardViewController.h"
 
 static float Magin = 10;
 static NSString *pageSize = @"40";
@@ -68,7 +69,9 @@ static NSString * const reuseIdentifier = @"NYSMemberCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+    personalInfoCardVC.account = [self.memberListArray[indexPath.row] account];
+    [self.navigationController pushViewController:personalInfoCardVC animated:YES];
 }
 
 @end

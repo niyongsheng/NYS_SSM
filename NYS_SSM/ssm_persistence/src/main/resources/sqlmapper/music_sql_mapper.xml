@@ -18,4 +18,18 @@
         order by m.isTop desc
     </select>
 
+    <resultMap id="myMusicMap" type="Music" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
+    </resultMap>
+
+    <select id="selectMyMusicList" resultMap="myMusicMap">
+        select *
+        from dcd_music m
+        inner join dcd_fellowship f
+        on m.fellowship = f.id
+        where m.fellowship = #{fellowship} and m.account = #{account}
+        order by m.isTop desc
+    </select>
+
 </mapper>

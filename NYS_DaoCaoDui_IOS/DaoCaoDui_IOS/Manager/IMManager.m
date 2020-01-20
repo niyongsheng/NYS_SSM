@@ -24,16 +24,19 @@ SINGLETON_FOR_CLASS(IMManager);
     // 用户信息提供者
     [RCIM sharedRCIM].userInfoDataSource = [NYSChatDataSource shareInstance];
     [RCIM sharedRCIM].groupInfoDataSource = [NYSChatDataSource shareInstance];
+    [RCIM sharedRCIM].groupMemberDataSource = [NYSChatDataSource shareInstance];
     // 设置优先使用WebView打开URL
     [RCIM sharedRCIM].embeddedWebViewPreferred = YES;
     // 开启用户信息和群组信息的持久化
-    [RCIM sharedRCIM].enablePersistentUserInfoCache = NO;
+    [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
     // 开启输入状态提醒
     [RCIM sharedRCIM].enableTypingStatus = YES;
     // 开启消息撤回功能
     [RCIM sharedRCIM].enableMessageRecall = YES;
     // 选择媒体资源时，包含视频文件
     [RCIM sharedRCIM].isMediaSelectorContainVideo = YES;
+    // 开启@功能
+    [RCIM sharedRCIM].enableMessageMentioned = YES;
     // 设置头像为圆形
     [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
     [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
@@ -64,7 +67,7 @@ SINGLETON_FOR_CLASS(IMManager);
         RCCurrentUserInfo.extra = [NSString stringWithFormat:@"%ld", (long)currentUserInfo.fellowship];
         [[RCIM sharedRCIM] setCurrentUserInfo:RCCurrentUserInfo];
     } error:^(RCConnectErrorCode status) {
-        NLog(@"IM登陆的错误码为:%ld", status);
+        NLog(@"IM登陆的错误码为:%ld", (long)status);
     } tokenIncorrect:^{
         // token过期或者不正确。
         // 如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
@@ -76,7 +79,7 @@ SINGLETON_FOR_CLASS(IMManager);
 #pragma mark —- IM退出 —-
 - (void)IMLogout {
     [[RCIM sharedRCIM] logout];
-    [[RCIMClient sharedRCIMClient] disconnect:NO];
+    [[RCIMClient sharedRCIMClient] disconnect:YES];
 }
 
 #pragma mark - 被踢下线处理

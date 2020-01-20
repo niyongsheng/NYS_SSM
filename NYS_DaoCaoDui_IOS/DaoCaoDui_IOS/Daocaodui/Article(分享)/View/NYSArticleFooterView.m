@@ -7,6 +7,8 @@
 //
 
 #import "NYSArticleFooterView.h"
+#import "NYSPersonalInfoCardViewController.h"
+#import "NYSBaseNavigationController.h"
 
 @interface NYSArticleFooterView ()
 @property (weak, nonatomic) IBOutlet UIButton *icon;
@@ -27,6 +29,11 @@
 }
 
 - (IBAction)iconClicked:(UIButton *)sender {
+    NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", sender.tag];
+    NYSBaseNavigationController *navVC = [[NYSBaseNavigationController alloc] initWithRootViewController:personalInfoCardVC];
+    navVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self.fromViewController presentViewController:navVC animated:YES completion:nil];
 }
 
 - (IBAction)shareClicked:(UIButton *)sender {
@@ -59,6 +66,7 @@
 - (void)setArticleModel:(NYSArticleModel *)articleModel {
     _articleModel = articleModel;
     
+    self.icon.tag = articleModel.user.account.intValue;
     [self.icon setImageWithURL:[NSURL URLWithString:articleModel.user.icon] forState:UIControlStateNormal placeholder:[UIImage imageNamed:@"chat_single"]];
     self.nickname.text = articleModel.user.nickname;
 }

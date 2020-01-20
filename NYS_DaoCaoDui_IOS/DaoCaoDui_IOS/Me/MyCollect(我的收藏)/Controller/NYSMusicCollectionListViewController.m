@@ -22,7 +22,7 @@ static NSInteger pageSize = 7;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.height = NScreenHeight - NTopHeight;
+    self.tableView.height = NScreenHeight - NTopHeight - SegmentViewHeight;
     self.tableView.showsVerticalScrollIndicator = YES;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.delegate = self;
@@ -40,7 +40,7 @@ static NSInteger pageSize = 7;
     parames[@"pageSize"] = @(pageSize);
     parames[@"pageNum"] = @(self.pageNum);
     WS(weakSelf);
-    [NYSRequest getCollectionMusicListWithResMethod:GET
+    [NYSRequest GetCollectionMusicListWithResMethod:GET
                     parameters:parames
                        success:^(id response) {
         [weakSelf.tableView.mj_header endRefreshing];
@@ -50,7 +50,7 @@ static NSInteger pageSize = 7;
         }];
         weakSelf.datasourceArray = [NYSMusicModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
         [weakSelf.tableView reloadData];
-        [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeMove tableView:weakSelf.tableView];
+        [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeRote tableView:weakSelf.tableView];
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
     } isCache:YES];
@@ -64,7 +64,7 @@ static NSInteger pageSize = 7;
     parames[@"pageSize"] = @(pageSize);
     parames[@"pageNum"] = @(self.pageNum);
     WS(weakSelf);
-    [NYSRequest getCollectionMusicListWithResMethod:GET
+    [NYSRequest GetCollectionMusicListWithResMethod:GET
                     parameters:parames
                        success:^(id response) {
         [NYSMusicModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
@@ -93,7 +93,7 @@ static NSInteger pageSize = 7;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 150;
+    return 240;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

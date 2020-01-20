@@ -31,4 +31,9 @@ public class PrayServiceImpl extends ServiceImpl<PrayDao, Pray> implements PrayS
     public List<Pray> selectAllByFellowshipMultiTable(Integer fellowship, String account) {
         return prayDao.selectAllByFellowshipMultiTable(fellowship, account);
     }
+
+    @Override
+    public List<Pray> selectMyPrayList(Integer fellowship, String account) {
+        return prayDao.selectMyPrayList(fellowship, account);
+    }
 }

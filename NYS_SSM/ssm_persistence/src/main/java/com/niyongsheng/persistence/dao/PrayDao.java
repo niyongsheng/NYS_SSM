@@ -23,4 +23,6 @@ public interface PrayDao extends BaseMapper<Pray> {
     List<Pray> selectAllMultiTable();
 
     List<Pray> selectAllByFellowshipMultiTable(@Param("fellowship") Integer fellowship, @Param("isCollectionAccount") String isCollectionAccount);
+
+    List<Pray> selectMyPrayList(@Param("fellowship") Integer fellowship, @Param("account") String account);
 }

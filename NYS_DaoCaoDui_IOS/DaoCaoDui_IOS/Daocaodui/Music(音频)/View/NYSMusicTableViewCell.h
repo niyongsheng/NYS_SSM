@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSMusicTableViewCell : UITableViewCell
 @property (weak, nonatomic) NYSMusicModel *musicModel;
+@property (strong, nonatomic) UIViewController *fromViewController;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -38,7 +38,7 @@
         _introductionLabel.textColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4f];
         [self addSubview:_introductionLabel];
         
-        CGFloat maxRadius = [UIScreen mainScreen].bounds.size.width * 0.4;
+        CGFloat maxRadius = [UIScreen mainScreen].bounds.size.width * 0.35;
         _rippleView = [[YNRippleAnimatView alloc] initMinRadius:1 maxRadius:maxRadius];
         _rippleView.alpha = 0.85f;
         _rippleView.rippleCount = 5;
@@ -60,7 +60,13 @@
     _datasource = datasource;
     [_imageView setImageWithURL:[NSURL URLWithString:[datasource icon]] placeholder:[UIImage imageNamed:@"bg_ocr_intro_345x200_"]];
     [_introductionLabel setText:[datasource introduction]];
-    ![datasource isClockedToday] ? [_rippleView startAnimation] : nil;
+    if (![datasource isClockedToday]) {
+        [_rippleView startAnimation];
+        WS(weakSelf);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.rippleView stopAnimation];
+        });
+    }
 }
          
 - (void)scrollViewDidScroll:(CGFloat)contentOffsetY {

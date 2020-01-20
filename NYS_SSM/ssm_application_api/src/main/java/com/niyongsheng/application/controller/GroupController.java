@@ -3,20 +3,24 @@ package com.niyongsheng.application.controller;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
+import com.niyongsheng.common.rongCloud.RongCloudService;
 import com.niyongsheng.persistence.domain.Group;
+import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.GroupService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import com.niyongsheng.persistence.service.UserService;
+import io.rong.models.response.GroupUser;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,6 +42,12 @@ public class GroupController {
         this.groupService = groupService;
     }
 
+    @Autowired
+    private RongCloudService rongCloudService;
+
+    @Autowired
+    private UserService userService;
+
     @ResponseBody
     @RequestMapping(value = "/findAllGroups", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有的群组信息列表", notes = "参数描述", hidden = false)
@@ -57,10 +67,48 @@ public class GroupController {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
 
-        // 2.返回分页对象
+        // 2.装载memberCount
+        for (int i = 0; i < list.size(); i++) {
+            List<GroupUser> groupMember = null;
+            try {
+                groupMember = rongCloudService.getGroupMember(String.valueOf(list.get(i).getGroupId()));
+            } catch (ResponseException e) {
+                throw new ResponseException(ResponseStatusEnum.RONGCLOUD_GETMEMBER_GROUP_ERROR);
+            }
+            list.get(i).setMemberCount(groupMember.size());
+        }
+
+        // 3.返回分页对象
         return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/selectGroupMemberListById", method = RequestMethod.GET)
+    @ApiOperation(value = "查询群组成员列表", notes = "参数描述", hidden = false)
+    public ResponseDto<User> selectActivityMemberListById(HttpServletRequest request, Model model,
+                                                          @NotBlank(message = "{NotBlank.activityID}")
+                                                          @ApiParam(name = "groupId", value = "群组ID", required = true)
+                                                          @RequestParam(value = "groupId", required = true) String groupId
+    ) throws ResponseException {
+        try {
+            // 1.获取群成员id列表
+            List<GroupUser> groupUserList = rongCloudService.getGroupMember(groupId);
+            // 2.群成员列表手动装载
+            List<User> userList = new ArrayList<User>();
+            for (GroupUser groupUser : groupUserList) {
+                try {
+                    User user = userService.findUserByAccount(groupUser.getId());
+                    userList.add(user);
+                } catch (Exception e) {
+                    throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+                }
+            }
+            // 3.返回查询结果
+            return new ResponseDto(ResponseStatusEnum.SUCCESS, userList);
+        } catch (ResponseException e) {
+            throw new ResponseException(ResponseStatusEnum.RONGCLOUD_GETMEMBER_GROUP_ERROR);
+        }
+    }
 
     @ResponseBody
     @RequestMapping(value = "/providerInfoForGroup", method = RequestMethod.GET)

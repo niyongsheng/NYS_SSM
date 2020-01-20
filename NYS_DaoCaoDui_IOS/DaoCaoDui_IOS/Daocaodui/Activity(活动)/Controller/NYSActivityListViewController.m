@@ -48,7 +48,7 @@ static NSInteger pageSize = 7;
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([NYSActivityCollectionViewCell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"NYSActivityCollectionViewCell"];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.height = NScreenHeight - NTopHeight;
+    self.collectionView.height = NScreenHeight - NTopHeight - NTabBarHeight;
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, NTabBarHeight, 0);
     [self.view addSubview:self.collectionView];
 }

@@ -51,6 +51,9 @@
                                     <constraint firstAttribute="width" constant="30" id="t1L-qD-qO1"/>
                                 </constraints>
                                 <state key="normal" image="chat_single"/>
+                                <connections>
+                                    <action selector="iconBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="q61-qk-iEd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

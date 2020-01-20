@@ -7,6 +7,7 @@
 //
 
 #import "NYSAlert.h"
+#import "NYSEmitterUtil.h"
 #import <UIImageView+WebCache.h>
 
 @interface NYSAlert ()
@@ -121,7 +122,7 @@
     }];
     
     // 背景图片
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nys_alert_bg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nys_alert_bg_red"]];
     [bgView addSubview:bgImageView];
     [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(bgView);
@@ -195,9 +196,8 @@
         make.size.mas_equalTo(CGSizeMake(25, 25));
     }];
     
-    
     // 彩带效果
-    [self colourBarEffectWithView:bgView];
+    [NYSEmitterUtil showEmitterType:EmitterAnimationColourbar onView:bgView durationTime:1.f];
 }
 
 #pragma mark - 提交失败提示弹框
@@ -212,7 +212,7 @@
     }];
     
     // 背景图片
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nys_alert_bg"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nys_alert_bg_red"]];
     [bgView addSubview:bgImageView];
     [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(bgView);
@@ -285,7 +285,8 @@
         make.size.mas_equalTo(CGSizeMake(25, 25));
     }];
     
-    [self colourBarEffectWithView:bgView];
+    // 彩带效果
+    [NYSEmitterUtil showEmitterType:EmitterAnimationColourbar onView:bgView durationTime:1.f];
 }
 
 #pragma mark - 带block回调的签到弹窗
@@ -357,7 +358,7 @@
     }];
     
     // 彩带效果
-    [self colourBarEffectWithView:bgView];
+    [NYSEmitterUtil showEmitterType:EmitterAnimationColourbar onView:bgView durationTime:1.f];
 }
 
 #pragma mark - 带block回调的弹窗
@@ -673,49 +674,6 @@
         make.centerX.mas_equalTo(whiteView);
         make.width.mas_equalTo(1);
     }];
-}
-
-#pragma mark - 彩带效果 #############################################################
-+ (void)colourBarEffectWithView:(UIView *)view {
-    CAEmitterLayer *colourBarEmitter = [CAEmitterLayer layer];
-    // 例子发射位置
-    colourBarEmitter.emitterPosition = CGPointMake(NScreenWidth/2,-30);
-    colourBarEmitter.preservesDepth = YES;
-    colourBarEmitter.lifetime = 1.5;
-    
-    // 发射源的尺寸大小
-    colourBarEmitter.emitterSize = CGSizeMake(NScreenWidth*2, NScreenHeight);
-    // 发射模式
-    colourBarEmitter.emitterMode = kCAEmitterLayerOutline;
-    // 发射源的形状
-    colourBarEmitter.emitterShape = kCAEmitterLayerLine;
-    
-    NSMutableArray *cellArr=[[NSMutableArray alloc] init];
-    for (int i=1; i<9; i++) {
-        CAEmitterCell *colourBarflake = [CAEmitterCell emitterCell];
-        colourBarflake.birthRate     = 10.0;
-        colourBarflake.lifetime      = 4.0;
-        colourBarflake.alphaSpeed    = -0.1;
-        colourBarflake.alphaRange    = 0.2;
-        colourBarflake.velocity      = 150;
-        colourBarflake.velocityRange = 30;
-        colourBarflake.yAcceleration = 100;
-        colourBarflake.emissionRange = M_PI;        // some variation in angle
-        colourBarflake.spinRange     = M_PI;        // slow spin
-        colourBarflake.contents      = (id)[[UIImage imageNamed:[NSString stringWithFormat:@"stepPk_win_colour%d",i]] CGImage];
-        [cellArr addObject:colourBarflake];
-    }
-    colourBarEmitter.shadowOpacity = 1.0;
-    colourBarEmitter.shadowRadius = 0.0;
-    colourBarEmitter.shadowOffset = CGSizeMake(0.0, 1.0);
-    
-    colourBarEmitter.emitterCells = cellArr;
-    [view.layer addSublayer:colourBarEmitter];
-    
-    // 延时关闭
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        colourBarEmitter.birthRate = 0;
-    });
 }
 
 @end

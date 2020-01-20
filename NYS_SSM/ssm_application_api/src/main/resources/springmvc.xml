@@ -43,6 +43,7 @@
             <mvc:exclude-mapping path="/user/logout"/>
             <mvc:exclude-mapping path="/user/resetUserPassword"/>
             <mvc:exclude-mapping path="/user/getOnceCode"/>
+            <mvc:exclude-mapping path="/fellowship/selectFellowshipList"/>
             <!-- swagger放行-->
             <mvc:exclude-mapping path="/resources/**"/>
             <mvc:exclude-mapping path="/webjars/**"/>

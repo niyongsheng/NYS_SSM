@@ -23,7 +23,6 @@
     self.titleLabel.layer.cornerRadius = 2.0f;
     self.titleLabel.layer.masksToBounds = YES;
     self.titleLabel.backgroundColor = [UIColor colorWithWhite:0.6 alpha:0.2];
-//    self.titleLabel.font = [[UIFont systemFontOfSize:15.f] fontWithItalic];
     self.titleLabel.font = [UIFont fontWithName:@"HYZhuZiMeiXinTiW" size:15];
     self.titleLabel.textColor = [[UIColor blackColor] colorWithAlphaComponent:0.4f];
     self.bgImageView.image = [[UIImage imageNamed:@"1"] imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
@@ -33,8 +32,10 @@
     _weekBibleModel = weekBibleModel;
     
     self.titleLabel.text = weekBibleModel.bible;
-    UIImage *bgImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:weekBibleModel.iconUrl]]];
-    self.bgImageView.image = [bgImage imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+    if (weekBibleModel.iconUrl) {
+        UIImage *bgImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:weekBibleModel.iconUrl]]];
+        self.bgImageView.image = [bgImage imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+    }
 }
 
 @end

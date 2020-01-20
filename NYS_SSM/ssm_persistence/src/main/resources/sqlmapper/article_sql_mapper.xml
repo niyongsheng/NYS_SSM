@@ -17,4 +17,19 @@
         where a.fellowship = #{fellowship}
         order by a.isTop desc, a.id desc
     </select>
+
+    <resultMap id="myArticleMap" type="Article" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Article_CollectionDao.selectCollectionUsersByArticleID"/>
+    </resultMap>
+
+    <select id="selectMyArticleList" resultMap="myArticleMap">
+        select *
+        from dcd_article a
+        inner join dcd_fellowship f
+        on a.fellowship = f.id
+        where a.fellowship = #{fellowship} and a.account = #{account}
+        order by a.isTop desc, a.id desc
+    </select>
+
 </mapper>

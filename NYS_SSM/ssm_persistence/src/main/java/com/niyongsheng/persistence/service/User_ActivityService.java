@@ -1,7 +1,10 @@
 package com.niyongsheng.persistence.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.domain.User_Activity;
+
+import java.util.List;
 
 /**
  * @author niyongsheng.com
@@ -26,4 +29,11 @@ public interface User_ActivityService extends IService<User_Activity> {
      * @return
      */
     Boolean isActivityMember(String account, Integer activityId);
+
+    /**
+     * 查询活动的成员列表
+     * @param activityID 活动id
+     * @return
+     */
+    List<User> selectUsersByActivityID(Integer activityID);
 }

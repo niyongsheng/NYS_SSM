@@ -1,11 +1,13 @@
 package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.niyongsheng.application.utils.JwtUtil;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import com.niyongsheng.persistence.domain.Article;
+import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.domain.User_Article_Collection;
 import com.niyongsheng.persistence.service.ArticleService;
 import com.niyongsheng.persistence.service.User_Article_CollectionService;
@@ -129,6 +131,48 @@ public class ArticleController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/selectMyArticleList", method = RequestMethod.GET)
+    @ApiOperation(value = "查询我发布的文章", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+    })
+    public ResponseDto<Article> selectMyArticleList(HttpServletRequest request, Model model,
+                                                            @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                            @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                            @NotBlank
+                                                            @RequestParam(value = "fellowship", required = true) String fellowship
+    ) throws ResponseException {
+
+        // 1.是否分页，调用service的方法
+        String account = request.getHeader("Account");
+        Integer fell = Integer.valueOf(fellowship);
+        List<Article> list = null;
+        if (isPageBreak) {
+            try {
+                // 2.1分页查询 设置页码和分页大小
+                PageHelper.startPage(pageNum, pageSize, false);
+                list = articleService.selectMyArticleList(fell, account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        } else {
+            try {
+                // 2.1无分页查询
+                list = articleService.selectMyArticleList(fell, account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        }
+
+        // 3.返回查询结果
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/publishArticle", method = RequestMethod.POST)
     @ApiOperation(value = "发布分享", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
@@ -222,4 +266,40 @@ public class ArticleController {
             return new ResponseDto(ResponseStatusEnum.SUCCESS,msg);
         }
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteArticleById", method = RequestMethod.GET)
+    @ApiOperation(value = "删除文章", notes = "参数描述", hidden = false)
+    public ResponseDto deleteArticleById(HttpServletRequest request, Model model,
+                                         @NotBlank
+                                         @ApiParam(name = "articleID", value = "文章ID", required = true)
+                                         @RequestParam(value = "articleID", required = true) String articleID
+    ) throws ResponseException {
+        Integer id = Integer.valueOf(articleID);
+        String account = request.getHeader("Account");
+        String token = request.getHeader("Token");
+        // 1.token解析
+        User jwtUser = JwtUtil.decryption(token, User.class);
+        Article article = articleService.getBaseMapper().selectById(id);
+        // 2.删除对象存在判断
+        if (article != null) {
+            // 3.管理员和自己拥有删除权限判断
+            if (article.getAccount().equals(account) || jwtUser.getProfession() == 0 || jwtUser.getProfession() == 2) {
+                try {
+                    // 4.删除操作
+                    articleService.getBaseMapper().deleteById(id);
+                } catch (Exception e) {
+                    throw new ResponseException(ResponseStatusEnum.DB_DELETE_ERROR);
+                }
+            } else {
+                throw new ResponseException(ResponseStatusEnum.DB_DELETE_POWER_ERROR);
+            }
+        } else {
+            throw new ResponseException(ResponseStatusEnum.DB_DELETE_EMPTY_ERROR);
+        }
+
+        // 4.返回成功信息
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
 }

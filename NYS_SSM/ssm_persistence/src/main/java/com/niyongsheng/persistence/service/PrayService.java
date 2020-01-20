@@ -16,4 +16,6 @@ public interface PrayService extends IService<Pray> {
     List<Pray> selectAllMultiTable();
 
     List<Pray> selectAllByFellowshipMultiTable(Integer fellowship, String account);
+
+    List<Pray> selectMyPrayList(Integer fellowship, String account);
 }

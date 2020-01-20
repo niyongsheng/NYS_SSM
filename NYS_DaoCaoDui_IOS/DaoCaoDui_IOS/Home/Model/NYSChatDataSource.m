@@ -24,9 +24,25 @@
     return instance;
 }
 
+#pragma mark - RCIMUserInfoDataSource
+- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *userInfo))completion {
+    [NYSRequest DataProviderInfoForUserWithResMethod:GET
+                                          parameters:@{@"account" : userId}
+                                             success:^(id response) {
+        UserInfo *userInfo = [UserInfo mj_objectWithKeyValues:[response objectForKey:@"data"]];
+        RCUserInfo *rcUserInfo = [[RCUserInfo alloc] initWithUserId:userId name:userInfo.nickname portrait:userInfo.icon];
+        rcUserInfo.extra = [NSString stringWithFormat:@"%ld", (long)userInfo.fellowship];
+        completion(rcUserInfo);
+    } failure:^(NSError *error) {
+        completion([[RCUserInfo alloc] initWithUserId:userId name:@"User" portrait:SigleIcon]);
+    } isCache:YES];
+}
+
 #pragma mark - GroupInfoFetcherDelegate
 - (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *groupInfo))completion {
-    [NYSRequest DataProviderInfoForGroupWithResMethod:GET parameters:@{@"groupId" : groupId} success:^(id response) {
+    [NYSRequest DataProviderInfoForGroupWithResMethod:GET
+                                           parameters:@{@"groupId" : groupId}
+                                              success:^(id response) {
         NYSGroupModel *groupModel = [NYSGroupModel mj_objectWithKeyValues:[response objectForKey:@"data"]];
         RCGroup *groupInfo = [[RCGroup alloc] initWithGroupId:groupId groupName:groupModel.groupName portraitUri:groupModel.groupIcon];
         completion(groupInfo);
@@ -35,19 +51,20 @@
     } isCache:YES];
 }
 
-#pragma mark - RCIMUserInfoDataSource
-- (void)getUserInfoWithUserId:(NSString *)userId completion:(void (^)(RCUserInfo *userInfo))completion {
-    [NYSRequest DataProviderInfoForUserWithResMethod:GET parameters:@{@"account" : userId} success:^(id response) {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//        });
-        UserInfo *userInfo = [UserInfo mj_objectWithKeyValues:[response objectForKey:@"data"]];
-        RCUserInfo *rcUserInfo = [[RCUserInfo alloc] initWithUserId:userId name:userInfo.nickname portrait:userInfo.icon];
-        rcUserInfo.extra = [NSString stringWithFormat:@"%ld", userInfo.fellowship];
-        completion(rcUserInfo);
+#pragma mark - RCIMGroupMembersDataSource
+- (void)getAllMembersOfGroup:(NSString *)groupId result:(void (^)(NSArray<NSString *> *))resultBlock {
+    NSMutableArray<NSString *> *accountsArray = [NSMutableArray array];
+    [NYSRequest DataProviderInfoForGroupMembersWithResMethod:GET
+                                                  parameters:@{@"groupId" : groupId}
+                                                     success:^(id response) {
+        NSArray *usersArray = [UserInfo mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
+        for (UserInfo *user in usersArray) {
+            [accountsArray addObject:user.account];
+        }
+        resultBlock(accountsArray);
     } failure:^(NSError *error) {
-        completion([[RCUserInfo alloc] initWithUserId:userId name:@"User" portrait:SigleIcon]);
+        resultBlock(accountsArray);
     } isCache:YES];
 }
-
 
 @end

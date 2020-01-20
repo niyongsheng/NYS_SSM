@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface AppDelegate ()
 
@@ -25,8 +26,8 @@
     // 初始化app服务
     [self initService];
     
-    // JPush初始化
-    [self initJpush:launchOptions];
+    // 推送初始化
+    [self initPush:launchOptions application:application];
     
     // 友盟初始化
     [self initUMeng];
@@ -40,39 +41,52 @@
     // 网络监听
     [self monitorNetworkStatus];
     
-    // 广告页
+    // 开屏广告
     [AppManager appStart];
     
+#if defined(DEBUG)
     // FPS监测
     [AppManager showFPS];
+#endif
     
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     
 }
 
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
+    int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[
+        @(ConversationType_PRIVATE),
+        @(ConversationType_DISCUSSION),
+        @(ConversationType_PUBLICSERVICE),
+        @(ConversationType_PUBLICSERVICE),
+        @(ConversationType_GROUP)
+    ]];
+    application.applicationIconBadgeNumber = unreadMsgCount + 0;
+    [JPUSHService setBadge:application.applicationIconBadgeNumber];
 }
-
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
    
 }
 
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
 }
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
 }
 
+#pragma mark - 内存警告处理
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    SDWebImageManager *SDManager = [SDWebImageManager sharedManager];
+    // 1.取消正在下载的操作
+    [SDManager cancelAll];
+    // 2.清除内存缓存
+    [SDManager.imageCache clearMemory];
+}
 
 @end

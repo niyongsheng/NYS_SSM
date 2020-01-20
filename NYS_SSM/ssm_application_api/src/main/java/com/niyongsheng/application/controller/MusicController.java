@@ -1,11 +1,13 @@
 package com.niyongsheng.application.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.niyongsheng.application.utils.JwtUtil;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
 import com.niyongsheng.common.qiniu.QiniuUploadFileService;
 import com.niyongsheng.persistence.domain.Music;
+import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.domain.User_Music_Collection;
 import com.niyongsheng.persistence.service.MusicService;
 import com.niyongsheng.persistence.service.User_Music_CollectionService;
@@ -134,6 +136,50 @@ public class MusicController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/selectMyMusicList", method = RequestMethod.GET)
+    @ApiOperation(value = "查询我发布的音乐", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+    })
+    public ResponseDto<Music> selectMyMusicList(HttpServletRequest request, Model model,
+                                                 @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                 @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                 @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                 @NotBlank
+                                                 @RequestParam(value = "fellowship", required = true) String fellowship
+    ) throws ResponseException {
+
+        // 1.调用service的方法
+        List<Music> list = null;
+        Integer fell = Integer.valueOf(fellowship);
+        String account = request.getHeader("Account");
+
+        // 2.是否分页
+        if (isPageBreak) {
+            // 2.1设置页码和分页大小
+            PageHelper.startPage(pageNum, pageSize, false);
+            try {
+                list = musicService.selectMyMusicList(fell, account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+
+        } else {
+            try {
+                list = musicService.selectMyMusicList(fell, account);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        }
+
+        model.addAttribute("pagingList", list);
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/publishMusic", method = RequestMethod.POST)
     @ApiOperation(value = "发布音频", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
@@ -234,4 +280,40 @@ public class MusicController {
             return new ResponseDto(ResponseStatusEnum.SUCCESS,msg);
         }
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/deleteMusicById", method = RequestMethod.GET)
+    @ApiOperation(value = "删除音乐", notes = "参数描述", hidden = false)
+    public ResponseDto deleteMusicById(HttpServletRequest request, Model model,
+                                         @NotBlank
+                                         @ApiParam(name = "musicID", value = "音乐ID", required = true)
+                                         @RequestParam(value = "musicID", required = true) String musicID
+    ) throws ResponseException {
+        Integer id = Integer.valueOf(musicID);
+        String account = request.getHeader("Account");
+        String token = request.getHeader("Token");
+        // 1.token解析
+        User jwtUser = JwtUtil.decryption(token, User.class);
+        Music music = musicService.getBaseMapper().selectById(id);
+        // 2.删除对象存在判断
+        if (music != null) {
+            // 3.管理员和自己拥有删除权限判断
+            if (music.getAccount().equals(account) || jwtUser.getProfession() == 0 || jwtUser.getProfession() == 2) {
+                try {
+                    // 4.删除操作
+                    musicService.getBaseMapper().deleteById(id);
+                } catch (Exception e) {
+                    throw new ResponseException(ResponseStatusEnum.DB_DELETE_ERROR);
+                }
+            } else {
+                throw new ResponseException(ResponseStatusEnum.DB_DELETE_POWER_ERROR);
+            }
+        } else {
+            throw new ResponseException(ResponseStatusEnum.DB_DELETE_EMPTY_ERROR);
+        }
+
+        // 4.返回成功信息
+        return (new ResponseDto(ResponseStatusEnum.SUCCESS));
+    }
+
 }

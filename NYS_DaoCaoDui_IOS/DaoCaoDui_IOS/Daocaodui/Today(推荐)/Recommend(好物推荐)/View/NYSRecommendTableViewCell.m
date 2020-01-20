@@ -8,6 +8,7 @@
 
 #import "NYSRecommendTableViewCell.h"
 #import "NYSRecommendModel.h"
+#import "NYSPersonalInfoCardViewController.h"
 
 @interface NYSRecommendTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -22,13 +23,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    self.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2f];
-//    self.bgView.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2f];
+    
     self.bgView.layer.cornerRadius = 5.0f;
     self.iconBtn.layer.cornerRadius = 15.0f;
     self.iconBtn.layer.masksToBounds = YES;
-//    self.imageView.layer.cornerRadius = 7.0f;
-//    self.imageView.layer.masksToBounds = YES;
     
     // 头像边框
     CALayer *layer = [self.iconBtn layer];
@@ -43,7 +41,14 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
+}
+
+- (IBAction)iconBtnClicked:(UIButton *)sender {
+    [NYSTools zoomToShow:sender];
+    
+    NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", sender.tag];
+    [self.fromViewController.navigationController pushViewController:personalInfoCardVC animated:YES];
 }
 
 - (void)setRecommendModel:(NYSRecommendModel *)recommendModel {
@@ -52,6 +57,7 @@
     [self.iconImageView setImageWithURL:[NSURL URLWithString:recommendModel.iconUrl] placeholder:[UIImage imageNamed:@"chat_share_subject_72x72_"]];
     self.name.text = recommendModel.name;
     self.content.text = recommendModel.content;
+    self.iconBtn.tag = recommendModel.user.account.intValue;
     [self.iconBtn setImageWithURL:[NSURL URLWithString:recommendModel.user.icon] forState:UIControlStateNormal placeholder:[UIImage imageNamed:@"chat_single"]];
     NSInteger timestamp = [NYSTools timeSwitchTimestamp:recommendModel.gmtCreate andFormatter:@"YYYY-MM-dd HH:mm:ss"];
     self.date.text = [NYSTools timeBeforeInfoWithTimestamp:timestamp];

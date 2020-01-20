@@ -18,4 +18,6 @@ import java.util.List;
 public interface MusicDao extends BaseMapper<Music> {
 
     List<Music> selectByFellowshipMultiTable(@Param("fellowship") Integer fellowship, @Param("isCollectionAccount") String isCollectionAccount);
+
+    List<Music> selectMyMusicList(@Param("fellowship") Integer fellowship, @Param("account") String account);
 }

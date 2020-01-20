@@ -47,7 +47,7 @@ static const CGFloat JXheightForHeaderInSection = 55;
     self.categoryView.titleLabelZoomEnabled = YES;
     
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorColor = [UIColor colorWithRed:0.91 green:0.25 blue:0.44 alpha:1.00];
+    lineView.indicatorColor = NNavBgColorShallow;
     lineView.indicatorWidth = 20;
     self.categoryView.indicators = @[lineView];
     

@@ -94,7 +94,7 @@
         [_cancelButton addTarget:self
                           action:@selector(tapAction:)
                 forControlEvents:UIControlEventTouchUpInside];
-        [_cancelButton setTitle:@"取    消" forState:UIControlStateNormal];
+        [_cancelButton setTitle:@"取  消" forState:UIControlStateNormal];
         [self addSubview:_cancelButton];
     }
     return self;
@@ -134,7 +134,7 @@
     
     self.backgroundColor = BaseMenuBackgroundColor(style);
     self.titleLabel.textColor = BaseMenuTextColor(style);
-    [self.cancelButton setTitleColor:BaseMenuActionTextColor(style) forState:UIControlStateNormal];
+    [self.cancelButton setTitleColor:NNavBgColor forState:UIControlStateNormal];
     for (SGGridItem *item in self.items) {
         [item setTitleColor:BaseMenuTextColor(style) forState:UIControlStateNormal];
     }

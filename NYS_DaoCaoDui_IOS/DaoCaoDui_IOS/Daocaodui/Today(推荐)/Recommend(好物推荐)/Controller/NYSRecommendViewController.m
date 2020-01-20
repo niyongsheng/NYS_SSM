@@ -49,7 +49,7 @@ static NSInteger pageSize = 7;
         }];
         self.datasourceArray = [NYSRecommendModel mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
         [self.tableView reloadData];
-        [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeToTop tableView:self.tableView];
+        [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeOverTurn tableView:self.tableView];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer resetNoMoreData];
     } failure:^(NSError *error) {
@@ -102,7 +102,7 @@ static NSInteger pageSize = 7;
         cell = [[[NSBundle mainBundle] loadNibNamed:@"NYSRecommendTableViewCell" owner:self options:nil] firstObject];
     }
     cell.recommendModel = self.datasourceArray[indexPath.row];
-    
+    cell.fromViewController = self;
     return cell;
 }
 

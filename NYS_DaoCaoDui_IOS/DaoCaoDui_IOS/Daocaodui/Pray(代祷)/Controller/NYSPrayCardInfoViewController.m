@@ -8,6 +8,8 @@
 
 #import "NYSPrayCardInfoViewController.h"
 #import "NYSTimeCircle.h"
+#import "NYSEmitterUtil.h"
+
 #define TotalSeconds 60
 @interface NYSPrayCardInfoViewController ()
 @property (nonatomic,strong) UIScrollView *contentScrollView;
@@ -115,6 +117,12 @@
 - (void)timerAnimation {
     self.second --;
     self.timeCircle.second = self.second;
+    
+    if (self.second < 0) {
+        [self.timer invalidate];
+    } else if (self.second <= 0) {
+        [NYSEmitterUtil showEmitterType:EmitterAnimationSnow onView:self.view durationTime:MAXFLOAT];
+    }
 }
 
 - (void)startPrayBtnClicked:(UIButton *)sender {

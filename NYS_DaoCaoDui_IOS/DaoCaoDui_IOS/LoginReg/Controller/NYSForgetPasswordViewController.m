@@ -54,7 +54,7 @@
     [self.getCodeButton setTitle:[NSString stringWithFormat:@"%ld秒过期", self.secondsCountDownInput] forState:UIControlStateNormal];
     if (self.secondsCountDownInput <= 0) {
         [self.countDownTimer invalidate];
-        [self.getCodeButton setTitle:@"Get Code" forState:UIControlStateNormal];
+        [self.getCodeButton setTitle:@"重新发送" forState:UIControlStateNormal];
         self.getCodeView.backgroundColor = NNavBgColor;
         self.getCodeButton.userInteractionEnabled = YES;
     }

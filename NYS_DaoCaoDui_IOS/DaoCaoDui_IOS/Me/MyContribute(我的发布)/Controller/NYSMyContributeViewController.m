@@ -8,9 +8,9 @@
 
 #import "NYSMyContributeViewController.h"
 #import <SGPagingView.h>
-#import "NYSArticleCollectionListViewController.h"
-#import "NYSPrayCollectionListViewController.h"
-#import "NYSMusicCollectionListViewController.h"
+#import "NYSMyPublishArticleListViewController.h"
+#import "NYSMyPublishPrayListViewController.h"
+#import "NYSMyPublishMusicListViewController.h"
 
 @interface NYSMyContributeViewController () <SGPageTitleViewDelegate, SGPageContentCollectionViewDelegate>
 @property (nonatomic, strong) SGPageTitleView *pageTitleView;
@@ -45,7 +45,7 @@
     [self.view addSubview:_pageTitleView];
     self.pageTitleView.selectedIndex = self.index;
     
-    NSArray *childArr = @[NYSArticleCollectionListViewController.new, NYSPrayCollectionListViewController.new, NYSMusicCollectionListViewController.new];
+    NSArray *childArr = @[NYSMyPublishArticleListViewController.new, NYSMyPublishPrayListViewController.new, NYSMyPublishMusicListViewController.new];
     
     CGFloat ContentCollectionViewHeight = NScreenHeight - CGRectGetMaxY(_pageTitleView.frame);
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), NScreenWidth, ContentCollectionViewHeight) parentVC:self childVCs:childArr];

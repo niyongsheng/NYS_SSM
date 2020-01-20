@@ -7,6 +7,7 @@
 //
 
 #import "NYSMusicTableViewCell.h"
+#import "NYSPersonalInfoCardViewController.h"
 
 @interface NYSMusicTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
@@ -32,10 +33,13 @@
 }
 
 - (IBAction)uploaderClicked:(UIButton *)sender {
+    NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", sender.tag];
+    [self.fromViewController.navigationController pushViewController:personalInfoCardVC animated:YES];
 }
 
 - (IBAction)collectionClicked:(UIButton *)sender {
-    [NYSRequest musicCollectionInOrOutWithResMethod:GET parameters:@{@"musicID" : @(sender.tag)} success:^(id response) {
+    [NYSRequest MusicCollectionInOrOutWithResMethod:GET parameters:@{@"musicID" : @(sender.tag)} success:^(id response) {
         if ([[response objectForKey:@"status"] boolValue]) {
             self.collection.selected = !self.collection.selected;
             [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];

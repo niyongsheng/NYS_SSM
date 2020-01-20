@@ -50,6 +50,7 @@
     alertPicker.dateFormatter = dateFomatter;
     
     [alertPicker handleDatePicker:datePicker];
+    [alertPicker addCompletionAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     alertPicker.contentStr = [dateFomatter stringFromDate:datePicker.date];
     
     return alertPicker;
@@ -66,6 +67,7 @@
     
     [alertPicker.pickerView reloadAllComponents];
     [alertPicker scrollToMiddleWith:sourceArr];
+    [alertPicker addCompletionAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     
     return alertPicker;
 }
@@ -155,15 +157,10 @@
     NSInteger middleNum = dataSource.count / 2;
     [self.pickerView selectRow:middleNum inComponent:0 animated:NO];
     self.contentStr = dataSource[middleNum];
-	
 }
 
 - (void)addCompletionAction:(UIAlertAction *)action{
-    
     [self addAction:action];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    
-    [self addAction:cancelAction];
 }
 
 - (void)handleDatePicker:(UIDatePicker *)datePicker{
@@ -173,11 +170,5 @@
 - (void)handleValueChangedOfDatePicker{
     self.contentStr = [self.dateFormatter stringFromDate:self.datePicker.date];
 }
-
-
-
-
-
-
 
 @end

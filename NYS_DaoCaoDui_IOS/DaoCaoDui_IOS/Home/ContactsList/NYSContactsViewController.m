@@ -41,6 +41,7 @@
                                  success:^(id response) {
         weakSelf.dataSource = [UserInfo mj_objectArrayWithKeyValuesArray:[response objectForKey:@"data"]];
         [weakSelf.tableView reloadData];
+        [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeLayDown tableView:weakSelf.tableView];
         [weakSelf.tableView.mj_header endRefreshing];
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
@@ -73,15 +74,22 @@
     
     UserInfo *userModel = _dataSource[indexPath.section];
     cell.textLabel.text = userModel.nickname;
-    cell.detailTextLabel.text = userModel.introduction;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.icon] placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
+    cell.detailTextLabel.text = userModel.introduction ? [NSString stringWithFormat:@"简介：%@", userModel.introduction] : nil;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:userModel.icon] placeholderImage:[UIImage imageNamed:@"chat_single"]];
+    
     // 调整cell的imageview大小
     CGSize itemSize = CGSizeMake(40, 40);
     UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
     CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
     [cell.imageView.image drawInRect:imageRect];
+    cell.imageView.layer.cornerRadius = 20.f;
+    cell.imageView.layer.masksToBounds = YES;
     cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    cell.detailTextLabel.textColor = [UIColor grayColor];
+    cell.detailTextLabel.numberOfLines = 0;
+    
     return cell;
 }
 

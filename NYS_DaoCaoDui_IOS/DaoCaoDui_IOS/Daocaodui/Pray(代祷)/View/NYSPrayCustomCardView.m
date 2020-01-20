@@ -10,8 +10,10 @@
 #import "NYSPrayModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
+#import "NYSPersonalInfoCardViewController.h"
 
 @interface NYSPrayCustomCardView ()
+@property (assign, nonatomic) BOOL isAnonymity;
 
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UILabel *titleLabel;
@@ -45,6 +47,7 @@
     
     self.iconBtn.layer.cornerRadius = 25.0f;
     self.iconBtn.layer.masksToBounds = YES;
+    [self.iconBtn addTarget:self action:@selector(iconBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     CALayer *layer = [self.iconBtn layer];
     layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
     layer.borderWidth = 0.5f;
@@ -66,15 +69,32 @@
 
 - (void)setPray:(NYSPrayModel *)pray {
     _pray = pray;
-    
+        
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:pray.icon] placeholderImage:[UIImage imageNamed:@"bg_ocr_intro_345x200_"]];
     self.imageView.transform = CGAffineTransformIdentity;
     
-    [self.iconBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[pray.user icon]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
+    self.isAnonymity = pray.anonymity;
+    self.iconBtn.tag = pray.user.account.intValue;
+    if (pray.anonymity) {
+        [self.iconBtn setImage:[UIImage imageNamed:@"me_photo_80x80_"] forState:UIControlStateNormal];
+    } else {
+        [self.iconBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[pray.user icon]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"me_photo_80x80_"]];
+    }
     self.iconBtn.transform = CGAffineTransformIdentity;
     
     self.titleLabel.text = pray.title;
     self.titleLabel.transform = CGAffineTransformIdentity;
+}
+
+- (void)iconBtnClicked:(UIButton *)sender {
+    if (_isAnonymity) {
+        [SVProgressHUD showInfoWithStatus:@"匿名代祷"];
+        [SVProgressHUD dismissWithDelay:1.f];
+        return;
+    }
+    NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", sender.tag];
+    [self.fromViewController.navigationController pushViewController:personalInfoCardVC animated:YES];
 }
 
 @end

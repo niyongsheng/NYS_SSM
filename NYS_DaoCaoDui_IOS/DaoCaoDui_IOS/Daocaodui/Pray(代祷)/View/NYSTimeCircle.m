@@ -143,7 +143,7 @@
     textArcColor = (_arcUnfinishColor == nil) ? [UIColor blueColor] : _arcUnfinishColor;
     arcColor = [UIColor lightGrayColor];
     if (_second < 0) {
-        percent = @"TIME OVER";
+        percent = @"THANKS";
     } else if (_second == 0) {
         percent = @"00:00";
     } else if(_second > 0.5) {

@@ -45,7 +45,9 @@
     [self.view addSubview:_pageTitleView];
     self.pageTitleView.selectedIndex = self.index;
 
-    NSArray *childArr = @[NYSArticleCollectionListViewController.new, NYSPrayCollectionListViewController.new, NYSMusicCollectionListViewController.new];
+    NSArray *childArr = @[[[NYSArticleCollectionListViewController alloc] init],
+                          [[NYSPrayCollectionListViewController alloc] init],
+                          [[NYSMusicCollectionListViewController alloc] init]];
 
     CGFloat ContentCollectionViewHeight = NScreenHeight - CGRectGetMaxY(_pageTitleView.frame);
     self.pageContentCollectionView = [[SGPageContentCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_pageTitleView.frame), NScreenWidth, ContentCollectionViewHeight) parentVC:self childVCs:childArr];

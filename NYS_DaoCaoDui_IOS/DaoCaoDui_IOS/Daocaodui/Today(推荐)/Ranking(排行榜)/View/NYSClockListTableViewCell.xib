@@ -10,22 +10,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NYSRankingListTableViewCell" id="KGk-i7-Jjw" customClass="NYSClockListTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NYSRankingListTableViewCell" rowHeight="59" id="KGk-i7-Jjw" customClass="NYSClockListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ee-fP-vch">
-                        <rect key="frame" x="4" y="15" width="14" height="14"/>
+                        <rect key="frame" x="4" y="15" width="29" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="6Ee-fP-vch" secondAttribute="height" multiplier="1:1" id="n4p-qt-ZR4"/>
                         </constraints>
                         <state key="normal" image="clock_number_1"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42x-z1-Szm">
-                        <rect key="frame" x="20" y="2" width="40" height="40"/>
+                        <rect key="frame" x="35" y="9.5" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="42x-z1-Szm" secondAttribute="height" multiplier="1:1" id="OV6-ra-AIj"/>
                             <constraint firstAttribute="width" constant="40" id="gyJ-fZ-Nc5"/>
@@ -36,26 +36,30 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-XV-PlA">
-                        <rect key="frame" x="67" y="2" width="42" height="30"/>
+                        <rect key="frame" x="82" y="2" width="42" height="45"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4E-L3-JmQ">
-                        <rect key="frame" x="266" y="9.5" width="34" height="25"/>
+                    <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4E-L3-JmQ">
+                        <rect key="frame" x="266" y="20.5" width="24" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="i4E-L3-JmQ" secondAttribute="height" multiplier="34:25" id="df5-tA-Hr2"/>
+                            <constraint firstAttribute="width" constant="24" id="ndC-Ur-kjm"/>
+                        </constraints>
                         <state key="normal" image="ic_applied_icon_34x25_"/>
                         <connections>
                             <action selector="alertBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0FN-kN-zTO"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MS3-eb-F40">
-                        <rect key="frame" x="252.5" y="28" width="57.5" height="12"/>
+                        <rect key="frame" x="252.5" y="43" width="57.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfY-O5-pfM">
-                        <rect key="frame" x="67" y="27" width="31" height="14.5"/>
+                        <rect key="frame" x="82" y="42" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -73,7 +77,7 @@
                     <constraint firstItem="i4E-L3-JmQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4gN-XV-PlA" secondAttribute="trailing" constant="5" id="OCb-Sz-3of"/>
                     <constraint firstItem="4gN-XV-PlA" firstAttribute="centerY" secondItem="42x-z1-Szm" secondAttribute="centerY" constant="-5" id="WgQ-vG-3Yi"/>
                     <constraint firstItem="MS3-eb-F40" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yfY-O5-pfM" secondAttribute="trailing" constant="5" id="Yd1-X4-HKl"/>
-                    <constraint firstAttribute="trailing" secondItem="i4E-L3-JmQ" secondAttribute="trailing" constant="20" id="bKp-8G-vwf"/>
+                    <constraint firstAttribute="trailing" secondItem="i4E-L3-JmQ" secondAttribute="trailing" constant="30" id="bKp-8G-vwf"/>
                     <constraint firstItem="42x-z1-Szm" firstAttribute="leading" secondItem="6Ee-fP-vch" secondAttribute="trailing" constant="2" id="mOx-ch-D8U"/>
                     <constraint firstItem="6Ee-fP-vch" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="oDL-Vx-ghG"/>
                     <constraint firstItem="42x-z1-Szm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pW5-oQ-HNK"/>
@@ -89,7 +93,7 @@
                 <outlet property="rankingBtn" destination="6Ee-fP-vch" id="sl8-vI-5TF"/>
                 <outlet property="remarkLabel" destination="yfY-O5-pfM" id="OUd-2X-ae5"/>
             </connections>
-            <point key="canvasLocation" x="159" y="117"/>
+            <point key="canvasLocation" x="157.97101449275362" y="121.54017857142857"/>
         </tableViewCell>
     </objects>
     <resources>

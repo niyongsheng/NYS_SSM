@@ -50,17 +50,7 @@ CCDraggableContainerDelegate
 
 - (IBAction)likeEvent:(id)sender {
     [self.container removeForDirection:CCDraggableDirectionRight];
-    [NYSRequest prayCollectionInOrOutWithResMethod:GET
-                                           parameters:@{@"prayID" : @([self.dataSources[self.currentIndex] idField])}
-                                              success:^(id response) {
-        if ([[response objectForKey:@"status"] boolValue]) {
-            self.collectionButton.selected = !self.collectionButton.selected;
-            [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
-            [SVProgressHUD dismissWithDelay:1.f];
-        }
-    } failure:^(NSError *error) {
-        
-    } isCache:NO];
+    [self collectionInOrOut];
 }
 
 - (void)loadUI {
@@ -70,7 +60,10 @@ CCDraggableContainerDelegate
     self.container.dataSource = self;
     [self.view addSubview:self.container];
     
-    [self.collectionButton setBackgroundImage:[UIImage imageNamed:@"liked"] forState:UIControlStateSelected];
+    self.refreshButton.layer.cornerRadius = 15.f;
+    CALayer *layer = [self.refreshButton layer];
+    layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
+    layer.borderWidth = 0.5f;
 }
 
 - (void)viewDidLoad {
@@ -93,11 +86,25 @@ CCDraggableContainerDelegate
     } isCache:YES];
 }
 
+- (void)collectionInOrOut {
+    [NYSRequest PrayCollectionInOrOutWithResMethod:GET
+                                           parameters:@{@"prayID" : @([self.dataSources[self.currentIndex] idField])}
+                                              success:^(id response) {
+        if ([[response objectForKey:@"status"] boolValue]) {
+            self.collectionButton.selected = !self.collectionButton.selected;
+            [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
+            [SVProgressHUD dismissWithDelay:1.f];
+        }
+    } failure:^(NSError *error) {
+        
+    } isCache:NO];
+}
+
 #pragma mark - CCDraggableContainer DataSource
 - (CCDraggableCardView *)draggableContainer:(CCDraggableContainer *)draggableContainer viewForIndex:(NSInteger)index {
     NYSPrayCustomCardView *cardView = [[NYSPrayCustomCardView alloc] initWithFrame:draggableContainer.bounds];
     cardView.pray = self.dataSources[index];
-    
+    cardView.fromViewController = self;
     return cardView;
 }
 
@@ -116,17 +123,7 @@ CCDraggableContainerDelegate
     }
     if (draggableDirection == CCDraggableDirectionRight) {
         self.collectionButton.transform = CGAffineTransformMakeScale(scale, scale);
-        [NYSRequest prayCollectionInOrOutWithResMethod:GET
-                                               parameters:@{@"prayID" : @([self.dataSources[currentIndex] ID])}
-                                                  success:^(id response) {
-            if ([[response objectForKey:@"status"] boolValue]) {
-                self.collectionButton.selected = !self.collectionButton.selected;
-                [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
-                [SVProgressHUD dismissWithDelay:1.f];
-            }
-        } failure:^(NSError *error) {
-            
-        } isCache:NO];
+//        [self collectionInOrOut];
     }
 }
 

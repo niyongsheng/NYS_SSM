@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *subtitle;
+@property (weak, nonatomic) IBOutlet UIImageView *isTopImageview;
 
 @end
 @implementation NYSArticleTableViewCell
@@ -40,6 +41,7 @@
     [self.backgroudImageView setImageWithURL:[NSURL URLWithString:articleModel.icon] placeholder:[UIImage imageNamed:@"doulist_cover_122x122_"]];
     [self.title setText:articleModel.title];
     [self.subtitle setText:articleModel.subtitle];
+    self.isTopImageview.hidden = !articleModel.isTop;
 }
 
 @end

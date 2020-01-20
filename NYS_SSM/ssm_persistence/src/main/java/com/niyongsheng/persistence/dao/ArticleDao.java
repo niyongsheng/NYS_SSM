@@ -18,4 +18,6 @@ import java.util.List;
 public interface ArticleDao extends BaseMapper<Article> {
 
     List<Article> selectByFellowshipMultiTable(@Param("fellowship") Integer fellowship, @Param("isCollectionAccount") String isCollectionAccount);
+
+    List<Article> selectMyArticleList(@Param("fellowship") Integer fellowship, @Param("account") String account);
 }

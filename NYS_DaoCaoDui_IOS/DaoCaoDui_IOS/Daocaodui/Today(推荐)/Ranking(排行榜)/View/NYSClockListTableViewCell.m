@@ -8,6 +8,7 @@
 
 #import "NYSClockListTableViewCell.h"
 #import "NYSAlert.h"
+#import "NYSPersonalInfoCardViewController.h"
 
 @interface NYSClockListTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *rankingBtn;
@@ -29,11 +30,12 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
 }
 
 - (void)setUserModel:(UserInfo *)userModel {
     _userModel = userModel;
+    
+    self.iconBtn.tag = userModel.account.intValue;
     [self.iconBtn setImageWithURL:[NSURL URLWithString:[userModel icon]] forState:UIControlStateNormal placeholder:[UIImage imageNamed:@"chat_single"]];
     [self.nickeName setText:[userModel nickname]];
     [self.remarkLabel setText:[userModel remark]];
@@ -60,14 +62,17 @@
 }
 
 - (IBAction)iconClicked:(UIButton *)sender {
+    NYSPersonalInfoCardViewController *personalInfoCardVC = NYSPersonalInfoCardViewController.new;
+    personalInfoCardVC.account = [NSString stringWithFormat:@"%ld", sender.tag];
+    [self.fromController.navigationController pushViewController:personalInfoCardVC animated:YES];
 }
 
 - (IBAction)alertBtnClicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
-    WS(weakSelf);
+    
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"@%@", self.userModel.nickname] message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alertVc addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"鼓励Ta一下吧";
+        textField.placeholder = @"提醒Ta";
     }];
     UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         NLog(@"取消");
