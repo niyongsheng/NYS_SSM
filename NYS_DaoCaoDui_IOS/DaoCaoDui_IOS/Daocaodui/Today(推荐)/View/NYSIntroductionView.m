@@ -7,6 +7,7 @@
 //
 
 #import "NYSIntroductionView.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface NYSIntroductionView ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
@@ -33,8 +34,15 @@
     
     weekBibleModel.bible ? self.titleLabel.text = weekBibleModel.bible : nil;
     if (weekBibleModel.iconUrl) {
-        UIImage *bgImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:weekBibleModel.iconUrl]]];
-        self.bgImageView.image = [bgImage imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+        WS(weakSelf);
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:weekBibleModel.iconUrl]
+                                                              options:0
+                                                             progress:nil
+                                                            completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if (image && finished) {
+                weakSelf.bgImageView.image = [image imageByBlurRadius:10 tintColor:nil tintMode:0 saturation:1 maskImage:nil];
+            }
+        }];
     }
 }
 

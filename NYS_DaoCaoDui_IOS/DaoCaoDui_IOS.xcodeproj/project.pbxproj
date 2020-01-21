@@ -386,6 +386,7 @@
 		C821612B235D5EEC00B17530 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
 		C821612C235D5EEC00B17530 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
 		C821612D235D5EEC00B17530 /* pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinyin.m; sourceTree = "<group>"; };
+		C826007923D75CA500C3F04C /* NYSSDImageCacheHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSSDImageCacheHeader.h; sourceTree = "<group>"; };
 		C8265C6A22A0FEE10072A3F1 /* UserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 		C8265C6B22A0FEE10072A3F1 /* UserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		C8265C6D22A0FEFE0072A3F1 /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -953,6 +954,7 @@
 		C80D251323A099CE00CF58CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C826007923D75CA500C3F04C /* NYSSDImageCacheHeader.h */,
 				C8D5573C23CEF70800034B85 /* NYSArticleHeaderView.h */,
 				C8D5573D23CEF70800034B85 /* NYSArticleHeaderView.m */,
 				C8D5573F23CEF74500034B85 /* NYSArticleHeaderView.xib */,

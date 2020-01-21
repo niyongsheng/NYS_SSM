@@ -19,7 +19,7 @@
     NYSMusicMenuHeaderView *_headerView;
 }
 @property (nonatomic, strong) NSMutableArray *datasourceArray;
-@property (nonatomic, strong) NYSMusicListModel *musicMenu;
+@property (nonatomic, strong) __block NYSMusicListModel *musicMenu;
 @end
 
 @implementation NYSMusicListViewController
@@ -33,22 +33,27 @@
     
     [self setupUI];
     [self headerRereshing];
-    [self initDFPlayer];
+//    [self initDFPlayer];
 }
 
 #pragma mark - 初始化DFPlayer
 - (void)initDFPlayer {
+//    [[DFPlayer shareInstance] df_initPlayerWithUserId:[NSString stringWithFormat:@"%@", self.musicMenu]];
     [[DFPlayer shareInstance] df_initPlayerWithUserId:nil];
-    [DFPlayer shareInstance].dataSource  = self;
-    [[DFPlayer shareInstance] df_reloadData];
+    [DFPlayer shareInstance].dataSource = self;
 }
 
+#pragma mark - DFPlayerDataSource
 - (NSArray<DFPlayerModel *> *)df_playerModelArray {
-    // 在这里将音频数据传给DFPlayer
-    DFPlayerModel *model = [DFPlayerModel new];
-    model.audioId = 0;
-    model.audioUrl = [self translateIllegalCharacterWtihUrlStr:@"http://image.daocaodui.top/music/%E4%BD%A0%E7%9A%84%E9%A6%99%E6%B0%94%EF%BC%88%E6%AD%8C%E5%94%B1%E7%89%88%EF%BC%89-feat.%E9%99%88%E5%88%A9%E4%BA%9A.mp3"];
-    return @[model];
+    
+    NSMutableArray<DFPlayerModel *> *playerModelArray = [NSMutableArray array];
+    for (int i = 0; i < self.musicMenu.musicList.count; i ++) {
+        DFPlayerModel *model = [[DFPlayerModel alloc] init];
+        model.audioId = i;
+        model.audioUrl = [self translateIllegalCharacterWtihUrlStr:self.musicMenu.musicList[i].musicUrl];
+        [playerModelArray addObject:model];
+    }
+    return playerModelArray;
 }
 
 //- (DFPlayerInfoModel *)df_audioInfoForPlayer:(DFPlayer *)player{
@@ -85,10 +90,11 @@
         [NYSMusicListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"idField" : @"id"};
         }];
-        weakSelf.musicMenu = [NYSMusicListModel mj_objectWithKeyValues:[response objectForKey:@"data"]];
+        self.musicMenu = [NYSMusicListModel mj_objectWithKeyValues:[response objectForKey:@"data"]];
+//        [[DFPlayer shareInstance] df_reloadData];
+        self->_headerView.musicMenu = weakSelf.musicMenu;
         [weakSelf.tableView reloadData];
         [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeToTop tableView:weakSelf.tableView];
-        self->_headerView.musicMenu = weakSelf.musicMenu;
     } failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
     } isCache:YES];
@@ -96,11 +102,11 @@
 
 #pragma mark —- tableviewdDelegate —-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [[self.musicMenu musicList] count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [[self.musicMenu musicList] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,8 +126,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NYSMusicModel *musicModel = [self.musicMenu musicList][indexPath.row];
-    [[DFPlayer shareInstance] df_playerPlayWithAudioId:0];
+    [self initDFPlayer];
+    [[DFPlayer shareInstance] df_reloadData];
+    NYSMusicModel *musicModel = self.musicMenu.musicList[indexPath.row];
+    NSUInteger audioId = 0;
+    for (int i = 0; i < self.musicMenu.musicList.count; i ++) {
+        if (self.musicMenu.musicList[i].idField == musicModel.idField) {
+            audioId = i;
+            break;
+        }
+    }
+    [[DFPlayer shareInstance] df_playerPlayWithAudioId:audioId];
 }
 
 @end

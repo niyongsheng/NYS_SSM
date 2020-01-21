@@ -7,6 +7,7 @@
 //
 
 #import "NYSActivityInfoViewController.h"
+#import <SDWebImage/SDWebImageManager.h>
 #import "NYSUploadImageHeaderView.h"
 #import "NYSButtonFooterView.h"
 #import "NYSContentTableViewCell.h"
@@ -44,7 +45,14 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     // header
     _headerView = [[[NSBundle mainBundle] loadNibNamed:@"NYSUploadImageHeaderView" owner:self options:nil] objectAtIndex:0];
-    _headerView.bgImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.activityModel.icon]]];
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:self.activityModel.icon]
+                                                          options:0
+                                                         progress:nil
+                                                        completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        if (image && finished) {
+            self->_headerView.bgImage = image;
+        }
+    }];
     _headerView.uploadTitle.text = @"活动封面";
     _headerView.frame = CGRectMake(0, 0, NScreenWidth, 165);
     [self.tableView setTableHeaderView:_headerView];

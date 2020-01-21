@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate+AppService.h"
-#import <UMShare/UMShare.h>
+#import <UMSocialCore/UMSocialCore.h>
 #import <UMCommon/UMCommon.h>
 #import <UMCommonLog/UMCommonLogManager.h>
 #import <UMAnalytics/MobClick.h>
@@ -144,16 +144,16 @@
 
 #pragma mark -- 配置第三方登录 --
 - (void)configUSharePlatforms {
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:AppKey_Sina  appSecret:Secret_Sina redirectURL:nil];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:AppKey_TencentQQ  appSecret:Secret_TencentQQ redirectURL:nil];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:AppKey_Wechat appSecret:Secret_Wechat redirectURL:nil];
     // 移除相应平台的分享item微信收藏
 //     [[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
 }
 
-#pragma mark -- OpenURL 回调 --
-// 支持所有iOS系统
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation {
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+#pragma mark -- OpenURL 第三方登录/支付回调 --
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url options:options];
     if (!result) {
         // 其他如支付等SDK的回调
     }

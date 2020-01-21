@@ -7,6 +7,7 @@
 //
 
 #import "NYSRegisterViewController.h"
+#import <SafariServices/SafariServices.h>
 #import "NYSProtoclViewController.h"
 #import "KHAlertPickerController.h"
 #import "NYSFellowshipModel.h"
@@ -105,9 +106,12 @@
 }
 
 - (IBAction)userProtoclClicked:(UIButton *)sender {
-    NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
-    protoclVC.protoclPDFFileName = @"UserPrivacyAgreement";
-    [self presentViewController:protoclVC animated:YES completion:nil];
+//    NYSProtoclViewController *protoclVC = NYSProtoclViewController.new;
+//    protoclVC.protoclPDFFileName = @"UserPrivacyAgreement";
+//    [self presentViewController:protoclVC animated:YES completion:nil];
+    
+    SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:APPUserProtoclURL]];
+    [self presentViewController:safariVc animated:YES completion:nil];
 }
 
 - (IBAction)fellowshipBtnClicked:(UIButton *)sender {

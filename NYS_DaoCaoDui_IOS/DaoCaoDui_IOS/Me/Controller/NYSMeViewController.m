@@ -11,7 +11,6 @@
 #import "NYSMeTableViewCell.h"
 #import "NYSMeModel.h"
 #import <MJExtension/MJExtension.h>
-#import <WXWaveView.h>
 
 #import "NYSMyCollectViewController.h"
 #import "NYSPersonalInfoViewController.h"
@@ -28,21 +27,9 @@
     NSArray *_dataSource;
     NYSHeaderView *_headerView;
 }
-@property (strong, nonatomic) WXWaveView *waveView;
 @end
 
 @implementation NYSMeViewController
-
-- (WXWaveView *)waveView {
-    if (!_waveView) {
-        _waveView = [WXWaveView addToView:_headerView withFrame:CGRectMake(0, NHeaderHeight + 10, NScreenWidth, 15)];
-        _waveView.waveTime = 1.5f; // When 0, the wave will never stop;
-        _waveView.waveColor = [UIColor whiteColor];
-        _waveView.waveSpeed = 10.f;
-        _waveView.angularSpeed = 1.8f;
-    }
-    return _waveView;
-}
 
 - (void)viewDidLayoutSubviews {
 
@@ -228,12 +215,6 @@
     if (totalOffsetY < 0) {
         _headerView.frame = CGRectMake(offsetWidth/2, offset, self.view.width - offsetWidth, NHeaderHeight- totalOffsetY);
     }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self.waveView wave];
-//    });
 }
 
 @end

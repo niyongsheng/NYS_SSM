@@ -9,6 +9,7 @@
 #import "NYSArticleFooterView.h"
 #import "NYSPersonalInfoCardViewController.h"
 #import "NYSBaseNavigationController.h"
+#import "NYSSDImageCacheHeader.h"
 
 @interface NYSArticleFooterView ()
 @property (weak, nonatomic) IBOutlet UIButton *icon;
@@ -43,11 +44,14 @@
 - (IBAction)shareClicked:(UIButton *)sender {
     [NYSTools zoomToShow:sender];
     // 1、设置分享的内容，并将内容添加到数组中
-    NSString *shareTitle = self.articleModel.title;
+//    NSString *shareTitle = self.articleModel.title;
     NSString *shareContent = self.articleModel.content;
-    UIImage *shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.articleModel.icon]]];
     NSURL *shareUrl = [NSURL URLWithString:self.articleModel.articleUrl];
-    NSArray *activityItemsArray = shareUrl ? @[shareTitle, shareContent, shareImage, shareUrl] : @[shareTitle, shareContent, shareImage];
+    // 读取磁盘缓存的image
+    UIImage *shareImage = [[SDImageCache sharedImageCache] imageFromDiskCacheForKey:[NSString stringWithFormat:@"%@_%ld", ShareImageCacheKey, (long)self.articleModel.idField]];
+    !shareImage ? shareImage = [UIImage imageNamed:@"doulist_cover_122x122_"] : nil;
+    
+    NSArray *activityItemsArray = shareUrl ? @[shareContent, shareImage, shareUrl] : @[shareContent, shareImage];
     NSArray *activityArray = @[];
     
     // 2、初始化控制器，添加分享内容至控制器
@@ -55,11 +59,11 @@
     activityVC.modalInPopover = YES;
     // 3、设置回调
     UIActivityViewControllerCompletionWithItemsHandler itemsBlock = ^(UIActivityType __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
-        NSLog(@"activityType == %@", activityType);
-        if (completed == YES) {
+        NLog(@"activityType == %@", activityType);
+        if (completed) {
             NLog(@"completed");
-        }else{
-            NLog(@"cancel");
+        } else {
+            NLog(@"share cancel with error:%@", activityError.localizedDescription);
         }
     };
     activityVC.completionWithItemsHandler = itemsBlock;

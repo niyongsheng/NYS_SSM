@@ -245,7 +245,7 @@
 }
 
 - (void)aboutItemClicked:(id)sender {
-    SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@web", AppWebSiteURL]]];
+    SFSafariViewController *safariVc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/web", AppWebSiteURL]]];
     [self presentViewController:safariVc animated:YES completion:nil];
 }
 

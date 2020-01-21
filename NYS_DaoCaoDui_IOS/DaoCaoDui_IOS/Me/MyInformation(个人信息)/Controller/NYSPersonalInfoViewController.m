@@ -10,7 +10,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIImageView+WebCache.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
-#import <UMShare/UMShare.h>
+#import <UMSocialCore/UMSocialCore.h>
 #import "NYSButtonFooterView.h"
 #import "KHAlertPickerController.h"
 #import "NYSBindPhoneViewController.h"

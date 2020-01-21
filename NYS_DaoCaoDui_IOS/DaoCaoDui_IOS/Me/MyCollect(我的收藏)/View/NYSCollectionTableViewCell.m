@@ -7,6 +7,7 @@
 //
 
 #import "NYSCollectionTableViewCell.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface NYSCollectionTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgimageView;
@@ -80,7 +81,15 @@
     _collectionArticleModel = collectionArticleModel;
     
     [self.bgimageView setImageWithURL:[NSURL URLWithString:collectionArticleModel.icon] placeholder:[UIImage imageNamed:@"bg_ocr_intro_345x200_"]];
-//    self.bgimageView.image = [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:collectionArticleModel.icon]]] imageByBlurRadius:5 tintColor:nil tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+//    WS(weakSelf);
+//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:collectionArticleModel.icon]
+//                                                          options:0
+//                                                         progress:nil
+//                                                        completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+//        if (image && finished) {
+//            weakSelf.bgimageView.image = [image imageByBlurRadius:5 tintColor:nil tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+//        }
+//    }];
     self.collectionBtn.selected = collectionArticleModel.isCollection;
     [self.title setText:collectionArticleModel.title];
     [self.subtitle setText:collectionArticleModel.subtitle];

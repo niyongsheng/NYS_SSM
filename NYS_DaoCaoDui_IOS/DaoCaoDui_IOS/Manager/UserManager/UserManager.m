@@ -7,7 +7,7 @@
 //
 
 #import "UserManager.h"
-#import <UMShare/UMShare.h>
+#import <UMSocialCore/UMSocialCore.h>
 #import "KHAlertPickerController.h"
 #import "NYSFellowshipModel.h"
 #import "NYSEmitterUtil.h"

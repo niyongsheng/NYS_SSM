@@ -35,11 +35,11 @@
 
 - (void)initUI:(NSArray *)datasourceArray {
     // prepare data
-    NSMutableArray *titleArray = [NSMutableArray array], *childArray  = [NSMutableArray array];
+    NSMutableArray *titleArray = [NSMutableArray array], *childArray = [NSMutableArray array];
     for (NYSMusicMenuModel *musicMenu in datasourceArray) {
         [titleArray addObject:musicMenu.name];
         
-        NYSMusicListViewController *mlVC = NYSMusicListViewController.new;
+        NYSMusicListViewController *mlVC = [[NYSMusicListViewController alloc] init];
         mlVC.musicMenuID = musicMenu.idField;
         [childArray addObject:mlVC];
     }

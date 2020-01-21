@@ -14,12 +14,15 @@
 // App Store详情页
 #define AppStoreURL [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPID]
 // APP 官网
-#define AppWebSiteURL @"http://www.daocaodui.top/"
+#define AppWebSiteURL @"http://www.daocaodui.top"
+// 开源地址
 #define GitHubURL @"https://github.com/niyongsheng/NYS_SSM"
 // App APIs
 #define AppAPIsURL [NSString stringWithFormat:@"%@/api/swagger-ui.html", AppWebSiteURL]
-// 隐私政策地址
-#define APPUserProtoclURL [NSString stringWithFormat:@"%@/user/userProtocol", AppWebSiteURL]
+// App Download
+#define AppDownloadURL [NSString stringWithFormat:@"%@/web/app/download", AppWebSiteURL]
+// App UserProtocol
+#define APPUserProtoclURL [NSString stringWithFormat:@"%@/web/user/userProtocol", AppWebSiteURL]
 
 // 友盟+
 #define UMengKey          @"5da7bb714ca357079900067c"
@@ -31,6 +34,10 @@
 // 腾讯QQ
 #define AppKey_TencentQQ  @"1110076569"
 #define Secret_TencentQQ  @"tAixo5nNiK9hum4k"
+
+// 新浪微博
+#define AppKey_Sina  @""
+#define Secret_Sina  @""
 
 // 支付宝支付
 #define AlipayAPPID       @""

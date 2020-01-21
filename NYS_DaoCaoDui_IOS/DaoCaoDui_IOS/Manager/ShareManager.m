@@ -26,10 +26,9 @@ SINGLETON_FOR_CLASS(ShareManager);
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     
     // 创建网页内容对象
-    NSString* thumbURL = @"http://file.daocaodui.top/config/icon/logo_dcd.png";
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"欢迎使用【稻草堆】" descr:@"塑造生命，成就使命！\n稻草堆APP旨在更好的帮助弟兄姊妹分享、读经、代祷建立规律的属灵生活和亲密的团契关系。" thumImage:thumbURL];
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"欢迎使用【稻草堆】" descr:@"塑造生命，成就使命！\n稻草堆APP旨在更好的帮助弟兄姊妹分享、读经、代祷建立规律的属灵生活和亲密的团契关系。" thumImage:[UIImage imageNamed:@"share_item"]];
     // 设置网页地址
-    shareObject.webpageUrl = @"http://www.daocaodui.top/download";
+    shareObject.webpageUrl = AppDownloadURL;
     
     // 分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;

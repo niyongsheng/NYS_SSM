@@ -7,6 +7,7 @@
 //
 
 #import "NYSPrayCardInfoViewController.h"
+#import <SDWebImage/SDWebImageManager.h>
 #import "NYSTimeCircle.h"
 #import "NYSEmitterUtil.h"
 
@@ -51,7 +52,15 @@
     if (!_bgimageView) {
         _bgimageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight)];
         _bgimageView.contentMode = UIViewContentModeScaleToFill;
-        _bgimageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.prayModel.icon]]];
+        WS(weakSelf);
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:self.prayModel.icon]
+                                                              options:0
+                                                             progress:nil
+                                                            completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+            if (image && finished) {
+                weakSelf.bgimageView.image = image;
+            }
+        }];
         // Blur effect
         UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
         UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
