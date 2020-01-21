@@ -16,7 +16,7 @@ NSString *const CR_ApiPrefix = @"http://192.168.31.182:8080/api";
 NSString *const CR_ApiPrefix = @"http://27j2657m01.zicp.vip:21324/api";
 #elif ProductSever
 /** 接口前缀-生产服务器*/
-NSString *const CR_ApiPrefix = @"http://192.144.216.104:8080/api";
+NSString *const CR_ApiPrefix = @"http://www.daocaodui.top/api";
 #endif
 
 /** 登录*/
