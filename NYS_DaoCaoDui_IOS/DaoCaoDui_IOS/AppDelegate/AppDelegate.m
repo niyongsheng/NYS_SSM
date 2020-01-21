@@ -86,7 +86,9 @@
     // 1.取消正在下载的操作
     [SDManager cancelAll];
     // 2.清除内存缓存
-    [SDManager.imageCache clearMemory];
+    [SDManager.imageCache clearWithCacheType:SDImageCacheTypeMemory completion:^{
+        NLog(@"SDManager clear memory cache.");
+    }];
 }
 
 @end

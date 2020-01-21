@@ -7,7 +7,7 @@
 //
 
 #import "NYSPrayCardInfoViewController.h"
-#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/SDWebImageDownloader.h>
 #import "NYSTimeCircle.h"
 #import "NYSEmitterUtil.h"
 

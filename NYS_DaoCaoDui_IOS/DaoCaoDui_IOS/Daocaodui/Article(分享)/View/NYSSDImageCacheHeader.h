@@ -8,7 +8,7 @@
 
 #ifndef NYSSDImageCacheHeader_h
 #define NYSSDImageCacheHeader_h
-#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/SDWebImageDownloader.h>
 #import <SDWebImage/SDImageCache.h>
 #define ShareImageCacheKey @"NYS_SICK"
 

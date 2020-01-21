@@ -112,7 +112,6 @@ typedef NS_ENUM(NSInteger, TXScrollLabelType) {
 //文本行分割数组
 @property (strong, nonatomic) NSArray *scrollArray;
 
-//@property (strong, nonatomic) NSArray *scrollTexts;
 //当前滚动行
 @property (assign, nonatomic) NSInteger currentSentence;
 //是否第一次开始计时

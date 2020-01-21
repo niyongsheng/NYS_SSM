@@ -7,7 +7,7 @@
 //
 
 #import "NYSActivityInfoViewController.h"
-#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/SDWebImageDownloader.h>
 #import "NYSUploadImageHeaderView.h"
 #import "NYSButtonFooterView.h"
 #import "NYSContentTableViewCell.h"

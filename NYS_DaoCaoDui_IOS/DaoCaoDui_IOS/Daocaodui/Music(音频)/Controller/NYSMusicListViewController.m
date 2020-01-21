@@ -38,9 +38,10 @@
 
 #pragma mark - 初始化DFPlayer
 - (void)initDFPlayer {
-//    [[DFPlayer shareInstance] df_initPlayerWithUserId:[NSString stringWithFormat:@"%@", self.musicMenu]];
-    [[DFPlayer shareInstance] df_initPlayerWithUserId:nil];
+    [[DFPlayer shareInstance] df_initPlayerWithUserId:[NSString stringWithFormat:@"%@", self.musicMenu]];
+//    [[DFPlayer shareInstance] df_initPlayerWithUserId:nil];
     [DFPlayer shareInstance].dataSource = self;
+    [[DFPlayer shareInstance] df_reloadData];
 }
 
 #pragma mark - DFPlayerDataSource
@@ -127,7 +128,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     [self initDFPlayer];
-    [[DFPlayer shareInstance] df_reloadData];
+    
     NYSMusicModel *musicModel = self.musicMenu.musicList[indexPath.row];
     NSUInteger audioId = 0;
     for (int i = 0; i < self.musicMenu.musicList.count; i ++) {

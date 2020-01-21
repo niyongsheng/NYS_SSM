@@ -7,7 +7,7 @@
 //
 
 #import "NYSIntroductionView.h"
-#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/SDWebImageDownloader.h>
 
 @interface NYSIntroductionView ()
 @property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
