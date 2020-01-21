@@ -55,7 +55,7 @@ static const CGFloat JXheightForHeaderInSection = 55;
     [self.view addSubview:self.pagingView];
     
     // FIXME:如果和JXPagingView联动
-    self.categoryView.contentScrollView = self.pagingView.listContainerView.collectionView;
+    self.categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pagingView.listContainerView;
     
     self.navigationController.interactivePopGestureRecognizer.enabled = (self.categoryView.selectedIndex == 0);
 }

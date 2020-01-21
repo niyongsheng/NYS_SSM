@@ -10,8 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WMZBannerView : UIView
+//背景图
+@property(strong,nonatomic)UIImageView *bgImgView;
 @property(strong,nonatomic)NSArray *data;
-
 /**
  *  调用方法
  *
