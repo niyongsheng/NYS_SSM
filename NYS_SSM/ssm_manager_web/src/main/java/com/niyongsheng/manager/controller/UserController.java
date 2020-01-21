@@ -208,10 +208,14 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping("/userProtocol")
+    public String userProtocol() {
+        return "userProtocol";
+    }
 
     @RequestMapping("/test")
     public String test() {
-
-        return "amisAlert";
+        return "appDownload";
+//        return "amisAlert";
     }
 }

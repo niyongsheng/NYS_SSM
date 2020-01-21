@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -139,8 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                 style="opacity: .8">
+            <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
             <span class="brand-text font-weight-light">稻草堆后台 V1.0</span>
         </a>
 
@@ -149,22 +149,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                仪表盘
+                                业务数据
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe"
-                                   class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe" class="nav-link">
                                     <i class="fa fa-chart-bar nav-icon"></i>
                                     <p>数据纵览</p>
                                 </a>
@@ -181,21 +179,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
-                                用户管理
+                                业务管理
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
-                                   class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe" class="nav-link">
                                     <i class="fa fa-list-ol nav-icon"></i>
                                     <p>用户列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/test" target="iframe"
-                                   class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/test" target="iframe" class="nav-link">
                                     <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
                                 </a>
@@ -212,15 +208,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/markdown" target="iframe"
-                                   class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/markdown" target="iframe" class="nav-link">
                                     <i class="fa fa-pen-nib nav-icon"></i>
                                     <p>Markdown</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
-                                   class="nav-link">
+                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe" class="nav-link">
                                     <i class="fa fa-list-alt nav-icon"></i>
                                     <p>文档列表</p>
                                 </a>
@@ -237,8 +231,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
-                                   class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/userProtocol" target="iframe" class="nav-link">
+                                    <i class="fa fa-clipboard nav-icon"></i>
+                                    <p>用户协议</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
                                     <i class="fa fa-code nav-icon"></i>
                                     <p>接口文档</p>
                                 </a>
@@ -256,7 +255,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 关于我们
-                                <span class="right badge badge-danger">倪</span>
+                                <span class="right badge badge-danger">爱</span>
                             </p>
                         </a>
                     </li>

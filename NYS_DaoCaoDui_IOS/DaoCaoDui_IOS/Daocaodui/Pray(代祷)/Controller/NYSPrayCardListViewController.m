@@ -33,6 +33,26 @@ CCDraggableContainerDelegate
 
 @implementation NYSPrayCardListViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self loadUI];
+    self.container ? [self reloadDataEvent:self.refreshButton] : nil;
+}
+
+- (void)loadUI {
+    // 初始化Container
+    self.container.style = 1;
+    self.container.delegate = self;
+    self.container.dataSource = self;
+    [self.view addSubview:self.container];
+    
+    self.refreshButton.layer.cornerRadius = 15.f;
+    CALayer *layer = [self.refreshButton layer];
+    layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
+    layer.borderWidth = 0.5f;
+}
+
 - (IBAction)reloadDataEvent:(UIButton *)sender {
     [UIView animateWithDuration:1 animations:^{
         sender.imageView.transform = CGAffineTransformMakeRotation(M_PI);
@@ -51,26 +71,6 @@ CCDraggableContainerDelegate
 - (IBAction)likeEvent:(id)sender {
     [self.container removeForDirection:CCDraggableDirectionRight];
     [self collectionInOrOut];
-}
-
-- (void)loadUI {
-    // 初始化Container
-    self.container.style = 1;
-    self.container.delegate = self;
-    self.container.dataSource = self;
-    [self.view addSubview:self.container];
-    
-    self.refreshButton.layer.cornerRadius = 15.f;
-    CALayer *layer = [self.refreshButton layer];
-    layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.4].CGColor;
-    layer.borderWidth = 0.5f;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    [self loadUI];
-    [self loadData];
 }
 
 - (void)loadData {
@@ -138,6 +138,10 @@ CCDraggableContainerDelegate
 
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer finishedDraggableLastCard:(BOOL)finishedDraggableLastCard {
     [NYSTools shakToShow:self.refreshButton];
+    WS(weakSelf);
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf reloadDataEvent:weakSelf.refreshButton];
+    });
 }
 
 @end

@@ -45,18 +45,21 @@
     }
     // config segment
     SGPageTitleViewConfigure *segmentConfigure = [SGPageTitleViewConfigure pageTitleViewConfigure];
-    segmentConfigure.indicatorStyle = SGIndicatorStyleDynamic;
-    segmentConfigure.indicatorColor = NBgColorLightGray;
-    segmentConfigure.showBottomSeparator = YES;
+    segmentConfigure.indicatorStyle = SGIndicatorStyleFixed;
+    segmentConfigure.indicatorScrollStyle = SGIndicatorScrollStyleEnd;
+    segmentConfigure.indicatorAnimationTime = 0.2f;
+    segmentConfigure.indicatorColor = [NNavBgColorShallow colorWithAlphaComponent:0.4f];
+    segmentConfigure.showBottomSeparator = NO;
     segmentConfigure.bottomSeparatorColor = [UIColor clearColor];
+    segmentConfigure.indicatorFixedWidth = 20;
     segmentConfigure.indicatorDynamicWidth = 7;
-    segmentConfigure.indicatorHeight = 4.0f;
+    segmentConfigure.indicatorHeight = 5.f;
     segmentConfigure.indicatorCornerRadius = 4.0f;
     segmentConfigure.indicatorToBottomDistance = 3;
     segmentConfigure.titleColor = NBgColorLightGray;
     segmentConfigure.titleSelectedColor = NBgSilverColor1;
     segmentConfigure.titleFont = [UIFont fontWithName:@"HYZhuZiMeiXinTiW" size:15];
-    segmentConfigure.titleTextZoom = YES;
+    segmentConfigure.titleTextZoom = NO;
     segmentConfigure.titleTextZoomRatio = 0.5f;
     // segment view init
     self.pageTitleView = [SGPageTitleView pageTitleViewWithFrame:CGRectMake(0, 0, NScreenWidth, SegmentViewHeight) delegate:self titleNames:titleArray configure:segmentConfigure];

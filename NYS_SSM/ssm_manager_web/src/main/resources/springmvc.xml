@@ -23,7 +23,7 @@
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
-<!--        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>-->
+        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>
     </bean>
 
     <!-- 配置登录验证拦截器对象 -->
@@ -32,11 +32,19 @@
         <mvc:interceptor>
             <!-- 拦截方法 -->
             <mvc:mapping path="/**"/>
-            <!-- 不拦截的方法 -->
+            <!-- 不拦截的WEB方法 -->
+            <mvc:exclude-mapping path="/app/download"/>
             <mvc:exclude-mapping path="/home/login"/>
             <mvc:exclude-mapping path="/user/login"/>
             <mvc:exclude-mapping path="/user/logout"/>
+            <mvc:exclude-mapping path="/user/userProtocol"/>
             <mvc:exclude-mapping path="/verification/**"/>
+            <!-- 资源文件放行 -->
+            <mvc:exclude-mapping path="/plugins/**"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/img/**"/>
+            <mvc:exclude-mapping path="/file/**"/>
             <!-- 拦截器对象1 -->
             <bean class="com.niyongsheng.manager.interceptor.LoginVerifyInterceptor"></bean>
         </mvc:interceptor>
@@ -76,10 +84,9 @@
 <!--    <mvc:resources location="/css/" mapping="/css/**"/>-->
 <!--    <mvc:resources location="/img/" mapping="/img/**"/>-->
 <!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
-<!--    <mvc:resources location="/fonts/" mapping="/fonts/**"/>-->
 <!--    <mvc:resources location="/plugins/" mapping="/plugins/**"/>-->
 <!--    <mvc:resources location="/file/" mapping="/file/**"/>-->
-    <!-- 全部资源放行 -->
+    <!-- 全部静态资源文件放行 -->
     <mvc:default-servlet-handler/>
 
     <!-- 配置自定义日期类型转换器 -->

@@ -28,7 +28,7 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
         // 获取请求的RUi:去除http:localhost:8080这部分剩下的
         String uri = request.getRequestURI();
         // UTL:除了login.jsp是可以公开访问的，其他的URL都进行拦截控制
-        if (uri.contains("/login.jsp") || uri.contains("/img/") || uri.contains("/css/") || uri.contains("/js/") || uri.contains("/fonts/") || uri.contains("/plugins/") || uri.contains("/file/")) {
+        if (uri.contains("/login.jsp") || uri.contains("/img/") || uri.contains("/css/") || uri.contains("/js/") || uri.contains("/fonts/") || uri.contains("/plugins/") || uri.contains("/file/") || uri.contains("/appDownload/")) {
             // 放行
             return true;
         }
