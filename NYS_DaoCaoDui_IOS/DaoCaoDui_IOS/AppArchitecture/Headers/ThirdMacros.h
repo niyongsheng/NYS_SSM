@@ -36,8 +36,8 @@
 #define Secret_TencentQQ  @"tAixo5nNiK9hum4k"
 
 // 新浪微博
-#define AppKey_Sina  @""
-#define Secret_Sina  @""
+#define AppKey_Sina  @"832766989"
+#define Secret_Sina  @"307941eb9b42108238ac2f79991a8b9a"
 
 // 支付宝支付
 #define AlipayAPPID       @""

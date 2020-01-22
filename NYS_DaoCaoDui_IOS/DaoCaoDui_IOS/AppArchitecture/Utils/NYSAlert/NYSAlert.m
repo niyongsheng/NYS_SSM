@@ -168,7 +168,7 @@
     // ok按钮
     UIButton *okButton = [[UIButton alloc] init];
     [bgView addSubview:okButton];
-    okButton.backgroundColor = NNavBgColor;
+    okButton.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.75f];
     [okButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [okButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [okButton setTitle:@"好的" forState:UIControlStateNormal];
@@ -257,7 +257,7 @@
     // ok按钮
     UIButton *okButton = [[UIButton alloc] init];
     [bgView addSubview:okButton];
-    okButton.backgroundColor = NNavBgColor;
+    okButton.backgroundColor = [UIColor colorWithRed:0.93 green:0.21 blue:0.27 alpha:1.00];
     [okButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [okButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [okButton setTitle:@"知道了" forState:UIControlStateNormal];

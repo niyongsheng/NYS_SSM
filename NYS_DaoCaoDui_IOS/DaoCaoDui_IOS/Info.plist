@@ -76,11 +76,12 @@
 				<string>wxb9604af97b923ffc</string>
 				<string>tencent1110076569</string>
 				<string>QQ422a6c99</string>
+				<string>wb832766989</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>alipay</string>
@@ -90,6 +91,7 @@
 		<string>mqqapi</string>
 		<string>mqq</string>
 		<string>mqqOpensdkSSoLogin</string>
+		<string>sinaweibo</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -100,24 +102,20 @@
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>需要读取音乐资料,是否允许访问媒体资料库？</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>需要蓝牙配对智能家居设备,是否允许访问蓝牙？</string>
-	<key>NSCalendarsUsageDescription</key>
-	<string>需要读取日历数据,是否允许访问日历？</string>
 	<key>NSCameraUsageDescription</key>
 	<string>需要扫描二维码或拍照，是否允许打开相机？</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>需要地理位置信息获取周边的商家信息或共享位置给好友，是否允许始终访问定位？</string>
+	<string>需要地理位置信息或共享位置给好友，是否允许始终访问定位？</string>
 	<key>NSLocationUsageDescription</key>
-	<string>需要地理位置信息获取周边的商家信息或共享位置给好友，是否允许访问定位？</string>
+	<string>需要地理位置信息或共享位置给好友，是否允许访问定位？</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>需要地理位置信息获取周边的商家信息或共享位置给好友，是否允许需要时访问定位？</string>
+	<string>需要地理位置信息或共享位置给好友，是否允许需要时访问定位？</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>需要访问麦克风来发送语音消息，是否允许打开麦克风？</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>需要读取图片，是否允许访问相册？</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>需要存储图片，是否允许访问相册？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要读取图片，是否允许访问相册？</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>需要添加新的提醒事项,是否允许访问提醒事项？</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
@@ -152,6 +150,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>
