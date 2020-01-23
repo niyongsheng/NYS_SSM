@@ -48,11 +48,11 @@ RMOV | CI | CI
 - [x] TomCat: >= 9.0
 - [x] JDK: >= 1.8
 - [x] IDE: IntelliJ IDEA
-===
+***
 - [x] IOS: >= 10.0
 - [x] LANG: Object_C
 - [x] IDE: Xcode
-===
+***
 - [x] IOS: >= 9.0
 - [x] LANG: Java
 - [x] IDE: Android Studio
