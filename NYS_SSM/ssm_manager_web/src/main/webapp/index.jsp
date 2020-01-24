@@ -39,6 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             // ifm.height = document.documentElement.clientHeight - navBarHeight - footerHeight;
             out.println("导航栏高度：" + navBarHeight + "Footer高度：" + footerHeight);
         }
+
         // window.onpageshow = function () {
         //     changeFrameHeight();
         // };
@@ -76,7 +77,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Single button -->
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                 Dropdown
                 <span class="caret"></span>
             </button>
@@ -140,7 +142,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
             <span class="brand-text font-weight-light">稻草堆后台 V1.0</span>
         </a>
 
@@ -149,7 +152,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview menu-open">
@@ -162,13 +166,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-chart-bar nav-icon"></i>
                                     <p>数据纵览</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/activity" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/activity" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-trophy nav-icon"></i>
                                     <p>活动页面</p>
                                 </a>
@@ -185,7 +191,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-list-ol nav-icon"></i>
                                     <p>用户列表</p>
                                 </a>
@@ -208,13 +215,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/markdown" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/home/markdown" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-pen-nib nav-icon"></i>
                                     <p>Markdown</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-list-alt nav-icon"></i>
                                     <p>文档列表</p>
                                 </a>
@@ -231,7 +240,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/userProtocol" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/userProtocol" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-clipboard nav-icon"></i>
                                     <p>用户协议</p>
                                 </a>
@@ -251,7 +261,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md" target="iframe" class="nav-link active">
+                        <a href="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md"
+                           target="iframe" class="nav-link active">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 关于我们
@@ -270,7 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content-wrapper">
         <%-- iframe框架 --%>
         <iframe name="iframe" id="mainIframe" src="${pageContext.request.contextPath}/home/infoBox" frameborder="0"
-                align="middle" width="100%"  scrolling="auto" onload="changeFrameHeight()"></iframe>
+                align="middle" width="100%" scrolling="auto" onload="changeFrameHeight()"></iframe>
     </div>
     <!-- /.content-wrapper -->
 
@@ -281,7 +292,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             塑造生命 成就使命
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top">daocaodui.top</a> @</strong>硕鼠工作室 All rights
+        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top">daocaodui.top</a> @</strong>硕鼠工作室 All
+        rights
         reserved.
     </footer>
 </div>

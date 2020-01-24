@@ -22,6 +22,7 @@
         <if test="profession != null">profession,</if>
         <if test="qqOpenid != null">qqOpenid,</if>
         <if test="wcOpenid != null">wcOpenid,</if>
+        <if test="appleUserId != null">appleUserId,</if>
         <if test="status != null">status,</if>
         <if test="birthday != null">birthday,</if>
         gmtCreate
@@ -45,6 +46,7 @@
         <if test="profession != null">#{profession},</if>
         <if test="qqOpenid != null">#{qqOpenid},</if>
         <if test="wcOpenid != null">#{wcOpenid},</if>
+        <if test="appleUserId != null">#{appleUserId},</if>
         <if test="status != null">#{status},</if>
         <if test="birthday != null">#{birthday},</if>
         NOW()
@@ -109,6 +111,9 @@
         <if test="wcOpenid != null">
             wcOpenid=#{wcOpenid},
         </if>
+        <if test="appleUserId != null">
+            appleUserId=#{appleUserId},
+        </if>
         <if test="status != null">
             status=#{status},
         </if>
@@ -157,7 +162,7 @@
     </select>
 
     <select id="findByAccount" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.id, u.account, u.truename, u.icon, u.gender, u.nickname, u.introduction, u.fellowship
+        SELECT u.id, u.account, u.truename, u.icon, u.grade, u.score, u.gender, u.phone, u.nickname, u.introduction, u.email, u.address, u.fellowship, u.profession, u.status, u.birthday, u.gmtCreate, u.gmtModify
         FROM dcd_user u
         WHERE u.account = #{account}
     </select>
@@ -192,6 +197,22 @@
         inner join dcd_fellowship f
         on u.fellowship = f.id
         WHERE u.wcOpenid = #{wxOpenId}
+    </select>
+
+    <select id="findUserByAppleId" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT u.*, f.fellowshipName
+        FROM dcd_user u
+        inner join dcd_fellowship f
+        on u.fellowship = f.id
+        WHERE u.appleUserId = #{appleUserId}
+    </select>
+
+    <select id="refreshUserInfo" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT u.*, f.fellowshipName
+        FROM dcd_user u
+        inner join dcd_fellowship f
+        on u.fellowship = f.id
+        WHERE u.account = #{account}
     </select>
 
 </mapper>

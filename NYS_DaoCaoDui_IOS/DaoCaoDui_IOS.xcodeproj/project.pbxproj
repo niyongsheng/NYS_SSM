@@ -26,12 +26,13 @@
 		C807697A23A24D8F004B6E1C /* CCDraggableContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C807697823A24D8F004B6E1C /* CCDraggableContainer.m */; };
 		C807699B23A24DC6004B6E1C /* NYSPrayCardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C807699423A24DC0004B6E1C /* NYSPrayCardListViewController.m */; };
 		C807699C23A24DC6004B6E1C /* NYSPrayCardListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C807699523A24DC1004B6E1C /* NYSPrayCardListViewController.xib */; };
-		C807699E23A24DC6004B6E1C /* NYSPrayCustomCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C807699923A24DC5004B6E1C /* NYSPrayCustomCardView.m */; };
 		C80A418223D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A418123D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m */; };
 		C80A418B23D18CC700EAC2D6 /* NYSCollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A418923D18CC700EAC2D6 /* NYSCollectionTableViewCell.m */; };
 		C80A418C23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80A418A23D18CC700EAC2D6 /* NYSCollectionTableViewCell.xib */; };
 		C80A418F23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A418E23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m */; };
 		C80A419223D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A419123D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m */; };
+		C80B16BE23DB23BB006F8A89 /* NYSPrayCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C80B16BD23DB23BB006F8A89 /* NYSPrayCardView.m */; };
+		C80B16C023DB23E1006F8A89 /* NYSPrayCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80B16BF23DB23E1006F8A89 /* NYSPrayCardView.xib */; };
 		C80D251723A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */; };
 		C80E4717229FBEB9005F841B /* NYSHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C80E4716229FBEB9005F841B /* NYSHeaderView.m */; };
 		C81074AD23AA14AF00CC7868 /* NYSIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81074AC23AA14AF00CC7868 /* NYSIntroductionView.m */; };
@@ -177,6 +178,7 @@
 		C87947ED23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947DA23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.m */; };
 		C87947EE23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C87947DB23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib */; };
 		C87947FA23A26388003EC2D7 /* NSArray+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C87947F923A26388003EC2D7 /* NSArray+NYS.m */; };
+		C87D647123DAC93400F03793 /* NYSSignHandleKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = C87D647023DAC93400F03793 /* NYSSignHandleKeyChain.m */; };
 		C883875523A0C3C300EFD29D /* NYSBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */; };
 		C884F40A235DA8A6000DFB54 /* NYSContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C884F409235DA8A6000DFB54 /* NYSContactsViewController.m */; };
 		C8871F1A23C099F800CDDA35 /* YNRippleAnimatView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8871F1823C099F700CDDA35 /* YNRippleAnimatView.m */; };
@@ -326,8 +328,6 @@
 		C807699423A24DC0004B6E1C /* NYSPrayCardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCardListViewController.m; sourceTree = "<group>"; };
 		C807699523A24DC1004B6E1C /* NYSPrayCardListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSPrayCardListViewController.xib; sourceTree = "<group>"; };
 		C807699723A24DC3004B6E1C /* NYSPrayCardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSPrayCardListViewController.h; sourceTree = "<group>"; };
-		C807699923A24DC5004B6E1C /* NYSPrayCustomCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCustomCardView.m; sourceTree = "<group>"; };
-		C807699A23A24DC6004B6E1C /* NYSPrayCustomCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSPrayCustomCardView.h; sourceTree = "<group>"; };
 		C80A418023D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSArticleCollectionListViewController.h; sourceTree = "<group>"; };
 		C80A418123D18C5A00EAC2D6 /* NYSArticleCollectionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSArticleCollectionListViewController.m; sourceTree = "<group>"; };
 		C80A418823D18CC700EAC2D6 /* NYSCollectionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSCollectionTableViewCell.h; sourceTree = "<group>"; };
@@ -337,6 +337,9 @@
 		C80A418E23D1A36700EAC2D6 /* NYSPrayCollectionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCollectionListViewController.m; sourceTree = "<group>"; };
 		C80A419023D1A50400EAC2D6 /* NYSMusicCollectionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMusicCollectionListViewController.h; sourceTree = "<group>"; };
 		C80A419123D1A50400EAC2D6 /* NYSMusicCollectionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMusicCollectionListViewController.m; sourceTree = "<group>"; };
+		C80B16BC23DB23BB006F8A89 /* NYSPrayCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSPrayCardView.h; sourceTree = "<group>"; };
+		C80B16BD23DB23BB006F8A89 /* NYSPrayCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSPrayCardView.m; sourceTree = "<group>"; };
+		C80B16BF23DB23E1006F8A89 /* NYSPrayCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSPrayCardView.xib; sourceTree = "<group>"; };
 		C80D251523A09A5900CF58CA /* NYSDaocaoduiHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSDaocaoduiHomeViewController.h; sourceTree = "<group>"; };
 		C80D251623A09A5900CF58CA /* NYSDaocaoduiHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSDaocaoduiHomeViewController.m; sourceTree = "<group>"; };
 		C80E4715229FBEB9005F841B /* NYSHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHeaderView.h; sourceTree = "<group>"; };
@@ -579,6 +582,8 @@
 		C87947DB23A25DAC003EC2D7 /* NYSActivityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSActivityCollectionViewCell.xib; sourceTree = "<group>"; };
 		C87947F823A26387003EC2D7 /* NSArray+NYS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NYS.h"; sourceTree = "<group>"; };
 		C87947F923A26388003EC2D7 /* NSArray+NYS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NYS.m"; sourceTree = "<group>"; };
+		C87D646F23DAC93400F03793 /* NYSSignHandleKeyChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSSignHandleKeyChain.h; sourceTree = "<group>"; };
+		C87D647023DAC93400F03793 /* NYSSignHandleKeyChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSSignHandleKeyChain.m; sourceTree = "<group>"; };
 		C883875323A0C3C300EFD29D /* NYSBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBannerCollectionViewCell.h; sourceTree = "<group>"; };
 		C883875423A0C3C300EFD29D /* NYSBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBannerCollectionViewCell.m; sourceTree = "<group>"; };
 		C88452E394EE7ABEE72B3700 /* Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests/Pods-DaoCaoDui_IOS-DaoCaoDui_IOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -892,8 +897,9 @@
 			children = (
 				C81A55CC23C47B9C006BB897 /* NYSTimeCircle.h */,
 				C81A55CB23C47B9B006BB897 /* NYSTimeCircle.m */,
-				C807699A23A24DC6004B6E1C /* NYSPrayCustomCardView.h */,
-				C807699923A24DC5004B6E1C /* NYSPrayCustomCardView.m */,
+				C80B16BC23DB23BB006F8A89 /* NYSPrayCardView.h */,
+				C80B16BD23DB23BB006F8A89 /* NYSPrayCardView.m */,
+				C80B16BF23DB23E1006F8A89 /* NYSPrayCardView.xib */,
 				C807697323A24D8F004B6E1C /* CCDraggableCard */,
 			);
 			path = View;
@@ -1135,6 +1141,8 @@
 				C8265C8E22A27E6B0072A3F1 /* NYSRegisterViewController.h */,
 				C8265C8F22A27E6B0072A3F1 /* NYSRegisterViewController.m */,
 				C8265C9022A27E6B0072A3F1 /* NYSRegisterViewController.xib */,
+				C87D646F23DAC93400F03793 /* NYSSignHandleKeyChain.h */,
+				C87D647023DAC93400F03793 /* NYSSignHandleKeyChain.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2286,6 +2294,7 @@
 				C8E22C9023B498950025C094 /* nys_alert_success@3x.png in Resources */,
 				C85C44D3229BAB2900B35652 /* arrow_icon@3x.png in Resources */,
 				C89CA2BB22BCA2DE0086F9B0 /* stepPk_win_colour3@2x.png in Resources */,
+				C80B16C023DB23E1006F8A89 /* NYSPrayCardView.xib in Resources */,
 				C85C44D7229BAB2900B35652 /* right_arrow@2x.png in Resources */,
 				C85C44D0229BAB2900B35652 /* down_arrow@3x.png in Resources */,
 				C81074D823AA4A9300CC7868 /* DFPlayer.bundle in Resources */,
@@ -2524,6 +2533,7 @@
 				C8188D2323ADE04300E13F3A /* BibleManager.m in Sources */,
 				C85C449E229B5FD600B35652 /* NYSRootNavigationController.m in Sources */,
 				C807699B23A24DC6004B6E1C /* NYSPrayCardListViewController.m in Sources */,
+				C80B16BE23DB23BB006F8A89 /* NYSPrayCardView.m in Sources */,
 				C85DD73722A4F90600E33636 /* ShareManager.m in Sources */,
 				C85C449A229B5E1A00B35652 /* NYSRootViewController.m in Sources */,
 				C836D7A92358103000DBDAEF /* NYSDCDViewController.m in Sources */,
@@ -2554,7 +2564,6 @@
 				C8AF0D2C2398B74F009BBEBE /* TableViewAnimationKit.m in Sources */,
 				C8424EDE229E8DF1003A7C58 /* NYSMeViewController.m in Sources */,
 				C8C664C32363CFED009952E5 /* NYSGroupModel.m in Sources */,
-				C807699E23A24DC6004B6E1C /* NYSPrayCustomCardView.m in Sources */,
 				C802A60322A62C39002E2A58 /* AppDelegate+PushService.m in Sources */,
 				C860A7362397891100902AB6 /* NSArray+SubArr.m in Sources */,
 				C807697923A24D8F004B6E1C /* CCDraggableCardView.m in Sources */,
@@ -2572,6 +2581,7 @@
 				C8D5573023CEB4F800034B85 /* NYSAticleListViewController.m in Sources */,
 				C8E3B30E23ADB4ED00A0BCB4 /* NYSProtoclViewController.m in Sources */,
 				C81074DF23AA4A9300CC7868 /* DFPlayerRemoteApplication.m in Sources */,
+				C87D647123DAC93400F03793 /* NYSSignHandleKeyChain.m in Sources */,
 				C83B8E1923AC4D750051A22C /* NYSBibleVerseViewController.m in Sources */,
 				C836D7AC235810F400DBDAEF /* LayoutFittingView.m in Sources */,
 				C89EDC2423584FB000DB07D9 /* OYRPopOption.m in Sources */,
@@ -2730,7 +2740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DaoCaoDui_IOS/DaoCaoDui_IOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F9J739W8Y4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2758,7 +2768,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DaoCaoDui_IOS/DaoCaoDui_IOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = F9J739W8Y4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (

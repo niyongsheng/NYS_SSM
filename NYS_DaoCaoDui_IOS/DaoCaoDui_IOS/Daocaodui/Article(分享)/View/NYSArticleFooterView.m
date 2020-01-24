@@ -71,6 +71,49 @@
     [self.fromViewController presentViewController:activityVC animated:YES completion:nil];
 }
 
+- (IBAction)reportBtnClicked:(UIButton *)sender {
+    [NYSTools zoomToShow:sender];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"举报" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    WS(weakSelf);
+    UIAlertAction *ADAction = [UIAlertAction actionWithTitle:@"广告信息" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf reportWithType:1 idType:1];
+    }];
+    UIAlertAction *rubbishAction = [UIAlertAction actionWithTitle:@"垃圾信息" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf reportWithType:2 idType:1];
+    }];
+    UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"不感兴趣" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf reportWithType:3 idType:1];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NLog(@"Cancel Action");
+    }];
+    
+    [alertController addAction:ADAction];
+    [alertController addAction:rubbishAction];
+    [alertController addAction:otherAction];
+    [alertController addAction:cancelAction];
+    
+    [self.fromViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)reportWithType:(NSInteger)type idType:(NSInteger)idType {
+    
+    [NYSRequest UserReportWithResMethod:POST
+                             parameters:@{@"type" : @(type),
+                                          @"idType" : @(idType),
+                                          @"reportId" : @(self.articleModel.idField),
+                                          @"fellowship" : @(NCurrentUser.fellowship),
+                                          @"content" : @""}
+                                success:^(id response) {
+        [SVProgressHUD showSuccessWithStatus:@"举报成功，我们会尽快处理你的请求！"];
+        [SVProgressHUD dismissWithDelay:1.5f];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - Setter
 - (void)setArticleModel:(NYSArticleModel *)articleModel {
     _articleModel = articleModel;
     

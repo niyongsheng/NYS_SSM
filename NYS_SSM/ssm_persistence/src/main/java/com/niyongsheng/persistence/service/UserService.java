@@ -100,4 +100,16 @@ public interface UserService {
      */
     User findUserByWxOpenId(String wxOpenId);
 
+    /**
+     * 通过Apple用户唯一标识查询用户
+     * @param appleUserId
+     * @return
+     */
+    User findUserByAppleId(String appleUserId);
+
+    /**
+     * 刷新用户信息
+     * @param account
+     */
+    User refreshUserInfo(String account);
 }

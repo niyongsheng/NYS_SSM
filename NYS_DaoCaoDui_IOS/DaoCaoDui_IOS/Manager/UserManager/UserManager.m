@@ -38,8 +38,11 @@ SINGLETON_FOR_CLASS(UserManager);
     if (loginType == NUserLoginTypePwd) {
         // 1.账号密码登录
         [self loginToServer:loginType params:params completion:completion];
+    } else if (loginType == NUserLoginTypeApple) {
+        // 2.苹果登录
+        [self loginToServer:loginType params:params completion:completion];
     } else {
-        // 2.友盟登录类型
+        // 3.友盟第三方登录
         UMSocialPlatformType platFormType;
         switch (loginType) {
             case NUserLoginTypeQQ : platFormType = UMSocialPlatformType_QQ; break;
@@ -91,7 +94,20 @@ SINGLETON_FOR_CLASS(UserManager);
                 if (completion) {
                     completion(NO, error.localizedDescription);
                 }
-            } isCache:NO];
+            }];
+        }
+            break;
+            
+        case NUserLoginTypeApple: {
+            [NYSRequest LoginByAppleWithResMethod:POST parameters:params success:^(id response) {
+                [self LoginSuccess:response completion:completion];
+            } failure:^(NSError *error) {
+                if (error.code == 6013) {
+                    [self chooseFellowship:NUserLoginTypeApple params:params.mutableCopy completion:completion];
+                } else {
+                    completion(NO, error.localizedDescription);
+                }
+            }];
         }
             break;
             
@@ -149,13 +165,37 @@ SINGLETON_FOR_CLASS(UserManager);
                 }
             }
             // 第三方登录注册
-            [NYSRequest QQLogoinWithResMethod:POST
-                                   parameters:params
-                                      success:^(id response) {
-                [weakSelf LoginSuccess:response completion:completion];
-            } failure:^(NSError *error) {
+            switch (loginType) {
+                case NUserLoginTypeQQ: {
+                    [NYSRequest QQLogoinWithResMethod:POST
+                                           parameters:params
+                                              success:^(id response) {
+                        [weakSelf LoginSuccess:response completion:completion];
+                    } failure:^(NSError *error) {
+                        
+                    } isCache:NO];
+                }
+                    break;
+                    
+                case NUserLoginTypeWeChat: {
+                    [NYSRequest WCLogoinWithResMethod:POST
+                                           parameters:params
+                                              success:^(id response) {
+                        [weakSelf LoginSuccess:response completion:completion];
+                    } failure:^(NSError *error) {
+                        
+                    } isCache:NO];
+                }
+                    break;
                 
-            } isCache:NO];
+                case NUserLoginTypeApple: {
+                    [weakSelf login:NUserLoginTypeApple params:params completion:completion];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
         }];
         UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"其他团契" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"telprompt://%@", @"18853936112"];

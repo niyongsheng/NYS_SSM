@@ -76,6 +76,9 @@ public class User implements Serializable{
     @ApiModelProperty(value = "微信")
     private String wcOpenid;
 
+    @ApiModelProperty(value = "Apple登录")
+    private String appleUserId;
+
     @ApiModelProperty(value = "账号状态:1有效 0失效")
     private Boolean status;
 

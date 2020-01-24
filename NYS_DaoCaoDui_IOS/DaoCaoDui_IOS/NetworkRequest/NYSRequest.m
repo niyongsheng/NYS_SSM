@@ -16,10 +16,17 @@
 @implementation NYSRequest
 
 /** 登录*/
-+ (NSURLSessionTask *)LoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
++ (NSURLSessionTask *)LoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     // 将请求前缀与请求路径拼接成一个完整的URL
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_Login];
-    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
+
+/** Apple登录*/
++ (NSURLSessionTask *)LoginByAppleWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    // 将请求前缀与请求路径拼接成一个完整的URL
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_LoginByApple];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
 }
 
 /** 退出*/
@@ -168,19 +175,19 @@
 /** 结束活动*/
 + (NSURLSessionTask *)DismissActivityWithActivityID:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_DismissActivity];
-    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:false isCache:NO];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
 }
 
 /** 加入活动*/
 + (NSURLSessionTask *)JoinActivityWithActivityID:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_JoinActivity];
-    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:false isCache:NO];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
 }
 
 /** 退出活动*/
 + (NSURLSessionTask *)QuitActivityWithActivityID:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
     NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_QuitActivity];
-    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:false isCache:NO];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
 }
 
 /** 获取群列表*/
@@ -309,6 +316,17 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 刷新用户信息*/
++ (NSURLSessionTask *)RefreshUserInfoWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_RefreshUserInfo];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+/** 举报*/
++ (NSURLSessionTask *)UserReportWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_UserReport];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
+}
 
 
 
@@ -461,8 +479,13 @@
                                      imageScale:0.65f
                                       imageType:@"image/jpg/png/jpeg"
                                        progress:^(NSProgress *progress) {
-        [SVProgressHUD showProgress:progress.fractionCompleted status:@"上传进度"];
-        NLog(@"图片上传进度:%.2f%%", progress.fractionCompleted);
+        if (progress.finished) {
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+            [SVProgressHUD showWithStatus:@"处理中..."];
+        } else {
+            [SVProgressHUD showProgress:progress.fractionCompleted status:@"上传进度"];
+            NLog(@"图片上传进度:%.2f%%", progress.fractionCompleted);
+        }
         process(progress);
     } success:^(id responseObject) {
         [SVProgressHUD dismiss];

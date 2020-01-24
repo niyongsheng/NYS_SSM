@@ -100,16 +100,16 @@ public class ScorelogController {
         // 2.插入交易记录表
         Scorelog scorelog = new Scorelog();
         scorelog.setAccount(account);
-        // TODO Boolean写入数据库bit 1064
+        // TODO Boolean写入数据库bit报错 1064
 //        scorelog.setInout(true);
         scorelog.setType(1); // 交易类型
         scorelog.setAmount(+1.0); // 积分数
         scorelog.setFellowship(Integer.valueOf(fellowship));
         scorelog.setGmtCreate(LocalDateTime.now());
         try {
-            scorelogService.getBaseMapper().insert(scorelog);
+            scorelogService.sign(scorelog);
         } catch (Exception e) {
-            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+            throw new ResponseException(ResponseStatusEnum.DB_TR_ERROR);
         }
 
         // 3.返回成功信息

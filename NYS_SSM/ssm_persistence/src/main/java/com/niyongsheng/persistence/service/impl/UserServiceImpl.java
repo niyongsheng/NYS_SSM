@@ -113,4 +113,18 @@ public class UserServiceImpl implements UserService {
             return null;
         }
     }
+
+    @Override
+    public User findUserByAppleId(String appleUserId) {
+        try {
+            return userDao.findUserByAppleId(appleUserId);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
+    public User refreshUserInfo(String account) {
+        return userDao.refreshUserInfo(account);
+    }
 }

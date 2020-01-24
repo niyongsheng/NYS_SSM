@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,13 +46,23 @@
                         <action selector="shareClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="l08-pO-hkF"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNN-7y-osd">
+                    <rect key="frame" x="310" y="86" width="16" height="22"/>
+                    <state key="normal" image="report_normal"/>
+                    <state key="highlighted" image="report_highlight"/>
+                    <connections>
+                        <action selector="reportBtnClicked:" destination="iN0-l3-epB" eventType="touchUpInside" id="wgh-bj-yqz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ekW-Jy-fp3" firstAttribute="top" secondItem="p6P-rb-UnT" secondAttribute="bottom" constant="4" id="10a-Kt-XJm"/>
                 <constraint firstItem="jpf-Ry-vnu" firstAttribute="top" secondItem="ekW-Jy-fp3" secondAttribute="bottom" constant="5" id="3et-Ov-uDy"/>
                 <constraint firstItem="jpf-Ry-vnu" firstAttribute="centerX" secondItem="ekW-Jy-fp3" secondAttribute="centerX" id="Nhk-1H-hra"/>
+                <constraint firstItem="MNN-7y-osd" firstAttribute="bottom" secondItem="jpf-Ry-vnu" secondAttribute="bottom" id="Qlp-LL-iIi"/>
                 <constraint firstItem="p6P-rb-UnT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UsL-PZ-Qan"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MNN-7y-osd" secondAttribute="trailing" constant="10" id="sfs-wY-UhU"/>
                 <constraint firstItem="ekW-Jy-fp3" firstAttribute="centerX" secondItem="p6P-rb-UnT" secondAttribute="centerX" id="xvI-xu-VD3"/>
                 <constraint firstItem="p6P-rb-UnT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-25" id="ycz-bI-VFT"/>
             </constraints>
@@ -68,5 +78,7 @@
     </objects>
     <resources>
         <image name="chat_single" width="216" height="216"/>
+        <image name="report_highlight" width="16" height="16"/>
+        <image name="report_normal" width="16" height="16"/>
     </resources>
 </document>

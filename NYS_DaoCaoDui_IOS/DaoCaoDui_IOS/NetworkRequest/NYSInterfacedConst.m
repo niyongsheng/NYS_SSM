@@ -13,7 +13,7 @@
 NSString *const CR_ApiPrefix = @"http://192.168.31.182:8080/api";
 #elif TestSever
 /** 接口前缀-测试服务器*/
-NSString *const CR_ApiPrefix = @"http://27j2657m01.zicp.vip:21324/api";
+NSString *const CR_ApiPrefix = @"http://192.168.1.106:8080/api";
 #elif ProductSever
 /** 接口前缀-生产服务器*/
 NSString *const CR_ApiPrefix = @"http://www.daocaodui.top/api";
@@ -21,6 +21,8 @@ NSString *const CR_ApiPrefix = @"http://www.daocaodui.top/api";
 
 /** 登录*/
 NSString *const CR_Login = @"/user/login";
+/** Apple登录*/
+NSString *const CR_LoginByApple = @"/user/loginWithApple";
 /** 退出*/
 NSString *const CR_Logout = @"/user/logout";
 /** 验证码*/
@@ -117,7 +119,10 @@ NSString *const CR_FellowshipList = @"/fellowship/selectFellowshipList";
 NSString *const CR_QQLogoin = @"/user/qqRegister";
 /** 微信登录*/
 NSString *const CR_WCLogoin = @"/user/wxRegister";
-
+/** 刷新用户信息*/
+NSString *const CR_RefreshUserInfo = @"/user/refreshUserInfo";
+/** 举报*/
+NSString *const CR_UserReport = @"/report/userReport";
 
 
 

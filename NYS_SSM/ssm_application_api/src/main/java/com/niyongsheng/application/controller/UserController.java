@@ -12,7 +12,9 @@ import com.niyongsheng.common.rongCloud.RongCloudService;
 import com.niyongsheng.common.utils.EnumUtil;
 import com.niyongsheng.common.utils.MD5Util;
 import com.niyongsheng.common.utils.MathUtils;
+import com.niyongsheng.persistence.domain.Fellowship;
 import com.niyongsheng.persistence.domain.User;
+import com.niyongsheng.persistence.service.FellowshipService;
 import com.niyongsheng.persistence.service.KeyValueRedisService;
 import com.niyongsheng.persistence.service.UserRedisService;
 import com.niyongsheng.persistence.service.UserService;
@@ -52,7 +54,9 @@ import java.util.List;
 @Validated
 public class UserController {
 
-    /** 验证码在redis中的key前缀（后面拼接手机号）*/
+    /**
+     * 验证码在redis中的key前缀（后面拼接手机号）
+     */
     public static final String ONCECODE_KEY = "onceCode_";
     /* 默认用户头像 */
     public static final String USERICON_URL = "http://file.daocaodui.top/1575438242063_jpeg";
@@ -71,6 +75,9 @@ public class UserController {
 
     @Autowired
     private RongCloudService rongCloudService;
+
+    @Autowired
+    private FellowshipService fellowshipService;
 
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -274,7 +281,7 @@ public class UserController {
         // 1.查询QQ号是否已注册（登录流程）
         try {
             User qqUser = userService.findUserByQqOpenId(qqUnionId);
-            if ( qqUser != null) {
+            if (qqUser != null) {
                 if (!qqUser.getStatus()) {
                     throw new ResponseException(ResponseStatusEnum.AUTH_STATUS_ERROR);
                 }
@@ -288,7 +295,14 @@ public class UserController {
         if (StringUtils.isEmpty(fellowship)) {
             throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_ERROR);
         }
+        // 查询团契信息并判断其合法性
+        Fellowship fell = fellowshipService.getBaseMapper().selectById(Integer.valueOf(fellowship));
+        if (fell == null) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_NONENTITY_ERROR);
+        }
+
         User registerUser = new User();
+        registerUser.setAppleUserId(fell.getFellowshipName());
         registerUser.setQqOpenid(qqUnionId);
         registerUser.setIcon(iconUrl);
         registerUser.setNickname(nickname);
@@ -353,7 +367,7 @@ public class UserController {
         // 1.查询微信号是否已注册（登录流程）
         try {
             User wxUser = userService.findUserByWxOpenId(wxUnionId);
-            if ( wxUser != null) {
+            if (wxUser != null) {
                 if (!wxUser.getStatus()) {
                     throw new ResponseException(ResponseStatusEnum.AUTH_STATUS_ERROR);
                 }
@@ -367,7 +381,14 @@ public class UserController {
         if (StringUtils.isEmpty(fellowship)) {
             throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_ERROR);
         }
+        // 查询团契信息并判断其合法性
+        Fellowship fell = fellowshipService.getBaseMapper().selectById(Integer.valueOf(fellowship));
+        if (fell == null) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_NONENTITY_ERROR);
+        }
+
         User registerUser = new User();
+        registerUser.setFellowshipName(fell.getFellowshipName());
         registerUser.setQqOpenid(wxUnionId);
         registerUser.setIcon(iconUrl);
         registerUser.setNickname(nickname);
@@ -398,6 +419,92 @@ public class UserController {
 
         // 3.注册RongCloud并设置注册用户的ImToken
         registerUser.setImToken(rongCloudService.rongCloudGetToken(account, nickname, iconUrl));
+
+        // 4.写入数据库
+        try {
+            userService.addUser(registerUser);
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_INSERT_ERROR);
+        }
+
+        // 5.返回注册结果
+        return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, registerUser);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/loginWithApple", method = RequestMethod.POST)
+    @ApiOperation(value = "Apple登录注册接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
+            @ApiImplicitParam(name = "appleUserId", value = "Apple用户标识符", required = true),
+            @ApiImplicitParam(name = "fellowship", value = "团契", required = false)
+    })
+    public ResponseDto<User> loginWithApple(HttpServletRequest request,
+                                            @NotBlank(message = "{NotBlank.unionId}")
+                                            @RequestParam(value = "appleUserId", required = true) String appleUserId,
+                                            @RequestParam(value = "fellowship", required = false) String fellowship
+    ) throws ResponseException {
+
+        // 1.查询微信号是否已注册（登录流程）
+        try {
+            User wxUser = userService.findUserByAppleId(appleUserId);
+            if (wxUser != null) {
+                if (!wxUser.getStatus()) {
+                    throw new ResponseException(ResponseStatusEnum.AUTH_STATUS_ERROR);
+                }
+                return new ResponseDto(ResponseStatusEnum.AUTH_REGISTER_SUCESS, wxUser);
+            }
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 2.创建User对象并初始化（注册流程）
+        if (StringUtils.isEmpty(fellowship)) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_ERROR);
+        }
+        // 查询团契信息并判断其合法性
+        Fellowship fell = fellowshipService.getBaseMapper().selectById(Integer.valueOf(fellowship));
+        if (fell == null) {
+            throw new ResponseException(ResponseStatusEnum.AUTH_FELLOWSHIP_NONENTITY_ERROR);
+        }
+
+        User registerUser = new User();
+        registerUser.setFellowshipName(fell.getFellowshipName());
+        registerUser.setAppleUserId(appleUserId);
+        registerUser.setFellowship(Integer.valueOf(fellowship));
+        registerUser.setStatus(true);
+        registerUser.setProfession(1);
+        // 生成account
+        String account = MathUtils.randomDigitNumber(7);
+        while (true) {
+            // 自动生成的account排重检查
+            if (userService.findUserByAccount(account) == null) {
+                break;
+            }
+            account = MathUtils.randomDigitNumber(7);
+        }
+        registerUser.setAccount(account);
+        // 默认头像
+        String iconUrl = USERICON_URL;
+        registerUser.setIcon(iconUrl);
+        // 随机昵称
+        String nickName = EnumUtil.random(NickeNameEnum.class).toString();
+        registerUser.setNickname(nickName);
+        // 2.1封装JWT载荷对象
+        HashMap<String, Object> cryptMap = new HashMap<>();
+        cryptMap.put("id", registerUser.getId());
+        cryptMap.put("account", registerUser.getAccount());
+        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("status", registerUser.getStatus());
+        cryptMap.put("fellowship", registerUser.getFellowship());
+        // 2.2JWT加密生成token和时效（一个月）
+        String token = JwtUtil.encryption(cryptMap, 60L * 60L * 1000L * 24L * 30L);
+        // 2.3将token封装进User对象返回给客户端
+        registerUser.setToken(token);
+
+        // 3.注册RongCloud并设置注册用户的ImToken
+        registerUser.setImToken(rongCloudService.rongCloudGetToken(account, nickName, iconUrl));
 
         // 4.写入数据库
         try {
@@ -446,11 +553,11 @@ public class UserController {
             @ApiImplicitParam(name = "fellowship", value = "团契编号", required = true)
     })
     public ResponseDto<User> findAllUsers(HttpServletRequest request, Model model,
-                                     @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
-                                     @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
-                                     @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
-                                     @NotBlank(message = "{NotBlank.fellowship}")
-                                     @RequestParam(value = "fellowship", required = true) String fellowship
+                                          @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                          @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                          @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                          @NotBlank(message = "{NotBlank.fellowship}")
+                                          @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
 
         // 1.是否分页，调用service的方法
@@ -505,6 +612,25 @@ public class UserController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/refreshUserInfo", method = RequestMethod.GET)
+    @ApiOperation(value = "刷新用户信息接口", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "account", value = "账号", required = true),
+    })
+    public ResponseDto<User> refreshUserInfo(HttpServletRequest request) throws ResponseException {
+        // 1.数据库查询用户
+        User user = null;
+        try {
+            userService.refreshUserInfo(request.getHeader("Account"));
+        } catch (Exception e) {
+            throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+        }
+
+        // 2.返回查询对象
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, user);
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/updateInfoForUser", method = RequestMethod.POST)
     @ApiOperation(value = "用户信息修改接口", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
@@ -521,22 +647,22 @@ public class UserController {
             @ApiImplicitParam(name = "qqOpenid", value = "qqOpenid"),
             @ApiImplicitParam(name = "wcOpenid", value = "wcOpenid")
     })
-    public  ResponseDto<User> updateInfoForUser(HttpServletRequest request,
-                                                @RequestParam(value = "icon", required = false) String icon,
-                                                @RequestParam(value = "truename", required = false) String truename,
-                                                @RequestParam(value = "nickname", required = false) String nickname,
-                                                @RequestParam(value = "gender", required = false) String gender,
-                                                @RequestParam(value = "birthday", required = false) String birthday,
-                                                @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
-                                                @RequestParam(value = "phone", required = false) String phone,
-                                                @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
-                                                @RequestParam(value = "password", required = false) String password,
-                                                @Email
-                                                @RequestParam(value = "e_mail", required = false) String e_mail,
-                                                @RequestParam(value = "introduction", required = false) String introduction,
-                                                @RequestParam(value = "address", required = false) String address,
-                                                @RequestParam(value = "qqOpenid", required = false) String qqOpenid,
-                                                @RequestParam(value = "wcOpenid", required = false) String wcOpenid
+    public ResponseDto<User> updateInfoForUser(HttpServletRequest request,
+                                               @RequestParam(value = "icon", required = false) String icon,
+                                               @RequestParam(value = "truename", required = false) String truename,
+                                               @RequestParam(value = "nickname", required = false) String nickname,
+                                               @RequestParam(value = "gender", required = false) String gender,
+                                               @RequestParam(value = "birthday", required = false) String birthday,
+                                               @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
+                                               @RequestParam(value = "phone", required = false) String phone,
+                                               @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                               @RequestParam(value = "password", required = false) String password,
+                                               @Email
+                                               @RequestParam(value = "e_mail", required = false) String e_mail,
+                                               @RequestParam(value = "introduction", required = false) String introduction,
+                                               @RequestParam(value = "address", required = false) String address,
+                                               @RequestParam(value = "qqOpenid", required = false) String qqOpenid,
+                                               @RequestParam(value = "wcOpenid", required = false) String wcOpenid
     ) throws ResponseException {
 
         // 1.修改用户信息(sql中已做非空判断)
@@ -619,15 +745,15 @@ public class UserController {
             @ApiImplicitParam(name = "password", value = "密码", required = true),
             @ApiImplicitParam(name = "affirmPassword", value = "确认密码", required = true)
     })
-    public  ResponseDto resetUserPassword(HttpServletRequest request,
-                                          @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
-                                          @RequestParam(value = "phone", required = true) String phone,
-                                          @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
-                                          @RequestParam(value = "onceCode", required = true) String onceCode,
-                                          @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
-                                          @RequestParam(value = "password", required = true) String password,
-                                          @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
-                                          @RequestParam(value = "affirmPassword", required = true) String affirmPassword
+    public ResponseDto resetUserPassword(HttpServletRequest request,
+                                         @Pattern(regexp = AppRegularConfig.REGEXP_PHONE, message = "{Pattern.user.phone}")
+                                         @RequestParam(value = "phone", required = true) String phone,
+                                         @DecimalMin(value = "6", message = "{DecimalMin.user.onceCode}")
+                                         @RequestParam(value = "onceCode", required = true) String onceCode,
+                                         @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                         @RequestParam(value = "password", required = true) String password,
+                                         @Pattern(regexp = AppRegularConfig.REGEXP_PASSWORD, message = "{Pattern.user.password}")
+                                         @RequestParam(value = "affirmPassword", required = true) String affirmPassword
     ) throws ResponseException {
         // 1.Redis中验证码一致性校验
         if (!onceCode.equals(keyValueRedisService.get(ONCECODE_KEY + phone))) {

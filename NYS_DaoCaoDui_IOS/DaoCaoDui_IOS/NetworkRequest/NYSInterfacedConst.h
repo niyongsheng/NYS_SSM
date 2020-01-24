@@ -18,6 +18,8 @@ UIKIT_EXTERN NSString *const CR_ApiPrefix;
 #pragma mark - 详细接口地址
 /** 登录*/
 UIKIT_EXTERN NSString *const CR_Login;
+/** Apple登录*/
+UIKIT_EXTERN NSString *const CR_LoginByApple;
 /** 退出*/
 UIKIT_EXTERN NSString *const CR_Logout;
 /** 验证码*/
@@ -114,9 +116,10 @@ UIKIT_EXTERN NSString *const CR_FellowshipList;
 UIKIT_EXTERN NSString *const CR_QQLogoin;
 /** 微信登录*/
 UIKIT_EXTERN NSString *const CR_WCLogoin;
-
-
-
+/** 刷新用户信息*/
+UIKIT_EXTERN NSString *const CR_RefreshUserInfo;
+/** 举报*/
+UIKIT_EXTERN NSString *const CR_UserReport;
 
 
 

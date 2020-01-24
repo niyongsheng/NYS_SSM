@@ -39,6 +39,7 @@
             <mvc:exclude-mapping path="/user/phoneRegister"/>
             <mvc:exclude-mapping path="/user/qqRegister"/>
             <mvc:exclude-mapping path="/user/wxRegister"/>
+            <mvc:exclude-mapping path="/user/loginWithApple"/>
             <mvc:exclude-mapping path="/user/qqLogin"/>
             <mvc:exclude-mapping path="/user/wcLogin"/>
             <mvc:exclude-mapping path="/user/login"/>

@@ -32,4 +32,10 @@ public interface ScorelogDao extends BaseMapper<Scorelog> {
      * @return
      */
     Boolean isSignedToday(@Param("type") int type, @Param("account") String account, @Param("fellowship") Integer fellowship);
+
+    /**
+     * 查询积分合计
+     * @param account
+     */
+    Double selectTotalScore(@Param("account") String account, @Param("fellowship") Integer fellowship);
 }

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSArticleFooterView : UIView
-@property (weak, nonatomic) NYSArticleModel *articleModel;
+@property (strong, nonatomic) NYSArticleModel *articleModel;
 @property (strong, nonatomic) UIViewController *fromViewController;
 @end
 

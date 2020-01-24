@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, UserLoginType) {
     NUserLoginTypeUnKnow = 0, // 未知
     NUserLoginTypeWeChat, // 微信登录
     NUserLoginTypeQQ, // QQ登录
-    NUserLoginTypePwd, // 账号登录
+    NUserLoginTypePwd, // 账号密码登录
+    NUserLoginTypeApple, // Sign In With Apple
 };
 
 typedef void (^loginBlock)(BOOL success, id description);
@@ -38,7 +39,7 @@ SINGLETON_FOR_HEADER(UserManager)
 
 #pragma mark -— 登录相关方法 --
 /**
- 三方登录
+ 第三方登录
  
  @param loginType 登录方式
  @param completion 回调

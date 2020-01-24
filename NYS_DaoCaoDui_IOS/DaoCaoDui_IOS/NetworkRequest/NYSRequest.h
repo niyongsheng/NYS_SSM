@@ -20,7 +20,9 @@ typedef void(^NYSUploadProcess)(NSProgress *progress);
 @interface NYSRequest : NSObject
 
 /** 登录*/
-+ (NSURLSessionTask *)LoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
++ (NSURLSessionTask *)LoginWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
+/** Apple登录*/
++ (NSURLSessionTask *)LoginByAppleWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
 /** 退出*/
 + (NSURLSessionTask *)LogoutWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 注册*/
@@ -117,8 +119,10 @@ typedef void(^NYSUploadProcess)(NSProgress *progress);
 + (NSURLSessionTask *)QQLogoinWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 微信登录*/
 + (NSURLSessionTask *)WCLogoinWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
-
-
+/** 刷新用户信息*/
++ (NSURLSessionTask *)RefreshUserInfoWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+/** 举报*/
++ (NSURLSessionTask *)UserReportWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
 
 
 

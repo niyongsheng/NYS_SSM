@@ -36,7 +36,7 @@ public enum ResponseStatusEnum {
     IO_QNDELETE_ERROR(false,1005,"删除云服务器文件失败"),
 
     /* 数据库 */
-    DB_TR_ERROR(false,2111,"数据库事务管理出错"),
+    DB_TR_ERROR(false,2111,"数据库事务管理出错回滚"),
     DB_INSERT_ERROR(false,2011,"数据库写入出错"),
     DB_DELETE_ERROR(false,2012,"数据库删除出错"),
     DB_UPDATE_ERROR(false,2013,"数据库更新出错"),
@@ -68,8 +68,8 @@ public enum ResponseStatusEnum {
     AUTH_UNLOGIN_ERROR(false,6010,"未登录"),
     AUTH_REPEAT_QQ_ERROR(false,6011,"该QQ号已绑定账号"),
     AUTH_REPEAT_WX_ERROR(false,6012,"该微信号已绑定账号"),
-    AUTH_FELLOWSHIP_ERROR(false,6013,"请选择你要注册的团契"),
-
+    AUTH_FELLOWSHIP_ERROR(false,6013,"请提供你要注册的团契"),
+    AUTH_FELLOWSHIP_NONENTITY_ERROR(false,6014,"你要注册的团契不存在"),
 
     /* 人脸识别错误ASFR：ArcSoftFaceRecognition */
     ASFR_SYS_ERROR(false,7001,"人脸识别动态库不支持当前服务器系统环境,请部署到Linux或Windows环境。"),

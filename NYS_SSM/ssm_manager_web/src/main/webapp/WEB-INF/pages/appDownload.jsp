@@ -18,9 +18,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>APP</title>
+    <title>稻草堆APP</title>
+    <%-- 收藏用logo图标 --%>
+    <link rel="bookmark" type="image/x-icon" href="${pageContext.request.contextPath}/img/appDownload/logo_icon_120x120.png"/>
+    <%-- 网站显示页logo图标 --%>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/appDownload/logo_icon_120x120.png">
+
     <%-- toastr --%>
-    <link href="${pageContext.request.contextPath}/plugins/appDownload/toastr.min.css" rel='stylesheet' type='text/css'>
+    <link href="${pageContext.request.contextPath}/plugins/toastr/toastr.min.css" rel='stylesheet' type='text/css'>
+    <%-- Bootstrap --%>
     <link href="${pageContext.request.contextPath}/plugins/appDownload/bootstrap.css" rel='stylesheet' type='text/css'>
     <!-- Custom Theme files -->
     <link href="${pageContext.request.contextPath}/plugins/appDownload/style.css" rel='stylesheet' type='text/css'>
@@ -30,13 +36,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="${pageContext.request.contextPath}/plugins/appDownload/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/plugins/appDownload/move-top.js"></script>
     <script src="${pageContext.request.contextPath}/plugins/appDownload/easing.js"></script>
-    <script src="${pageContext.request.contextPath}/plugins/appDownload/toastr.min.js"></script>
+    <script src="${pageContext.request.contextPath}/plugins/toastr/toastr.min.js"></script>
     <%-- 初始化弹框提醒 --%>
     <script type="text/javascript">
         function popup() {
             alert("安卓版本开发中...");
             toastr.options.positionClass = 'toast-bottom-right';
-            toastr.warning('开发中...');
+            toastr.warning('安卓版预计年中上线');
         }
     </script>
 
@@ -153,6 +159,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- start content_slider -->
             <div id="owl-demo1" class="owl-carousel">
                 <div class="item">
+                    <img src="${pageContext.request.contextPath}/img/appDownload/IMG_0312.PNG" title="name" />
+                </div>
+                <div class="item">
                     <img src="${pageContext.request.contextPath}/img/appDownload/IMG_0313.PNG" title="name" />
                 </div>
                 <div class="item">
@@ -167,6 +176,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="item">
                     <img src="${pageContext.request.contextPath}/img/appDownload/IMG_0317.PNG" title="name" />
                 </div>
+                <div class="item">
+                    <img src="${pageContext.request.contextPath}/img/appDownload/IMG_0318.PNG" title="name" />
+                </div>
+                <div class="item">
+                    <img src="${pageContext.request.contextPath}/img/appDownload/IMG_0319.PNG" title="name" />
+                </div>
             </div>
             <!--//sreen-gallery-cursual---->
         </div>
@@ -174,6 +189,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="col-md-6 fea-grids-left">
             <h3>稻草堆APP功能性介绍： </h3>
             <div class="fea-grids-left-grids">
+                <div class="fea-grids-left-grid">
+                    <div class="fea-grids-left-grid-left">
+                        <span class="fea-icon4"> </span>
+                    </div>
+                    <div class="fea-grids-left-grid-right">
+                        <h4>联系</h4>
+                        <p>私聊、群聊、音视频通话 </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
                         <span class="fea-icon1"> </span>
@@ -190,7 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="fea-grids-left-grid-right">
                         <h4>读经</h4>
-                        <p>在线阅读、背诵、打卡 </p>
+                        <p>在线阅读、读经打卡 </p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -200,7 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="fea-grids-left-grid-right">
                         <h4>代祷</h4>
-                        <p>互相代祷 彼此相爱 </p>
+                        <p>发布查看代祷事项</p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -220,7 +245,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="fea-grids-left-grid-right">
                         <h4>音频</h4>
-                        <p>安静、灵修、主日分享 </p>
+                        <p>上传收听诗歌、主日分享 </p>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
@@ -252,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="testmonial-grids">
                     <div class="testmonial-head text-center">
                         <img src="${pageContext.request.contextPath}/img/appDownload/quit.png" title="name" />
-                        <p>"稻草堆项目是个人工作之余开发的项目，还有很多可以改进优化的地方，欢迎大家提出宝贵的想法。"</p>
+                        <p>"稻草堆项目是个人工作之余的开源项目，还有很多需要改进和优化的地方，如果你在使用过程中有任何想法、建议或者希望参与其中，欢迎联系我。"</p>
                     </div>
                     <div class="testmonial-row">
                         <div class="col-md-4 testmonial-grid">
@@ -293,7 +318,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="testmonial-grids">
                     <div class="testmonial-head text-center">
                         <img src="${pageContext.request.contextPath}/img/appDownload/quit.png" title="name" />
-                        <p>"The Daocaodui project is a project developed in my spare time, and there are many areas for improvement and optimization. Your valuable ideas are welcome."</p>
+                        <p>"The Daocaodui is an open source project of personal work, that needs to be improved and optimized. If you have any ideas, suggestions or wish to participate in the process, Wellcome to contact me."</p>
                     </div>
                     <div class="testmonial-row">
                         <div class="col-md-4 testmonial-grid">
@@ -365,7 +390,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="footer-links">
         <ul>
             <li>
-                <p>Copyright &copy; 2020.Company Daocaodui All rights reserved.More Templates <a href="http://www.daocaodui.top/" target="_blank" title="硕鼠工作室">硕鼠工作室</a></p>
+                <p>Copyright &copy; 2020.Company Daocaodui All rights reserved.<a href="https://github.com/niyongsheng" target="_blank" title="硕鼠工作室">硕鼠工作室</a></p>
             </li>
         </ul>
         <script type="text/javascript">
@@ -378,7 +403,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     easingType: 'linear'
                  };
                 */
-
+                toastr.info('稻草堆欢迎你');
                 $().UItoTop({ easingType: 'easeOutQuart' });
 
             });

@@ -32,7 +32,7 @@
     self.title = [NCurrentUser account];
     
     // 1.tableView
-    self.tableView.mj_header.hidden = YES;
+    self.tableView.mj_header.hidden = NO;
     self.tableView.mj_footer.hidden = YES;
     self.tableView.showsVerticalScrollIndicator = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
@@ -44,6 +44,24 @@
     NYSButtonFooterView *footerView = [[NYSButtonFooterView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, 100) withTitle:@"退出登录"];
     [footerView buttonForSendData:self action:@selector(userLogout:)];
     self.tableView.tableFooterView = footerView;
+    
+    
+}
+
+- (void)headerRereshing {
+    WS(weakSelf);
+    [NYSRequest RefreshUserInfoWithResMethod:GET
+                                          parameters:@{@"account" : NCurrentUser.account}
+                                             success:^(id response) {
+        [self.tableView.mj_header endRefreshing];
+        NSDictionary *userData = response[@"data"];
+        [NUserManager saveUserInfo:userData];
+        [NUserManager loadUserInfo];
+        [weakSelf.tableView reloadData];
+        [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeFall tableView:self.tableView];
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+    } isCache:YES];
 }
 
 #pragma mark —- tableview delegate —-

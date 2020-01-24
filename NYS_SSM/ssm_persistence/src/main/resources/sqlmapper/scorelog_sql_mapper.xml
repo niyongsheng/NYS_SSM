@@ -16,4 +16,10 @@
         where datediff(gmtCreate, NOW()) = 0 and type = #{type} and account = #{account} and fellowship = #{fellowship}
     </select>
 
+    <select id="selectTotalScore" resultType="java.lang.Double">
+        select sum(amount)
+        from dcd_scorelog
+        where account = #{account} and fellowship = #{fellowship}
+    </select>
+
 </mapper>

@@ -8,7 +8,7 @@
 
 #import "NYSPrayCardListViewController.h"
 #import "CCDraggableContainer.h"
-#import "NYSPrayCustomCardView.h"
+#import "NYSPrayCardView.h"
 #import "NYSPrayModel.h"
 #import "NYSPrayCardInfoViewController.h"
 
@@ -102,7 +102,8 @@ CCDraggableContainerDelegate
 
 #pragma mark - CCDraggableContainer DataSource
 - (CCDraggableCardView *)draggableContainer:(CCDraggableContainer *)draggableContainer viewForIndex:(NSInteger)index {
-    NYSPrayCustomCardView *cardView = [[NYSPrayCustomCardView alloc] initWithFrame:draggableContainer.bounds];
+    NYSPrayCardView *cardView = [[[NSBundle mainBundle] loadNibNamed:@"NYSPrayCardView" owner:self options:nil] firstObject];
+    cardView.frame = draggableContainer.bounds;
     cardView.pray = self.dataSources[index];
     cardView.fromViewController = self;
     return cardView;
