@@ -328,6 +328,12 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:NO];
 }
 
+/** 检索圣经*/
++ (NSURLSessionTask *)BibleSearchListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_BibleSearchList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
 
 
 
@@ -573,12 +579,13 @@
     } else {
         NSError *error = nil;
         NSInteger code = [[responseObject objectForKey:@"statusCode"] integerValue];
-        if (code == 6005 || code == 6010 || code == 6001 || code == 6006) {
+        if (code == 6005 || code == 6010 || code == 6006) {
+            // 1.登录状态异常
             NSString *errorInfo = [responseObject objectForKey:@"msg"];
             NSString *errorStr = [NSString stringWithFormat:@"%ld\n%@", (long)code, errorInfo];
             error = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : @"登录状态异常", NSLocalizedFailureReasonErrorKey : errorInfo, NSLocalizedRecoverySuggestionErrorKey : @"重新登录"}];
             [SVProgressHUD showErrorWithStatus:errorStr];
-            // 1.登录状态异常
+            // 退出当前登录
             [NUserManager logout:nil];
         } else if (code == 4001) {
             // 2.参数不合法异常
@@ -587,12 +594,12 @@
             error = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : @"服务器接收到的参数异常", NSLocalizedFailureReasonErrorKey : warnInfo, NSLocalizedRecoverySuggestionErrorKey : @"检查请求参数合法性"}];
             [SVProgressHUD showInfoWithStatus:warningStr];
         } else {
-            // 3.未知异常
+            // 3.其他服务器返回异常
             NSString *unknowStr = [responseObject objectForKey:@"msg"];
-            [SVProgressHUD showInfoWithStatus:unknowStr];
             error = [NSError errorWithDomain:NSCocoaErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey : @"Service Exception!", NSLocalizedFailureReasonErrorKey : unknowStr}];
-            failure(error);
+            [SVProgressHUD showInfoWithStatus:unknowStr];
         }
+        // 隐藏提示框，返回错误NSError❌
         [SVProgressHUD dismissWithDelay:1.5f completion:^{
             failure(error);
         }];

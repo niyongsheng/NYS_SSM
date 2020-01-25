@@ -13,6 +13,7 @@
 #import "NYSRankingViewController.h"
 #import "NYSFellowshipStoryViewController.h"
 #import "NYSRecommendViewController.h"
+#import "NYSSearchBibleListViewController.h"
 
 @interface NYSTodayItemView ()
 @property (weak, nonatomic) IBOutlet UIView *myCustomView;
@@ -62,10 +63,13 @@
     PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches
                                                                                           searchBarPlaceholder:nil
                                                                                                 didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
-        [searchViewController.navigationController pushViewController:[[NYSRootViewController alloc] init] animated:YES];
+        NYSSearchBibleListViewController *searchVC = [[NYSSearchBibleListViewController alloc] init];
+        searchVC.bible = searchText;
+        [searchViewController.navigationController pushViewController:searchVC animated:YES];
     }];
     searchViewController.hotSearchStyle = PYHotSearchStyleColorfulTag;
     searchViewController.searchHistoryStyle = PYSearchHistoryStyleARCBorderTag;
+//    searchViewController.searchTextField.textColor = [UIColor whiteColor];
 //    searchViewController.delegate = self.fromController;
     NYSBaseNavigationController *nav = [[NYSBaseNavigationController alloc] initWithRootViewController:searchViewController];
     nav.modalPresentationStyle = UIModalPresentationFullScreen;

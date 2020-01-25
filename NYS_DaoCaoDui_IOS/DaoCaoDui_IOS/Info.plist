@@ -101,9 +101,9 @@
 		<true/>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>需要读取音乐资料,是否允许访问媒体资料库？</string>
+	<string>需要读取影音资料,是否允许访问媒体资料库？</string>
 	<key>NSCameraUsageDescription</key>
-	<string>需要扫描二维码或拍照，是否允许打开相机？</string>
+	<string>需要拍照或录像，是否允许打开相机？</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>需要地理位置信息或共享位置给好友，是否允许始终访问定位？</string>
 	<key>NSLocationUsageDescription</key>
@@ -118,8 +118,6 @@
 	<string>需要读取图片，是否允许访问相册？</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>需要添加新的提醒事项,是否允许访问提醒事项？</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>需要语音识别功能，是否允许访问语音识别系统？</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>04b_03b.TTF</string>

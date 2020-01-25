@@ -226,14 +226,18 @@ SINGLETON_FOR_CLASS(UserManager);
     NPostNotification(NNotificationLoginStateChange, @YES);
     NSDictionary *data = responseObject[@"data"];
     self.currentUserInfo = [UserInfo modelWithDictionary:data];
-    // 登录IM
+    // 1.登录IM
     [[IMManager sharedIMManager] IMLoginwithCurrentUserInfo:self.currentUserInfo completion:^(BOOL success, id  _Nullable description) {
         
     }];
-    // 缓存用户信息
+    // 2.缓存用户信息
     [self saveUserInfo:data];
-    // 修改登录状态
+    // 3.修改登录状态
     self.isLogined = YES;
+    // 4.添加推送别名
+    [JPUSHService setAlias:self.currentUserInfo.account completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        NLog(@"setAlias code:%ld content:%@ seq:%ld", iResCode, iAlias, seq);
+    } seq:++self.seq];
 }
 
 #pragma mark —- 储存用户信息 —-
@@ -265,8 +269,8 @@ SINGLETON_FOR_CLASS(UserManager);
     [NYSRequest LogoutWithResMethod:GET parameters:nil success:^(id response) {
         logoutSuccess(self, completion);
     } failure:^(NSError *error) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"正常退出失败是否强制登录吗？" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"登出失败，是否强制退出登录吗？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"登出" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             logoutSuccess(self, completion);
         }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

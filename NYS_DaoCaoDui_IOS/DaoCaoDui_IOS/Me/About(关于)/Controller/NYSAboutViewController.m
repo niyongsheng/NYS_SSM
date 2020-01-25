@@ -230,6 +230,7 @@
 /** 加载App Store评论页 */
 - (void)loadAppStoreControllerWithAppID:(NSString *)appID {
     [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD dismissWithDelay:7.f];
     SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
     storeProductViewContorller.delegate = self;
     [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:appID} completionBlock:^(BOOL result, NSError * _Nullable error) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.BibleDao">
+
+    <select id="selectBibleList" resultType="com.niyongsheng.persistence.domain.Bible">
+        SELECT * FROM dcd_bible
+        WHERE 1 = 1
+        <if test="bible != null and bible != ''">
+            AND (bible LIKE CONCAT('%',#{bible},'%'))
+        </if>
+    </select>
+</mapper>

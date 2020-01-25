@@ -123,6 +123,9 @@ typedef void(^NYSUploadProcess)(NSProgress *progress);
 + (NSURLSessionTask *)RefreshUserInfoWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
 /** 举报*/
 + (NSURLSessionTask *)UserReportWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure;
+/** 检索圣经*/
++ (NSURLSessionTask *)BibleSearchListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache;
+
 
 
 

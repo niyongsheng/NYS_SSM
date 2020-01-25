@@ -14,6 +14,7 @@
 #import "NYSMembersViewController.h"
 #import "NYSAlert.h"
 #import "NYSPersonalInfoCardViewController.h"
+#import "NYSConversationViewController.h"
 
 @interface NYSActivityInfoViewController () <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     NYSUploadImageHeaderView *_headerView;
@@ -45,6 +46,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     // header
     _headerView = [[[NSBundle mainBundle] loadNibNamed:@"NYSUploadImageHeaderView" owner:self options:nil] objectAtIndex:0];
+    _headerView.bgImage = [UIImage imageNamed:@"ic_album_cover_65x65_"];
     [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:self.activityModel.icon]
                                                           options:0
                                                          progress:nil
@@ -198,6 +200,16 @@
         [self.navigationController pushViewController:membersVC animated:YES];
     }
     
+    if (indexPath.row == 5) {
+        if (self.activityModel.isInGroup) {
+            NYSConversationViewController *groupConversationVC = [[NYSConversationViewController alloc] initWithConversationType:ConversationType_GROUP targetId:[NSString stringWithFormat:@"%ld", self.activityModel.groupId]];
+            groupConversationVC.title = self.activityModel.name;
+            [self.navigationController pushViewController:groupConversationVC animated:YES];
+        } else {
+            [SVProgressHUD showInfoWithStatus:@"请先加入此活动"];
+            [SVProgressHUD dismissWithDelay:1.0f];
+        }
+    }
 }
 
 /// 报名活动
@@ -220,7 +232,7 @@
 /// 退出活动
 - (void)footerQuitButtonClicked:(UIButton *)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"你确定要退出当前活动吗？" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         WS(weakSelf);
         [NYSRequest QuitActivityWithActivityID:GET
                                        parameters:@{@"activityID" : @(self.activityModel.ID)}
@@ -240,7 +252,7 @@
         NLog(@"Cancel Action");
     }];
     
-    [alertController addAction:logoutAction];
+    [alertController addAction:sureAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
     
@@ -249,7 +261,7 @@
 /// 解散活动
 - (void)footerDismissButtonClicked:(UIButton *)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"你确定要结束当前活动吗？" message:@"活动群组将被解散，活动信息将被清空且不可恢复！" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         WS(weakSelf);
         [NYSRequest DismissActivityWithActivityID:GET
                                        parameters:@{@"activityID" : @(self.activityModel.ID)}
@@ -268,7 +280,7 @@
         NLog(@"Cancel Action");
     }];
     
-    [alertController addAction:logoutAction];
+    [alertController addAction:sureAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
     

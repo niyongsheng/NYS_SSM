@@ -32,6 +32,7 @@
 @property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) WMZBannerView *bannerView;
+@property (nonatomic, strong) WMZBannerParam *bannerParam;
 @property (nonatomic, strong) TXScrollLabelView *scrollLabelView;
 @property (nonatomic, strong) NYSTodayItemView *itemsView;
 @property (nonatomic, strong) NYSIntroductionView *introductionView;
@@ -121,49 +122,48 @@
         publishBtn;
     });
     
-    _bannerView = ({
-        WMZBannerParam *param = BannerParam()
-        // 自定义视图必传
-        .wMyCellClassNameSet(@"NYSBannerCollectionViewCell")
-        .wMyCellSet(^UICollectionViewCell *(NSIndexPath *indexPath, UICollectionView *collectionView, id model, UIImageView *bgImageView ,NSArray*dataArr) {
-            // 自定义视图
-            NYSBannerCollectionViewCell *cell = (NYSBannerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([NYSBannerCollectionViewCell class]) forIndexPath:indexPath];
-            [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
-            cell.leftText.text = [(NYSBannerModel *)model title];
-            // 毛玻璃效果必须实现
-            [bgImageView sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
-            return cell;
-        })
-        .wFrameSet(CGRectMake(0, 0, BannerWitdh, RealValue(HomeBannerHeight)))
-        .wItemSizeSet(CGSizeMake(BannerWitdh*0.9, RealValue(HomeBannerHeight)))
-        .wAlphaSet(1)
-        .wEffectSet(NO)
-        .wLineSpacingSet(7)
-        .wScaleSet(YES)
-        .wHideBannerControlSet(YES)
-        .wActiveDistanceSet(600)
-        .wScaleFactorSet(0.3)
-        .wContentOffsetXSet(0.5)
-        .wSelectIndexSet(1)
-        .wRepeatSet(YES)
-        .wAutoScrollSecondSet(4.5f)
-        .wAutoScrollSet(YES)
-        .wPositionSet(BannerCellPositionCenter)
-        .wBannerControlPositionSet(BannerControlLeft)
-        .wBannerControlSelectColorSet([UIColor whiteColor])
-        .wBannerControlColorSet(NNavBgColor)
-        .wDataSet(self.bannerArray)
-        .wEventCenterClickSet(^(id anyID, NSInteger index,BOOL isCenter,UICollectionViewCell *cell) {
-            NLog(@"首页轮播图点击\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@",anyID,index,isCenter,cell);
-        })
-        .wEventScrollEndSet( ^(id anyID, NSInteger index, BOOL isCenter,UICollectionViewCell *cell) {
+    self.bannerParam = BannerParam()
+    // 自定义视图必传
+    .wMyCellClassNameSet(@"NYSBannerCollectionViewCell")
+    .wMyCellSet(^UICollectionViewCell *(NSIndexPath *indexPath, UICollectionView *collectionView, id model, UIImageView *bgImageView ,NSArray*dataArr) {
+        // 自定义视图
+        NYSBannerCollectionViewCell *cell = (NYSBannerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([NYSBannerCollectionViewCell class]) forIndexPath:indexPath];
+        [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
+        cell.leftText.text = [(NYSBannerModel *)model title];
+        // 毛玻璃效果必须实现
+        [bgImageView sd_setImageWithURL:[NSURL URLWithString:[(NYSBannerModel *)model bannerUrl]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
+        return cell;
+    })
+    .wFrameSet(CGRectMake(0, 0, BannerWitdh, RealValue(HomeBannerHeight)))
+    .wItemSizeSet(CGSizeMake(BannerWitdh*0.9, RealValue(HomeBannerHeight)))
+    .wAlphaSet(1)
+    .wEffectSet(NO)
+    .wLineSpacingSet(7)
+    .wScaleSet(YES)
+    .wHideBannerControlSet(YES)
+    .wActiveDistanceSet(600)
+    .wScaleFactorSet(0.3)
+    .wContentOffsetXSet(0.5)
+    .wSelectIndexSet(1)
+    .wRepeatSet(YES)
+    .wAutoScrollSecondSet(4.5f)
+    .wAutoScrollSet(YES)
+    .wPositionSet(BannerCellPositionCenter)
+    .wBannerControlPositionSet(BannerControlLeft)
+    .wBannerControlSelectColorSet([UIColor whiteColor])
+    .wBannerControlColorSet(NNavBgColor)
+    .wDataSet(self.bannerArray)
+    .wEventCenterClickSet(^(id anyID, NSInteger index,BOOL isCenter,UICollectionViewCell *cell) {
+        NLog(@"首页轮播图点击\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@",anyID,index,isCenter,cell);
+    })
+    .wEventScrollEndSet( ^(id anyID, NSInteger index, BOOL isCenter,UICollectionViewCell *cell) {
 //             NLog(@"首页轮播图滚动\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@", anyID, index, isCenter, cell);
-        })
-        // 让第一个和最后一个居中 设置为size.width的一半
-        .wSectionInsetSet(UIEdgeInsetsMake(0,BannerWitdh*0.4, 0, BannerWitdh*0.4))
-        ;
-        
-        WMZBannerView *homeBanner = [[WMZBannerView alloc] initConfigureWithModel:param withView:self.homeView];
+    })
+    // 让第一个和最后一个居中 设置为size.width的一半
+    .wSectionInsetSet(UIEdgeInsetsMake(0,BannerWitdh*0.4, 0, BannerWitdh*0.4))
+    ;
+    _bannerView = ({
+        WMZBannerView *homeBanner = [[WMZBannerView alloc] initConfigureWithModel:_bannerParam withView:self.homeView];
         [homeBanner mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(_titleLabel.mas_bottom).offset(10);
             make.centerX.mas_equalTo(self.view.mas_centerX);
@@ -241,7 +241,7 @@
     [NYSRequest GetBannerList:GET parameters:@{@"fellowship" : @(NCurrentUser.fellowship)} success:^(id response) {
         [weakSelf.homeView.mj_header endRefreshing];
         self.bannerArray = [NYSBannerModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
-        self.bannerView.data = self.bannerArray;
+        [self.bannerParam setWData:self.bannerArray];
         [self.bannerView updateUI];
     } failure:^(NSError *error) {
         [weakSelf.homeView.mj_header endRefreshing];
@@ -325,7 +325,7 @@
 
 - (NSMutableArray *)publicnoticeArray {
     if (!_publicnoticeArray) {
-        _publicnoticeArray = @[@"我爱我家稻草堆", @"Amazing Grace, how sweet the sound\nThat saved a wretch like me\nI once was lost but now I'm found\nWas blind but now I see\nT'was grace that taught my heart to fear\nAnd grace my fear relieved\nHow precious did that grace appear\nThe hour I first believed\nThrough many dangers, toils and snares\nWe have already come\nT'was grace that brought us safe thus far\nAnd grace will lead us home\nWhen we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we first begun"].mutableCopy;
+        _publicnoticeArray = @[@"稻草堆欢迎你", @"Amazing Grace, how sweet the sound\nThat saved a wretch like me\nI once was lost but now I'm found\nWas blind but now I see\nT'was grace that taught my heart to fear\nAnd grace my fear relieved\nHow precious did that grace appear\nThe hour I first believed\nThrough many dangers, toils and snares\nWe have already come\nT'was grace that brought us safe thus far\nAnd grace will lead us home\nWhen we've been there ten thousand years\nBright shining as the sun\nWe've no less days to sing God's praise\nThan when we first begun"].mutableCopy;
     }
     return _publicnoticeArray;
 }

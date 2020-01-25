@@ -8,12 +8,13 @@
 
 #import "AppDelegate.h"
 #import <RongIMKit/RongIMKit.h>
-#import <JPUSHService.h>
+#import <JPush/JPUSHService.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AppDelegate (PushService) <JPUSHRegisterDelegate, RCIMReceiveMessageDelegate>
 
+/// 初始化JPush
 - (void)initPush:(NSDictionary *)launchOptions application:(UIApplication *)application;
 
 @end

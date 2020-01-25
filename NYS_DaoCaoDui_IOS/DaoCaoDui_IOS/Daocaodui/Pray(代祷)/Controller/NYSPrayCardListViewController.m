@@ -69,7 +69,6 @@ CCDraggableContainerDelegate
 }
 
 - (IBAction)likeEvent:(id)sender {
-    [self.container removeForDirection:CCDraggableDirectionRight];
     [self collectionInOrOut];
 }
 
@@ -87,13 +86,16 @@ CCDraggableContainerDelegate
 }
 
 - (void)collectionInOrOut {
+    WS(weakSelf);
     [NYSRequest PrayCollectionInOrOutWithResMethod:GET
                                            parameters:@{@"prayID" : @([self.dataSources[self.currentIndex] idField])}
                                               success:^(id response) {
         if ([[response objectForKey:@"status"] boolValue]) {
-            self.collectionButton.selected = !self.collectionButton.selected;
+            weakSelf.collectionButton.selected = !weakSelf.collectionButton.selected;
             [SVProgressHUD showSuccessWithStatus:[[response objectForKey:@"data"] objectForKey:@"info"]];
-            [SVProgressHUD dismissWithDelay:1.f];
+            [SVProgressHUD dismissWithDelay:1.f completion:^{
+                [weakSelf.container removeForDirection:CCDraggableDirectionRight];
+            }];
         }
     } failure:^(NSError *error) {
         
@@ -124,7 +126,6 @@ CCDraggableContainerDelegate
     }
     if (draggableDirection == CCDraggableDirectionRight) {
         self.collectionButton.transform = CGAffineTransformMakeScale(scale, scale);
-//        [self collectionInOrOut];
     }
 }
 

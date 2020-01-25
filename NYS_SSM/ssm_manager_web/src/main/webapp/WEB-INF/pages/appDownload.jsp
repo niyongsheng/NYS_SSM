@@ -249,6 +249,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="clearfix"> </div>
                 </div>
+                <div class="fea-grids-left-grid">
+                    <div class="fea-grids-left-grid-left">
+                        <span class="fea-icon1"> </span>
+                    </div>
+                    <div class="fea-grids-left-grid-right">
+                        <h4>书单</h4>
+                        <p>发现、推荐属灵书籍 </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="fea-grids-left-grid">
+                    <div class="fea-grids-left-grid-left">
+                        <span class="fea-icon3"> </span>
+                    </div>
+                    <div class="fea-grids-left-grid-right">
+                        <h4>搜索</h4>
+                        <p>在线圣经全文检索</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
             </div>
         </div>
         <div class="clearfix"> </div>

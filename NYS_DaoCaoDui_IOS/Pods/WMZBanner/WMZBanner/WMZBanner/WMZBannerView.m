@@ -51,7 +51,7 @@
 }
 
 - (void)updateUI{
-//    self.data = [NSArray arrayWithArray:self.param.wData];
+    self.data = [NSArray arrayWithArray:self.param.wData];
     [self resetCollection];
 }
 

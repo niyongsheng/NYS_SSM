@@ -120,6 +120,13 @@ UIKIT_EXTERN NSString *const CR_WCLogoin;
 UIKIT_EXTERN NSString *const CR_RefreshUserInfo;
 /** 举报*/
 UIKIT_EXTERN NSString *const CR_UserReport;
+/** 检索圣经*/
+UIKIT_EXTERN NSString *const CR_BibleSearchList;
+
+
+
+
+
 
 
 

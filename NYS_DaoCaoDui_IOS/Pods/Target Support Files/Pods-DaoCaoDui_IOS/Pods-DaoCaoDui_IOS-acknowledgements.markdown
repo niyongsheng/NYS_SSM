@@ -640,11 +640,6 @@ Copyright 2011 - 2019 umeng.com. All rights reserved.
 Copyright 2011 - 2018 umeng.com. All rights reserved.
 
 
-## UMCErrorCatch
-
-Copyright 2011 - 2018 umeng.com. All rights reserved.
-
-
 ## UMengUShare
 
 Copyright 2011 - 2018 UMeng.com. All rights reserved.

@@ -54,14 +54,13 @@
                                           parameters:@{@"account" : NCurrentUser.account}
                                              success:^(id response) {
         [self.tableView.mj_header endRefreshing];
-        NSDictionary *userData = response[@"data"];
-        [NUserManager saveUserInfo:userData];
+        [NUserManager saveUserInfo:response[@"data"]];
         [NUserManager loadUserInfo];
         [weakSelf.tableView reloadData];
         [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeFall tableView:self.tableView];
     } failure:^(NSError *error) {
         [self.tableView.mj_header endRefreshing];
-    } isCache:YES];
+    } isCache:NO];
 }
 
 #pragma mark —- tableview delegate —-

@@ -80,8 +80,6 @@ PODS:
     - UMCCommon
   - UMCCommon (2.1.1)
   - UMCCommonLog (1.0.0)
-  - UMCErrorCatch (1.0.0):
-    - UMCCommon
   - UMengUShare/Core (6.4.8.2):
     - UMengUShare/Network
   - UMengUShare/Network (6.4.8.2)
@@ -127,7 +125,6 @@ DEPENDENCIES:
   - UMCAnalytics
   - UMCCommon
   - UMCCommonLog
-  - UMCErrorCatch
   - UMengUShare/Social/ReducedQQ
   - UMengUShare/Social/ReducedSina
   - UMengUShare/Social/ReducedWeChat
@@ -170,7 +167,6 @@ SPEC REPOS:
     - UMCAnalytics
     - UMCCommon
     - UMCCommonLog
-    - UMCErrorCatch
     - UMengUShare
     - WMZBanner
     - XRWaterfallLayout
@@ -209,12 +205,11 @@ SPEC CHECKSUMS:
   UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
   UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
-  UMCErrorCatch: 51f1b68f920233e90a3fa6d51f0456174507ec78
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
   WMZBanner: fb8f5905097d76d54bf780087b3f131071bfe773
   XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: d238e9795ee4dc44d98bd2e2c0f2cfe1441e600e
+PODFILE CHECKSUM: 2ea61f751a2c58b6f388fc018bf7cc265b845b36
 
 COCOAPODS: 1.8.4

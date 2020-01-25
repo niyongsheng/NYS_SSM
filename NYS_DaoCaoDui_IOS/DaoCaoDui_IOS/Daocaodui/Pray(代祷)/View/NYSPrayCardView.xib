@@ -21,27 +21,27 @@
                     <rect key="frame" x="0.0" y="239" width="398" height="70"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbe-Y3-LnM">
-                            <rect key="frame" x="10" y="5" width="60" height="60"/>
+                            <rect key="frame" x="10" y="10" width="50" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="60" id="RZ5-kp-Eyb"/>
+                                <constraint firstAttribute="width" constant="50" id="RZ5-kp-Eyb"/>
                                 <constraint firstAttribute="width" secondItem="sbe-Y3-LnM" secondAttribute="height" multiplier="1:1" id="xQQ-HQ-DSP"/>
                             </constraints>
                             <state key="normal" title="Button" image="chat_single"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OU-xD-0kZ">
-                            <rect key="frame" x="85" y="9.5" width="38.5" height="21.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <rect key="frame" x="75" y="10" width="36.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd8-mq-Aeg">
-                            <rect key="frame" x="85" y="41" width="53" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <rect key="frame" x="75" y="36.5" width="50" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Old-18-GFF">
-                            <rect key="frame" x="372" y="39" width="16" height="22"/>
+                            <rect key="frame" x="372" y="34" width="16" height="22"/>
                             <state key="normal" image="report_normal"/>
                             <state key="highlighted" image="report_highlight"/>
                             <connections>
@@ -54,7 +54,7 @@
                         <constraint firstItem="Old-18-GFF" firstAttribute="centerY" secondItem="Nd8-mq-Aeg" secondAttribute="centerY" id="Diu-6q-LNw"/>
                         <constraint firstAttribute="height" constant="70" id="IRk-WU-iBN"/>
                         <constraint firstItem="sbe-Y3-LnM" firstAttribute="centerY" secondItem="J8N-J0-w0U" secondAttribute="centerY" id="Imf-b5-C5H"/>
-                        <constraint firstItem="Nd8-mq-Aeg" firstAttribute="centerY" secondItem="sbe-Y3-LnM" secondAttribute="centerY" constant="15" id="K7C-1V-zoH"/>
+                        <constraint firstItem="Nd8-mq-Aeg" firstAttribute="centerY" secondItem="sbe-Y3-LnM" secondAttribute="centerY" constant="10" id="K7C-1V-zoH"/>
                         <constraint firstAttribute="trailing" secondItem="Old-18-GFF" secondAttribute="trailing" constant="10" id="Nwt-cf-TB6"/>
                         <constraint firstItem="Nd8-mq-Aeg" firstAttribute="leading" secondItem="4OU-xD-0kZ" secondAttribute="leading" id="cah-Vw-iM7"/>
                         <constraint firstItem="sbe-Y3-LnM" firstAttribute="leading" secondItem="J8N-J0-w0U" secondAttribute="leading" constant="10" id="ceM-Tx-LcU"/>

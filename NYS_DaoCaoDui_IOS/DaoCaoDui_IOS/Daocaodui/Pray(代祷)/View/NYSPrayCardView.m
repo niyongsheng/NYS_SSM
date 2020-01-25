@@ -30,7 +30,7 @@
     
     self.number.font = [UIFont fontWithName:@"04b_03b" size:20.f];
 
-    self.iconBtn.layer.cornerRadius = 30.0f;
+    self.iconBtn.layer.cornerRadius = 25.0f;
     self.iconBtn.layer.masksToBounds = YES;
     [self.iconBtn addTarget:self action:@selector(iconBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     CALayer *layer = [self.iconBtn layer];

@@ -26,10 +26,11 @@
     CALayer *layer = [self.uploader layer];
     layer.borderColor = [UIColor lightGrayColor].CGColor;
     layer.borderWidth = 0.2f;
+    self.uploader.layer.cornerRadius = 11.f;
+    self.uploader.layer.masksToBounds = YES;
     
     self.icon.layer.cornerRadius = 25.f;
     self.icon.contentMode = UIViewContentModeScaleAspectFill;
-    self.uploader.layer.cornerRadius = 11.f;
 }
 
 - (IBAction)uploaderClicked:(UIButton *)sender {

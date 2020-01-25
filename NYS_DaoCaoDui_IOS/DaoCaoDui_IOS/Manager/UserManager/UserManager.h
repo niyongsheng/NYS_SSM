@@ -36,6 +36,8 @@ SINGLETON_FOR_HEADER(UserManager)
 @property (nonatomic, strong) UserInfo *currentUserInfo;
 /** 是否已登录 */
 @property (nonatomic, assign) BOOL isLogined;
+/** 请求序列号 */
+@property (assign, nonatomic) NSInteger seq;
 
 #pragma mark -— 登录相关方法 --
 /**

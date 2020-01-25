@@ -133,11 +133,11 @@
 #pragma mark -- 友盟 初始化 --
 - (void)initUMeng {
     // 友盟统计+分享
+    [UMConfigure initWithAppkey:UMengKey channel:@"App Store"];
     [UMCommonLogManager setUpUMCommonLogManager];
+    [UMConfigure setLogEnabled:YES];
     [MobClick setScenarioType:E_UM_NORMAL];
     [MobClick setCrashReportEnabled:YES];
-    [UMConfigure setLogEnabled:YES];
-    [UMConfigure initWithAppkey:UMengKey channel:@"App Store"];
     
     [self configUSharePlatforms];
 }

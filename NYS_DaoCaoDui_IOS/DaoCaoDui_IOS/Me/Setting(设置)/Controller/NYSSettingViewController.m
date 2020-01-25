@@ -304,14 +304,14 @@
 #pragma mark - ⚠️WARNING Alert
 - (void)loadDefaultAllSettingWarningAlert {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"你确定要重置所有设置吗？" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *logoutAction = [UIAlertAction actionWithTitle:@"重置" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"重置" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self loadDefaultAllSetting];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         NLog(@"Cancel Action");
     }];
     
-    [alertController addAction:logoutAction];
+    [alertController addAction:sureAction];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
 }

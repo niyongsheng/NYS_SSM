@@ -39,10 +39,14 @@ public class ScorelogServiceImpl extends ServiceImpl<ScorelogDao, Scorelog> impl
 
     @Override
     public void sign(Scorelog scorelog) {
+        // 1.插入积分记录
         scorelogDao.insert(scorelog);
+        // 2.计算积分总和
         Double sumScore = scorelogDao.selectTotalScore(scorelog.getAccount(), scorelog.getFellowship());
-        User updateUser = new User();
-        // 用户积分等级
+        User updateUser = userService.refreshUserInfo(scorelog.getAccount());
+        // 3.1更新用户积分
+        updateUser.setScore(sumScore);
+        // 3.2更新用户等级
         if (sumScore >= 0 && sumScore < 100) {
             updateUser.setGrade(0);
         } else if (sumScore >= 100 && sumScore < 200) {
@@ -60,8 +64,7 @@ public class ScorelogServiceImpl extends ServiceImpl<ScorelogDao, Scorelog> impl
         } else {
             updateUser.setGrade(7);
         }
-        updateUser.setAccount(scorelog.getAccount());
-        updateUser.setScore(sumScore);
+        // 3.更新用户信息
         userService.updateUser(updateUser);
     }
 }

@@ -621,7 +621,7 @@ public class UserController {
         // 1.数据库查询用户
         User user = null;
         try {
-            userService.refreshUserInfo(request.getHeader("Account"));
+            user = userService.refreshUserInfo(request.getHeader("Account"));
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
         }
@@ -712,10 +712,11 @@ public class UserController {
         }
 
         // 3.数据库查询修改后的用户信息
+        User newUser = null;
         try {
-            user = userService.findUserByAccount(account);
+            newUser = userService.refreshUserInfo(account);
             // 数据校验
-            if (user == null) {
+            if (newUser == null) {
                 throw new ResponseException(ResponseStatusEnum.AUTH_UNEXISTENT_ERROR);
             }
         } catch (Exception e) {
@@ -725,13 +726,13 @@ public class UserController {
 
         // 4.redis缓存刷新
         try {
-            userRedisService.insertUser(user);
+            userRedisService.insertUser(newUser);
         } catch (Exception e) {
             throw new ResponseException(ResponseStatusEnum.REDIS_INSERT_ERROR);
         }
 
         // 5.返回成功信息
-        return new ResponseDto(ResponseStatusEnum.AUTH_UPDATE_SUCESS, user);
+        return new ResponseDto(ResponseStatusEnum.AUTH_UPDATE_SUCESS, newUser);
     }
 
     @ResponseBody

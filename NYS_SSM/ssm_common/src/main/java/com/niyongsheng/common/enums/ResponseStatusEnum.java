@@ -37,12 +37,12 @@ public enum ResponseStatusEnum {
 
     /* 数据库 */
     DB_TR_ERROR(false,2111,"数据库事务管理出错回滚"),
-    DB_INSERT_ERROR(false,2011,"数据库写入出错"),
-    DB_DELETE_ERROR(false,2012,"数据库删除出错"),
-    DB_UPDATE_ERROR(false,2013,"数据库更新出错"),
-    DB_SELECT_ERROR(false,2014,"数据库查询出错"),
-    DB_DELETE_EMPTY_ERROR(false,2015,"删除的对象不存在"),
-    DB_DELETE_POWER_ERROR(false,2016,"没有删除权限"),
+    DB_INSERT_ERROR(false,2112,"数据库写入出错"),
+    DB_DELETE_ERROR(false,2113,"数据库删除出错"),
+    DB_UPDATE_ERROR(false,2114,"数据库更新出错"),
+    DB_SELECT_ERROR(false,2115,"数据库查询出错"),
+    DB_DELETE_EMPTY_ERROR(false,2116,"删除的对象不存在"),
+    DB_DELETE_POWER_ERROR(false,2117,"没有删除权限"),
 
     /* Redis */
     REDIS_INSERT_ERROR(false,2015,"Redis写入出错"),

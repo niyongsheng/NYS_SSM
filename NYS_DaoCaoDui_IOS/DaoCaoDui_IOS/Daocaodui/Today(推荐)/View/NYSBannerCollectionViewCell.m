@@ -12,13 +12,13 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
-    if (self){
+    if (self) {
         self.icon = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
         self.icon.contentMode = UIViewContentModeScaleAspectFill;
         self.icon.layer.masksToBounds = YES;
         [self.contentView addSubview:self.icon];
         
-        self.leftText = [[UILabel alloc] initWithFrame:CGRectMake(0, self.contentView.frame.size.height-35, self.contentView.frame.size.width, 35)];
+        self.leftText = [[UILabel alloc] initWithFrame:CGRectMake(0, self.contentView.frame.size.height - 35, self.contentView.frame.size.width, 35)];
         UIColor *color = [UIColor blackColor];
         color = [color colorWithAlphaComponent:0.2];
         self.leftText.backgroundColor = color;

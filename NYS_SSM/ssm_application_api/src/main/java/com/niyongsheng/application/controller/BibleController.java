@@ -4,7 +4,9 @@ import com.github.pagehelper.PageHelper;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
 import com.niyongsheng.common.model.ResponseDto;
+import com.niyongsheng.persistence.domain.Bible;
 import com.niyongsheng.persistence.domain.WeekBible;
+import com.niyongsheng.persistence.service.BibleService;
 import com.niyongsheng.persistence.service.WeekBibleService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,52 @@ import java.util.List;
 public class BibleController {
 
     @Autowired
+    private BibleService bibleService;
+
+    @Autowired
     private WeekBibleService weekBibleService;
+
+    @ResponseBody
+    @RequestMapping(value = "/selectBibleList", method = RequestMethod.GET)
+    @ApiOperation(value = "模糊检索经文列表", notes = "参数描述", hidden = false)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
+            @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
+            @ApiImplicitParam(name = "bible", value = "经文", required = true)
+    })
+    public ResponseDto<Bible> selectBibleList(HttpServletRequest request, Model model,
+                                                      @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
+                                                      @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize,
+                                                      @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
+                                                      @NotBlank(message = "{NotBlank.bible}")
+                                                      @RequestParam(value = "bible", required = true) String bible
+    ) throws ResponseException {
+
+        // 1.创建查询结果集
+        List<Bible> list = null;
+
+        // 2.是否分页
+        if (isPageBreak) {
+            try {
+                // 2.1分页查询 设置页码和分页大小
+                PageHelper.startPage(pageNum, pageSize, false);
+                list = bibleService.selectBibleList(bible);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        } else {
+            try {
+                // 2.1无分页查询
+                list = bibleService.selectBibleList(bible);
+            } catch (Exception e) {
+                throw new ResponseException(ResponseStatusEnum.DB_SELECT_ERROR);
+            }
+        }
+
+        // 3.返回查询结果
+        return new ResponseDto(ResponseStatusEnum.SUCCESS, list);
+    }
 
     @ResponseBody
     @RequestMapping(value = "/selectWeekBibleList", method = RequestMethod.GET)

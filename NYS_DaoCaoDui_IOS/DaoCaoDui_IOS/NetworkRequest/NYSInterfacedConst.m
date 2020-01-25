@@ -123,6 +123,12 @@ NSString *const CR_WCLogoin = @"/user/wxRegister";
 NSString *const CR_RefreshUserInfo = @"/user/refreshUserInfo";
 /** 举报*/
 NSString *const CR_UserReport = @"/report/userReport";
+/** 检索圣经*/
+NSString *const CR_BibleSearchList = @"/bible/selectBibleList";
+
+
+
+
 
 
 
