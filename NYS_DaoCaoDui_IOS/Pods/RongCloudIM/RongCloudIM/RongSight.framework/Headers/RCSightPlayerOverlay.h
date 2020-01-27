@@ -14,22 +14,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  底部播放按钮
  */
-@property(nonatomic, strong, readonly) UIButton *playBtn;
+@property (nonatomic, strong, readonly) UIButton *playBtn;
 
 /**
  左上角关闭按钮
  */
-@property(nonatomic, strong, readonly) UIButton *closeBtn;
+@property (nonatomic, strong, readonly) UIButton *closeBtn;
 
 /**
  中心播放按钮
  */
-@property(nonatomic, strong, readonly) UIButton *centerPlayBtn;
-
+@property (nonatomic, strong, readonly) UIButton *centerPlayBtn;
 
 /**
  右上角扩展功能按钮
  */
-@property(nonatomic, strong, readonly) UIButton* extraButton;
+@property (nonatomic, strong, readonly) UIButton *extraButton;
 @end
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 
 #import "CCDraggableContainer.h"
+#import <UMAnalytics/MobClick.h>
 
 @interface CCDraggableContainer ()
 
@@ -360,8 +361,13 @@
     
     // self.delegate所触发方法, 委托对象用来改变一些UI的缩放、透明度等...
     if (self.delegate && [self.delegate respondsToSelector:@selector(draggableContainer:draggableDirection:widthRatio:heightRatio:currentIndex:)]) {
-        UIView *firstView = [self.currentCards firstObject];
-        [self.delegate draggableContainer:self draggableDirection:self.direction widthRatio:0 heightRatio:0 currentIndex:firstView.tag];
+        @try {
+            UIView *firstView = [self.currentCards firstObject];
+            [self.delegate draggableContainer:self draggableDirection:self.direction widthRatio:0 heightRatio:0 currentIndex:firstView.tag];
+        } @catch (NSException *exception) {
+            [MobClick event:@"001" label:exception.name];
+            [MobClick event:@"001" attributes:exception.userInfo];
+        }
     }
     
     for (int i = 0; i < self.currentCards.count; i++) {

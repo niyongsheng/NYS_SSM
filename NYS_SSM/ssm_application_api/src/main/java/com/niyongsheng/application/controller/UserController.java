@@ -186,7 +186,7 @@ public class UserController {
             @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "phone", value = "手机号", required = true),
             @ApiImplicitParam(name = "onceCode", value = "验证码(6位，3分钟内有效)", required = true),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true),
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true),
             @ApiImplicitParam(name = "password", value = "密码(6-21位的数字和字母组合)", required = true)
     })
     public ResponseDto<User> phoneRegister(HttpServletRequest request,
@@ -268,7 +268,7 @@ public class UserController {
             @ApiImplicitParam(name = "qqUnionId", value = "uid", required = true),
             @ApiImplicitParam(name = "iconUrl", value = "QQ头像", required = true),
             @ApiImplicitParam(name = "nickname", value = "QQ昵称", required = true),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = false)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = false)
     })
     public ResponseDto<User> qqRegister(HttpServletRequest request,
                                         @NotBlank(message = "{NotBlank.unionId}")
@@ -354,7 +354,7 @@ public class UserController {
             @ApiImplicitParam(name = "wxUnionId", value = "uid", required = true),
             @ApiImplicitParam(name = "iconUrl", value = "微信头像", required = true),
             @ApiImplicitParam(name = "nickname", value = "微信昵称", required = true),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = false)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = false)
     })
     public ResponseDto<User> wxRegister(HttpServletRequest request,
                                         @NotBlank(message = "{NotBlank.unionId}")
@@ -438,7 +438,7 @@ public class UserController {
             @ApiImplicitParam(name = "Token", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "Account", value = "此接口无需验证", required = false, dataType = "String", paramType = "header"),
             @ApiImplicitParam(name = "appleUserId", value = "Apple用户标识符", required = true),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = false)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = false)
     })
     public ResponseDto<User> loginWithApple(HttpServletRequest request,
                                             @NotBlank(message = "{NotBlank.unionId}")

@@ -125,7 +125,8 @@ NSString *const CR_RefreshUserInfo = @"/user/refreshUserInfo";
 NSString *const CR_UserReport = @"/report/userReport";
 /** 检索圣经*/
 NSString *const CR_BibleSearchList = @"/bible/selectBibleList";
-
+/** 获取广告列表*/
+NSString *const CR_GetAdvertisementList = @"/advertisement/selectAdvertisementList";
 
 
 

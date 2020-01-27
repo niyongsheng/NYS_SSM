@@ -10,6 +10,6 @@
 
 @implementation NYSSearchBibleModel
 + (NSDictionary *)mj_replacedKeyFromPropertyName {
-    return @{@"id" : @"idField"};
+    return @{@"idField" : @"id"};
 }
 @end

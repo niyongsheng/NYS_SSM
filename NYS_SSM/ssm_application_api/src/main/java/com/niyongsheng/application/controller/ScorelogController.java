@@ -41,7 +41,7 @@ public class ScorelogController {
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
             @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<Scorelog> selectScorelogList(HttpServletRequest request, Model model,
                                                     @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
@@ -83,7 +83,7 @@ public class ScorelogController {
     @ApiOperation(value = "今日签到", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
             @ApiImplicitParam(name = "remark", value = "备注信息", required = false),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<Scorelog> signToday(HttpServletRequest request, Model model,
                                            @RequestParam(value = "remark", required = false) String remark,

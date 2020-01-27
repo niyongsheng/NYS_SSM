@@ -223,8 +223,7 @@ API_AVAILABLE(ios(13.0))
         default:
             break;
     }
-    [SVProgressHUD showErrorWithStatus:errorMsg];
-    [SVProgressHUD dismissWithDelay:1.f];
+    [MBProgressHUD showTopTipMessage:errorMsg isWindow:YES];
 }
 
 /// 通知代理在哪个window 展示内容给用户

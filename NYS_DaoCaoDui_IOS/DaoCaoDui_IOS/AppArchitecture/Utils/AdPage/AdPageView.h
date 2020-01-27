@@ -5,17 +5,12 @@
 //  Created by 倪永胜 on 2019/5/27.
 //  Copyright © 2019 NiYongsheng. All rights reserved.
 //
+//  APP启动广告页面
+//
 
 #import <UIKit/UIKit.h>
 
-/**
- 启动广告页面
- */
-
-static NSString *const adImageName = @"adImageName";
-static NSString *const adUrl = @"adUrl";
-
-typedef void(^TapBlock)();
+typedef void (^TapBlock)(float duration, NSString *targetUrl);
 
 @interface AdPageView : UIView
 

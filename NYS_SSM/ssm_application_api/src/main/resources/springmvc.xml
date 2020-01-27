@@ -36,6 +36,7 @@
             <!-- 拦截方法 -->
             <mvc:mapping path="/**"/>
             <!-- 不拦截的API方法 -->
+            <mvc:exclude-mapping path="/advertisement/**"/>
             <mvc:exclude-mapping path="/user/phoneRegister"/>
             <mvc:exclude-mapping path="/user/qqRegister"/>
             <mvc:exclude-mapping path="/user/wxRegister"/>

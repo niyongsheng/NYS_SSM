@@ -26,6 +26,8 @@
 		<string>0x9fcdfd</string>
 		<key>preview_normal</key>
 		<string>0x000000</string>
+		<key>preview_normal_dark</key>
+		<string>0x9f9f9f</string>
 		<key>preview_disable</key>
 		<string>0x959595</string>
 		<key>cancel</key>

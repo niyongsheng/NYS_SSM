@@ -90,7 +90,7 @@ public class BibleController {
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
             @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<WeekBible> selectWeekBibleList(HttpServletRequest request, Model model,
                                                       @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
@@ -132,7 +132,7 @@ public class BibleController {
     @ApiOperation(value = "查询本周经文", notes = "参数描述", hidden = false)
     public ResponseDto<WeekBible> selectWeekBibleList(HttpServletRequest request, Model model,
                                                       @NotBlank(message = "{NotBlank.fellowship}")
-                                                      @ApiParam(name = "fellowship", value = "团契", required = true)
+                                                      @ApiParam(name = "fellowship", value = "团契id", required = true)
                                                       @RequestParam(value = "fellowship", required = true) String fellowship
     ) throws ResponseException {
         // 1.计算当前是本年中的第几周

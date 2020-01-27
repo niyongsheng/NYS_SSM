@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly)AVAudioFormat *renderFormat;
 
 /**
- 设置混音声音的音量
+ 设置混音声音的音量（数值 0 到 1，默认为 0.5）
  */
 @property (nonatomic,assign)double volume;
 

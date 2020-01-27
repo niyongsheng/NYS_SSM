@@ -20,26 +20,26 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  GIF 图的大小
  */
-@property(nonatomic, assign) long long gifDataSize;
+@property (nonatomic, assign) long long gifDataSize;
 
 /*!
  GIF 图的宽
  */
-@property(nonatomic, assign) long width;
+@property (nonatomic, assign) long width;
 
 /*!
  GIF 图的高
  */
-@property(nonatomic, assign) long height;
+@property (nonatomic, assign) long height;
 
 /*!
  GIF 消息的附加信息
  */
-@property(nonatomic, copy) NSString *extra;
+@property (nonatomic, copy) NSString *extra;
 
 /*!
  初始化 GIF 消息
- 
+
  @param gifImageData    GIF 图的数据
  @param width           GIF 的宽
  @param height          GIF 的高
@@ -50,11 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  初始化 GIF 消息
- 
+
  @param gifURI          GIF 的本地路径
  @param width           GIF 的宽
  @param height          GIF 的高
- 
+
  @return                GIF消息对象
  */
 + (instancetype)messageWithGIFURI:(NSString *)gifURI width:(long)width height:(long)height;

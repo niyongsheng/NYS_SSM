@@ -55,7 +55,7 @@ public class ArticleController {
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
             @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<Article> selectBannerList(HttpServletRequest request, Model model,
                                                  @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
@@ -96,7 +96,7 @@ public class ArticleController {
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
             @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<Article> selectCollectionArticleList(HttpServletRequest request, Model model,
                                                  @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
@@ -137,7 +137,7 @@ public class ArticleController {
             @ApiImplicitParam(name = "pageNum", value = "页码", defaultValue = "1"),
             @ApiImplicitParam(name = "pageSize", value = "分页大小", defaultValue = "10"),
             @ApiImplicitParam(name = "isPageBreak", value = "是否分页", defaultValue = "0"),
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<Article> selectMyArticleList(HttpServletRequest request, Model model,
                                                             @RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,

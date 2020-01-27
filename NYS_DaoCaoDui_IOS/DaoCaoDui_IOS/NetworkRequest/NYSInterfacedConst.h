@@ -122,6 +122,11 @@ UIKIT_EXTERN NSString *const CR_RefreshUserInfo;
 UIKIT_EXTERN NSString *const CR_UserReport;
 /** 检索圣经*/
 UIKIT_EXTERN NSString *const CR_BibleSearchList;
+/** 获取广告列表*/
+UIKIT_EXTERN NSString *const CR_GetAdvertisementList;
+
+
+
 
 
 

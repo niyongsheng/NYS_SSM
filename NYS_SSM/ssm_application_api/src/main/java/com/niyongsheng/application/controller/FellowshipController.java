@@ -30,7 +30,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/fellowship", produces = MediaType.APPLICATION_JSON)
-@Api(value = "团契", produces = MediaType.APPLICATION_JSON)
+@Api(value = "团契id", produces = MediaType.APPLICATION_JSON)
 @Validated
 public class FellowshipController {
 

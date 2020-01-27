@@ -11,6 +11,7 @@
 #import "NYSPrayCardView.h"
 #import "NYSPrayModel.h"
 #import "NYSPrayCardInfoViewController.h"
+#import <UMAnalytics/MobClick.h>
 
 @interface NYSPrayCardListViewController ()
 <
@@ -20,7 +21,7 @@ CCDraggableContainerDelegate
 
 @property (nonatomic, weak) IBOutlet CCDraggableContainer *container;
 
-@property (nonatomic, strong) NSMutableArray *dataSources;
+@property (nonatomic, strong) NSMutableArray <NYSPrayModel *> *dataSources;
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *collectionButton;
@@ -117,9 +118,13 @@ CCDraggableContainerDelegate
 
 #pragma mark - CCDraggableContainer Delegate
 - (void)draggableContainer:(CCDraggableContainer *)draggableContainer draggableDirection:(CCDraggableDirection)draggableDirection widthRatio:(CGFloat)widthRatio heightRatio:(CGFloat)heightRatio currentIndex:(NSInteger)currentIndex {
-    self.currentIndex = currentIndex;
-    self.collectionButton.selected = [self.dataSources[currentIndex] isCollection];
-    
+    @try {
+        self.currentIndex = currentIndex;
+        self.collectionButton.selected = [[self.dataSources objectOrNilAtIndex:currentIndex] isCollection];
+    } @catch (NSException *exception) {
+        [MobClick event:@"001" attributes:exception.userInfo];
+        [MobClick event:@"001" label:exception.name];
+    }
     CGFloat scale = 1 + ((kBoundaryRatio > fabs(widthRatio) ? fabs(widthRatio) : kBoundaryRatio)) / 4;
     if (draggableDirection == CCDraggableDirectionLeft) {
         self.nextButton.transform = CGAffineTransformMakeScale(scale, scale);

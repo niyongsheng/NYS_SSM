@@ -334,6 +334,17 @@
     return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
 }
 
+/** 获取广告列表*/
++ (NSURLSessionTask *)GetAdvertisementListWithResMethod:(ResMethod)resMethod parameters:(NSDictionary *)parameters success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure isCache:(BOOL)isCache {
+    NSString *url = [NSString stringWithFormat:@"%@%@", CR_ApiPrefix, CR_GetAdvertisementList];
+    return [self requestWithResMethod:resMethod URL:url parameters:parameters success:success failure:failure isCache:isCache];
+}
+
+
+
+
+
+
 
 
 
@@ -372,7 +383,7 @@
 //    [PPNetworkHelper openNetworkActivityIndicator:YES];
     [PPNetworkHelper setRequestTimeoutInterval:RequestTimeout];
 //    [PPNetworkHelper closeAES];
-    NLog(@"接口：%@\n参数：%@", URL, parameters);
+//    NLog(@"接口：%@\n参数：%@", URL, parameters);
     
 #pragma mark - AUTH认证
     [PPNetworkHelper setValue:NCurrentUser.token forHTTPHeaderField:@"Token"];
@@ -571,7 +582,7 @@
 ///  @param success 成功回调
 ///  @param failure 失败回调
 + (void)responseHandler:(NSString *)URL isCache:(BOOL)isCache parameters:(NSDictionary *)parameters responseObject:(id)responseObject success:(NYSRequestSuccess)success failure:(NYSRequestFailure)failure {
-    NLog(@"[服务器Response]：%@", responseObject);
+    NLog(@"[\n请求URL：%@\n请求Param：%@\n服务器Response]：%@", URL, parameters, responseObject);
     if ([[responseObject objectForKey:@"status"] boolValue]) {
         // 0.正常无异常
         isCache ? [PPNetworkCache setHttpCache:responseObject URL:URL parameters:parameters] : nil;

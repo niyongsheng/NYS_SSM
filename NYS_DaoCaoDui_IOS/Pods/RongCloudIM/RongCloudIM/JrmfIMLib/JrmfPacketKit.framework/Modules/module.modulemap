@@ -1,6 +1,0 @@
-framework module JrmfPacketKit {
-  umbrella header "JrmfPacketKit.h"
-
-  export *
-  module * { export * }
-}

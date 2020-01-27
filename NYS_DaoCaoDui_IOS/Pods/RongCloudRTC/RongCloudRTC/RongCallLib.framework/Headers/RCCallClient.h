@@ -12,6 +12,8 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+#define kRongCallLibVersion @"V2.10.2_20200110181956_pub_dev_1d01af8"
+
 /*!
  CallLib全局通话呼入的监听器
  */
@@ -38,6 +40,23 @@
                                mediaType:(RCCallMediaType)mediaType
                               userIdList:(NSArray *)userIdList
                                 userDict:(NSDictionary *)userDict;
+
+/*!
+接收到通话呼入的远程通知的回调
+
+@param callId        呼入通话的唯一值
+@param inviterUserId 通话邀请者的UserId
+@param mediaType     通话的媒体类型
+@param userIdList    被邀请者的UserId列表
+@param userDict      远程推送包含的其他扩展信息
+@param isVoIPPush 是否 VoIP 推送
+*/
+- (void)didReceiveCallRemoteNotification:(NSString *)callId
+                           inviterUserId:(NSString *)inviterUserId
+                               mediaType:(RCCallMediaType)mediaType
+                              userIdList:(NSArray *)userIdList
+                                userDict:(NSDictionary *)userDict
+                              isVoIPPush:(BOOL)isVoIPPush;
 
 /*!
  接收到取消通话的远程通知的回调
@@ -197,4 +216,11 @@
  是否生成通话记录消息，默认为YES
  */
 @property(nonatomic, assign) BOOL enableCallSummary;
+
+/*!
+ 是否打开苹果 PushKit 推送，该推送可以直接激活 App，注：iOS 13 以后 PushKit 必须结合苹果 CallKit.framework 进行使用，否则无法正常处理 VoIP 相关推送逻辑，如果设置为 NO 则使用普通 APNS 消息推送来处理音视频信令逻辑，默认关闭。打开之后 App 默认需要自行处理 VoIP 推送唤起 CallKit.framework 的逻辑。
+ */
+- (void)setApplePushKitEnable:(BOOL)enable;
+
+
 @end

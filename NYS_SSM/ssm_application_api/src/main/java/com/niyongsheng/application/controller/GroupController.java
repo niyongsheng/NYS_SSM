@@ -52,7 +52,7 @@ public class GroupController {
     @RequestMapping(value = "/findAllGroups", method = RequestMethod.GET)
     @ApiOperation(value = "查询所有的群组信息列表", notes = "参数描述", hidden = false)
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "fellowship", value = "团契", required = true)
+            @ApiImplicitParam(name = "fellowship", value = "团契id", required = true)
     })
     public ResponseDto<Group> FindAllGroups(HttpServletRequest request,
                                             @NotNull(message = "{NotBlank.fellowship}")
