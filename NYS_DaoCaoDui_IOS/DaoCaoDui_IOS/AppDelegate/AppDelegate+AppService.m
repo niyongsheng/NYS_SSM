@@ -144,7 +144,7 @@
 
 #pragma mark -- 配置第三方登录 --
 - (void)configUSharePlatforms {
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:AppKey_Sina  appSecret:Secret_Sina redirectURL:nil];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:AppKey_Sina  appSecret:Secret_Sina redirectURL:RedirectURL_Sina];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:AppKey_TencentQQ  appSecret:Secret_TencentQQ redirectURL:nil];
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:AppKey_Wechat appSecret:Secret_Wechat redirectURL:nil];
     // 移除相应平台的分享item微信收藏
