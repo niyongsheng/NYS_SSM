@@ -53,7 +53,7 @@ RMOV | CI | CI
 - [x] LANG: Object_C
 - [x] IDE: Xcode
 ***
-- [x] IOS: >= 9.0
+- [x] ANDROID: >= 9.0
 - [x] LANG: Java
 - [x] IDE: Android Studio
 
