@@ -22,7 +22,6 @@
 @class RongRTCMember;
 @class RongRTCRoom;
 @class RongRTCStream;
-@class RongRTCLiveInfo;
 
 /**
  加入房间成功之后的回调，其中包含房间中的所有用户信息，包含自己的信息
@@ -49,15 +48,6 @@ typedef void(^RongRTCCreateStreamCallback)(RongRTCStream * _Nullable stream);
 typedef void(^RongRTCOperationCallback)(BOOL isSuccess,RongRTCCode desc);
 
 /**
- 直播操作的回调
-
- @param isSuccess 操作是否成功
- @param desc 成功或者失败描述的错误码
- @param liveInfo 当前直播主持人的数据模型
- */
-typedef void(^RongRTCLiveOperationCallback)(BOOL isSuccess,RongRTCCode desc , RongRTCLiveInfo * _Nullable liveInfo);
-
-/**
  获取用户属性操作回调
  
  @param isSuccess 操作是否成功
@@ -66,9 +56,6 @@ typedef void(^RongRTCLiveOperationCallback)(BOOL isSuccess,RongRTCCode desc , Ro
  */
 typedef void(^RongRTCAttributeOperationCallback)(BOOL isSuccess,RongRTCCode desc,NSDictionary * _Nullable attr);
 
-/**
-当前流状态
-*/
 typedef NS_ENUM(NSUInteger, RongRTCInputStreamState) {
     /**
      输入流处于禁用状态，不应该订阅，即使订阅该流也不会收到音视频数据
@@ -102,22 +89,11 @@ typedef NS_ENUM(NSUInteger, RTCMediaType) {
     RTCMediaTypeNothing
 };
 
-/**
- 视频分辨率类型
-*/
 typedef NS_ENUM(NSUInteger, RongRTCVideoSizePreset) {
-    /**
-    分辨率 176X144
-    */
-    RongRTCVideoSizePreset176x144,
     /**
      分辨率 256X144
      */
-    RongRTCVideoSizePreset256x144,
-    /**
-     分辨率 240X240
-     */
-    RongRTCVideoSizePreset240x240,
+    RongRTCVideoSizePreset256x144        = 1,
     /**
      分辨率 320X240
      */
@@ -188,14 +164,12 @@ typedef NS_ENUM(NSUInteger, RongRTCVideoOrientation) {
     RongRTCVideoOrientationLandscapeLeft,
 };
 
+
+
 /**
  帧率
  */
 typedef NS_ENUM(NSUInteger, RongRTCVideoFPS) {
-    /**
-    每秒 10 帧
-    */
-    RongRTCVideoFPS10,
     /**
      每秒 15 帧
      */
@@ -249,26 +223,17 @@ typedef NS_ENUM(NSUInteger, RongRTCDeviceCamera) {
 /**
  设置加入房间时音视频使用模式
  */
-typedef NS_ENUM(NSUInteger, RongRTCRoomType) {
+typedef NS_ENUM(NSUInteger, RongRTCJoinRoomMode) {
     /**
-    普通音视频类型
+     普通试试音视频模式加入
      */
-    RongRTCRoomTypeNormal = 0,
+    RongRTCJoinRoomModeNormal,
     /**
-    直播类型
-    */
-    RongRTCRoomTypeLive = 2,
+     类直播场景模式加入，观察者模式加入之后会减少信令服务器的消息转发压力，提高直播场景体验
+     */
+    RongRTCJoinRoomModeLive,
 };
 
-/**
-直播类型
-*/
-typedef NS_ENUM(NSUInteger , RongRTCLiveType) {
-    /**
-    当前直播为仅音频直播
-    */
-    RongRTCLiveTypeAudio = 1,
-};
 /**
  * Error passing block.
  */

@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong,readonly)NSArray<RongRTCRemoteUser *> *remoteUsers;
 
 /**
- 发布默认音视频流，非直播模式使用
+ 发布默认音视频流
 
  @param completion 发布完成回调
  */
@@ -104,7 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param completion 发布的音视频流结果
  */
 - (void)publishAVStream:(RongRTCAVOutputStream *)stream extra:(NSString *)extra completion:(RongRTCOperationCallback)completion;
-
 /**
  发布数据流.
  

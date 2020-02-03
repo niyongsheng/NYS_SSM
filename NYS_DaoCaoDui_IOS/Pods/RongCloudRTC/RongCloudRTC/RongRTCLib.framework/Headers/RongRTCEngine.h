@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RongRTCDefine.h"
-#import "RongRTCRoomConfig.h"
+#import "RongRTCConfig.h"
 #import "RongRTCCodeDefine.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,24 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class RongRTCVideoPreviewView;
 @class RongRTCVideoCaptureParam;
 @class RongRTCAVOutputStream;
-@class RongRTCLiveAVInputStream;
-@class RongRTCMixStreamConfig;
 @protocol RongRTCNetworkMonitorDelegate;
 @protocol RongRTCActivityMonitorDelegate;
-
-/**
- 观众观看直播的回调
-
- @param desc 成功或者失败描述的错误码
- @param inputStream 当前直播流
- */
-typedef void(^RongRTCLiveCallback)(RongRTCCode desc , RongRTCLiveAVInputStream * _Nullable inputStream);
 /**
  音视频 SDK 对应版本
  
- RongRTCLib version: 3.1.6
- RongRTCLib commit: 75620e49
- RongRTCLib time: 2020-01-10
+ RongRTCLib version: 3.0.6
+ RongRTCLib commit: c52e2b38
+ RongRTCLib time: 2019-09-10
  
  */
 
@@ -65,19 +55,13 @@ typedef void(^RongRTCLiveCallback)(RongRTCCode desc , RongRTCLiveAVInputStream *
  */
 @property (nonatomic,strong,readonly)RongRTCRoom *currentRoom;
 
+
 /**
  设置媒体服务服务地址（私有部署用户使用）
  
  @param url url
  */
 - (BOOL)setMediaServerUrl:(NSString *)url;
-
-/**
-是否允许断线重连，默认为 YES，SDK 在断线或者自己被踢出房间会尝试重连，如果设置为 NO ， 自己被踢出房间将不再做重连，会抛出 `- (void)didKickedOutOfTheRoom:(RongRTCRoom *)room;`此代理。
-
-@param enable 断线重连开关
-*/
-- (void)setReconnectEnable:(BOOL)enable;
 
 /**
  加入房间
@@ -96,7 +80,6 @@ typedef void(^RongRTCLiveCallback)(RongRTCCode desc , RongRTCLiveAVInputStream *
  */
 -(void)leaveRoom:(NSString*)roomId
       completion:(void (^) (BOOL isSuccess , RongRTCCode code))completion;
-
 
 @end
 

@@ -178,11 +178,6 @@ typedef NS_ENUM(NSInteger, RongRTCStreamState) {
  */
 @property (nonatomic, readonly) NSArray<RongRTCStreamStat*>* recvStats;
 
-/**
- 通过 trackId 查找到此 Track 所属的 UserId
- */
-+ (NSString *)fetchUserIdFromTrackId:(NSString *)trackId;
-
 @end
 
 

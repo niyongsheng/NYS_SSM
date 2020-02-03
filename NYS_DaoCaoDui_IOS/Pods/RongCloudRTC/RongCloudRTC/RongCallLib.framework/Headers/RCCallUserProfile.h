@@ -78,11 +78,6 @@
 @property(nonatomic, assign) BOOL isSpeakerInAudioMode;
 
 /*!
- 用户标签
-*/
-@property(nonatomic, strong) NSString *tag;
-
-/*!
  初始化用户的通话状态
 
  @param userId     用户ID

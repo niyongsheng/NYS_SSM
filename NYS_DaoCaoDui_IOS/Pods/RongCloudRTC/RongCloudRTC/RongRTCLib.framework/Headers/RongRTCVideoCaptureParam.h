@@ -51,14 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL tinyStreamEnable;
 
 /**
- 最大码率
+ 码率
  */
 @property (nonatomic, assign) NSInteger maxBitrate;
-
-/**
- 最小码率
-*/
-@property (nonatomic, assign) NSInteger minBitrate;
 
 /**
  设置摄像头采集方向，默认以 AVCaptureVideoOrientationPortrait 角度进行采集

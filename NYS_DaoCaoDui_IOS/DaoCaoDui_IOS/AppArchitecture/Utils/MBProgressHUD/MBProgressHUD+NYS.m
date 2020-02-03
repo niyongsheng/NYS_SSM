@@ -121,8 +121,8 @@ const NSInteger hideTime = 2;
 + (void)hideHUD
 {
     UIView  *winView =(UIView*)[UIApplication sharedApplication].delegate.window;
-    [self hideAllHUDsForView:winView animated:YES];
-    [self hideAllHUDsForView:[NAppDelegate getCurrentUIVC].view animated:YES];
+    [self hideHUDForView:winView animated:YES];
+    [self hideHUDForView:[NAppDelegate getCurrentUIVC].view animated:YES];
 }
 
 #pragma mark ——--— 顶部tip ——--—

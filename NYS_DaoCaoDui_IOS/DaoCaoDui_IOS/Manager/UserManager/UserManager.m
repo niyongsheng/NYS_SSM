@@ -52,8 +52,8 @@ SINGLETON_FOR_CLASS(UserManager);
         
         [SVProgressHUD showWithStatus:@"授权中..."];
         [[UMSocialManager defaultManager] getUserInfoWithPlatform:platFormType currentViewController:nil completion:^(id result, NSError *error) {
+            [SVProgressHUD dismiss];
             if (error) {
-                [SVProgressHUD dismiss];
                 if (completion) {
                     completion(NO, error.localizedDescription);
                 }

@@ -33,7 +33,7 @@ PODS:
   - JXCategoryView (1.5.2)
   - JXPagingView/Pager (2.0.1)
   - Masonry (1.1.0)
-  - MBProgressHUD (1.0.0)
+  - MBProgressHUD (1.2.0)
   - MJExtension (3.2.1)
   - MJRefresh (3.3.1)
   - MSNumberScrollAnimatedView (0.0.2)
@@ -45,31 +45,34 @@ PODS:
   - Ono (2.1.2)
   - PYSearch (0.9.1)
   - ReactiveObjC (3.1.1)
-  - RongCloudIM (2.10.3):
-    - RongCloudIM/IMKit (= 2.10.3)
-    - RongCloudIM/IMLib (= 2.10.3)
-    - RongCloudIM/RongSticker (= 2.10.3)
-    - RongCloudIM/Sight (= 2.10.3)
-  - RongCloudIM/IMKit (2.10.3):
+  - RongCloudIM (2.9.25):
+    - RongCloudIM/IMKit (= 2.9.25)
+    - RongCloudIM/IMLib (= 2.9.25)
+    - RongCloudIM/RedPacket (= 2.9.25)
+    - RongCloudIM/RongSticker (= 2.9.25)
+    - RongCloudIM/Sight (= 2.9.25)
+  - RongCloudIM/IMKit (2.9.25):
     - RongCloudIM/IMLib
-  - RongCloudIM/IMLib (2.10.3)
-  - RongCloudIM/RongSticker (2.10.3):
+  - RongCloudIM/IMLib (2.9.25)
+  - RongCloudIM/RedPacket (2.9.25):
     - RongCloudIM/IMKit
-  - RongCloudIM/Sight (2.10.3):
+  - RongCloudIM/RongSticker (2.9.25):
+    - RongCloudIM/IMKit
+  - RongCloudIM/Sight (2.9.25):
     - RongCloudIM/IMLib
-  - RongCloudRTC (2.10.3):
-    - RongCloudRTC/RongCallKit (= 2.10.3)
-    - RongCloudRTC/RongCallLib (= 2.10.3)
-  - RongCloudRTC/RongCallKit (2.10.3):
-    - RongCloudIM/IMKit (~> 2.10.3)
-    - RongCloudIM/IMLib (~> 2.10.3)
+  - RongCloudRTC (2.9.25):
+    - RongCloudRTC/RongCallKit (= 2.9.25)
+    - RongCloudRTC/RongCallLib (= 2.9.25)
+  - RongCloudRTC/RongCallKit (2.9.25):
+    - RongCloudIM/IMKit (~> 2.9.25)
+    - RongCloudIM/IMLib (~> 2.9.25)
     - RongCloudRTC/RongCallLib
-  - RongCloudRTC/RongCallLib (2.10.3):
-    - RongCloudIM/IMLib (~> 2.10.3)
+  - RongCloudRTC/RongCallLib (2.9.25):
+    - RongCloudIM/IMLib (~> 2.9.25)
   - SDAutoLayout (2.2.1)
-  - SDWebImage (5.5.1):
-    - SDWebImage/Core (= 5.5.1)
-  - SDWebImage/Core (5.5.1)
+  - SDWebImage (5.5.2):
+    - SDWebImage/Core (= 5.5.2)
+  - SDWebImage/Core (5.5.2)
   - SGPagingView (1.6.7)
   - SVProgressHUD (2.2.5)
   - TXScrollLabelView (1.3.2)
@@ -105,15 +108,15 @@ DEPENDENCIES:
   - JXCategoryView
   - JXPagingView/Pager
   - Masonry
-  - MBProgressHUD (~> 1.0.0)
+  - MBProgressHUD
   - MJExtension
   - MJRefresh
   - MSNumberScrollAnimatedView
   - Ono
   - PYSearch
   - ReactiveObjC
-  - RongCloudIM (~> 2.10.3)
-  - RongCloudRTC (~> 2.10.3)
+  - RongCloudIM (= 2.9.25)
+  - RongCloudRTC (= 2.9.25)
   - SDAutoLayout
   - SDWebImage
   - SGPagingView
@@ -184,7 +187,7 @@ SPEC CHECKSUMS:
   JXCategoryView: b284d35a7a8772eada05dd78642233e1eb763ea8
   JXPagingView: cacaf7512d223e21133bd71ca245126acc5f535a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   MSNumberScrollAnimatedView: 28c0cb5d10cb0b93b4b9aa421455c22157ac0ed5
@@ -192,10 +195,10 @@ SPEC CHECKSUMS:
   Ono: 26a7c1fc4df13ece7747560a1d80655807a8a000
   PYSearch: 76dee18eea3309b60921a5d6a69390a63a5dda15
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  RongCloudIM: ba780b70304ccef99efd324489a4c0574c65cd6f
-  RongCloudRTC: 3baaece8ea253854f9fea03b1dc30fcb86a9242e
+  RongCloudIM: cd6836aa86fbf6c02f7b6b5c895ea4caa894d67f
+  RongCloudRTC: 561024c315d3726a67e718fb99b59e50e4a5ee6c
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
-  SDWebImage: 1245d058b7b8f59adef7a6da6bbafd4f1ab67041
+  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SGPagingView: 21152cbb9e25a7259ea2415b028c22f55f362ea2
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TXScrollLabelView: 0e1650caf61198bf5dc0938ea6493254aeb80f90
@@ -207,6 +210,6 @@ SPEC CHECKSUMS:
   XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 6ce8643b162cf1e8869b66ecd565a5b6ed5c5600
+PODFILE CHECKSUM: d4f367e880614ee842f8d8052e18e26813e54c9a
 
 COCOAPODS: 1.8.4

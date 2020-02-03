@@ -68,16 +68,6 @@ typedef NS_ENUM (NSInteger, RongRTCCode)
     RongRTCCodeJoinToSameRoom = 50002,
     
     /**
-    不在房间中
-    */
-    RongRTCCodeNotInRTCRoom = 50003,
-    
-    /**
-    请检查是否开通音视频服务
-    */
-    RongRTCCodeEngineError= 50004,
-    
-    /**
      HTTP 请求超时
      */
     RongRTCCodeHttpTimeoutError = 50010,
@@ -131,7 +121,6 @@ typedef NS_ENUM (NSInteger, RongRTCCode)
      取消订阅不存在的音视频资源
      */
     RongRTCCodeUnsubscribeNotExistResouce = 50032,
-    
     
     /**
      SDK 内部业务逻辑错误码

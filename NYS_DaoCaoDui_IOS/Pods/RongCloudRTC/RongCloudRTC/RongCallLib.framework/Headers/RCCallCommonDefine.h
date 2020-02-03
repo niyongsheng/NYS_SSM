@@ -240,10 +240,6 @@ typedef NS_ENUM(NSInteger, RCVideoProfile) {
      */
     RC_VIDEO_PROFILE_144P = 10,
     /*!
-     176x144, 10fps, 150kbps
-    */
-    RC_VIDEO_PROFILE_144P_1 = 11,
-    /*!
      320x240, 15fps, 200kbps
      */
     RC_VIDEO_PROFILE_240P = 20,

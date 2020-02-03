@@ -76,6 +76,7 @@
  */
 - (void)remoteUserDidDisableCamera:(BOOL)disabled byUser:(NSString *)userId;
 
+
 /*!
  对端用户挂断
 
@@ -83,22 +84,6 @@
  @param reason 挂断的原因
  */
 - (void)remoteUserDidLeft:(NSString *)userId reason:(RCCallDisconnectReason)reason;
-
-/*!
- 对端用户发布自定义媒体流
-
- @param streamId 自定义流ID
- @param streamTag 自定义流标签
- @param reason 媒体类型
-*/
-- (void)remoteUserDidPublishCustomMediaStream:(NSString *)streamId streamTag:(NSString *)tag mediaType:(RCCallMediaType)mediaType;
-
-/*!
- 对端用户取消发布自定义媒体流
- 
- @param streamId 自定义流ID
-*/
-- (void)remoteUserDidCancelPublishCustomMediaStream:(NSString *)streamId;
 
 /*!
  彩铃
@@ -141,14 +126,6 @@
  @param userID      远端用户
  */
 - (void)networkTxQuality:(RCCallQuality)txQuality rxQuality:(RCCallQuality)rxQuality remoteUserID:(NSString *)userID;
-
-/*!
- 当前通话某用户声音音量回调，该回调方法每两秒触发一次
-
- @param leavel   声音级别: 0~9, 0为无声, 依次变大
- @param userID   用户ID, 本端用户ID(发送音量) 或 远端用户ID(接收音量)
-*/
-- (void)audioLevel:(NSInteger)leavel userID:(NSString *)userID;
 
 /*!
  当前通话本地视频数据, 用于GPU滤镜处理, 同步返回处理后的同一sampleBuffer对象, 需要本地视频数据时首先调用 RCCallClient.h 中 - (void)setEnableBeauty:(BOOL)enable方法, 该方法默认为NO.
@@ -289,12 +266,12 @@
 /*!
  观察者身份用户, 发布自己的音视频资源
  */
-- (void)publishMediaResource:(RCCallMediaType)mediaType complete:(void(^)(BOOL isSuccess, NSInteger code))block;
+- (void)publishMediaResource:(RCCallMediaType)mediaType complete:(void(^)(BOOL, NSInteger))block;
 
 /*!
  正常身份用户, 取消发布自己的音视频资源
  */
-- (void)unPublishMediaResource:(void(^)(BOOL isSuccess, NSInteger code))block;
+- (void)unPublishMediaResource:(void(^)(BOOL, NSInteger))block;
 
 /*!
  邀请用户加入通话
