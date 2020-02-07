@@ -53,7 +53,7 @@
 - (void)itemDidLayoutBadgeLabel{
     switch (self.itemModel.itemBadgeStyle) {
         case AxcAE_TabBarItemBadgeStyleTopRight:{   // 右上方 默认
-            self.badgeLabel.center = CGPointMake(self.frame.size.width - (self.badgeLabel.frame.size.width/2),self.badgeLabel.frame.size.height/2 );
+            self.badgeLabel.center = CGPointMake(self.frame.size.width - 2*(self.badgeLabel.frame.size.width),self.badgeLabel.frame.size.height/2 );
         }break;
         case AxcAE_TabBarItemBadgeStyleTopCenter:{      // 上中间
             self.badgeLabel.center = CGPointMake(self.frame.size.width/2,self.badgeLabel.frame.size.height/2 );

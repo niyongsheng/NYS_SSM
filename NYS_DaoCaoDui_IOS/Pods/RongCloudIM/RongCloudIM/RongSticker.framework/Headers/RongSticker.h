@@ -14,4 +14,5 @@ FOUNDATION_EXPORT double RongStickerVersionNumber;
 //! Project version string for RongSticker.
 FOUNDATION_EXPORT const unsigned char RongStickerVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <RongSticker/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import
+// <RongSticker/PublicHeader.h>

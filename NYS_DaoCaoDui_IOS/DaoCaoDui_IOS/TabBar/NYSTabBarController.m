@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [NNotificationCenter addObserver:self selector:@selector(receiveMessage:) name:@"RCIMReceiveMessageNotification" object:nil];
     
     NSArray <NSDictionary *> *VCArray =
     @[@{@"vc":[[NYSBaseNavigationController alloc] initWithRootViewController:[NYSChatListViewController new]],
@@ -39,14 +40,14 @@
     NSMutableArray *tabBarConfs = @[].mutableCopy;
     NSMutableArray *tabBarVCs = @[].mutableCopy;
     [VCArray enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
         AxcAE_TabBarConfigModel *model = [AxcAE_TabBarConfigModel new];
+        model.itemBadgeStyle = AxcAE_TabBarItemBadgeStyleTopRight;
+        model.itemLayoutStyle = AxcAE_TabBarItemLayoutStyleTopPictureBottomTitle;
         model.itemTitle = [obj objectForKey:@"itemTitle"];
         model.selectColor = NNavBgColor;
         model.normalColor = UIColorFromHex(0xAFAFAF);
         model.selectImageName = [obj objectForKey:@"selectImg"];
         model.normalImageName = [obj objectForKey:@"normalImg"];
-//        model.selectBackgroundColor = AxcAE_TabBarRGBA(248, 248, 248, 1);
         model.normalBackgroundColor = [UIColor clearColor];
         
         if (idx == 1 ) { // 如果是中间的
@@ -69,7 +70,7 @@
             model.normalBackgroundColor = [UIColor colorWithHexString:@"#F0F0F0"];
             model.selectBackgroundColor = NNavBgColor;
             // 设置大小/边长
-            model.itemSize = CGSizeMake(self.tabBar.frame.size.width / 5 - 20.0 ,self.tabBar.frame.size.height - 10);
+            model.itemSize = CGSizeMake(self.tabBar.frame.size.width / 5 - 20.0, self.tabBar.frame.size.height - 10);
         }
         
         // 动画
@@ -90,12 +91,28 @@
 }
 
 #pragma mark - AxcAE_TabBarDelegate
-- (void)axcAE_TabBar:(AxcAE_TabBar *)tabbar selectIndex:(NSInteger)index{
+- (void)axcAE_TabBar:(AxcAE_TabBar *)tabbar selectIndex:(NSInteger)index {
     // 通知 切换视图控制器
     [self setSelectedIndex:index];
 }
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex{
+#pragma mark - RCIMReceiveMessageNotification
+- (void)receiveMessage:(NSNotification *)notification {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        int unreadMsgCount = [[RCIMClient sharedRCIMClient] getUnreadCount:@[
+            @(ConversationType_PRIVATE),
+            @(ConversationType_DISCUSSION),
+            @(ConversationType_PUBLICSERVICE),
+            @(ConversationType_PUBLICSERVICE),
+            @(ConversationType_GROUP)
+        ]];
+        AxcAE_TabBarItem *item = self.axcTabBar.tabBarItems[0];
+        item.badge = [NSString stringWithFormat:@"%d", unreadMsgCount];
+//        item.badgeLabel.center = CGPointMake(item.size.width - 45, item.badgeLabel.frame.size.height/2);
+    }];
+}
+
+- (void)setSelectedIndex:(NSUInteger)selectedIndex {
     [super setSelectedIndex:selectedIndex];
     if (self.axcTabBar) {
         self.axcTabBar.selectIndex = selectedIndex;

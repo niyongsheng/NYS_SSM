@@ -41,43 +41,43 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  播放器视图
  */
-@property(strong, nonatomic, readonly) UIView *view;
+@property (strong, nonatomic, readonly) UIView *view;
 
 /**
  播放器覆盖视图
  */
-@property(strong, nonatomic, readonly) id<RCSightPlayerOverlay> overlay;
+@property (strong, nonatomic, readonly) id<RCSightPlayerOverlay> overlay;
 
 /**
  播放器代理
  */
-@property(weak, nonatomic) id<RCSightPlayerControllerDelegate> delegate;
+@property (weak, nonatomic) id<RCSightPlayerControllerDelegate> delegate;
 
 /**
  是否循环播放，默认为NO，不循环播放
  */
-@property(assign, nonatomic) BOOL isLoopPlayback;
+@property (assign, nonatomic) BOOL isLoopPlayback;
 
 /**
  视频的本地或者远程url，
  @discussion 如果开启了autoPlay设置该属性会自动调用 play 方法
  */
-@property(strong, nonatomic) NSURL *rcSightURL;
+@property (strong, nonatomic) NSURL *rcSightURL;
 
 /**
  第一帧的图像
  */
-@property(strong, nonatomic, nullable) UIImage *firstFrameImage;
+@property (strong, nonatomic, nullable) UIImage *firstFrameImage;
 
 /**
  视频下载完成后是否自动播放，默认为NO ，不自动播放，
  */
-@property(nonatomic, assign, getter=isAutoPlay) BOOL autoPlay;
+@property (nonatomic, assign, getter=isAutoPlay) BOOL autoPlay;
 
 /**
  是否隐藏播放器的覆盖控制图层
  */
-@property(nonatomic, assign, getter=isOverlayHidden) BOOL overlayHidden;
+@property (nonatomic, assign, getter=isOverlayHidden) BOOL overlayHidden;
 
 /**
  设置视频播放器的缩略显示图
@@ -97,12 +97,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pause;
 
 /**
- 销毁资源，重置状态，终止播放。
- 
+ 销毁资源，重置状态，终止播放。等同于下面个接口的  reset:YES
+
   @discussion 该方法不会终止下载操作，下载完成后会缓存视频文件，但是不会播放。
  */
 - (void)reset;
--(void)setLoadingCenter:(CGPoint)center;
+
+/**
+ 销毁资源，重置状态，终止播放。
+
+ @param inactivateAudioSession 设置 AVAudioSession 为失效
+
+  @discussion 该方法不会终止下载操作，下载完成后会缓存视频文件，但是不会播放。
+ */
+- (void)reset:(BOOL)inactivateAudioSession;
+
+- (void)setLoadingCenter:(CGPoint)center;
 
 @end
 

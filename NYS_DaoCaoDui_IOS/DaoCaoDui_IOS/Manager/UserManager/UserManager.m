@@ -199,7 +199,7 @@ SINGLETON_FOR_CLASS(UserManager);
         }];
         UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"其他团契" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"telprompt://%@", @"18853936112"];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str] options:@{UIApplicationOpenURLOptionUniversalLinksOnly : @YES} completionHandler:nil];
         }];
         [alertPicker addCompletionAction:sureAction];
         [alertPicker addCompletionAction:otherAction];
@@ -236,7 +236,7 @@ SINGLETON_FOR_CLASS(UserManager);
     self.isLogined = YES;
     // 4.添加推送别名
     [JPUSHService setAlias:self.currentUserInfo.account completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-        NLog(@"setAlias code:%ld content:%@ seq:%ld", iResCode, iAlias, seq);
+        NLog(@"setAlias code:%ld content:%@ seq:%ld", (long)iResCode, iAlias, (long)seq);
     } seq:++self.seq];
 }
 

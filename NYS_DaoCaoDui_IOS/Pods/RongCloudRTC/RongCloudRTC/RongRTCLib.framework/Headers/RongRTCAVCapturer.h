@@ -167,6 +167,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(BOOL)writePCMBuffer:(NSData *)pcmBuffer action:(RTCAudioAction)action;
 
+/**
+ 将所有远端用户静音，注：该功能只是不播放接收到的音频数据
+ 
+ @param mute 是否静音所有远端用户，YES 为禁止，NO 为允许
+ */
+-(void)muteAllRemoteAudio:(BOOL)mute;
+
 @end
 
 NS_ASSUME_NONNULL_END

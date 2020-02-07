@@ -65,6 +65,7 @@
         @(ConversationType_GROUP)
     ]];
     application.applicationIconBadgeNumber = unreadMsgCount + 0;
+    // JPush 服务器端脚标
     [JPUSHService setBadge:application.applicationIconBadgeNumber];
 }
 

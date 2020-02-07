@@ -41,7 +41,8 @@
     [[UIButton appearance] setExclusiveTouch:YES];
     // [[UIButton appearance] setShowsTouchWhenHighlighted:YES];
     // [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = [UIColor whiteColor];
-    [NApplication setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    NApplication.statusBarStyle = UIStatusBarStyleLightContent;
+//    [NApplication setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     // 暂时不适配暗黑模式
     if (@available(iOS 13.0, *)) {
         [self.window setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
@@ -165,7 +166,7 @@
     BOOL isNetWork = [notification.object boolValue];
     
     if (isNetWork) { // 有网络
-        if ([NUserManager loadUserInfo] && !NIsLogin) {//有用户数据 并且 未登录成功 重新来一次自动登录
+        if ([NUserManager loadUserInfo] && !NIsLogin) { // 有用户数据 并且 未登录成功 重新来一次自动登录
             [NUserManager autoLoginToServer:^(BOOL success, NSString *des) {
                 if (success) {
                     NLog(@"网络改变后，自动登录成功");

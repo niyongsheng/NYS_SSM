@@ -109,13 +109,23 @@
         _tableView.estimatedSectionFooterHeight = 0;
         
         // 头部刷新
-        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+        MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
         header.automaticallyChangeAlpha = YES;
         header.lastUpdatedTimeLabel.hidden = YES;
+        header.labelLeftInset = 5.f;
+        NSMutableArray *refreshingImages = [NSMutableArray array];
+        for (int i = 1; i <= 16; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_%04d", i]];
+            [refreshingImages addObject:[image imageByResizeToSize:CGSizeMake(RealValue(30), RealValue(15))]];
+        }
+        [header setImages:refreshingImages forState:MJRefreshStateRefreshing];
         _tableView.mj_header = header;
         
         // 底部刷新
-        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+        MJRefreshAutoGifFooter *footter = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+        footter.labelLeftInset = 5.f;
+        [footter setImages:refreshingImages forState:MJRefreshStateRefreshing];
+        _tableView.mj_footer = footter;
         //        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
         //        _tableView.mj_footer.ignoredScrollViewContentInsetBottom = 30;
         
@@ -137,14 +147,23 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight - NTopHeight) collectionViewLayout:flow];
         
         // 头部刷新
-        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+        MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
         header.automaticallyChangeAlpha = YES;
         header.lastUpdatedTimeLabel.hidden = YES;
-        header.stateLabel.hidden = YES;
+        header.labelLeftInset = 5.f;
+        NSMutableArray *refreshingImages = [NSMutableArray array];
+        for (int i = 1; i <= 16; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_%04d", i]];
+            [refreshingImages addObject:[image imageByResizeToSize:CGSizeMake(RealValue(30), RealValue(15))]];
+        }
+        [header setImages:refreshingImages forState:MJRefreshStateRefreshing];
         _collectionView.mj_header = header;
         
         // 底部刷新
-        _collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+        MJRefreshAutoGifFooter *footter = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+        footter.labelLeftInset = 5.f;
+        [footter setImages:refreshingImages forState:MJRefreshStateRefreshing];
+        _collectionView.mj_footer = footter;
         
         _collectionView.backgroundColor = NViewBgColor;
         _collectionView.scrollsToTop = YES;

@@ -14,8 +14,8 @@ FOUNDATION_EXPORT double RongSightVersionNumber;
 //! Project version string for RongSight.
 FOUNDATION_EXPORT const unsigned char RongSightVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <RongSight/PublicHeader.h>
-
+// In this header, you should import all the public headers of your framework using statements like #import
+// <RongSight/PublicHeader.h>
 
 #import <RongSight/RCSightViewController.h>
 #import <RongSight/RCSightPlayerController.h>

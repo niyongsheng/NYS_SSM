@@ -23,7 +23,7 @@ FOUNDATION_EXPORT const unsigned char RongRTCLibVersionString[];
 #import <RongRTCLib/RongRTCAVInputStream.h>
 #import <RongRTCLib/RongRTCAVOutputStream.h>
 #import <RongRTCLib/RongRTCCodeDefine.h>
-#import <RongRTCLib/RongRTCConfig.h>
+#import <RongRTCLib/RongRTCRoomConfig.h>
 #import <RongRTCLib/RongRTCDefine.h>
 #import <RongRTCLib/RongRTCEngine.h>
 #import <RongRTCLib/RongRTCLocalUser.h>
@@ -37,3 +37,8 @@ FOUNDATION_EXPORT const unsigned char RongRTCLibVersionString[];
 #import <RongRTCLib/RongRTCUser.h>
 #import <RongRTCLib/RongRTCVideoCaptureParam.h>
 #import <RongRTCLib/RongRTCVideoPreviewView.h>
+#import <RongRTCLib/RongRTCLiveInfo.h>
+#import <RongRTCLib/RongRTCLiveAVInputStream.h>
+#import <RongRTCLib/RongRTCMixStreamConfig.h>
+#import <RongRTCLib/RongRTCMixStreamOutputConfig.h>
+#import <RongRTCLib/RongRTCMixStreamInputConfig.h>

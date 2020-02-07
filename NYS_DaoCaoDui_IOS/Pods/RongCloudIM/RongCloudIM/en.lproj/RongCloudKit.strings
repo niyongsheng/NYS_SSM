@@ -6,6 +6,7 @@
 "RC:PSMultiImgTxtMsg"="[Message]";
 "RC:PSImgTxtMsg"="[Message]";
 "RC:SightMsg"="[Video]";
+"RC:RLEnd" = "[Location sharing is ended]";
 "Draft"="[Draft]";
 "Message"="Message";
 "conversation_private_collection_title"="Chat assistant";
@@ -230,7 +231,7 @@
 "GroupChatHistory" = "Group Chat History";
 "ChatHistoryForXAndY" = "Chat History for %@ and %@";
 "ChatHistoryForX" = "Chat History for %@";
-"ForwardingNotSupported" = "Failed to send,red packets,burn message,cannot be forwarded";
+"ForwardingNotSupported" = "Failed to send,burn message,cannot be forwarded";
 "CombineAndForward" = "Combine and Forward";
 "OneByOneForward" = "One-by-One Forward";
 "ChatHistory" = "Chat History";
@@ -251,7 +252,10 @@
 "MessageRecallAlert"="Message recalled";
 "ClickToPlay" = "Click the Play";
 "ClickToView" = "Click to View";
-"hold_to_talk_title"="Hold to talk";
+"SaveSuccess" = "Save success";
+"SaveFailed" = "Save failed";
+"RecallEdit" = "Edit";
+"hold_to_talk_title"="Hold to Talk";
 "release_to_send_title"="Release to send";
 "message_too_short"="Message too short";
 "message_too_long"="Message too long";
@@ -291,7 +295,7 @@
 "Clear"="Clear";
 "Send"="Send";
 "TouchToTakeAPictureAndPressAndholdTheRecordingVideo"="Tap to take photo and hold to record video";
-"downloadFailedClickToDownload"="Download failed, click to download";
+"downloadFailedClickToDownload"="Failed to download, tap to download again";
 "OvermMaximum"="the maximum size of file is limited to 100MB";
 "Edit"="Edit";
 "GIFAboveMaxSize" = "GIF image size too large, Unable to send";

@@ -28,8 +28,8 @@ target 'DaoCaoDui_IOS' do
   pod 'XRWaterfallLayout'
 
   pod 'JPush'
-  pod 'RongCloudIM', '2.9.25'
-  pod 'RongCloudRTC', '2.9.25'
+  pod 'RongCloudIM'
+  pod 'RongCloudRTC'
   pod 'UMCCommon'
   pod 'UMCCommonLog'
   pod 'UMCAnalytics'

@@ -28,8 +28,11 @@
 #define UMengKey          @"5da7bb714ca357079900067c"
 
 // 微信
-#define AppKey_Wechat     @"wxb9604af97b923ffc"
-#define Secret_Wechat     @"9ecfdb6c24bd12f07254c90a46a4ab40"
+//#define AppKey_Wechat     @"wxb9604af97b923ffc"
+//#define Secret_Wechat     @"9ecfdb6c24bd12f07254c90a46a4ab40"
+// 微信（公司）
+#define AppKey_Wechat     @"wx76748e36443ee8a2"
+#define Secret_Wechat     @""
 
 // 腾讯QQ
 #define AppKey_TencentQQ  @"1110076569"
@@ -49,6 +52,7 @@
 #define JPUSH_IsProd      YES
 
 // 融云IM
-#define RCAPPKEY          @"bmdehs6pbg3ps"
+#define RCAPPKEY          @"pkfcgjstpzlt8" // 生产环境
+//#define RCAPPKEY          @"bmdehs6pbg3ps" // 开发环境
 
 #endif /* ThirdMacros_h */

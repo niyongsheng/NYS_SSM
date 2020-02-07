@@ -17,12 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 /*!
  显示图片缩略图的View
  */
-@property(nonatomic, strong) RCGIFImageView *gifImageView;
+@property (nonatomic, strong) RCGIFImageView *gifImageView;
 
 /*!
  显示发送进度的View
  */
-@property(nonatomic, strong) RCImageMessageProgressView *progressView;
+@property (nonatomic, strong) RCImageMessageProgressView *progressView;
 
 @end
 

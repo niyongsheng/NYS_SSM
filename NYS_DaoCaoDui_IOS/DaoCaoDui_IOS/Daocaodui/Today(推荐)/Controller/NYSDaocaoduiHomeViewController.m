@@ -11,6 +11,7 @@
 #import "NYSBannerCollectionViewCell.h"
 #import <TXScrollLabelView.h>
 #import <MSNumberScrollAnimatedView.h>
+#import <AXWebViewController/AXWebViewController.h>
 #import "NYSTodayItemView.h"
 #import "NYSScrollNumberView.h"
 #import "NYSWeekBibleModel.h"
@@ -62,10 +63,16 @@
     
     _homeView = ({
         UIScrollView *homeView = [[UIScrollView alloc] init];
-        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+        MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
         header.automaticallyChangeAlpha = YES;
         header.lastUpdatedTimeLabel.hidden = YES;
-        header.stateLabel.hidden = YES;
+        header.labelLeftInset = 5.f;
+        NSMutableArray *refreshingImages = [NSMutableArray array];
+        for (int i = 1; i <= 16; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_%04d", i]];
+            [refreshingImages addObject:[image imageByResizeToSize:CGSizeMake(RealValue(30), RealValue(15))]];
+        }
+        [header setImages:refreshingImages forState:MJRefreshStateRefreshing];
         homeView.mj_header = header;
         homeView.alwaysBounceVertical = YES;
         homeView.bounces = YES;
@@ -155,6 +162,14 @@
     .wDataSet(self.bannerArray)
     .wEventCenterClickSet(^(id anyID, NSInteger index,BOOL isCenter,UICollectionViewCell *cell) {
         NLog(@"首页轮播图点击\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@",anyID,index,isCenter,cell);
+        NYSBannerModel *bannerModel = self.bannerArray[index];
+        if (bannerModel.targetUrl.length > 0) {
+            AXWebViewController *webVC = [[AXWebViewController alloc] initWithAddress:bannerModel.targetUrl];
+            self.navigationController.navigationBar.barTintColor = NNavBgColor;
+            webVC.navigationType = AXWebViewControllerNavigationBarItem;
+            webVC.showsNavigationBackBarButtonItemTitle = YES;
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
     })
     .wEventScrollEndSet( ^(id anyID, NSInteger index, BOOL isCenter,UICollectionViewCell *cell) {
 //             NLog(@"首页轮播图滚动\n anyID:%@ \n index:%ld \n isCenter:%d \n cell:%@", anyID, index, isCenter, cell);
@@ -332,7 +347,7 @@
 
 #pragma mark - 获取当前时间，日期
 - (NSString*)getWeekDay {
-    NSDate*date =[NSDate date];
+    NSDate*date = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];

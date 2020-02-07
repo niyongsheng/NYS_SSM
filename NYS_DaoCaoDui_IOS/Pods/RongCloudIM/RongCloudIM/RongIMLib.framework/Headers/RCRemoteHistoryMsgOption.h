@@ -29,13 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
  起始的消息发送时间戳，毫秒
  默认 0
  */
-@property(nonatomic, assign)long long recordTime;
+@property (nonatomic, assign) long long recordTime;
 
 /**
  需要获取的消息数量， 0 < count <= 20
  默认 0
  */
-@property(nonatomic, assign)NSInteger count;
+@property (nonatomic, assign) NSInteger count;
 
 /**
  拉取顺序
@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  RCRemoteHistoryOrderAsc： 升序，结合传入的时间戳参数，获取发送时间递减的消息
  默认降序
  */
-@property(nonatomic, assign)RCRemoteHistoryOrder order;
+@property (nonatomic, assign) RCRemoteHistoryOrder order;
 
 /**
  是否需要排重
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  NO: 拉取回来的消息只返回本地数据库中不存在的
  默认 NO
  */
-@property(nonatomic, assign)BOOL includeLocalExistMessage;
+@property (nonatomic, assign) BOOL includeLocalExistMessage;
 
 @end
 
