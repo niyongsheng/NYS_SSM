@@ -28,7 +28,7 @@ NYS_SSM
 ## <a id="Application_Instance_by_NYS_SSM:"></a>Application Instance by NYS_SSM:
 RMOV | CI | CI
 ------------ | ------------- | -------------
-<img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true" width="50" height="50"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_login.jpeg?raw=true"> | <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_home.jpeg?raw=true">
+<img src="http://file.daocaodui.top/RPReplay_Final1581497997.mp4"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true">
 
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true">
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true">
