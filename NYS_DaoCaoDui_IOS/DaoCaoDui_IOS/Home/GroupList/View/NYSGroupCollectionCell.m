@@ -48,7 +48,7 @@
 - (void)setGroupModel:(NYSGroupModel *)groupModel {
     _groupModel = groupModel;
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:groupModel.groupIcon] placeholderImage:[UIImage imageNamed:@"logo_60x60"]];
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:groupModel.groupIcon] placeholderImage:[UIImage imageNamed:@"chat_group"]];
     self.name.textColor = groupModel.isTop ? [UIColor redColor] : [UIColor blackColor];
     self.name.text = groupModel.groupName;
     self.memberCount.text = [NSString stringWithFormat:@"%ld人", groupModel.memberCount];

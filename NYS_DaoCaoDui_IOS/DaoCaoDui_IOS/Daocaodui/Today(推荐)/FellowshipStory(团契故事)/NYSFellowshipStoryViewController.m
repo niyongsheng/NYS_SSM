@@ -76,7 +76,7 @@
         NYSUserBannerCollectionViewCell *cell = (NYSUserBannerCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([NYSUserBannerCollectionViewCell class]) forIndexPath:indexPath];
         // 设置数据
         UserInfo *userModel = (UserInfo *)model;
-        [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(UserInfo *)model icon]] placeholderImage:[UIImage imageNamed:@"bg_compose_artwork_198x94_"]];
+        [cell.icon sd_setImageWithURL:[NSURL URLWithString:[(UserInfo *)model icon]] placeholderImage:[UIImage imageNamed:@"ic_album_cover_65x65_"]];
         cell.titleText.text = userModel.introduction ? [NSString stringWithFormat:@"%@:%@", userModel.nickname, userModel.introduction] : userModel.nickname;
         
         return cell;

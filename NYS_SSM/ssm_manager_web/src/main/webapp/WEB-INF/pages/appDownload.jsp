@@ -115,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="top-grids">
     <div class="container">
         <div class="top-grids-head text-center">
-            <h3>稻草堆是一款我们提供服务的本地化团契生活服务类产品</h3>
+            <h3>稻草堆是一款我们提供支持的本地化团契生活服务类产品</h3>
             <p>旨在更好的帮助弟兄姊妹分享、读经、代祷建立规律的属灵生活和亲密的团契关系。</p>
         </div>
         <div class="top-grids-box">

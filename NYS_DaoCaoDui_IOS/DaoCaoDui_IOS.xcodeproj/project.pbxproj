@@ -93,6 +93,7 @@
 		C83CDF3D23BDD900007E3B17 /* NYSMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CDF3C23BDD900007E3B17 /* NYSMembersViewController.m */; };
 		C83CDF4423BDD965007E3B17 /* NYSMemberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C83CDF4223BDD965007E3B17 /* NYSMemberCollectionViewCell.m */; };
 		C83CDF4723BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83CDF4623BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib */; };
+		C841A41E23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C841A41C23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.m */; };
 		C8424EB4229E748A003A7C58 /* NYSJSHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB3229E748A003A7C58 /* NYSJSHandler.m */; };
 		C8424EB7229E7593003A7C58 /* NYSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB6229E7593003A7C58 /* NYSWebViewController.m */; };
 		C8424EBA229E769E003A7C58 /* NYSRootWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8424EB9229E769E003A7C58 /* NYSRootWebViewController.m */; };
@@ -108,7 +109,6 @@
 		C852821323C07766000429A1 /* NYSClockListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C852821123C07766000429A1 /* NYSClockListTableViewCell.m */; };
 		C852821423C07766000429A1 /* NYSClockListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C852821223C07766000429A1 /* NYSClockListTableViewCell.xib */; };
 		C852821723C0783B000429A1 /* NYSRankingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C852821623C0783B000429A1 /* NYSRankingListViewController.m */; };
-		C852821A23C07D32000429A1 /* NYSPagingViewTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C852821923C07D31000429A1 /* NYSPagingViewTableHeaderView.m */; };
 		C852821D23C07DA5000429A1 /* NYSClockListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C852821C23C07DA5000429A1 /* NYSClockListView.m */; };
 		C857A383229CCBDA002B5396 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C857A382229CCBDA002B5396 /* AppManager.m */; };
 		C857A387229CD016002B5396 /* MBProgressHUD+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C857A386229CD016002B5396 /* MBProgressHUD+NYS.m */; };
@@ -451,6 +451,8 @@
 		C83CDF4123BDD965007E3B17 /* NYSMemberCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMemberCollectionViewCell.h; sourceTree = "<group>"; };
 		C83CDF4223BDD965007E3B17 /* NYSMemberCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMemberCollectionViewCell.m; sourceTree = "<group>"; };
 		C83CDF4623BDDB95007E3B17 /* NYSMemberCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSMemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		C841A41C23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSPagingViewTableHeaderView.m; sourceTree = "<group>"; };
+		C841A41D23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSPagingViewTableHeaderView.h; sourceTree = "<group>"; };
 		C8424EB2229E748A003A7C58 /* NYSJSHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSJSHandler.h; sourceTree = "<group>"; };
 		C8424EB3229E748A003A7C58 /* NYSJSHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSJSHandler.m; sourceTree = "<group>"; };
 		C8424EB5229E7593003A7C58 /* NYSWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSWebViewController.h; sourceTree = "<group>"; };
@@ -473,8 +475,6 @@
 		C852821223C07766000429A1 /* NYSClockListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NYSClockListTableViewCell.xib; sourceTree = "<group>"; };
 		C852821523C0783B000429A1 /* NYSRankingListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSRankingListViewController.h; sourceTree = "<group>"; };
 		C852821623C0783B000429A1 /* NYSRankingListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSRankingListViewController.m; sourceTree = "<group>"; };
-		C852821823C07D31000429A1 /* NYSPagingViewTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NYSPagingViewTableHeaderView.h; path = "../../../../../../backupdata/Music(音乐)/View/NYSPagingViewTableHeaderView.h"; sourceTree = "<group>"; };
-		C852821923C07D31000429A1 /* NYSPagingViewTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NYSPagingViewTableHeaderView.m; path = "../../../../../../backupdata/Music(音乐)/View/NYSPagingViewTableHeaderView.m"; sourceTree = "<group>"; };
 		C852821B23C07DA5000429A1 /* NYSClockListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSClockListView.h; sourceTree = "<group>"; };
 		C852821C23C07DA5000429A1 /* NYSClockListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSClockListView.m; sourceTree = "<group>"; };
 		C857A381229CCBDA002B5396 /* AppManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
@@ -1002,7 +1002,7 @@
 				C869CCB923DC5A67007D9760 /* Search(搜一搜) */,
 				C8C0FAB123C43FC000EBE7E0 /* Recommend(好物推荐) */,
 				C8871F1B23C0A94900CDDA35 /* FellowshipStory(团契故事) */,
-				C867BCBF23BF514B0075625C /* Ranking(排行榜) */,
+				C867BCBF23BF514B0075625C /* Ranking(打卡榜) */,
 				C807696923A2169C004B6E1C /* Model */,
 				C883874423A0C1D100EFD29D /* View */,
 				C80D251823A09A6100CF58CA /* Controller */,
@@ -1639,13 +1639,13 @@
 			path = KHAlertPicker;
 			sourceTree = "<group>";
 		};
-		C867BCBF23BF514B0075625C /* Ranking(排行榜) */ = {
+		C867BCBF23BF514B0075625C /* Ranking(打卡榜) */ = {
 			isa = PBXGroup;
 			children = (
 				C867BCC423BF5B5B0075625C /* View */,
 				C867BCC023BF51B00075625C /* Controller */,
 			);
-			path = "Ranking(排行榜)";
+			path = "Ranking(打卡榜)";
 			sourceTree = "<group>";
 		};
 		C867BCC023BF51B00075625C /* Controller */ = {
@@ -1670,8 +1670,8 @@
 				C852821223C07766000429A1 /* NYSClockListTableViewCell.xib */,
 				C852821B23C07DA5000429A1 /* NYSClockListView.h */,
 				C852821C23C07DA5000429A1 /* NYSClockListView.m */,
-				C852821823C07D31000429A1 /* NYSPagingViewTableHeaderView.h */,
-				C852821923C07D31000429A1 /* NYSPagingViewTableHeaderView.m */,
+				C841A41D23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.h */,
+				C841A41C23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.m */,
 				C8871F1923C099F700CDDA35 /* YNRippleAnimatView.h */,
 				C8871F1823C099F700CDDA35 /* YNRippleAnimatView.m */,
 			);
@@ -2530,7 +2530,6 @@
 				C807696C23A216B0004B6E1C /* NYSBannerModel.m in Sources */,
 				C8DDA12223AB5D80003AF6F4 /* NYSBibleChapterViewController.m in Sources */,
 				C81074BA23AA37CA00CC7868 /* NYSMusicMenuModel.m in Sources */,
-				C852821A23C07D32000429A1 /* NYSPagingViewTableHeaderView.m in Sources */,
 				C8265C9B22A27E6B0072A3F1 /* NYSForgetPasswordViewController.m in Sources */,
 				C8E3B30923ADA86C00A0BCB4 /* NYSAboutFooterView.m in Sources */,
 				C88CEDE323C3555800B0E8F4 /* NYSScorelogListViewController.m in Sources */,
@@ -2645,6 +2644,7 @@
 				C802A60E22A62D54002E2A58 /* CMFAQTableViewCell.m in Sources */,
 				C8D78C8D23B31A6000C0DC97 /* NYSPublishPrayViewController.m in Sources */,
 				C8658DEE23D2A2B20021AE0A /* NYSMyPublishPrayListViewController.m in Sources */,
+				C841A41E23F3C52800BDFF4A /* NYSPagingViewTableHeaderView.m in Sources */,
 				C8265CA422A27E6B0072A3F1 /* NYSTextField.m in Sources */,
 				C883875523A0C3C300EFD29D /* NYSBannerCollectionViewCell.m in Sources */,
 				C8658DF723D2E0A40021AE0A /* NYSPersonalInfoCardHeaderView.m in Sources */,
