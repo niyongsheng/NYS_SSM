@@ -141,7 +141,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="#" class="brand-link">
             <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">稻草堆后台 V1.0</span>
@@ -247,9 +247,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="http://www.daocaodui.top/api/swagger-ui.html" target="iframe" class="nav-link">
+                                    <i class="fa fa-code nav-icon"></i>
+                                    <p>app接口</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
                                     <i class="fa fa-code nav-icon"></i>
-                                    <p>接口文档</p>
+                                    <p>web接口</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                    <i class="fa fa-download nav-icon"></i>
+                                    <p>下载地址</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -292,7 +304,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             塑造生命 成就使命
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top">daocaodui.top</a> @</strong>硕鼠工作室 All
+        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top/web">daocaodui.top</a> @</strong>硕鼠工作室 All
         rights
         reserved.
     </footer>

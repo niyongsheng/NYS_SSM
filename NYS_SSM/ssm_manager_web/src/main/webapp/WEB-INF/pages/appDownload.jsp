@@ -61,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="container">
     <!---- header ---->
     <div class="header">
-        <div class="col-md-5 header-left">
+        <div class="col-md-6 header-left">
             <!----sreen-gallery-cursual---->
             <div class="sreen-gallery-cursual">
                 <!-- requried-jsfiles-for owl -->
@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!--//sreen-gallery-cursual---->
             </div>
         </div>
-        <div class="col-md-7 header-right">
+        <div class="col-md-6 header-right">
             <a href="#"><img src="${pageContext.request.contextPath}/img/appDownload/logo_icon_120x120.png" class="img-responsive img-thumbnail" title="daocaodui" /></a>
             <p>塑造生命 成就使命!</p>
             <ul class="big-btns">
@@ -122,17 +122,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-md-4  top-grid text-center">
                 <span class="t-icon1"> </span>
                 <h4>LOVE</h4>
-                <p>“A new command I give you: Love one another. As I have loved you, so you must love one another.By this everyone will know that you are my disciples, if you love one another.” (John 13:34-35 NIV) </p>
+                <p>A new command I give you: Love one another. As I have loved you, so you must love one another.By this everyone will know that you are my disciples, if you love one another. <br/> (John 13:34-35 NIV) </p>
             </div>
             <div class="col-md-4  top-grid text-center">
                 <span class="t-icon1"> </span>
                 <h4>CONFIDENCE</h4>
-                <p>Now faith is confidence in what we hope for and assurance about what we do not see. This is what the ancients were commended for.  (Hebrews 11:1-2 NIV) </p>
+                <p>Now faith is confidence in what we hope for and assurance about what we do not see. This is what the ancients were commended for. <br/> (Hebrews 11:1-2 NIV) </p>
             </div>
             <div class="col-md-4  top-grid text-center">
                 <span class="t-icon1"> </span>
                 <h4>HOPE</h4>
-                <p>For in this hope we were saved. But hope that is seen is no hope at all. Who hopes for what they already have? But if we hope for what we do not yet have, we wait for it patiently.  (Romans 8:24-25 NIV) </p>
+                <p>For in this hope we were saved. But hope that is seen is no hope at all. Who hopes for what they already have? But if we hope for what we do not yet have, we wait for it patiently. <br/> (Romans 8:24-25 NIV) </p>
             </div>
             <div class="clearfix"> </div>
         </div>

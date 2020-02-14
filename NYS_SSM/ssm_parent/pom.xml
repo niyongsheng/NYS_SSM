@@ -47,7 +47,7 @@
         <swagger-ui.version>2.9.2</swagger-ui.version>
         <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
         <elasticsearch.version>6.2.3</elasticsearch.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.5.0</shiro.version>
         <json.version>20171018</json.version>
         <fastjson.version>1.2.60</fastjson.version>
         <mail.version>1.5.0-b01</mail.version>
@@ -301,7 +301,22 @@
             <!-- Shiro -->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-all</artifactId>
+                <artifactId>shiro-core</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-ehcache</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
             <!-- Json -->
