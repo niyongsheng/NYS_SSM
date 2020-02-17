@@ -17,6 +17,8 @@ NYS_SSM
 * RongCloud
 * QiniuCloud
 * JWT
+* Shiro
+* WebService
 * TxManager
 * Mybatis-plus
 * UnitTest
