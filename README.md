@@ -18,6 +18,7 @@ NYS_SSM
 * QiniuCloud
 * JWT
 * Shiro
+* WebSocket
 * WebService
 * TxManager
 * Mybatis-plus
