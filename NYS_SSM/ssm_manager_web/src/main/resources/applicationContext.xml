@@ -4,6 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
@@ -11,7 +12,8 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop.xsd
     http://www.springframework.org/schema/tx
-    http://www.springframework.org/schema/tx/spring-tx.xsd">
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
     <!-- 开启Spring注解扫描(service和dao层的注解) -->
     <context:component-scan base-package="com.niyongsheng.persistence">
@@ -19,39 +21,60 @@
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
+    <!-- 添加cxfWebservice文件  -->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+    <!-- 配置webservice接口 -->
+    <jaxws:endpoint implementor="com.niyongsheng.persistence.service.impl.CxfWebServiceImpl" address="/cxfWebService" />
+    <!-- 定义webservice的发布接口/注解更直观  -->
+<!--    <jaxws:server address="/cxfWebService" serviceClass="com.niyongsheng.persistence.service.CxfWebService">
+        &lt;!&ndash; 服务接口的实现类 &ndash;&gt;
+        <jaxws:serviceBean>
+            <bean class="com.niyongsheng.persistence.service.impl.CxfWebServiceImpl"></bean>
+        </jaxws:serviceBean>
+    </jaxws:server>-->
+
     <!-- Spring整合MyBatis框架 -->
     <!-- 1.配置数据库相关参数properties的属性：${url} *.properties -->
-    <context:property-placeholder location="classpath:webConfig.properties" />
+    <context:property-placeholder location="classpath:webConfig.properties"/>
 
     <!-- 2.数据库连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!-- 配置连接池属性 -->
-        <property name="driverClass" value="${jdbc.driver}" />
-        <property name="jdbcUrl" value="${jdbc.url}" />
-        <property name="user" value="${jdbc.username}" />
-        <property name="password" value="${jdbc.password}" />
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
 
         <!-- c3p0连接池的私有属性 -->
-        <property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
-        <property name="minPoolSize" value="${jdbc.minPoolSize}" />
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
         <!-- 关闭连接后不自动commit -->
-        <property name="autoCommitOnClose" value="${jdbc.autoCommitOnClose}" />
+        <property name="autoCommitOnClose" value="${jdbc.autoCommitOnClose}"/>
         <!-- 获取连接超时时间 -->
-        <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}" />
+        <property name="checkoutTimeout" value="${jdbc.checkoutTimeout}"/>
         <!-- 当获取连接失败重试次数 -->
-        <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}" />
+        <property name="acquireRetryAttempts" value="${jdbc.acquireRetryAttempts}"/>
+        <!-- 帮助进程数 -->
+        <property name="numHelperThreads" value="${jdbc.numHelperThreads}"/>
+        <!-- 定时内连接，防止连接超时关闭 -->
+        <property name="preferredTestQuery" value="SELECT 1"/>
+        <property name="idleConnectionTestPeriod" value="18000"/>
+        <property name="testConnectionOnCheckout" value="true"/>
     </bean>
 
-    <!-- 3.配置SqlSessionFactory对象 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!-- 3.配置mybatis-plus的SqlSessionFactory对象 -->
+    <!-- mybatis的sqlsessionFactorybean：org.mybatis.spring.SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <!-- 注入数据库连接池 -->
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
         <!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
-        <property name="configLocation" value="classpath:mybatis-config.xml" />
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <!-- 扫描domain包 使用别名 -->
-        <property name="typeAliasesPackage" value="com.niyongsheng.persistence.domain" />
+        <property name="typeAliasesPackage" value="com.niyongsheng.persistence.domain"/>
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
-        <property name="mapperLocations" value="classpath:sqlmapper/*_sql_mapper.xml" />
+        <property name="mapperLocations" value="classpath:sqlmapper/*_sql_mapper.xml"/>
+        <property name="globalConfig" ref="globalConfig"/>
         <!-- 配置分页插件 -->
         <property name="plugins">
             <array>
@@ -71,12 +94,29 @@
         </property>
     </bean>
 
+    <bean id="globalConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig">
+        <property name="dbConfig" ref="dbConfig"/>
+    </bean>
+
+    <bean id="dbConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig.DbConfig">
+        <property name="keyGenerator" ref="keyGenerator"/>
+        <!-- 全局列格式 -->
+        <!--        <property name="columnFormat" value="%s"/>-->
+        <!-- 全局主键自增策略，0表示auto -->
+        <property name="idType" value="AUTO"/>
+        <!-- 全局表前缀配置 -->
+        <property name="tablePrefix" value="dcd_"/>
+    </bean>
+
+    <bean id="keyGenerator" class="com.baomidou.mybatisplus.extension.incrementer.H2KeyGenerator">
+    </bean>
+
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 注入sqlSessionFactory -->
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描dao接口包 -->
-        <property name="basePackage" value="com.niyongsheng.persistence.dao" />
+        <property name="basePackage" value="com.niyongsheng.persistence.dao"/>
     </bean>
 
 
@@ -102,8 +142,8 @@
             <tx:method name="*" propagation="REQUIRED" read-only="false"/>
             <!-- find开头的方法不开启事务管理(*查询方法尽量以find\select\get开头) -->
             <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
         </tx:attributes>
     </tx:advice>
 
@@ -118,25 +158,25 @@
     <!-- 7.redis连接池配置 -->
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <!-- 最大连接数 -->
-        <property name="maxTotal" value="${redis.maxTotal}" />
+        <property name="maxTotal" value="${redis.maxTotal}"/>
         <!-- 最大空闲连接数 -->
-        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="maxIdle" value="${redis.maxIdle}"/>
         <!-- 每次释放连接的最大数目 -->
-        <property name="numTestsPerEvictionRun" value="${redis.maxEviction}" />
+        <property name="numTestsPerEvictionRun" value="${redis.maxEviction}"/>
         <!-- 释放连接的扫描间隔（毫秒） -->
-        <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"/>
         <!-- 连接最小空闲时间 -->
-        <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"/>
         <!-- 连接空闲多久后释放, 当空闲时间>该值 且 空闲连接>最大空闲连接数 时直接释放 -->
-        <property name="softMinEvictableIdleTimeMillis" value="${redis.softMinEvictableIdleTimeMillis}" />
+        <property name="softMinEvictableIdleTimeMillis" value="${redis.softMinEvictableIdleTimeMillis}"/>
         <!-- 获取连接时的最大等待毫秒数,小于零:阻塞不确定的时间,默认-1 -->
-        <property name="maxWaitMillis" value="${redis.maxWait}" />
+        <property name="maxWaitMillis" value="${redis.maxWait}"/>
         <!-- 在获取连接的时候检查有效性, 默认false -->
-        <property name="testOnBorrow" value="true" />
+        <property name="testOnBorrow" value="true"/>
         <!-- 在空闲时检查有效性, 默认false -->
-        <property name="testWhileIdle" value="true" />
+        <property name="testWhileIdle" value="true"/>
         <!-- 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true -->
-        <property name="blockWhenExhausted" value="false" />
+        <property name="blockWhenExhausted" value="false"/>
     </bean>
 
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
@@ -145,10 +185,74 @@
         <constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
     </bean>
 
-    <!-- 8.配置CommonsMutipartResolver -->
+    <!-- 8.上传文件配置CommonsMutipartResolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="20000000"/>
-        <property name="defaultEncoding" value="utf-8"></property>
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 文件最大值 -->
+        <property name="maxUploadSize" value="10485760000"/>
+        <!-- 内存中的最大值 -->
+        <property name="maxInMemorySize" value="40960"/>
+    </bean>
+
+    <!-- 9.Shiro配置安全管理器securityManager， 缓存技术: 缓存管理 realm:负责获取处理数据 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="userRealm"/>
+        <property name="cacheManager" ref="cacheManager"/>
+<!--        <property name="sessionManager" ref="sessionManager"/>-->
+    </bean>
+    <!-- 配置自定义Realm -->
+    <bean id="userRealm" class="com.niyongsheng.manager.shiro.UserRealm">
+        <!-- 配置缓存管理器-->
+        <property name="cacheManager" ref="cacheManager"/>
+        <!-- 配置加密器 -->
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <!-- 加密算法的名称 -->
+                <property name="hashAlgorithmName" value="MD5"></property>
+                <!-- 配置加密的次数 -->
+                <property name="hashIterations" value="1"></property>
+            </bean>
+        </property>
+    </bean>
+    <!-- 用户授权信息缓存管理器 -->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManagerConfigFile" value="classpath:shiroEhcache.xml"/>
+    </bean>
+    <!-- 会话管理器 -->
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- session的失效时长，单位毫秒 -->
+        <property name="globalSessionTimeout" value="600000"/>
+        <!-- 删除失效的session -->
+        <property name="deleteInvalidSessions" value="true"/>
+    </bean>
+    <!-- Shiro过滤器 核心-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口,这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 身份认证失败，则跳转到登录页 -->
+        <property name="loginUrl" value="/user/login"/>
+        <!-- 登录成功，跳转到主页 -->
+        <property name="successUrl" value="/home/infoBox"/>
+        <!-- 权限认证失败，则跳转到指定页面 -->
+<!--        <property name="unauthorizedUrl" value="/user/unauthorized"/>-->
+        <property name="unauthorizedUrl" value="/WEB-INF/pages/unauthorized.jsp"/>
+        <!-- Shiro连接约束配置,即过滤链的定义 -->
+        <property name="filterChainDefinitions">
+            <value>
+                <!-- anon 表示匿名访问，不需要认证以及授权 -->
+                /** = anon
+               <!-- &lt;!&ndash; authc表示需要认证，没有进行身份认证是不能进行访问的 &ndash;&gt;
+                /user/** = authc
+                /app/** = authc
+                &lt;!&ndash;                /** = authc&ndash;&gt;
+                &lt;!&ndash; 配置退出过滤器，逻辑代码Shiro内部实现 &ndash;&gt;
+                /logout = logout
+                /user/** = roles[admin]
+                /admin/** = perms["user:*"]
+                /superadmin/** = perms["user:*"]-->
+            </value>
+        </property>
     </bean>
 
 </beans>

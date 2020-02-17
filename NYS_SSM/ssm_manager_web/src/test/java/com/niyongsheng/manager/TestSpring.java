@@ -1,6 +1,6 @@
 package com.niyongsheng.manager;
 
-import com.niyongsheng.manager.exception.SysException;
+import com.niyongsheng.manager.exception.WebException;
 import com.niyongsheng.persistence.service.AccountService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -26,15 +26,15 @@ public class TestSpring {
 
     /**
      * 异常测试
-     * @throws SysException
+     * @throws WebException
      */
     @Test
-    public void textSysException() throws SysException {
+    public void textSysException() throws WebException {
         try {
             int a = 10 / 0;
         } catch (Exception e) {
             e.printStackTrace();
-            throw new SysException(7002, "程序出错了...");
+            throw new WebException(7002, "程序出错了...");
         }
         return;
     }

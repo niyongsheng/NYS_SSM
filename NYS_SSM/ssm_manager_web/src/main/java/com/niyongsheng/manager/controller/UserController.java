@@ -5,10 +5,22 @@ import com.github.pagehelper.PageInfo;
 import com.niyongsheng.common.utils.MD5Util;
 import com.niyongsheng.persistence.domain.User;
 import com.niyongsheng.persistence.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
@@ -27,22 +39,24 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/user")
+@Api(value = "用户信息")
+@Validated
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    /**
-     * 查询所有
-     * @param pageNum
-     * @param pageSize
-     * @param model
-     * @return
-     */
-    @RequestMapping("/findAll")
-    public String findAll(@RequestParam(value="pageNum",defaultValue="1")Integer pageNum,
-                          @RequestParam(value="pageSize",defaultValue="10")Integer pageSize,
-                          Model model) {
+
+    @RequestMapping(value = "/findAll", method = {RequestMethod.POST, RequestMethod.GET})
+    @ApiOperation(value = "查询所有用户列表接口", notes = "参数描述")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "页码", required = false),
+            @ApiImplicitParam(name = "pageSize", value = "分页大小", required = false)
+    })
+    public String findAll(Model model,
+                          @RequestParam(value="pageNum", defaultValue="1", required = false) Integer pageNum,
+                          @RequestParam(value="pageSize", defaultValue="10", required = false) Integer pageSize
+                          ) {
         System.out.println("表现层：查询所有的用户信息...");
         // 1.设置页码和分页大小
         PageHelper.startPage(pageNum, pageSize);
@@ -148,49 +162,54 @@ public class UserController {
                         @RequestParam(name="verifycode") String verifycode,
                         @RequestParam(name="rememberMe", required = false) String rememberMe) {
 
-        // 获取程序自动生成的验证码
+        // 1.1获取程序自动生成的验证码
         HttpSession session = request.getSession();
         String checkCode_session = (String) session.getAttribute("CHECKCODE_SERVER");
-        System.out.println("CHECKCODE_SERVER:"+checkCode_session);
-        // 删除session中存储的验证码（防止验证码被多次验证安全问题）
+        System.out.println("CHECKCODE_SERVER:" + checkCode_session);
+        // 1.2删除session中存储的验证码（防止验证码被多次验证安全问题）
         session.removeAttribute("CHECKCODE_SERVER");
 
-        // 先判断验证码是否正确
+        // 1.3先判断验证码是否正确
         if (checkCode_session != null && checkCode_session.equalsIgnoreCase(verifycode)) { // 忽略大小写比较字符串
-            // 4.调用UserDao的login方法
-            User user = userService.login(account, MD5Util.crypt(password));
 
-            // 5.判断user
-            if (user == null) {
-                // 登录失败
-                // 存储信息到request域
-                model.addAttribute("login_msg","用户名或密码错误");
-                // 转发
-                return "login";
-            } else {
-                // 登录成功,判断是否记住登录状态
-                if(rememberMe==null || rememberMe.length()==0){
-                    rememberMe = "0";
+            // 2.1创建Subject实例对象
+            Subject currentUser = SecurityUtils.getSubject();
+            // 2.2判断当前用户是否已登录
+            if (currentUser.isAuthenticated() == false) {
+                UsernamePasswordToken token = new UsernamePasswordToken(account, password);
+                try {
+                    currentUser.login(token);
+                } catch (AuthenticationException e) {
+                    // 登录失败,存储信息到request域
+                    model.addAttribute("login_msg", e.getMessage());
+                    System.out.println("登录失败");
+                    return "login";
                 }
-                if (rememberMe.equalsIgnoreCase("1") || rememberMe.equalsIgnoreCase("on")) {
-                    // 创建Cookie保存用户信息，设定cookie失效时间
-                    String loginInfo = account + "#" + password;
-                    Cookie userCookie = new Cookie("loginInfo", loginInfo);
-                    userCookie.setMaxAge(1 * 24 * 60 * 60); // 存活期为一天 1*24*60*60
-                    userCookie.setPath("/");
-                    response.addCookie(userCookie);
-                    // 2天session时效
-                    session.setMaxInactiveInterval(60 * 60 * 24 * 2);
-                } else {
-                    // 5分钟session时效
-                    session.setMaxInactiveInterval(60 * 5);
-                }
-                // 存储数据（重定向是两次请求，将数据存储到session中）
-                session.setAttribute("user", user);
-                // 重定向
-                String contextpath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-                return "redirect:"+contextpath+"/index.jsp";
             }
+
+            // 3.1登录成功,判断是否记住登录状态
+            if (rememberMe == null || rememberMe.length() == 0) {
+                rememberMe = "0";
+            }
+            if (rememberMe.equalsIgnoreCase("1") || rememberMe.equalsIgnoreCase("on")) {
+                // 3.2创建Cookie保存用户信息，设定cookie失效时间
+                String loginInfo = account + "#" + password;
+                Cookie userCookie = new Cookie("loginInfo", loginInfo);
+                // Cookie存活期为一天 1*24*60*60
+                userCookie.setMaxAge(1 * 24 * 60 * 60);
+                userCookie.setPath("/");
+                response.addCookie(userCookie);
+                // 2天session时效
+                session.setMaxInactiveInterval(60 * 60 * 24 * 2);
+            } else {
+                // 5分钟session时效
+                session.setMaxInactiveInterval(60 * 5);
+            }
+            // 4.存储数据（重定向是两次请求，将数据存储到session中）
+            session.setAttribute("user", userService.login(account, MD5Util.crypt(password)));
+            // 5.重定向
+            String contextpath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+            return "redirect:"+contextpath+"/index.jsp";
         } else {
             // 存储信息（转发是一次请求，将数据存储到request域中）
             model.addAttribute("login_msg","验证码错误");
@@ -213,9 +232,24 @@ public class UserController {
         return "userProtocol";
     }
 
-    @RequestMapping("/test")
-    public String test() {
+    @RequestMapping("/appDownload")
+    public String appDownload() {
         return "appDownload";
+    }
+
+    @RequestMapping("/unauthorized")
+    public String unauthorized() {
+        return "errorUnauthorized";
+    }
+
+    @RequestMapping("/test")
+    @RequiresRoles(value={"superadmin","admin"},logical= Logical.OR)
+    public String test() {
 //        return "amisAlert";
+        return "conversation";
+/*        Subject subject= SecurityUtils.getSubject();
+        if(!subject.hasRole("admin")){
+            return "errorUnauthorized";
+        }*/
     }
 }

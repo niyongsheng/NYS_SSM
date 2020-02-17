@@ -171,10 +171,15 @@
         <constructor-arg name="poolConfig" ref="jedisPoolConfig"></constructor-arg>
     </bean>
 
-    <!-- 8.配置CommonsMutipartResolver -->
+    <!-- 8.文件上传配置CommonsMutipartResolver -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="defaultEncoding" value="utf-8"/>
-        <property name="maxUploadSize" value="100000000"/>
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8" />
+        <!-- 文件最大值 -->
+        <property name="maxUploadSize" value="10485760000" />
+        <!-- 内存中的最大值 -->
+        <property name="maxInMemorySize" value="40960" />
     </bean>
+
 
 </beans>

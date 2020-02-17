@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -79,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                Dropdown
+                稻草堆
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
@@ -113,9 +115,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="user-header">
                         <img src="${sessionScope.user.icon}" class="img-circle" alt="User Image">
                         <p>
-                            ${sessionScope.user.nickname}
+                            ${sessionScope.user.nickname}<br>
+                            <small><shiro:hasRole name="admin"> 管理员 </shiro:hasRole></small>
+                            <small><shiro:hasRole name="superadmin"> 超级管理员 </shiro:hasRole></small>
+                            <small><shiro:hasRole name="pastor"> 牧者 </shiro:hasRole></small>
+                            <small><shiro:hasRole name="service"> 服侍 </shiro:hasRole></small>
+                            <small><shiro:hasRole name="user"> 普通用户 </shiro:hasRole></small>
                             <small>${sessionScope.user.introduction}</small>
-                        </p>
+                        </small>
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
@@ -175,8 +182,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/home/activity" target="iframe"
                                    class="nav-link">
-                                    <i class="fa fa-trophy nav-icon"></i>
-                                    <p>活动页面</p>
+                                    <i class="fa fa-bullhorn nav-icon"></i>
+                                    <p>轮播公告</p>
                                 </a>
                             </li>
                         </ul>
@@ -185,7 +192,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-user"></i>
                             <p>
-                                业务管理
+                                用户管理
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -225,16 +232,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
                                    class="nav-link">
                                     <i class="fa fa-list-alt nav-icon"></i>
-                                    <p>文档列表</p>
+                                    <p>分享列表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
+                                   class="nav-link">
+                                    <i class="fa fa-praying-hands nav-icon"></i>
+                                    <p>代祷列表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
+                                   class="nav-link">
+                                    <i class="fa fa-trophy nav-icon"></i>
+                                    <p>活动列表</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-play-circle"></i>
+                            <p>
+                                影音管理
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
+                                   class="nav-link">
+                                    <i class="fa fa-music nav-icon"></i>
+                                    <p>音频列表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/home/test" target="iframe" class="nav-link">
+                                    <i class="fa fa-video nav-icon"></i>
+                                    <p>视频列表</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-plane"></i>
                             <p>
-                                开发管理
+                                开发服务
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -247,19 +292,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://www.daocaodui.top/api/swagger-ui.html" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/../api/swagger-ui.html" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-code nav-icon"></i>
                                     <p>app接口</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/swagger-ui.html" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-code nav-icon"></i>
                                     <p>web接口</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/appDownload" target="iframe"
+                                   class="nav-link">
                                     <i class="fa fa-download nav-icon"></i>
                                     <p>下载地址</p>
                                 </a>

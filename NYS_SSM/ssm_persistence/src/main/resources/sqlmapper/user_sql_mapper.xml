@@ -19,7 +19,7 @@
         <if test="email != null">email,</if>
         <if test="address != null">address,</if>
         <if test="fellowship != null">fellowship,</if>
-        <if test="profession != null">profession,</if>
+        <if test="role != null">role,</if>
         <if test="qqOpenid != null">qqOpenid,</if>
         <if test="wcOpenid != null">wcOpenid,</if>
         <if test="appleUserId != null">appleUserId,</if>
@@ -43,7 +43,7 @@
         <if test="email != null">#{email},</if>
         <if test="address != null">#{address},</if>
         <if test="fellowship != null">#{fellowship},</if>
-        <if test="profession != null">#{profession},</if>
+        <if test="role != null">#{role},</if>
         <if test="qqOpenid != null">#{qqOpenid},</if>
         <if test="wcOpenid != null">#{wcOpenid},</if>
         <if test="appleUserId != null">#{appleUserId},</if>
@@ -117,8 +117,8 @@
         <if test="status != null">
             status=#{status},
         </if>
-        <if test="profession != null">
-            profession=#{profession},
+        <if test="role != null">
+            role=#{role},
         </if>
         <if test="birthday != null">
             birthday=#{birthday},
@@ -128,27 +128,41 @@
     </update>
 
     <select id="find" parameterType="java.lang.Integer" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.id = #{id}
     </select>
 
     <select id="findAll" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT *
-        FROM
-        dcd_user
-    </select>
-
-    <select id="login" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
         INNER JOIN dcd_fellowship f
         ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
+    </select>
+
+    <select id="login" resultType="com.niyongsheng.persistence.domain.User">
+        SELECT u.*, f.fellowshipName, r.roleDescription
+        FROM dcd_user u
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.phone = #{account} AND u.password = #{password}
     </select>
 
     <select id="findByFuzzySearch" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT * FROM dcd_user
+        SELECT u.*, f.fellowshipName, r.roleDescription
+        FROM dcd_user u
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE 1 = 1
         <if test="nickname != null and nickname != ''">
             AND (nickname LIKE CONCAT('%',#{nickname},'%'))
@@ -162,56 +176,68 @@
     </select>
 
     <select id="findByAccount" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.id, u.account, u.truename, u.icon, u.grade, u.score, u.gender, u.phone, u.nickname, u.introduction, u.email, u.address, u.fellowship, u.profession, u.status, u.birthday, u.gmtCreate, u.gmtModify
+        SELECT u.id, u.account, u.truename, u.icon, u.grade, u.score, u.gender, u.phone, u.nickname, u.introduction, u.email, u.address, u.fellowship, u.role, u.status, u.birthday, u.gmtCreate, u.gmtModify
         FROM dcd_user u
         WHERE u.account = #{account}
     </select>
 
     <select id="findByPhone" parameterType="java.lang.String" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
-        inner join dcd_fellowship f
-        on u.fellowship = f.id
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.phone = #{phone}
     </select>
 
     <select id="selectAllByFellowshipMultiTable" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
-        inner join dcd_fellowship f
-        on u.fellowship = f.id
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         where u.fellowship = #{fellowship}
     </select>
 
     <select id="findUserByQqOpenId" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
-        inner join dcd_fellowship f
-        on u.fellowship = f.id
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.qqOpenid = #{qqOpenId}
     </select>
 
     <select id="findUserByWxOpenId" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
-        inner join dcd_fellowship f
-        on u.fellowship = f.id
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.wcOpenid = #{wxOpenId}
     </select>
 
     <select id="findUserByAppleId" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
-        inner join dcd_fellowship f
-        on u.fellowship = f.id
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.appleUserId = #{appleUserId}
     </select>
 
     <select id="refreshUserInfo" resultType="com.niyongsheng.persistence.domain.User">
-        SELECT u.*, f.fellowshipName
+        SELECT u.*, f.fellowshipName, r.roleDescription
         FROM dcd_user u
-        inner join dcd_fellowship f
-        on u.fellowship = f.id
+        INNER JOIN dcd_fellowship f
+        ON u.fellowship = f.id
+        INNER JOIN dcd_role r
+        ON u.role = r.id
         WHERE u.account = #{account}
     </select>
 

@@ -284,7 +284,7 @@ public class ArticleController {
         // 2.删除对象存在判断
         if (article != null) {
             // 3.管理员和自己拥有删除权限判断
-            if (article.getAccount().equals(account) || jwtUser.getProfession() == 0 || jwtUser.getProfession() == 2) {
+            if (article.getAccount().equals(account) || jwtUser.getRole() == 1 || jwtUser.getRole() == 2) {
                 try {
                     // 4.删除操作
                     articleService.getBaseMapper().deleteById(id);

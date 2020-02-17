@@ -40,7 +40,7 @@ public class LoginVerifyInterceptor implements HandlerInterceptor {
         } else {
             System.out.println("preHandle:登录拦截方法执行了");
             // 跳转登录
-            request.setAttribute("login_msg", "您尚未登录，请登录");
+            request.setAttribute("login_msg", "您尚未登录或超时，请登录");
             request.getRequestDispatcher("/user/logout").forward(request, response);
             return false;
         }

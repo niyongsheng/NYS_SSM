@@ -1,6 +1,6 @@
 package com.niyongsheng.manager.controller;
 
-import com.sun.javafx.logging.PulseLogger;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +28,11 @@ public class HomeController {
         return "home";
     }
 
+    @RequiresPermissions("admin")
     @RequestMapping("/markdown")
     public String markdown(Model model) {
 
-        return "MDEditor";
+        return "markdownEditor";
     }
 
     @RequestMapping("/activity")
@@ -43,6 +44,6 @@ public class HomeController {
     @RequestMapping("/test")
     public String test() {
 
-        return "nullError";
+        return "error";
     }
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.MusicDao">
 
-    <resultMap id="musicMap_1" type="Music" autoMapping="true">
+    <resultMap id="musicMap_1" type="com.niyongsheng.persistence.domain.Music" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
         <collection property="isCollection" column="{musicID = id, account = isCollectionAccount}" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.isCollection"/>
@@ -18,7 +18,7 @@
         order by m.isTop desc
     </select>
 
-    <resultMap id="myMusicMap" type="Music" autoMapping="true">
+    <resultMap id="myMusicMap" type="com.niyongsheng.persistence.domain.Music" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Music_CollectionDao.selectCollectionUsersByMusicID"/>
     </resultMap>

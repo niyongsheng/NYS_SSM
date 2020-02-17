@@ -1,6 +1,5 @@
 package com.niyongsheng.common.exception;
 
-import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.model.ResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +47,7 @@ public class ResponseExceptionHandler {
     @ResponseBody
     public ResponseDto handlerResponseException(ConstraintViolationException exception) {
         logger.error(exception.toString());
-        // TODO 返回体包装不是很好
+        // TODO 返回体包装还可以优化
 //        ResponseStatusEnum responseStatusEnum = new ResponseStatusEnum(exception.getMessage());
         String replace = exception.getLocalizedMessage().replace(", ", "\n");
         int i = exception.hashCode();

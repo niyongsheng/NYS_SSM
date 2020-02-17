@@ -1,6 +1,6 @@
 package com.niyongsheng.manager.controller;
 
-import com.niyongsheng.manager.exception.SysException;
+import com.niyongsheng.manager.exception.WebException;
 import com.niyongsheng.persistence.service.AccountService;
 import com.niyongsheng.persistence.domain.Account;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,7 @@ public class AccountController {
     }
 
     @RequestMapping("/save")
-    public void save(Account account, HttpServletRequest request, HttpServletResponse response) throws SysException {
+    public void save(Account account, HttpServletRequest request, HttpServletResponse response) throws WebException {
         System.out.println("表现层：保存账户信息...");
         // 调用service的方法
         accountService.saveAccount(account);
@@ -46,7 +46,7 @@ public class AccountController {
             response.sendRedirect(request.getContextPath()+"/account/findAll");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new SysException(7002, "跳转失败");
+            throw new WebException(7002, "跳转失败");
         }
 
         return;

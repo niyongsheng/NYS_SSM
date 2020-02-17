@@ -48,12 +48,16 @@
         <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
         <elasticsearch.version>6.2.3</elasticsearch.version>
         <shiro.version>1.5.0</shiro.version>
+        <jaxrs.version>2.23.2</jaxrs.version>
+        <jwt.version>2.2.0</jwt.version>
         <json.version>20171018</json.version>
         <fastjson.version>1.2.60</fastjson.version>
         <mail.version>1.5.0-b01</mail.version>
         <hutool.version>4.1.12</hutool.version>
         <snakeyaml.version>1.17</snakeyaml.version>
         <jug.version>3.1.4</jug.version>
+        <cxf.version>3.3.5</cxf.version>
+        <websocket.version>1.1</websocket.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -177,6 +181,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
             </dependency>
@@ -230,6 +239,17 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-websocket</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!-- websocket-api -->
+            <dependency>
+                <groupId>javax.websocket</groupId>
+                <artifactId>javax.websocket-api</artifactId>
+                <version>${websocket.version}</version>
             </dependency>
             <!-- JSP相关 -->
             <dependency>
@@ -306,11 +326,6 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.shiro</groupId>
-                <artifactId>shiro-web</artifactId>
-                <version>${shiro.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-ehcache</artifactId>
                 <version>${shiro.version}</version>
             </dependency>
@@ -318,6 +333,23 @@
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-web</artifactId>
+                <version>${shiro.version}</version>
+            </dependency>
+            <!-- RESTful -->
+            <dependency>
+                <groupId>org.glassfish.jersey.bundles</groupId>
+                <artifactId>jaxrs-ri</artifactId>
+                <version>${jaxrs.version}</version>
+            </dependency>
+            <!-- jwt -->
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.version}</version>
             </dependency>
             <!-- Json -->
             <dependency>
@@ -352,6 +384,22 @@
                 <artifactId>java-uuid-generator</artifactId>
                 <version>${jug.version}</version>
             </dependency>
+            <!--cxf-->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-core</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -361,7 +409,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>3.1.0</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -370,7 +418,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.2</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>

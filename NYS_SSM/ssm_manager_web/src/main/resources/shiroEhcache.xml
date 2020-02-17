@@ -1,0 +1,31 @@
+<ehcache updateCheck="false">
+   <!--
+    缓存数据持久化的目录
+    如果该路径是 Java 系统参数，当前虚拟机会重新赋值。
+    参数解释：
+    user.home      – 用户主目录
+    user.dir       – 用户当前工作目录
+    java.io.tmpdir – 默认临时文件路径
+   -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!--
+         defaultCache:默认的缓存配置信息,如果不加特殊说明,则所有对象按照此配置项处理
+         maxElementsInMemory:设置了缓存的上限,最多存储多少个记录对象
+         eternal:代表对象是否永不过期
+         timeToIdleSeconds:最大的发呆时间
+         timeToLiveSeconds:最大的存活时间
+         overflowToDisk:是否允许对象被写入到磁盘
+      -->
+    <defaultCache
+            maxElementsInMemory="1000"
+            maxElementsOnDisk="10000000"
+            eternal="false"
+            overflowToDisk="false"
+            diskPersistent="false"
+            timeToIdleSeconds="120"
+            timeToLiveSeconds="120"
+            diskExpiryThreadIntervalSeconds="120"
+            memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+</ehcache>

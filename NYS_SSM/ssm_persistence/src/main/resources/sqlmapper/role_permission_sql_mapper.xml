@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.Role_PermissionDao">
+
+    <resultMap id="Role_Permission_1" type="com.niyongsheng.persistence.domain.Role_Permission" autoMapping="true">
+        <id property="id" column="id"/>
+
+    </resultMap>
+
+    <select id="findByRoleIdIn" resultMap="Role_Permission_1">
+        select * from dcd_role_permission where roleID IN
+        <foreach collection="list" item="roleId" open="(" close=")" separator=",">
+            #{roleID}
+        </foreach>
+    </select>
+
+    <select id="selectPermissionsByRole" resultType="com.niyongsheng.persistence.domain.Role_Permission">
+        select p.*, rp.*
+        from dcd_permission p, dcd_role_permission rp
+        where p.id = rp.permissionID and rp.roleID = #{role}
+    </select>
+
+</mapper>

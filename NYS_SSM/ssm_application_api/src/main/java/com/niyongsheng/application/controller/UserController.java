@@ -54,12 +54,12 @@ import java.util.List;
 @Validated
 public class UserController {
 
-    /**
-     * 验证码在redis中的key前缀（后面拼接手机号）
-     */
+    /* 验证码在redis中的key前缀（后面拼接手机号）*/
     public static final String ONCECODE_KEY = "onceCode_";
-    /* 默认用户头像 */
+    /* 默认用户头像地址 */
     public static final String USERICON_URL = "http://file.daocaodui.top/1575438242063_jpeg";
+    /* 默认普通用户角色 */
+    public static final Integer ROLE = 5;
 
     @Autowired
     private UserService userService;
@@ -119,7 +119,7 @@ public class UserController {
             HashMap<String, Object> cryptMap = new HashMap<>();
             cryptMap.put("id", user.getId());
             cryptMap.put("account", user.getAccount());
-            cryptMap.put("profession", user.getProfession());
+            cryptMap.put("role", user.getRole());
             cryptMap.put("status", user.getStatus());
             cryptMap.put("fellowship", user.getFellowship());
 
@@ -216,7 +216,7 @@ public class UserController {
         registerUser.setPassword(MD5Util.crypt(password));
         registerUser.setFellowship(Integer.valueOf(fellowship));
         registerUser.setStatus(true);
-        registerUser.setProfession(1);
+        registerUser.setRole(ROLE); // 默认普通用户
         // 生成account
         String account = MathUtils.randomDigitNumber(7);
         while (true) {
@@ -237,7 +237,7 @@ public class UserController {
         HashMap<String, Object> cryptMap = new HashMap<>();
         cryptMap.put("id", registerUser.getId());
         cryptMap.put("account", registerUser.getAccount());
-        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("role", registerUser.getRole());
         cryptMap.put("status", registerUser.getStatus());
         cryptMap.put("fellowship", registerUser.getFellowship());
         // 3.2JWT加密生成token和时效（一个月）
@@ -308,7 +308,7 @@ public class UserController {
         registerUser.setNickname(nickname);
         registerUser.setFellowship(Integer.valueOf(fellowship));
         registerUser.setStatus(true);
-        registerUser.setProfession(1);
+        registerUser.setRole(ROLE);
         // 生成account
         String account = MathUtils.randomDigitNumber(7);
         while (true) {
@@ -323,7 +323,7 @@ public class UserController {
         HashMap<String, Object> cryptMap = new HashMap<>();
         cryptMap.put("id", registerUser.getId());
         cryptMap.put("account", registerUser.getAccount());
-        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("role", registerUser.getRole());
         cryptMap.put("status", registerUser.getStatus());
         cryptMap.put("fellowship", registerUser.getFellowship());
         // 2.2JWT加密生成token和时效（一个月）
@@ -394,7 +394,7 @@ public class UserController {
         registerUser.setNickname(nickname);
         registerUser.setFellowship(Integer.valueOf(fellowship));
         registerUser.setStatus(true);
-        registerUser.setProfession(1);
+        registerUser.setRole(ROLE);
         // 生成account
         String account = MathUtils.randomDigitNumber(7);
         while (true) {
@@ -409,7 +409,7 @@ public class UserController {
         HashMap<String, Object> cryptMap = new HashMap<>();
         cryptMap.put("id", registerUser.getId());
         cryptMap.put("account", registerUser.getAccount());
-        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("role", registerUser.getRole());
         cryptMap.put("status", registerUser.getStatus());
         cryptMap.put("fellowship", registerUser.getFellowship());
         // 2.2JWT加密生成token和时效（一个月）
@@ -474,7 +474,7 @@ public class UserController {
         registerUser.setAppleUserId(appleUserId);
         registerUser.setFellowship(Integer.valueOf(fellowship));
         registerUser.setStatus(true);
-        registerUser.setProfession(1);
+        registerUser.setRole(ROLE);
         // 生成account
         String account = MathUtils.randomDigitNumber(7);
         while (true) {
@@ -495,7 +495,7 @@ public class UserController {
         HashMap<String, Object> cryptMap = new HashMap<>();
         cryptMap.put("id", registerUser.getId());
         cryptMap.put("account", registerUser.getAccount());
-        cryptMap.put("profession", registerUser.getProfession());
+        cryptMap.put("role", registerUser.getRole());
         cryptMap.put("status", registerUser.getStatus());
         cryptMap.put("fellowship", registerUser.getFellowship());
         // 2.2JWT加密生成token和时效（一个月）

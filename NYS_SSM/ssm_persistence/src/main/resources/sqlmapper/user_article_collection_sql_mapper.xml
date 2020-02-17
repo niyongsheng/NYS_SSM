@@ -12,7 +12,7 @@
         where u.account = uac.account and uac.articleID = #{articleID}
     </select>
 
-    <resultMap id="articleMap_1" type="Article" autoMapping="true">
+    <resultMap id="articleMap_1" type="com.niyongsheng.persistence.domain.Article" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Article_CollectionDao.selectCollectionUsersByArticleID"/>
         <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>

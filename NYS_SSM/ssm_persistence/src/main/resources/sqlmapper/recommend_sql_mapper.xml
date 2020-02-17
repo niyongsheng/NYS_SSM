@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.RecommendDao">
 
-    <resultMap id="recommendMap_2" type="Recommend" autoMapping="true">
+    <resultMap id="recommendMap_2" type="com.niyongsheng.persistence.domain.Recommend" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
     </resultMap>

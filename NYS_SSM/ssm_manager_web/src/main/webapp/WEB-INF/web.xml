@@ -1,8 +1,9 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    
     <display-name>Archetype Created Web Application</display-name>
     <!-- 配置前端控制器servlet(加载SpringMVC配置文件) -->
     <servlet>
@@ -20,9 +21,23 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--定义一个cxf的servlet-->
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CXFServlet</servlet-name>
+        <url-pattern>/webservice/*</url-pattern>
+    </servlet-mapping>
+
     <!-- 配置监听器listener(加载Spring配置文件) -->
     <listener>
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- 防止Spring内存溢出监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
     <context-param>
         <!-- Spring配置文件路径 -->
@@ -38,32 +53,60 @@
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
         </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!-- 错误\异常处理 -->
+    <!-- shiro过滤器定义 -->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由ServletContainer管理 -->
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
+    <!-- 欢迎页 -->
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- 错误页 -->
     <error-page>
         <!-- 接收空指针错误 -->
         <exception-type>java.lang.NullPointerException</exception-type>
-        <location>/WEB-INF/pages/nullError.jsp</location>
+        <location>/WEB-INF/pages/errorNull.jsp</location>
     </error-page>
     <error-page>
         <!-- 404 页面不存在错误 -->
         <error-code>404</error-code>
-        <location>/WEB-INF/pages/404Error.jsp</location>
+        <location>/WEB-INF/pages/error404.jsp</location>
     </error-page>
     <error-page>
         <!-- 接收405错误 -->
         <error-code>405</error-code>
-        <location>/WEB-INF/pages/405Error.jsp</location>
+        <location>/WEB-INF/pages/error405.jsp</location>
     </error-page>
     <error-page>
         <!--  500 服务器内部错误 -->
         <error-code>500</error-code>
-        <location>/WEB-INF/pages/500Error.jsp</location>
+        <location>/WEB-INF/pages/error500.jsp</location>
     </error-page>
 
 </web-app>

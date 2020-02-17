@@ -9,7 +9,7 @@
         order by a.isTop desc, a.id desc
     </select>
 
-    <resultMap id="prayMap_1" type="Pray" autoMapping="true">
+    <resultMap id="prayMap_1" type="com.niyongsheng.persistence.domain.Pray" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.selectCollectionUsersByPrayID"/>
         <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
@@ -25,7 +25,7 @@
         order by p.isTop desc, p.id desc
     </select>
 
-    <resultMap id="myPrayMap" type="Pray" autoMapping="true">
+    <resultMap id="myPrayMap" type="com.niyongsheng.persistence.domain.Pray" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.selectCollectionUsersByPrayID"/>
     </resultMap>

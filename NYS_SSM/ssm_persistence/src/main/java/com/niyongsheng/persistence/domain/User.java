@@ -67,8 +67,8 @@ public class User implements Serializable{
     @ApiModelProperty(value = "团契编号")
     private Integer fellowship;
 
-    @ApiModelProperty(value = "身份类型:0特殊用户 1普通用户 2管理员 3敬拜 4服侍 5牧者")
-    private Integer profession;
+    @ApiModelProperty(value = "身份角色")
+    private Integer role;
 
     @ApiModelProperty(value = "QQ")
     private String qqOpenid;
@@ -104,4 +104,8 @@ public class User implements Serializable{
     @TableField(value = "fellowshipName", exist = false)
     @ApiModelProperty(value = "所属团契名称")
     private String fellowshipName;
+
+    @TableField(value = "roleDescription", exist = false)
+    @ApiModelProperty(value = "角色身份")
+    private String roleDescription;
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.niyongsheng.persistence.dao.ArticleDao">
 
-    <resultMap id="articleMap_1" type="Article" autoMapping="true">
+    <resultMap id="articleMap_1" type="com.niyongsheng.persistence.domain.Article" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Article_CollectionDao.selectCollectionUsersByArticleID"/>
         <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>
@@ -18,7 +18,7 @@
         order by a.isTop desc, a.id desc
     </select>
 
-    <resultMap id="myArticleMap" type="Article" autoMapping="true">
+    <resultMap id="myArticleMap" type="com.niyongsheng.persistence.domain.Article" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Article_CollectionDao.selectCollectionUsersByArticleID"/>
     </resultMap>

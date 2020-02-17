@@ -13,7 +13,7 @@
         where u.account = uyc.account and uyc.prayID = #{prayID}
     </select>
 
-    <resultMap id="prayMap_1" type="Pray" autoMapping="true">
+    <resultMap id="prayMap_1" type="com.niyongsheng.persistence.domain.Pray" autoMapping="true">
         <id property="id" column="id"/>
         <collection property="collectionUserList" column="id" select="com.niyongsheng.persistence.dao.User_Pray_CollectionDao.selectCollectionUsersByPrayID"/>
         <collection property="user" column="account" select="com.niyongsheng.persistence.dao.UserDao.findByAccount"/>

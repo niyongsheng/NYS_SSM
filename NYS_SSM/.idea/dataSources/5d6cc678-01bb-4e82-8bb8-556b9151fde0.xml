@@ -935,7 +935,9 @@
     <table id="238" parent="4" name="dcd_banner"/>
     <table id="239" parent="4" name="dcd_bible"/>
     <table id="240" parent="4" name="dcd_face"/>
-    <table id="241" parent="4" name="dcd_fellowship"/>
+    <table id="241" parent="4" name="dcd_fellowship">
+      <Comment>团契表</Comment>
+    </table>
     <table id="242" parent="4" name="dcd_filelog"/>
     <table id="243" parent="4" name="dcd_group"/>
     <table id="244" parent="4" name="dcd_music"/>
@@ -943,29 +945,40 @@
     <table id="246" parent="4" name="dcd_music_musicMenu">
       <Comment>歌曲_歌单_关系映射表</Comment>
     </table>
-    <table id="247" parent="4" name="dcd_pray"/>
-    <table id="248" parent="4" name="dcd_publicnotice"/>
-    <table id="249" parent="4" name="dcd_recommend"/>
-    <table id="250" parent="4" name="dcd_report"/>
-    <table id="251" parent="4" name="dcd_scorelog"/>
-    <table id="252" parent="4" name="dcd_user"/>
-    <table id="253" parent="4" name="dcd_user_activity">
+    <table id="247" parent="4" name="dcd_permission">
+      <Comment>权限表</Comment>
+    </table>
+    <table id="248" parent="4" name="dcd_pray"/>
+    <table id="249" parent="4" name="dcd_publicnotice"/>
+    <table id="250" parent="4" name="dcd_recommend"/>
+    <table id="251" parent="4" name="dcd_report"/>
+    <table id="252" parent="4" name="dcd_role">
+      <Comment>角色表</Comment>
+    </table>
+    <table id="253" parent="4" name="dcd_role_permission">
+      <Comment>角色_权限_关系映射表</Comment>
+    </table>
+    <table id="254" parent="4" name="dcd_scorelog"/>
+    <table id="255" parent="4" name="dcd_user">
+      <Comment>用户表</Comment>
+    </table>
+    <table id="256" parent="4" name="dcd_user_activity">
       <Comment>用户_活动_关系映射表</Comment>
     </table>
-    <table id="254" parent="4" name="dcd_user_activity_clock">
+    <table id="257" parent="4" name="dcd_user_activity_clock">
       <Comment>用户_活动_关系映射表</Comment>
     </table>
-    <table id="255" parent="4" name="dcd_user_article_collection">
+    <table id="258" parent="4" name="dcd_user_article_collection">
       <Comment>用户_文章_收藏_关系映射表</Comment>
     </table>
-    <table id="256" parent="4" name="dcd_user_music_collection">
+    <table id="259" parent="4" name="dcd_user_music_collection">
       <Comment>用户_音乐_收藏_关系映射表</Comment>
     </table>
-    <table id="257" parent="4" name="dcd_user_pray_collection">
+    <table id="260" parent="4" name="dcd_user_pray_collection">
       <Comment>用户_代祷_收藏_关系映射表</Comment>
     </table>
-    <table id="258" parent="4" name="dcd_weekBible"/>
-    <column id="259" parent="235" name="id">
+    <table id="261" parent="4" name="dcd_weekBible"/>
+    <column id="262" parent="235" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -973,121 +986,121 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="235" name="name">
+    <column id="263" parent="235" name="name">
       <Position>2</Position>
       <Comment>活动名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="235" name="icon">
+    <column id="264" parent="235" name="icon">
       <Position>3</Position>
       <Comment>活动封面URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="235" name="introduction">
+    <column id="265" parent="235" name="introduction">
       <Position>4</Position>
       <Comment>活动简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="235" name="groupId">
+    <column id="266" parent="235" name="groupId">
       <Position>5</Position>
       <Comment>关联群组ID</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="235" name="account">
+    <column id="267" parent="235" name="account">
       <Position>6</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="235" name="fellowship">
+    <column id="268" parent="235" name="fellowship">
       <Position>7</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="235" name="activityType">
+    <column id="269" parent="235" name="activityType">
       <Position>8</Position>
       <Comment>活动类型 1普通活动  2打卡活动</Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="235" name="isTop">
+    <column id="270" parent="235" name="isTop">
       <Position>9</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="268" parent="235" name="status">
+    <column id="271" parent="235" name="status">
       <Position>10</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="235" name="expireTime">
+    <column id="272" parent="235" name="expireTime">
       <Position>11</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="gmtModify">
+    <column id="273" parent="235" name="gmtModify">
       <Position>12</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="235" name="gmtCreate">
+    <column id="274" parent="235" name="gmtCreate">
       <Position>13</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="272" parent="235" name="id">
+    <index id="275" parent="235" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="273" parent="235" name="groupId">
+    <index id="276" parent="235" name="groupId">
       <ColNames>groupId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="274" parent="235" name="account">
+    <index id="277" parent="235" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="275" parent="235" name="fellowship">
+    <index id="278" parent="235" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="276" parent="235" name="PRIMARY">
+    <key id="279" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="277" parent="235" name="dcd_activity_ibfk_2">
+    <foreign-key id="280" parent="235" name="dcd_activity_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="278" parent="235" name="dcd_activity_ibfk_3">
+    <foreign-key id="281" parent="235" name="dcd_activity_ibfk_3">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="279" parent="236" name="id">
+    <column id="282" parent="236" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1095,125 +1108,125 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="236" name="title">
+    <column id="283" parent="236" name="title">
       <Position>2</Position>
       <Comment>广告标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="236" name="subtitle">
+    <column id="284" parent="236" name="subtitle">
       <Position>3</Position>
       <Comment>广告副标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="236" name="content">
+    <column id="285" parent="236" name="content">
       <Position>4</Position>
       <Comment>广告内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="236" name="advertisementUrl">
+    <column id="286" parent="236" name="advertisementUrl">
       <Position>5</Position>
       <Comment>AD_URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="236" name="targetUrl">
+    <column id="287" parent="236" name="targetUrl">
       <Position>6</Position>
       <Comment>广告跳转目标URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="236" name="account">
+    <column id="288" parent="236" name="account">
       <Position>7</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="236" name="fellowship">
+    <column id="289" parent="236" name="fellowship">
       <Position>8</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="236" name="type">
+    <column id="290" parent="236" name="type">
       <Position>9</Position>
       <Comment>广告类型：1.启动广告 2.弹框广告</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="236" name="duration">
+    <column id="291" parent="236" name="duration">
       <Position>10</Position>
       <Comment>展示时长</Comment>
       <DataType>float(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="236" name="isTop">
+    <column id="292" parent="236" name="isTop">
       <Position>11</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="236" name="status">
+    <column id="293" parent="236" name="status">
       <Position>12</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="236" name="expireTime">
+    <column id="294" parent="236" name="expireTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="236" name="gmtModify">
+    <column id="295" parent="236" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="236" name="gmtCreate">
+    <column id="296" parent="236" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="294" parent="236" name="account">
+    <index id="297" parent="236" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="295" parent="236" name="fellowship">
+    <index id="298" parent="236" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="296" parent="236" name="PRIMARY">
+    <key id="299" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="297" parent="236" name="dcd_advertisement_ibfk_2">
+    <foreign-key id="300" parent="236" name="dcd_advertisement_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="298" parent="236" name="dcd_advertisement_ibfk_1">
+    <foreign-key id="301" parent="236" name="dcd_advertisement_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="299" parent="237" name="id">
+    <column id="302" parent="237" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1221,128 +1234,128 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="237" name="title">
+    <column id="303" parent="237" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="237" name="subtitle">
+    <column id="304" parent="237" name="subtitle">
       <Position>3</Position>
       <Comment>副标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="237" name="author">
+    <column id="305" parent="237" name="author">
       <Position>4</Position>
       <Comment>作者</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="237" name="account">
+    <column id="306" parent="237" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="304" parent="237" name="icon">
+    <column id="307" parent="237" name="icon">
       <Position>6</Position>
       <Comment>主图</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="237" name="content">
+    <column id="308" parent="237" name="content">
       <Position>7</Position>
       <Comment>文章内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="237" name="articleUrl">
+    <column id="309" parent="237" name="articleUrl">
       <Position>8</Position>
       <Comment>文章URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="237" name="status">
+    <column id="310" parent="237" name="status">
       <Position>9</Position>
       <Comment>文章状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="237" name="isTop">
+    <column id="311" parent="237" name="isTop">
       <Position>10</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="237" name="articleType">
+    <column id="312" parent="237" name="articleType">
       <Position>11</Position>
       <Comment>文章类型 ：1普通 2转载</Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="237" name="fellowship">
+    <column id="313" parent="237" name="fellowship">
       <Position>12</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="237" name="expireTime">
+    <column id="314" parent="237" name="expireTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="237" name="gmtModify">
+    <column id="315" parent="237" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="237" name="gmtCreate">
+    <column id="316" parent="237" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="314" parent="237" name="id">
+    <index id="317" parent="237" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="315" parent="237" name="账号_关联_用户表_account">
+    <index id="318" parent="237" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="316" parent="237" name="团契_关联_团契表_id">
+    <index id="319" parent="237" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="317" parent="237" name="PRIMARY">
+    <key id="320" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="318" parent="237" name="账号_关联_用户表_account">
+    <foreign-key id="321" parent="237" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="319" parent="237" name="团契_关联_团契表_id">
+    <foreign-key id="322" parent="237" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="320" parent="238" name="id">
+    <column id="323" parent="238" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1350,100 +1363,100 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="238" name="title">
+    <column id="324" parent="238" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="238" name="bannerUrl">
+    <column id="325" parent="238" name="bannerUrl">
       <Position>3</Position>
       <Comment>轮播图URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="238" name="targetUrl">
+    <column id="326" parent="238" name="targetUrl">
       <Position>4</Position>
       <Comment>轮播图跳转目标URL</Comment>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>varchar(1000)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="238" name="account">
+    <column id="327" parent="238" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="238" name="fellowship">
+    <column id="328" parent="238" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="238" name="isTop">
+    <column id="329" parent="238" name="isTop">
       <Position>7</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="238" name="status">
+    <column id="330" parent="238" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="238" name="expireTime">
+    <column id="331" parent="238" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="238" name="gmtModify">
+    <column id="332" parent="238" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="238" name="gmtCreate">
+    <column id="333" parent="238" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="331" parent="238" name="account">
+    <index id="334" parent="238" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="332" parent="238" name="fellowship">
+    <index id="335" parent="238" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="238" name="PRIMARY">
+    <key id="336" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="334" parent="238" name="dcd_banner_ibfk_2">
+    <foreign-key id="337" parent="238" name="dcd_banner_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="335" parent="238" name="dcd_banner_ibfk_1">
+    <foreign-key id="338" parent="238" name="dcd_banner_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="336" parent="239" name="id">
+    <column id="339" parent="239" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1451,61 +1464,61 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="239" name="bible">
+    <column id="340" parent="239" name="bible">
       <Position>2</Position>
       <Comment>经文</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="239" name="book">
+    <column id="341" parent="239" name="book">
       <Position>3</Position>
       <Comment>书</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="239" name="chapter">
+    <column id="342" parent="239" name="chapter">
       <Position>4</Position>
       <Comment>篇</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="239" name="verse">
+    <column id="343" parent="239" name="verse">
       <Position>5</Position>
       <Comment>节</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="239" name="version">
+    <column id="344" parent="239" name="version">
       <Position>6</Position>
       <Comment>版本</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="239" name="status">
+    <column id="345" parent="239" name="status">
       <Position>7</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="239" name="gmtModify">
+    <column id="346" parent="239" name="gmtModify">
       <Position>8</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="344" parent="239" name="gmtCreate">
+    <column id="347" parent="239" name="gmtCreate">
       <Position>9</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="345" parent="239" name="PRIMARY">
+    <key id="348" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="346" parent="240" name="id">
+    <column id="349" parent="240" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1513,130 +1526,130 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="240" name="account">
+    <column id="350" parent="240" name="account">
       <Position>2</Position>
       <Comment>人脸所属用户账号</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="240" name="fellowship">
+    <column id="351" parent="240" name="fellowship">
       <Position>3</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="240" name="nickname">
+    <column id="352" parent="240" name="nickname">
       <Position>4</Position>
       <Comment>昵称</Comment>
       <DataType>varchar(125)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="240" name="liveness">
+    <column id="353" parent="240" name="liveness">
       <Position>5</Position>
       <Comment>1活体0非活体</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="240" name="faceRect">
+    <column id="354" parent="240" name="faceRect">
       <Position>6</Position>
       <Comment>脸部位置(x,y,w,h)</Comment>
       <DataType>varchar(32)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="240" name="faceOrient">
+    <column id="355" parent="240" name="faceOrient">
       <Position>7</Position>
       <Comment>脸部方向</Comment>
       <DataType>int(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="240" name="face3D">
+    <column id="356" parent="240" name="face3D">
       <Position>8</Position>
       <Comment>3D角度信息(x,z,y)</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="240" name="faceCode">
+    <column id="357" parent="240" name="faceCode">
       <Position>9</Position>
       <Comment>脸部特征码</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="240" name="faceUrl">
+    <column id="358" parent="240" name="faceUrl">
       <Position>10</Position>
       <Comment>网络位置</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="240" name="faceBase64">
+    <column id="359" parent="240" name="faceBase64">
       <Position>11</Position>
       <Comment>脸部图像base64</Comment>
       <DataType>longtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="240" name="facePhoto">
+    <column id="360" parent="240" name="facePhoto">
       <Position>12</Position>
       <Comment>脸部图像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="240" name="age">
+    <column id="361" parent="240" name="age">
       <Position>13</Position>
       <Comment>年龄</Comment>
       <DataType>int(3)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="240" name="gender">
+    <column id="362" parent="240" name="gender">
       <Position>14</Position>
       <Comment>性别性别:male/female</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="240" name="gmtModify">
+    <column id="363" parent="240" name="gmtModify">
       <Position>15</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="240" name="gmtCreate">
+    <column id="364" parent="240" name="gmtCreate">
       <Position>16</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="362" parent="240" name="人脸_关联_用户账号">
+    <index id="365" parent="240" name="人脸_关联_用户账号">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="363" parent="240" name="人脸表_团契_关联_团契id">
+    <index id="366" parent="240" name="人脸表_团契_关联_团契id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="364" parent="240" name="PRIMARY">
+    <key id="367" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship
 account</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="365" parent="240" name="人脸_关联_用户账号">
+    <foreign-key id="368" parent="240" name="人脸_关联_用户账号">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="366" parent="240" name="人脸表_团契_关联_团契id">
+    <foreign-key id="369" parent="240" name="人脸表_团契_关联_团契id">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="367" parent="241" name="id">
+    <column id="370" parent="241" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1644,80 +1657,80 @@ account</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="241" name="fellowshipName">
+    <column id="371" parent="241" name="fellowshipName">
       <Position>2</Position>
       <Comment>团契名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="241" name="fellowshipLogo">
+    <column id="372" parent="241" name="fellowshipLogo">
       <Position>3</Position>
       <Comment>团契logo</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="241" name="userIcon">
+    <column id="373" parent="241" name="userIcon">
       <Position>4</Position>
       <Comment>用户默认头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="241" name="grade">
+    <column id="374" parent="241" name="grade">
       <Position>5</Position>
       <Comment>团契等级</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="241" name="introduction">
+    <column id="375" parent="241" name="introduction">
       <Position>6</Position>
       <Comment>简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="241" name="gps">
+    <column id="376" parent="241" name="gps">
       <Position>7</Position>
       <Comment>定位</Comment>
       <DataType>varchar(70)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="241" name="address">
+    <column id="377" parent="241" name="address">
       <Position>8</Position>
       <Comment>地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="241" name="status">
+    <column id="378" parent="241" name="status">
       <Position>9</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="241" name="CommemorationDay">
+    <column id="379" parent="241" name="CommemorationDay">
       <Position>10</Position>
       <Comment>纪念日</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="241" name="gmtModify">
+    <column id="380" parent="241" name="gmtModify">
       <Position>11</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="241" name="gmtCreate">
+    <column id="381" parent="241" name="gmtCreate">
       <Position>12</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="379" parent="241" name="PRIMARY">
+    <key id="382" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="380" parent="242" name="id">
+    <column id="383" parent="242" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1725,177 +1738,177 @@ account</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="242" name="fileUrl">
+    <column id="384" parent="242" name="fileUrl">
       <Position>2</Position>
       <Comment>文件URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="242" name="type">
+    <column id="385" parent="242" name="type">
       <Position>3</Position>
       <Comment>1上传 0删除</Comment>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="242" name="account">
+    <column id="386" parent="242" name="account">
       <Position>4</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="242" name="remark">
+    <column id="387" parent="242" name="remark">
       <Position>5</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="242" name="fellowship">
+    <column id="388" parent="242" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="242" name="gmtModify">
+    <column id="389" parent="242" name="gmtModify">
       <Position>7</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="242" name="gmtCreate">
+    <column id="390" parent="242" name="gmtCreate">
       <Position>8</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="388" parent="242" name="account">
+    <index id="391" parent="242" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="389" parent="242" name="fellowship">
+    <index id="392" parent="242" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="390" parent="242" name="PRIMARY">
+    <key id="393" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="391" parent="242" name="dcd_filelog_ibfk_1">
+    <foreign-key id="394" parent="242" name="dcd_filelog_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="392" parent="243" name="id">
+    <column id="395" parent="243" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="243" name="groupId">
+    <column id="396" parent="243" name="groupId">
       <Position>2</Position>
       <Comment>群组ID</Comment>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="243" name="groupIcon">
+    <column id="397" parent="243" name="groupIcon">
       <Position>3</Position>
       <Comment>组群头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="243" name="groupName">
+    <column id="398" parent="243" name="groupName">
       <Position>4</Position>
       <Comment>群组名称</Comment>
       <DataType>varchar(125)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="243" name="creator">
+    <column id="399" parent="243" name="creator">
       <Position>5</Position>
       <Comment>创建人</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="243" name="introduction">
+    <column id="400" parent="243" name="introduction">
       <Position>6</Position>
       <Comment>群简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="243" name="isBan">
+    <column id="401" parent="243" name="isBan">
       <Position>7</Position>
       <Comment>是否禁言</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="243" name="isVerify">
+    <column id="402" parent="243" name="isVerify">
       <Position>8</Position>
       <Comment>是否需要验证</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="243" name="status">
+    <column id="403" parent="243" name="status">
       <Position>9</Position>
       <Comment>群组状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="401" parent="243" name="groupType">
+    <column id="404" parent="243" name="groupType">
       <Position>10</Position>
       <Comment>群组类型 1公开群  2私人群&quot;</Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="402" parent="243" name="fellowship">
+    <column id="405" parent="243" name="fellowship">
       <Position>11</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="403" parent="243" name="expireTime">
+    <column id="406" parent="243" name="expireTime">
       <Position>12</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="243" name="gmtModify">
+    <column id="407" parent="243" name="gmtModify">
       <Position>13</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="243" name="gmtCreate">
+    <column id="408" parent="243" name="gmtCreate">
       <Position>14</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="406" parent="243" name="groupId">
+    <index id="409" parent="243" name="groupId">
       <ColNames>groupId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="407" parent="243" name="creator">
+    <index id="410" parent="243" name="creator">
       <ColNames>creator</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="408" parent="243" name="fellowship">
+    <index id="411" parent="243" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="409" parent="243" name="PRIMARY">
+    <key id="412" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship
@@ -1903,28 +1916,28 @@ groupId
 creator</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="410" parent="243" name="dcd_group_ibfk_2">
+    <foreign-key id="413" parent="243" name="dcd_group_ibfk_2">
       <ColNames>groupId</ColNames>
       <RefTableName>dcd_activity</RefTableName>
       <RefColNames>groupId</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="411" parent="243" name="dcd_group_ibfk_1">
+    <foreign-key id="414" parent="243" name="dcd_group_ibfk_1">
       <ColNames>creator</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="412" parent="243" name="dcd_group_ibfk_3">
+    <foreign-key id="415" parent="243" name="dcd_group_ibfk_3">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="413" parent="244" name="id">
+    <column id="416" parent="244" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1932,134 +1945,134 @@ creator</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="414" parent="244" name="name">
+    <column id="417" parent="244" name="name">
       <Position>2</Position>
       <Comment>歌名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="415" parent="244" name="singer">
+    <column id="418" parent="244" name="singer">
       <Position>3</Position>
       <Comment>歌手</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="416" parent="244" name="wordAuthor">
+    <column id="419" parent="244" name="wordAuthor">
       <Position>4</Position>
       <Comment>词作者</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="244" name="anAuthor">
+    <column id="420" parent="244" name="anAuthor">
       <Position>5</Position>
       <Comment>曲作者</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="244" name="icon">
+    <column id="421" parent="244" name="icon">
       <Position>6</Position>
       <Comment>封面</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="244" name="lyric">
+    <column id="422" parent="244" name="lyric">
       <Position>7</Position>
       <Comment>歌词</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="244" name="musicUrl">
+    <column id="423" parent="244" name="musicUrl">
       <Position>8</Position>
       <Comment>歌曲URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="244" name="account">
+    <column id="424" parent="244" name="account">
       <Position>9</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="244" name="status">
+    <column id="425" parent="244" name="status">
       <Position>10</Position>
       <Comment>歌曲状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="423" parent="244" name="isTop">
+    <column id="426" parent="244" name="isTop">
       <Position>11</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="244" name="musicType">
+    <column id="427" parent="244" name="musicType">
       <Position>12</Position>
       <Comment>歌曲类型 </Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="425" parent="244" name="fellowship">
+    <column id="428" parent="244" name="fellowship">
       <Position>13</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="244" name="expireTime">
+    <column id="429" parent="244" name="expireTime">
       <Position>14</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="244" name="gmtModify">
+    <column id="430" parent="244" name="gmtModify">
       <Position>15</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="244" name="gmtCreate">
+    <column id="431" parent="244" name="gmtCreate">
       <Position>16</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="429" parent="244" name="id">
+    <index id="432" parent="244" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="430" parent="244" name="账号_关联_用户表_account">
+    <index id="433" parent="244" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="431" parent="244" name="团契_关联_团契表_id">
+    <index id="434" parent="244" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="432" parent="244" name="PRIMARY">
+    <key id="435" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="433" parent="244" name="dcd_music_ibfk_2">
+    <foreign-key id="436" parent="244" name="dcd_music_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="434" parent="244" name="dcd_music_ibfk_1">
+    <foreign-key id="437" parent="244" name="dcd_music_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="435" parent="245" name="id">
+    <column id="438" parent="245" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2067,98 +2080,98 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="436" parent="245" name="name">
+    <column id="439" parent="245" name="name">
       <Position>2</Position>
       <Comment>歌单名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="437" parent="245" name="icon">
+    <column id="440" parent="245" name="icon">
       <Position>3</Position>
       <Comment>歌单封面URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="438" parent="245" name="introduction">
+    <column id="441" parent="245" name="introduction">
       <Position>4</Position>
       <Comment>歌单简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="439" parent="245" name="account">
+    <column id="442" parent="245" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="440" parent="245" name="fellowship">
+    <column id="443" parent="245" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="441" parent="245" name="isTop">
+    <column id="444" parent="245" name="isTop">
       <Position>7</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="442" parent="245" name="status">
+    <column id="445" parent="245" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="443" parent="245" name="gmtModify">
+    <column id="446" parent="245" name="gmtModify">
       <Position>9</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="444" parent="245" name="gmtCreate">
+    <column id="447" parent="245" name="gmtCreate">
       <Position>10</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="445" parent="245" name="id">
+    <index id="448" parent="245" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="446" parent="245" name="account">
+    <index id="449" parent="245" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="447" parent="245" name="fellowship">
+    <index id="450" parent="245" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="448" parent="245" name="PRIMARY">
+    <key id="451" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="449" parent="245" name="dcd_musicmenu_ibfk_1">
+    <foreign-key id="452" parent="245" name="dcd_musicmenu_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="450" parent="245" name="dcd_musicmenu_ibfk_2">
+    <foreign-key id="453" parent="245" name="dcd_musicmenu_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="451" parent="246" name="id">
+    <column id="454" parent="246" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2166,52 +2179,52 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="452" parent="246" name="musicID">
+    <column id="455" parent="246" name="musicID">
       <Position>2</Position>
       <Comment>关联音乐ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="453" parent="246" name="musicMenuID">
+    <column id="456" parent="246" name="musicMenuID">
       <Position>3</Position>
       <Comment>关联歌单ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="454" parent="246" name="account">
+    <column id="457" parent="246" name="account">
       <Position>4</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="455" parent="246" name="gmtModify">
+    <column id="458" parent="246" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="456" parent="246" name="gmtCreate">
+    <column id="459" parent="246" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="457" parent="246" name="musicID">
+    <index id="460" parent="246" name="musicID">
       <ColNames>musicID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="458" parent="246" name="musicMenuID">
+    <index id="461" parent="246" name="musicMenuID">
       <ColNames>musicMenuID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="459" parent="246" name="账号_关联_用户表_account">
+    <index id="462" parent="246" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="460" parent="246" name="PRIMARY">
+    <key id="463" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
@@ -2219,28 +2232,74 @@ musicID
 musicMenuID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="461" parent="246" name="dcd_music_musicmenu_ibfk_3">
+    <foreign-key id="464" parent="246" name="dcd_music_musicmenu_ibfk_3">
       <ColNames>musicID</ColNames>
       <RefTableName>dcd_music</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="462" parent="246" name="dcd_music_musicmenu_ibfk_4">
+    <foreign-key id="465" parent="246" name="dcd_music_musicmenu_ibfk_4">
       <ColNames>musicMenuID</ColNames>
       <RefTableName>dcd_musicMenu</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="463" parent="246" name="dcd_music_musicmenu_ibfk_2">
+    <foreign-key id="466" parent="246" name="dcd_music_musicmenu_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="464" parent="247" name="id">
+    <column id="467" parent="247" name="id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="468" parent="247" name="permissionName">
+      <Position>2</Position>
+      <Comment>权限</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="469" parent="247" name="permissionDescription">
+      <Position>3</Position>
+      <Comment>权限描述</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="470" parent="247" name="status">
+      <Position>4</Position>
+      <Comment>状态</Comment>
+      <DataType>bit(1)|0s</DataType>
+      <DefaultExpression>b&apos;1&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="471" parent="247" name="gmtModify">
+      <Position>5</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+    </column>
+    <column id="472" parent="247" name="gmtCreate">
+      <Position>6</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="473" parent="247" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="474" parent="248" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2248,128 +2307,128 @@ musicMenuID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="465" parent="247" name="title">
+    <column id="475" parent="248" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="466" parent="247" name="subtitle">
+    <column id="476" parent="248" name="subtitle">
       <Position>3</Position>
       <Comment>副标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="467" parent="247" name="account">
+    <column id="477" parent="248" name="account">
       <Position>4</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="468" parent="247" name="icon">
+    <column id="478" parent="248" name="icon">
       <Position>5</Position>
       <Comment>主图</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="469" parent="247" name="content">
+    <column id="479" parent="248" name="content">
       <Position>6</Position>
       <Comment>代祷内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="470" parent="247" name="prayUrl">
+    <column id="480" parent="248" name="prayUrl">
       <Position>7</Position>
       <Comment>代祷URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="471" parent="247" name="status">
+    <column id="481" parent="248" name="status">
       <Position>8</Position>
       <Comment>代祷状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="472" parent="247" name="anonymity">
+    <column id="482" parent="248" name="anonymity">
       <Position>9</Position>
       <Comment>匿名</Comment>
       <DataType>bit(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="473" parent="247" name="isTop">
+    <column id="483" parent="248" name="isTop">
       <Position>10</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="474" parent="247" name="prayType">
+    <column id="484" parent="248" name="prayType">
       <Position>11</Position>
       <Comment>代祷类型 </Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="475" parent="247" name="fellowship">
+    <column id="485" parent="248" name="fellowship">
       <Position>12</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="476" parent="247" name="expireTime">
+    <column id="486" parent="248" name="expireTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="477" parent="247" name="gmtModify">
+    <column id="487" parent="248" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="478" parent="247" name="gmtCreate">
+    <column id="488" parent="248" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="479" parent="247" name="id">
+    <index id="489" parent="248" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="480" parent="247" name="账号_关联_用户表_account">
+    <index id="490" parent="248" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="481" parent="247" name="团契_关联_团契表_id">
+    <index id="491" parent="248" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="482" parent="247" name="PRIMARY">
+    <key id="492" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="483" parent="247" name="dcd_pray_ibfk_2">
+    <foreign-key id="493" parent="248" name="dcd_pray_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="484" parent="247" name="dcd_pray_ibfk_1">
+    <foreign-key id="494" parent="248" name="dcd_pray_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="485" parent="248" name="id">
+    <column id="495" parent="249" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2377,100 +2436,100 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="486" parent="248" name="title">
+    <column id="496" parent="249" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="487" parent="248" name="publicnotice">
+    <column id="497" parent="249" name="publicnotice">
       <Position>3</Position>
       <Comment>公告内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="488" parent="248" name="publicnoticeUrl">
+    <column id="498" parent="249" name="publicnoticeUrl">
       <Position>4</Position>
       <Comment>公告跳转URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="489" parent="248" name="account">
+    <column id="499" parent="249" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="490" parent="248" name="fellowship">
+    <column id="500" parent="249" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="491" parent="248" name="isTop">
+    <column id="501" parent="249" name="isTop">
       <Position>7</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="492" parent="248" name="status">
+    <column id="502" parent="249" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="493" parent="248" name="expireTime">
+    <column id="503" parent="249" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="494" parent="248" name="gmtModify">
+    <column id="504" parent="249" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="495" parent="248" name="gmtCreate">
+    <column id="505" parent="249" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="496" parent="248" name="account">
+    <index id="506" parent="249" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="497" parent="248" name="fellowship">
+    <index id="507" parent="249" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="498" parent="248" name="PRIMARY">
+    <key id="508" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="499" parent="248" name="dcd_publicnotice_ibfk_1">
+    <foreign-key id="509" parent="249" name="dcd_publicnotice_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="500" parent="248" name="dcd_publicnotice_ibfk_2">
+    <foreign-key id="510" parent="249" name="dcd_publicnotice_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="501" parent="249" name="id">
+    <column id="511" parent="250" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2478,106 +2537,106 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="502" parent="249" name="name">
+    <column id="512" parent="250" name="name">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="503" parent="249" name="content">
+    <column id="513" parent="250" name="content">
       <Position>3</Position>
       <Comment>推荐理由</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="504" parent="249" name="iconUrl">
+    <column id="514" parent="250" name="iconUrl">
       <Position>4</Position>
       <Comment>推荐物品图片</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="505" parent="249" name="targetUrl">
+    <column id="515" parent="250" name="targetUrl">
       <Position>5</Position>
       <Comment>跳转目标URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="506" parent="249" name="account">
+    <column id="516" parent="250" name="account">
       <Position>6</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="507" parent="249" name="fellowship">
+    <column id="517" parent="250" name="fellowship">
       <Position>7</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="508" parent="249" name="isTop">
+    <column id="518" parent="250" name="isTop">
       <Position>8</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="509" parent="249" name="status">
+    <column id="519" parent="250" name="status">
       <Position>9</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="510" parent="249" name="expireTime">
+    <column id="520" parent="250" name="expireTime">
       <Position>10</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="511" parent="249" name="gmtModify">
+    <column id="521" parent="250" name="gmtModify">
       <Position>11</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="512" parent="249" name="gmtCreate">
+    <column id="522" parent="250" name="gmtCreate">
       <Position>12</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="513" parent="249" name="account">
+    <index id="523" parent="250" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="514" parent="249" name="fellowship">
+    <index id="524" parent="250" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="515" parent="249" name="PRIMARY">
+    <key id="525" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="516" parent="249" name="dcd_recommend_ibfk_2">
+    <foreign-key id="526" parent="250" name="dcd_recommend_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="517" parent="249" name="dcd_recommend_ibfk_1">
+    <foreign-key id="527" parent="250" name="dcd_recommend_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="518" parent="250" name="id">
+    <column id="528" parent="251" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2585,102 +2644,102 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="519" parent="250" name="type">
+    <column id="529" parent="251" name="type">
       <Position>2</Position>
       <Comment>举报类型：1.广告信息 2.垃圾信息 3.不感兴趣</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="520" parent="250" name="content">
+    <column id="530" parent="251" name="content">
       <Position>3</Position>
       <Comment>举报内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="521" parent="250" name="reportId">
+    <column id="531" parent="251" name="reportId">
       <Position>4</Position>
       <Comment>举报项目id</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="522" parent="250" name="idType">
+    <column id="532" parent="251" name="idType">
       <Position>5</Position>
       <Comment>id类型： 1.分享 2.代祷 3.音频 4.活动</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="523" parent="250" name="account">
+    <column id="533" parent="251" name="account">
       <Position>6</Position>
       <Comment>举报者者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="524" parent="250" name="fellowship">
+    <column id="534" parent="251" name="fellowship">
       <Position>7</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="525" parent="250" name="status">
+    <column id="535" parent="251" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="526" parent="250" name="expireTime">
+    <column id="536" parent="251" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="527" parent="250" name="gmtModify">
+    <column id="537" parent="251" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="528" parent="250" name="gmtCreate">
+    <column id="538" parent="251" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="529" parent="250" name="account">
+    <index id="539" parent="251" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="530" parent="250" name="fellowship">
+    <index id="540" parent="251" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="531" parent="250" name="PRIMARY">
+    <key id="541" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="532" parent="250" name="dcd_report_ibfk_2">
+    <foreign-key id="542" parent="251" name="dcd_report_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="533" parent="250" name="dcd_report_ibfk_1">
+    <foreign-key id="543" parent="251" name="dcd_report_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="534" parent="251" name="id">
+    <column id="544" parent="252" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2688,20 +2747,136 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="535" parent="251" name="orderID">
+    <column id="545" parent="252" name="roleName">
+      <Position>2</Position>
+      <Comment>角色</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="546" parent="252" name="roleDescription">
+      <Position>3</Position>
+      <Comment>角色描述</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="547" parent="252" name="status">
+      <Position>4</Position>
+      <Comment>状态</Comment>
+      <DataType>bit(1)|0s</DataType>
+      <DefaultExpression>b&apos;1&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="548" parent="252" name="gmtModify">
+      <Position>5</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+    </column>
+    <column id="549" parent="252" name="gmtCreate">
+      <Position>6</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="550" parent="252" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="551" parent="253" name="id">
+      <Position>1</Position>
+      <Comment>ID主键</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="552" parent="253" name="roleID">
+      <Position>2</Position>
+      <Comment>角色ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="553" parent="253" name="permissionID">
+      <Position>3</Position>
+      <Comment>权限ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="554" parent="253" name="remark">
+      <Position>4</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="555" parent="253" name="gmtModify">
+      <Position>5</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
+    </column>
+    <column id="556" parent="253" name="gmtCreate">
+      <Position>6</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="557" parent="253" name="roleID">
+      <ColNames>roleID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="558" parent="253" name="permissionID">
+      <ColNames>permissionID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="559" parent="253" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id
+permissionID
+roleID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="560" parent="253" name="dcd_role_permission_ibfk_1">
+      <ColNames>roleID</ColNames>
+      <RefTableName>dcd_role</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="561" parent="253" name="dcd_role_permission_ibfk_2">
+      <ColNames>permissionID</ColNames>
+      <RefTableName>dcd_permission</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="562" parent="254" name="id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="563" parent="254" name="orderID">
       <Position>2</Position>
       <Comment>单号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="536" parent="251" name="amount">
+    <column id="564" parent="254" name="amount">
       <Position>3</Position>
       <Comment>数额</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="537" parent="251" name="inout">
+    <column id="565" parent="254" name="inout">
       <Position>4</Position>
       <Comment>1收入 0支出</Comment>
       <DataType>bit(1)|0s</DataType>
@@ -2709,72 +2884,72 @@ fellowship</ColNames>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="538" parent="251" name="account">
+    <column id="566" parent="254" name="account">
       <Position>5</Position>
       <Comment>积分账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="539" parent="251" name="type">
+    <column id="567" parent="254" name="type">
       <Position>6</Position>
       <Comment>类型：1签到 2奖励 3交易</Comment>
       <DataType>int(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="540" parent="251" name="remark">
+    <column id="568" parent="254" name="remark">
       <Position>7</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="541" parent="251" name="fellowship">
+    <column id="569" parent="254" name="fellowship">
       <Position>8</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="542" parent="251" name="gmtModify">
+    <column id="570" parent="254" name="gmtModify">
       <Position>9</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="543" parent="251" name="gmtCreate">
+    <column id="571" parent="254" name="gmtCreate">
       <Position>10</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="544" parent="251" name="account">
+    <index id="572" parent="254" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="545" parent="251" name="fellowship">
+    <index id="573" parent="254" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="546" parent="251" name="PRIMARY">
+    <key id="574" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="547" parent="251" name="dcd_scorelog_ibfk_1">
+    <foreign-key id="575" parent="254" name="dcd_scorelog_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="548" parent="251" name="dcd_scorelog_ibfk_2">
+    <foreign-key id="576" parent="254" name="dcd_scorelog_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="549" parent="252" name="id">
+    <column id="577" parent="255" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2782,173 +2957,187 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="550" parent="252" name="account">
+    <column id="578" parent="255" name="account">
       <Position>2</Position>
       <Comment>账号</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="551" parent="252" name="truename">
+    <column id="579" parent="255" name="nickname">
       <Position>3</Position>
+      <Comment>昵称</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="580" parent="255" name="truename">
+      <Position>4</Position>
       <Comment>真实姓名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="552" parent="252" name="icon">
-      <Position>4</Position>
+    <column id="581" parent="255" name="icon">
+      <Position>5</Position>
       <Comment>头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="553" parent="252" name="grade">
-      <Position>5</Position>
+    <column id="582" parent="255" name="grade">
+      <Position>6</Position>
       <Comment>等级</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="554" parent="252" name="score">
-      <Position>6</Position>
+    <column id="583" parent="255" name="score">
+      <Position>7</Position>
       <Comment>积分</Comment>
       <DataType>float(7)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="555" parent="252" name="gender">
-      <Position>7</Position>
+    <column id="584" parent="255" name="gender">
+      <Position>8</Position>
       <Comment>性别</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="556" parent="252" name="phone">
-      <Position>8</Position>
+    <column id="585" parent="255" name="phone">
+      <Position>9</Position>
       <Comment>手机号</Comment>
       <DataType>varchar(15)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="557" parent="252" name="password">
-      <Position>9</Position>
+    <column id="586" parent="255" name="password">
+      <Position>10</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="558" parent="252" name="token">
-      <Position>10</Position>
+    <column id="587" parent="255" name="token">
+      <Position>11</Position>
       <Comment>登录令牌</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="559" parent="252" name="imToken">
-      <Position>11</Position>
+    <column id="588" parent="255" name="imToken">
+      <Position>12</Position>
       <Comment>IM令牌</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="560" parent="252" name="nickname">
-      <Position>12</Position>
-      <Comment>昵称</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="561" parent="252" name="introduction">
+    <column id="589" parent="255" name="introduction">
       <Position>13</Position>
       <Comment>简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="562" parent="252" name="email">
+    <column id="590" parent="255" name="email">
       <Position>14</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(70)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="563" parent="252" name="address">
+    <column id="591" parent="255" name="address">
       <Position>15</Position>
       <Comment>地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="564" parent="252" name="fellowship">
+    <column id="592" parent="255" name="fellowship">
       <Position>16</Position>
-      <Comment>所属团契编号</Comment>
+      <Comment>团契ID</Comment>
       <DataType>int(4)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="565" parent="252" name="profession">
+    <column id="593" parent="255" name="role">
       <Position>17</Position>
-      <Comment>身份类型:0特殊用户 1普通用户 2管理员 3敬拜 4服侍 5牧者</Comment>
+      <Comment>角色ID</Comment>
       <DataType>int(4)|0s</DataType>
+      <NotNull>1</NotNull>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="566" parent="252" name="qqOpenid">
+    <column id="594" parent="255" name="qqOpenid">
       <Position>18</Position>
       <Comment>QQ</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="567" parent="252" name="wcOpenid">
+    <column id="595" parent="255" name="wcOpenid">
       <Position>19</Position>
       <Comment>微信</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="568" parent="252" name="appleUserId">
+    <column id="596" parent="255" name="appleUserId">
       <Position>20</Position>
       <Comment>Apple登录</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="569" parent="252" name="status">
+    <column id="597" parent="255" name="status">
       <Position>21</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="570" parent="252" name="birthday">
+    <column id="598" parent="255" name="birthday">
       <Position>22</Position>
       <Comment>生日</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="571" parent="252" name="gmtModify">
+    <column id="599" parent="255" name="gmtModify">
       <Position>23</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="572" parent="252" name="gmtCreate">
+    <column id="600" parent="255" name="gmtCreate">
       <Position>24</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="573" parent="252" name="id">
+    <index id="601" parent="255" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="574" parent="252" name="account">
+    <index id="602" parent="255" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="575" parent="252" name="emp_fellowship__dept_id">
+    <index id="603" parent="255" name="emp_fellowship__dept_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="576" parent="252" name="PRIMARY">
+    <index id="604" parent="255" name="role">
+      <ColNames>role</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="605" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>id
+fellowship
+role</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="577" parent="252" name="emp_fellowship__dept_id">
+    <foreign-key id="606" parent="255" name="emp_fellowship__dept_id">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
-      <OnDelete>set-null</OnDelete>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="578" parent="253" name="id">
+    <foreign-key id="607" parent="255" name="dcd_user_ibfk_1">
+      <ColNames>role</ColNames>
+      <RefTableName>dcd_role</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="608" parent="256" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2956,68 +3145,68 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="579" parent="253" name="activityID">
+    <column id="609" parent="256" name="activityID">
       <Position>2</Position>
       <Comment>关联活动ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="580" parent="253" name="account">
+    <column id="610" parent="256" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="581" parent="253" name="remark">
+    <column id="611" parent="256" name="remark">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="582" parent="253" name="gmtModify">
+    <column id="612" parent="256" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="583" parent="253" name="gmtCreate">
+    <column id="613" parent="256" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="584" parent="253" name="activityID">
+    <index id="614" parent="256" name="activityID">
       <ColNames>activityID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="585" parent="253" name="account">
+    <index id="615" parent="256" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="586" parent="253" name="PRIMARY">
+    <key id="616" parent="256" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 activityID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="587" parent="253" name="dcd_user_activity_ibfk_1">
+    <foreign-key id="617" parent="256" name="dcd_user_activity_ibfk_1">
       <ColNames>activityID</ColNames>
       <RefTableName>dcd_activity</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="588" parent="253" name="dcd_user_activity_ibfk_2">
+    <foreign-key id="618" parent="256" name="dcd_user_activity_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="589" parent="254" name="id">
+    <column id="619" parent="257" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3025,229 +3214,40 @@ activityID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="590" parent="254" name="activityID">
+    <column id="620" parent="257" name="activityID">
       <Position>2</Position>
       <Comment>关联活动ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="591" parent="254" name="account">
+    <column id="621" parent="257" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="592" parent="254" name="remark">
+    <column id="622" parent="257" name="remark">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="593" parent="254" name="gmtModify">
-      <Position>5</Position>
-      <Comment>修改时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="594" parent="254" name="gmtCreate">
-      <Position>6</Position>
-      <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="595" parent="254" name="activityID">
-      <ColNames>activityID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="596" parent="254" name="account">
-      <ColNames>account</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="597" parent="254" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id
-account
-activityID</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="598" parent="254" name="dcd_user_activity_clock_ibfk_1">
-      <ColNames>activityID</ColNames>
-      <RefTableName>dcd_activity</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="599" parent="254" name="dcd_user_activity_clock_ibfk_2">
-      <ColNames>account</ColNames>
-      <RefTableName>dcd_user</RefTableName>
-      <RefColNames>account</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="600" parent="255" name="id">
-      <Position>1</Position>
-      <Comment>ID主键</Comment>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="601" parent="255" name="articleID">
-      <Position>2</Position>
-      <Comment>关联文章ID</Comment>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="602" parent="255" name="account">
-      <Position>3</Position>
-      <Comment>关联用户account</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="603" parent="255" name="gmtModify">
-      <Position>4</Position>
-      <Comment>修改时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="604" parent="255" name="gmtCreate">
-      <Position>5</Position>
-      <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="605" parent="255" name="articleID">
-      <ColNames>articleID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="606" parent="255" name="account">
-      <ColNames>account</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="607" parent="255" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id
-account
-articleID</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="608" parent="255" name="dcd_user_article_collection_ibfk_1">
-      <ColNames>articleID</ColNames>
-      <RefTableName>dcd_article</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="609" parent="255" name="dcd_user_article_collection_ibfk_2">
-      <ColNames>account</ColNames>
-      <RefTableName>dcd_user</RefTableName>
-      <RefColNames>account</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="610" parent="256" name="id">
-      <Position>1</Position>
-      <Comment>ID主键</Comment>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="611" parent="256" name="musicID">
-      <Position>2</Position>
-      <Comment>关联音乐ID</Comment>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="612" parent="256" name="account">
-      <Position>3</Position>
-      <Comment>关联用户account</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="613" parent="256" name="gmtModify">
-      <Position>4</Position>
-      <Comment>修改时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="614" parent="256" name="gmtCreate">
-      <Position>5</Position>
-      <Comment>创建时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="615" parent="256" name="musicID">
-      <ColNames>musicID</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="616" parent="256" name="account">
-      <ColNames>account</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="617" parent="256" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id
-account
-musicID</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="618" parent="256" name="dcd_user_music_collection_ibfk_1">
-      <ColNames>musicID</ColNames>
-      <RefTableName>dcd_music</RefTableName>
-      <RefColNames>id</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <foreign-key id="619" parent="256" name="dcd_user_music_collection_ibfk_2">
-      <ColNames>account</ColNames>
-      <RefTableName>dcd_user</RefTableName>
-      <RefColNames>account</RefColNames>
-      <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
-    </foreign-key>
-    <column id="620" parent="257" name="id">
-      <Position>1</Position>
-      <Comment>ID主键</Comment>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="621" parent="257" name="prayID">
-      <Position>2</Position>
-      <Comment>关联代祷ID</Comment>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="622" parent="257" name="account">
-      <Position>3</Position>
-      <Comment>关联用户account</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="623" parent="257" name="gmtModify">
-      <Position>4</Position>
+      <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="624" parent="257" name="gmtCreate">
-      <Position>5</Position>
+      <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="625" parent="257" name="prayID">
-      <ColNames>prayID</ColNames>
+    <index id="625" parent="257" name="activityID">
+      <ColNames>activityID</ColNames>
       <Type>btree</Type>
     </index>
     <index id="626" parent="257" name="account">
@@ -3258,17 +3258,17 @@ musicID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
-prayID</ColNames>
+activityID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="628" parent="257" name="dcd_user_pray_collection_ibfk_1">
-      <ColNames>prayID</ColNames>
-      <RefTableName>dcd_pray</RefTableName>
+    <foreign-key id="628" parent="257" name="dcd_user_activity_clock_ibfk_1">
+      <ColNames>activityID</ColNames>
+      <RefTableName>dcd_activity</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="629" parent="257" name="dcd_user_pray_collection_ibfk_2">
+    <foreign-key id="629" parent="257" name="dcd_user_activity_clock_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
@@ -3277,98 +3277,287 @@ prayID</ColNames>
     </foreign-key>
     <column id="630" parent="258" name="id">
       <Position>1</Position>
-      <Comment>ID</Comment>
+      <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="631" parent="258" name="bible">
+    <column id="631" parent="258" name="articleID">
       <Position>2</Position>
-      <Comment>经文</Comment>
-      <DataType>text|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="632" parent="258" name="iconUrl">
-      <Position>3</Position>
-      <Comment>封面图URL</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="633" parent="258" name="targetUrl">
-      <Position>4</Position>
-      <Comment>跳转目标URL</Comment>
-      <DataType>varchar(255)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="634" parent="258" name="account">
-      <Position>5</Position>
-      <Comment>发布者账号</Comment>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="635" parent="258" name="fellowship">
-      <Position>6</Position>
-      <Comment>所属团契编号</Comment>
+      <Comment>关联文章ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="636" parent="258" name="weekOfYear">
-      <Position>7</Position>
-      <Comment>周数</Comment>
-      <DataType>int(2)|0s</DataType>
+    <column id="632" parent="258" name="account">
+      <Position>3</Position>
+      <Comment>关联用户account</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="637" parent="258" name="status">
-      <Position>8</Position>
-      <Comment>1有效0失效</Comment>
-      <DataType>bit(1)|0s</DataType>
-      <DefaultExpression>b&apos;1&apos;</DefaultExpression>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="638" parent="258" name="expireTime">
-      <Position>9</Position>
-      <Comment>过期时间</Comment>
-      <DataType>datetime|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="639" parent="258" name="gmtModify">
-      <Position>10</Position>
+    <column id="633" parent="258" name="gmtModify">
+      <Position>4</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="640" parent="258" name="gmtCreate">
-      <Position>11</Position>
+    <column id="634" parent="258" name="gmtCreate">
+      <Position>5</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="641" parent="258" name="account">
+    <index id="635" parent="258" name="articleID">
+      <ColNames>articleID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="636" parent="258" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="642" parent="258" name="fellowship">
-      <ColNames>fellowship</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="643" parent="258" name="PRIMARY">
+    <key id="637" parent="258" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
-fellowship</ColNames>
+articleID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="644" parent="258" name="dcd_weekbible_ibfk_2">
+    <foreign-key id="638" parent="258" name="dcd_user_article_collection_ibfk_1">
+      <ColNames>articleID</ColNames>
+      <RefTableName>dcd_article</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="639" parent="258" name="dcd_user_article_collection_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="645" parent="258" name="dcd_weekbible_ibfk_1">
+    <column id="640" parent="259" name="id">
+      <Position>1</Position>
+      <Comment>ID主键</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="641" parent="259" name="musicID">
+      <Position>2</Position>
+      <Comment>关联音乐ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="642" parent="259" name="account">
+      <Position>3</Position>
+      <Comment>关联用户account</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="643" parent="259" name="gmtModify">
+      <Position>4</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="644" parent="259" name="gmtCreate">
+      <Position>5</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="645" parent="259" name="musicID">
+      <ColNames>musicID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="646" parent="259" name="account">
+      <ColNames>account</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="647" parent="259" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id
+account
+musicID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="648" parent="259" name="dcd_user_music_collection_ibfk_1">
+      <ColNames>musicID</ColNames>
+      <RefTableName>dcd_music</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="649" parent="259" name="dcd_user_music_collection_ibfk_2">
+      <ColNames>account</ColNames>
+      <RefTableName>dcd_user</RefTableName>
+      <RefColNames>account</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="650" parent="260" name="id">
+      <Position>1</Position>
+      <Comment>ID主键</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="651" parent="260" name="prayID">
+      <Position>2</Position>
+      <Comment>关联代祷ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="652" parent="260" name="account">
+      <Position>3</Position>
+      <Comment>关联用户account</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="653" parent="260" name="gmtModify">
+      <Position>4</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="654" parent="260" name="gmtCreate">
+      <Position>5</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="655" parent="260" name="prayID">
+      <ColNames>prayID</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="656" parent="260" name="account">
+      <ColNames>account</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="657" parent="260" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id
+account
+prayID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="658" parent="260" name="dcd_user_pray_collection_ibfk_1">
+      <ColNames>prayID</ColNames>
+      <RefTableName>dcd_pray</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="659" parent="260" name="dcd_user_pray_collection_ibfk_2">
+      <ColNames>account</ColNames>
+      <RefTableName>dcd_user</RefTableName>
+      <RefColNames>account</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="660" parent="261" name="id">
+      <Position>1</Position>
+      <Comment>ID</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="661" parent="261" name="bible">
+      <Position>2</Position>
+      <Comment>经文</Comment>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="662" parent="261" name="iconUrl">
+      <Position>3</Position>
+      <Comment>封面图URL</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="663" parent="261" name="targetUrl">
+      <Position>4</Position>
+      <Comment>跳转目标URL</Comment>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="664" parent="261" name="account">
+      <Position>5</Position>
+      <Comment>发布者账号</Comment>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="665" parent="261" name="fellowship">
+      <Position>6</Position>
+      <Comment>所属团契编号</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="666" parent="261" name="weekOfYear">
+      <Position>7</Position>
+      <Comment>周数</Comment>
+      <DataType>int(2)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="667" parent="261" name="status">
+      <Position>8</Position>
+      <Comment>1有效0失效</Comment>
+      <DataType>bit(1)|0s</DataType>
+      <DefaultExpression>b&apos;1&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="668" parent="261" name="expireTime">
+      <Position>9</Position>
+      <Comment>过期时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="669" parent="261" name="gmtModify">
+      <Position>10</Position>
+      <Comment>修改时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="670" parent="261" name="gmtCreate">
+      <Position>11</Position>
+      <Comment>创建时间</Comment>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="671" parent="261" name="account">
+      <ColNames>account</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="672" parent="261" name="fellowship">
+      <ColNames>fellowship</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="673" parent="261" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id
+account
+fellowship</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="674" parent="261" name="dcd_weekbible_ibfk_2">
+      <ColNames>account</ColNames>
+      <RefTableName>dcd_user</RefTableName>
+      <RefColNames>account</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="675" parent="261" name="dcd_weekbible_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>

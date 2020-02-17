@@ -84,8 +84,6 @@
         <property name="useCodeAsDefaultMessage" value="true"/>
     </bean>
 
-
-
     <!-- 开启SpringMVC注解的支持 -->
     <mvc:annotation-driven>
         <!-- 强化参数接收 -->
@@ -98,22 +96,6 @@
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
             </bean>
-<!--            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
-<!--                <property name="objectMapper">-->
-<!--                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">-->
-<!--                        &lt;!&ndash; 处理responseBody 里面日期类型 &ndash;&gt;-->
-<!--                        <property name="dateFormat">-->
-<!--                            <bean class="java.text.SimpleDateFormat">-->
-<!--                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>-->
-<!--                            </bean>-->
-<!--                        </property>-->
-<!--                        &lt;!&ndash; 为null字段时不显示 &ndash;&gt;-->
-<!--                        <property name="serializationInclusion">-->
-<!--                            <value type="com.fasterxml.jackson.annotation.JsonInclude">NON_NULL</value>-->
-<!--                        </property>-->
-<!--                    </bean>-->
-<!--                </property>-->
-<!--            </bean>-->
         </mvc:message-converters>
 
     </mvc:annotation-driven>

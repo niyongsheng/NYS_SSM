@@ -17,13 +17,13 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <!-- 加载第三方框架配置属性文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:sdkConfig.properties" />
+    <context:property-placeholder ignore-unresolvable="true" location="classpath:sdkConfig.properties"/>
 
     <!-- 配置的视图解析器对象 -->
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
-        <property name="viewClass" value = "org.springframework.web.servlet.view.JstlView"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
     </bean>
 
     <!-- 配置登录验证拦截器对象 -->
@@ -33,18 +33,12 @@
             <!-- 拦截方法 -->
             <mvc:mapping path="/**"/>
             <!-- 不拦截的WEB方法 -->
-            <mvc:exclude-mapping path="/app/download"/>
             <mvc:exclude-mapping path="/home/login"/>
             <mvc:exclude-mapping path="/user/login"/>
             <mvc:exclude-mapping path="/user/logout"/>
-            <mvc:exclude-mapping path="/user/userProtocol"/>
             <mvc:exclude-mapping path="/verification/**"/>
-            <!-- 资源文件放行 -->
-            <mvc:exclude-mapping path="/plugins/**"/>
-            <mvc:exclude-mapping path="/css/**"/>
-            <mvc:exclude-mapping path="/js/**"/>
-            <mvc:exclude-mapping path="/img/**"/>
-            <mvc:exclude-mapping path="/file/**"/>
+            <mvc:exclude-mapping path="/app/download"/>
+            <mvc:exclude-mapping path="/user/userProtocol"/>
             <!-- 拦截器对象1 -->
             <bean class="com.niyongsheng.manager.interceptor.LoginVerifyInterceptor"></bean>
         </mvc:interceptor>
@@ -59,8 +53,11 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
+    <!-- 全部静态资源文件放行 -->
+    <mvc:default-servlet-handler/>
+
     <!-- 配置异常处理器对象 -->
-    <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.SysExceptionResolver"></bean>
+    <bean id="sysExceptionResolver" class="com.niyongsheng.manager.exception.WebExceptionHandler"></bean>
     <!-- 配置七牛云上传工具对象 -->
     <bean id="qiniuUploadFileService" class="com.niyongsheng.common.qiniu.QiniuUploadFileService"></bean>
     <!-- 七牛验证码工具对象 -->
@@ -70,7 +67,7 @@
     <!--开启@Validated注解 用于@RequestParam参数校验-->
     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
     <!--注册国际化资源文件-->
-    <bean id="messageSource" class = "org.springframework.context.support.ResourceBundleMessageSource">
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
                 <value>ValidationMessages</value>
@@ -79,15 +76,6 @@
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="useCodeAsDefaultMessage" value="true"/>
     </bean>
-
-    <!-- 对指定目录下的静态资源放行 -->
-<!--    <mvc:resources location="/css/" mapping="/css/**"/>-->
-<!--    <mvc:resources location="/img/" mapping="/img/**"/>-->
-<!--    <mvc:resources location="/js/" mapping="/js/**"/>-->
-<!--    <mvc:resources location="/plugins/" mapping="/plugins/**"/>-->
-<!--    <mvc:resources location="/file/" mapping="/file/**"/>-->
-    <!-- 全部静态资源文件放行 -->
-    <mvc:default-servlet-handler/>
 
     <!-- 配置自定义日期类型转换器 -->
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
@@ -99,6 +87,26 @@
     </bean>
 
     <!-- 开启SpringMVC注解的支持 -->
-    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <!-- @ResponseBody返回json数据时，解决乱码问题 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!-- 开启Shiro注解 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true" />
+    </bean>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!-- 避免二次代理 -->
+<!--    <aop:config proxy-target-class="true"/>-->
+    <bean id="attributeSourceAdvisor" class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
 
 </beans>
