@@ -33,11 +33,7 @@
     <title>聊天室</title>
 </head>
 <body data="/web">
-<input id="text" type="text"/>
-<button onclick="send()">发送</button>
-<button onclick="closeWebSocket()">关闭连接</button>
-<div id="message">
-</div>
+<br/>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -49,6 +45,14 @@
                     在线人数<span id="onlineCount">1</span>人
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-primary btn-lg" id="openWS" onclick="openWebSocket()" role="button">建立连接</a>
+            <a class="btn btn-primary btn-lg" id="closeWS" onclick="closeWebSocket()" role="button">断开连接</a>
         </div>
     </div>
 </div>
@@ -108,6 +112,11 @@
         $("#msg").append(innerHTML + "<br/>")
     };
 
+    // 建立连接
+    function openWebSocket() {
+        websocket = new WebSocket("ws://localhost:8080/web/websocket");
+    }
+
     // 关闭连接
     function closeWebSocket() {
         websocket.close();
@@ -120,6 +129,7 @@
         $("#text").val("");
     }
 
+    // 发送富文本消息
     function sendMsg() {
         var msg = ue.getContent();
         websocket.send(msg);
@@ -131,7 +141,7 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=path%>/js/Globals.js"></script>
-<script type="text/javascript" src="<%=path%>/js/websocket.js"></script>
+<script type="text/javascript" src="<%=path%>/js/websocket/Globals.js"></script>
+<script type="text/javascript" src="<%=path%>/js/websocket/websocket.js"></script>
 
 </html>

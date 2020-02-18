@@ -8,7 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
-
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -275,6 +278,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-lightbulb"></i>
+                            <p>
+                                测试服务
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                    <i class="fa fa-comment nav-icon"></i>
+                                    <p>Websocket</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<%=basePath%>/webservice/cxfWebService?wsdl" target="_blank" class="nav-link">
+                                    <i class="fa fa-bicycle nav-icon"></i>
+                                    <p>WebService</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/jsonp/jsonpTest" target="iframe" class="nav-link">
+                                    <i class="fa fa-wifi nav-icon"></i>
+                                    <p>Jsonp</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-plane"></i>
@@ -313,7 +345,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/niyongsheng/NYS_SSM" class="nav-link">
+                                <a href="https://github.com/niyongsheng/NYS_SSM" target="_blank" class="nav-link">
                                     <i class="fa fa-star nav-icon"></i>
                                     <p>开源地址</p>
                                 </a>

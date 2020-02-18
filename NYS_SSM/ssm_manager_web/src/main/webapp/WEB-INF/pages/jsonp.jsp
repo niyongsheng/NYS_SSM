@@ -7,6 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -20,24 +24,27 @@
     <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $.ajax({
-                type: "get",
-                async: false,
-                url: "${pageContext.request.contextPath}/jsonp/jsonpTest?callback=getUser&userId=3",
-                dataType: "jsonp",
-                jsonp: "callback", // 一般默认为:callback
-                jsonpCallback: "getUser", // 自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
-                success: function (json) {
-                    /**
-                     * 获得服务器返回的信息。
-                     * 可以做具体的业务处理。
-                     */
-                    alert('用户信息：ID： ' + json.userId + ' ，姓名： ' + json.username + '。');
-                },
-                error: function () {
-                    alert('fail');
-                }
+        $(function () {
+            $("#testJsonp").on('click', function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: "get",
+                    async: false,
+                    url: "<%=basePath%>/jsonp/jsonpInfo?callback=getUser&userId=3",
+                    dataType: "jsonp",
+                    jsonp: "callback", // 一般默认为:callback
+                    jsonpCallback: "getUser", // 自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+                    success: function (json) {
+                        /**
+                         * 获得服务器返回的信息。
+                         * 可以做具体的业务处理。
+                         */
+                        alert('用户信息：账号： ' + json.account + ' ，昵称： ' + json.nickname + '。');
+                    },
+                    error: function () {
+                        alert('fail');
+                    }
+                });
             });
         });
     </script>
@@ -46,11 +53,10 @@
 <body oncontextmenu="return false">
 <div class="jumbotron">
     <h1 class="display-4">Hello, Jsonp!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-        featured content or information.</p>
+    <p class="lead">JSONP 是一个能够被跨域访问资源的方法。</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <p>同源策略:浏览器是存在同源策略这个机制的，同源策略阻止从一个源加载的文档或脚本获取或设置另一个源加载的文档的属性。</p>
+    <a class="btn btn-primary btn-lg" id="testJsonp" role="button">TestJsonp</a>
 </div>
 </body>
 </html>

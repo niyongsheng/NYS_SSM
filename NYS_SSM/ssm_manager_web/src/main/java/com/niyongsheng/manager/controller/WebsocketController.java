@@ -8,10 +8,17 @@ package com.niyongsheng.manager.controller;
  * @updateDes
  */
 
+import com.niyongsheng.persistence.domain.Conversation;
+import com.niyongsheng.persistence.domain.User;
+import com.niyongsheng.persistence.service.ConversationService;
+import com.niyongsheng.persistence.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.server.standard.SpringConfigurator;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
@@ -28,8 +35,11 @@ public class WebsocketController {
     public WebsocketController() {
     }
 
-//    @Autowired
-//    private ContentService contentService ;
+    @Autowired
+    private ConversationService conversationService;
+
+    @Autowired
+    private UserService userService;
 
     // concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。
     // 若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识
@@ -69,12 +79,12 @@ public class WebsocketController {
         System.out.println("来自客户端的消息:" + message);
         // 群发消息
         for(WebsocketController item: webSocketSet){
-//            try {
-//                item.sendMessage(message);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//                continue;
-//            }
+            try {
+                item.sendMessage(message, session);
+            } catch (IOException e) {
+                e.printStackTrace();
+                continue;
+            }
         }
     }
 
@@ -89,21 +99,25 @@ public class WebsocketController {
         error.printStackTrace();
     }
 
-//    /**
-//     * 这个方法与上面几个方法不一样。没有用注解，是根据自己需要添加的方法。
-//     * @param message
-//     * @throws IOException
-//     */
-//    public void sendMessage(String message) throws IOException {
-//        // 保存数据到数据库
-//        Content content = new Content() ;
-//        content.setContent(message);
-//        SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd HH:mm:dd") ;
-//        content.setCreateDate(sm.format(new Date()));
-//        contentService.insertSelective(content) ;
+    /**
+     * 将会话信息写入数据库
+     * @param message
+     * @throws IOException
+     */
+    public void sendMessage(String message, Session session) throws IOException {
+        Conversation conversation = new Conversation();
+        conversation.setContent(message);
+        conversation.setGmtCreate(LocalDateTime.now());
+        String userName = session.getUserPrincipal().getName();
+        User user = userService.findUserByPhone(userName);
+        conversation.setAccount(user.getAccount());
+        conversation.setFellowship(user.getFellowship());
+        // 保存数据到数据库
+        conversationService.getBaseMapper().insert(conversation);
+
 //        this.session.getBasicRemote().sendText(message);
-//        //this.session.getAsyncRemote().sendText(message);
-//    }
+        this.session.getAsyncRemote().sendText(message);
+    }
 
     public static synchronized int getOnlineCount() {
         return onlineCount;
