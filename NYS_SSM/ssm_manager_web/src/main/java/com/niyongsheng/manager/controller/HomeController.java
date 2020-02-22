@@ -32,7 +32,7 @@ public class HomeController {
     @RequestMapping("/markdown")
     public String markdown(Model model) {
 
-        return "markdownEditor";
+        return "editor";
     }
 
     @RequestMapping("/activity")
@@ -44,6 +44,6 @@ public class HomeController {
     @RequestMapping("/test")
     public String test() {
 
-        return "error";
+        return "tableDemo1";
     }
 }

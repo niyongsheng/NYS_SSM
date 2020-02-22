@@ -16,7 +16,7 @@ public class AppInfoController {
 
     @RequestMapping("/download")
     public String userProtocol() {
-        return "appDownload";
+        return "appdownload";
     }
 
 }

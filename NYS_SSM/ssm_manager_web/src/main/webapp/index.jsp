@@ -13,14 +13,11 @@
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
+<!-- INDEX PAGE -->
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>稻草堆后台管理系统V1.0</title>
@@ -30,41 +27,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
+
     <script>
         function changeFrameHeight() {
             var ifm = document.getElementById("mainIframe");
-            // var navBar = document.getElementById("navBar");
-            // var footer = document.getElementById("footer");
-            // var navBarHeight = window.getComputedStyle(navBar).height;
-            // var footerHeight = window.getComputedStyle(footer).height;
-            // var navBarHeight = $("#navBar").height();
-            // var footerHeight = $("#footer").height();
-            ifm.height = document.documentElement.clientHeight - 88;
-            // ifm.height = document.documentElement.clientHeight - navBarHeight - footerHeight;
+            var navBarHeight = $("#navBar").height();
+            var footerHeight = $("#footer").height();
+            ifm.height = $(document.body).height(); // -88
+            // ifm.height = $(document.body).height() - navBarHeight - footerHeight;
             out.println("导航栏高度：" + navBarHeight + "Footer高度：" + footerHeight);
         }
 
-        // window.onpageshow = function () {
+        // window.onresize = function () {
         //     changeFrameHeight();
-        // };
-        // window.onloadstart = function () {
-        //     changeFrameHeight();
-        // };
-        // document.ready = function () {
-        //     changeFrameHeight1();
-        // };
-        // document.onload = function () {
-        //     changeFrameHeight();
-        // };
-        window.onresize = function () {
-            changeFrameHeight();
-        }
+        // }
     </script>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+<div class="wrapper">
     <!-- Navbar -->
     <nav id="navBar" class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -118,13 +101,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="user-header">
                         <img src="${sessionScope.user.icon}" class="img-circle" alt="User Image">
                         <p>
-                            ${sessionScope.user.nickname}<br>
-                            <small><shiro:hasRole name="admin"> 管理员 </shiro:hasRole></small>
-                            <small><shiro:hasRole name="superadmin"> 超级管理员 </shiro:hasRole></small>
-                            <small><shiro:hasRole name="pastor"> 牧者 </shiro:hasRole></small>
-                            <small><shiro:hasRole name="service"> 服侍 </shiro:hasRole></small>
-                            <small><shiro:hasRole name="user"> 普通用户 </shiro:hasRole></small>
-                            <small>${sessionScope.user.introduction}</small>
+                            ${sessionScope.user.nickname}
+                        </p><br>
+                        <small><shiro:hasRole name="admin"> 管理员 </shiro:hasRole></small>
+                        <small><shiro:hasRole name="superadmin"> 超级管理员 </shiro:hasRole></small>
+                        <small><shiro:hasRole name="pastor"> 牧者 </shiro:hasRole></small>
+                        <small><shiro:hasRole name="service"> 服侍 </shiro:hasRole></small>
+                        <small><shiro:hasRole name="user"> 普通用户 </shiro:hasRole></small>
+                        <small>${sessionScope.user.introduction}</small>
                         </small>
                     </li>
                     <!-- Menu Footer-->
@@ -139,20 +123,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
                 </ul>
             </li>
-            <%-- 右边栏 --%>
-            <%--            <li class="nav-item">
-                            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
-                                    class="fas fa-th-large"></i></a>
-                        </li>--%>
+            <%-- 右边栏 control sidebar --%>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
+                        class="fas fa-th-large"></i></a>
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-5">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
-            <img src="img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <img src="${pageContext.request.contextPath}/img/adminLogo.png" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">稻草堆后台 V1.0</span>
         </a>
@@ -178,6 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/home/infoBox" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-chart-bar nav-icon"></i>
                                     <p>数据纵览</p>
                                 </a>
@@ -185,6 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/home/activity" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-bullhorn nav-icon"></i>
                                     <p>轮播公告</p>
                                 </a>
@@ -203,12 +189,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-list-ol nav-icon"></i>
                                     <p>用户列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/home/test" target="iframe" class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
                                 </a>
@@ -227,6 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/home/markdown" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-pen-nib nav-icon"></i>
                                     <p>Markdown</p>
                                 </a>
@@ -234,6 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-list-alt nav-icon"></i>
                                     <p>分享列表</p>
                                 </a>
@@ -241,20 +231,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-praying-hands nav-icon"></i>
                                     <p>代祷列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/upload/uploadPage" target="iframe"
+                                <a href="${pageContext.request.contextPath}/home/test" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-trophy nav-icon"></i>
                                     <p>活动列表</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview menu-open">
+                    <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-play-circle"></i>
                             <p>
@@ -266,19 +258,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/user/findAll" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-music nav-icon"></i>
                                     <p>音频列表</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/home/test" target="iframe" class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-video nav-icon"></i>
                                     <p>视频列表</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview menu-open">
+                    <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-lightbulb"></i>
                             <p>
@@ -289,18 +283,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-comment nav-icon"></i>
                                     <p>Websocket</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="<%=basePath%>/webservice/cxfWebService?wsdl" target="_blank" class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-bicycle nav-icon"></i>
                                     <p>WebService</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/jsonp/jsonpTest" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/jsonp/jsonpTest" target="iframe"
+                                   class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-wifi nav-icon"></i>
                                     <p>Jsonp</p>
                                 </a>
@@ -319,6 +317,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/user/userProtocol" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-clipboard nav-icon"></i>
                                     <p>用户协议</p>
                                 </a>
@@ -326,6 +325,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/../api/swagger-ui.html" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-code nav-icon"></i>
                                     <p>app接口</p>
                                 </a>
@@ -333,6 +333,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/swagger-ui.html" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-code nav-icon"></i>
                                     <p>web接口</p>
                                 </a>
@@ -340,17 +341,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="nav-item">
                                 <a href="${pageContext.request.contextPath}/user/appDownload" target="iframe"
                                    class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-download nav-icon"></i>
                                     <p>下载地址</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="https://github.com/niyongsheng/NYS_SSM" target="_blank" class="nav-link">
+                                    <p style="width: 20px"></p>
                                     <i class="fa fa-star nav-icon"></i>
                                     <p>开源地址</p>
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-header">MISCELLANEOUS</li>
+                    <li class="nav-item">
+                        <a href="https://adminlte.io/docs/3.0" target="_blank" class="nav-link">
+                            <i class="nav-icon fas fa-file"></i>
+                            <p>Documentation</p>
+                        </a>
+                    </li>
+                    <li class="nav-header">LABELS</li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-circle text-danger"></i>
+                            <p class="text">Important</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-circle text-warning"></i>
+                            <p>Warning</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-circle text-info"></i>
+                            <p>Informational</p>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a href="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md"
@@ -368,37 +397,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.sidebar -->
     </aside>
+    <!-- ./main-sidebar -->
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <%-- iframe框架 --%>
-        <iframe name="iframe" id="mainIframe" src="${pageContext.request.contextPath}/home/infoBox" frameborder="0"
-                align="middle" width="100%" scrolling="auto" onload="changeFrameHeight()"></iframe>
+        <div class="content container-fluid">
+            <%-- iframe框架 --%>
+            <iframe name="iframe" id="mainIframe" src="${pageContext.request.contextPath}/home/infoBox" frameborder="0"
+                    align="middle" width="100%" scrolling="auto" onload="changeFrameHeight()"></iframe>
+        </div>
     </div>
     <!-- /.content-wrapper -->
 
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
     <!-- Main Footer -->
     <footer id="footer" class="main-footer">
-        <!-- To the right -->
-        <div class="float-right d-none d-sm-inline">
-            塑造生命 成就使命
-        </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top/web">daocaodui.top</a> @</strong>硕鼠工作室 All
-        rights
-        reserved.
+        <strong>Copyright &copy; 2019-2020 <a href="http://www.daocaodui.top/web">daocaodui.top</a> @</strong>
+        <a>硕鼠工作室 All rights reserved.</a>
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline-block">
+            <b>塑造生命 成就使命</b>
+        </div>
     </footer>
+    <%-- ./main-footer --%>
 </div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/bootstrap-4/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="${pageContext.request.contextPath}/js/adminlte.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/adminlte.js"></script>
+<%-- Control Sidebar --%>
+<script src="${pageContext.request.contextPath}/js/colorful.js"></script>
+
 </body>
 </html>
 

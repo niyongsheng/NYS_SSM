@@ -234,19 +234,20 @@ public class UserController {
 
     @RequestMapping("/appDownload")
     public String appDownload() {
-        return "appDownload";
+        return "appdownload";
     }
 
     @RequestMapping("/unauthorized")
     public String unauthorized() {
-        return "errorUnauthorized";
+        return "errorUnauth";
     }
 
     @RequestMapping("/test")
     @RequiresRoles(value={"superadmin","admin"},logical= Logical.OR)
     public String test() {
 //        return "amisAlert";
-        return "conversation";
+//        return "conversation";
+        return "test";
 /*        Subject subject= SecurityUtils.getSubject();
         if(!subject.hasRole("admin")){
             return "errorUnauthorized";

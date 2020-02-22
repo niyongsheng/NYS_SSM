@@ -2,11 +2,12 @@
   Created by IntelliJ IDEA.
   User: nigang
   Date: 2019/9/24
-  Time: 11:36 上午
+  Time: 11:28 上午
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 
 <!DOCTYPE html>
 <!--
@@ -19,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>500</title>
+    <title>NO Auth</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/fontawesome-free/css/all.min.css">
@@ -46,16 +47,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <section class="content">
         <div class="error-page">
-            <h2 class="headline text-danger">Error</h2>
+            <h2 class="headline text-warning">Auth</h2>
 
             <div class="error-content">
-                <h3><i class="fas fa-exclamation-triangle text-danger"></i> Oops! Something went wrong.</h3>
+                <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page unauthorized.</h3>
 
                 <p>
-                    ${errorMsg}
-                    ${errorCode}
-                    We will work on fixing that right away.
-                    Meanwhile, you may <a href="${pageContext.request.contextPath}/home/infoBox">return to index</a> or try using the search form.
+                    尊敬的<shiro:principal/>用户，您当前的身份是
+                    <shiro:hasRole name="admin"> admin </shiro:hasRole>
+                    <shiro:hasRole name="superadmin"> superadmin </shiro:hasRole>
+                    <shiro:hasRole name="pastor"> pastor </shiro:hasRole>
+                    <shiro:hasRole name="service"> service </shiro:hasRole>
+                    <shiro:hasRole name="user"> user </shiro:hasRole>
+                    ,没有该页面的访问权限！
+                    <a href="#"> 联系管理员</a>
+                    <br>Meanwhile, you may
+                    <a href="${pageContext.request.contextPath}/home/infoBox">return to index</a> or try using the search form.
                 </p>
 
                 <form class="search-form">
@@ -63,19 +70,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="text" name="search" class="form-control" placeholder="Search">
 
                         <div class="input-group-append">
-                            <button type="submit" name="submit" class="btn btn-danger"><i class="fas fa-search"></i>
+                            <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
                             </button>
                         </div>
                     </div>
                     <!-- /.input-group -->
                 </form>
             </div>
+            <!-- /.error-content -->
         </div>
         <!-- /.error-page -->
-
     </section>
     <!-- /.content -->
 </div>
+
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>

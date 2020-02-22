@@ -25,7 +25,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700">
     <script type="text/javascript">
         /*        $(function(){
             login.initPage();
@@ -71,20 +71,13 @@
 
         // 选中记住密码触发事件，如果选中就赋值为1 ，否则赋值为0
         function remember() {
-            var remFlag = $("input:checkbox").is(':checked');
-            if (remFlag) {
-                // cookie存用户名和密码,回显的是真实的用户名和密码,存在安全问题.
-                var conFlag = confirm("记录密码功能不宜在公共场所使用,以防密码泄露.您确定要使用此功能吗?");
-                if (conFlag) {
-                    // 确认标志
-                    $("#rememberMe").val("1");
-                } else {
-                    $("input:checkbox").removeAttr('checked');
-                    $("#rememberMe").val("0");
-                }
+            var remeberFlag = $("input[type='checkbox']").is(':checked');
+            if (remeberFlag) {
+                alert("记录密码功能不宜在公共场所使用,以防密码泄露.\n您确定要使用此功能吗?");
+                $("#rememberMe").checkbox.val("1");
             } else {
-                // 如果没选中设置remFlag为""
-                $("#rememberMe").val("0");
+                // 没选中
+                $("#rememberMe").checkbox.val("0");
             }
         }
 
@@ -187,7 +180,7 @@
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/plugins/bootstrap-4/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>

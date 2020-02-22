@@ -45,7 +45,7 @@ public class WebExceptionHandler {
     public ModelAndView handle(ShiroException exception) {
         logger.error(exception.toString());
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("errorUnauthorized");
+        modelAndView.setViewName("errorUnauth");
         return modelAndView;
     }
 }
