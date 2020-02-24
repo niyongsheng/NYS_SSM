@@ -44,6 +44,6 @@ public class HomeController {
     @RequestMapping("/test")
     public String test() {
 
-        return "tableDemo1";
+        return "groupList";
     }
 }

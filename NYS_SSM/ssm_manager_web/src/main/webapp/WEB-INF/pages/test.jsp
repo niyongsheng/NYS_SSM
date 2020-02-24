@@ -31,6 +31,28 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link rounded dropdown-toggle" href="#" id="navbarVersionDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    稻草堆团契
+                </a>
+                <div class="dropdown-menu py-0" aria-labelledby="navbarVersionDropdown">
+                    <a class="dropdown-item bg-info disabled" href="#">测试团契0</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">测试团契1</a>
+                    <a class="dropdown-item" href="#">测试团契2</a>
+                </div>
+            </li>
+        </ul>
+
+        <form class="form-inline ml-3">
+            <select id="fellowship" class="form-control bg-info form-control-navbar" type="button" href="">
+                <option value="1" selected="selected" href="">稻草堆团契</option>
+                <option value="2">测试团契0</option>
+                <option value="3">测试团契1</option>
+                <option value="4">测试团契2</option>
+            </select>
+        </form>
         </ul>
 
         <!-- SEARCH FORM -->

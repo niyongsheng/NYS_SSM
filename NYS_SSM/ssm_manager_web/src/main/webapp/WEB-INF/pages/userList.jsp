@@ -19,18 +19,18 @@
 
     <!-- 1. 导入bootstrap的css样式文件 -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-3/css/bootstrap.min.css">
-    <!-- 2. 导入bootstrap的js文件 -->
+    <!-- 2. Overlay Scrollbars -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <!-- 1. 导入bootstrap的js文件 -->
     <script src="${pageContext.request.contextPath}/plugins/bootstrap-3/js/bootstrap.min.js"></script>
-    <!-- 3. jQuery导入，建议使用1.9以上的版本 -->
+    <!-- 2. jQuery 3.4.1 -->
     <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
+    <!-- 3. Overlay Scrollbars 1.10.3 -->
+    <script src="${pageContext.request.contextPath}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">--%>
-<%--    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>--%>
-<%--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>--%>
-<%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>--%>
-
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
-<%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
+    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
+    <%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
 
     <style type="text/css">
         td, th {
@@ -110,7 +110,7 @@
             }
         }
 
-        // 绑定分页选择事件
+        // 绑定分页大小选择事件
         $(document).ready(function () {
             $('#selectedPageSize').change(function () {
                 var pageSize = $(this).children('option:selected').val();
@@ -118,14 +118,19 @@
                 window.location.href = "${pageContext.request.contextPath}/user/findByFuzzySearch?pageNum=1&pageSize=" + pageSize + "&nickname=${condition.nickname[0]}&account=${condition.account[0]}&phone=${condition.phone[0]}";
             })
         })
+
+        $(function() {
+            //The passed argument has to be at least a empty object or a object with your desired options
+            $('body').overlayScrollbars({ });
+        });
     </script>
 </head>
 
 <body>
 
 <div class="contentWrapper">
-<%--    <h3 style="text-align: left">用户信息列表</h3>--%>
-    <div style="float: left; margin: 0px;">
+    <%--    <h3 style="text-align: left">用户信息列表</h3>--%>
+    <div style="float: left;">
         <form class="form-inline" action="${pageContext.request.contextPath}/user/findByFuzzySearch" method="post">
             <div class="form-group">
                 <label for="exampleInputName2">昵称</label>
@@ -156,7 +161,6 @@
           method="post">
         <table border="1" class="table table-bordered dataTable" role="grid">
             <tr class="active">
-<%--                <th class="sorting_asc" tabindex="0" aria-controls="datatable2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 388px;">Name</th>--%>
                 <th><input type="checkbox" id="allSelected"></th>
                 <th>编号</th>
                 <th>头像</th>

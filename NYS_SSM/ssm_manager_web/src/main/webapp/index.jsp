@@ -23,7 +23,10 @@
     <title>稻草堆后台管理系统V1.0</title>
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/fontawesome-free/css/all.min.css">
+    <link href="<%=path%>/css/icons.css" rel="stylesheet">
+    <!-- Overlay Scrollbars -->
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -39,9 +42,10 @@
             out.println("导航栏高度：" + navBarHeight + "Footer高度：" + footerHeight);
         }
 
-        // window.onresize = function () {
-        //     changeFrameHeight();
-        // }
+        // 监听浏览器窗口尺寸改变
+        window.onresize = function () {
+            changeFrameHeight();
+        }
     </script>
 </head>
 
@@ -61,21 +65,19 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">联系</a>
             </li>
+            <!-- Single button -->
+            <li class="nav-item dropdown">
+                <a class="nav-link rounded dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    稻草堆团契
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a class="dropdown-item-text" href="#">测试团契1</a></li>
+                    <li class="dropdown-item"><a class="dropdown-item-text" href="#">测试团契2</a></li>
+                    <li class="dropdown-item"><a class="dropdown-item-text" href="#">测试团契3</a></li>
+                </ul>
+            </li>
         </ul>
-
-        <!-- Single button -->
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                稻草堆
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li class="dropdown-item"><a class="dropdown-item-text" href="#">Dropdown link</a></li>
-                <li class="dropdown-item"><a class="dropdown-item-text" href="#">Dropdown link</a></li>
-            </ul>
-        </div>
-
         <!-- SEARCH FORM -->
         <form class="form-inline ml-3">
             <div class="input-group input-group-sm">
@@ -90,26 +92,91 @@
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="mdi mdi-bell-outline mdi-24px"></i>
+                    <%--                    <i class="far fa-comment fa-lg"></i>--%>
+                    <span class="badge badge-danger navbar-badge">3</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="${pageContext.request.contextPath}/file/logo.png" alt="User Avatar"
+                                 class="img-size-50 mr-3 img-circle">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Brad Diesel
+                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">Call me whenever you can...</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="${pageContext.request.contextPath}/file/logo.png" alt="User Avatar"
+                                 class="img-size-50 img-circle mr-3">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    John Pierce
+                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">I got your message bro</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="${pageContext.request.contextPath}/file/logo.png" alt="User Avatar"
+                                 class="img-size-50 img-circle mr-3">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Nora Silvester
+                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">The subject goes here</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                </div>
+            </li>
             <!-- User Account: style can be found in dropdown.less -->
             <li class="dropdown user user-menu align-self-center">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="${sessionScope.user.icon}" class="user-image" alt="User Image">
-                    <span class="hidden-xs align-content-center">${sessionScope.user.nickname}</span>
+                <a class="nav-link rounded dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <img src="${sessionScope.user.icon}" class="img-circle user-image" alt="User Image">
+                    ${sessionScope.user.nickname}
+                    <span class="fa fa-caret-down" title="个人信息菜单"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
                     <li class="user-header">
                         <img src="${sessionScope.user.icon}" class="img-circle" alt="User Image">
                         <p>
-                            ${sessionScope.user.nickname}
-                        </p><br>
-                        <small><shiro:hasRole name="admin"> 管理员 </shiro:hasRole></small>
-                        <small><shiro:hasRole name="superadmin"> 超级管理员 </shiro:hasRole></small>
-                        <small><shiro:hasRole name="pastor"> 牧者 </shiro:hasRole></small>
-                        <small><shiro:hasRole name="service"> 服侍 </shiro:hasRole></small>
-                        <small><shiro:hasRole name="user"> 普通用户 </shiro:hasRole></small>
+                            <small><shiro:hasRole name="admin"><a
+                                    style="color: orange">[管理员]</a></shiro:hasRole></small>
+                            <small><shiro:hasRole name="superadmin"><a style="color: orange">[超级管理员]</a></shiro:hasRole></small>
+                            <small><shiro:hasRole name="pastor"><a
+                                    style="color: orange">[牧者]</a></shiro:hasRole></small>
+                            <small><shiro:hasRole name="service"><a
+                                    style="color: orange">[服侍]</a></shiro:hasRole></small>
+                            <small><shiro:hasRole name="user"><a
+                                    style="color: orange">[普通用户]</a></shiro:hasRole></small>
+                        </p>
                         <small>${sessionScope.user.introduction}</small>
-                        </small>
                     </li>
                     <!-- Menu Footer-->
                     <li class="user-footer">
@@ -133,7 +200,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-5">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
             <img src="${pageContext.request.contextPath}/img/adminLogo.png" class="brand-image img-circle elevation-3"
@@ -195,7 +262,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/test" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/group/findAllGroups?fellowship=${sessionScope.user.fellowship}"
+                                   target="iframe" class="nav-link">
                                     <p style="width: 20px"></p>
                                     <i class="fa fa-users nav-icon"></i>
                                     <p>群组列表</p>
@@ -264,7 +332,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/home/test" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
                                     <p style="width: 20px"></p>
                                     <i class="fa fa-video nav-icon"></i>
                                     <p>视频列表</p>
@@ -282,7 +350,8 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/user/test" target="iframe" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/user/conversation" target="iframe"
+                                   class="nav-link">
                                     <p style="width: 20px"></p>
                                     <i class="fa fa-comment nav-icon"></i>
                                     <p>Websocket</p>
@@ -357,26 +426,33 @@
                     </li>
                     <li class="nav-header">MISCELLANEOUS</li>
                     <li class="nav-item">
-                        <a href="https://adminlte.io/docs/3.0" target="_blank" class="nav-link">
+                        <a href="https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE" target="_blank"
+                           class="nav-link">
                             <i class="nav-icon fas fa-file"></i>
                             <p>Documentation</p>
                         </a>
                     </li>
                     <li class="nav-header">LABELS</li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<%=path%>/user/test" class="nav-link" target="iframe">
+                            <i class="nav-icon far fa-circle text-white"></i>
+                            <p>TestWeb</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<%=path%>/error/500" class="nav-link" target="iframe">
                             <i class="nav-icon far fa-circle text-danger"></i>
                             <p class="text">Important</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<%=path%>/error/errorUnauth" class="nav-link" target="iframe">
                             <i class="nav-icon far fa-circle text-warning"></i>
                             <p>Warning</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="<%=path%>/error/null" class="nav-link" target="iframe">
                             <i class="nav-icon far fa-circle text-info"></i>
                             <p>Informational</p>
                         </a>
@@ -432,6 +508,8 @@
 <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-4/js/bootstrap.bundle.min.js"></script>
+<!-- Overlay Scrollbars -->
+<script src="${pageContext.request.contextPath}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="${pageContext.request.contextPath}/js/adminlte.js"></script>
 <%-- Control Sidebar --%>

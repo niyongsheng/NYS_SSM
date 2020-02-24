@@ -23,6 +23,19 @@
     <!-- Bootstrap 4 -->
     <script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <style type="text/css">
+        td, th {
+            text-align: center;
+        }
+
+        .jumbotron {
+            margin: 10px;
+            padding: 15px;
+            width: fit-content;
+            height: 100%;
+        }
+    </style>
+
     <script type="text/javascript">
         $(function () {
             $("#testJsonp").on('click', function (event) {
@@ -56,7 +69,7 @@
     <p class="lead">JSONP 是一个能够被跨域访问资源的方法。</p>
     <hr class="my-4">
     <p>同源策略:浏览器是存在同源策略这个机制的，同源策略阻止从一个源加载的文档或脚本获取或设置另一个源加载的文档的属性。</p>
-    <a class="btn btn-primary btn-lg" id="testJsonp" role="button">TestJsonp</a>
+    <a class="btn btn-primary btn-lg text-white" id="testJsonp" role="button">TestJsonp</a>
 </div>
 </body>
 </html>

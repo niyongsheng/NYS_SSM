@@ -237,20 +237,20 @@ public class UserController {
         return "appdownload";
     }
 
-    @RequestMapping("/unauthorized")
+    @RequestMapping("/conversation")
     public String unauthorized() {
-        return "errorUnauth";
+        return "conversation";
     }
 
     @RequestMapping("/test")
     @RequiresRoles(value={"superadmin","admin"},logical= Logical.OR)
     public String test() {
-//        return "amisAlert";
-//        return "conversation";
-        return "test";
+
+        return "amisAlert";
+
 /*        Subject subject= SecurityUtils.getSubject();
         if(!subject.hasRole("admin")){
-            return "errorUnauthorized";
+            return "errorUnauth";
         }*/
     }
 }

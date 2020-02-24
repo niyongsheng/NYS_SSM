@@ -4051,7 +4051,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 .nav-link.disabled {
     color: #6c757d;
     pointer-events: none;
-    cursor: default
+    cursor: defaul
 }
 
 .nav-tabs {
