@@ -1,3 +1,14 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: nigang
+  Date: 2019/10/24
+  Time: 4:56 下午
+  To change this template use File | Settings | File Templates.
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -22,15 +33,12 @@
     <!-- 2. Overlay Scrollbars -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
-    <!-- 1. 导入bootstrap的js文件 -->
-    <script src="${pageContext.request.contextPath}/plugins/bootstrap-3/js/bootstrap.min.js"></script>
-    <!-- 2. jQuery 3.4.1 -->
+    <!-- 1. jQuery 3.4.1 -->
     <script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
+    <!-- 2. 导入bootstrap的js文件 -->
+    <script src="${pageContext.request.contextPath}/plugins/bootstrap-3/js/bootstrap.min.js"></script>
     <!-- 3. Overlay Scrollbars 1.10.3 -->
     <script src="${pageContext.request.contextPath}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
-    <%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
-    <%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
 
     <style type="text/css">
         td, th {

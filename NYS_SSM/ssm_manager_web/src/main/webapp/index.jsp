@@ -21,12 +21,11 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>稻草堆后台管理系统V1.0</title>
-
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/appdownload/logo_icon_120x120.png">
     <!-- Font Awesome Icons -->
     <link href="<%=path%>/css/icons.css" rel="stylesheet">
     <!-- Overlay Scrollbars -->
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
@@ -39,7 +38,7 @@
             var footerHeight = $("#footer").height();
             ifm.height = $(document.body).height(); // -88
             // ifm.height = $(document.body).height() - navBarHeight - footerHeight;
-            out.println("导航栏高度：" + navBarHeight + "Footer高度：" + footerHeight);
+            console.log("导航栏高度：" + navBarHeight + " Footer高度：" + footerHeight);
         }
 
         // 监听浏览器窗口尺寸改变
