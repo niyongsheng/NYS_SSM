@@ -39,6 +39,7 @@
             <mvc:exclude-mapping path="/verification/**"/>
             <mvc:exclude-mapping path="/app/download"/>
             <mvc:exclude-mapping path="/user/userProtocol"/>
+            <mvc:exclude-mapping path="/lpr/receiveDeviceInfo"/>
             <!-- 拦截器对象1 -->
             <bean class="com.niyongsheng.manager.interceptor.LoginVerifyInterceptor"></bean>
         </mvc:interceptor>
