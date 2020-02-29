@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.PlateDao">
+
+    <select id="selectOneByPlate" resultType="com.niyongsheng.persistence.domain.Plate">
+        select *
+        from dcd_plate p
+        where p.plate = #{plate}
+    </select>
+
+    <select id="selectAllByFellowship" resultType="com.niyongsheng.persistence.domain.Plate">
+        SELECT *
+        FROM dcd_plate p
+        WHERE p.fellowship = #{fellowship}
+    </select>
+
+</mapper>

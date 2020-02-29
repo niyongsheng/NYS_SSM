@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niyongsheng.persistence.dao.PlatelogDao">
+
+    <select id="selectAllByFellowship" resultType="com.niyongsheng.persistence.domain.Platelog">
+        SELECT *, pt.plateTypeName
+        FROM dcd_platelog p
+        INNER JOIN dcd_plateType pt
+        ON p.plateType = pt.plateType
+        WHERE p.fellowship = #{fellowship}
+    </select>
+</mapper>
