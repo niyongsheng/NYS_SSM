@@ -3,7 +3,7 @@ package com.niyongsheng.manager.lpr;
 /**
  * @author niyongsheng.com
  * @version $
- * @des
+ * @des 臻视摄像头返回数据模型
  * @updateAuthor $
  * @updateDes
  */

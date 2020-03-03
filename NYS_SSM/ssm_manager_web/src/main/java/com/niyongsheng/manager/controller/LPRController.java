@@ -5,8 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
 import com.niyongsheng.manager.lpr.LPRResponse;
-import com.niyongsheng.manager.lpr.LPRUtil;
 import com.niyongsheng.manager.lpr.LPRVoiceTextUtil;
+import com.niyongsheng.manager.lpr.LPR_M3Util;
 import com.niyongsheng.persistence.domain.Plate;
 import com.niyongsheng.persistence.domain.Platelog;
 import com.niyongsheng.persistence.service.PlateService;
@@ -24,9 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -171,16 +169,49 @@ public class LPRController {
      * @param response
      * @throws IOException
      */
-    private void lprHandler( Platelog platelog, HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+    private void lprHandler(Platelog platelog, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // 1.记录识别日志
         platelogService.getBaseMapper().insert(platelog);
 
+        // 2.查询是否授权车牌
         Plate plate = plateService.selectOneByPlate(platelog.getPlate());
+
+        // 3.获取485语音、显示、开门数据
+        String resJsonStr = null;
         if (plate != null) {
-            LPRUtil.test485_2(response);
+//            resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
+//                    LPR_M3Util.getText485Data("鲁Q666警")
+//                    + "]}}";
+
+            resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
+                    LPR_M3Util.getPay485Data(10, 0, 0, "http://baidu.com", "欢迎光临,请缴费100元", true)
+                    + "]}}";
         } else {
-            LPRUtil.test485_1(response);
+//            List<String> content = Arrays.asList("第一行Aa.~!#@", "欢迎光临，一路顺风，谢谢", "第三行", "欢迎光临，一路顺风，谢谢");
+//            resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"!ok\", \"serialData\": [" +
+//                    LPR_M3Util.getVoiceText485Data(content,"京A8888警，缴费8.5元，一路顺风，谢谢", (byte) 0x00)
+//                    + "]}}";
+            try {
+                byte[] qrBitmap = LPR_M3Util.createQRBitmap("http://www.baidu.com", 32);
+                // 文件本地暂存绝对路径
+                String uploadPath = request.getSession().getServletContext().getRealPath("file");
+                SaveFile(qrBitmap, uploadPath, String.valueOf(System.currentTimeMillis()));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
+                    LPR_M3Util.getQRCodePay485Data(10, "http://www.baidu.com", "一路顺风，谢谢", true)
+                    + "]}}";
         }
+        System.out.println("返回json：" + resJsonStr);
+
+        // 4.返回处理结果
+        response.setContentType("text/json");
+        PrintWriter out = response.getWriter();
+        out.println(resJsonStr);
+        out.flush();
+        out.close();
     }
 
     @RequestMapping(value = "/findAllPlates", method = {RequestMethod.POST, RequestMethod.GET})
@@ -252,8 +283,8 @@ public class LPRController {
     })
     public String findAllPlatelogs(Model model,
                                 @RequestParam(value = "isPageBreak", defaultValue = "0", required = false) boolean isPageBreak,
-                                @RequestParam(value="pageNum", defaultValue="1", required = false) Integer pageNum,
-                                @RequestParam(value="pageSize", defaultValue="10", required = false) Integer pageSize,
+                                @RequestParam(value = "pageNum", defaultValue="1", required = false) Integer pageNum,
+                                @RequestParam(value = "pageSize", defaultValue="10", required = false) Integer pageSize,
                                 @NotNull(message = "{NotBlank.fellowship}")
                                 @RequestParam(value = "fellowship", required = true) String fellowship
     ) {
@@ -299,5 +330,38 @@ public class LPRController {
 
         // 3.返回列表页
         return "platelogList";
+    }
+
+    /**
+     * 保存文件
+     * @param content
+     * @param path
+     * @param imgName
+     * @return
+     */
+    private static boolean SaveFile(byte[] content, String path, String imgName) {
+        FileOutputStream writer = null;
+        boolean result = false;
+        try {
+            File dir = new File(path);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            writer = new FileOutputStream(new File(path, imgName));
+            System.out.println("Schmidt Vladimir");
+            writer.write(content);
+            System.out.println("Vladimir Schmidt");
+            result = true;
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                writer.flush();
+                writer.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return result;
     }
 }

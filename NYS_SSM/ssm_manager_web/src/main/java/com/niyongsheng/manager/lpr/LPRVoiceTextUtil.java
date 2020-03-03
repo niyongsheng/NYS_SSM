@@ -142,45 +142,6 @@ public class LPRVoiceTextUtil {
         return json1;
     }
 
-    /**
-     * 固定内容测试方法
-     * @param response
-     * @throws IOException
-     */
-    public static void test485(HttpServletResponse response) throws IOException {
-        byte[] temp = {
-                (byte)0x00,
-                (byte)0x64,
-                (byte)0xFF,
-                (byte)0xFF,
-                (byte)0xE2,
-                (byte)0x07,
-                (byte)0x01,
-                (byte)0x00,
-                (byte)0x00,
-                (byte)0x0A,
-                (byte)0x00,
-                (byte)0x00,
-                (byte)0x19,
-                (byte)0x37,
-                (byte)0xD0};
-
-        byte[] data1 = Base64.encodeBase64(temp);
-        String data2 = new String(data1);
-        JsonObject json1=(JsonObject)new JsonParser().parse("{}");
-        json1.addProperty("serialChannel", 0);
-        json1.addProperty("data",data2 );
-        json1.addProperty("dataLen", data2.length());
-
-        response.setContentType("text/json");
-        PrintWriter out = response.getWriter();
-        String ss="{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": ["+json1.toString()+"]}}";
-        System.out.println(ss);
-        out.println(ss);
-        out.flush();
-        out.close();
-    }
-
     public static byte[] get485ReadData(String voice,int b){
         byte[] bb=null;
         try {
@@ -254,8 +215,8 @@ public class LPRVoiceTextUtil {
 //        System.out.println(lowHigh(bb.length));
 //        buf.put(PlateController.shortToByteArray((short)(bb.length+40)));
         String bc = lowHigh(bb.length+40);
-        buf.put(hexStringToByteArray(bc.substring(0,2)));
-        buf.put(hexStringToByteArray(bc.substring(2,4)));
+        buf.put(hexStringToByteArray(bc.substring(0, 2)));
+        buf.put(hexStringToByteArray(bc.substring(2, 4)));
         //固定字 数据包总长度
         buf.put((byte)0xFF);
         buf.put((byte)0xFF);
