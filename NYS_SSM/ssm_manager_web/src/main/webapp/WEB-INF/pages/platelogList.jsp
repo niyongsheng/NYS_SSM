@@ -45,8 +45,8 @@
         }
 
         .hover {
-            -webkit-transform: scale(6); /*放大倍数*/
-            transform: scale(6); /*放大倍数*/
+            -webkit-transform: scale(5); /*放大倍数*/
+            transform: scale(5); /*放大倍数*/
         }
     </style>
 </head>
@@ -78,7 +78,7 @@
             <th id="table-1-col-3" data-priority="1" tabindex="0" aria-controls="datatable"
                 rowspan="1" colspan="1" aria-sort="ascending"
                 aria-label=""
-                style="display: table-cell;">特写图
+                style="display: table-cell;">车牌图
             </th>
             <th id="table-1-col-4" data-priority="1" class="" tabindex="0" aria-controls="datatable"
                 rowspan="1" colspan="1"
@@ -120,10 +120,10 @@
             <td data-priority="1" colspan="1" data-columns="table-1-col-1" class="sorting_1"
                 style="display: table-cell;">${platelog.plate}</td>
             <td data-priority="1" colspan="1" data-columns="table-1-col-2" style="display: table-cell;">
-                <img src="data:image/png;base64,${platelog.bigImage}" width="50px" height="30px">
+                <img src="${pageContext.request.contextPath}${platelog.bigImage}" onclick="javascript:location.href='${pageContext.request.contextPath}${platelog.bigImage}'" width="50px" height="30px">
             </td>
             <td data-priority="1" colspan="1" data-columns="table-1-col-3" style="display: table-cell;">
-                <img src="data:image/png;base64,${platelog.smallImage}" width="30px" height="20px">
+                <img src="${pageContext.request.contextPath}${platelog.smallImage}" onclick="javascript:location.href='${pageContext.request.contextPath}${platelog.smallImage}'" width="30px" height="20px">
             </td>
             <td data-priority="1" colspan="1" data-columns="table-1-col-4" class="sorting_1"
                 style="display: table-cell;">${platelog.deviceName}</td>

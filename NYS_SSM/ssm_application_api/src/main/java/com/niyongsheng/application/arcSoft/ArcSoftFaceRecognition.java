@@ -9,7 +9,7 @@ import com.arcsoft.face.toolkit.ImageFactory;
 import com.arcsoft.face.toolkit.ImageInfo;
 import com.niyongsheng.common.enums.ResponseStatusEnum;
 import com.niyongsheng.common.exception.ResponseException;
-import com.niyongsheng.common.utils.FileUtil;
+import com.niyongsheng.common.utils.FileUtils;
 import com.niyongsheng.persistence.domain.Face;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -225,7 +225,7 @@ public class ArcSoftFaceRecognition {
 
         // 2.IR属性处理
         File IRFaceImageFile = new File(IRFaceImagePath);
-        if (!FileUtil.isImage(IRFaceImageFile)) {
+        if (!FileUtils.isImage(IRFaceImageFile)) {
             throw new ResponseException(ResponseStatusEnum.IO_IMGFORMAT_ERROR);
         }
         ImageInfo imageInfoGray = ImageFactory.getGrayData(IRFaceImageFile);
@@ -309,7 +309,7 @@ public class ArcSoftFaceRecognition {
         // 1.获取人脸信息
         System.out.println("--++imagePath1++--:" + faceImagePath);
         File faceImageFile = new File(faceImagePath);
-        if (!FileUtil.isImage(faceImageFile)) {
+        if (!FileUtils.isImage(faceImageFile)) {
             throw new ResponseException(ResponseStatusEnum.IO_IMGFORMAT_ERROR);
         }
         ImageInfo imageInfo = ImageFactory.getRGBData(faceImageFile);

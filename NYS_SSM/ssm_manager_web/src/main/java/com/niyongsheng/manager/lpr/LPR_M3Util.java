@@ -7,13 +7,14 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.niyongsheng.common.utils.FileUtils;
 import com.niyongsheng.common.utils.HexUtil;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.Hashtable;
 import java.util.List;
@@ -27,17 +28,8 @@ import java.util.List;
  */
 public class LPR_M3Util {
 
-    /**
-     * 控制设备开闸
-     * 不播放语音
-     */
-    public static void open(HttpServletResponse response) throws IOException {
-        // 回复命令，控制设备开闸
-        response.setContentType("text/json");
-        PrintWriter out = response.getWriter();
-        out.println("{\"Response_AlarmInfoPlate\":{\"info\":\"ok\",\"content\":\"...\",\"is_pay\":\"true\"}}");
-        out.flush();
-        out.close();
+    public static void specialOpen () {
+
     }
 
     /**
@@ -48,26 +40,32 @@ public class LPR_M3Util {
      * @throws Exception
      */
     public static byte[] createQRBitmap(String QRMsg, int size) throws Exception {
+        final int RED = 0xffff0000;
+        final int WHITE = 0xFFFFFFFF;
+        final int BLACK = 0xff000000;
         Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();
         // 设置二维码排错率，可选L(7%)、M(15%)、Q(25%)、H(30%)，排错率越高可存储的信息越少，但对二维码清晰度的要求越小
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
         // LEVEL3(29X29)
         hints.put(EncodeHintType.QR_VERSION, 3);
         hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-        hints.put(EncodeHintType.MARGIN, 1);
+        hints.put(EncodeHintType.MARGIN, 0);
         BitMatrix bitMatrix = new MultiFormatWriter().encode(QRMsg, BarcodeFormat.QR_CODE, size, size, hints);
         int width = bitMatrix.getWidth();
         int height = bitMatrix.getHeight();
-        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        // 生成单色位图
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_BYTE_BINARY);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                image.setRGB(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF);
+                image.setRGB(x, y, bitMatrix.get(x, y) ? BLACK : WHITE);
             }
         }
-
+        // 转码
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         ImageIO.write(image, "bmp", outStream);
-        return outStream.toByteArray();
+        byte[] data = outStream.toByteArray();
+
+        return data;
     }
 
     /**
@@ -78,10 +76,13 @@ public class LPR_M3Util {
      * @param isPlay
      * @return
      */
-    public static String getQRCodePay485Data(int duration, String QRMsg, String TextInfo, boolean isPlay) {
+    public static String getQRCodePay485Data(int duration, String QRMsg, String TextInfo, boolean isPlay, String saveQRPath) {
         byte[] bq = null;
         try {
             bq = createQRBitmap(QRMsg, 29);
+            if (saveQRPath.length() > 0) {
+                FileUtils.SaveFile(bq, saveQRPath, String.valueOf(System.currentTimeMillis()) + ".bmp");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -318,9 +319,9 @@ public class LPR_M3Util {
                 // DS显示速度
                 buf1.put((byte) 0x01);
                 // DT停留时间
-                buf1.put((byte) 0x02);
+                buf1.put((byte) 0x05);
                 // DRS显示次数
-                buf1.put((byte) 0x01);
+                buf1.put((byte) 0x02);
                 // TC文字颜色
                 buf1.put((byte) 0xFF);
                 buf1.put((byte) 0x00);

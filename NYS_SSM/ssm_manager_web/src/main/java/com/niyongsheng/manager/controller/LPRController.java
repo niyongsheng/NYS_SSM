@@ -4,8 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
+import com.niyongsheng.common.utils.Base64Utils;
 import com.niyongsheng.manager.lpr.LPRResponse;
-import com.niyongsheng.manager.lpr.LPRVoiceTextUtil;
 import com.niyongsheng.manager.lpr.LPR_M3Util;
 import com.niyongsheng.persistence.domain.Plate;
 import com.niyongsheng.persistence.domain.Platelog;
@@ -26,8 +26,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.*;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author niyongsheng.com
@@ -48,12 +47,56 @@ public class LPRController {
     @Autowired
     private PlatelogService platelogService;
 
+    @RequestMapping(value = "/heart", method = {RequestMethod.POST, RequestMethod.GET})
+    @ApiOperation(value = "车牌识别心跳接口", notes = "参数描述")
+    protected void heart(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        Thread.sleep(2000);
+
+        String deviceName = request.getParameter("device_name");
+        String ipaddr = request.getParameter("ipaddr");
+        String port = request.getParameter("port");
+        String userName = request.getParameter("user_name");
+        String passWd = request.getParameter("pass_wd");
+        String serialno = request.getParameter("serialno");
+        String channelNum = request.getParameter("channel_num");
+
+        if(serialno != null) {
+            /*//查询redis中看看是否存在开闸记录
+            if(!StringUtils.isEmpty(redisUtil.get("plate_open_" + serialno))){
+                // 回复命令，控制设备开闸
+                ZenithUtils.openDoor(response);
+
+                redisUtil.remove("plate_open_" + serialno);
+
+                //更新物联小区停车数量
+                PlateDevice plateDevice = plateDeviceService.selectByExample(serialno);
+                if(plateDevice != null){
+                    PlateConfig plateConfig = plateConfigService.selectByExample(plateDevice.getDevDistrictId());
+                    if(plateConfig != null) {
+                        plateConfigService.updateByExampleSelective(plateDevice.getDevDistrictId(), plateConfig.getCarNumber(), "add");
+                    }
+                }
+            }
+
+            //将车牌识别设备的心跳时间添加到 redis  中
+            Map<String, Date> map = (Map<String, Date>)redisUtil.get("plate_heart");
+            if(map == null){
+                map = new HashMap<>();
+            }
+
+            map.put(serialno,new Date());
+
+            redisUtil.set("plate_heart",map);*/
+        }
+    }
+
     /**
      * 车牌类型：
      * 0：未知车牌:、1：蓝牌小汽车、2：: 黑牌小汽车、3：单排黄牌、4：双排黄牌、5：警车车牌、6：武警车牌、7：个性化车牌、8：单排军车牌、9：双排军车牌、10：使馆车牌、
      * 11：香港进出中国大陆车牌、12：农用车牌、13：教练车牌、14：澳门进出中国大陆车牌、15：双层武警车牌、16：武警总队车牌、17：双层武警总队车牌、18：民航车牌、19：新能源车牌
      *
-     * 军警用车牌全部放行   5,6,8,9,10,15,16,17
+     * 军警车牌自动放行   5,6,8,9,10,15,16,17
      *
      * @param request
      * @param response
@@ -108,19 +151,38 @@ public class LPRController {
                     platelog.setPlate(license);
                     platelog.setSerialno(serialNo);
                     platelog.setDeviceName(deviceName);
-                    platelog.setBigImage(bigImage);
-                    platelog.setSmallImage(smallImage);
+                    String uploadPath = request.getSession().getServletContext().getRealPath("file") + File.separator;
+                    String bigImgName =  System.currentTimeMillis() + license + ".jpg";
+                    boolean isSaved1 = Base64Utils.GenerateImage(bigImage, uploadPath + bigImgName);
+                    if (isSaved1) {
+                        platelog.setBigImage("/file/" + bigImgName);
+                    }
+                    String smallImgName =  System.currentTimeMillis() + license + ".jpg";
+                    boolean isSaved2 = Base64Utils.GenerateImage(smallImage, uploadPath + smallImgName);
+                    if (isSaved2) {
+                        platelog.setSmallImage("/file/" + smallImgName);
+                    }
                     platelog.setPlateType(licenseType);
+                    platelog.setFellowship(1);
                     platelog.setStatus((isFakePlate == 0) ? true : false);
                     platelog.setGmtCreate(LocalDateTime.now());
 
-                    if (isFakePlate == 0) {
+                    if (isFakePlate == 0) { // 判断车牌真伪
                         if (!flag) {
                             // 车牌识别处理
                             lprHandler(platelog, request, response);
                         } else {
                             // 军警车辆放行
-                            LPRVoiceTextUtil.openSpecial(license, response);
+                            // 军警车辆放行
+                            List<String> content = Arrays.asList(platelog.getPlate(), "军警车免费通行");
+                            String resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
+                                    LPR_M3Util.getVoiceText485Data(content, content.get(0) + "，" + content.get(1), (byte) 0x00)
+                                    + "]}}";
+                            response.setContentType("text/json");
+                            PrintWriter out = response.getWriter();
+                            out.println(resJsonStr);
+                            out.flush();
+                            out.close();
                         }
                     } else {
                         if (!flag) {
@@ -128,32 +190,21 @@ public class LPRController {
                             lprHandler(platelog, request, response);
                         } else {
                             // 军警车辆放行
-                            LPRVoiceTextUtil.openSpecial(license, response);
+                            List<String> content = Arrays.asList(platelog.getPlate(), "军警车免费通行");
+                            String resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
+                                    LPR_M3Util.getVoiceText485Data(content, content.get(0) + "，" + content.get(1), (byte) 0x00)
+                                    + "]}}";
+                            response.setContentType("text/json");
+                            PrintWriter out = response.getWriter();
+                            out.println(resJsonStr);
+                            out.flush();
+                            out.close();
                         }
 
                         // 伪造车牌
-                        System.out.println("伪造车牌错误❌");
+                        System.out.println("❌伪造车牌");
                     }
                 } else {
-                    // 构造记录模型
-                    Platelog platelog = new Platelog();
-                    platelog.setPlate(license);
-                    platelog.setSerialno(serialNo);
-                    platelog.setDeviceName(deviceName);
-                    platelog.setBigImage(bigImage);
-                    platelog.setSmallImage(smallImage);
-                    platelog.setPlateType(licenseType);
-                    platelog.setFellowship(1);
-//                    platelog.setStatus((isFakePlate == 0) ? true : false);
-                    platelog.setGmtCreate(LocalDateTime.now());
-
-                    if (!flag) {
-                        // 车牌识别处理
-                        lprHandler(platelog, request, response);
-                    } else {
-                        // 军警车辆放行
-                        LPRVoiceTextUtil.openSpecial(license, response);
-                    }
                     System.out.println("判断车牌真伪NULL错误❌");
                 }
             }
@@ -179,34 +230,19 @@ public class LPRController {
         // 3.获取485语音、显示、开门数据
         String resJsonStr = null;
         if (plate != null) {
-//            resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
-//                    LPR_M3Util.getText485Data("鲁Q666警")
-//                    + "]}}";
-
+            List<String> content = Arrays.asList(platelog.getPlate(), "固定车，欢迎使用车牌识别，请入场停车。");
             resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
-                    LPR_M3Util.getPay485Data(10, 0, 0, "http://baidu.com", "欢迎光临,请缴费100元", true)
+                    LPR_M3Util.getVoiceText485Data(content, content.get(0) + "，" + content.get(1), (byte) 0x00)
                     + "]}}";
         } else {
-//            List<String> content = Arrays.asList("第一行Aa.~!#@", "欢迎光临，一路顺风，谢谢", "第三行", "欢迎光临，一路顺风，谢谢");
-//            resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"!ok\", \"serialData\": [" +
-//                    LPR_M3Util.getVoiceText485Data(content,"京A8888警，缴费8.5元，一路顺风，谢谢", (byte) 0x00)
-//                    + "]}}";
-            try {
-                byte[] qrBitmap = LPR_M3Util.createQRBitmap("http://www.baidu.com", 32);
-                // 文件本地暂存绝对路径
-                String uploadPath = request.getSession().getServletContext().getRealPath("file");
-                SaveFile(qrBitmap, uploadPath, String.valueOf(System.currentTimeMillis()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            String path = request.getSession().getServletContext().getRealPath("file");
             resJsonStr = "{\"Response_AlarmInfoPlate\": {\"info\":\"ok\", \"serialData\": [" +
-                    LPR_M3Util.getQRCodePay485Data(10, "http://www.baidu.com", "一路顺风，谢谢", true)
+                    LPR_M3Util.getQRCodePay485Data(10, "wxp://f2f0t6UfGiwArmRZT_1Xy0Oe7-hA7rNFCZYN", "q", true, path)
                     + "]}}";
         }
-        System.out.println("返回json：" + resJsonStr);
 
         // 4.返回处理结果
+        System.out.println("返回json：" + resJsonStr);
         response.setContentType("text/json");
         PrintWriter out = response.getWriter();
         out.println(resJsonStr);
@@ -330,38 +366,5 @@ public class LPRController {
 
         // 3.返回列表页
         return "platelogList";
-    }
-
-    /**
-     * 保存文件
-     * @param content
-     * @param path
-     * @param imgName
-     * @return
-     */
-    private static boolean SaveFile(byte[] content, String path, String imgName) {
-        FileOutputStream writer = null;
-        boolean result = false;
-        try {
-            File dir = new File(path);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-            writer = new FileOutputStream(new File(path, imgName));
-            System.out.println("Schmidt Vladimir");
-            writer.write(content);
-            System.out.println("Vladimir Schmidt");
-            result = true;
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } finally {
-            try {
-                writer.flush();
-                writer.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return result;
     }
 }
