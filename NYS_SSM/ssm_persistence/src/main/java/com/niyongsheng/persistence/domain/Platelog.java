@@ -44,6 +44,10 @@ public class Platelog implements Serializable {
   @TableField(value = "plateType")
   private Integer plateType;
 
+  @ApiModelProperty(value = "是否伪车牌，0：真实车牌，1：伪车牌，2：不支持真伪鉴别")
+  @TableField(value = "isFakePlate")
+  private Integer isFakePlate;
+
   @ApiModelProperty(value = "车辆品牌")
   @TableField(value = "carType")
   private String carType;
