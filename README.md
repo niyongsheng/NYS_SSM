@@ -33,9 +33,11 @@ NYS_SSM
 * [UnitTest](http://wiki.ros.org/unittest)
 
 ## <a id="Application_Instance:"></a>Application Instance:
-ios | CI | CI
------------- | ------------- | -------------
-<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.gif"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true">
+ios | android 
+------------ | ------------- 
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.gif"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> 
+
+![image](https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg)
 
 <!--
 * Step 1.Add Shell
