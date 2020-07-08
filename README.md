@@ -5,9 +5,10 @@ NYS_SSM
 [![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/NYS_SSM)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
+* IOS 客户端
+* ANDROID 客户端
+* Administrator 后台网页端
 * Spring+SpringMVC+MyBatis\Redis 服务端
-* Administrator 网页端
-* IOS+ANDROID 客户端
 
 ## <a id="What's_features:"></a>What's features:
 * Swagger2
