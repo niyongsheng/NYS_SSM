@@ -10,11 +10,11 @@ NYS_SSM
 * [Administrator 后台网页端](http://www.daocaodui.top/web/)
 * [Spring+SpringMVC+MyBatis\Redis 服务端](http://www.daocaodui.top/api/swagger-ui.html)
 
-## <a id="What's_this:"></a>What's this:
+## Introduction:
 > 社交类项目，个人业余时间开发中...（目前完成度50%）\
 > 开源Service\Web\Ios\Android平台的所有代码，可以作为前后端学习的反面教材:dog:
 
-## <a id="What's_features:"></a>What's features:
+## Technology stack:
 * [Spring](https://spring.io)
 * [Redis](https://redis.io)
 * [MyBatis](https://mybatis.org/)
@@ -47,7 +47,7 @@ ios | CI | CI
 
 ```
 -->
-## <a id="How_to_use:"></a>How to use:
+## How to use:
 - [x] TomCat: >= 9.0
 - [x] JDK: >= 1.8
 - [x] IDE: [IntelliJ IDEA](https://www.jetbrains.com/idea/)
