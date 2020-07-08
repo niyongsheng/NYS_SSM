@@ -11,8 +11,8 @@ NYS_SSM
 * [Spring+SpringMVC+MyBatis\Redis 服务端](http://www.daocaodui.top/api/swagger-ui.html)
 
 ## <a id="What's_this:"></a>What's this:
-> 社交类项目，个人业余时间持续开发中...（目前完成度50%）\
-> 开源Service\Web\Ios\Android平台的所有代码，可作为全栈学习的反面教材:dog:
+> 社交类项目，个人业余时间开发中...（目前完成度50%）\
+> 开源Service\Web\Ios\Android平台的所有代码，可以作为前后端学习的反面教材:dog:
 
 ## <a id="What's_features:"></a>What's features:
 * [Spring](https://spring.io)
@@ -33,7 +33,7 @@ NYS_SSM
 * [UnitTest](http://wiki.ros.org/unittest)
 
 ## <a id="Application_Instance:"></a>Application Instance:
-RMOV | CI | CI
+ios | CI | CI
 ------------ | ------------- | -------------
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.gif"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true">
 
