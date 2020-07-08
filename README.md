@@ -5,10 +5,10 @@ NYS_SSM
 [![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/NYS_SSM)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
-* IOS 客户端
-* ANDROID 客户端
-* Administrator 后台网页端
-* Spring+SpringMVC+MyBatis\Redis 服务端
+* [IOS 客户端](https://apps.apple.com/cn/app/id1495581916)
+* [Android 客户端](http://www.daocaodui.top/web/app/download)
+* [Administrator 后台网页端](http://www.daocaodui.top/web/)
+* [Spring+SpringMVC+MyBatis\Redis 服务端](http://www.daocaodui.top/api/swagger-ui.html)
 
 ## <a id="What's_this:"></a>What's this:
 > 社交类项目，个人业余时间持续开发中...（目前完成度50%）\
@@ -32,11 +32,8 @@ NYS_SSM
 ## <a id="Application_Instance:"></a>Application Instance:
 RMOV | CI | CI
 ------------ | ------------- | -------------
-<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.mov"> | 
-<img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> | 
-<img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true">
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.mov"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true">
 
-<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/login.jpg?raw=true">
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg?raw=true">
 <img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/swagger.jpg?raw=true">
 
