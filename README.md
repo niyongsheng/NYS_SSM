@@ -12,7 +12,7 @@ NYS_SSM
 
 ## <a id="What's_this:"></a>What's this:
 > 社交类项目，个人业余时间持续开发中...（目前完成度50%）\
-> 开源Service\Web\Ios\Android平台的所有代码，可作为全栈学习的参考资料。
+> 开源Service\Web\Ios\Android平台的所有代码，可作为全栈学习的反面教材
 
 ## <a id="What's_features:"></a>What's features:
 * Swagger2
