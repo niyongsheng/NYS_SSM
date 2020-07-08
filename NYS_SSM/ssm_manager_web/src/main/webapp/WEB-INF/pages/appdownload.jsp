@@ -20,7 +20,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>稻草堆APP</title>
     <%-- 收藏用logo图标 --%>
-    <link rel="bookmark" type="image/x-icon" href="${pageContext.request.contextPath}/img/appdownload/logo_icon_120x120.png"/>
+    <link rel="bookmark" type="image/x-icon"
+          href="${pageContext.request.contextPath}/img/appdownload/logo_icon_120x120.png"/>
     <%-- 网站显示页logo图标 --%>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/appdownload/logo_icon_120x120.png">
 
@@ -46,12 +47,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
     </script>
 
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    </script>
     <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
             });
         });
     </script>
@@ -68,34 +76,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <link href="${pageContext.request.contextPath}/plugins/appdownload/owl.carousel.css" rel="stylesheet">
                 <script src="${pageContext.request.contextPath}/plugins/appdownload/owl.carousel.js"></script>
                 <script>
-                    $(document).ready(function() {
+                    $(document).ready(function () {
                         $("#owl-demo").owlCarousel({
-                            items : 1,
-                            lazyLoad : true,
-                            autoPlay : true,
-                            navigation : false,
-                            navigationText :  false,
-                            pagination : true,
+                            items: 1,
+                            lazyLoad: true,
+                            autoPlay: true,
+                            navigation: false,
+                            navigationText: false,
+                            pagination: true,
                         });
                     });
                 </script>
                 <!-- //requried-jsfiles-for owl -->
                 <div id="owl-demo" class="owl-carousel">
                     <div class="item">
-                        <img src="${pageContext.request.contextPath}/img/appdownload/divice_1.png" title="name" />
+                        <img src="${pageContext.request.contextPath}/img/appdownload/divice_1.png" title="name"/>
                     </div>
                     <div class="item">
-                        <img src="${pageContext.request.contextPath}/img/appdownload/divice_2.png" title="name" />
+                        <img src="${pageContext.request.contextPath}/img/appdownload/divice_2.png" title="name"/>
                     </div>
                     <div class="item">
-                        <img src="${pageContext.request.contextPath}/img/appdownload/divice_3.png" title="name" />
+                        <img src="${pageContext.request.contextPath}/img/appdownload/divice_3.png" title="name"/>
                     </div>
                 </div>
                 <!--//sreen-gallery-cursual---->
             </div>
         </div>
         <div class="col-md-6 header-right">
-            <a href="#"><img src="${pageContext.request.contextPath}/img/appdownload/logo_icon_120x120.png" class="img-responsive img-thumbnail" title="daocaodui" /></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/img/appdownload/logo_icon_120x120.png"
+                             class="img-responsive img-thumbnail" title="daocaodui"/></a>
             <p>塑造生命 成就使命!</p>
             <ul class="big-btns">
                 <li><a class="btn-g" href="https://itunes.apple.com/cn/app/id1495581916">下载APP</a></li>
@@ -104,10 +113,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="usefull-for">
                 <li><a class="u-apple" href="https://itunes.apple.com/cn/app/id1495581916"><span> </span></a></li>
                 <li><a class="u-and" href="javascript:void(0)" onclick="popup()"><span> </span></a></li>
-<%--                <li><a class="u-windows" href="javascript:void(0)" onclick="popup()"><span> </span></a></li>--%>
+                <%--                <li><a class="u-windows" href="javascript:void(0)" onclick="popup()"><span> </span></a></li>--%>
             </ul>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 <!---- header ---->
@@ -122,19 +131,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="col-md-4  top-grid text-center">
                 <span class="t-icon1"> </span>
                 <h4>LOVE</h4>
-                <p>A new command I give you: Love one another. As I have loved you, so you must love one another.By this everyone will know that you are my disciples, if you love one another. <br/> (John 13:34-35 NIV) </p>
+                <p>A new command I give you: Love one another. As I have loved you, so you must love one another.By this
+                    everyone will know that you are my disciples, if you love one another. <br/> (John 13:34-35 NIV)
+                </p>
             </div>
             <div class="col-md-4  top-grid text-center">
                 <span class="t-icon1"> </span>
                 <h4>CONFIDENCE</h4>
-                <p>Now faith is confidence in what we hope for and assurance about what we do not see. This is what the ancients were commended for. <br/> (Hebrews 11:1-2 NIV) </p>
+                <p>Now faith is confidence in what we hope for and assurance about what we do not see. This is what the
+                    ancients were commended for. <br/> (Hebrews 11:1-2 NIV) </p>
             </div>
             <div class="col-md-4  top-grid text-center">
                 <span class="t-icon1"> </span>
                 <h4>HOPE</h4>
-                <p>For in this hope we were saved. But hope that is seen is no hope at all. Who hopes for what they already have? But if we hope for what we do not yet have, we wait for it patiently. <br/> (Romans 8:24-25 NIV) </p>
+                <p>For in this hope we were saved. But hope that is seen is no hope at all. Who hopes for what they
+                    already have? But if we hope for what we do not yet have, we wait for it patiently. <br/> (Romans
+                    8:24-25 NIV) </p>
             </div>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>
@@ -144,14 +158,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="container">
         <div class="col-md-6 fea-grids-left">
             <script>
-                $(document).ready(function() {
+                $(document).ready(function () {
                     $("#owl-demo1").owlCarousel({
-                        items : 1,
-                        lazyLoad : true,
-                        autoPlay : true,
-                        navigation : false,
-                        navigationText :  false,
-                        pagination : true,
+                        items: 1,
+                        lazyLoad: true,
+                        autoPlay: true,
+                        navigation: false,
+                        navigationText: false,
+                        pagination: true,
                     });
                 });
             </script>
@@ -159,33 +173,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- start content_slider -->
             <div id="owl-demo1" class="owl-carousel">
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0312.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0312.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0313.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0313.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0314.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0314.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0315.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0315.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0316.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0316.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0317.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0317.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0318.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0318.PNG" title="name"/>
                 </div>
                 <div class="item">
-                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0319.PNG" title="name" />
+                    <img src="${pageContext.request.contextPath}/img/appdownload/IMG_0319.PNG" title="name"/>
                 </div>
             </div>
             <!--//sreen-gallery-cursual---->
         </div>
-        <div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+        <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
         <div class="col-md-6 fea-grids-left">
             <h3>稻草堆APP功能性介绍： </h3>
             <div class="fea-grids-left-grids">
@@ -197,7 +211,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>联系</h4>
                         <p>私聊、群聊、音视频通话 </p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -207,7 +221,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>分享</h4>
                         <p>分享心得感受、转载文章 </p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -217,7 +231,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>读经</h4>
                         <p>在线阅读、读经打卡 </p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -227,7 +241,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>代祷</h4>
                         <p>发布查看代祷事项</p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -237,7 +251,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>活动</h4>
                         <p>发起或加入群组活动 </p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -247,7 +261,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>音频</h4>
                         <p>上传收听诗歌、主日分享 </p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -257,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>书单</h4>
                         <p>发现、推荐属灵书籍 </p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="fea-grids-left-grid">
                     <div class="fea-grids-left-grid-left">
@@ -267,11 +281,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <h4>搜索</h4>
                         <p>在线圣经全文检索</p>
                     </div>
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
 </div>
 <!----- featrues-grids----->
@@ -279,14 +293,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="testmonials">
     <div class="container">
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 $("#owl-demo2").owlCarousel({
-                    items : 1,
-                    lazyLoad : true,
-                    autoPlay : true,
-                    navigation : false,
-                    navigationText :  false,
-                    pagination : true,
+                    items: 1,
+                    lazyLoad: true,
+                    autoPlay: true,
+                    navigation: false,
+                    navigationText: false,
+                    pagination: true,
                 });
             });
         </script>
@@ -296,82 +310,90 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="item">
                 <div class="testmonial-grids">
                     <div class="testmonial-head text-center">
-                        <img src="${pageContext.request.contextPath}/img/appdownload/quit.png" title="name" />
+                        <img src="${pageContext.request.contextPath}/img/appdownload/quit.png" title="name"/>
                         <p>"稻草堆项目是个人工作之余的开源项目，还有很多需要改进和优化的地方，如果你在使用过程中有任何想法、建议或者希望参与其中，欢迎联系我。"</p>
                     </div>
                     <div class="testmonial-row">
                         <div class="col-md-4 testmonial-grid">
                             <div class="t-people-left">
-                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png" class="img-responsive img-thumbnail_1" title="name" />
+                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png"
+                                     class="img-responsive img-thumbnail_1" title="name"/>
                             </div>
                             <div class="t-people-right">
                                 <h4>John Ni</h4>
                                 <span>设计</span>
                             </div>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </div>
                         <div class="col-md-4 testmonial-grid">
                             <div class="t-people-left">
-                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png" class="img-responsive img-thumbnail_1" title="name" />
+                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png"
+                                     class="img-responsive img-thumbnail_1" title="name"/>
                             </div>
                             <div class="t-people-right">
                                 <h4>John Ni</h4>
                                 <span>开发</span>
                             </div>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </div>
                         <div class="col-md-4 testmonial-grid">
                             <div class="t-people-left">
-                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png" class="img-responsive img-thumbnail_1" title="name" />
+                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png"
+                                     class="img-responsive img-thumbnail_1" title="name"/>
                             </div>
                             <div class="t-people-right">
                                 <h4>John Ni</h4>
                                 <span>维护</span>
                             </div>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"> </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
             <div class="item">
                 <div class="testmonial-grids">
                     <div class="testmonial-head text-center">
-                        <img src="${pageContext.request.contextPath}/img/appdownload/quit.png" title="name" />
-                        <p>"The Daocaodui is an open source project of personal work, that needs to be improved and optimized. If you have any ideas, suggestions or wish to participate in the process, Wellcome to contact me."</p>
+                        <img src="${pageContext.request.contextPath}/img/appdownload/quit.png" title="name"/>
+                        <p>"The Daocaodui is an open source project of personal work, that needs to be improved and
+                            optimized. If you have any ideas, suggestions or wish to participate in the process,
+                            Wellcome to contact me."</p>
                     </div>
                     <div class="testmonial-row">
                         <div class="col-md-4 testmonial-grid">
                             <div class="t-people-left">
-                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png" class="img-responsive img-thumbnail_1" title="name" />
+                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png"
+                                     class="img-responsive img-thumbnail_1" title="name"/>
                             </div>
                             <div class="t-people-right">
                                 <h4>John Ni</h4>
                                 <span>Designer</span>
                             </div>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </div>
                         <div class="col-md-4 testmonial-grid">
                             <div class="t-people-left">
-                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png" class="img-responsive img-thumbnail_1" title="name" />
+                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png"
+                                     class="img-responsive img-thumbnail_1" title="name"/>
                             </div>
                             <div class="t-people-right">
                                 <h4>John Ni</h4>
                                 <span>Developer</span>
                             </div>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </div>
                         <div class="col-md-4 testmonial-grid">
                             <div class="t-people-left">
-                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png" class="img-responsive img-thumbnail_1" title="name" />
+                                <img src="${pageContext.request.contextPath}/img/appdownload/user_icon_1.png"
+                                     class="img-responsive img-thumbnail_1" title="name"/>
                             </div>
                             <div class="t-people-right">
                                 <h4>John Ni</h4>
                                 <span>Maintenance</span>
                             </div>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"> </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
@@ -384,12 +406,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="notify">
     <div class="container">
         <div class="notify-grid">
-            <img src="${pageContext.request.contextPath}/img/appdownload/msg-icon.png" title="mail" />
+            <img src="${pageContext.request.contextPath}/img/appdownload/msg-icon.png" title="mail"/>
             <h3>Get Notified of any updates!</h3>
             <p>Subscribe to our newsletter to be notified about new version release</p>
             <form>
-                <input type="text" class="text" value="niyongsheng@outlook.com" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'niyongsheng@outlook.com';}">
-                <input type="submit" value="Submit" />
+                <input type="text" class="text" value="niyongsheng@outlook.com" onfocus="this.value = '';"
+                       onblur="if (this.value == '') {this.value = 'niyongsheng@outlook.com';}">
+                <input type="submit" value="Submit"/>
             </form>
         </div>
     </div>
@@ -403,18 +426,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li><a class="facebook" href="#"><span> </span></a></li>
             <li><a class="vemeo" href="#"><span> </span></a></li>
             <li><a class="pin" href="#"><span> </span></a></li>
-            <div class="clearfix"> </div>
+            <div class="clearfix"></div>
         </ul>
     </div>
     <!---- footer-links ---->
     <div class="footer-links">
         <ul>
             <li>
-                <p>Copyright &copy; 2020.Company Daocaodui All rights reserved.<a href="https://github.com/niyongsheng" target="_blank" title="硕鼠工作室">硕鼠工作室</a></p>
+                <p>Copyright &copy; 2020.Company Daocaodui All rights reserved.<a href="https://github.com/niyongsheng"
+                                                                                  target="_blank"
+                                                                                  title="硕鼠工作室">硕鼠工作室</a></p>
             </li>
         </ul>
         <script type="text/javascript">
-            $(document).ready(function() {
+            $(document).ready(function () {
                 /*
                 var defaults = {
                     containerID: 'toTop', // fading element id
@@ -424,7 +449,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                  };
                 */
                 toastr.info('稻草堆欢迎你');
-                $().UItoTop({ easingType: 'easeOutQuart' });
+                $().UItoTop({easingType: 'easeOutQuart'});
 
             });
         </script>

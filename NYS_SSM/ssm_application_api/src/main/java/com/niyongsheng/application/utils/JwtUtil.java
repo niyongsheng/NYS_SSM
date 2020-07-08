@@ -2,8 +2,13 @@ package com.niyongsheng.application.utils;
 
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.JWTVerifyException;
 import com.auth0.jwt.internal.com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,4 +63,22 @@ public class JwtUtil {
         }
     }
 
+    // 测试demo
+    public static void main(String[] args) {
+         JWTVerifier verifier = new JWTVerifier("VbNphC94rh1KD1UPiJXrI9AHvx5tVQEYbfJ5xz4VC153bFB2auW2e0GsRAYV1Y9sCZHiIhLaafExcbmoP47KM1BP");
+        try {
+            Map<String,Object> claims= verifier.verify("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6Ik14Y0FlcVhBWFVLZ3lkUkpkbE9KdlNKbFFNbWNhYVRqIn0.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwOCIsImF1ZCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDA4IiwianRpIjoiTXhjQWVxWEFYVUtneWRSSmRsT0p2U0psUU1tY2FhVGoiLCJpYXQiOjE1ODM5MzQzMDQsIm5iZiI6MTU4MzkzNDMwNCwiZXhwIjoxNTg1MjMwMzA0LCJpbmZvIjp7InVpZCI6IjExIn19._mDPOjAey9Cwh4RCGigih6X0yzUbpYACe8CzBcSYI-0");
+            System.out.println(claims);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeyException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SignatureException e) {
+            e.printStackTrace();
+        } catch (JWTVerifyException e) {
+            e.printStackTrace();
+        }
+    }
 }

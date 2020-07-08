@@ -198,8 +198,7 @@
                     {"searchable": false, "targets": [1]},
                     {"orderSequence": ["desc", "asc"], "targets": [0]}
                 ],
-                "language":
-                    {
+                "language": {
                         "processing": "处理中...",
                         "loadingRecords": "载入中...",
                         "lengthMenu": "显示 _MENU_ 项结果",

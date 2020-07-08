@@ -7,988 +7,979 @@
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
       <DefaultCasing>mixed/mixed</DefaultCasing>
     </root>
-    <schema id="2" parent="1" name="SMSD">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="3" parent="1" name="cmtable">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="4" parent="1" name="daocaodui">
+    <schema id="2" parent="1" name="daocaodui">
       <Current>1</Current>
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="5" parent="1" name="eeioc">
+    <schema id="3" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="6" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
-    </schema>
-    <schema id="7" parent="1" name="loginDemo">
+    <schema id="4" parent="1" name="mysql">
       <Collation>latin1_swedish_ci</Collation>
     </schema>
-    <schema id="8" parent="1" name="mysql">
-      <Collation>latin1_swedish_ci</Collation>
-    </schema>
-    <schema id="9" parent="1" name="performance_schema">
+    <schema id="5" parent="1" name="performance_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="10" parent="1" name="sys">
+    <schema id="6" parent="1" name="sys">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="11" parent="1" name="tixingwang">
+    <schema id="7" parent="1" name="tixingwang">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="12" parent="1" name="video">
-      <Collation>utf8_bin</Collation>
+    <schema id="8" parent="1" name="vhr">
+      <Collation>utf8mb4_general_ci</Collation>
     </schema>
-    <schema id="13" parent="1" name="wuye">
+    <schema id="9" parent="1" name="wuye">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <collation id="14" parent="1" name="armscii8_bin">
+    <collation id="10" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="15" parent="1" name="armscii8_general_ci">
+    <collation id="11" parent="1" name="armscii8_general_ci">
       <Charset>armscii8</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="16" parent="1" name="ascii_bin">
+    <collation id="12" parent="1" name="ascii_bin">
       <Charset>ascii</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="17" parent="1" name="ascii_general_ci">
+    <collation id="13" parent="1" name="ascii_general_ci">
       <Charset>ascii</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="18" parent="1" name="big5_bin">
+    <collation id="14" parent="1" name="big5_bin">
       <Charset>big5</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="19" parent="1" name="big5_chinese_ci">
+    <collation id="15" parent="1" name="big5_chinese_ci">
       <Charset>big5</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="20" parent="1" name="binary">
+    <collation id="16" parent="1" name="binary">
       <Charset>binary</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="21" parent="1" name="cp1250_bin">
+    <collation id="17" parent="1" name="cp1250_bin">
       <Charset>cp1250</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="22" parent="1" name="cp1250_croatian_ci">
+    <collation id="18" parent="1" name="cp1250_croatian_ci">
       <Charset>cp1250</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="23" parent="1" name="cp1250_czech_cs">
+    <collation id="19" parent="1" name="cp1250_czech_cs">
       <Charset>cp1250</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="24" parent="1" name="cp1250_general_ci">
+    <collation id="20" parent="1" name="cp1250_general_ci">
       <Charset>cp1250</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="25" parent="1" name="cp1250_polish_ci">
+    <collation id="21" parent="1" name="cp1250_polish_ci">
       <Charset>cp1250</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="26" parent="1" name="cp1251_bin">
+    <collation id="22" parent="1" name="cp1251_bin">
       <Charset>cp1251</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="27" parent="1" name="cp1251_bulgarian_ci">
+    <collation id="23" parent="1" name="cp1251_bulgarian_ci">
       <Charset>cp1251</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="28" parent="1" name="cp1251_general_ci">
+    <collation id="24" parent="1" name="cp1251_general_ci">
       <Charset>cp1251</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="29" parent="1" name="cp1251_general_cs">
+    <collation id="25" parent="1" name="cp1251_general_cs">
       <Charset>cp1251</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="30" parent="1" name="cp1251_ukrainian_ci">
+    <collation id="26" parent="1" name="cp1251_ukrainian_ci">
       <Charset>cp1251</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="31" parent="1" name="cp1256_bin">
+    <collation id="27" parent="1" name="cp1256_bin">
       <Charset>cp1256</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="32" parent="1" name="cp1256_general_ci">
+    <collation id="28" parent="1" name="cp1256_general_ci">
       <Charset>cp1256</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="33" parent="1" name="cp1257_bin">
+    <collation id="29" parent="1" name="cp1257_bin">
       <Charset>cp1257</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="34" parent="1" name="cp1257_general_ci">
+    <collation id="30" parent="1" name="cp1257_general_ci">
       <Charset>cp1257</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="35" parent="1" name="cp1257_lithuanian_ci">
+    <collation id="31" parent="1" name="cp1257_lithuanian_ci">
       <Charset>cp1257</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="36" parent="1" name="cp850_bin">
+    <collation id="32" parent="1" name="cp850_bin">
       <Charset>cp850</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="37" parent="1" name="cp850_general_ci">
+    <collation id="33" parent="1" name="cp850_general_ci">
       <Charset>cp850</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="38" parent="1" name="cp852_bin">
+    <collation id="34" parent="1" name="cp852_bin">
       <Charset>cp852</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="39" parent="1" name="cp852_general_ci">
+    <collation id="35" parent="1" name="cp852_general_ci">
       <Charset>cp852</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="40" parent="1" name="cp866_bin">
+    <collation id="36" parent="1" name="cp866_bin">
       <Charset>cp866</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="41" parent="1" name="cp866_general_ci">
+    <collation id="37" parent="1" name="cp866_general_ci">
       <Charset>cp866</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="42" parent="1" name="cp932_bin">
+    <collation id="38" parent="1" name="cp932_bin">
       <Charset>cp932</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="43" parent="1" name="cp932_japanese_ci">
+    <collation id="39" parent="1" name="cp932_japanese_ci">
       <Charset>cp932</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="44" parent="1" name="dec8_bin">
+    <collation id="40" parent="1" name="dec8_bin">
       <Charset>dec8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="45" parent="1" name="dec8_swedish_ci">
+    <collation id="41" parent="1" name="dec8_swedish_ci">
       <Charset>dec8</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="46" parent="1" name="eucjpms_bin">
+    <collation id="42" parent="1" name="eucjpms_bin">
       <Charset>eucjpms</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="47" parent="1" name="eucjpms_japanese_ci">
+    <collation id="43" parent="1" name="eucjpms_japanese_ci">
       <Charset>eucjpms</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="48" parent="1" name="euckr_bin">
+    <collation id="44" parent="1" name="euckr_bin">
       <Charset>euckr</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="49" parent="1" name="euckr_korean_ci">
+    <collation id="45" parent="1" name="euckr_korean_ci">
       <Charset>euckr</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="50" parent="1" name="gb18030_bin">
+    <collation id="46" parent="1" name="gb18030_bin">
       <Charset>gb18030</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="51" parent="1" name="gb18030_chinese_ci">
+    <collation id="47" parent="1" name="gb18030_chinese_ci">
       <Charset>gb18030</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="52" parent="1" name="gb18030_unicode_520_ci">
+    <collation id="48" parent="1" name="gb18030_unicode_520_ci">
       <Charset>gb18030</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="53" parent="1" name="gb2312_bin">
+    <collation id="49" parent="1" name="gb2312_bin">
       <Charset>gb2312</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="54" parent="1" name="gb2312_chinese_ci">
+    <collation id="50" parent="1" name="gb2312_chinese_ci">
       <Charset>gb2312</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="55" parent="1" name="gbk_bin">
+    <collation id="51" parent="1" name="gbk_bin">
       <Charset>gbk</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="56" parent="1" name="gbk_chinese_ci">
+    <collation id="52" parent="1" name="gbk_chinese_ci">
       <Charset>gbk</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="57" parent="1" name="geostd8_bin">
+    <collation id="53" parent="1" name="geostd8_bin">
       <Charset>geostd8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="58" parent="1" name="geostd8_general_ci">
+    <collation id="54" parent="1" name="geostd8_general_ci">
       <Charset>geostd8</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="59" parent="1" name="greek_bin">
+    <collation id="55" parent="1" name="greek_bin">
       <Charset>greek</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="60" parent="1" name="greek_general_ci">
+    <collation id="56" parent="1" name="greek_general_ci">
       <Charset>greek</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="61" parent="1" name="hebrew_bin">
+    <collation id="57" parent="1" name="hebrew_bin">
       <Charset>hebrew</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="62" parent="1" name="hebrew_general_ci">
+    <collation id="58" parent="1" name="hebrew_general_ci">
       <Charset>hebrew</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="63" parent="1" name="hp8_bin">
+    <collation id="59" parent="1" name="hp8_bin">
       <Charset>hp8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="64" parent="1" name="hp8_english_ci">
+    <collation id="60" parent="1" name="hp8_english_ci">
       <Charset>hp8</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="65" parent="1" name="keybcs2_bin">
+    <collation id="61" parent="1" name="keybcs2_bin">
       <Charset>keybcs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="66" parent="1" name="keybcs2_general_ci">
+    <collation id="62" parent="1" name="keybcs2_general_ci">
       <Charset>keybcs2</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="67" parent="1" name="koi8r_bin">
+    <collation id="63" parent="1" name="koi8r_bin">
       <Charset>koi8r</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="68" parent="1" name="koi8r_general_ci">
+    <collation id="64" parent="1" name="koi8r_general_ci">
       <Charset>koi8r</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="69" parent="1" name="koi8u_bin">
+    <collation id="65" parent="1" name="koi8u_bin">
       <Charset>koi8u</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="70" parent="1" name="koi8u_general_ci">
+    <collation id="66" parent="1" name="koi8u_general_ci">
       <Charset>koi8u</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="71" parent="1" name="latin1_bin">
+    <collation id="67" parent="1" name="latin1_bin">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="72" parent="1" name="latin1_danish_ci">
+    <collation id="68" parent="1" name="latin1_danish_ci">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="73" parent="1" name="latin1_general_ci">
+    <collation id="69" parent="1" name="latin1_general_ci">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="74" parent="1" name="latin1_general_cs">
+    <collation id="70" parent="1" name="latin1_general_cs">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="75" parent="1" name="latin1_german1_ci">
+    <collation id="71" parent="1" name="latin1_german1_ci">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="76" parent="1" name="latin1_german2_ci">
+    <collation id="72" parent="1" name="latin1_german2_ci">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="77" parent="1" name="latin1_spanish_ci">
+    <collation id="73" parent="1" name="latin1_spanish_ci">
       <Charset>latin1</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="78" parent="1" name="latin1_swedish_ci">
+    <collation id="74" parent="1" name="latin1_swedish_ci">
       <Charset>latin1</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="79" parent="1" name="latin2_bin">
+    <collation id="75" parent="1" name="latin2_bin">
       <Charset>latin2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="80" parent="1" name="latin2_croatian_ci">
+    <collation id="76" parent="1" name="latin2_croatian_ci">
       <Charset>latin2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="81" parent="1" name="latin2_czech_cs">
+    <collation id="77" parent="1" name="latin2_czech_cs">
       <Charset>latin2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="82" parent="1" name="latin2_general_ci">
+    <collation id="78" parent="1" name="latin2_general_ci">
       <Charset>latin2</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="83" parent="1" name="latin2_hungarian_ci">
+    <collation id="79" parent="1" name="latin2_hungarian_ci">
       <Charset>latin2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="84" parent="1" name="latin5_bin">
+    <collation id="80" parent="1" name="latin5_bin">
       <Charset>latin5</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="85" parent="1" name="latin5_turkish_ci">
+    <collation id="81" parent="1" name="latin5_turkish_ci">
       <Charset>latin5</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="86" parent="1" name="latin7_bin">
+    <collation id="82" parent="1" name="latin7_bin">
       <Charset>latin7</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="87" parent="1" name="latin7_estonian_cs">
+    <collation id="83" parent="1" name="latin7_estonian_cs">
       <Charset>latin7</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="88" parent="1" name="latin7_general_ci">
+    <collation id="84" parent="1" name="latin7_general_ci">
       <Charset>latin7</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="89" parent="1" name="latin7_general_cs">
+    <collation id="85" parent="1" name="latin7_general_cs">
       <Charset>latin7</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="90" parent="1" name="macce_bin">
+    <collation id="86" parent="1" name="macce_bin">
       <Charset>macce</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="91" parent="1" name="macce_general_ci">
+    <collation id="87" parent="1" name="macce_general_ci">
       <Charset>macce</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="92" parent="1" name="macroman_bin">
+    <collation id="88" parent="1" name="macroman_bin">
       <Charset>macroman</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="93" parent="1" name="macroman_general_ci">
+    <collation id="89" parent="1" name="macroman_general_ci">
       <Charset>macroman</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="94" parent="1" name="sjis_bin">
+    <collation id="90" parent="1" name="sjis_bin">
       <Charset>sjis</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="95" parent="1" name="sjis_japanese_ci">
+    <collation id="91" parent="1" name="sjis_japanese_ci">
       <Charset>sjis</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="96" parent="1" name="swe7_bin">
+    <collation id="92" parent="1" name="swe7_bin">
       <Charset>swe7</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="97" parent="1" name="swe7_swedish_ci">
+    <collation id="93" parent="1" name="swe7_swedish_ci">
       <Charset>swe7</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="98" parent="1" name="tis620_bin">
+    <collation id="94" parent="1" name="tis620_bin">
       <Charset>tis620</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="99" parent="1" name="tis620_thai_ci">
+    <collation id="95" parent="1" name="tis620_thai_ci">
       <Charset>tis620</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="100" parent="1" name="ucs2_bin">
+    <collation id="96" parent="1" name="ucs2_bin">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="101" parent="1" name="ucs2_croatian_ci">
+    <collation id="97" parent="1" name="ucs2_croatian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="102" parent="1" name="ucs2_czech_ci">
+    <collation id="98" parent="1" name="ucs2_czech_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="103" parent="1" name="ucs2_danish_ci">
+    <collation id="99" parent="1" name="ucs2_danish_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="104" parent="1" name="ucs2_esperanto_ci">
+    <collation id="100" parent="1" name="ucs2_esperanto_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="105" parent="1" name="ucs2_estonian_ci">
+    <collation id="101" parent="1" name="ucs2_estonian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="106" parent="1" name="ucs2_general_ci">
+    <collation id="102" parent="1" name="ucs2_general_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="107" parent="1" name="ucs2_general_mysql500_ci">
+    <collation id="103" parent="1" name="ucs2_general_mysql500_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="108" parent="1" name="ucs2_german2_ci">
+    <collation id="104" parent="1" name="ucs2_german2_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="109" parent="1" name="ucs2_hungarian_ci">
+    <collation id="105" parent="1" name="ucs2_hungarian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="110" parent="1" name="ucs2_icelandic_ci">
+    <collation id="106" parent="1" name="ucs2_icelandic_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="111" parent="1" name="ucs2_latvian_ci">
+    <collation id="107" parent="1" name="ucs2_latvian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="112" parent="1" name="ucs2_lithuanian_ci">
+    <collation id="108" parent="1" name="ucs2_lithuanian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="113" parent="1" name="ucs2_persian_ci">
+    <collation id="109" parent="1" name="ucs2_persian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="114" parent="1" name="ucs2_polish_ci">
+    <collation id="110" parent="1" name="ucs2_polish_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="115" parent="1" name="ucs2_roman_ci">
+    <collation id="111" parent="1" name="ucs2_roman_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="116" parent="1" name="ucs2_romanian_ci">
+    <collation id="112" parent="1" name="ucs2_romanian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="117" parent="1" name="ucs2_sinhala_ci">
+    <collation id="113" parent="1" name="ucs2_sinhala_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="118" parent="1" name="ucs2_slovak_ci">
+    <collation id="114" parent="1" name="ucs2_slovak_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="119" parent="1" name="ucs2_slovenian_ci">
+    <collation id="115" parent="1" name="ucs2_slovenian_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="120" parent="1" name="ucs2_spanish2_ci">
+    <collation id="116" parent="1" name="ucs2_spanish2_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="121" parent="1" name="ucs2_spanish_ci">
+    <collation id="117" parent="1" name="ucs2_spanish_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="122" parent="1" name="ucs2_swedish_ci">
+    <collation id="118" parent="1" name="ucs2_swedish_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="123" parent="1" name="ucs2_turkish_ci">
+    <collation id="119" parent="1" name="ucs2_turkish_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="124" parent="1" name="ucs2_unicode_520_ci">
+    <collation id="120" parent="1" name="ucs2_unicode_520_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="125" parent="1" name="ucs2_unicode_ci">
+    <collation id="121" parent="1" name="ucs2_unicode_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="126" parent="1" name="ucs2_vietnamese_ci">
+    <collation id="122" parent="1" name="ucs2_vietnamese_ci">
       <Charset>ucs2</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="127" parent="1" name="ujis_bin">
+    <collation id="123" parent="1" name="ujis_bin">
       <Charset>ujis</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="128" parent="1" name="ujis_japanese_ci">
+    <collation id="124" parent="1" name="ujis_japanese_ci">
       <Charset>ujis</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="129" parent="1" name="utf16_bin">
+    <collation id="125" parent="1" name="utf16_bin">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="130" parent="1" name="utf16_croatian_ci">
+    <collation id="126" parent="1" name="utf16_croatian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="131" parent="1" name="utf16_czech_ci">
+    <collation id="127" parent="1" name="utf16_czech_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="132" parent="1" name="utf16_danish_ci">
+    <collation id="128" parent="1" name="utf16_danish_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="133" parent="1" name="utf16_esperanto_ci">
+    <collation id="129" parent="1" name="utf16_esperanto_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="134" parent="1" name="utf16_estonian_ci">
+    <collation id="130" parent="1" name="utf16_estonian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="135" parent="1" name="utf16_general_ci">
+    <collation id="131" parent="1" name="utf16_general_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="136" parent="1" name="utf16_german2_ci">
+    <collation id="132" parent="1" name="utf16_german2_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="137" parent="1" name="utf16_hungarian_ci">
+    <collation id="133" parent="1" name="utf16_hungarian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="138" parent="1" name="utf16_icelandic_ci">
+    <collation id="134" parent="1" name="utf16_icelandic_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="139" parent="1" name="utf16_latvian_ci">
+    <collation id="135" parent="1" name="utf16_latvian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="140" parent="1" name="utf16_lithuanian_ci">
+    <collation id="136" parent="1" name="utf16_lithuanian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="141" parent="1" name="utf16_persian_ci">
+    <collation id="137" parent="1" name="utf16_persian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="142" parent="1" name="utf16_polish_ci">
+    <collation id="138" parent="1" name="utf16_polish_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="143" parent="1" name="utf16_roman_ci">
+    <collation id="139" parent="1" name="utf16_roman_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="144" parent="1" name="utf16_romanian_ci">
+    <collation id="140" parent="1" name="utf16_romanian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="145" parent="1" name="utf16_sinhala_ci">
+    <collation id="141" parent="1" name="utf16_sinhala_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="146" parent="1" name="utf16_slovak_ci">
+    <collation id="142" parent="1" name="utf16_slovak_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="147" parent="1" name="utf16_slovenian_ci">
+    <collation id="143" parent="1" name="utf16_slovenian_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="148" parent="1" name="utf16_spanish2_ci">
+    <collation id="144" parent="1" name="utf16_spanish2_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="149" parent="1" name="utf16_spanish_ci">
+    <collation id="145" parent="1" name="utf16_spanish_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="150" parent="1" name="utf16_swedish_ci">
+    <collation id="146" parent="1" name="utf16_swedish_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="151" parent="1" name="utf16_turkish_ci">
+    <collation id="147" parent="1" name="utf16_turkish_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="152" parent="1" name="utf16_unicode_520_ci">
+    <collation id="148" parent="1" name="utf16_unicode_520_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="153" parent="1" name="utf16_unicode_ci">
+    <collation id="149" parent="1" name="utf16_unicode_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="154" parent="1" name="utf16_vietnamese_ci">
+    <collation id="150" parent="1" name="utf16_vietnamese_ci">
       <Charset>utf16</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="155" parent="1" name="utf16le_bin">
+    <collation id="151" parent="1" name="utf16le_bin">
       <Charset>utf16le</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="156" parent="1" name="utf16le_general_ci">
+    <collation id="152" parent="1" name="utf16le_general_ci">
       <Charset>utf16le</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="157" parent="1" name="utf32_bin">
+    <collation id="153" parent="1" name="utf32_bin">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="158" parent="1" name="utf32_croatian_ci">
+    <collation id="154" parent="1" name="utf32_croatian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="159" parent="1" name="utf32_czech_ci">
+    <collation id="155" parent="1" name="utf32_czech_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="160" parent="1" name="utf32_danish_ci">
+    <collation id="156" parent="1" name="utf32_danish_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="161" parent="1" name="utf32_esperanto_ci">
+    <collation id="157" parent="1" name="utf32_esperanto_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="162" parent="1" name="utf32_estonian_ci">
+    <collation id="158" parent="1" name="utf32_estonian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="163" parent="1" name="utf32_general_ci">
+    <collation id="159" parent="1" name="utf32_general_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="164" parent="1" name="utf32_german2_ci">
+    <collation id="160" parent="1" name="utf32_german2_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="165" parent="1" name="utf32_hungarian_ci">
+    <collation id="161" parent="1" name="utf32_hungarian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="166" parent="1" name="utf32_icelandic_ci">
+    <collation id="162" parent="1" name="utf32_icelandic_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="167" parent="1" name="utf32_latvian_ci">
+    <collation id="163" parent="1" name="utf32_latvian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="168" parent="1" name="utf32_lithuanian_ci">
+    <collation id="164" parent="1" name="utf32_lithuanian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="169" parent="1" name="utf32_persian_ci">
+    <collation id="165" parent="1" name="utf32_persian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="170" parent="1" name="utf32_polish_ci">
+    <collation id="166" parent="1" name="utf32_polish_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="171" parent="1" name="utf32_roman_ci">
+    <collation id="167" parent="1" name="utf32_roman_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="172" parent="1" name="utf32_romanian_ci">
+    <collation id="168" parent="1" name="utf32_romanian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="173" parent="1" name="utf32_sinhala_ci">
+    <collation id="169" parent="1" name="utf32_sinhala_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="174" parent="1" name="utf32_slovak_ci">
+    <collation id="170" parent="1" name="utf32_slovak_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="175" parent="1" name="utf32_slovenian_ci">
+    <collation id="171" parent="1" name="utf32_slovenian_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="176" parent="1" name="utf32_spanish2_ci">
+    <collation id="172" parent="1" name="utf32_spanish2_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="177" parent="1" name="utf32_spanish_ci">
+    <collation id="173" parent="1" name="utf32_spanish_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="178" parent="1" name="utf32_swedish_ci">
+    <collation id="174" parent="1" name="utf32_swedish_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="179" parent="1" name="utf32_turkish_ci">
+    <collation id="175" parent="1" name="utf32_turkish_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="180" parent="1" name="utf32_unicode_520_ci">
+    <collation id="176" parent="1" name="utf32_unicode_520_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="181" parent="1" name="utf32_unicode_ci">
+    <collation id="177" parent="1" name="utf32_unicode_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="182" parent="1" name="utf32_vietnamese_ci">
+    <collation id="178" parent="1" name="utf32_vietnamese_ci">
       <Charset>utf32</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="183" parent="1" name="utf8_bin">
+    <collation id="179" parent="1" name="utf8_bin">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="184" parent="1" name="utf8_croatian_ci">
+    <collation id="180" parent="1" name="utf8_croatian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="185" parent="1" name="utf8_czech_ci">
+    <collation id="181" parent="1" name="utf8_czech_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="186" parent="1" name="utf8_danish_ci">
+    <collation id="182" parent="1" name="utf8_danish_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="187" parent="1" name="utf8_esperanto_ci">
+    <collation id="183" parent="1" name="utf8_esperanto_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="188" parent="1" name="utf8_estonian_ci">
+    <collation id="184" parent="1" name="utf8_estonian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="189" parent="1" name="utf8_general_ci">
+    <collation id="185" parent="1" name="utf8_general_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="190" parent="1" name="utf8_general_mysql500_ci">
+    <collation id="186" parent="1" name="utf8_general_mysql500_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="191" parent="1" name="utf8_german2_ci">
+    <collation id="187" parent="1" name="utf8_german2_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="192" parent="1" name="utf8_hungarian_ci">
+    <collation id="188" parent="1" name="utf8_hungarian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="193" parent="1" name="utf8_icelandic_ci">
+    <collation id="189" parent="1" name="utf8_icelandic_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="194" parent="1" name="utf8_latvian_ci">
+    <collation id="190" parent="1" name="utf8_latvian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="195" parent="1" name="utf8_lithuanian_ci">
+    <collation id="191" parent="1" name="utf8_lithuanian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="196" parent="1" name="utf8_persian_ci">
+    <collation id="192" parent="1" name="utf8_persian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="197" parent="1" name="utf8_polish_ci">
+    <collation id="193" parent="1" name="utf8_polish_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="198" parent="1" name="utf8_roman_ci">
+    <collation id="194" parent="1" name="utf8_roman_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="199" parent="1" name="utf8_romanian_ci">
+    <collation id="195" parent="1" name="utf8_romanian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="200" parent="1" name="utf8_sinhala_ci">
+    <collation id="196" parent="1" name="utf8_sinhala_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="201" parent="1" name="utf8_slovak_ci">
+    <collation id="197" parent="1" name="utf8_slovak_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="202" parent="1" name="utf8_slovenian_ci">
+    <collation id="198" parent="1" name="utf8_slovenian_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="203" parent="1" name="utf8_spanish2_ci">
+    <collation id="199" parent="1" name="utf8_spanish2_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="204" parent="1" name="utf8_spanish_ci">
+    <collation id="200" parent="1" name="utf8_spanish_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="205" parent="1" name="utf8_swedish_ci">
+    <collation id="201" parent="1" name="utf8_swedish_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="206" parent="1" name="utf8_turkish_ci">
+    <collation id="202" parent="1" name="utf8_turkish_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="207" parent="1" name="utf8_unicode_520_ci">
+    <collation id="203" parent="1" name="utf8_unicode_520_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="208" parent="1" name="utf8_unicode_ci">
+    <collation id="204" parent="1" name="utf8_unicode_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="209" parent="1" name="utf8_vietnamese_ci">
+    <collation id="205" parent="1" name="utf8_vietnamese_ci">
       <Charset>utf8</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="210" parent="1" name="utf8mb4_bin">
+    <collation id="206" parent="1" name="utf8mb4_bin">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="211" parent="1" name="utf8mb4_croatian_ci">
+    <collation id="207" parent="1" name="utf8mb4_croatian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="212" parent="1" name="utf8mb4_czech_ci">
+    <collation id="208" parent="1" name="utf8mb4_czech_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="213" parent="1" name="utf8mb4_danish_ci">
+    <collation id="209" parent="1" name="utf8mb4_danish_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="214" parent="1" name="utf8mb4_esperanto_ci">
+    <collation id="210" parent="1" name="utf8mb4_esperanto_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="215" parent="1" name="utf8mb4_estonian_ci">
+    <collation id="211" parent="1" name="utf8mb4_estonian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="216" parent="1" name="utf8mb4_general_ci">
+    <collation id="212" parent="1" name="utf8mb4_general_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>1</DefaultForCharset>
     </collation>
-    <collation id="217" parent="1" name="utf8mb4_german2_ci">
+    <collation id="213" parent="1" name="utf8mb4_german2_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="218" parent="1" name="utf8mb4_hungarian_ci">
+    <collation id="214" parent="1" name="utf8mb4_hungarian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="219" parent="1" name="utf8mb4_icelandic_ci">
+    <collation id="215" parent="1" name="utf8mb4_icelandic_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="220" parent="1" name="utf8mb4_latvian_ci">
+    <collation id="216" parent="1" name="utf8mb4_latvian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="221" parent="1" name="utf8mb4_lithuanian_ci">
+    <collation id="217" parent="1" name="utf8mb4_lithuanian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="222" parent="1" name="utf8mb4_persian_ci">
+    <collation id="218" parent="1" name="utf8mb4_persian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="223" parent="1" name="utf8mb4_polish_ci">
+    <collation id="219" parent="1" name="utf8mb4_polish_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="224" parent="1" name="utf8mb4_roman_ci">
+    <collation id="220" parent="1" name="utf8mb4_roman_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="225" parent="1" name="utf8mb4_romanian_ci">
+    <collation id="221" parent="1" name="utf8mb4_romanian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="226" parent="1" name="utf8mb4_sinhala_ci">
+    <collation id="222" parent="1" name="utf8mb4_sinhala_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="227" parent="1" name="utf8mb4_slovak_ci">
+    <collation id="223" parent="1" name="utf8mb4_slovak_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="228" parent="1" name="utf8mb4_slovenian_ci">
+    <collation id="224" parent="1" name="utf8mb4_slovenian_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="229" parent="1" name="utf8mb4_spanish2_ci">
+    <collation id="225" parent="1" name="utf8mb4_spanish2_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="230" parent="1" name="utf8mb4_spanish_ci">
+    <collation id="226" parent="1" name="utf8mb4_spanish_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="231" parent="1" name="utf8mb4_swedish_ci">
+    <collation id="227" parent="1" name="utf8mb4_swedish_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="232" parent="1" name="utf8mb4_turkish_ci">
+    <collation id="228" parent="1" name="utf8mb4_turkish_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="233" parent="1" name="utf8mb4_unicode_520_ci">
+    <collation id="229" parent="1" name="utf8mb4_unicode_520_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="234" parent="1" name="utf8mb4_unicode_ci">
+    <collation id="230" parent="1" name="utf8mb4_unicode_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <collation id="235" parent="1" name="utf8mb4_vietnamese_ci">
+    <collation id="231" parent="1" name="utf8mb4_vietnamese_ci">
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="236" parent="4" name="dcd_activity"/>
-    <table id="237" parent="4" name="dcd_advertisement"/>
-    <table id="238" parent="4" name="dcd_article"/>
-    <table id="239" parent="4" name="dcd_banner"/>
-    <table id="240" parent="4" name="dcd_bible"/>
-    <table id="241" parent="4" name="dcd_conversation">
+    <table id="232" parent="2" name="dcd_activity"/>
+    <table id="233" parent="2" name="dcd_advertisement"/>
+    <table id="234" parent="2" name="dcd_article"/>
+    <table id="235" parent="2" name="dcd_banner"/>
+    <table id="236" parent="2" name="dcd_bible"/>
+    <table id="237" parent="2" name="dcd_conversation">
       <Comment>会话表</Comment>
     </table>
-    <table id="242" parent="4" name="dcd_face"/>
-    <table id="243" parent="4" name="dcd_fellowship">
+    <table id="238" parent="2" name="dcd_face"/>
+    <table id="239" parent="2" name="dcd_fellowship">
       <Comment>团契表</Comment>
     </table>
-    <table id="244" parent="4" name="dcd_filelog"/>
-    <table id="245" parent="4" name="dcd_group"/>
-    <table id="246" parent="4" name="dcd_music"/>
-    <table id="247" parent="4" name="dcd_musicMenu"/>
-    <table id="248" parent="4" name="dcd_music_musicMenu">
+    <table id="240" parent="2" name="dcd_filelog"/>
+    <table id="241" parent="2" name="dcd_group"/>
+    <table id="242" parent="2" name="dcd_music"/>
+    <table id="243" parent="2" name="dcd_musicMenu"/>
+    <table id="244" parent="2" name="dcd_music_musicMenu">
       <Comment>歌曲_歌单_关系映射表</Comment>
     </table>
-    <table id="249" parent="4" name="dcd_permission">
+    <table id="245" parent="2" name="dcd_permission">
       <Comment>权限表</Comment>
     </table>
-    <table id="250" parent="4" name="dcd_plate"/>
-    <table id="251" parent="4" name="dcd_plateMission"/>
-    <table id="252" parent="4" name="dcd_plateType"/>
-    <table id="253" parent="4" name="dcd_platelog"/>
-    <table id="254" parent="4" name="dcd_pray"/>
-    <table id="255" parent="4" name="dcd_publicnotice"/>
-    <table id="256" parent="4" name="dcd_recommend"/>
-    <table id="257" parent="4" name="dcd_report"/>
-    <table id="258" parent="4" name="dcd_role">
+    <table id="246" parent="2" name="dcd_plate"/>
+    <table id="247" parent="2" name="dcd_plateMission"/>
+    <table id="248" parent="2" name="dcd_plateType"/>
+    <table id="249" parent="2" name="dcd_platelog"/>
+    <table id="250" parent="2" name="dcd_pray"/>
+    <table id="251" parent="2" name="dcd_publicnotice"/>
+    <table id="252" parent="2" name="dcd_recommend"/>
+    <table id="253" parent="2" name="dcd_region">
+      <Comment>三级全国地区表</Comment>
+    </table>
+    <table id="254" parent="2" name="dcd_report"/>
+    <table id="255" parent="2" name="dcd_role">
       <Comment>角色表</Comment>
     </table>
-    <table id="259" parent="4" name="dcd_role_permission">
+    <table id="256" parent="2" name="dcd_role_permission">
       <Comment>角色_权限_关系映射表</Comment>
     </table>
-    <table id="260" parent="4" name="dcd_scorelog"/>
-    <table id="261" parent="4" name="dcd_user">
+    <table id="257" parent="2" name="dcd_scorelog"/>
+    <table id="258" parent="2" name="dcd_user">
       <Comment>用户表</Comment>
     </table>
-    <table id="262" parent="4" name="dcd_user_activity">
+    <table id="259" parent="2" name="dcd_user_activity">
       <Comment>用户_活动_关系映射表</Comment>
     </table>
-    <table id="263" parent="4" name="dcd_user_activity_clock">
+    <table id="260" parent="2" name="dcd_user_activity_clock">
       <Comment>用户_活动_关系映射表</Comment>
     </table>
-    <table id="264" parent="4" name="dcd_user_article_collection">
+    <table id="261" parent="2" name="dcd_user_article_collection">
       <Comment>用户_文章_收藏_关系映射表</Comment>
     </table>
-    <table id="265" parent="4" name="dcd_user_music_collection">
+    <table id="262" parent="2" name="dcd_user_music_collection">
       <Comment>用户_音乐_收藏_关系映射表</Comment>
     </table>
-    <table id="266" parent="4" name="dcd_user_pray_collection">
+    <table id="263" parent="2" name="dcd_user_pray_collection">
       <Comment>用户_代祷_收藏_关系映射表</Comment>
     </table>
-    <table id="267" parent="4" name="dcd_weekBible"/>
-    <column id="268" parent="236" name="id">
+    <table id="264" parent="2" name="dcd_weekBible"/>
+    <column id="265" parent="232" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -996,121 +987,121 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="236" name="name">
+    <column id="266" parent="232" name="name">
       <Position>2</Position>
       <Comment>活动名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="236" name="icon">
+    <column id="267" parent="232" name="icon">
       <Position>3</Position>
       <Comment>活动封面URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="236" name="introduction">
+    <column id="268" parent="232" name="introduction">
       <Position>4</Position>
       <Comment>活动简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="236" name="groupId">
+    <column id="269" parent="232" name="groupId">
       <Position>5</Position>
       <Comment>关联群组ID</Comment>
       <DataType>int(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="236" name="account">
+    <column id="270" parent="232" name="account">
       <Position>6</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="236" name="fellowship">
+    <column id="271" parent="232" name="fellowship">
       <Position>7</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="236" name="activityType">
+    <column id="272" parent="232" name="activityType">
       <Position>8</Position>
       <Comment>活动类型 1普通活动  2打卡活动</Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="236" name="isTop">
+    <column id="273" parent="232" name="isTop">
       <Position>9</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="236" name="status">
+    <column id="274" parent="232" name="status">
       <Position>10</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="236" name="expireTime">
+    <column id="275" parent="232" name="expireTime">
       <Position>11</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="236" name="gmtModify">
+    <column id="276" parent="232" name="gmtModify">
       <Position>12</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="236" name="gmtCreate">
+    <column id="277" parent="232" name="gmtCreate">
       <Position>13</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="281" parent="236" name="id">
+    <index id="278" parent="232" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="282" parent="236" name="groupId">
+    <index id="279" parent="232" name="groupId">
       <ColNames>groupId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="283" parent="236" name="account">
+    <index id="280" parent="232" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="284" parent="236" name="fellowship">
+    <index id="281" parent="232" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="285" parent="236" name="PRIMARY">
+    <key id="282" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="286" parent="236" name="dcd_activity_ibfk_2">
+    <foreign-key id="283" parent="232" name="dcd_activity_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="287" parent="236" name="dcd_activity_ibfk_3">
+    <foreign-key id="284" parent="232" name="dcd_activity_ibfk_3">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="288" parent="237" name="id">
+    <column id="285" parent="233" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1118,125 +1109,125 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="237" name="title">
+    <column id="286" parent="233" name="title">
       <Position>2</Position>
       <Comment>广告标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="237" name="subtitle">
+    <column id="287" parent="233" name="subtitle">
       <Position>3</Position>
       <Comment>广告副标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="237" name="content">
+    <column id="288" parent="233" name="content">
       <Position>4</Position>
       <Comment>广告内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="237" name="advertisementUrl">
+    <column id="289" parent="233" name="advertisementUrl">
       <Position>5</Position>
       <Comment>AD_URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="237" name="targetUrl">
+    <column id="290" parent="233" name="targetUrl">
       <Position>6</Position>
       <Comment>广告跳转目标URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="237" name="account">
+    <column id="291" parent="233" name="account">
       <Position>7</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="237" name="fellowship">
+    <column id="292" parent="233" name="fellowship">
       <Position>8</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="237" name="type">
+    <column id="293" parent="233" name="type">
       <Position>9</Position>
       <Comment>广告类型：1.启动广告 2.弹框广告</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="297" parent="237" name="duration">
+    <column id="294" parent="233" name="duration">
       <Position>10</Position>
       <Comment>展示时长</Comment>
       <DataType>float(5)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="237" name="isTop">
+    <column id="295" parent="233" name="isTop">
       <Position>11</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="237" name="status">
+    <column id="296" parent="233" name="status">
       <Position>12</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="237" name="expireTime">
+    <column id="297" parent="233" name="expireTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="237" name="gmtModify">
+    <column id="298" parent="233" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="237" name="gmtCreate">
+    <column id="299" parent="233" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="303" parent="237" name="account">
+    <index id="300" parent="233" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="304" parent="237" name="fellowship">
+    <index id="301" parent="233" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="305" parent="237" name="PRIMARY">
+    <key id="302" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="306" parent="237" name="dcd_advertisement_ibfk_2">
+    <foreign-key id="303" parent="233" name="dcd_advertisement_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="307" parent="237" name="dcd_advertisement_ibfk_1">
+    <foreign-key id="304" parent="233" name="dcd_advertisement_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="308" parent="238" name="id">
+    <column id="305" parent="234" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1244,128 +1235,128 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="238" name="title">
+    <column id="306" parent="234" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="238" name="subtitle">
+    <column id="307" parent="234" name="subtitle">
       <Position>3</Position>
       <Comment>副标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="238" name="author">
+    <column id="308" parent="234" name="author">
       <Position>4</Position>
       <Comment>作者</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="238" name="account">
+    <column id="309" parent="234" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="238" name="icon">
+    <column id="310" parent="234" name="icon">
       <Position>6</Position>
       <Comment>主图</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="238" name="content">
+    <column id="311" parent="234" name="content">
       <Position>7</Position>
       <Comment>文章内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="238" name="articleUrl">
+    <column id="312" parent="234" name="articleUrl">
       <Position>8</Position>
       <Comment>文章URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="238" name="status">
+    <column id="313" parent="234" name="status">
       <Position>9</Position>
       <Comment>文章状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="238" name="isTop">
+    <column id="314" parent="234" name="isTop">
       <Position>10</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="318" parent="238" name="articleType">
+    <column id="315" parent="234" name="articleType">
       <Position>11</Position>
       <Comment>文章类型 ：1普通 2转载</Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="319" parent="238" name="fellowship">
+    <column id="316" parent="234" name="fellowship">
       <Position>12</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="320" parent="238" name="expireTime">
+    <column id="317" parent="234" name="expireTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="238" name="gmtModify">
+    <column id="318" parent="234" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="238" name="gmtCreate">
+    <column id="319" parent="234" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="323" parent="238" name="id">
+    <index id="320" parent="234" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="324" parent="238" name="账号_关联_用户表_account">
+    <index id="321" parent="234" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="325" parent="238" name="团契_关联_团契表_id">
+    <index id="322" parent="234" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="326" parent="238" name="PRIMARY">
+    <key id="323" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="327" parent="238" name="账号_关联_用户表_account">
+    <foreign-key id="324" parent="234" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="328" parent="238" name="团契_关联_团契表_id">
+    <foreign-key id="325" parent="234" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="329" parent="239" name="id">
+    <column id="326" parent="235" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1373,100 +1364,100 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="239" name="title">
+    <column id="327" parent="235" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="239" name="bannerUrl">
+    <column id="328" parent="235" name="bannerUrl">
       <Position>3</Position>
       <Comment>轮播图URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="239" name="targetUrl">
+    <column id="329" parent="235" name="targetUrl">
       <Position>4</Position>
       <Comment>轮播图跳转目标URL</Comment>
       <DataType>varchar(1000)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="239" name="account">
+    <column id="330" parent="235" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="239" name="fellowship">
+    <column id="331" parent="235" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="239" name="isTop">
+    <column id="332" parent="235" name="isTop">
       <Position>7</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="239" name="status">
+    <column id="333" parent="235" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="239" name="expireTime">
+    <column id="334" parent="235" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="239" name="gmtModify">
+    <column id="335" parent="235" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="239" name="gmtCreate">
+    <column id="336" parent="235" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="340" parent="239" name="account">
+    <index id="337" parent="235" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="341" parent="239" name="fellowship">
+    <index id="338" parent="235" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="342" parent="239" name="PRIMARY">
+    <key id="339" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="343" parent="239" name="dcd_banner_ibfk_2">
+    <foreign-key id="340" parent="235" name="dcd_banner_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="344" parent="239" name="dcd_banner_ibfk_1">
+    <foreign-key id="341" parent="235" name="dcd_banner_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="345" parent="240" name="id">
+    <column id="342" parent="236" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1474,61 +1465,61 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="346" parent="240" name="bible">
+    <column id="343" parent="236" name="bible">
       <Position>2</Position>
       <Comment>经文</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="240" name="book">
+    <column id="344" parent="236" name="book">
       <Position>3</Position>
       <Comment>书</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="240" name="chapter">
+    <column id="345" parent="236" name="chapter">
       <Position>4</Position>
       <Comment>篇</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="240" name="verse">
+    <column id="346" parent="236" name="verse">
       <Position>5</Position>
       <Comment>节</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="240" name="version">
+    <column id="347" parent="236" name="version">
       <Position>6</Position>
       <Comment>版本</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="240" name="status">
+    <column id="348" parent="236" name="status">
       <Position>7</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="240" name="gmtModify">
+    <column id="349" parent="236" name="gmtModify">
       <Position>8</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="240" name="gmtCreate">
+    <column id="350" parent="236" name="gmtCreate">
       <Position>9</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="354" parent="240" name="PRIMARY">
+    <key id="351" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="355" parent="241" name="id">
+    <column id="352" parent="237" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1536,13 +1527,13 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="241" name="content">
+    <column id="353" parent="237" name="content">
       <Position>2</Position>
       <Comment>会话内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="241" name="status">
+    <column id="354" parent="237" name="status">
       <Position>3</Position>
       <Comment>状态</Comment>
       <DataType>bit(1)|0s</DataType>
@@ -1550,78 +1541,78 @@ fellowship</ColNames>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="241" name="account">
+    <column id="355" parent="237" name="account">
       <Position>4</Position>
       <Comment>发送账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="241" name="type">
+    <column id="356" parent="237" name="type">
       <Position>5</Position>
       <Comment>类型</Comment>
       <DataType>int(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="241" name="channel">
+    <column id="357" parent="237" name="channel">
       <Position>6</Position>
       <Comment>频道</Comment>
       <DataType>int(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="361" parent="241" name="remark">
+    <column id="358" parent="237" name="remark">
       <Position>7</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="362" parent="241" name="fellowship">
+    <column id="359" parent="237" name="fellowship">
       <Position>8</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="363" parent="241" name="gmtModify">
+    <column id="360" parent="237" name="gmtModify">
       <Position>9</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="364" parent="241" name="gmtCreate">
+    <column id="361" parent="237" name="gmtCreate">
       <Position>10</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="365" parent="241" name="account">
+    <index id="362" parent="237" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="366" parent="241" name="fellowship">
+    <index id="363" parent="237" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="367" parent="241" name="PRIMARY">
+    <key id="364" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="368" parent="241" name="dcd_conversation_ibfk_1">
+    <foreign-key id="365" parent="237" name="dcd_conversation_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="369" parent="241" name="dcd_conversation_ibfk_2">
+    <foreign-key id="366" parent="237" name="dcd_conversation_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="370" parent="242" name="id">
+    <column id="367" parent="238" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1629,130 +1620,130 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="242" name="account">
+    <column id="368" parent="238" name="account">
       <Position>2</Position>
       <Comment>人脸所属用户账号</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="242" name="fellowship">
+    <column id="369" parent="238" name="fellowship">
       <Position>3</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="242" name="nickname">
+    <column id="370" parent="238" name="nickname">
       <Position>4</Position>
       <Comment>昵称</Comment>
       <DataType>varchar(125)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="242" name="liveness">
+    <column id="371" parent="238" name="liveness">
       <Position>5</Position>
       <Comment>1活体0非活体</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="242" name="faceRect">
+    <column id="372" parent="238" name="faceRect">
       <Position>6</Position>
       <Comment>脸部位置(x,y,w,h)</Comment>
       <DataType>varchar(32)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="242" name="faceOrient">
+    <column id="373" parent="238" name="faceOrient">
       <Position>7</Position>
       <Comment>脸部方向</Comment>
       <DataType>int(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="242" name="face3D">
+    <column id="374" parent="238" name="face3D">
       <Position>8</Position>
       <Comment>3D角度信息(x,z,y)</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="242" name="faceCode">
+    <column id="375" parent="238" name="faceCode">
       <Position>9</Position>
       <Comment>脸部特征码</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="379" parent="242" name="faceUrl">
+    <column id="376" parent="238" name="faceUrl">
       <Position>10</Position>
       <Comment>网络位置</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="242" name="faceBase64">
+    <column id="377" parent="238" name="faceBase64">
       <Position>11</Position>
       <Comment>脸部图像base64</Comment>
       <DataType>longtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="242" name="facePhoto">
+    <column id="378" parent="238" name="facePhoto">
       <Position>12</Position>
       <Comment>脸部图像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="382" parent="242" name="age">
+    <column id="379" parent="238" name="age">
       <Position>13</Position>
       <Comment>年龄</Comment>
       <DataType>int(3)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="383" parent="242" name="gender">
+    <column id="380" parent="238" name="gender">
       <Position>14</Position>
       <Comment>性别性别:male/female</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="242" name="gmtModify">
+    <column id="381" parent="238" name="gmtModify">
       <Position>15</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="242" name="gmtCreate">
+    <column id="382" parent="238" name="gmtCreate">
       <Position>16</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="386" parent="242" name="人脸_关联_用户账号">
+    <index id="383" parent="238" name="人脸_关联_用户账号">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="387" parent="242" name="人脸表_团契_关联_团契id">
+    <index id="384" parent="238" name="人脸表_团契_关联_团契id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="388" parent="242" name="PRIMARY">
+    <key id="385" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship
 account</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="389" parent="242" name="人脸_关联_用户账号">
+    <foreign-key id="386" parent="238" name="人脸_关联_用户账号">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="390" parent="242" name="人脸表_团契_关联_团契id">
+    <foreign-key id="387" parent="238" name="人脸表_团契_关联_团契id">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="391" parent="243" name="id">
+    <column id="388" parent="239" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1760,80 +1751,80 @@ account</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="243" name="fellowshipName">
+    <column id="389" parent="239" name="fellowshipName">
       <Position>2</Position>
       <Comment>团契名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="243" name="fellowshipLogo">
+    <column id="390" parent="239" name="fellowshipLogo">
       <Position>3</Position>
       <Comment>团契logo</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="243" name="userIcon">
+    <column id="391" parent="239" name="userIcon">
       <Position>4</Position>
       <Comment>用户默认头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="243" name="grade">
+    <column id="392" parent="239" name="grade">
       <Position>5</Position>
       <Comment>团契等级</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="243" name="introduction">
+    <column id="393" parent="239" name="introduction">
       <Position>6</Position>
       <Comment>简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="243" name="gps">
+    <column id="394" parent="239" name="gps">
       <Position>7</Position>
       <Comment>定位</Comment>
       <DataType>varchar(70)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="243" name="address">
+    <column id="395" parent="239" name="address">
       <Position>8</Position>
       <Comment>地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="243" name="status">
+    <column id="396" parent="239" name="status">
       <Position>9</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="400" parent="243" name="CommemorationDay">
+    <column id="397" parent="239" name="CommemorationDay">
       <Position>10</Position>
       <Comment>纪念日</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="401" parent="243" name="gmtModify">
+    <column id="398" parent="239" name="gmtModify">
       <Position>11</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="402" parent="243" name="gmtCreate">
+    <column id="399" parent="239" name="gmtCreate">
       <Position>12</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="403" parent="243" name="PRIMARY">
+    <key id="400" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="404" parent="244" name="id">
+    <column id="401" parent="240" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -1841,177 +1832,177 @@ account</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="244" name="fileUrl">
+    <column id="402" parent="240" name="fileUrl">
       <Position>2</Position>
       <Comment>文件URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="406" parent="244" name="type">
+    <column id="403" parent="240" name="type">
       <Position>3</Position>
       <Comment>1上传 0删除</Comment>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="244" name="account">
+    <column id="404" parent="240" name="account">
       <Position>4</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="408" parent="244" name="remark">
+    <column id="405" parent="240" name="remark">
       <Position>5</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="409" parent="244" name="fellowship">
+    <column id="406" parent="240" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="410" parent="244" name="gmtModify">
+    <column id="407" parent="240" name="gmtModify">
       <Position>7</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="244" name="gmtCreate">
+    <column id="408" parent="240" name="gmtCreate">
       <Position>8</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="412" parent="244" name="account">
+    <index id="409" parent="240" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="413" parent="244" name="fellowship">
+    <index id="410" parent="240" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="414" parent="244" name="PRIMARY">
+    <key id="411" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="415" parent="244" name="dcd_filelog_ibfk_1">
+    <foreign-key id="412" parent="240" name="dcd_filelog_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="416" parent="245" name="id">
+    <column id="413" parent="241" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="245" name="groupId">
+    <column id="414" parent="241" name="groupId">
       <Position>2</Position>
       <Comment>群组ID</Comment>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="245" name="groupIcon">
+    <column id="415" parent="241" name="groupIcon">
       <Position>3</Position>
       <Comment>组群头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="245" name="groupName">
+    <column id="416" parent="241" name="groupName">
       <Position>4</Position>
       <Comment>群组名称</Comment>
       <DataType>varchar(125)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="245" name="creator">
+    <column id="417" parent="241" name="creator">
       <Position>5</Position>
       <Comment>创建人</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="245" name="introduction">
+    <column id="418" parent="241" name="introduction">
       <Position>6</Position>
       <Comment>群简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="245" name="isBan">
+    <column id="419" parent="241" name="isBan">
       <Position>7</Position>
       <Comment>是否禁言</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="423" parent="245" name="isVerify">
+    <column id="420" parent="241" name="isVerify">
       <Position>8</Position>
       <Comment>是否需要验证</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="424" parent="245" name="status">
+    <column id="421" parent="241" name="status">
       <Position>9</Position>
       <Comment>群组状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="425" parent="245" name="groupType">
+    <column id="422" parent="241" name="groupType">
       <Position>10</Position>
       <Comment>群组类型 1公开群  2私人群&quot;</Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="245" name="fellowship">
+    <column id="423" parent="241" name="fellowship">
       <Position>11</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="245" name="expireTime">
+    <column id="424" parent="241" name="expireTime">
       <Position>12</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="245" name="gmtModify">
+    <column id="425" parent="241" name="gmtModify">
       <Position>13</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="429" parent="245" name="gmtCreate">
+    <column id="426" parent="241" name="gmtCreate">
       <Position>14</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="430" parent="245" name="groupId">
+    <index id="427" parent="241" name="groupId">
       <ColNames>groupId</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="431" parent="245" name="creator">
+    <index id="428" parent="241" name="creator">
       <ColNames>creator</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="432" parent="245" name="fellowship">
+    <index id="429" parent="241" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="433" parent="245" name="PRIMARY">
+    <key id="430" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship
@@ -2019,28 +2010,28 @@ groupId
 creator</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="434" parent="245" name="dcd_group_ibfk_2">
+    <foreign-key id="431" parent="241" name="dcd_group_ibfk_2">
       <ColNames>groupId</ColNames>
       <RefTableName>dcd_activity</RefTableName>
       <RefColNames>groupId</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="435" parent="245" name="dcd_group_ibfk_1">
+    <foreign-key id="432" parent="241" name="dcd_group_ibfk_1">
       <ColNames>creator</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="436" parent="245" name="dcd_group_ibfk_3">
+    <foreign-key id="433" parent="241" name="dcd_group_ibfk_3">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="437" parent="246" name="id">
+    <column id="434" parent="242" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2048,134 +2039,134 @@ creator</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="438" parent="246" name="name">
+    <column id="435" parent="242" name="name">
       <Position>2</Position>
       <Comment>歌名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="439" parent="246" name="singer">
+    <column id="436" parent="242" name="singer">
       <Position>3</Position>
       <Comment>歌手</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="440" parent="246" name="wordAuthor">
+    <column id="437" parent="242" name="wordAuthor">
       <Position>4</Position>
       <Comment>词作者</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="441" parent="246" name="anAuthor">
+    <column id="438" parent="242" name="anAuthor">
       <Position>5</Position>
       <Comment>曲作者</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="442" parent="246" name="icon">
+    <column id="439" parent="242" name="icon">
       <Position>6</Position>
       <Comment>封面</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="443" parent="246" name="lyric">
+    <column id="440" parent="242" name="lyric">
       <Position>7</Position>
       <Comment>歌词</Comment>
       <DataType>varchar(500)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="444" parent="246" name="musicUrl">
+    <column id="441" parent="242" name="musicUrl">
       <Position>8</Position>
       <Comment>歌曲URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="445" parent="246" name="account">
+    <column id="442" parent="242" name="account">
       <Position>9</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="446" parent="246" name="status">
+    <column id="443" parent="242" name="status">
       <Position>10</Position>
       <Comment>歌曲状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="447" parent="246" name="isTop">
+    <column id="444" parent="242" name="isTop">
       <Position>11</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="448" parent="246" name="musicType">
+    <column id="445" parent="242" name="musicType">
       <Position>12</Position>
       <Comment>歌曲类型 </Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="449" parent="246" name="fellowship">
+    <column id="446" parent="242" name="fellowship">
       <Position>13</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="450" parent="246" name="expireTime">
+    <column id="447" parent="242" name="expireTime">
       <Position>14</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="451" parent="246" name="gmtModify">
+    <column id="448" parent="242" name="gmtModify">
       <Position>15</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="452" parent="246" name="gmtCreate">
+    <column id="449" parent="242" name="gmtCreate">
       <Position>16</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="453" parent="246" name="id">
+    <index id="450" parent="242" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="454" parent="246" name="账号_关联_用户表_account">
+    <index id="451" parent="242" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="455" parent="246" name="团契_关联_团契表_id">
+    <index id="452" parent="242" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="456" parent="246" name="PRIMARY">
+    <key id="453" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="457" parent="246" name="dcd_music_ibfk_2">
+    <foreign-key id="454" parent="242" name="dcd_music_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="458" parent="246" name="dcd_music_ibfk_1">
+    <foreign-key id="455" parent="242" name="dcd_music_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="459" parent="247" name="id">
+    <column id="456" parent="243" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2183,98 +2174,98 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="460" parent="247" name="name">
+    <column id="457" parent="243" name="name">
       <Position>2</Position>
       <Comment>歌单名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="461" parent="247" name="icon">
+    <column id="458" parent="243" name="icon">
       <Position>3</Position>
       <Comment>歌单封面URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="462" parent="247" name="introduction">
+    <column id="459" parent="243" name="introduction">
       <Position>4</Position>
       <Comment>歌单简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="463" parent="247" name="account">
+    <column id="460" parent="243" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="464" parent="247" name="fellowship">
+    <column id="461" parent="243" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="465" parent="247" name="isTop">
+    <column id="462" parent="243" name="isTop">
       <Position>7</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="466" parent="247" name="status">
+    <column id="463" parent="243" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="467" parent="247" name="gmtModify">
+    <column id="464" parent="243" name="gmtModify">
       <Position>9</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="468" parent="247" name="gmtCreate">
+    <column id="465" parent="243" name="gmtCreate">
       <Position>10</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="469" parent="247" name="id">
+    <index id="466" parent="243" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="470" parent="247" name="account">
+    <index id="467" parent="243" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="471" parent="247" name="fellowship">
+    <index id="468" parent="243" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="472" parent="247" name="PRIMARY">
+    <key id="469" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="473" parent="247" name="dcd_musicmenu_ibfk_1">
+    <foreign-key id="470" parent="243" name="dcd_musicmenu_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="474" parent="247" name="dcd_musicmenu_ibfk_2">
+    <foreign-key id="471" parent="243" name="dcd_musicmenu_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="475" parent="248" name="id">
+    <column id="472" parent="244" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2282,52 +2273,52 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="476" parent="248" name="musicID">
+    <column id="473" parent="244" name="musicID">
       <Position>2</Position>
       <Comment>关联音乐ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="477" parent="248" name="musicMenuID">
+    <column id="474" parent="244" name="musicMenuID">
       <Position>3</Position>
       <Comment>关联歌单ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="478" parent="248" name="account">
+    <column id="475" parent="244" name="account">
       <Position>4</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="479" parent="248" name="gmtModify">
+    <column id="476" parent="244" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="480" parent="248" name="gmtCreate">
+    <column id="477" parent="244" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="481" parent="248" name="musicID">
+    <index id="478" parent="244" name="musicID">
       <ColNames>musicID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="482" parent="248" name="musicMenuID">
+    <index id="479" parent="244" name="musicMenuID">
       <ColNames>musicMenuID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="483" parent="248" name="账号_关联_用户表_account">
+    <index id="480" parent="244" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="484" parent="248" name="PRIMARY">
+    <key id="481" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
@@ -2335,28 +2326,28 @@ musicID
 musicMenuID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="485" parent="248" name="dcd_music_musicmenu_ibfk_3">
+    <foreign-key id="482" parent="244" name="dcd_music_musicmenu_ibfk_3">
       <ColNames>musicID</ColNames>
       <RefTableName>dcd_music</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="486" parent="248" name="dcd_music_musicmenu_ibfk_4">
+    <foreign-key id="483" parent="244" name="dcd_music_musicmenu_ibfk_4">
       <ColNames>musicMenuID</ColNames>
       <RefTableName>dcd_musicMenu</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="487" parent="248" name="dcd_music_musicmenu_ibfk_2">
+    <foreign-key id="484" parent="244" name="dcd_music_musicmenu_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="488" parent="249" name="id">
+    <column id="485" parent="245" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2364,45 +2355,45 @@ musicMenuID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="489" parent="249" name="permissionName">
+    <column id="486" parent="245" name="permissionName">
       <Position>2</Position>
       <Comment>权限</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="490" parent="249" name="permissionDescription">
+    <column id="487" parent="245" name="permissionDescription">
       <Position>3</Position>
       <Comment>权限描述</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="491" parent="249" name="status">
+    <column id="488" parent="245" name="status">
       <Position>4</Position>
       <Comment>状态</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="492" parent="249" name="gmtModify">
+    <column id="489" parent="245" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="493" parent="249" name="gmtCreate">
+    <column id="490" parent="245" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="494" parent="249" name="PRIMARY">
+    <key id="491" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="495" parent="250" name="id">
+    <column id="492" parent="246" name="id">
       <Position>1</Position>
       <Comment>车牌ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2410,125 +2401,125 @@ musicMenuID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="496" parent="250" name="plate">
+    <column id="493" parent="246" name="plate">
       <Position>2</Position>
       <Comment>车牌信息</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="497" parent="250" name="plateImage">
+    <column id="494" parent="246" name="plateImage">
       <Position>3</Position>
       <Comment>车牌照片</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="498" parent="250" name="plateType">
+    <column id="495" parent="246" name="plateType">
       <Position>4</Position>
       <Comment>车牌类型 0：未知车牌:、1：蓝牌小汽车、2：:黑牌小汽车、3：单排黄牌、4：双排黄牌、 5：警车车牌、6：武警车牌、7：个性化车牌、8：单排军车牌、9：双排军车牌、10：使馆车牌、11：香港进出中国大陆车牌、12：农用车牌、13：教练车牌、14：澳门进出中国大陆车牌、15：双层武警车牌、16：武警总队车牌、17：双层武警总队车牌、18：民航车牌、19：新能源车牌</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="499" parent="250" name="carType">
+    <column id="496" parent="246" name="carType">
       <Position>5</Position>
       <Comment>车辆品牌</Comment>
       <DataType>varchar(125)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="500" parent="250" name="creator">
+    <column id="497" parent="246" name="creator">
       <Position>6</Position>
       <Comment>创建人</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="501" parent="250" name="introduction">
+    <column id="498" parent="246" name="introduction">
       <Position>7</Position>
       <Comment>简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="502" parent="250" name="status">
+    <column id="499" parent="246" name="status">
       <Position>8</Position>
       <Comment>车牌状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="503" parent="250" name="fellowship">
+    <column id="500" parent="246" name="fellowship">
       <Position>9</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="504" parent="250" name="remark">
+    <column id="501" parent="246" name="remark">
       <Position>10</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="505" parent="250" name="vipType">
+    <column id="502" parent="246" name="vipType">
       <Position>11</Position>
       <Comment>vip类型 0：普通车牌 1：月租车 2：星租车 3：季租车 4：年租车5：访客车</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="506" parent="250" name="startTime">
+    <column id="503" parent="246" name="startTime">
       <Position>12</Position>
       <Comment>开始时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="507" parent="250" name="endTime">
+    <column id="504" parent="246" name="endTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="508" parent="250" name="gmtModify">
+    <column id="505" parent="246" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="509" parent="250" name="gmtCreate">
+    <column id="506" parent="246" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="510" parent="250" name="creator">
+    <index id="507" parent="246" name="creator">
       <ColNames>creator</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="511" parent="250" name="fellowship">
+    <index id="508" parent="246" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="512" parent="250" name="PRIMARY">
+    <key id="509" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship
 creator</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="513" parent="250" name="dcd_plate_ibfk_1">
+    <foreign-key id="510" parent="246" name="dcd_plate_ibfk_1">
       <ColNames>creator</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="514" parent="250" name="dcd_plate_ibfk_3">
+    <foreign-key id="511" parent="246" name="dcd_plate_ibfk_3">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="515" parent="251" name="id">
+    <column id="512" parent="247" name="id">
       <Position>1</Position>
       <Comment>车牌ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2536,116 +2527,135 @@ creator</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="516" parent="251" name="missionType">
+    <column id="513" parent="247" name="missionType">
       <Position>2</Position>
-      <Comment>任务类型 0：数据透传1：开门2：截屏3：增加白名单4：删除白名单5：删除全部白名单</Comment>
+      <Comment>任务类型 0:数据透传 1:开门 2:截屏 3:增加白名单 4:删除白名单 5:删除全部白名单 6:手动触发识别</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="517" parent="251" name="serialno">
+    <column id="514" parent="247" name="serialno">
       <Position>3</Position>
       <Comment>设备序列号</Comment>
       <DataType>varchar(125)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="518" parent="251" name="data">
+    <column id="515" parent="247" name="serialData">
       <Position>4</Position>
       <Comment>串口数据</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="519" parent="251" name="status">
+    <column id="516" parent="247" name="info">
       <Position>5</Position>
+      <Comment>是否开门 0否 1是</Comment>
+      <DataType>bit(1)|0s</DataType>
+      <DefaultExpression>b&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="517" parent="247" name="status">
+      <Position>6</Position>
       <Comment>任务状态 0待处理 1已处理</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="520" parent="251" name="creator">
-      <Position>6</Position>
+    <column id="518" parent="247" name="creator">
+      <Position>7</Position>
       <Comment>任务创建者</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="521" parent="251" name="fellowship">
-      <Position>7</Position>
+    <column id="519" parent="247" name="fellowship">
+      <Position>8</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="522" parent="251" name="remark">
-      <Position>8</Position>
+    <column id="520" parent="247" name="remark">
+      <Position>9</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="523" parent="251" name="plate">
-      <Position>9</Position>
+    <column id="521" parent="247" name="plate">
+      <Position>10</Position>
       <Comment>车牌号</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="524" parent="251" name="enable">
-      <Position>10</Position>
+    <column id="522" parent="247" name="enable">
+      <Position>11</Position>
       <Comment>车牌是否有效（0：无效， 1,：有效）</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="525" parent="251" name="need_alarm">
-      <Position>11</Position>
+    <column id="523" parent="247" name="needAlarm">
+      <Position>12</Position>
       <Comment>车牌是否为黑名单（0：否，1：黑名单）</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="526" parent="251" name="startTime">
-      <Position>12</Position>
+    <column id="524" parent="247" name="startTime">
+      <Position>13</Position>
       <Comment>开始时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="527" parent="251" name="endTime">
-      <Position>13</Position>
+    <column id="525" parent="247" name="endTime">
+      <Position>14</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="528" parent="251" name="gmtModify">
-      <Position>14</Position>
+    <column id="526" parent="247" name="gmtModify">
+      <Position>15</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="529" parent="251" name="gmtCreate">
-      <Position>15</Position>
+    <column id="527" parent="247" name="gmtCreate">
+      <Position>16</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="530" parent="251" name="fellowship">
+    <index id="528" parent="247" name="creator">
+      <ColNames>creator</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="529" parent="247" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="531" parent="251" name="PRIMARY">
+    <key id="530" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
-fellowship</ColNames>
+fellowship
+creator</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="532" parent="251" name="dcd_platemission_ibfk_2">
+    <foreign-key id="531" parent="247" name="dcd_platemission_ibfk_3">
+      <ColNames>creator</ColNames>
+      <RefTableName>dcd_user</RefTableName>
+      <RefColNames>account</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="532" parent="247" name="dcd_platemission_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="533" parent="252" name="id">
+    <column id="533" parent="248" name="id">
       <Position>1</Position>
       <Comment>车牌类型ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2653,50 +2663,50 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="534" parent="252" name="plateType">
+    <column id="534" parent="248" name="plateType">
       <Position>2</Position>
       <Comment>车牌类型</Comment>
       <DataType>int(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="535" parent="252" name="plateTypeName">
+    <column id="535" parent="248" name="plateTypeName">
       <Position>3</Position>
       <Comment>车牌类型名称</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="536" parent="252" name="remark">
+    <column id="536" parent="248" name="remark">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="537" parent="252" name="status">
+    <column id="537" parent="248" name="status">
       <Position>5</Position>
       <Comment>状态 0异常 1正常</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="538" parent="252" name="gmtModify">
+    <column id="538" parent="248" name="gmtModify">
       <Position>6</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="539" parent="252" name="gmtCreate">
+    <column id="539" parent="248" name="gmtCreate">
       <Position>7</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="540" parent="252" name="PRIMARY">
+    <key id="540" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="541" parent="253" name="id">
+    <column id="541" parent="249" name="id">
       <Position>1</Position>
       <Comment>车牌记录ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2704,98 +2714,105 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="542" parent="253" name="plate">
+    <column id="542" parent="249" name="plate">
       <Position>2</Position>
       <Comment>车牌信息</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="543" parent="253" name="deviceName">
+    <column id="543" parent="249" name="deviceName">
       <Position>3</Position>
       <Comment>道闸名称</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="544" parent="253" name="serialno">
+    <column id="544" parent="249" name="serialno">
       <Position>4</Position>
       <Comment>设备序列号</Comment>
       <DataType>varchar(128)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="545" parent="253" name="plateType">
+    <column id="545" parent="249" name="plateType">
       <Position>5</Position>
       <Comment>车牌类型 0：未知车牌:、1：蓝牌小汽车、2：:黑牌小汽车、3：单排黄牌、4：双排黄牌、 5：警车车牌、6：武警车牌、7：个性化车牌、8：单排军车牌、9：双排军车牌、10：使馆车牌、11：香港进出中国大陆车牌、12：农用车牌、13：教练车牌、14：澳门进出中国大陆车牌、15：双层武警车牌、16：武警总队车牌、17：双层武警总队车牌、18：民航车牌、19：新能源车牌</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="546" parent="253" name="carType">
+    <column id="546" parent="249" name="isFakePlate">
       <Position>6</Position>
+      <Comment>是否伪车牌，0：真实车牌，1：伪车牌，2：不支持真伪鉴别</Comment>
+      <DataType>int(2)|0s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="547" parent="249" name="carType">
+      <Position>7</Position>
       <Comment>车辆品牌</Comment>
       <DataType>varchar(125)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="547" parent="253" name="bigImage">
-      <Position>7</Position>
+    <column id="548" parent="249" name="bigImage">
+      <Position>8</Position>
       <Comment>车牌大图</Comment>
       <DataType>longtext|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="548" parent="253" name="smallImage">
-      <Position>8</Position>
+    <column id="549" parent="249" name="smallImage">
+      <Position>9</Position>
       <Comment>车牌小图</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="549" parent="253" name="status">
-      <Position>9</Position>
+    <column id="550" parent="249" name="status">
+      <Position>10</Position>
       <Comment>记录状态 0异常 1正常</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="550" parent="253" name="fellowship">
-      <Position>10</Position>
+    <column id="551" parent="249" name="fellowship">
+      <Position>11</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="551" parent="253" name="remark">
-      <Position>11</Position>
+    <column id="552" parent="249" name="remark">
+      <Position>12</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="552" parent="253" name="gmtModify">
-      <Position>12</Position>
+    <column id="553" parent="249" name="gmtModify">
+      <Position>13</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="553" parent="253" name="gmtCreate">
-      <Position>13</Position>
+    <column id="554" parent="249" name="gmtCreate">
+      <Position>14</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="554" parent="253" name="fellowship">
+    <index id="555" parent="249" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="555" parent="253" name="PRIMARY">
+    <key id="556" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="556" parent="253" name="dcd_platelog_ibfk_1">
+    <foreign-key id="557" parent="249" name="dcd_platelog_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="557" parent="254" name="id">
+    <column id="558" parent="250" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2803,128 +2820,128 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="558" parent="254" name="title">
+    <column id="559" parent="250" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="559" parent="254" name="subtitle">
+    <column id="560" parent="250" name="subtitle">
       <Position>3</Position>
       <Comment>副标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="560" parent="254" name="account">
+    <column id="561" parent="250" name="account">
       <Position>4</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="561" parent="254" name="icon">
+    <column id="562" parent="250" name="icon">
       <Position>5</Position>
       <Comment>主图</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="562" parent="254" name="content">
+    <column id="563" parent="250" name="content">
       <Position>6</Position>
       <Comment>代祷内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="563" parent="254" name="prayUrl">
+    <column id="564" parent="250" name="prayUrl">
       <Position>7</Position>
       <Comment>代祷URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="564" parent="254" name="status">
+    <column id="565" parent="250" name="status">
       <Position>8</Position>
       <Comment>代祷状态 0不可用 1可用</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="565" parent="254" name="anonymity">
+    <column id="566" parent="250" name="anonymity">
       <Position>9</Position>
       <Comment>匿名</Comment>
       <DataType>bit(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="566" parent="254" name="isTop">
+    <column id="567" parent="250" name="isTop">
       <Position>10</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="567" parent="254" name="prayType">
+    <column id="568" parent="250" name="prayType">
       <Position>11</Position>
       <Comment>代祷类型 </Comment>
       <DataType>int(1)|0s</DataType>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="568" parent="254" name="fellowship">
+    <column id="569" parent="250" name="fellowship">
       <Position>12</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="569" parent="254" name="expireTime">
+    <column id="570" parent="250" name="expireTime">
       <Position>13</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="570" parent="254" name="gmtModify">
+    <column id="571" parent="250" name="gmtModify">
       <Position>14</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="571" parent="254" name="gmtCreate">
+    <column id="572" parent="250" name="gmtCreate">
       <Position>15</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="572" parent="254" name="id">
+    <index id="573" parent="250" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="573" parent="254" name="账号_关联_用户表_account">
+    <index id="574" parent="250" name="账号_关联_用户表_account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="574" parent="254" name="团契_关联_团契表_id">
+    <index id="575" parent="250" name="团契_关联_团契表_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="575" parent="254" name="PRIMARY">
+    <key id="576" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="576" parent="254" name="dcd_pray_ibfk_2">
+    <foreign-key id="577" parent="250" name="dcd_pray_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="577" parent="254" name="dcd_pray_ibfk_1">
+    <foreign-key id="578" parent="250" name="dcd_pray_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="578" parent="255" name="id">
+    <column id="579" parent="251" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -2932,100 +2949,100 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="579" parent="255" name="title">
+    <column id="580" parent="251" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="580" parent="255" name="publicnotice">
+    <column id="581" parent="251" name="publicnotice">
       <Position>3</Position>
       <Comment>公告内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="581" parent="255" name="publicnoticeUrl">
+    <column id="582" parent="251" name="publicnoticeUrl">
       <Position>4</Position>
       <Comment>公告跳转URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="582" parent="255" name="account">
+    <column id="583" parent="251" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="583" parent="255" name="fellowship">
+    <column id="584" parent="251" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="584" parent="255" name="isTop">
+    <column id="585" parent="251" name="isTop">
       <Position>7</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="585" parent="255" name="status">
+    <column id="586" parent="251" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="586" parent="255" name="expireTime">
+    <column id="587" parent="251" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="587" parent="255" name="gmtModify">
+    <column id="588" parent="251" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="588" parent="255" name="gmtCreate">
+    <column id="589" parent="251" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="589" parent="255" name="account">
+    <index id="590" parent="251" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="590" parent="255" name="fellowship">
+    <index id="591" parent="251" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="591" parent="255" name="PRIMARY">
+    <key id="592" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="592" parent="255" name="dcd_publicnotice_ibfk_1">
+    <foreign-key id="593" parent="251" name="dcd_publicnotice_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="593" parent="255" name="dcd_publicnotice_ibfk_2">
+    <foreign-key id="594" parent="251" name="dcd_publicnotice_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="594" parent="256" name="id">
+    <column id="595" parent="252" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3033,106 +3050,175 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="595" parent="256" name="name">
+    <column id="596" parent="252" name="name">
       <Position>2</Position>
       <Comment>标题</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="596" parent="256" name="content">
+    <column id="597" parent="252" name="content">
       <Position>3</Position>
       <Comment>推荐理由</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="597" parent="256" name="iconUrl">
+    <column id="598" parent="252" name="iconUrl">
       <Position>4</Position>
       <Comment>推荐物品图片</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="598" parent="256" name="targetUrl">
+    <column id="599" parent="252" name="targetUrl">
       <Position>5</Position>
       <Comment>跳转目标URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="599" parent="256" name="account">
+    <column id="600" parent="252" name="account">
       <Position>6</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="600" parent="256" name="fellowship">
+    <column id="601" parent="252" name="fellowship">
       <Position>7</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="601" parent="256" name="isTop">
+    <column id="602" parent="252" name="isTop">
       <Position>8</Position>
       <Comment>是否置顶</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="602" parent="256" name="status">
+    <column id="603" parent="252" name="status">
       <Position>9</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="603" parent="256" name="expireTime">
+    <column id="604" parent="252" name="expireTime">
       <Position>10</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="604" parent="256" name="gmtModify">
+    <column id="605" parent="252" name="gmtModify">
       <Position>11</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="605" parent="256" name="gmtCreate">
+    <column id="606" parent="252" name="gmtCreate">
       <Position>12</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="606" parent="256" name="account">
+    <index id="607" parent="252" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="607" parent="256" name="fellowship">
+    <index id="608" parent="252" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="608" parent="256" name="PRIMARY">
+    <key id="609" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="609" parent="256" name="dcd_recommend_ibfk_2">
+    <foreign-key id="610" parent="252" name="dcd_recommend_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="610" parent="256" name="dcd_recommend_ibfk_1">
+    <foreign-key id="611" parent="252" name="dcd_recommend_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="611" parent="257" name="id">
+    <column id="612" parent="253" name="id">
+      <Position>1</Position>
+      <Comment>区域主键</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="613" parent="253" name="name">
+      <Position>2</Position>
+      <Comment>区域名称</Comment>
+      <DataType>varchar(40)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="614" parent="253" name="pid">
+      <Position>3</Position>
+      <Comment>区域上级标识</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="615" parent="253" name="sname">
+      <Position>4</Position>
+      <Comment>地名简称</Comment>
+      <DataType>varchar(40)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="616" parent="253" name="level">
+      <Position>5</Position>
+      <Comment>区域等级</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="617" parent="253" name="citycode">
+      <Position>6</Position>
+      <Comment>区域编码</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="618" parent="253" name="yzcode">
+      <Position>7</Position>
+      <Comment>邮政编码</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="619" parent="253" name="mername">
+      <Position>8</Position>
+      <Comment>组合名称</Comment>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="620" parent="253" name="Lng">
+      <Position>9</Position>
+      <DataType>float|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="621" parent="253" name="Lat">
+      <Position>10</Position>
+      <DataType>float|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="622" parent="253" name="pinyin">
+      <Position>11</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="623" parent="253" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="624" parent="254" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3140,102 +3226,102 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="612" parent="257" name="type">
+    <column id="625" parent="254" name="type">
       <Position>2</Position>
       <Comment>举报类型：1.广告信息 2.垃圾信息 3.不感兴趣</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="613" parent="257" name="content">
+    <column id="626" parent="254" name="content">
       <Position>3</Position>
       <Comment>举报内容</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="614" parent="257" name="reportId">
+    <column id="627" parent="254" name="reportId">
       <Position>4</Position>
       <Comment>举报项目id</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="615" parent="257" name="idType">
+    <column id="628" parent="254" name="idType">
       <Position>5</Position>
       <Comment>id类型： 1.分享 2.代祷 3.音频 4.活动</Comment>
       <DataType>int(2)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="616" parent="257" name="account">
+    <column id="629" parent="254" name="account">
       <Position>6</Position>
       <Comment>举报者者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="617" parent="257" name="fellowship">
+    <column id="630" parent="254" name="fellowship">
       <Position>7</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="618" parent="257" name="status">
+    <column id="631" parent="254" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="619" parent="257" name="expireTime">
+    <column id="632" parent="254" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="620" parent="257" name="gmtModify">
+    <column id="633" parent="254" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="621" parent="257" name="gmtCreate">
+    <column id="634" parent="254" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="622" parent="257" name="account">
+    <index id="635" parent="254" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="623" parent="257" name="fellowship">
+    <index id="636" parent="254" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="624" parent="257" name="PRIMARY">
+    <key id="637" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="625" parent="257" name="dcd_report_ibfk_2">
+    <foreign-key id="638" parent="254" name="dcd_report_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="626" parent="257" name="dcd_report_ibfk_1">
+    <foreign-key id="639" parent="254" name="dcd_report_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="627" parent="258" name="id">
+    <column id="640" parent="255" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3243,45 +3329,45 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="628" parent="258" name="roleName">
+    <column id="641" parent="255" name="roleName">
       <Position>2</Position>
       <Comment>角色</Comment>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="629" parent="258" name="roleDescription">
+    <column id="642" parent="255" name="roleDescription">
       <Position>3</Position>
       <Comment>角色描述</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="630" parent="258" name="status">
+    <column id="643" parent="255" name="status">
       <Position>4</Position>
       <Comment>状态</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="631" parent="258" name="gmtModify">
+    <column id="644" parent="255" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="632" parent="258" name="gmtCreate">
+    <column id="645" parent="255" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="633" parent="258" name="PRIMARY">
+    <key id="646" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="634" parent="259" name="id">
+    <column id="647" parent="256" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3289,69 +3375,69 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="635" parent="259" name="roleID">
+    <column id="648" parent="256" name="roleID">
       <Position>2</Position>
       <Comment>角色ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="636" parent="259" name="permissionID">
+    <column id="649" parent="256" name="permissionID">
       <Position>3</Position>
       <Comment>权限ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="637" parent="259" name="remark">
+    <column id="650" parent="256" name="remark">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="638" parent="259" name="gmtModify">
+    <column id="651" parent="256" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="639" parent="259" name="gmtCreate">
+    <column id="652" parent="256" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="640" parent="259" name="roleID">
+    <index id="653" parent="256" name="roleID">
       <ColNames>roleID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="641" parent="259" name="permissionID">
+    <index id="654" parent="256" name="permissionID">
       <ColNames>permissionID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="642" parent="259" name="PRIMARY">
+    <key id="655" parent="256" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 permissionID
 roleID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="643" parent="259" name="dcd_role_permission_ibfk_1">
+    <foreign-key id="656" parent="256" name="dcd_role_permission_ibfk_1">
       <ColNames>roleID</ColNames>
       <RefTableName>dcd_role</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="644" parent="259" name="dcd_role_permission_ibfk_2">
+    <foreign-key id="657" parent="256" name="dcd_role_permission_ibfk_2">
       <ColNames>permissionID</ColNames>
       <RefTableName>dcd_permission</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="645" parent="260" name="id">
+    <column id="658" parent="257" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3359,20 +3445,20 @@ roleID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="646" parent="260" name="orderID">
+    <column id="659" parent="257" name="orderID">
       <Position>2</Position>
       <Comment>单号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="647" parent="260" name="amount">
+    <column id="660" parent="257" name="amount">
       <Position>3</Position>
       <Comment>数额</Comment>
       <DataType>float(10,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="648" parent="260" name="inout">
+    <column id="661" parent="257" name="inout">
       <Position>4</Position>
       <Comment>1收入 0支出</Comment>
       <DataType>bit(1)|0s</DataType>
@@ -3380,72 +3466,72 @@ roleID</ColNames>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="649" parent="260" name="account">
+    <column id="662" parent="257" name="account">
       <Position>5</Position>
       <Comment>积分账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="650" parent="260" name="type">
+    <column id="663" parent="257" name="type">
       <Position>6</Position>
       <Comment>类型：1签到 2奖励 3交易</Comment>
       <DataType>int(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="651" parent="260" name="remark">
+    <column id="664" parent="257" name="remark">
       <Position>7</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="652" parent="260" name="fellowship">
+    <column id="665" parent="257" name="fellowship">
       <Position>8</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="653" parent="260" name="gmtModify">
+    <column id="666" parent="257" name="gmtModify">
       <Position>9</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="654" parent="260" name="gmtCreate">
+    <column id="667" parent="257" name="gmtCreate">
       <Position>10</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="655" parent="260" name="account">
+    <index id="668" parent="257" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="656" parent="260" name="fellowship">
+    <index id="669" parent="257" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="657" parent="260" name="PRIMARY">
+    <key id="670" parent="257" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="658" parent="260" name="dcd_scorelog_ibfk_1">
+    <foreign-key id="671" parent="257" name="dcd_scorelog_ibfk_1">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <foreign-key id="659" parent="260" name="dcd_scorelog_ibfk_2">
+    <foreign-key id="672" parent="257" name="dcd_scorelog_ibfk_2">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="660" parent="261" name="id">
+    <column id="673" parent="258" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3453,100 +3539,100 @@ fellowship</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="661" parent="261" name="account">
+    <column id="674" parent="258" name="account">
       <Position>2</Position>
       <Comment>账号</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="662" parent="261" name="nickname">
+    <column id="675" parent="258" name="nickname">
       <Position>3</Position>
       <Comment>昵称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="663" parent="261" name="truename">
+    <column id="676" parent="258" name="truename">
       <Position>4</Position>
       <Comment>真实姓名</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="664" parent="261" name="icon">
+    <column id="677" parent="258" name="icon">
       <Position>5</Position>
       <Comment>头像</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="665" parent="261" name="grade">
+    <column id="678" parent="258" name="grade">
       <Position>6</Position>
       <Comment>等级</Comment>
       <DataType>int(2)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="666" parent="261" name="score">
+    <column id="679" parent="258" name="score">
       <Position>7</Position>
       <Comment>积分</Comment>
       <DataType>float(7)|0s</DataType>
       <DefaultExpression>0</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="667" parent="261" name="gender">
+    <column id="680" parent="258" name="gender">
       <Position>8</Position>
       <Comment>性别</Comment>
       <DataType>varchar(10)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="668" parent="261" name="phone">
+    <column id="681" parent="258" name="phone">
       <Position>9</Position>
       <Comment>手机号</Comment>
       <DataType>varchar(15)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="669" parent="261" name="password">
+    <column id="682" parent="258" name="password">
       <Position>10</Position>
       <Comment>密码</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="670" parent="261" name="token">
+    <column id="683" parent="258" name="token">
       <Position>11</Position>
       <Comment>登录令牌</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="671" parent="261" name="imToken">
+    <column id="684" parent="258" name="imToken">
       <Position>12</Position>
       <Comment>IM令牌</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="672" parent="261" name="introduction">
+    <column id="685" parent="258" name="introduction">
       <Position>13</Position>
       <Comment>简介</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="673" parent="261" name="email">
+    <column id="686" parent="258" name="email">
       <Position>14</Position>
       <Comment>邮箱</Comment>
       <DataType>varchar(70)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="674" parent="261" name="address">
+    <column id="687" parent="258" name="address">
       <Position>15</Position>
       <Comment>地址</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="675" parent="261" name="fellowship">
+    <column id="688" parent="258" name="fellowship">
       <Position>16</Position>
       <Comment>团契ID</Comment>
       <DataType>int(4)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="676" parent="261" name="role">
+    <column id="689" parent="258" name="role">
       <Position>17</Position>
       <Comment>角色ID</Comment>
       <DataType>int(4)|0s</DataType>
@@ -3554,86 +3640,86 @@ fellowship</ColNames>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="677" parent="261" name="qqOpenid">
+    <column id="690" parent="258" name="qqOpenid">
       <Position>18</Position>
       <Comment>QQ</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="678" parent="261" name="wcOpenid">
+    <column id="691" parent="258" name="wcOpenid">
       <Position>19</Position>
       <Comment>微信</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="679" parent="261" name="appleUserId">
+    <column id="692" parent="258" name="appleUserId">
       <Position>20</Position>
       <Comment>Apple登录</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="680" parent="261" name="status">
+    <column id="693" parent="258" name="status">
       <Position>21</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="681" parent="261" name="birthday">
+    <column id="694" parent="258" name="birthday">
       <Position>22</Position>
       <Comment>生日</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="682" parent="261" name="gmtModify">
+    <column id="695" parent="258" name="gmtModify">
       <Position>23</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="683" parent="261" name="gmtCreate">
+    <column id="696" parent="258" name="gmtCreate">
       <Position>24</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="684" parent="261" name="id">
+    <index id="697" parent="258" name="id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="685" parent="261" name="account">
+    <index id="698" parent="258" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="686" parent="261" name="emp_fellowship__dept_id">
+    <index id="699" parent="258" name="emp_fellowship__dept_id">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="687" parent="261" name="role">
+    <index id="700" parent="258" name="role">
       <ColNames>role</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="688" parent="261" name="PRIMARY">
+    <key id="701" parent="258" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 fellowship
 role</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="689" parent="261" name="emp_fellowship__dept_id">
+    <foreign-key id="702" parent="258" name="emp_fellowship__dept_id">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="690" parent="261" name="dcd_user_ibfk_1">
+    <foreign-key id="703" parent="258" name="dcd_user_ibfk_1">
       <ColNames>role</ColNames>
       <RefTableName>dcd_role</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="691" parent="262" name="id">
+    <column id="704" parent="259" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3641,68 +3727,68 @@ role</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="692" parent="262" name="activityID">
+    <column id="705" parent="259" name="activityID">
       <Position>2</Position>
       <Comment>关联活动ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="693" parent="262" name="account">
+    <column id="706" parent="259" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="694" parent="262" name="remark">
+    <column id="707" parent="259" name="remark">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="695" parent="262" name="gmtModify">
+    <column id="708" parent="259" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="696" parent="262" name="gmtCreate">
+    <column id="709" parent="259" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="697" parent="262" name="activityID">
+    <index id="710" parent="259" name="activityID">
       <ColNames>activityID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="698" parent="262" name="account">
+    <index id="711" parent="259" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="699" parent="262" name="PRIMARY">
+    <key id="712" parent="259" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 activityID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="700" parent="262" name="dcd_user_activity_ibfk_1">
+    <foreign-key id="713" parent="259" name="dcd_user_activity_ibfk_1">
       <ColNames>activityID</ColNames>
       <RefTableName>dcd_activity</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="701" parent="262" name="dcd_user_activity_ibfk_2">
+    <foreign-key id="714" parent="259" name="dcd_user_activity_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="702" parent="263" name="id">
+    <column id="715" parent="260" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3710,68 +3796,68 @@ activityID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="703" parent="263" name="activityID">
+    <column id="716" parent="260" name="activityID">
       <Position>2</Position>
       <Comment>关联活动ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="704" parent="263" name="account">
+    <column id="717" parent="260" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="705" parent="263" name="remark">
+    <column id="718" parent="260" name="remark">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="706" parent="263" name="gmtModify">
+    <column id="719" parent="260" name="gmtModify">
       <Position>5</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="707" parent="263" name="gmtCreate">
+    <column id="720" parent="260" name="gmtCreate">
       <Position>6</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="708" parent="263" name="activityID">
+    <index id="721" parent="260" name="activityID">
       <ColNames>activityID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="709" parent="263" name="account">
+    <index id="722" parent="260" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="710" parent="263" name="PRIMARY">
+    <key id="723" parent="260" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 activityID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="711" parent="263" name="dcd_user_activity_clock_ibfk_1">
+    <foreign-key id="724" parent="260" name="dcd_user_activity_clock_ibfk_1">
       <ColNames>activityID</ColNames>
       <RefTableName>dcd_activity</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="712" parent="263" name="dcd_user_activity_clock_ibfk_2">
+    <foreign-key id="725" parent="260" name="dcd_user_activity_clock_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="713" parent="264" name="id">
+    <column id="726" parent="261" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3779,62 +3865,62 @@ activityID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="714" parent="264" name="articleID">
+    <column id="727" parent="261" name="articleID">
       <Position>2</Position>
       <Comment>关联文章ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="715" parent="264" name="account">
+    <column id="728" parent="261" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="716" parent="264" name="gmtModify">
+    <column id="729" parent="261" name="gmtModify">
       <Position>4</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="717" parent="264" name="gmtCreate">
+    <column id="730" parent="261" name="gmtCreate">
       <Position>5</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="718" parent="264" name="articleID">
+    <index id="731" parent="261" name="articleID">
       <ColNames>articleID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="719" parent="264" name="account">
+    <index id="732" parent="261" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="720" parent="264" name="PRIMARY">
+    <key id="733" parent="261" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 articleID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="721" parent="264" name="dcd_user_article_collection_ibfk_1">
+    <foreign-key id="734" parent="261" name="dcd_user_article_collection_ibfk_1">
       <ColNames>articleID</ColNames>
       <RefTableName>dcd_article</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="722" parent="264" name="dcd_user_article_collection_ibfk_2">
+    <foreign-key id="735" parent="261" name="dcd_user_article_collection_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="723" parent="265" name="id">
+    <column id="736" parent="262" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3842,62 +3928,62 @@ articleID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="724" parent="265" name="musicID">
+    <column id="737" parent="262" name="musicID">
       <Position>2</Position>
       <Comment>关联音乐ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="725" parent="265" name="account">
+    <column id="738" parent="262" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="726" parent="265" name="gmtModify">
+    <column id="739" parent="262" name="gmtModify">
       <Position>4</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="727" parent="265" name="gmtCreate">
+    <column id="740" parent="262" name="gmtCreate">
       <Position>5</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="728" parent="265" name="musicID">
+    <index id="741" parent="262" name="musicID">
       <ColNames>musicID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="729" parent="265" name="account">
+    <index id="742" parent="262" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="730" parent="265" name="PRIMARY">
+    <key id="743" parent="262" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 musicID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="731" parent="265" name="dcd_user_music_collection_ibfk_1">
+    <foreign-key id="744" parent="262" name="dcd_user_music_collection_ibfk_1">
       <ColNames>musicID</ColNames>
       <RefTableName>dcd_music</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="732" parent="265" name="dcd_user_music_collection_ibfk_2">
+    <foreign-key id="745" parent="262" name="dcd_user_music_collection_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="733" parent="266" name="id">
+    <column id="746" parent="263" name="id">
       <Position>1</Position>
       <Comment>ID主键</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3905,62 +3991,62 @@ musicID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="734" parent="266" name="prayID">
+    <column id="747" parent="263" name="prayID">
       <Position>2</Position>
       <Comment>关联代祷ID</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="735" parent="266" name="account">
+    <column id="748" parent="263" name="account">
       <Position>3</Position>
       <Comment>关联用户account</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="736" parent="266" name="gmtModify">
+    <column id="749" parent="263" name="gmtModify">
       <Position>4</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="737" parent="266" name="gmtCreate">
+    <column id="750" parent="263" name="gmtCreate">
       <Position>5</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="738" parent="266" name="prayID">
+    <index id="751" parent="263" name="prayID">
       <ColNames>prayID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="739" parent="266" name="account">
+    <index id="752" parent="263" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="740" parent="266" name="PRIMARY">
+    <key id="753" parent="263" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 prayID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="741" parent="266" name="dcd_user_pray_collection_ibfk_1">
+    <foreign-key id="754" parent="263" name="dcd_user_pray_collection_ibfk_1">
       <ColNames>prayID</ColNames>
       <RefTableName>dcd_pray</RefTableName>
       <RefColNames>id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="742" parent="266" name="dcd_user_pray_collection_ibfk_2">
+    <foreign-key id="755" parent="263" name="dcd_user_pray_collection_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="743" parent="267" name="id">
+    <column id="756" parent="264" name="id">
       <Position>1</Position>
       <Comment>ID</Comment>
       <DataType>int(11)|0s</DataType>
@@ -3968,92 +4054,92 @@ prayID</ColNames>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="744" parent="267" name="bible">
+    <column id="757" parent="264" name="bible">
       <Position>2</Position>
       <Comment>经文</Comment>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="745" parent="267" name="iconUrl">
+    <column id="758" parent="264" name="iconUrl">
       <Position>3</Position>
       <Comment>封面图URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="746" parent="267" name="targetUrl">
+    <column id="759" parent="264" name="targetUrl">
       <Position>4</Position>
       <Comment>跳转目标URL</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="747" parent="267" name="account">
+    <column id="760" parent="264" name="account">
       <Position>5</Position>
       <Comment>发布者账号</Comment>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="748" parent="267" name="fellowship">
+    <column id="761" parent="264" name="fellowship">
       <Position>6</Position>
       <Comment>所属团契编号</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="749" parent="267" name="weekOfYear">
+    <column id="762" parent="264" name="weekOfYear">
       <Position>7</Position>
       <Comment>周数</Comment>
       <DataType>int(2)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="750" parent="267" name="status">
+    <column id="763" parent="264" name="status">
       <Position>8</Position>
       <Comment>1有效0失效</Comment>
       <DataType>bit(1)|0s</DataType>
       <DefaultExpression>b&apos;1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="751" parent="267" name="expireTime">
+    <column id="764" parent="264" name="expireTime">
       <Position>9</Position>
       <Comment>过期时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="752" parent="267" name="gmtModify">
+    <column id="765" parent="264" name="gmtModify">
       <Position>10</Position>
       <Comment>修改时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="753" parent="267" name="gmtCreate">
+    <column id="766" parent="264" name="gmtCreate">
       <Position>11</Position>
       <Comment>创建时间</Comment>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="754" parent="267" name="account">
+    <index id="767" parent="264" name="account">
       <ColNames>account</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="755" parent="267" name="fellowship">
+    <index id="768" parent="264" name="fellowship">
       <ColNames>fellowship</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="756" parent="267" name="PRIMARY">
+    <key id="769" parent="264" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id
 account
 fellowship</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="757" parent="267" name="dcd_weekbible_ibfk_2">
+    <foreign-key id="770" parent="264" name="dcd_weekbible_ibfk_2">
       <ColNames>account</ColNames>
       <RefTableName>dcd_user</RefTableName>
       <RefColNames>account</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="758" parent="267" name="dcd_weekbible_ibfk_1">
+    <foreign-key id="771" parent="264" name="dcd_weekbible_ibfk_1">
       <ColNames>fellowship</ColNames>
       <RefTableName>dcd_fellowship</RefTableName>
       <RefColNames>id</RefColNames>

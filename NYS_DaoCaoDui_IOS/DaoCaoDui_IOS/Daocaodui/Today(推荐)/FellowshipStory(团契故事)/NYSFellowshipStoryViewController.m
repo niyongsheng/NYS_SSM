@@ -190,11 +190,17 @@
         _player.actionAtItemEnd = AVPlayerActionAtItemEndNone; // 永不暂停
         // 3 将图层嵌入到0层
         AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:_player];
-        layer.contentMode = UIViewContentModeScaleToFill;
-        layer.frame = CGRectMake(0, RealValue(-300), NScreenWidth, NScreenHeight + RealValue(500));
+        layer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        layer.frame = CGRectMake(0, 0, NScreenWidth, NScreenHeight);
         [self.view.layer insertSublayer:layer atIndex:0];
         // 4 播放到头循环播放
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playToEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+        // 5 设置声音模式
+        NSError *setCategoryError = nil;
+        BOOL success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryAmbient error:&setCategoryError];
+        if (!success) {
+            NLog(@"设置失败！");
+        }
     }
     return _player;
 }

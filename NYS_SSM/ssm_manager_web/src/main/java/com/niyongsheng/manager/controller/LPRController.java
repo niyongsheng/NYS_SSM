@@ -407,7 +407,7 @@ public class LPRController {
         model.addAttribute("pagingList", list);
 
         // 3.返回列表页
-        return "platelogList";
+        return "plateList";
     }
 
     @RequestMapping(value = "/findAllPlatelogs", method = {RequestMethod.POST, RequestMethod.GET})

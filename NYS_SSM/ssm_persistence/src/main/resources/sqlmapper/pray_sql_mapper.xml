@@ -6,7 +6,7 @@
         from dcd_pray p
         inner join dcd_fellowship f
         on p.fellowship = f.id
-        order by a.isTop desc, a.id desc
+        order by p.isTop desc, p.id desc
     </select>
 
     <resultMap id="prayMap_1" type="com.niyongsheng.persistence.domain.Pray" autoMapping="true">
