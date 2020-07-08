@@ -26,7 +26,7 @@
         <mchange-c3p0.version>0.9.5.4</mchange-c3p0.version>
         <druid.version>1.1.4</druid.version>
         <slf4j.version>1.8.0-alpha2</slf4j.version>
-        <log4j.version>2.9.1</log4j.version>
+        <log4j.version>2.13.2</log4j.version>
         <logback.version>1.2.3</logback.version>
         <jackson.version>[2.9.10,)</jackson.version> <!--2.8.8-->
         <httpclient.version>4.5.3</httpclient.version>
