@@ -33,7 +33,7 @@ CGRect rectNav = self.navigationController.navigationBar.frame;\
 #define NTopHeight (NStatusBarHeight + NNavBarHeight)
 
 // 获取屏幕宽高
-#define NScreenWidth ([[UIScreen mainScreen] bounds].size.width)
+#define NScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define NScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define NScreen_Bounds [UIScreen mainScreen].bounds
 
