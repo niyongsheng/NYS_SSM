@@ -36,12 +36,12 @@
           <element id="library" level="project" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.mapstruct:mapstruct:1.2.0.Final" />
           <element id="library" level="project" name="Maven: io.springfox:springfox-swagger-ui:2.9.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.11.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.12.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.12.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.12.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-parameter-names:2.12.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.12.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.12.1" />
           <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.17" />
           <element id="library" level="project" name="Maven: com.fasterxml.uuid:java-uuid-generator:3.1.4" />
           <element id="library" level="project" name="Maven: com.google.zxing:core:3.4.0" />
