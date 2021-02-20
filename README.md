@@ -12,7 +12,7 @@ NYS_SSM
 
 ## Introduction:
 > 综合社交类项目，个人搬砖之余开发中...\
-> Comprehensive social projects, in development after work.
+> Comprehensive social project, developing after work.
 
 ## Technology stack:
 * [Spring](https://spring.io)
