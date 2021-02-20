@@ -5,10 +5,10 @@ NYS_SSM
 [![](https://img.shields.io/badge/platform-iOS-orange.svg)](https://developer.apple.com/ios/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
-- [x] [IOS 客户端](https://apps.apple.com/cn/app/id1495581916)
-- [ ] [Android 客户端](http://www.daocaodui.top/web/app/download)
-- [x] [Administrator 后台网页端](http://www.daocaodui.top/web/)
-- [x] [SSM Api 服务端接口](http://www.daocaodui.top/api/swagger-ui.html)
+- [x] [IOS](https://apps.apple.com/cn/app/id1495581916)
+- [ ] [Android](http://www.daocaodui.top/web/app/download)
+- [x] [SSM APIs](http://www.daocaodui.top/api/swagger-ui.html)
+- [x] [web admin](http://www.daocaodui.top/web)
 
 ## Introduction:
 > 综合社交类项目，个人搬砖之余开发中...\
