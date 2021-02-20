@@ -8,7 +8,7 @@ NYS_SSM
 - [x] [IOS](https://apps.apple.com/cn/app/id1495581916)
 - [ ] [Android](http://www.daocaodui.top/web/app/download)
 - [x] [SSM APIs](http://www.daocaodui.top/api/swagger-ui.html)
-- [x] [web admin](http://www.daocaodui.top/web)
+- [x] [Web Admin](http://www.daocaodui.top/web)
 
 ## Introduction:
 > 综合社交类项目，个人搬砖之余开发中...\
