@@ -2,13 +2,13 @@
 NYS_SSM
 ===
 [![](https://img.shields.io/badge/platform-java-orange.svg)](https://spring.io)
-[![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/NYS_SSM)
+[![](https://img.shields.io/badge/platform-iOS-orange.svg)](https://developer.apple.com/ios/)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
 - [x] [IOS 客户端](https://apps.apple.com/cn/app/id1495581916)
 - [ ] [Android 客户端](http://www.daocaodui.top/web/app/download)
 - [x] [Administrator 后台网页端](http://www.daocaodui.top/web/)
-- [x] [Spring+SpringMVC+MyBatis\Redis 服务端](http://www.daocaodui.top/api/swagger-ui.html)
+- [x] [SSM Api 服务端接口](http://www.daocaodui.top/api/swagger-ui.html)
 
 ## Introduction:
 > 综合社交类项目，个人搬砖之余开发中...\
@@ -40,7 +40,6 @@ ios | android
 ![image](https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg)
 
 ## Usage
-
 - [daocaodui.sql](https://github.com/niyongsheng/NYS_SSM/blob/master/file/daocaodui.sql) (`mysql db`)
 - [Generate JavaBeans.groovy](https://github.com/niyongsheng/NYS_SSM/blob/master/file/Generate%20JavaBeans.groovy) (`groovy template`)
 - [Mac env conf](http://note.youdao.com/s/ElRCBxlo) (`brew environment config`)
@@ -49,20 +48,28 @@ ios | android
 `TomCat: >= 9.0`<br/>
  `JDK: >= 1.8`<br/>
  `IDE: IntelliJ IDEA`
-***
+
 `IOS: >= 10.0`<br/>
  `LANG: Object_C`<br/>
  `IDE: Xcode`
-***
+
 `ANDROID: >= 9.0`<br/>
  `LANG: Java`<br/>
  `IDE: Android Studio`
-***
 
 <!-- 
 https://www.jetbrains.com/idea/
 https://developer.apple.com/xcode/
 https://developer.android.google.cn/studio/
+
+* Step 1.Add Shell
+```shell
+
+```
+* Step 2.AppDelegate.m
+```objc
+
+```
  -->
 
 ## Contribution
