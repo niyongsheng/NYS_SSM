@@ -12,7 +12,6 @@ NYS_SSM
 
 ## Introduction:
 > 综合社交类项目，个人搬砖之余开发中...\
-> Service\Web\Ios\Android开源全栈代码:dog:
 
 ## Technology stack:
 * [Spring](https://spring.io)
