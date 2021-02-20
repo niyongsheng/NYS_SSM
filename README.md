@@ -5,14 +5,14 @@ NYS_SSM
 [![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/NYS_SSM)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
-* [IOS 客户端](https://apps.apple.com/cn/app/id1495581916)
-* [Android 客户端](http://www.daocaodui.top/web/app/download)
-* [Administrator 后台网页端](http://www.daocaodui.top/web/)
-* [Spring+SpringMVC+MyBatis\Redis 服务端](http://www.daocaodui.top/api/swagger-ui.html)
+- [x] [IOS 客户端](https://apps.apple.com/cn/app/id1495581916)
+- [ ] [Android 客户端](http://www.daocaodui.top/web/app/download)
+- [x] [Administrator 后台网页端](http://www.daocaodui.top/web/)
+- [x] [Spring+SpringMVC+MyBatis\Redis 服务端](http://www.daocaodui.top/api/swagger-ui.html)
 
 ## Introduction:
-> 社交类项目，个人业余时间开发中...（目前完成度50%）\
-> 开源Service\Web\Ios\Android平台的所有代码，可以作为前后端学习的反面教材:dog:
+> 综合社交类项目，个人搬砖之余开发中...\
+> Service\Web\Ios\Android开源全栈代码:dog:
 
 ## Technology stack:
 * [Spring](https://spring.io)
@@ -35,32 +35,35 @@ NYS_SSM
 ## <a id="Application_Instance:"></a>Application Instance:
 ios | android 
 ------------ | ------------- 
-<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.gif"> | <img src="https://github.com/niyongsheng/NYSTK/blob/master/toy.png?raw=true"> 
+<img src="https://github.com/niyongsheng/NYS_SSM/blob/master/img/ios_demo.gif"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/logo.png?raw=true"> 
 
 ![image](https://github.com/niyongsheng/NYS_SSM/blob/master/img/index.jpg)
 
-<!--
-* Step 1.Add Shell
-```shell
+## Usage
 
-```
-* Step 2.AppDelegate.m
-```objc
+- [daocaodui.sql](https://github.com/niyongsheng/NYS_SSM/blob/master/file/daocaodui.sql) (`mysql db`)
+- [Generate JavaBeans.groovy](https://github.com/niyongsheng/NYS_SSM/blob/master/file/Generate%20JavaBeans.groovy) (`groovy template`)
+- [Mac env conf](http://note.youdao.com/s/ElRCBxlo) (`brew environment config`)
 
-```
--->
-## How to use:
-- [x] TomCat: >= 9.0
-- [x] JDK: >= 1.8
-- [x] IDE: [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+## Remind
+`TomCat: >= 9.0`<br/>
+ `JDK: >= 1.8`<br/>
+ `IDE: IntelliJ IDEA`
 ***
-- [x] IOS: >= 10.0
-- [x] LANG: Object_C
-- [x] IDE: [Xcode](https://developer.apple.com/xcode/)
+`IOS: >= 10.0`<br/>
+ `LANG: Object_C`<br/>
+ `IDE: Xcode`
 ***
-- [x] ANDROID: >= 9.0
-- [x] LANG: Java
-- [x] IDE: [Android Studio](https://developer.android.google.cn/studio/)
+`ANDROID: >= 9.0`<br/>
+ `LANG: Java`<br/>
+ `IDE: Android Studio`
+***
+
+<!-- 
+https://www.jetbrains.com/idea/
+https://developer.apple.com/xcode/
+https://developer.android.google.cn/studio/
+ -->
 
 ## Contribution
 Reward[:lollipop:](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Beg/README.md)  Encourage[:heart:](https://github.com/niyongsheng/NYS_SSM/stargazers)
