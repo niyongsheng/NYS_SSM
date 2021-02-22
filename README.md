@@ -6,7 +6,7 @@ NYS_SSM
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/NYS_SSM/blob/master/LICENSE)
 ===
 - [x] [IOS](https://apps.apple.com/cn/app/id1495581916)
-- [ ] [Android](http://www.daocaodui.top/web/app/download)
+- [ ] [Android](https://niyongsheng.github.io/Daocaodui/AppDownload/)
 - [x] [SSM APIs](http://www.daocaodui.top/api/swagger-ui.html)
 - [x] [Web Admin](http://www.daocaodui.top/web)
 
