@@ -45,15 +45,15 @@ ios | android
 - [Mac env conf](http://note.youdao.com/s/ElRCBxlo) (`brew environment config`)
 
 ## Remind
-`TomCat: >= 9.0`<br/>
- `JDK: >= 1.8`<br/>
+`TomCat: 9.0+`<br/>
+ `JDK: 1.8+`<br/>
  `IDE: IntelliJ IDEA`
 
-`IOS: >= 10.0`<br/>
+`IOS: 10.0+`<br/>
  `LANG: Object_C`<br/>
  `IDE: Xcode`
 
-`ANDROID: >= 9.0`<br/>
+`ANDROID: 9.0+`<br/>
  `LANG: Java`<br/>
  `IDE: Android Studio`
 
