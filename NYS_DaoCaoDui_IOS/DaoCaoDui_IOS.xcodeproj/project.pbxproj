@@ -2799,7 +2799,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.daocaoduiapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.daocaoduiapp.nigang;
 				PRODUCT_NAME = "稻草堆";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2827,7 +2827,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.daocaoduiapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.daocaoduiapp.nigang;
 				PRODUCT_NAME = "稻草堆";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
